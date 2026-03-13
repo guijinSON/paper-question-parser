@@ -72,11 +72,13 @@ Use `look_at(file_path=paper_path, goal=...)` to extract ALL explicit and implic
 Extraction target:
 
 - include markers like "Question", "Problem", "Open", "Unknown whether", "Is it true that"
+- include entries labeled as solved (e.g., `(Solved) problem ...`) and keep them in output
 - include implicit question statements that represent unresolved research problems
 - for each candidate, capture:
   - raw question text (as close to source as possible)
   - page number(s)
   - verbatim supporting quote(s)
+  - solved-status metadata derived from source labels (for example `(Solved)`, `Solved`, or equivalent)
 
 Add `trace` entries with stage `extract_candidates`.
 
@@ -135,6 +137,15 @@ Move candidate to `needs_review` when any of these hold:
 - insufficient quote evidence for a rewritten claim
 - potential merge conflict between similar but distinct problems
 
+## SOLVED_STATUS_METADATA
+
+- Do not drop candidates just because they are labeled solved.
+- Every accepted question row must include solved-status metadata.
+- Metadata format in each accepted row:
+  - `"meta": { "is_solved": <boolean> }`
+- Set `is_solved=true` only when the source explicitly marks the item as solved.
+- Otherwise set `is_solved=false`.
+
 ## Output Schema (STRICT JSON)
 
 Return exactly one JSON object:
@@ -146,6 +157,9 @@ Return exactly one JSON object:
       "id": "q_001",
       "question_text": "Self-contained open question text.",
       "context_brief": "Minimal context needed to understand the question.",
+      "meta": {
+        "is_solved": false
+      },
       "evidence": [
         {
           "page": 12,
