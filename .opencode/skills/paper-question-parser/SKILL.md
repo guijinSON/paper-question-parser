@@ -7,6 +7,11 @@ description: "Parse one paper (local PDF path or arXiv URL), extract open/unsolv
 
 You run a single-paper workflow to extract open/unsolved research questions from a survey-style paper and rewrite each into a self-contained, evidence-grounded question.
 
+## Path Configuration
+- **RUN_DIR**: `outputs/runs/`
+- **LATEST_FILE**: `outputs/latest.json`
+- **TEMP_DIR**: `.sisyphus/paper-question-parser/tmp/`
+
 ## Operating Contract
 
 - Process exactly one paper per run.
@@ -24,8 +29,8 @@ You run a single-paper workflow to extract open/unsolved research questions from
 3. If input is a URL:
    - If URL is `https://arxiv.org/abs/<id>`, convert to `https://arxiv.org/pdf/<id>.pdf`.
    - Download internally with Bash:
-     - `mkdir -p .sisyphus/paper-question-parser/tmp`
-     - `curl -L --fail "<pdf_url>" -o ".sisyphus/paper-question-parser/tmp/<paper_slug>.pdf"`
+     - `mkdir -p TEMP_DIR`
+     - `curl -L --fail "<pdf_url>" -o "TEMP_DIR/<paper_slug>.pdf"`
    - Use downloaded path as `paper_path`.
 
 If input is invalid or cannot be downloaded, return:
@@ -67,7 +72,7 @@ Record this as `doc_map` in working memory and add a `trace` entry with stage `m
 
 ### Stage 2: Candidate Extraction (Recall-First)
 
-Use `look_at(file_path=paper_path, goal=...)` to extract ALL explicit and implicit open problems/questions.
+Iterate through all the sections in `doc_map` and extract ALL explicit and implicit open problems/questions.
 
 Extraction target:
 
@@ -80,7 +85,7 @@ Extraction target:
   - verbatim supporting quote(s)
   - solved-status metadata derived from source labels (for example `(Solved)`, `Solved`, or equivalent)
 
-Add `trace` entries with stage `extract_candidates`.
+Add one `trace` entry per section with stage `extract_candidates`.
 
 ### Stage 3: Self-Contained Rewrite (Precision-First)
 
@@ -90,7 +95,7 @@ For each candidate:
 - resolve references like "Proposition 2.1" or "Section 3" only using evidence in the paper
 - if required context is missing in evidence, do NOT guess; move item to `needs_review`
 
-Add `trace` entries with stage `rewrite`.
+Add one `trace` entry per candidate with stage `rewrite`.
 
 ### Stage 4: Dedupe
 
@@ -98,7 +103,7 @@ Add `trace` entries with stage `rewrite`.
 - preserve all evidence references from merged members in `trace`
 - keep one canonical `id` per merged cluster
 
-Add `trace` entries with stage `dedupe`.
+Add one `trace` entry per candidate with stage `dedupe`.
 
 ### Stage 5: Quality Gates
 
@@ -108,11 +113,15 @@ Run deterministic gates:
    - no dangling references like "this", "above", "as discussed", "see Section X" unless expanded
 2. Evidence coverage gate:
    - accepted items must include at least one evidence quote with page number
-3. No-new-facts gate:
+3. Evidence completeness gate
+   - accepted items must include complete sentences as evidence; otherwise, move them to `needs_review`
+4. No-new-facts gate:
    - rewritten content must not introduce unsupported claims
+5. Schema conformance gate:
+   - accepted items must match the JSON output schema exactly and contain all required fields
 
 Any failed item goes to `needs_review` with specific `reason`.
-Add `trace` entries with stage `quality_gates`.
+Add one `trace` entry per candidate with stage `quality_gates`.
 
 ## Required Prompt Clauses
 
@@ -202,13 +211,13 @@ Do not include markdown fences in final answer. Output raw JSON only.
 Before returning the final JSON to user:
 
 1. Create output directory:
-   - `outputs/runs/`
+   - `RUN_DIR`
 2. Generate output file name from the input name:
    - `<input_name_sanitized>.json` (local PDF stem or arXiv id)
 3. Save the exact JSON output to:
-   - `outputs/runs/<input_name_sanitized>.json`
+   - `RUN_DIR/<input_name_sanitized>.json`
 4. Also write/update:
-   - `outputs/latest.json`
+   - `LATEST_FILE`
 5. Append a `trace` entry noting save paths under stage `persist`.
 
 If save fails, still return JSON but add a `needs_review` item with reason `persist_failed` and include failure details in `trace`.
