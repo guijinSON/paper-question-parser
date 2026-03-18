@@ -18,7 +18,7 @@ mkdir -p "$ERROR_LOG_DIR"
 
 while IFS= read -r arxiv_link || [[ -n "$arxiv_link" ]]; do
   [[ -z "$arxiv_link" ]] && continue
-  if ! oh-my-opencode run "@RUN_MD.md $arxiv_link"; then
+  if ! oh-my-opencode run "/paper-question-parser $arxiv_link"; then
     echo "error occurred: $arxiv_link" >> "$ERROR_LOG_FILE"
     continue
   fi
