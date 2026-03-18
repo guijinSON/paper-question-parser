@@ -92,6 +92,13 @@ Add one `trace` entry per section with stage `extract_candidates`.
 For each candidate:
 
 - rewrite into a standalone question understandable without the source paper
+- `question_text` is the primary payload and must by itself be fully self-contained for a reader who has not seen the source paper or any other extracted question
+- `question_text` should be as long as needed to inline all definitions, notation, assumptions, ambient setting, competitor class, optimization objective, and other problem data required for a mathematically usable standalone statement
+- for extracted questions, prefer a clearly longer rewrite than the original paper question whenever the source wording is too compressed to stand alone; the goal is faithful expansion, not brevity
+- prefer over-explaining rather than under-explaining when deciding whether to inline definitions; if a careful reader could not start solving without paper-specific terminology being unpacked, unpack it in `question_text`
+- `question_text` may be a multi-sentence or multi-paragraph JSON string, but it must still read as one self-contained question rather than disconnected notes
+- avoid source-pointing text in `question_text` such as "in the paper", "in this section", "as defined above", "the authors define", or similar phrasing that gestures at the source instead of stating the needed content directly
+- `context_brief` is only a short label and must never carry definitions that are required to understand the problem
 - resolve references like "Proposition 2.1" or "Section 3" only using evidence in the paper
 - if required context is missing in evidence, do NOT guess; move item to `needs_review`
 
@@ -111,12 +118,14 @@ Run deterministic gates:
 
 1. Self-containedness gate:
    - no dangling references like "this", "above", "as discussed", "see Section X" unless expanded
+   - if a reader would need paper-specific definitions, notation, setting details, competitor classes, or optimization criteria to understand the question, include them directly in `question_text` when supported by evidence
+   - `question_text` must not rely on source-pointing language such as references to the paper, section, source text, or prior definitions instead of restating the content directly
 2. Evidence coverage gate:
    - accepted items must include at least one evidence quote with page number
 3. Evidence completeness gate
    - accepted items must include complete sentences as evidence; otherwise, move them to `needs_review`
 4. No-new-facts gate:
-   - rewritten content must not introduce unsupported claims
+   - rewritten content, including any added definitions or settings in `question_text`, must not introduce unsupported claims
 5. Schema conformance gate:
    - accepted items must match the JSON output schema exactly and contain all required fields
 
@@ -135,6 +144,7 @@ Add one `trace` entry per candidate with stage `quality_gates`.
 
 - Do not invent facts, assumptions, constraints, or definitions.
 - Do not infer missing technical statements beyond provided evidence.
+- When expanding a question to make it self-contained, only inline definitions, notation, assumptions, or ambient-setting details that are directly supported by the paper.
 - If missing context is required to make the question self-contained, move to `needs_review`.
 
 ## NEEDS_REVIEW_FLAG
@@ -144,6 +154,8 @@ Move candidate to `needs_review` when any of these hold:
 - unresolved cross-reference (proposition/section/theorem not recoverable from evidence)
 - ambiguous pronoun/deixis with unclear antecedent
 - insufficient quote evidence for a rewritten claim
+- undefined paper-specific terminology remains in `question_text`
+- `question_text` points back to the source paper instead of stating the needed content directly
 - potential merge conflict between similar but distinct problems
 
 ## SOLVED_STATUS_METADATA
@@ -164,8 +176,8 @@ Return exactly one JSON object:
   "accepted": [
     {
       "id": "q_001",
-      "question_text": "Self-contained open question text.",
-      "context_brief": "Minimal context needed to understand the question.",
+      "question_text": "Fully self-contained open question text. It may be substantially longer than the original paper wording when needed to include definitions, notation, assumptions, ambient setting, competitor class, and optimization objective required to understand the problem without the source paper.",
+      "context_brief": "Short topic label only; not a place to hide required definitions.",
       "meta": {
         "is_solved": false
       },
