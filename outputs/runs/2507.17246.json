@@ -1,0 +1,185 @@
+{
+  "accepted": [
+    {
+      "id": "q_001",
+      "question_text": "Let G be a connected graph of order n and girth g, where the girth is the length of the shortest cycle of G. The Euler Sombor index of G is EUS(G) = sum over all edges uv of sqrt(d(u)^2 + d(v)^2 + d(u)d(v)), where d(u) is the degree of vertex u. For fixed integers n and g, what is the maximum possible value of EUS(G) over all connected graphs with order n and girth g, and which connected graphs attain that maximum?",
+      "context_brief": "Maximum EUS with fixed order and girth",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 2,
+          "quote": "The girth of a graph refers to the length of its shortest cycle."
+        },
+        {
+          "page": 3,
+          "quote": "The Euler Sombor index (EUS) of a graph G is defined as EUS(G) = X vivj in E(G) sqrt(d_i^2 + d_j^2 + d_i d_j)."
+        },
+        {
+          "page": 14,
+          "quote": "However, some key problems remain open: determining the maximum EUS index and characterizing the extremal graphs among connected graphs with fixed order and given girth; finding the minimum EUS index and identifying the extremal graphs when both the order and number of pendent vertices are specified; and characterizing the maximal chemical unicyclic graphs for the EUS index."
+        }
+      ]
+    },
+    {
+      "id": "q_002",
+      "question_text": "Let G be a connected graph of order n with exactly p pendant vertices, where a pendant vertex is a vertex of degree one. The Euler Sombor index of G is EUS(G) = sum over all edges uv of sqrt(d(u)^2 + d(v)^2 + d(u)d(v)), where d(u) is the degree of vertex u. For fixed integers n and p, what is the minimum possible value of EUS(G) over all such connected graphs, and which graphs attain that minimum?",
+      "context_brief": "Minimum EUS with fixed leaves",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 2,
+          "quote": "A vertex of degree one is called a pendant vertex, and an edge incident to a pendant vertex is called a pendant edge."
+        },
+        {
+          "page": 3,
+          "quote": "Problem 2: Determine the extremal values and characterize the extremal graphs for the EUS index among all connected graphs of fixed order and a given number of pendant vertices."
+        },
+        {
+          "page": 14,
+          "quote": "However, some key problems remain open: determining the maximum EUS index and characterizing the extremal graphs among connected graphs with fixed order and given girth; finding the minimum EUS index and identifying the extremal graphs when both the order and number of pendent vertices are specified; and characterizing the maximal chemical unicyclic graphs for the EUS index."
+        }
+      ]
+    }
+  ],
+  "needs_review": [
+    {
+      "id": "q_003",
+      "reason": "undefined_paper_specific_terminology",
+      "question_text_raw": "characterizing the maximal chemical unicyclic graphs for the EUS index",
+      "evidence": [
+        {
+          "page": 4,
+          "quote": "This result provides a complete solution to Open Problem 3 from [24] concerning the minimal graph. However, the corresponding problem for the maximal case remains unresolved."
+        },
+        {
+          "page": 14,
+          "quote": "However, some key problems remain open: determining the maximum EUS index and characterizing the extremal graphs among connected graphs with fixed order and given girth; finding the minimum EUS index and identifying the extremal graphs when both the order and number of pendent vertices are specified; and characterizing the maximal chemical unicyclic graphs for the EUS index."
+        }
+      ]
+    }
+  ],
+  "trace": [
+    {
+      "id": "paper_2507.17246",
+      "stage": "map",
+      "notes": "Mapped the paper from the parsed PDF text. Major sections are Abstract, 1 Introduction, 2 Main Results, 3 Concluding Remarks, and References. Definitions used for rewriting include girth, pendant vertex, and the Euler Sombor index. Theorem-like items include Theorem 1.1, Lemma 2.1, Corollary 2.2, Theorems 2.3, 2.5, 2.7, Lemmas 2.4 and 2.6, and Claims 2.8-2.10. Likely question regions are the open-problem list in the Introduction and the remaining-open-problems sentence in the Concluding Remarks.",
+      "evidence_refs": [
+        "p2",
+        "p3",
+        "p14"
+      ]
+    },
+    {
+      "id": "sec_introduction",
+      "stage": "extract_candidates",
+      "notes": "Extracted the source problem list from the Introduction and marked it as a candidate region because it explicitly enumerates three open problems concerning the Euler Sombor index.",
+      "evidence_refs": [
+        "p3",
+        "p4"
+      ]
+    },
+    {
+      "id": "sec_conclusion",
+      "stage": "extract_candidates",
+      "notes": "Extracted the remaining open problems from the Concluding Remarks. This section narrows the still-open parts to maximum EUS with fixed order and girth, minimum EUS with fixed order and pendant-vertex count, and the maximal chemical unicyclic case.",
+      "evidence_refs": [
+        "p14"
+      ]
+    },
+    {
+      "id": "q_001",
+      "stage": "rewrite",
+      "notes": "Rewrote the fixed-order fixed-girth problem as the unresolved maximum-EUS subproblem only, because the paper explicitly solves the minimum side elsewhere and the conclusion states that the maximum side remains open.",
+      "evidence_refs": [
+        "p2",
+        "p3",
+        "p14"
+      ]
+    },
+    {
+      "id": "q_002",
+      "stage": "rewrite",
+      "notes": "Rewrote the fixed-order fixed-pendant-vertex problem as the unresolved minimum-EUS subproblem only, using the paper's pendant-vertex definition and the conclusion's statement of what remains open.",
+      "evidence_refs": [
+        "p2",
+        "p3",
+        "p14"
+      ]
+    },
+    {
+      "id": "q_003",
+      "stage": "rewrite",
+      "notes": "Kept the maximal chemical unicyclic problem as a raw extraction only. The available evidence shows that the maximal case remains unresolved, but it does not define the term chemical unicyclic graph well enough to support a self-contained rewrite without importing outside facts.",
+      "evidence_refs": [
+        "p4",
+        "p14"
+      ]
+    },
+    {
+      "id": "q_001",
+      "stage": "dedupe",
+      "notes": "Merged the Introduction and Concluding Remarks mentions into one canonical fixed-order fixed-girth maximum-EUS question.",
+      "evidence_refs": [
+        "p3",
+        "p14"
+      ]
+    },
+    {
+      "id": "q_002",
+      "stage": "dedupe",
+      "notes": "Merged the Introduction and Concluding Remarks mentions into one canonical fixed-order fixed-pendant-vertex minimum-EUS question.",
+      "evidence_refs": [
+        "p3",
+        "p14"
+      ]
+    },
+    {
+      "id": "q_003",
+      "stage": "dedupe",
+      "notes": "No merge was applied because the chemical-unicyclic maximum problem is distinct from the other two unresolved problems.",
+      "evidence_refs": [
+        "p4",
+        "p14"
+      ]
+    },
+    {
+      "id": "q_001",
+      "stage": "quality_gates",
+      "notes": "Passed self-containedness, evidence coverage, evidence completeness, no-new-facts, and schema checks.",
+      "evidence_refs": [
+        "p2",
+        "p3",
+        "p14"
+      ]
+    },
+    {
+      "id": "q_002",
+      "stage": "quality_gates",
+      "notes": "Passed self-containedness, evidence coverage, evidence completeness, no-new-facts, and schema checks.",
+      "evidence_refs": [
+        "p2",
+        "p3",
+        "p14"
+      ]
+    },
+    {
+      "id": "q_003",
+      "stage": "quality_gates",
+      "notes": "Moved to needs_review because the rewrite would require defining chemical unicyclic graph from evidence that is not present in the paper text used here.",
+      "evidence_refs": [
+        "p4",
+        "p14"
+      ]
+    },
+    {
+      "id": "paper_2507.17246",
+      "stage": "persist",
+      "notes": "Saved the exact JSON result to outputs/runs/2507.17246.json and updated outputs/latest.json.",
+      "evidence_refs": []
+    }
+  ]
+}

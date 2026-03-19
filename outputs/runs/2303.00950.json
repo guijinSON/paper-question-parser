@@ -1,0 +1,189 @@
+{
+  "accepted": [
+    {
+      "id": "q_001",
+      "question_text": "In fixed-budget best arm identification, a bandit instance mu belongs to the class S of instances with a unique best arm, the learner uses exactly n samples, and then outputs an estimate I_hat_n of the best arm; the resulting error probability is p_{mu,n} = P_mu(I_hat_n != I*(mu)), where I*(mu) is the unique arm with the largest mean. Is there a natural algorithm class A and a well-defined instance-dependent function Gamma*_fb: S -> R such that every algorithm in A satisfies lim inf_{n->infinity} n / log(1/p_{mu,n}) >= Gamma*_fb(mu), while some algorithm in A also satisfies the matching upper bound lim sup_{n->infinity} n / log(1/p_{mu,n}) <= Gamma*_fb(mu), so that Gamma*_fb exactly characterizes the asymptotic complexity of the fixed-budget setting?",
+      "context_brief": "fixed-budget asymptotic complexity",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 2,
+          "quote": "In the fixed-budget setting, a budget of n samples is fixed and given. After collecting n samples, the experimenter needs to decide an estimate of the identity of the best arm denoted by I_hat_n. An algorithm is then only consists of a sampling rule and a decision rule. The experimenter's objective in the fixed-budget setting is to minimize the probability of incorrect decision defined as p_{mu,n} = P_mu(I_hat_n != I*(mu))."
+        },
+        {
+          "page": 3,
+          "quote": "Open problem 1. The first and foremost open problem is whether there are a desirable algorithm class A and a well-defined function Gamma*_fb : S -> R such that for any algorithm in A, for all mu in S, lim inf_{n->infinity} n / log(1/p_{mu,n}) >= Gamma*_fb(mu) and there is an algorithm that belongs to A and guarantees for all mu in S, lim sup_{n->infinity} n / log(1/p_{mu,n}) <= Gamma*_fb(mu)."
+        }
+      ]
+    },
+    {
+      "id": "q_002",
+      "question_text": "In the same fixed-budget best arm identification setting, does there exist an algorithm, other than uniform sampling itself, that performs uniformly no worse than uniform sampling for every bandit instance mu in S? The comparison is the asymptotic fixed-budget error exponent discussed in the paper, namely whether the algorithm can achieve a lower or equal value of lim sup_{n->infinity} n / log(1/p_{mu,n}) than the uniform-sampling benchmark for every instance.",
+      "context_brief": "uniform-sampling benchmark",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 3,
+          "quote": "One potential algorithm class contains all the algorithms that perform uniformly no worse than uniform sampling, i.e., for any algorithm in this class, it achieves a lower or the same value of lim sup_{n->infinity} n / log(1/p_{mu,n}) for any bandit instance mu in S. This leads to the following open problem."
+        },
+        {
+          "page": 3,
+          "quote": "Open problem 2. This open problem is whether there is an algorithm other than uniform sampling itself that performs uniformly no worse than uniform sampling in the fixed-budget setting."
+        }
+      ]
+    },
+    {
+      "id": "q_003",
+      "question_text": "For two-armed Bernoulli bandits in the fixed-budget setting, Kaufmann et al. (2016) show that an optimal sampling vector exists, but that vector depends on the unknown means of the two arms and therefore is not available a priori. Is there an algorithm that can still achieve asymptotic optimality in this setting without requiring prior knowledge of those unknown arm means?",
+      "context_brief": "two-armed Bernoulli bandits",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 4,
+          "quote": "However, for two-armed Bernoulli bandits, Kaufmann et al. (2016) shows that though the optimal sampling vector exists, it requires the knowledge of unknown means of the arms, which is unknown a priori. It is unclear whether there is an algorithm can achieve the asymptotic optimality without such a requirement."
+        }
+      ]
+    }
+  ],
+  "needs_review": [],
+  "trace": [
+    {
+      "id": "doc_map",
+      "stage": "map",
+      "notes": "Mapped 5 pages and 5 major sections. Section hierarchy: 1. Introduction and problem formulation (page 1); 2. Fixed-confidence setting and its known results (page 2); 3. Fixed-budget setting and its open problems (pages 2-3); 4. Conjectures (pages 3-4); 5. Known results for two-armed bandits (page 4). Notation/definitions index: mu = (mu_1, ..., mu_k), theta = (theta_1, ..., theta_k), I*(mu), S, p_{mu,n}, Gamma*_fc, Gamma*_fb, Gamma*_na. Theorem/proposition/lemma index: none explicitly stated in the paper text. Likely open-problem regions: Section 3 on page 3 and the final paragraph of Section 5 on page 4.",
+      "evidence_refs": [
+        "p1",
+        "p2",
+        "p3",
+        "p4"
+      ]
+    },
+    {
+      "id": "sec_1",
+      "stage": "extract_candidates",
+      "notes": "Reviewed Section 1 and extracted no open-question candidates; this section defines the bandit setting, notation, and the unique-best-arm assumption.",
+      "evidence_refs": [
+        "p1"
+      ]
+    },
+    {
+      "id": "sec_2",
+      "stage": "extract_candidates",
+      "notes": "Reviewed Section 2 and extracted no open-question candidates; this section summarizes known fixed-confidence lower and upper bounds.",
+      "evidence_refs": [
+        "p2"
+      ]
+    },
+    {
+      "id": "sec_3",
+      "stage": "extract_candidates",
+      "notes": "Reviewed Section 3 and extracted explicit candidates q_001 and q_002 from the labeled Open problem 1 and Open problem 2 statements.",
+      "evidence_refs": [
+        "p3"
+      ]
+    },
+    {
+      "id": "sec_4",
+      "stage": "extract_candidates",
+      "notes": "Reviewed Section 4 and extracted no accepted open-question candidates; the section states Conjecture 1 and Conjecture 2 and then says neither conjecture is correct in general.",
+      "evidence_refs": [
+        "p3",
+        "p4"
+      ]
+    },
+    {
+      "id": "sec_5",
+      "stage": "extract_candidates",
+      "notes": "Reviewed Section 5 and extracted implicit candidate q_003 from the sentence stating that it is unclear whether an asymptotically optimal algorithm exists without prior knowledge of the unknown Bernoulli means.",
+      "evidence_refs": [
+        "p4"
+      ]
+    },
+    {
+      "id": "q_001",
+      "stage": "rewrite",
+      "notes": "Expanded Open problem 1 by inlining the fixed-budget setting, the class S, the estimator I_hat_n, and the definition of p_{mu,n} using evidence from pages 2-3.",
+      "evidence_refs": [
+        "p2",
+        "p3"
+      ]
+    },
+    {
+      "id": "q_002",
+      "stage": "rewrite",
+      "notes": "Rewrote Open problem 2 into a standalone statement and retained the paper's asymptotic comparison criterion against uniform sampling.",
+      "evidence_refs": [
+        "p3"
+      ]
+    },
+    {
+      "id": "q_003",
+      "stage": "rewrite",
+      "notes": "Rewrote the implicit Bernoulli-bandit question into a self-contained fixed-budget asymptotic-optimality question without adding unsupported assumptions.",
+      "evidence_refs": [
+        "p4"
+      ]
+    },
+    {
+      "id": "q_001",
+      "stage": "dedupe",
+      "notes": "No near-duplicate candidate overlapped with q_001.",
+      "evidence_refs": [
+        "p3"
+      ]
+    },
+    {
+      "id": "q_002",
+      "stage": "dedupe",
+      "notes": "No near-duplicate candidate overlapped with q_002 after comparing explicit and implicit fixed-budget questions.",
+      "evidence_refs": [
+        "p3"
+      ]
+    },
+    {
+      "id": "q_003",
+      "stage": "dedupe",
+      "notes": "No near-duplicate candidate overlapped with q_003.",
+      "evidence_refs": [
+        "p4"
+      ]
+    },
+    {
+      "id": "q_001",
+      "stage": "quality_gates",
+      "notes": "Passed self-containedness, evidence coverage, evidence completeness, no-new-facts, and schema conformance gates.",
+      "evidence_refs": [
+        "p2",
+        "p3"
+      ]
+    },
+    {
+      "id": "q_002",
+      "stage": "quality_gates",
+      "notes": "Passed self-containedness, evidence coverage, evidence completeness, no-new-facts, and schema conformance gates.",
+      "evidence_refs": [
+        "p3"
+      ]
+    },
+    {
+      "id": "q_003",
+      "stage": "quality_gates",
+      "notes": "Passed self-containedness, evidence coverage, evidence completeness, no-new-facts, and schema conformance gates.",
+      "evidence_refs": [
+        "p4"
+      ]
+    },
+    {
+      "id": "persist_2303_00950",
+      "stage": "persist",
+      "notes": "Saved exact JSON output to outputs/runs/2303.00950.json and updated outputs/latest.json.",
+      "evidence_refs": []
+    }
+  ]
+}
