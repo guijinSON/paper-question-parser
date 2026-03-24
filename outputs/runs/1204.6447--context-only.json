@@ -1,0 +1,358 @@
+{
+  "schema_version": "1.0",
+  "input": {
+    "question": "If f : {-1,1}^n -> [-1,1] has degree at most k, must there exist a coordinate i in [n] with influence Inf_i[f] >= (Var[f]/k)^{O(1)}?",
+    "arxiv_id": "1204.6447"
+  },
+  "target_reader": "broad_mathematician",
+  "rewrite_kind": "context_only",
+  "verdict": {
+    "status": "accepted",
+    "reasons": []
+  },
+  "original_question": "If f : {-1,1}^n -> [-1,1] has degree at most k, must there exist a coordinate i in [n] with influence Inf_i[f] >= (Var[f]/k)^{O(1)}?",
+  "original_paper": {
+    "title": "Open Problems in Analysis of Boolean Functions",
+    "locator": "https://arxiv.org/abs/1204.6447",
+    "source_id": "primary"
+  },
+  "rewritten_question": "Let f be a function on the discrete cube {−1,1}^n with values in [−1,1], and suppose f is represented by a real polynomial of total degree at most k. For a coordinate i, let Inf_i[f] denote the influence of the i-th coordinate, meaning the expected squared change in f when the i-th input bit is flipped, and let Var[f] denote the variance of f under the uniform distribution on the cube. Must there always exist some coordinate i such that Inf_i[f] is at least a fixed polynomial in Var[f]/k; equivalently, is there a universal constant c > 0 for which Inf_i[f] ≥ (Var[f]/k)^c for some i?",
+  "resolution": {
+    "solved_status": "unsolved",
+    "status_confidence": "high",
+    "status_reason": "The source document is an open-problems compilation that states this as the Aaronson–Ambainis Conjecture. Later papers from 2022 and 2026 give only partial progress—special cases and random-restriction results—and the 2026 paper still describes it as a central open problem. Within the bounded literature search, no later paper was found that claims a full proof of the original conjecture.",
+    "solving_paper": null,
+    "search_trace": {
+      "sources": [
+        "primary paper",
+        "arXiv paper 0911.0996",
+        "arXiv paper 2203.00212",
+        "arXiv paper 2402.13952"
+      ],
+      "query_variants": [
+        "Aaronson-Ambainis conjecture influential variable bounded polynomial",
+        "The Need for Structure in Quantum Speedups conjecture 6",
+        "Influence in Completely Bounded Block-multilinear Forms Aaronson-Ambainis",
+        "Aaronson-Ambainis Conjecture Is True For Random Restrictions"
+      ],
+      "status_checked_at": "2026-03-24",
+      "notes": "The bounded search found explicit later partial results and a 2026 paper still treating the conjecture as open, but no full-resolution paper."
+    }
+  },
+  "paper_evidence": [
+    {
+      "source_id": "primary",
+      "page": 7,
+      "quote": "Aaronson–Ambainis Conjecture Statement: Let f : {−1,1}^n → [−1,1] have degree at most k. Then there exists i ∈ [n] with Infi[f] ≥ (Var[f]/k)^{O(1)}.",
+      "supports": [
+        "question_statement",
+        "original_formulation"
+      ]
+    },
+    {
+      "source_id": "primary",
+      "page": 7,
+      "quote": "Remarks: • True for f : {−1,1}^n → {−1,1}; this follows from a result of O’Donnell, Schramm, Saks, and Servedio [OSSS05]. • The weaker lower bound (Var[f]/2^k)^{O(1)} follows from a result of Dinur, Kindler, Friedgut, and O’Donnell [DFKO07].",
+      "supports": [
+        "known_special_cases",
+        "partial_progress_in_primary"
+      ]
+    },
+    {
+      "source_id": "paper_001",
+      "page": 6,
+      "quote": "Conjecture 6 (Bounded Polynomials Have Influential Variables) Let p : R^N → R be a polynomial of degree d. Suppose that 0 ≤ p(X) ≤ 1 for all X ∈ {0, 1}^N, and E_X[(p(X) − E[p])^2] ≥ ε. Then there exists an i such that Infi[p] ≥ (ε/d)^{O(1)}.",
+      "supports": [
+        "equivalent_conjecture_statement",
+        "variance_threshold_formulation"
+      ]
+    },
+    {
+      "source_id": "paper_001",
+      "page": 18,
+      "quote": "Recall Conjecture 6, which said that bounded polynomials have influential variables: that is, for every degree-d polynomial p : R^N → R such that 0 ≤ p(X) ≤ 1 for all X ∈ {0, 1}^N, there exists an i ∈ [N] such that Infi[p] ≥ (Var [p] /d)^{O(1)}, where Infi[p] := E_X[(p(X) − p(X^i))^2], Var [p] := E_X[(p(X) − E [p])^2].",
+      "supports": [
+        "influence_definition",
+        "variance_definition"
+      ]
+    },
+    {
+      "source_id": "paper_002",
+      "page": 1,
+      "quote": "The Aaronson-Ambainis conjecture (Theory of Computing ’14) says that every low-degree bounded polynomial on the Boolean hypercube has an influential variable. ... We prove a special case of the conjecture: in every completely bounded degree-d block-multilinear form with constant variance, there always exists a variable with influence at least 1/poly(d).",
+      "supports": [
+        "partial_result_2022",
+        "not_full_resolution"
+      ]
+    },
+    {
+      "source_id": "paper_002",
+      "page": 2,
+      "quote": "Conjecture 1.2 (Aaronson-Ambainis conjecture). Let f : {±1}^n → [0, 1] be a degree-d multilinear polynomial. Then, the maximum influence among all variables in f is at least poly(Var[f], 1/d). The above conjecture poses a fundamental structural question about bounded polynomials on the hypercube and is a notable open problem in the analysis of Boolean functions.",
+      "supports": [
+        "open_status_2022",
+        "later_open_problem_statement"
+      ]
+    },
+    {
+      "source_id": "paper_003",
+      "page": 1,
+      "quote": "One of the central open problems in the field of quantum query complexity is ... Aaronson and Ambainis proposed the following conjecture: let f : {±1}^n → [0, 1] be a degree d polynomial with variance ≥ ϵ. Then, there exists a coordinate of f with influence ≥ poly(ϵ, 1/d).",
+      "supports": [
+        "open_status_2026",
+        "later_open_problem_statement"
+      ]
+    },
+    {
+      "source_id": "paper_003",
+      "page": 1,
+      "quote": "We show that for any polynomial f : {±1}^n → [0, 1] of degree d (d ≥ 2) and variance Var[f] ≥ 1/d, if ρ denotes a random restriction ... Thus, Aaronson-Ambainis conjecture is true for a non-negligible fraction of random restrictions of the given polynomial assuming its variance is not too low.",
+      "supports": [
+        "random_restriction_partial_result",
+        "not_full_resolution"
+      ]
+    }
+  ],
+  "consulted_papers": [
+    {
+      "source_id": "primary",
+      "title": "Open Problems in Analysis of Boolean Functions",
+      "authors": [],
+      "year": 2012,
+      "locator": "https://arxiv.org/abs/1204.6447",
+      "role": "primary",
+      "used_for_rewrite": true,
+      "used_for_resolution": true
+    },
+    {
+      "source_id": "paper_001",
+      "title": "The Need for Structure in Quantum Speedups",
+      "authors": [
+        "Scott Aaronson",
+        "Andris Ambainis"
+      ],
+      "year": 2014,
+      "locator": "https://arxiv.org/abs/0911.0996",
+      "role": "background_definition",
+      "used_for_rewrite": true,
+      "used_for_resolution": false
+    },
+    {
+      "source_id": "paper_002",
+      "title": "Influence in Completely Bounded Block-multilinear Forms and Classical Simulation of Quantum Algorithms",
+      "authors": [
+        "Nikhil Bansal",
+        "Makrand Sinha",
+        "Ronald de Wolf"
+      ],
+      "year": 2022,
+      "locator": "https://arxiv.org/abs/2203.00212",
+      "role": "resolution_candidate",
+      "used_for_rewrite": false,
+      "used_for_resolution": true
+    },
+    {
+      "source_id": "paper_003",
+      "title": "Aaronson-Ambainis Conjecture Is True For Random Restrictions",
+      "authors": [
+        "Sreejata Kishor Bhattacharya"
+      ],
+      "year": 2026,
+      "locator": "https://arxiv.org/abs/2402.13952",
+      "role": "resolution_candidate",
+      "used_for_rewrite": false,
+      "used_for_resolution": true
+    }
+  ],
+  "rubric_scores": {
+    "difficulty": [
+      {
+        "id": "A1_prerequisite_specificity",
+        "label": "Prerequisite specificity",
+        "score": 8,
+        "direction": "higher_is_better",
+        "rationale": "It draws on specialized analysis-of-Boolean-functions notions such as influence, variance, and low-degree polynomial structure."
+      },
+      {
+        "id": "A2_domain_recognition",
+        "label": "Domain recognition",
+        "score": 6,
+        "direction": "higher_is_better",
+        "rationale": "The area is identifiable once influence and degree are recognized, but not obvious to a general solver at first glance."
+      },
+      {
+        "id": "A3_object_unfamiliarity",
+        "label": "Object unfamiliarity",
+        "score": 7,
+        "direction": "higher_is_better",
+        "rationale": "Bounded low-degree functions on the discrete cube are not standard objects for a broad mathematician outside the field."
+      },
+      {
+        "id": "A4_representation_setup",
+        "label": "Representation setup",
+        "score": 6,
+        "direction": "higher_is_better",
+        "rationale": "A solver must choose the right Fourier-analytic or polynomial viewpoint before making progress."
+      },
+      {
+        "id": "A5_first_foothold_visibility",
+        "label": "First foothold visibility",
+        "score": 7,
+        "direction": "higher_is_better",
+        "rationale": "There is no immediately obvious elementary first step beyond recalling known influence bounds and special cases."
+      },
+      {
+        "id": "D2_dead_end_surface",
+        "label": "Dead-end surface",
+        "score": 7,
+        "direction": "higher_is_better",
+        "rationale": "Many natural approaches seem relevant but only recover weaker bounds or restricted cases."
+      },
+      {
+        "id": "D3_key_leap_size",
+        "label": "Key leap size",
+        "score": 8,
+        "direction": "higher_is_better",
+        "rationale": "Any full proof likely needs a substantial new structural insight beyond existing partial results."
+      },
+      {
+        "id": "D5_method_novelty",
+        "label": "Method novelty",
+        "score": 8,
+        "direction": "higher_is_better",
+        "rationale": "The literature suggests that standard tools give only exponential or special-case bounds, so a full solution probably needs a novel argument."
+      },
+      {
+        "id": "C1_technical_length",
+        "label": "Technical length",
+        "score": 8,
+        "direction": "higher_is_better",
+        "rationale": "Known partial-results papers are technically involved, indicating that a complete proof would likely be long and intricate."
+      },
+      {
+        "id": "C2_computation_burden",
+        "label": "Computation burden",
+        "score": 4,
+        "direction": "higher_is_better",
+        "rationale": "The obstacle looks more conceptual and structural than calculation-heavy."
+      }
+    ],
+    "perfectness": [
+      {
+        "id": "P1_well_posedness_unambiguity",
+        "label": "Well-posedness and unambiguity",
+        "score": 8,
+        "direction": "higher_is_better",
+        "rationale": "Once influence and variance are defined, the conjecture has a clear exact meaning."
+      },
+      {
+        "id": "P2_solver_fit_self_containedness",
+        "label": "Solver-fit and self-containedness",
+        "score": 7,
+        "direction": "higher_is_better",
+        "rationale": "The rewrite states the needed notions explicitly, though the problem still assumes substantial background."
+      },
+      {
+        "id": "P3_purity_of_difficulty",
+        "label": "Purity of difficulty",
+        "score": 9,
+        "direction": "higher_is_better",
+        "rationale": "Its difficulty comes from genuine mathematics rather than wording clutter."
+      },
+      {
+        "id": "P4_fair_concealment",
+        "label": "Fair concealment",
+        "score": 8,
+        "direction": "higher_is_better",
+        "rationale": "The challenge is naturally hidden in the structure of the problem rather than by artificial obscurity."
+      },
+      {
+        "id": "P5_naturalness_of_core",
+        "label": "Naturalness of core",
+        "score": 9,
+        "direction": "higher_is_better",
+        "rationale": "The conjecture expresses a natural structural principle relating degree, variance, and influence."
+      },
+      {
+        "id": "P6_payoff_finish_quality",
+        "label": "Payoff and finish quality",
+        "score": 8,
+        "direction": "higher_is_better",
+        "rationale": "A proof would have a strong conceptual payoff because it would clarify when influential variables must exist in bounded low-degree settings."
+      }
+    ]
+  },
+  "trace": [
+    {
+      "stage": "map_primary",
+      "notes": "Mapped the primary paper as an open-problems compilation and identified the exact entry 'Aaronson–Ambainis Conjecture' on page 7.",
+      "evidence_refs": [
+        "primary:p7"
+      ]
+    },
+    {
+      "stage": "locate_question",
+      "notes": "Matched the user question exactly to the primary-paper statement and recorded the two remarks giving known weaker or special-case progress.",
+      "evidence_refs": [
+        "primary:p7"
+      ]
+    },
+    {
+      "stage": "recover_primary_context",
+      "notes": "Recovered the operative meanings of influence and variance from Aaronson–Ambainis's later formulation of the conjecture so the rewrite could be self-contained.",
+      "evidence_refs": [
+        "paper_001:p18"
+      ]
+    },
+    {
+      "stage": "backfill",
+      "notes": "Used later literature only to recover standard formulation context and to assess whether the conjecture had since been solved or only partially advanced.",
+      "evidence_refs": [
+        "paper_002:p1",
+        "paper_002:p2",
+        "paper_003:p1"
+      ]
+    },
+    {
+      "stage": "resolve_status",
+      "notes": "Marked the question unsolved because later papers from 2022 and 2026 still present it as open and report only partial results rather than a full proof.",
+      "evidence_refs": [
+        "paper_002:p2",
+        "paper_003:p1"
+      ]
+    },
+    {
+      "stage": "rewrite_context_only",
+      "notes": "Expanded the paper-local notation by explicitly defining influence as expected squared change under a bit-flip and variance as variance on the uniform cube.",
+      "evidence_refs": [
+        "paper_001:p18",
+        "primary:p7"
+      ]
+    },
+    {
+      "stage": "score",
+      "notes": "Scored the emitted rewrite on the requested difficulty and perfectness axes.",
+      "evidence_refs": []
+    },
+    {
+      "stage": "quality_gates",
+      "notes": "Checked self-containedness, evidence coverage, no-new-facts discipline, and resolution consistency; no reformulation artifact was needed.",
+      "evidence_refs": [
+        "primary:p7",
+        "paper_001:p18",
+        "paper_002:p2",
+        "paper_003:p1"
+      ]
+    },
+    {
+      "stage": "persist",
+      "notes": "Saved the context-only artifact and the exact returned array to the configured output locations.",
+      "evidence_refs": []
+    }
+  ],
+  "persist": {
+    "run_path": "outputs/runs/1204.6447--context-only.json",
+    "latest_path": "outputs/paper-question-refiner.latest.json",
+    "saved": true
+  }
+}
