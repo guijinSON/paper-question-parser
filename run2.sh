@@ -3,7 +3,7 @@ set -euo pipefail
 
 # Run this script from the project root.
 # Put target arXiv links in TARGETS_FILE
-TARGETS_FILE="targets2"
+TARGETS_FILE="targets"
 
 ERROR_LOG_DIR="logs"
 ERROR_TIMESTAMP="$(date -u +%Y%m%d_%H%M%S)"
