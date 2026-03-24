@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "input": {
-    "question": "For each integer n >= 2 and each n-tuple of real numbers theta_1, ..., theta_n, must one always have lim inf_{q -> +infty} q * ||q theta_1|| * ... * ||q theta_n|| = 0? In other words, does the multidimensional Littlewood-type statement hold for every set of n real numbers once n is at least 2?",
+    "question": "Does there exist an absolute constant k such that for every positive integer q one can choose an integer a coprime to q whose continued fraction expansion a/q = [b_0; b_1, ..., b_s] has all partial quotients bounded by k? The paper also records Zaremba's stronger original guess that k = 5.",
     "arxiv_id": "1202.4539"
   },
   "target_reader": "broad_mathematician",
@@ -10,71 +10,70 @@
     "status": "accepted",
     "reasons": []
   },
-  "original_question": "For each integer n >= 2 and each n-tuple of real numbers theta_1, ..., theta_n, must one always have lim inf_{q -> +infty} q * ||q theta_1|| * ... * ||q theta_n|| = 0? In other words, does the multidimensional Littlewood-type statement hold for every set of n real numbers once n is at least 2?",
+  "original_question": "Does there exist an absolute constant k such that for every positive integer q one can choose an integer a coprime to q whose continued fraction expansion a/q = [b_0; b_1, ..., b_s] has all partial quotients bounded by k? The paper also records Zaremba's stronger original guess that k = 5.",
   "original_paper": {
     "title": "On some open problems in Diophantine approximation",
     "locator": "https://arxiv.org/abs/1202.4539",
     "source_id": "primary"
   },
-  "rewritten_question": "Fix an integer n ≥ 2 and real numbers θ_1, ..., θ_n. Let ||x|| denote the distance from a real number x to the nearest integer. Must one always have lim inf, as q ranges over positive integers tending to infinity, of q · ||qθ_1|| · ... · ||qθ_n|| equal to 0? Equivalently, does every n-tuple of real numbers satisfy the higher-dimensional Littlewood-type multiplicative approximation property once n is at least 2?",
+  "rewritten_question": "Does there exist an absolute constant k such that for every positive integer q there is an integer a with 1 ≤ a < q and gcd(a, q) = 1 whose finite simple continued fraction expansion a/q = [0; b1, b2, ..., bs] has every partial quotient bounded by k, meaning bj ≤ k for all 1 ≤ j ≤ s? In Zaremba’s stronger original form of the question, can one always take k = 5?",
   "resolution": {
     "solved_status": "unsolved",
     "status_confidence": "medium",
-    "status_reason": "The primary paper explicitly states that this higher-dimensional Littlewood-type problem is open for every n > 2, and the bounded post-2012 literature search located related surveys and partial or metric results rather than a paper explicitly proving the full statement for every n-tuple of reals.",
+    "status_reason": "The primary paper presents this as Zaremba’s conjecture and explicitly says it is still open; a later 2023 paper also states that the conjecture remains open, and the bounded later-literature check did not uncover an explicit full resolution of the absolute-constant-for-all-denominators statement.",
     "solving_paper": null,
     "search_trace": {
       "sources": [
         "primary paper",
-        "Crossref API",
-        "OpenAlex API",
-        "arXiv API"
+        "arXiv search results",
+        "later academic paper on arXiv"
       ],
       "query_variants": [
-        "multidimensional Littlewood conjecture",
-        "generalized Littlewood conjecture q ||q theta_1|| ||q theta_2|| ||q theta_3||",
-        "multiplicative Diophantine approximation higher dimensions Littlewood",
-        "Littlewood conjecture Diophantine approximation",
-        "higher-rank Bohr sets multiplicative diophantine approximation"
+        "Zaremba conjecture",
+        "Zaremba conjecture remains open",
+        "absolute constant bounded partial quotients every denominator"
       ],
       "status_checked_at": "2026-03-24",
-      "notes": "The bounded search surfaced later works such as a 2015 survey on the Littlewood conjecture, a 2019 paper on higher-rank Bohr sets and multiplicative Diophantine approximation, and other related papers on Littlewood-type problems, but no explicit full resolution of the universal higher-dimensional statement for arbitrary real n-tuples."
+      "notes": "Checked the primary source, reviewed later arXiv search results for Zaremba conjecture, and read a 2023 paper whose abstract and introduction explicitly say the conjecture remains open. No bounded-search hit advertised a proof of the full statement for every denominator with one absolute constant."
     }
   },
   "paper_evidence": [
     {
       "source_id": "primary",
-      "page": 1,
-      "quote": "The similar multidimensional problem is for given n > 2 to prove that for any reals θ1, ..., θn one has lim inf q→+∞ q ||qθ1|| · · · ||qθn|| = 0. (2)",
+      "page": 23,
+      "quote": "The famous Zaremba’s conjecture [154] supposes that there exists an absolute constant k with the following property: for any positive integer q there exists a coprime to q such that in the continued fraction expansion (53) all partial quotients are bounded: bj(a) 6 k, 1 6 j 6 s = s(a). In fact Zaremba conjectured that k = 5.",
       "supports": [
         "question_goal",
-        "question_quantifiers",
-        "higher_dimensional_statement"
+        "def_coprime_numerator",
+        "def_bounded_partial_quotients",
+        "strong_form_k_5"
       ]
     },
     {
       "source_id": "primary",
-      "page": 1,
-      "quote": "(here and in the sequel || · || stands for the distance to the nearest integer)",
-      "supports": [
-        "distance_to_nearest_integer_definition"
-      ]
-    },
-    {
-      "source_id": "primary",
-      "page": 1,
-      "quote": "This problem is not solved for any n > 2.",
+      "page": 28,
+      "quote": "However Zaremba’s conjecture is still open, and we do not know if for a given q one can get (61) instead of (62), for some a.",
       "supports": [
         "resolution_baseline",
-        "open_status_in_primary"
+        "primary_open_status"
       ]
     },
     {
-      "source_id": "primary",
-      "page": 2,
-      "quote": "We see that for a basis of a real algebraic field one has lim inf q→+∞ q log q ||qθ1|| · · ·||qθn|| < +∞, and so (2) is true for these numbers.",
+      "source_id": "paper_001",
+      "page": 1,
+      "quote": "Even though Zaremba’s conjecture remains open, Bourgain and Kontorovich solved the problem for a full density subset.",
       "supports": [
-        "known_special_case",
-        "not_full_resolution"
+        "resolution_status",
+        "later_open_status"
+      ]
+    },
+    {
+      "source_id": "paper_001",
+      "page": 1,
+      "quote": "To this day, the conjecture remains unproven.",
+      "supports": [
+        "resolution_status",
+        "later_open_status"
       ]
     }
   ],
@@ -93,38 +92,12 @@
     },
     {
       "source_id": "paper_001",
-      "title": "Around the Littlewood conjecture in Diophantine approximation",
+      "title": "Zaremba’s Conjecture for Geometric Sequences: An Algorithm",
       "authors": [
-        "Yann Bugeaud"
+        "Elias Dubno"
       ],
-      "year": 2015,
-      "locator": "https://doi.org/10.5802/pmb.1",
-      "role": "resolution_candidate",
-      "used_for_rewrite": false,
-      "used_for_resolution": true
-    },
-    {
-      "source_id": "paper_002",
-      "title": "Higher-rank Bohr sets and multiplicative diophantine approximation",
-      "authors": [
-        "Sam Chow",
-        "Niclas Technau"
-      ],
-      "year": 2019,
-      "locator": "https://doi.org/10.1112/S0010437X19007589",
-      "role": "resolution_candidate",
-      "used_for_rewrite": false,
-      "used_for_resolution": true
-    },
-    {
-      "source_id": "paper_003",
-      "title": "On a Problem in Diophantine Approximation",
-      "authors": [
-        "Evgeni Dimitrov",
-        "Yakov Sinai"
-      ],
-      "year": 2013,
-      "locator": "https://arxiv.org/abs/1305.1200",
+      "year": 2023,
+      "locator": "https://arxiv.org/abs/2310.11279",
       "role": "resolution_candidate",
       "used_for_rewrite": false,
       "used_for_resolution": true
@@ -135,72 +108,72 @@
       {
         "id": "A1_prerequisite_specificity",
         "label": "Prerequisite specificity",
-        "score": 9,
+        "score": 7,
         "direction": "higher_is_better",
-        "rationale": "A serious attack needs deep tools from multiplicative Diophantine approximation, homogeneous dynamics, or adjacent advanced methods rather than standard graduate material."
+        "rationale": "Meaningful progress needs specialized continued-fraction and Diophantine-approximation ideas beyond standard graduate background."
       },
       {
         "id": "A2_domain_recognition",
         "label": "Domain recognition",
-        "score": 8,
+        "score": 3,
         "direction": "higher_is_better",
-        "rationale": "The problem clearly lives in Diophantine approximation, but recognizing the most effective viewpoint is still nontrivial."
+        "rationale": "The problem clearly signals number theory and continued fractions, so identifying the area is not itself a major obstacle."
       },
       {
         "id": "A3_object_unfamiliarity",
         "label": "Object unfamiliarity",
-        "score": 6,
+        "score": 5,
         "direction": "higher_is_better",
-        "rationale": "The basic objects are simple real numbers and nearest-integer distances, but the multiplicative lim inf statement is specialized."
+        "rationale": "The objects are classical, but bounded partial quotients for all denominators is still somewhat specialized for a broad mathematician."
       },
       {
         "id": "A4_representation_setup",
         "label": "Representation setup",
-        "score": 8,
+        "score": 4,
         "direction": "higher_is_better",
-        "rationale": "Progress likely requires a non-obvious reformulation through dynamics, geometry of numbers, or metric arguments."
+        "rationale": "The continued-fraction formulation is already given, so there is limited setup friction before one can think about the problem."
       },
       {
         "id": "A5_first_foothold_visibility",
         "label": "First foothold visibility",
-        "score": 9,
+        "score": 8,
         "direction": "higher_is_better",
-        "rationale": "There is no obvious elementary first move that plausibly reaches the full universal statement."
+        "rationale": "It is hard to see an elementary first move that could plausibly handle every denominator with one absolute bound."
       },
       {
         "id": "D2_dead_end_surface",
         "label": "Dead-end surface",
-        "score": 8,
+        "score": 7,
         "direction": "higher_is_better",
-        "rationale": "Many natural partial approaches only recover almost-all results, special algebraic cases, or lower-dimensional analogues."
+        "rationale": "Many natural counting, congruence, or explicit-construction attempts address only sparse families or density-one subsets rather than the full statement."
       },
       {
         "id": "D3_key_leap_size",
         "label": "Key leap size",
         "score": 9,
         "direction": "higher_is_better",
-        "rationale": "A full solution would need a major conceptual step beyond known partial results."
+        "rationale": "A full proof would need a substantial jump beyond existing partial results such as density-one theorems and special-denominator constructions."
       },
       {
         "id": "D5_method_novelty",
         "label": "Method novelty",
-        "score": 9,
+        "score": 8,
         "direction": "higher_is_better",
-        "rationale": "Any complete proof would likely feel genuinely new rather than a routine extension of existing techniques."
+        "rationale": "Known progress already uses deep modern tools, suggesting that a complete solution likely requires genuinely nonroutine ideas."
       },
       {
         "id": "C1_technical_length",
         "label": "Technical length",
         "score": 8,
         "direction": "higher_is_better",
-        "rationale": "Even with the right idea, turning it into a proof would probably require a long technical development."
+        "rationale": "Even after the main idea, a complete argument would likely involve long technical estimates or structural analysis across all denominators."
       },
       {
         "id": "C2_computation_burden",
         "label": "Computation burden",
-        "score": 4,
+        "score": 3,
         "direction": "higher_is_better",
-        "rationale": "The challenge is conceptual and structural much more than computational."
+        "rationale": "The challenge is conceptual and structural more than explicit symbolic computation."
       }
     ],
     "perfectness": [
@@ -209,103 +182,106 @@
         "label": "Well-posedness and unambiguity",
         "score": 10,
         "direction": "higher_is_better",
-        "rationale": "The quantifiers and target conclusion are mathematically precise once the nearest-integer norm is stated."
+        "rationale": "The quantifiers and target property are crisp: every denominator q must admit one reduced fraction with uniformly bounded partial quotients."
       },
       {
         "id": "P2_solver_fit_self_containedness",
         "label": "Solver-fit and self-containedness",
         "score": 9,
         "direction": "higher_is_better",
-        "rationale": "After adding the definition of ||x|| and clarifying that q runs over positive integers, the statement stands alone cleanly."
+        "rationale": "The rewrite defines the continued-fraction form, the coprimality condition, and what bounded partial quotients means."
       },
       {
         "id": "P3_purity_of_difficulty",
         "label": "Purity of difficulty",
         "score": 10,
         "direction": "higher_is_better",
-        "rationale": "The hardness comes from the mathematics itself, not from awkward wording or hidden conventions."
+        "rationale": "Its difficulty comes from the mathematics itself rather than from awkward wording or hidden conventions."
       },
       {
         "id": "P4_fair_concealment",
         "label": "Fair concealment",
         "score": 8,
         "direction": "higher_is_better",
-        "rationale": "The statement does not leak a method, but it also gives little guidance, which is fair for a research problem."
+        "rationale": "The statement does not leak a method, but it also does not hide the problem behind artificial phrasing."
       },
       {
         "id": "P5_naturalness_of_core",
         "label": "Naturalness of core",
         "score": 10,
         "direction": "higher_is_better",
-        "rationale": "This is a very natural higher-dimensional extension of a famous multiplicative approximation question."
+        "rationale": "The conjecture is a natural global question about continued fractions and rational approximants."
       },
       {
         "id": "P6_payoff_finish_quality",
         "label": "Payoff and finish quality",
         "score": 9,
         "direction": "higher_is_better",
-        "rationale": "A resolution would be conceptually clean and mathematically satisfying because the question has a crisp yes-or-no form."
+        "rationale": "A solution would give a clean universal boundedness statement with strong conceptual and applied consequences."
       }
     ]
   },
   "trace": [
     {
       "stage": "map_primary",
-      "notes": "Mapped the survey structure and identified Section 1 on page 1 as the location of the multidimensional Littlewood-type question.",
+      "notes": "Mapped the paper and identified Section 5, pages 23 to 29, as the Zaremba-conjecture cluster.",
       "evidence_refs": [
-        "primary:p1"
+        "primary:23"
       ]
     },
     {
       "stage": "locate_question",
-      "notes": "Located the exact formulation of the target problem and the paper's explicit statement that it was unsolved for every n > 2.",
+      "notes": "Located the exact conjecture statement and the stronger original claim k = 5 in Section 5.",
       "evidence_refs": [
-        "primary:p1"
+        "primary:23"
       ]
     },
     {
       "stage": "recover_primary_context",
-      "notes": "Recovered the only essential local notation needed for a broad mathematician: ||x|| means distance to the nearest integer, and q ranges over positive integers.",
+      "notes": "Recovered the needed context: reduced fraction a/q, finite simple continued fraction expansion, and the bounded-partial-quotient condition.",
       "evidence_refs": [
-        "primary:p1"
+        "primary:23"
       ]
     },
     {
       "stage": "backfill",
-      "notes": "Ran a bounded post-2012 literature search through Crossref, OpenAlex, and arXiv APIs and inspected related Littlewood-type and multiplicative approximation papers for an explicit full resolution.",
-      "evidence_refs": []
+      "notes": "Checked later literature through arXiv search results and read a 2023 paper that explicitly states the conjecture remains open.",
+      "evidence_refs": [
+        "paper_001:1"
+      ]
     },
     {
       "stage": "resolve_status",
-      "notes": "Kept the status as unsolved because the primary paper marks the question open and the bounded later-literature search found only related or partial developments rather than an explicit proof for all real n-tuples.",
+      "notes": "Marked the question unsolved because the primary paper explicitly says it is still open and the later bounded search found no full resolution.",
       "evidence_refs": [
-        "primary:p1",
-        "primary:p2"
+        "primary:28",
+        "paper_001:1"
       ]
     },
     {
       "stage": "rewrite_context_only",
-      "notes": "Rewrote the question by expanding the nearest-integer notation and making the quantifier over positive integers explicit, without changing the mathematical goal.",
+      "notes": "Rewrote the question into standalone form by unpacking the reduced-fraction and bounded-partial-quotient conditions directly in the question text.",
       "evidence_refs": [
-        "primary:p1"
+        "primary:23"
       ]
     },
     {
       "stage": "score",
-      "notes": "Scored the emitted rewrite for research difficulty and formulation quality as presented to a broad mathematician.",
+      "notes": "Scored the emitted rewrite on the difficulty and perfectness rubrics.",
       "evidence_refs": []
     },
     {
       "stage": "quality_gates",
-      "notes": "Checked self-containedness, evidence coverage for inserted context, no-new-facts, resolution consistency, and JSON-safe prose.",
+      "notes": "Checked self-containedness, evidence coverage, no-new-facts, resolution consistency, and JSON-safe wording.",
       "evidence_refs": [
-        "primary:p1",
-        "primary:p2"
+        "primary:23",
+        "primary:28",
+        "paper_001:1"
       ]
     },
     {
       "stage": "persist",
-      "notes": "Saved the emitted artifact and the exact returned JSON array to the configured output paths.",
+      "notes": "Saved the artifact and the exact latest JSON array to disk.",
       "evidence_refs": []
     }
   ],
