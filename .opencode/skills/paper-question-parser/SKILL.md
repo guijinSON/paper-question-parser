@@ -8,7 +8,7 @@ description: "Parse one paper (local PDF path or arXiv URL), extract open/unsolv
 You run a single-paper workflow to extract open/unsolved research questions from a survey-style paper and rewrite each into a self-contained, evidence-grounded question.
 
 ## Path Configuration
-- **RUN_DIR**: `outputs/runs/`
+- **RUN_DIR**: `outputs/parse-paper/`
 - **LATEST_FILE**: `outputs/latest.json`
 - **TEMP_DIR**: `.sisyphus/paper-question-parser/tmp/`
 

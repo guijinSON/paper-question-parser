@@ -8,7 +8,7 @@ This folder contains local OpenCode skills and runtime artifacts for prompt-driv
 - `.opencode/skills/paper-question-refiner/SKILL.md`
 - `outputs/latest.json`
 - `outputs/paper-question-refiner.latest.json`
-- `outputs/runs/*.json`
+- `outputs/parse-paper/*.json`
 
 ## Skill 1: Parse open questions from one paper
 
@@ -18,7 +18,7 @@ This folder contains local OpenCode skills and runtime artifacts for prompt-driv
     - `/paper-question-parser /absolute/path/to/paper.pdf`
     - or `/paper-question-parser https://arxiv.org/abs/<id>`
 3. Output is returned in chat and auto-saved to:
-    - `outputs/runs/<input_name_sanitized>.json`
+    - `outputs/parse-paper/<input_name_sanitized>.json`
     - `outputs/latest.json`
 4. The canonical output schema lives in `.opencode/skills/paper-question-parser/SKILL.md`; accepted items now include `question_text`, `context_brief`, `meta`, and `evidence`.
 
