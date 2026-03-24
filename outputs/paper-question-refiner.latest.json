@@ -2,8 +2,8 @@
   {
     "schema_version": "1.0",
     "input": {
-      "question": "Does every strict conditional independence model for discrete random variables have a Q-rational point? Here a strict conditional independence model is the intersection of the positive orthant with the constructible set of tables for which a specified collection of conditional independence statements Xi ⊥⊥ Xj | XK holds and all other such statements do not hold.",
-      "arxiv_id": "0707.4558"
+      "question": "Let R = C[a, b]. Let D : R[x, y, z] -> R[x, y, z] be a triangular locally nilpotent R-derivation, meaning that D(x) belongs to R, D(y) belongs to R[x], and D(z) belongs to R[x, y]. If D has a slice, does it follow that ker(D) = R[2]?",
+      "arxiv_id": "0909.1462"
     },
     "target_reader": "broad_mathematician",
     "rewrite_kind": "context_only",
@@ -11,78 +11,103 @@
       "status": "accepted",
       "reasons": []
     },
-    "original_question": "Does every strict conditional independence model for discrete random variables have a Q-rational point? Here a strict conditional independence model is the intersection of the positive orthant with the constructible set of tables for which a specified collection of conditional independence statements Xi ⊥⊥ Xj | XK holds and all other such statements do not hold.",
+    "original_question": "Let R = C[a, b]. Let D : R[x, y, z] -> R[x, y, z] be a triangular locally nilpotent R-derivation, meaning that D(x) belongs to R, D(y) belongs to R[x], and D(z) belongs to R[x, y]. If D has a slice, does it follow that ker(D) = R[2]?",
     "original_paper": {
-      "title": "Open Problems in Algebraic Statistics",
-      "locator": "https://arxiv.org/abs/0707.4558",
+      "title": "Open problems of the conference Automorphisms of Affine Spaces",
+      "locator": "https://arxiv.org/abs/0909.1462",
       "source_id": "primary"
     },
-    "rewritten_question": "Let X1, X2, ..., Xn be discrete random variables with d1, d2, ..., dn possible states, and identify a joint distribution with a d1 × d2 × ··· × dn table of positive real numbers. For any conditional independence statement saying that Xi is independent of Xj given XK, the condition that this statement hold is expressed by the vanishing of certain 2 × 2 minors, so a chosen collection of such statements defines a conditional-independence variety in the space of tables. Fix one collection S of conditional independence statements. Its strict conditional-independence variety consists of those tables for which every statement in S holds and every other conditional independence statement of this form fails; the corresponding strict conditional-independence model is the intersection of that constructible set with the positive orthant. Must every nonempty strict conditional-independence model contain a table all of whose entries are rational numbers?",
+    "rewritten_question": "Let R = C[a, b], the polynomial ring in two variables over C. Let D be an R-derivation of R[x, y, z] that is locally nilpotent, meaning that for every polynomial f there exists some n such that D^n(f) = 0. Assume D is triangular in the sense that D(x) lies in R, D(y) lies in R[x], and D(z) lies in R[x, y]. Also assume D has a slice, meaning that there exists an element s in R[x, y, z] with D(s) = 1. Must the kernel Ker D be a polynomial ring in two variables over R; equivalently, must Ker D be isomorphic to R[u, v] for some algebraically independent u and v?",
     "resolution": {
       "solved_status": "unsolved",
       "status_confidence": "medium",
-      "status_reason": "The primary paper explicitly poses this as an open 'Bonus Problem' and says that, at the time of writing, 'we know next to nothing.' A bounded later-literature search using Crossref and the arXiv API with exact and near-exact query variants for strict conditional-independence models and Q-rational points did not uncover a credible later paper claiming a general resolution of this exact question.",
+      "status_reason": "The primary paper explicitly poses this as an open problem, and a bounded later-literature search through 2026 found related work on locally nilpotent derivations and kernels but no credible paper explicitly resolving this exact question.",
       "solving_paper": null,
       "search_trace": {
         "sources": [
           "primary paper",
-          "Crossref API",
-          "arXiv API"
+          "arXiv",
+          "Crossref-style academic search"
         ],
         "query_variants": [
-          "strict CI model Q-rational point",
-          "strict conditional independence model rational point",
-          "Does every strict CI model have a Q-rational point",
-          "Frantisek Matus conditional independences four random variables rational points"
+          "\"ker(D)=R[2]\" triangular locally nilpotent derivation slice",
+          "\"Problem 5\" 0909.1462 Freudenburg",
+          "triangular locally nilpotent R-derivation with a slice kernel R[2]",
+          "Gene Freudenburg triangular locally nilpotent derivation slice kernel"
         ],
         "status_checked_at": "2026-03-24",
-        "notes": "The search found the primary source of the problem and related conditional-independence literature by Matús, but no later academic paper with an explicit general solution claim for the exact bonus problem. This supports treating the question as still unsolved within the bounds of the search rather than solved or merely nearby-resolved."
+        "notes": "The bounded search surfaced nearby papers, including arXiv:2306.00510 on locally nilpotent derivations in three variables, but no later paper was found that explicitly proves or disproves the exact Problem 5 statement from arXiv:0909.1462."
       }
     },
     "paper_evidence": [
       {
         "source_id": "primary",
-        "page": 11,
-        "quote": "We call such a variety a CI variety. It is the zero set of a large collection of 2×2-determinants. These constraints are well-known and listed explicitly in [12, §4.1] or [27, Proposition 8.1]. The corresponding strict CI variety is the set of tables for which the given CI statements hold but all other CI statements do not hold. Thus a strict CI variety is a constructible subset of (5.1) which is Zariski open in a CI variety.",
+        "page": 1,
+        "quote": "Problem 5. Let R = C[a, b] = C[2]. Let D : R[x, y, z] → R[x, y, z] be a locally nilpotent R-derivation which is triangular, i.e. D(x) ∈ R, D(y) ∈ R[x], D(z) ∈ R[x, y]. Suppose D has a slice. Does it imply that ker(D) = R[2]?",
         "supports": [
-          "def_ci_variety",
-          "def_strict_ci_variety",
-          "constructible_zariski_open_context"
-        ]
-      },
-      {
-        "source_id": "primary",
-        "page": 11,
-        "quote": "The corresponding strict CI model is the intersection of the strict CI variety with the positive orthant. It consists of all positive d1×d2× · · · ×dn-tables that lie in a common equivalence class, where two tables are equivalent if precisely the same CI statements Xi ⊥⊥ Xj |XK are valid (resp. not valid) for both tables. Bonus Problem: Does every strict CI model have a Q-rational point?",
-        "supports": [
-          "def_strict_ci_model",
           "question_goal",
-          "question_exact_formulation"
+          "triangular_conditions",
+          "open_problem_statement"
         ]
       },
       {
         "source_id": "primary",
-        "page": 12,
-        "quote": "This charming problem was proposed by F. Matúš in [21, page 275]. It suggests that algebraic statistics has something to offer also for arithmetic geometers. One conceivable solution to the Bonus Problem might say that CI models with no rational points exist but that rational points always appear when the number of states grows large, that is, for d1, d2, . . . , dn ≫ 0. But that is pure speculation. At present we know next to nothing.",
+        "page": 1,
+        "quote": "Note: ker(D) is an A2-fibration over A2.",
         "supports": [
-          "resolution_baseline_open",
-          "problem_origin",
-          "unsolved_primary_status"
+          "kernel_context_note"
+        ]
+      },
+      {
+        "source_id": "paper_001",
+        "page": 1,
+        "quote": "A k-derivation δ is a said to be a locally nilpotent derivation (abbrev. LND) if, for each b ∈ B, there exits n(b) ∈ N such that δ^(n(b))(b) = 0.",
+        "supports": [
+          "def_locally_nilpotent_derivation"
+        ]
+      },
+      {
+        "source_id": "paper_001",
+        "page": 5,
+        "quote": "Definition 2.4. Let D ∈ LND(B). An element s ∈ B is called a slice if Ds = 1, and a local slice if Ds ∈ KerD and Ds 6= 0, i.e., degD(s) = 1.",
+        "supports": [
+          "def_slice"
+        ]
+      },
+      {
+        "source_id": "paper_001",
+        "page": 5,
+        "quote": "Theorem 2.5. Let B a k-domain. Suppose D ∈ LND(B) admits a slice s ∈ B, and let A = Ker D. Then B = A[s] and D = ∂/∂s .",
+        "supports": [
+          "slice_context"
         ]
       }
     ],
     "consulted_papers": [
       {
         "source_id": "primary",
-        "title": "Open Problems in Algebraic Statistics",
+        "title": "Open problems of the conference Automorphisms of Affine Spaces",
         "authors": [
-          "Bernd Sturmfels"
+          "Stefan Maubach"
         ],
-        "year": 2007,
-        "locator": "https://arxiv.org/abs/0707.4558",
+        "year": 2009,
+        "locator": "https://arxiv.org/abs/0909.1462",
         "role": "primary",
         "used_for_rewrite": true,
         "used_for_resolution": true
+      },
+      {
+        "source_id": "paper_001",
+        "title": "On locally nilpotent derivations of polynomial algebra in three variables",
+        "authors": [
+          "Nikhilesh Dasgupta",
+          "Sergey Gaifullin"
+        ],
+        "year": 2023,
+        "locator": "https://arxiv.org/abs/2306.00510",
+        "role": "context_backfill",
+        "used_for_rewrite": true,
+        "used_for_resolution": false
       }
     ],
     "rubric_scores": {
@@ -92,70 +117,70 @@
           "label": "Prerequisite specificity",
           "score": 8,
           "direction": "higher_is_better",
-          "rationale": "Working on the question needs specialized background in algebraic statistics, conditional independence, and determinantal models."
+          "rationale": "A solver needs specialized background on locally nilpotent derivations, slices, and kernels over polynomial base rings."
         },
         {
           "id": "A2_domain_recognition",
           "label": "Domain recognition",
-          "score": 7,
+          "score": 6,
           "direction": "higher_is_better",
-          "rationale": "The rewrite identifies the area clearly, but a solver still needs to recognize a fairly niche interface between algebraic geometry, probability, and arithmetic questions."
+          "rationale": "The area is identifiable as affine algebraic geometry and commutative algebra, but not to a completely general mathematician at first glance."
         },
         {
           "id": "A3_object_unfamiliarity",
           "label": "Object unfamiliarity",
           "score": 8,
           "direction": "higher_is_better",
-          "rationale": "Strict conditional-independence models and their constructible strata are not standard objects for a broad mathematician."
+          "rationale": "Triangular locally nilpotent R-derivations and the notation R[2] are not standard objects for many mathematicians outside the subfield."
         },
         {
           "id": "A4_representation_setup",
           "label": "Representation setup",
           "score": 7,
           "direction": "higher_is_better",
-          "rationale": "A productive attack likely requires choosing the right algebraic, combinatorial, or arithmetic encoding of the model before any progress is possible."
+          "rationale": "Substantial structural setup is needed before one can even begin testing whether the kernel must be a polynomial ring."
         },
         {
           "id": "A5_first_foothold_visibility",
           "label": "First foothold visibility",
           "score": 8,
           "direction": "higher_is_better",
-          "rationale": "Even after the rewrite, there is no obvious canonical first experiment or reduction that clearly dominates the others."
+          "rationale": "The first useful move is not obvious from the statement alone, especially for readers without the slice-theorem toolkit."
         },
         {
           "id": "D2_dead_end_surface",
           "label": "Dead-end surface",
           "score": 7,
           "direction": "higher_is_better",
-          "rationale": "It is easy to pursue geometric, combinatorial, or number-theoretic directions that may illuminate examples without resolving the rational-point question in general."
+          "rationale": "There are many tempting but potentially misleading lines of attack involving fibrations, triangulability, or analogy with lower-dimensional kernel theorems."
         },
         {
           "id": "D3_key_leap_size",
           "label": "Key leap size",
           "score": 8,
           "direction": "higher_is_better",
-          "rationale": "A full solution seems likely to require an idea that goes beyond routine manipulation of CI determinants or small examples."
+          "rationale": "A successful solution likely needs a substantial structural insight rather than incremental symbolic manipulation."
         },
         {
           "id": "D5_method_novelty",
           "label": "Method novelty",
-          "score": 8,
+          "score": 7,
           "direction": "higher_is_better",
-          "rationale": "The arithmetic aspect suggests that standard conditional-independence techniques alone may not suffice."
+          "rationale": "The natural methods come from a fairly specialized literature, so a winning argument would probably not feel routine."
         },
         {
           "id": "C1_technical_length",
           "label": "Technical length",
           "score": 7,
           "direction": "higher_is_better",
-          "rationale": "Even with the right idea, proving a general statement over all strict CI models would likely require substantial case handling or structural work."
+          "rationale": "Even after the main idea, one should expect a nontrivial structural argument about kernels and polynomial-ring structure."
         },
         {
           "id": "C2_computation_burden",
           "label": "Computation burden",
-          "score": 6,
+          "score": 4,
           "direction": "higher_is_better",
-          "rationale": "The problem may involve explicit examples and determinantal calculations, but the main challenge seems more conceptual than computational."
+          "rationale": "The problem looks more conceptual than computational, with limited raw symbolic burden compared with its structural difficulty."
         }
       ],
       "perfectness": [
@@ -164,109 +189,113 @@
           "label": "Well-posedness and unambiguity",
           "score": 8,
           "direction": "higher_is_better",
-          "rationale": "The rewrite makes the intended objects and quantifiers explicit and leaves a single clear yes-or-no target."
+          "rationale": "Once the standard terminology is unpacked, the mathematical ask is crisp and has a clear yes-or-no form."
         },
         {
           "id": "P2_solver_fit_self_containedness",
           "label": "Solver-fit and self-containedness",
-          "score": 9,
+          "score": 8,
           "direction": "higher_is_better",
-          "rationale": "The needed paper-local terminology is unpacked directly inside the question."
+          "rationale": "The rewrite now defines the nonstandard terms needed for comprehension without requiring the reader to know the source paper."
         },
         {
           "id": "P3_purity_of_difficulty",
           "label": "Purity of difficulty",
           "score": 8,
           "direction": "higher_is_better",
-          "rationale": "The remaining difficulty comes from the mathematics of the problem rather than from hidden notation or source-dependent wording."
+          "rationale": "The challenge comes from the mathematics itself rather than from accidental wording clutter."
         },
         {
           "id": "P4_fair_concealment",
           "label": "Fair concealment",
           "score": 7,
           "direction": "higher_is_better",
-          "rationale": "The rewrite does not leak a method, but it also does not artificially hide information beyond the natural statement of the problem."
+          "rationale": "The statement does not leak a method, but it also does not artificially hide crucial information beyond normal specialist context."
         },
         {
           "id": "P5_naturalness_of_core",
           "label": "Naturalness of core",
           "score": 8,
           "direction": "higher_is_better",
-          "rationale": "The question has a natural arithmetic-geometric flavor once the CI-model setup is spelled out."
+          "rationale": "The question asks whether a strong structural hypothesis forces a polynomial-kernel conclusion, which is a natural theme in the area."
         },
         {
           "id": "P6_payoff_finish_quality",
           "label": "Payoff and finish quality",
           "score": 8,
           "direction": "higher_is_better",
-          "rationale": "A resolution would sharply separate existence of rational points from positivity and constructibility, which gives the problem a clean conceptual payoff."
+          "rationale": "A resolution would give a clean structural dichotomy and would likely feel mathematically satisfying if proved either way."
         }
       ]
     },
     "trace": [
       {
         "stage": "map_primary",
-        "notes": "Mapped the paper and identified Section 5, 'Bonus Problem on Rational Points,' as the location of the exact question and the needed definitions.",
+        "notes": "Mapped the three-page conference problem list and identified the target statement as Gene Freudenburg's Problem 5 on page 1.",
         "evidence_refs": [
-          "primary:p11"
+          "primary:p1"
         ]
       },
       {
         "stage": "locate_question",
-        "notes": "Located the exact bonus problem statement and the primary-paper definition of strict CI model on page 11.",
+        "notes": "Located the exact user question verbatim in the primary paper, including the triangular hypotheses and the slice assumption.",
         "evidence_refs": [
-          "primary:p11"
+          "primary:p1"
         ]
       },
       {
         "stage": "recover_primary_context",
-        "notes": "Recovered the ambient setting of positive contingency tables, CI varieties cut out by 2 × 2 minors, and the strictness condition that only the chosen CI statements hold.",
+        "notes": "The primary paper gives the exact problem statement and the note that the kernel is an A2-fibration over A2, but it does not define locally nilpotent derivation or slice, so bounded backfill was needed for those terms.",
         "evidence_refs": [
-          "primary:p11"
+          "primary:p1"
         ]
       },
       {
         "stage": "backfill",
-        "notes": "Ran a bounded later-literature search through Crossref and the arXiv API using exact and near-exact formulations of the bonus problem. The search returned the primary source and related conditional-independence papers, but no later paper with a credible explicit general solution claim.",
+        "notes": "Used a later academic paper for standard definitions of locally nilpotent derivation and slice so the rewrite could be self-contained without changing the primary formulation.",
         "evidence_refs": [
-          "primary:p12"
+          "paper_001:p1",
+          "paper_001:p5"
         ]
       },
       {
         "stage": "resolve_status",
-        "notes": "Marked the problem as unsolved with medium confidence because the primary paper explicitly presents it as open and the bounded later search found no convincing resolution of the exact question.",
+        "notes": "A bounded later-literature search found nearby papers on locally nilpotent derivations but no explicit later resolution of this exact Problem 5 statement, so the status was set to unsolved with medium confidence.",
         "evidence_refs": [
-          "primary:p12"
+          "primary:p1"
         ]
       },
       {
         "stage": "rewrite_context_only",
-        "notes": "Expanded the paper-local definitions of CI variety, strict CI variety, and strict CI model into one standalone question for a broad mathematician.",
+        "notes": "Expanded the problem into standalone prose by defining locally nilpotent derivation, slice, and the meaning of the claim Ker D = R[2].",
         "evidence_refs": [
-          "primary:p11"
+          "primary:p1",
+          "paper_001:p1",
+          "paper_001:p5"
         ]
       },
       {
         "stage": "score",
-        "notes": "Scored the emitted rewrite for niche prerequisites, object unfamiliarity, and self-containedness after the contextual expansion.",
+        "notes": "Scored the emitted rewrite for specialist difficulty and for self-contained presentation quality.",
         "evidence_refs": []
       },
       {
         "stage": "quality_gates",
-        "notes": "Checked that the rewrite is self-contained, evidence-backed, free of paper-internal references, and that the unsolved status is supported by the primary paper plus bounded no-match later search.",
+        "notes": "Checked that the rewrite is self-contained, evidence-backed, and keeps the primary paper's formulation while separating solved-status claims into the resolution block.",
         "evidence_refs": [
-          "primary:p11",
-          "primary:p12"
+          "primary:p1",
+          "paper_001:p1",
+          "paper_001:p5"
         ]
       },
       {
         "stage": "persist",
-        "notes": "Saved the artifact and the exact returned JSON array to the configured output paths.",
+        "notes": "Saved the emitted artifact and the exact returned JSON array to the required output paths.",
         "evidence_refs": []
       }
     ],
     "persist": {
-      "run_path": "outputs/runs/0707.4558--context-only.json",
+      "run_path": "outputs/runs/0909.1462--context-only.json",
       "latest_path": "outputs/paper-question-refiner.latest.json",
       "saved": true
     }
