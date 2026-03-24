@@ -1,0 +1,185 @@
+{
+  "accepted": [
+    {
+      "id": "q_001",
+      "question_text": "In recovery problems with noisy data, why do semidefinite-programming relaxations of maximum-likelihood estimators often remain tight beyond the exact-recovery regime? More concretely, when noise is large enough that the maximum-likelihood estimator cannot exactly recover the ground truth, under what structural or probabilistic conditions does the SDP relaxation still return a solution that lies in the original nonconvex model class, or equivalently matches the lower-rank quasi-maximum-likelihood solution instead of requiring a rounding step?",
+      "context_brief": "General SDP rank-recovery phenomenon",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 1,
+          "quote": "We have observed an interesting, yet unexplained, phenomenon: Semidefinite programming (SDP) based relaxations of maximum likelihood estimators (MLE) tend to be tight in recovery problems with noisy data, even when MLE cannot exactly recover the ground truth."
+        },
+        {
+          "page": 1,
+          "quote": "However, to the best of our knowledge, their tightness is not understood beyond this regime."
+        },
+        {
+          "page": 2,
+          "quote": "Yet, to the best of our knowledge, there is no theoretical understanding of this rank recovery phenomenon."
+        }
+      ]
+    },
+    {
+      "id": "q_002",
+      "question_text": "Let d > 1, n > 2, and m >= d + 1. Let A in R^(d x m) be a point cloud whose m columns are random points in R^d with i.i.d. uniform coordinates in [0,1]^d, and let O_1, ..., O_n be orthogonal transformations in R^d. Suppose the observed data are matrices A_i = O_i A + sigma eta_i in R^(d x m), where each eta_i has i.i.d. standard Gaussian entries. Form the generalized orthogonal Procrustes quasi-maximum-likelihood problem of maximizing Tr(CX) over block matrices X with X >= 0, X_ii = I_(d x d), and rank(X) <= d, and its semidefinite relaxation obtained by dropping the rank constraint. Does there exist a threshold sigma* > 0 such that whenever sigma < sigma*, with high probability the SDP relaxation has rank d and therefore exactly matches the quasi-maximum-likelihood solution?",
+      "context_brief": "Generalized Procrustes SDP conjecture",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 1,
+          "quote": "We focus on a particular type of convex relaxations, namely semidefinite programming (SDP) based relaxations, and illustrate both these techniques and the open problem we wish to pose via the generalized orthogonal Procrustes problem (Nemirovski (2007)): There is an unknown underlying point cloud of m points in R d, A in R d\u00d7m (where columns of A represent the coordinates of the points) and n unknown orthogonal transformations in R d, {Oi} n i=1 satisfying OiOT i = Id\u00d7d. We are given n noisy measurements of the form Ai = OiA+\u03c3\u03b7, and, for simplicity, assume the noise to be white Gaussian."
+        },
+        {
+          "page": 2,
+          "quote": "The semidefinite relaxation in Bandeira et al. (2013) can then be obtained by dropping the non-convex rank constraint, giving the following SDP max Tr(CX) subject to X >= 0, forall_i Xii = Id\u00d7d."
+        },
+        {
+          "page": 2,
+          "quote": "Conjecture 1 Let d > 1, n > 2, m >= d + 1, A in R d\u00d7m represent m random points in R d (i.i.d. uniform random coordinates in [0, 1]d), and {Oi} n i=1 be any sequence of orthogonal transformations. Let Ai = OiA + sigma eta_i in R d\u00d7m, where eta_i is a matrix with i.i.d. standard gaussian entries. There exists sigma* > 0 such that, for sigma < sigma*, with high probability, the solution of (3) has rank d, hence matching the quasi-MLE (solution of (2))."
+        }
+      ]
+    }
+  ],
+  "needs_review": [
+    {
+      "id": "q_003",
+      "reason": "unresolved_cross_reference",
+      "question_text_raw": "Below a certain noise level the solution to SDP-based relaxation in Bandeira et al. (2014) has rank d, thus matching the quasi-MLE.",
+      "evidence": [
+        {
+          "page": 3,
+          "quote": "The multireference alignment consists in estimating a d-dimensional signal by observing n shifted noisy copies of it. For the sake of brevity, we will not describe the problem or the SDP based relaxation here (and refer the reader to Bandeira et al. (2014)) but take the opportunity to conjecture that a similar phenomenon happens: Below a certain noise level the solution to SDP-based relaxation in Bandeira et al. (2014) has rank d, thus matching the quasi-MLE."
+        },
+        {
+          "page": 3,
+          "quote": "Although not going into details, we note that the SDP for this problem is considerably different than (3), in particular, it has Omega(n^2 d^2) positivity constraints."
+        }
+      ]
+    }
+  ],
+  "trace": [
+    {
+      "id": "paper_1404.2655",
+      "stage": "map",
+      "notes": "Mapped a 3-page paper with sections Abstract, Introduction, An open problem, and References; identified the main open-problem regions in the abstract, Conjecture 1 on page 2, and the multireference-alignment conjecture on page 3.",
+      "evidence_refs": [
+        "p1",
+        "p2",
+        "p3"
+      ]
+    },
+    {
+      "id": "sec_intro",
+      "stage": "extract_candidates",
+      "notes": "From the abstract and introduction, extracted the general unexplained phenomenon that SDP relaxations stay tight with noisy data beyond exact-recovery regimes.",
+      "evidence_refs": [
+        "p1",
+        "p2"
+      ]
+    },
+    {
+      "id": "sec_open_problem",
+      "stage": "extract_candidates",
+      "notes": "From Section 2, extracted the explicit generalized Procrustes open conjecture about rank-d recovery by the SDP relaxation below a noise threshold.",
+      "evidence_refs": [
+        "p2"
+      ]
+    },
+    {
+      "id": "sec_mra",
+      "stage": "extract_candidates",
+      "notes": "From page 3, extracted the multireference-alignment conjecture but marked it incomplete because the paper omits the needed definition of the SDP relaxation.",
+      "evidence_refs": [
+        "p3"
+      ]
+    },
+    {
+      "id": "q_001",
+      "stage": "rewrite",
+      "notes": "Rewrote the paper's broad phenomenon as a standalone theoretical question about when noisy-data SDP relaxations still match the nonconvex maximum-likelihood solution beyond exact recovery.",
+      "evidence_refs": [
+        "p1",
+        "p2"
+      ]
+    },
+    {
+      "id": "q_002",
+      "stage": "rewrite",
+      "notes": "Expanded Conjecture 1 into a self-contained statement by inlining the point-cloud model, orthogonal transformations, Gaussian noise model, and the rank-constrained versus relaxed SDP formulations from pages 1-2.",
+      "evidence_refs": [
+        "p1",
+        "p2"
+      ]
+    },
+    {
+      "id": "q_003",
+      "stage": "rewrite",
+      "notes": "Did not rewrite into accepted form because the paper explicitly withholds the multireference-alignment SDP definition, so a self-contained statement would require unsupported details.",
+      "evidence_refs": [
+        "p3"
+      ]
+    },
+    {
+      "id": "q_001",
+      "stage": "dedupe",
+      "notes": "Kept the general rank-recovery question distinct from the generalized-Procrustes conjecture because one asks for a broad theoretical explanation and the other states a concrete threshold conjecture in a specific model.",
+      "evidence_refs": [
+        "p1",
+        "p2"
+      ]
+    },
+    {
+      "id": "q_002",
+      "stage": "dedupe",
+      "notes": "No near-duplicate accepted item found for the generalized Procrustes conjecture.",
+      "evidence_refs": [
+        "p2"
+      ]
+    },
+    {
+      "id": "q_003",
+      "stage": "dedupe",
+      "notes": "Kept separate from q_002 because it concerns multireference alignment rather than generalized Procrustes.",
+      "evidence_refs": [
+        "p3"
+      ]
+    },
+    {
+      "id": "q_001",
+      "stage": "quality_gates",
+      "notes": "Passed self-containedness, evidence coverage, evidence completeness, no-new-facts, and schema conformance gates.",
+      "evidence_refs": [
+        "p1",
+        "p2"
+      ]
+    },
+    {
+      "id": "q_002",
+      "stage": "quality_gates",
+      "notes": "Passed self-containedness, evidence coverage, evidence completeness, no-new-facts, and schema conformance gates.",
+      "evidence_refs": [
+        "p1",
+        "p2"
+      ]
+    },
+    {
+      "id": "q_003",
+      "stage": "quality_gates",
+      "notes": "Moved to needs_review because the paper refers to an external source for the SDP formulation, leaving an unresolved cross-reference that prevents a self-contained accepted rewrite.",
+      "evidence_refs": [
+        "p3"
+      ]
+    },
+    {
+      "id": "paper_1404.2655",
+      "stage": "persist",
+      "notes": "Saved final JSON to outputs/runs/1404.2655.json and updated outputs/latest.json.",
+      "evidence_refs": []
+    }
+  ]
+}
