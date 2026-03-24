@@ -16,10 +16,12 @@ fi
 
 mkdir -p "$ERROR_LOG_DIR"
 
-while IFS= read -r arxiv_link || [[ -n "$arxiv_link" ]]; do
+exec 3< "$TARGETS_FILE"
+while IFS= read -r arxiv_link <&3 || [[ -n "$arxiv_link" ]]; do
   [[ -z "$arxiv_link" ]] && continue
-  if ! oh-my-opencode run "@RUN_ME.md $arxiv_link"; then
+  if ! opencode run "@RUN_ME.md $arxiv_link" </dev/null; then
     echo "error occurred: $arxiv_link" >> "$ERROR_LOG_FILE"
     continue
   fi
-done < "$TARGETS_FILE"
+done
+exec 3<&-

@@ -4,6 +4,7 @@ set -euo pipefail
 # Run this script from the project root.
 # Put target arXiv links in TARGETS_FILE
 TARGETS_FILE="targets"
+OPENCODE_AGENT="${OPENCODE_AGENT:-Sisyphus (Ultraworker)}"
 
 ERROR_LOG_DIR="logs"
 ERROR_TIMESTAMP="$(date -u +%Y%m%d_%H%M%S)"
@@ -16,10 +17,12 @@ fi
 
 mkdir -p "$ERROR_LOG_DIR"
 
-while IFS= read -r arxiv_link || [[ -n "$arxiv_link" ]]; do
+exec 3< "$TARGETS_FILE"
+while IFS= read -r arxiv_link <&3 || [[ -n "$arxiv_link" ]]; do
   [[ -z "$arxiv_link" ]] && continue
-  if ! oh-my-opencode run "/paper-question-parser $arxiv_link"; then
+  if ! opencode run --agent "$OPENCODE_AGENT" "/paper-question-parser $arxiv_link" </dev/null; then
     echo "error occurred: $arxiv_link" >> "$ERROR_LOG_FILE"
     continue
   fi
-done < "$TARGETS_FILE"
+done
+exec 3<&-
