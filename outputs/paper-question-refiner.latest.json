@@ -2,8 +2,8 @@
   {
     "schema_version": "1.0",
     "input": {
-      "question": "Let P(z) be a homogeneous polynomial of degree 4 in C[z] whose Hessian matrix Hes P is nilpotent, so P is Hessian nilpotent. If Delta := sum_{i=1}^n D_i^2 is the Laplace operator on C[z], must the iterated Laplacians of the powers of P eventually vanish in the sense that Delta^m(P(z)^(m+1)) = 0 for all sufficiently large m?",
-      "arxiv_id": "0704.1689"
+      "question": "Does every strict conditional independence model for discrete random variables have a Q-rational point? Here a strict conditional independence model is the intersection of the positive orthant with the constructible set of tables for which a specified collection of conditional independence statements Xi ⊥⊥ Xj | XK holds and all other such statements do not hold.",
+      "arxiv_id": "0707.4558"
     },
     "target_reader": "broad_mathematician",
     "rewrite_kind": "context_only",
@@ -11,81 +11,75 @@
       "status": "accepted",
       "reasons": []
     },
-    "original_question": "Let P(z) be a homogeneous polynomial of degree 4 in C[z] whose Hessian matrix Hes P is nilpotent, so P is Hessian nilpotent. If Delta := sum_{i=1}^n D_i^2 is the Laplace operator on C[z], must the iterated Laplacians of the powers of P eventually vanish in the sense that Delta^m(P(z)^(m+1)) = 0 for all sufficiently large m?",
+    "original_question": "Does every strict conditional independence model for discrete random variables have a Q-rational point? Here a strict conditional independence model is the intersection of the positive orthant with the constructible set of tables for which a specified collection of conditional independence statements Xi ⊥⊥ Xj | XK holds and all other such statements do not hold.",
     "original_paper": {
-      "title": "Some Properties of and Open Problems on Hessian Nilpotent Polynomials",
-      "locator": "https://arxiv.org/abs/0704.1689",
+      "title": "Open Problems in Algebraic Statistics",
+      "locator": "https://arxiv.org/abs/0707.4558",
       "source_id": "primary"
     },
-    "rewritten_question": "Let P(z1, ..., zn) be a homogeneous polynomial of degree 4 with complex coefficients. Call P Hessian nilpotent if its Hessian matrix, whose (i,j)-entry is the second partial derivative of P with respect to zi and zj, is nilpotent. Let Delta be the Laplace operator D1^2 + ... + Dn^2. Equivalently, for such a polynomial P, the condition of being Hessian nilpotent is the same as requiring Delta^m(P(z)^m) = 0 for every integer m at least 1. Must it then follow that, for all sufficiently large integers m, the m-fold iterated Laplacian of P(z)^(m+1) also vanishes, that is, Delta^m(P(z)^(m+1)) = 0 eventually?",
+    "rewritten_question": "Let X1, X2, ..., Xn be discrete random variables with d1, d2, ..., dn possible states, and identify a joint distribution with a d1 × d2 × ··· × dn table of positive real numbers. For any conditional independence statement saying that Xi is independent of Xj given XK, the condition that this statement hold is expressed by the vanishing of certain 2 × 2 minors, so a chosen collection of such statements defines a conditional-independence variety in the space of tables. Fix one collection S of conditional independence statements. Its strict conditional-independence variety consists of those tables for which every statement in S holds and every other conditional independence statement of this form fails; the corresponding strict conditional-independence model is the intersection of that constructible set with the positive orthant. Must every nonempty strict conditional-independence model contain a table all of whose entries are rational numbers?",
     "resolution": {
       "solved_status": "unsolved",
       "status_confidence": "medium",
-      "status_reason": "The primary paper presents this as Conjecture 1.1 in a paper of open problems, and a bounded later-literature search found no credible paper explicitly proving the same degree-4 Hessian-nilpotent Laplacian-vanishing statement in full generality.",
+      "status_reason": "The primary paper explicitly poses this as an open 'Bonus Problem' and says that, at the time of writing, 'we know next to nothing.' A bounded later-literature search using Crossref and the arXiv API with exact and near-exact query variants for strict conditional-independence models and Q-rational points did not uncover a credible later paper claiming a general resolution of this exact question.",
       "solving_paper": null,
       "search_trace": {
         "sources": [
           "primary paper",
-          "arXiv",
-          "later academic literature search"
+          "Crossref API",
+          "arXiv API"
         ],
         "query_variants": [
-          "vanishing conjecture Hessian nilpotent polynomial",
-          "Delta^m P^(m+1) Hessian nilpotent",
-          "homogeneous Hessian nilpotent polynomial vanishing conjecture",
-          "Zhao vanishing conjecture Jacobian conjecture"
+          "strict CI model Q-rational point",
+          "strict conditional independence model rational point",
+          "Does every strict CI model have a Q-rational point",
+          "Frantisek Matus conditional independences four random variables rational points"
         ],
         "status_checked_at": "2026-03-24",
-        "notes": "The bounded search surfaced conditional results, special cases, and equivalence or generalization papers, but no exact-match full-resolution paper for Conjecture 1.1."
+        "notes": "The search found the primary source of the problem and related conditional-independence literature by Matús, but no later academic paper with an explicit general solution claim for the exact bonus problem. This supports treating the question as still unsolved within the bounds of the search rather than solved or merely nearby-resolved."
       }
     },
     "paper_evidence": [
       {
         "source_id": "primary",
-        "page": 1,
-        "quote": "We also propose some open problems for further study of these objects.",
+        "page": 11,
+        "quote": "We call such a variety a CI variety. It is the zero set of a large collection of 2×2-determinants. These constraints are well-known and listed explicitly in [12, §4.1] or [27, Proposition 8.1]. The corresponding strict CI variety is the set of tables for which the given CI statements hold but all other CI statements do not hold. Thus a strict CI variety is a constructible subset of (5.1) which is Zariski open in a CI variety.",
         "supports": [
-          "open_problem_context"
+          "def_ci_variety",
+          "def_strict_ci_variety",
+          "constructible_zariski_open_context"
         ]
       },
       {
         "source_id": "primary",
-        "page": 2,
-        "quote": "A polynomial or formal power series P(z) is said to be HN (Hessian nilpotent) if its Hessian matrix Hes P := ( ∂2P / ∂zi∂zj ) are nilpotent.",
+        "page": 11,
+        "quote": "The corresponding strict CI model is the intersection of the strict CI variety with the positive orthant. It consists of all positive d1×d2× · · · ×dn-tables that lie in a common equivalence class, where two tables are equivalent if precisely the same CI statements Xi ⊥⊥ Xj |XK are valid (resp. not valid) for both tables. Bonus Problem: Does every strict CI model have a Q-rational point?",
         "supports": [
-          "def_hessian_nilpotent"
-        ]
-      },
-      {
-        "source_id": "primary",
-        "page": 2,
-        "quote": "Conjecture 1.1. (Vanishing Conjecture) Let ∆ := Pn i=1 D2 i be the Laplace operator of C[z]. Then, for any HN polynomial P(z) (of homogeneous of degree d = 4), ∆mP m+1(z) = 0 when m >> 0.",
-        "supports": [
+          "def_strict_ci_model",
           "question_goal",
-          "def_laplace_operator",
-          "degree_four_setting",
-          "primary_open_question"
+          "question_exact_formulation"
         ]
       },
       {
         "source_id": "primary",
-        "page": 3,
-        "quote": "Proposition 1.2. For any P(z) ∈ C[[z]] with o(P(z)) ≥ 2, the following statements are equivalent. (1) P(z) is HN. (2) ∆mP m = 0 for any m ≥ 1. (3) ∆mP m = 0 for any 1 ≤ m ≤ n.",
+        "page": 12,
+        "quote": "This charming problem was proposed by F. Matúš in [21, page 275]. It suggests that algebraic statistics has something to offer also for arithmetic geometers. One conceivable solution to the Bonus Problem might say that CI models with no rational points exist but that rational points always appear when the number of states grows large, that is, for d1, d2, . . . , dn ≫ 0. But that is pure speculation. At present we know next to nothing.",
         "supports": [
-          "equiv_hn_and_delta_m_p_m",
-          "recover_primary_context"
+          "resolution_baseline_open",
+          "problem_origin",
+          "unsolved_primary_status"
         ]
       }
     ],
     "consulted_papers": [
       {
         "source_id": "primary",
-        "title": "Some Properties of and Open Problems on Hessian Nilpotent Polynomials",
+        "title": "Open Problems in Algebraic Statistics",
         "authors": [
-          "Wenhua Zhao"
+          "Bernd Sturmfels"
         ],
-        "year": 2008,
-        "locator": "https://arxiv.org/abs/0704.1689",
+        "year": 2007,
+        "locator": "https://arxiv.org/abs/0707.4558",
         "role": "primary",
         "used_for_rewrite": true,
         "used_for_resolution": true
@@ -98,188 +92,181 @@
           "label": "Prerequisite specificity",
           "score": 8,
           "direction": "higher_is_better",
-          "rationale": "Solving it likely requires specialized knowledge about Hessian nilpotent polynomials, Laplacian identities, and the Jacobian-conjecture literature around Zhao's vanishing conjecture."
+          "rationale": "Working on the question needs specialized background in algebraic statistics, conditional independence, and determinantal models."
         },
         {
           "id": "A2_domain_recognition",
           "label": "Domain recognition",
-          "score": 6,
+          "score": 7,
           "direction": "higher_is_better",
-          "rationale": "The problem is recognizable as belonging to algebraic geometry and polynomial-map theory, but the precise toolkit is still somewhat specialized."
+          "rationale": "The rewrite identifies the area clearly, but a solver still needs to recognize a fairly niche interface between algebraic geometry, probability, and arithmetic questions."
         },
         {
           "id": "A3_object_unfamiliarity",
           "label": "Object unfamiliarity",
           "score": 8,
           "direction": "higher_is_better",
-          "rationale": "Hessian nilpotent polynomials are unusual objects for a broad mathematician, even after the rewrite defines them."
+          "rationale": "Strict conditional-independence models and their constructible strata are not standard objects for a broad mathematician."
         },
         {
           "id": "A4_representation_setup",
           "label": "Representation setup",
           "score": 7,
           "direction": "higher_is_better",
-          "rationale": "Progress probably depends on selecting the right structural representation of homogeneous Hessian nilpotent polynomials or of the associated symmetric map."
+          "rationale": "A productive attack likely requires choosing the right algebraic, combinatorial, or arithmetic encoding of the model before any progress is possible."
         },
         {
           "id": "A5_first_foothold_visibility",
           "label": "First foothold visibility",
           "score": 8,
           "direction": "higher_is_better",
-          "rationale": "The statement is clean, but it does not present an obvious first move beyond invoking deep surrounding theory."
+          "rationale": "Even after the rewrite, there is no obvious canonical first experiment or reduction that clearly dominates the others."
         },
         {
           "id": "D2_dead_end_surface",
           "label": "Dead-end surface",
           "score": 7,
           "direction": "higher_is_better",
-          "rationale": "Several plausible approaches through harmonicity, nilpotent matrices, or direct Laplacian computation can look promising without clearly closing the conjecture."
+          "rationale": "It is easy to pursue geometric, combinatorial, or number-theoretic directions that may illuminate examples without resolving the rational-point question in general."
         },
         {
           "id": "D3_key_leap_size",
           "label": "Key leap size",
           "score": 8,
           "direction": "higher_is_better",
-          "rationale": "A full solution likely needs a substantial conceptual bridge rather than a routine extension of the known identities."
+          "rationale": "A full solution seems likely to require an idea that goes beyond routine manipulation of CI determinants or small examples."
         },
         {
           "id": "D5_method_novelty",
           "label": "Method novelty",
           "score": 8,
           "direction": "higher_is_better",
-          "rationale": "Any proof in full generality would probably use methods outside a standard graduate repertoire."
+          "rationale": "The arithmetic aspect suggests that standard conditional-independence techniques alone may not suffice."
         },
         {
           "id": "C1_technical_length",
           "label": "Technical length",
           "score": 7,
           "direction": "higher_is_better",
-          "rationale": "Even with the right idea, the path to a full proof seems likely to involve substantial technical work."
+          "rationale": "Even with the right idea, proving a general statement over all strict CI models would likely require substantial case handling or structural work."
         },
         {
           "id": "C2_computation_burden",
           "label": "Computation burden",
           "score": 6,
           "direction": "higher_is_better",
-          "rationale": "There may be meaningful symbolic manipulation, but the main challenge appears structural rather than merely computational."
+          "rationale": "The problem may involve explicit examples and determinantal calculations, but the main challenge seems more conceptual than computational."
         }
       ],
       "perfectness": [
         {
           "id": "P1_well_posedness_unambiguity",
           "label": "Well-posedness and unambiguity",
-          "score": 9,
+          "score": 8,
           "direction": "higher_is_better",
-          "rationale": "Once the source notation is unpacked, the quantifiers and target vanishing statement are clean and unambiguous."
+          "rationale": "The rewrite makes the intended objects and quantifiers explicit and leaves a single clear yes-or-no target."
         },
         {
           "id": "P2_solver_fit_self_containedness",
           "label": "Solver-fit and self-containedness",
           "score": 9,
           "direction": "higher_is_better",
-          "rationale": "The rewrite defines Hessian nilpotence, the Laplace operator, and the key equivalent condition directly, so it no longer depends on paper-local notation."
+          "rationale": "The needed paper-local terminology is unpacked directly inside the question."
         },
         {
           "id": "P3_purity_of_difficulty",
           "label": "Purity of difficulty",
           "score": 8,
           "direction": "higher_is_better",
-          "rationale": "The challenge comes from the mathematics of the conjecture rather than from avoidable wording clutter."
+          "rationale": "The remaining difficulty comes from the mathematics of the problem rather than from hidden notation or source-dependent wording."
         },
         {
           "id": "P4_fair_concealment",
           "label": "Fair concealment",
-          "score": 8,
+          "score": 7,
           "direction": "higher_is_better",
-          "rationale": "The statement hides the right method fairly without leaking an unnatural shortcut."
+          "rationale": "The rewrite does not leak a method, but it also does not artificially hide information beyond the natural statement of the problem."
         },
         {
           "id": "P5_naturalness_of_core",
           "label": "Naturalness of core",
-          "score": 9,
+          "score": 8,
           "direction": "higher_is_better",
-          "rationale": "It is a natural vanishing question attached to a distinguished class of polynomials with a major conceptual link to the Jacobian conjecture."
+          "rationale": "The question has a natural arithmetic-geometric flavor once the CI-model setup is spelled out."
         },
         {
           "id": "P6_payoff_finish_quality",
           "label": "Payoff and finish quality",
           "score": 8,
           "direction": "higher_is_better",
-          "rationale": "A resolution would have strong conceptual payoff because it would settle a clean reformulation in a notable conjectural framework."
+          "rationale": "A resolution would sharply separate existence of rational points from positivity and constructibility, which gives the problem a clean conceptual payoff."
         }
       ]
     },
     "trace": [
       {
         "stage": "map_primary",
-        "notes": "Mapped the primary paper, identified Conjecture 1.1 on page 2, and noted the later equivalent reformulations in Section 7 and the connectedness reduction in Section 8.",
+        "notes": "Mapped the paper and identified Section 5, 'Bonus Problem on Rational Points,' as the location of the exact question and the needed definitions.",
         "evidence_refs": [
-          "primary:p2",
-          "primary:p25",
-          "primary:p29"
+          "primary:p11"
         ]
       },
       {
         "stage": "locate_question",
-        "notes": "Located the user's question exactly as the paper's Vanishing Conjecture for homogeneous degree-4 Hessian nilpotent polynomials.",
+        "notes": "Located the exact bonus problem statement and the primary-paper definition of strict CI model on page 11.",
         "evidence_refs": [
-          "primary:p2"
+          "primary:p11"
         ]
       },
       {
         "stage": "recover_primary_context",
-        "notes": "Recovered the needed context directly from the primary paper: the definition of Hessian nilpotence, the Laplace operator, and the equivalence between Hessian nilpotence and the vanishing of Delta^m(P^m) for all m at least 1.",
+        "notes": "Recovered the ambient setting of positive contingency tables, CI varieties cut out by 2 × 2 minors, and the strictness condition that only the chosen CI statements hold.",
         "evidence_refs": [
-          "primary:p2",
-          "primary:p3"
+          "primary:p11"
         ]
       },
       {
         "stage": "backfill",
-        "notes": "Performed a bounded academic-literature search focused on later work around the vanishing conjecture, Hessian nilpotent polynomials, and generalized vanishing conjectures.",
-        "evidence_refs": []
+        "notes": "Ran a bounded later-literature search through Crossref and the arXiv API using exact and near-exact formulations of the bonus problem. The search returned the primary source and related conditional-independence papers, but no later paper with a credible explicit general solution claim.",
+        "evidence_refs": [
+          "primary:p12"
+        ]
       },
       {
         "stage": "resolve_status",
-        "notes": "Classified the question as unsolved because the primary paper frames it as an open conjecture and the bounded later-literature search found only partial progress, reformulations, and equivalence papers rather than a full exact-match resolution.",
+        "notes": "Marked the problem as unsolved with medium confidence because the primary paper explicitly presents it as open and the bounded later search found no convincing resolution of the exact question.",
         "evidence_refs": [
-          "primary:p1",
-          "primary:p2"
+          "primary:p12"
         ]
       },
       {
         "stage": "rewrite_context_only",
-        "notes": "Kept the mathematical goal unchanged and only expanded the paper-local terminology needed for a broad mathematician to read the question on its own.",
+        "notes": "Expanded the paper-local definitions of CI variety, strict CI variety, and strict CI model into one standalone question for a broad mathematician.",
         "evidence_refs": [
-          "primary:p2",
-          "primary:p3"
+          "primary:p11"
         ]
       },
       {
         "stage": "score",
-        "notes": "Scored the emitted rewrite as mathematically difficult and conceptually natural, with most of the challenge coming from the underlying conjectural structure rather than the wording.",
-        "evidence_refs": [
-          "primary:p2",
-          "primary:p3"
-        ]
+        "notes": "Scored the emitted rewrite for niche prerequisites, object unfamiliarity, and self-containedness after the contextual expansion.",
+        "evidence_refs": []
       },
       {
         "stage": "quality_gates",
-        "notes": "Checked self-containedness, evidence coverage, no-new-facts, resolution conservatism, primary-paper priority, reformulation necessity, JSON-safe prose, and schema conformance. A separate reformulation artifact was not needed.",
+        "notes": "Checked that the rewrite is self-contained, evidence-backed, free of paper-internal references, and that the unsolved status is supported by the primary paper plus bounded no-match later search.",
         "evidence_refs": [
-          "primary:p1",
-          "primary:p2",
-          "primary:p3"
+          "primary:p11",
+          "primary:p12"
         ]
       },
       {
         "stage": "persist",
-        "notes": "Saved the accepted context-only artifact to the run path and wrote the exact returned JSON array to the latest file.",
+        "notes": "Saved the artifact and the exact returned JSON array to the configured output paths.",
         "evidence_refs": []
       }
     ],
     "persist": {
-      "run_path": "outputs/runs/0704.1689--context-only.json",
+      "run_path": "outputs/runs/0707.4558--context-only.json",
       "latest_path": "outputs/paper-question-refiner.latest.json",
       "saved": true
     }
