@@ -1,0 +1,314 @@
+{
+  "schema_version": "1.0",
+  "input": {
+    "question": "Consider a semi-algebraic set in R^k defined by l quadratic inequalities. Can the number of connected components of such a set be computed by an algorithm with complexity k^O(l), or even k^O(l^2), rather than the currently best known k^(2^O(l)) type bound coming from the available all-Betti-number methods? Equivalently, is there a substantially more efficient algorithm for counting connected components in the quadratic case than the general-purpose approach currently provides?",
+    "arxiv_id": "0708.2854"
+  },
+  "target_reader": "broad_mathematician",
+  "rewrite_kind": "context_only",
+  "verdict": {
+    "status": "accepted",
+    "reasons": []
+  },
+  "original_question": "Consider a semi-algebraic set in R^k defined by l quadratic inequalities. Can the number of connected components of such a set be computed by an algorithm with complexity k^O(l), or even k^O(l^2), rather than the currently best known k^(2^O(l)) type bound coming from the available all-Betti-number methods? Equivalently, is there a substantially more efficient algorithm for counting connected components in the quadratic case than the general-purpose approach currently provides?",
+  "original_paper": {
+    "title": "Algorithmic Semi-algebraic Geometry and Topology -- Recent Progress and Open Problems",
+    "locator": "https://arxiv.org/abs/0708.2854",
+    "source_id": "primary"
+  },
+  "rewritten_question": "Let S be a semi-algebraic subset of R^k defined by l quadratic inequalities P1 <= 0, ..., Pl <= 0, where each Pi has degree at most 2. Since the number of semi-algebraically connected components of S is its zero-th Betti number b0(S), is there an algorithm that computes b0(S) with complexity k^O(l), or at least k^O(l^2)? The point is that the paper records k^O(l) algorithms for emptiness, for finding sample points, and for the Euler-Poincare characteristic in this quadratic setting, while the available route to counting connected components by computing all Betti numbers only gives a much worse bound of the form k^(2^O(l)). Can one therefore count connected components in the quadratic case by a method substantially more efficient than the general all-Betti-number approach?",
+  "resolution": {
+    "solved_status": "unsolved",
+    "status_confidence": "low",
+    "status_reason": "The primary paper explicitly poses this as an open problem, and the bounded later-literature search used here did not locate a later academic paper that explicitly resolves this exact question or clearly subsumes it.",
+    "solving_paper": null,
+    "search_trace": {
+      "sources": [
+        "primary paper",
+        "Crossref works search",
+        "OpenAlex works search",
+        "arXiv API search"
+      ],
+      "query_variants": [
+        "semi-algebraic sets quadratic inequalities connected components",
+        "connected components quadratic inequalities semi-algebraic",
+        "Basu quadratic inequalities connected components",
+        "More Efficient Algorithms for Computing the Number of Connected Components in the Quadratic Case"
+      ],
+      "status_checked_at": "2026-03-24",
+      "notes": "The bounded search found papers on Euler-Poincare characteristics, top Betti numbers, projections, and related quadratic semi-algebraic algorithms, but no later paper was identified that explicitly proves a k^O(l) or k^O(l^2) algorithm for counting connected components for sets defined by l quadratic inequalities. Because the search was bounded and some bibliographic endpoints were noisy or rate-limited, the unsolved status is only low confidence."
+    }
+  },
+  "paper_evidence": [
+    {
+      "source_id": "primary",
+      "page": 4,
+      "quote": "A semi-algebraic subset of Rk is a set defined by a finite system of polynomial equalities and inequalities, or more generally by a Boolean formula whose atoms are polynomial equalities and inequalities.",
+      "supports": [
+        "def_semi_algebraic_set"
+      ]
+    },
+    {
+      "source_id": "primary",
+      "page": 4,
+      "quote": "In particular, b0(S) is the number of semi-algebraically connected components of S.",
+      "supports": [
+        "def_b0_connected_components"
+      ]
+    },
+    {
+      "source_id": "primary",
+      "page": 7,
+      "quote": "In fact, it is shown in [11] that for ` ≤ log k, computing the `-th Betti number of a basic semi-algebraic set defined by quadratic inequalities in Rk is #P-hard. In contrast to these hardness results, the polynomial bound on the top Betti numbers of sets defined by quadratic inequalities gives rise to the possibility that these might in fact be computable in polynomial time.",
+      "supports": [
+        "quadratic_case_complexity_context"
+      ]
+    },
+    {
+      "source_id": "primary",
+      "page": 11,
+      "quote": "In [9], an algorithm is described which takes as input a closed semi-algebraic set, S ⊂ Rk, defined by P1 ≥ 0, . . . , P` ≥ 0, Pi ∈ R[X1, . . . , Xk], deg(Pi) ≤ 2, and computes the Euler-Poincare characteristic of S (see Section 7.3 below). The complexity of the algorithm is kO(`). Previously, algorithms with the same complexity bound were known only for testing emptiness (as well as computing sample points) of such sets [3, 45].",
+      "supports": [
+        "quadratic_case_fast_emptiness_sample_points_euler_characteristic"
+      ]
+    },
+    {
+      "source_id": "primary",
+      "page": 11,
+      "quote": "In [11], a polynomial time algorithm is given for computing a constant number of the top Betti numbers of semi-algebraic sets defined by quadratic inequalities. If the number of inequalities is fixed then the algorithm computes all the Betti numbers in polynomial time ... For fixed s, we obtain by letting ` = k, an algorithm for computing all the Betti numbers of S whose complexity is k2O(s).",
+      "supports": [
+        "best_known_all_betti_bound_context"
+      ]
+    },
+    {
+      "source_id": "primary",
+      "page": 70,
+      "quote": "More Efficient Algorithms for Computing the Number of Connected Components in the Quadratic Case ?",
+      "supports": [
+        "open_problem_label"
+      ]
+    },
+    {
+      "source_id": "primary",
+      "page": 70,
+      "quote": "For semi-algebraic sets in Rk defined by ` quadratic inequalities, there are algorithms for deciding emptiness, as well as computing sample points in every connected component whose complexity is bounded by kO(`) [3, 45]. We also have an algorithm [9] for computing the Euler-Poincare characteristic of such sets whose complexity is kO(`). However, the best known algorithm for computing the number of connected components of such sets has complexity k2O(`) (as a special case of the algorithm for computing all the Betti numbers given in Theorem 2.6). This raises the question whether there exists a more efficient algorithm with complexity kO(`) or even kO(`2) for counting the number of connected components of such sets.",
+      "supports": [
+        "question_goal",
+        "explicit_open_status",
+        "target_complexity_bounds"
+      ]
+    },
+    {
+      "source_id": "primary",
+      "page": 71,
+      "quote": "Roadmap type constructions used for counting connected components in the case of general semi-algebraic sets cannot be directly employed in this context, because such algorithms will have complexity exponential in k.",
+      "supports": [
+        "why_general_roadmap_methods_do_not_suffice"
+      ]
+    }
+  ],
+  "consulted_papers": [
+    {
+      "source_id": "primary",
+      "title": "Algorithmic Semi-algebraic Geometry and Topology -- Recent Progress and Open Problems",
+      "authors": [
+        "Saugata Basu"
+      ],
+      "year": 2007,
+      "locator": "https://arxiv.org/abs/0708.2854",
+      "role": "primary",
+      "used_for_rewrite": true,
+      "used_for_resolution": true
+    }
+  ],
+  "rubric_scores": {
+    "difficulty": [
+      {
+        "id": "A1_prerequisite_specificity",
+        "label": "Prerequisite specificity",
+        "score": 8,
+        "direction": "higher_is_better",
+        "rationale": "Understanding the question requires specialized background in algorithmic real algebraic geometry, Betti numbers, and complexity bounds for quadratic semi-algebraic sets."
+      },
+      {
+        "id": "A2_domain_recognition",
+        "label": "Domain recognition",
+        "score": 6,
+        "direction": "higher_is_better",
+        "rationale": "The domain is identifiable as algorithmic semi-algebraic geometry, but only after recognizing that connected components are being encoded via b0 and complexity exponents."
+      },
+      {
+        "id": "A3_object_unfamiliarity",
+        "label": "Object unfamiliarity",
+        "score": 7,
+        "direction": "higher_is_better",
+        "rationale": "Semi-algebraic sets defined by few quadratic inequalities are standard in the area but unfamiliar to many broad mathematicians without added context."
+      },
+      {
+        "id": "A4_representation_setup",
+        "label": "Representation setup",
+        "score": 6,
+        "direction": "higher_is_better",
+        "rationale": "A solver needs to translate between connected components, b0, all-Betti-number methods, and the special quadratic regime before attacking the question."
+      },
+      {
+        "id": "A5_first_foothold_visibility",
+        "label": "First foothold visibility",
+        "score": 8,
+        "direction": "higher_is_better",
+        "rationale": "The paper makes clear why existing emptiness and Euler-characteristic algorithms are relevant, but it does not suggest an obvious route to the sharper b0 bound."
+      },
+      {
+        "id": "D2_dead_end_surface",
+        "label": "Dead-end surface",
+        "score": 8,
+        "direction": "higher_is_better",
+        "rationale": "Natural approaches through general roadmap or all-Betti-number machinery are explicitly known to miss the desired asymptotic target."
+      },
+      {
+        "id": "D3_key_leap_size",
+        "label": "Key leap size",
+        "score": 9,
+        "direction": "higher_is_better",
+        "rationale": "A successful solution would likely need a new structural idea separating connected-component counting from the heavier topology-computation framework."
+      },
+      {
+        "id": "D5_method_novelty",
+        "label": "Method novelty",
+        "score": 8,
+        "direction": "higher_is_better",
+        "rationale": "The question is framed precisely because the known methods do not already yield the desired exponent, so a solution would probably depart from standard methods."
+      },
+      {
+        "id": "C1_technical_length",
+        "label": "Technical length",
+        "score": 8,
+        "direction": "higher_is_better",
+        "rationale": "Even after the right idea is found, turning it into a full complexity-proof algorithm would likely require substantial geometric and algorithmic work."
+      },
+      {
+        "id": "C2_computation_burden",
+        "label": "Computation burden",
+        "score": 6,
+        "direction": "higher_is_better",
+        "rationale": "The problem is more conceptual than computational in the statement, though any solution would still entail nontrivial symbolic and complexity analysis."
+      }
+    ],
+    "perfectness": [
+      {
+        "id": "P1_well_posedness_unambiguity",
+        "label": "Well-posedness and unambiguity",
+        "score": 8,
+        "direction": "higher_is_better",
+        "rationale": "Once the quadratic setting and the role of b0 are made explicit, the target complexity improvement is cleanly stated."
+      },
+      {
+        "id": "P2_solver_fit_self_containedness",
+        "label": "Solver-fit and self-containedness",
+        "score": 8,
+        "direction": "higher_is_better",
+        "rationale": "The rewrite states the ambient objects, the degree restriction, and the exact algorithmic target, so a broad mathematician can parse the question without source-local notation."
+      },
+      {
+        "id": "P3_purity_of_difficulty",
+        "label": "Purity of difficulty",
+        "score": 9,
+        "direction": "higher_is_better",
+        "rationale": "The challenge lies in the mathematics and algorithm design rather than in accidental notation clutter once the definitions are unpacked."
+      },
+      {
+        "id": "P4_fair_concealment",
+        "label": "Fair concealment",
+        "score": 8,
+        "direction": "higher_is_better",
+        "rationale": "The rewrite does not hide the intended target artificially; it exposes the known comparison algorithms while still leaving the real breakthrough genuinely open."
+      },
+      {
+        "id": "P5_naturalness_of_core",
+        "label": "Naturalness of core",
+        "score": 9,
+        "direction": "higher_is_better",
+        "rationale": "This is a natural structural question about whether connected-component counting should be easier than full Betti-number computation in the quadratic regime."
+      },
+      {
+        "id": "P6_payoff_finish_quality",
+        "label": "Payoff and finish quality",
+        "score": 8,
+        "direction": "higher_is_better",
+        "rationale": "A positive answer would give a crisp conceptual and algorithmic payoff by separating the complexity of b0 from heavier topological invariants."
+      }
+    ]
+  },
+  "trace": [
+    {
+      "stage": "map_primary",
+      "notes": "Mapped the paper structure and identified Section 9 as the open-problems section, with the target question on pages 70-71 under the quadratic-case heading.",
+      "evidence_refs": [
+        "primary:p70",
+        "primary:p71"
+      ]
+    },
+    {
+      "stage": "locate_question",
+      "notes": "Matched the user question to the explicitly titled open problem about counting connected components in the quadratic case.",
+      "evidence_refs": [
+        "primary:p70"
+      ]
+    },
+    {
+      "stage": "recover_primary_context",
+      "notes": "Recovered the needed context: what a semi-algebraic set is, what b0 means, and which known quadratic-case algorithms set the benchmark for the question.",
+      "evidence_refs": [
+        "primary:p4",
+        "primary:p11",
+        "primary:p70"
+      ]
+    },
+    {
+      "stage": "backfill",
+      "notes": "Ran a bounded later-literature search through Crossref, OpenAlex, and arXiv-oriented queries for exact and near-exact formulations of the problem and related quadratic connected-components algorithms; no explicit later resolution was identified in the materials actually inspected.",
+      "evidence_refs": []
+    },
+    {
+      "stage": "resolve_status",
+      "notes": "Marked the question as unsolved with low confidence because the primary paper explicitly states it as open and the bounded later search did not locate a definitive solving paper.",
+      "evidence_refs": [
+        "primary:p70"
+      ]
+    },
+    {
+      "stage": "rewrite_context_only",
+      "notes": "Expanded the paper-local question into a standalone formulation by defining the ambient class of sets and identifying connected components with the zero-th Betti number.",
+      "evidence_refs": [
+        "primary:p4",
+        "primary:p70",
+        "primary:p71"
+      ]
+    },
+    {
+      "stage": "score",
+      "notes": "Scored the emitted rewrite on the required difficulty and perfectness axes.",
+      "evidence_refs": []
+    },
+    {
+      "stage": "quality_gates",
+      "notes": "Checked self-containedness, evidence coverage, no-new-facts, and resolution consistency. No reformulation artifact was necessary because the context-only rewrite is already clear and solver-usable.",
+      "evidence_refs": [
+        "primary:p4",
+        "primary:p11",
+        "primary:p70",
+        "primary:p71"
+      ]
+    },
+    {
+      "stage": "persist",
+      "notes": "Saved the emitted artifact and the exact returned JSON array to the configured output paths.",
+      "evidence_refs": []
+    }
+  ],
+  "persist": {
+    "run_path": "outputs/runs/0708.2854--context-only.json",
+    "latest_path": "outputs/paper-question-refiner.latest.json",
+    "saved": true
+  }
+}
