@@ -17,42 +17,78 @@
       "locator": "https://arxiv.org/abs/0704.1689",
       "source_id": "primary"
     },
-    "rewritten_question": "Let P(z1, ..., zn) be a homogeneous polynomial of degree 4 with complex coefficients. Call P Hessian nilpotent if its Hessian matrix, whose (i,j)-entry is the second partial derivative of P with respect to zi and zj, is nilpotent. Let Delta be the Laplace operator sum_i (partial^2 / partial zi^2). If P is Hessian nilpotent, must Delta^m(P^(m+1)) vanish for all sufficiently large integers m?",
+    "rewritten_question": "Let P(z1, ..., zn) be a homogeneous polynomial of degree 4 with complex coefficients. Call P Hessian nilpotent if its Hessian matrix, whose (i,j)-entry is the second partial derivative of P with respect to zi and zj, is nilpotent. Let Delta be the Laplace operator D1^2 + ... + Dn^2. Equivalently, for such a polynomial P, the condition of being Hessian nilpotent is the same as requiring Delta^m(P(z)^m) = 0 for every integer m at least 1. Must it then follow that, for all sufficiently large integers m, the m-fold iterated Laplacian of P(z)^(m+1) also vanishes, that is, Delta^m(P(z)^(m+1)) = 0 eventually?",
+    "resolution": {
+      "solved_status": "unsolved",
+      "status_confidence": "medium",
+      "status_reason": "The primary paper presents this as Conjecture 1.1 in a paper of open problems, and a bounded later-literature search found no credible paper explicitly proving the same degree-4 Hessian-nilpotent Laplacian-vanishing statement in full generality.",
+      "solving_paper": null,
+      "search_trace": {
+        "sources": [
+          "primary paper",
+          "arXiv",
+          "later academic literature search"
+        ],
+        "query_variants": [
+          "vanishing conjecture Hessian nilpotent polynomial",
+          "Delta^m P^(m+1) Hessian nilpotent",
+          "homogeneous Hessian nilpotent polynomial vanishing conjecture",
+          "Zhao vanishing conjecture Jacobian conjecture"
+        ],
+        "status_checked_at": "2026-03-24",
+        "notes": "The bounded search surfaced conditional results, special cases, and equivalence or generalization papers, but no exact-match full-resolution paper for Conjecture 1.1."
+      }
+    },
     "paper_evidence": [
+      {
+        "source_id": "primary",
+        "page": 1,
+        "quote": "We also propose some open problems for further study of these objects.",
+        "supports": [
+          "open_problem_context"
+        ]
+      },
       {
         "source_id": "primary",
         "page": 2,
         "quote": "A polynomial or formal power series P(z) is said to be HN (Hessian nilpotent) if its Hessian matrix Hes P := ( ∂2P / ∂zi∂zj ) are nilpotent.",
-        "supports": ["def_hessian_nilpotent"]
+        "supports": [
+          "def_hessian_nilpotent"
+        ]
       },
       {
         "source_id": "primary",
         "page": 2,
         "quote": "Conjecture 1.1. (Vanishing Conjecture) Let ∆ := Pn i=1 D2 i be the Laplace operator of C[z]. Then, for any HN polynomial P(z) (of homogeneous of degree d = 4), ∆mP m+1(z) = 0 when m >> 0.",
-        "supports": ["question_goal", "def_laplace_operator", "degree_four_setting"]
-      },
-      {
-        "source_id": "primary",
-        "page": 2,
-        "quote": "Despite intense study for more than half a century, the conjecture is still open even for the case n = 2. ... the author further showed in [Z2] that the JC is actually equivalent to the following so-called vanishing conjecture of HN polynomials.",
-        "supports": ["open_problem_status"]
+        "supports": [
+          "question_goal",
+          "def_laplace_operator",
+          "degree_four_setting",
+          "primary_open_question"
+        ]
       },
       {
         "source_id": "primary",
         "page": 3,
         "quote": "Proposition 1.2. For any P(z) ∈ C[[z]] with o(P(z)) ≥ 2, the following statements are equivalent. (1) P(z) is HN. (2) ∆mP m = 0 for any m ≥ 1. (3) ∆mP m = 0 for any 1 ≤ m ≤ n.",
-        "supports": ["nearby_primary_context"]
+        "supports": [
+          "equiv_hn_and_delta_m_p_m",
+          "recover_primary_context"
+        ]
       }
     ],
     "consulted_papers": [
       {
         "source_id": "primary",
         "title": "Some Properties of and Open Problems on Hessian Nilpotent Polynomials",
-        "authors": ["Wenhua Zhao"],
+        "authors": [
+          "Wenhua Zhao"
+        ],
         "year": 2008,
         "locator": "https://arxiv.org/abs/0704.1689",
         "role": "primary",
-        "used_for_rewrite": true
+        "used_for_rewrite": true,
+        "used_for_resolution": true
       }
     ],
     "rubric_scores": {
@@ -62,70 +98,70 @@
           "label": "Prerequisite specificity",
           "score": 8,
           "direction": "higher_is_better",
-          "rationale": "It depends on specialized material around Hessian nilpotent polynomials, the Laplacian, and the vanishing conjecture tied to the Jacobian conjecture literature."
+          "rationale": "Solving it likely requires specialized knowledge about Hessian nilpotent polynomials, Laplacian identities, and the Jacobian-conjecture literature around Zhao's vanishing conjecture."
         },
         {
           "id": "A2_domain_recognition",
           "label": "Domain recognition",
           "score": 6,
           "direction": "higher_is_better",
-          "rationale": "The area is recognizable as algebraic geometry and polynomial-map theory, but the exact toolbox is still somewhat specialized."
+          "rationale": "The problem is recognizable as belonging to algebraic geometry and polynomial-map theory, but the precise toolkit is still somewhat specialized."
         },
         {
           "id": "A3_object_unfamiliarity",
           "label": "Object unfamiliarity",
           "score": 8,
           "direction": "higher_is_better",
-          "rationale": "Hessian nilpotent polynomials are not standard everyday objects for a broad mathematician."
+          "rationale": "Hessian nilpotent polynomials are unusual objects for a broad mathematician, even after the rewrite defines them."
         },
         {
           "id": "A4_representation_setup",
           "label": "Representation setup",
           "score": 7,
           "direction": "higher_is_better",
-          "rationale": "Progress likely requires choosing the right structural representation of homogeneous HN polynomials or of the associated symmetric map."
+          "rationale": "Progress probably depends on selecting the right structural representation of homogeneous Hessian nilpotent polynomials or of the associated symmetric map."
         },
         {
           "id": "A5_first_foothold_visibility",
           "label": "First foothold visibility",
           "score": 8,
           "direction": "higher_is_better",
-          "rationale": "The statement gives little obvious first move beyond consulting deep results already surrounding the conjecture."
+          "rationale": "The statement is clean, but it does not present an obvious first move beyond invoking deep surrounding theory."
         },
         {
           "id": "D2_dead_end_surface",
           "label": "Dead-end surface",
           "score": 7,
           "direction": "higher_is_better",
-          "rationale": "There are many plausible but inconclusive approaches through harmonicity, nilpotent matrices, or direct Laplacian computation."
+          "rationale": "Several plausible approaches through harmonicity, nilpotent matrices, or direct Laplacian computation can look promising without clearly closing the conjecture."
         },
         {
           "id": "D3_key_leap_size",
           "label": "Key leap size",
           "score": 8,
           "direction": "higher_is_better",
-          "rationale": "A successful approach likely needs a nontrivial conceptual bridge rather than an incremental computation."
+          "rationale": "A full solution likely needs a substantial conceptual bridge rather than a routine extension of the known identities."
         },
         {
           "id": "D5_method_novelty",
           "label": "Method novelty",
           "score": 8,
           "direction": "higher_is_better",
-          "rationale": "Any solution would probably use methods outside a standard graduate repertoire."
+          "rationale": "Any proof in full generality would probably use methods outside a standard graduate repertoire."
         },
         {
           "id": "C1_technical_length",
           "label": "Technical length",
           "score": 7,
           "direction": "higher_is_better",
-          "rationale": "Even once the right viewpoint is found, there is likely substantial technical work left."
+          "rationale": "Even with the right idea, the path to a full proof seems likely to involve substantial technical work."
         },
         {
           "id": "C2_computation_burden",
           "label": "Computation burden",
           "score": 6,
           "direction": "higher_is_better",
-          "rationale": "The problem may involve meaningful symbolic manipulation, though the main challenge seems structural rather than computational."
+          "rationale": "There may be meaningful symbolic manipulation, but the main challenge appears structural rather than merely computational."
         }
       ],
       "perfectness": [
@@ -134,84 +170,111 @@
           "label": "Well-posedness and unambiguity",
           "score": 9,
           "direction": "higher_is_better",
-          "rationale": "After expanding the paper-local terminology, the quantifiers and target vanishing statement are clear."
+          "rationale": "Once the source notation is unpacked, the quantifiers and target vanishing statement are clean and unambiguous."
         },
         {
           "id": "P2_solver_fit_self_containedness",
           "label": "Solver-fit and self-containedness",
           "score": 9,
           "direction": "higher_is_better",
-          "rationale": "The rewrite defines Hessian nilpotence and the Laplacian directly, so it no longer depends on source-local notation."
+          "rationale": "The rewrite defines Hessian nilpotence, the Laplace operator, and the key equivalent condition directly, so it no longer depends on paper-local notation."
         },
         {
           "id": "P3_purity_of_difficulty",
           "label": "Purity of difficulty",
           "score": 8,
           "direction": "higher_is_better",
-          "rationale": "The difficulty comes from the mathematics itself rather than from wording clutter."
+          "rationale": "The challenge comes from the mathematics of the conjecture rather than from avoidable wording clutter."
         },
         {
           "id": "P4_fair_concealment",
           "label": "Fair concealment",
           "score": 8,
           "direction": "higher_is_better",
-          "rationale": "The statement hides the right method fairly without accidentally revealing a shortcut."
+          "rationale": "The statement hides the right method fairly without leaking an unnatural shortcut."
         },
         {
           "id": "P5_naturalness_of_core",
           "label": "Naturalness of core",
           "score": 9,
           "direction": "higher_is_better",
-          "rationale": "The conjecture is a natural vanishing question attached to a distinguished class of polynomials."
+          "rationale": "It is a natural vanishing question attached to a distinguished class of polynomials with a major conceptual link to the Jacobian conjecture."
         },
         {
           "id": "P6_payoff_finish_quality",
           "label": "Payoff and finish quality",
           "score": 8,
           "direction": "higher_is_better",
-          "rationale": "A resolution would have a strong conceptual payoff because of the paper’s linkage to the Jacobian conjecture."
+          "rationale": "A resolution would have strong conceptual payoff because it would settle a clean reformulation in a notable conjectural framework."
         }
       ]
     },
     "trace": [
       {
         "stage": "map_primary",
-        "notes": "Mapped the paper title, section layout, and the early definitions; the vanishing conjecture appears in Section 1.1 on page 2 and is revisited later in Sections 5, 7, and 8.",
-        "evidence_refs": ["primary:p2", "primary:p5"]
+        "notes": "Mapped the primary paper, identified Conjecture 1.1 on page 2, and noted the later equivalent reformulations in Section 7 and the connectedness reduction in Section 8.",
+        "evidence_refs": [
+          "primary:p2",
+          "primary:p25",
+          "primary:p29"
+        ]
       },
       {
         "stage": "locate_question",
-        "notes": "Located the user’s question exactly as Conjecture 1.1, with the same degree-4 HN hypothesis and the same eventual vanishing formula Delta^m P^(m+1) = 0.",
-        "evidence_refs": ["primary:p2"]
+        "notes": "Located the user's question exactly as the paper's Vanishing Conjecture for homogeneous degree-4 Hessian nilpotent polynomials.",
+        "evidence_refs": [
+          "primary:p2"
+        ]
       },
       {
         "stage": "recover_primary_context",
-        "notes": "Recovered the needed context directly from the paper: HN means the Hessian matrix is nilpotent, and Delta is the Laplace operator sum_i D_i^2.",
-        "evidence_refs": ["primary:p2"]
+        "notes": "Recovered the needed context directly from the primary paper: the definition of Hessian nilpotence, the Laplace operator, and the equivalence between Hessian nilpotence and the vanishing of Delta^m(P^m) for all m at least 1.",
+        "evidence_refs": [
+          "primary:p2",
+          "primary:p3"
+        ]
       },
       {
         "stage": "backfill",
-        "notes": "No backfill papers were needed because the primary paper itself defines the objects and states the conjecture explicitly.",
-        "evidence_refs": ["primary:p2"]
+        "notes": "Performed a bounded academic-literature search focused on later work around the vanishing conjecture, Hessian nilpotent polynomials, and generalized vanishing conjectures.",
+        "evidence_refs": []
+      },
+      {
+        "stage": "resolve_status",
+        "notes": "Classified the question as unsolved because the primary paper frames it as an open conjecture and the bounded later-literature search found only partial progress, reformulations, and equivalence papers rather than a full exact-match resolution.",
+        "evidence_refs": [
+          "primary:p1",
+          "primary:p2"
+        ]
       },
       {
         "stage": "rewrite_context_only",
-        "notes": "Kept the mathematical goal unchanged and only expanded the Hessian and Laplacian terminology into standalone wording for a broad mathematician.",
-        "evidence_refs": ["primary:p2"]
+        "notes": "Kept the mathematical goal unchanged and only expanded the paper-local terminology needed for a broad mathematician to read the question on its own.",
+        "evidence_refs": [
+          "primary:p2",
+          "primary:p3"
+        ]
       },
       {
         "stage": "score",
-        "notes": "Scored the emitted rewrite as mathematically hard and highly natural, with most of the challenge coming from the underlying conjectural structure rather than phrasing.",
-        "evidence_refs": ["primary:p2", "primary:p3"]
+        "notes": "Scored the emitted rewrite as mathematically difficult and conceptually natural, with most of the challenge coming from the underlying conjectural structure rather than the wording.",
+        "evidence_refs": [
+          "primary:p2",
+          "primary:p3"
+        ]
       },
       {
         "stage": "quality_gates",
-        "notes": "Checked self-containedness, evidence coverage, primary-paper priority, no-new-facts, reformulation necessity, JSON-safe prose, and schema conformance; a separate reformulation was not necessary.",
-        "evidence_refs": ["primary:p2", "primary:p3"]
+        "notes": "Checked self-containedness, evidence coverage, no-new-facts, resolution conservatism, primary-paper priority, reformulation necessity, JSON-safe prose, and schema conformance. A separate reformulation artifact was not needed.",
+        "evidence_refs": [
+          "primary:p1",
+          "primary:p2",
+          "primary:p3"
+        ]
       },
       {
         "stage": "persist",
-        "notes": "Saved the accepted context-only artifact to the run path and wrote the returned JSON array to the latest file.",
+        "notes": "Saved the accepted context-only artifact to the run path and wrote the exact returned JSON array to the latest file.",
         "evidence_refs": []
       }
     ],
