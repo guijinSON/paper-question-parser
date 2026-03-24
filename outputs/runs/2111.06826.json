@@ -1,0 +1,149 @@
+{
+  "accepted": [
+    {
+      "id": "q_001",
+      "question_text": "Let p(\u00b7 | \u03b8*) be a well-specified exponential-family distribution, let T(X) be its sufficient statistic, let \u03bc* = E_{\u03b8*}[T(X)] be the mean parameter, and let D_n = (X_1, \u2026, X_n) be iid samples. The maximum-likelihood estimator uses the empirical mean (1/n) \u2211_i T_i, while the conjugate maximum a posteriori estimator with prior hyperparameters (n_0, \u03bc_0) uses (n_0\u03bc_0 + \u2211_i T_i)/(n_0 + n). Find non-asymptotic upper bounds, valid for finite sample size n and for a broad class of exponential families including small-sample regimes, for the frequentist risk measured by the expected Kullback-Leibler divergence from the true model to these estimators, equivalently the expected Bregman divergence BA*(\u03bc*; (1/n) \u2211_i T_i) for MLE and BA*(\u03bc*; (n_0\u03bc_0 + \u2211_i T_i)/(n_0 + n)) for MAP, where the final upper bounds should not themselves leave an expectation over the dataset.",
+      "context_brief": "finite-sample KL risk for exponential-family MLE and MAP",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 2,
+          "quote": "Find an upper bound on the expected value of KL(p\u03b8* ||p\u03b8\u0302MLE/MAP_n) ."
+        },
+        {
+          "page": 3,
+          "quote": "Open Problem 1 (Upper-bounding MAP and MLE). Upper bound the following quantities: MLE: E_Dn [ BA* ( E\u03b8* [T]; 1/n \u2211_i T_i ) ] MAP: E_Dn [ BA* ( E\u03b8* [T]; (n0\u03bc0 + \u2211_i T_i)/(n0 + n) ) ], where the expectation is on the data Dn = (T1, . . . , Tn)."
+        },
+        {
+          "page": 4,
+          "quote": "More explicitly, we want an upper bound that does not involve this expectation over the dataset."
+        },
+        {
+          "page": 4,
+          "quote": "However, we have yet to find a solution encompassing both a broad range of exponential families and applicable to small sample sizes n . d."
+        }
+      ]
+    },
+    {
+      "id": "q_002",
+      "question_text": "View conjugate MAP estimation in an exponential family as stochastic mirror descent on the negative log-likelihood, with mirror map induced by the log-partition function A and decreasing step sizes \u03b3_n = 1/(n_0 + n). Find a convergence-rate theorem for stochastic mirror descent that is strong enough to cover the MAP iterates arising from standard exponential-family models, including Gaussian examples such as N(m, \u03c3^2) or the barrier-type case N(0, \u03c3^2), despite the fact that existing relative-smoothness analyses fail on these barrier objectives. In particular, the desired result should explain the observed O(1/n) behavior for MAP-like updates in settings where current SMD bounds do not apply.",
+      "context_brief": "stochastic mirror descent rates for conjugate MAP on barrier objectives",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 4,
+          "quote": "Open Problem 2 (Convergence rate for SMD). Find a convergence rate for stochastic mirror descent that applies to conjugate MAP of exponential families such as Gaussians N (\u03bc, \u03c32)."
+        },
+        {
+          "page": 8,
+          "quote": "Proving convergence of stochastic mirror descent on barrier loss remains an open problem."
+        },
+        {
+          "page": 9,
+          "quote": "Nevertheless, none of the current analyses of SMD hold for the MAP, even on a simple family such as N (0, \u03c32), thus revealing an area for progress in non-Euclidean optimization."
+        }
+      ]
+    }
+  ],
+  "needs_review": [],
+  "trace": [
+    {
+      "id": "doc_map",
+      "stage": "map",
+      "notes": "Mapped the paper structure and identified the abstract, Section 1, Section 3, Section 6, and Section 7 as the only regions containing the paper's explicit open-problem statements or their restatements. The visible named items are Open Problem 1 and Open Problem 2.",
+      "evidence_refs": [
+        "p1",
+        "p2",
+        "p3",
+        "p4",
+        "p8",
+        "p9"
+      ]
+    },
+    {
+      "id": "sec_1_intro",
+      "stage": "extract_candidates",
+      "notes": "Extracted one implicit introductory candidate from the statement asking for an upper bound on the expected KL divergence between the true model and the MLE or MAP estimator.",
+      "evidence_refs": [
+        "p2"
+      ]
+    },
+    {
+      "id": "sec_3_problems",
+      "stage": "extract_candidates",
+      "notes": "Extracted the two canonical explicit problem statements from Section 3: Open Problem 1 on finite-sample expected KL/Bregman upper bounds for MLE and MAP, and Open Problem 2 on convergence rates for stochastic mirror descent that cover conjugate MAP in exponential families.",
+      "evidence_refs": [
+        "p3",
+        "p4"
+      ]
+    },
+    {
+      "id": "sec_6_7_restatements",
+      "stage": "extract_candidates",
+      "notes": "Extracted later restatements explaining that current SMD analyses fail for barrier objectives and that proving convergence for barrier-loss stochastic mirror descent remains open.",
+      "evidence_refs": [
+        "p8",
+        "p9"
+      ]
+    },
+    {
+      "id": "q_001",
+      "stage": "rewrite",
+      "notes": "Rewrote Open Problem 1 into a self-contained question by inlining the exponential-family setting, the sufficient statistic, the mean parameter, the MLE and MAP estimators in mean-parameter form, and the requirement that the bound be non-asymptotic and remove the remaining dataset expectation.",
+      "evidence_refs": [
+        "p2",
+        "p3",
+        "p4"
+      ]
+    },
+    {
+      "id": "q_002",
+      "stage": "rewrite",
+      "notes": "Rewrote Open Problem 2 into a self-contained question by inlining the mirror-descent interpretation of MAP, the decreasing step-size schedule, the target exponential-family examples, and the barrier-objective obstruction described later in the paper.",
+      "evidence_refs": [
+        "p4",
+        "p8",
+        "p9"
+      ]
+    },
+    {
+      "id": "dedupe_all",
+      "stage": "dedupe",
+      "notes": "Merged the introductory KL-bound prompt into Open Problem 1 rather than keeping it as a separate item, because the later named problem statement formalizes the same unresolved question. No other duplicates remained.",
+      "evidence_refs": [
+        "p2",
+        "p3"
+      ]
+    },
+    {
+      "id": "q_001",
+      "stage": "quality_gates",
+      "notes": "Accepted after verifying that the rewritten question is self-contained, cites verbatim page-backed evidence, and introduces no unsupported notation beyond quantities explicitly defined in the paper's statement of the problem.",
+      "evidence_refs": [
+        "p2",
+        "p3",
+        "p4"
+      ]
+    },
+    {
+      "id": "q_002",
+      "stage": "quality_gates",
+      "notes": "Accepted after verifying that the rewritten question is self-contained, evidence-backed, and faithful to the paper's stated open problem plus its barrier-objective limitation discussion.",
+      "evidence_refs": [
+        "p4",
+        "p8",
+        "p9"
+      ]
+    },
+    {
+      "id": "persist_2111_06826",
+      "stage": "persist",
+      "notes": "Saved the exact JSON result to outputs/runs/2111.06826.json and outputs/latest.json.",
+      "evidence_refs": []
+    }
+  ]
+}
