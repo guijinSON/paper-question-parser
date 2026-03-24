@@ -1,0 +1,128 @@
+{
+  "accepted": [
+    {
+      "id": "q_001",
+      "question_text": "Let k be a positive definite kernel on a compact domain X subset R^d, let H_k be the associated reproducing kernel Hilbert space, and suppose an unknown reward function f belongs to H_k with ||f||_{H_k} <= B. In the online setting, a learner sequentially chooses points x_1, x_2, ... in X, observes noisy rewards y_i = f(x_i) + epsilon_i with i.i.d. sub-Gaussian noise, and may choose each new point using all previous observations. If mu_n(x) and sigma_n(x) are the surrogate Gaussian-process posterior mean and standard deviation after n observations, what is the smallest possible growth rate in n of a confidence-width factor rho_n(delta) for which, with probability at least 1 - delta, the uniform bound |f(x) - mu_n(x)| <= rho_n(delta) sigma_n(x) holds for all x in X? In particular, can the existing online RKHS confidence interval be improved by an O~(sqrt(gamma_n)) factor, where gamma_n is the maximal information gain?",
+      "context_brief": "Tight online RKHS confidence intervals",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 2,
+          "quote": "In online learning problems, the observation points are collected sequentially. In particular, the observation point x_{i+1} is determined after all the values {(x_j , y_j )}^i_{j=1} are revealed."
+        },
+        {
+          "page": 4,
+          "quote": "Our open problem is concerned with improving this confidence interval. Open Problem. Under Assumption 1, in the online setting, consider the general problem of proving a confidence interval of the following form uniformly in x in X: |f(x) - mu_n(x)| <= rho_n(delta) sigma_n(x), with probability at least 1 - delta. What is the lowest growth rate of rho_n(delta) with n? In particular, is it possible to reduce the confidence interval width in Theorem 2 by an O~(sqrt(gamma_n)) factor?"
+        }
+      ]
+    },
+    {
+      "id": "q_002",
+      "question_text": "In the same kernelized bandit setting with an unknown function f in an RKHS and maximal information gain gamma_N, can the standard GP-UCB algorithm, or a simple variation of it that still relies on a standard online confidence bound, achieve regret O~(sqrt(N gamma_N)) on compact domains instead of the currently derived O~(gamma_N sqrt(N)) bound?",
+      "context_brief": "Whether GP-UCB can attain tight regret",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 4,
+          "quote": "Following standard UCB-based bandit algorithm techniques, it can be shown that the GP-UCB algorithm (namely, repeatedly choosing x to maximize the current upper confidence bound) attains R(N) = O~(rho_N(delta) sqrt(N gamma_N)), with probability at least 1 - delta. Substituting rho_N(delta) from Theorem 2, we have R(N) = O~(gamma_N sqrt(N))."
+        },
+        {
+          "page": 5,
+          "quote": "In view of this discussion, the improvement from O~(gamma_N sqrt(N)) to O~(sqrt(N gamma_N)) has now been obtained using several different algorithms, but it remains to determine whether GP-UCB (or a simple variation thereof) can achieve it."
+        }
+      ]
+    }
+  ],
+  "needs_review": [],
+  "trace": [
+    {
+      "id": "doc_map",
+      "stage": "map",
+      "notes": "Mapped the PDF into Introduction, Problem Setup, Confidence Intervals Applicable to RKHS Elements, Discussion, and References. The abstract, the explicit Open Problem paragraph in Section 3, and the concluding discussion in Section 4 are the only regions containing unresolved-question language.",
+      "evidence_refs": [
+        "p1",
+        "p4",
+        "p5"
+      ]
+    },
+    {
+      "id": "sec_3",
+      "stage": "extract_candidates",
+      "notes": "Extracted the explicit Open Problem asking for the lowest possible growth rate of the online confidence-width factor rho_n(delta) and whether an O~(sqrt(gamma_n)) improvement is possible.",
+      "evidence_refs": [
+        "p4"
+      ]
+    },
+    {
+      "id": "sec_4",
+      "stage": "extract_candidates",
+      "notes": "Extracted the downstream unresolved question asking whether GP-UCB or a simple variation can attain the sharper O~(sqrt(N gamma_N)) regret rate.",
+      "evidence_refs": [
+        "p4",
+        "p5"
+      ]
+    },
+    {
+      "id": "q_001",
+      "stage": "rewrite",
+      "notes": "Rewrote the main open problem into a standalone statement by inlining the RKHS setting, sequential observation model, and the role of mu_n, sigma_n, and gamma_n using only paper-supported context.",
+      "evidence_refs": [
+        "p2",
+        "p4"
+      ]
+    },
+    {
+      "id": "q_002",
+      "stage": "rewrite",
+      "notes": "Rewrote the concluding GP-UCB question into a standalone regret-target question while keeping the dependence on gamma_N and the comparison between O~(gamma_N sqrt(N)) and O~(sqrt(N gamma_N)) explicit.",
+      "evidence_refs": [
+        "p4",
+        "p5"
+      ]
+    },
+    {
+      "id": "q_001",
+      "stage": "dedupe",
+      "notes": "Kept q_001 distinct because it asks about the optimal online confidence-width growth rate itself, not directly about a specific algorithm's regret guarantee.",
+      "evidence_refs": [
+        "p4"
+      ]
+    },
+    {
+      "id": "q_002",
+      "stage": "dedupe",
+      "notes": "Kept q_002 distinct because it asks whether GP-UCB can inherit the sharper regret rate, which is a downstream algorithmic consequence rather than the same statement as q_001.",
+      "evidence_refs": [
+        "p5"
+      ]
+    },
+    {
+      "id": "q_001",
+      "stage": "quality_gates",
+      "notes": "Passed self-containedness, evidence coverage, evidence completeness, and no-new-facts checks after expanding the online RKHS setting and keeping the confidence-interval target aligned with the paper's explicit open problem.",
+      "evidence_refs": [
+        "p2",
+        "p4"
+      ]
+    },
+    {
+      "id": "q_002",
+      "stage": "quality_gates",
+      "notes": "Passed self-containedness, evidence coverage, evidence completeness, and no-new-facts checks because the paper explicitly states both the current GP-UCB regret rate and the unresolved question about reaching the sharper rate.",
+      "evidence_refs": [
+        "p4",
+        "p5"
+      ]
+    },
+    {
+      "id": "persist_2110_15458",
+      "stage": "persist",
+      "notes": "Saved final JSON to outputs/parse-paper/2110.15458.json and outputs/latest.json.",
+      "evidence_refs": []
+    }
+  ]
+}

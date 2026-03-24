@@ -1,0 +1,222 @@
+{
+  "accepted": [
+    {
+      "id": "q_001",
+      "question_text": "What is the minimax memory-bounded first-order oracle complexity T_{L,B}(d,M,epsilon) for minimizing a convex L-Lipschitz function F:R^d->R over the Euclidean ball {x: ||x|| <= B} when there exists an optimizer x* with ||x*|| <= B, and an algorithm is allowed T exact first-order oracle calls that each reveal F(x) and a subgradient at x but only M bits of state may be stored between oracle accesses? Equivalently, which query-memory pairs (T,M) are possible or impossible for this problem, preferably up to constant factors and at worst up to polylogarithmic factors in T and M?",
+      "context_brief": "Complete query-memory tradeoff",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 2,
+          "quote": "We define the minimax memory-bounded first-order oracle complexity as TL,B(d, M, epsilon) = inf { T in N : inf_{A in A_{M,T}} sup_{F in F^d_{L,B}} F(A(F)) - min_{||x||<=B} F(x) <= epsilon }."
+        },
+        {
+          "page": 4,
+          "quote": "Question 1 ($500 or Two Star Michelin Meal) Provide a complete characterization of T(d, M, epsilon) and the possible (T, M) trade-off, preferably up to constant factors, and at most up to factors poly-logarithmic in T and M."
+        }
+      ]
+    },
+    {
+      "id": "q_002",
+      "question_text": "In the regime where the dimension d is larger than polylogarithmic in 1/epsilon but smaller than polynomial in 1/epsilon, and only essentially linear memory is available between oracle calls, can convex L-Lipschitz optimization be solved with a number of first-order queries that is polynomial in d? More specifically, when the memory budget satisfies M = Theta(d polylog(LB/epsilon)) or M = O~(d), is T(d,M,epsilon) = O(poly d) achievable in that intermediate scaling regime?",
+      "context_brief": "Linear-memory boundary regime",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 4,
+          "quote": "Therefore, as a starting point, we ask to characterize T(d, Theta(d polylog LB/epsilon), 1/epsilon). In particular, is it possible to have query complexity polynomial in d with O~(d) memory?"
+        },
+        {
+          "page": 4,
+          "quote": "Question 2 ($200 or One Star Michelin Meal) Can we have T(d, M = O~(d), epsilon) = O(poly d) when d = Omega(log^c 1/epsilon) but d = O(1/epsilon^c) for all c?"
+        }
+      ]
+    },
+    {
+      "id": "q_003",
+      "question_text": "Still in the regime d = Omega(log^c(1/epsilon)) and d = O(1/epsilon^c) for all c, is quadratic memory really necessary to obtain near-optimal query complexity for convex Lipschitz optimization? Concretely, can one have T(d, M = O(d^(2-delta)), epsilon) = O~(d polylog(1/epsilon)) for some delta > 0 while storing only subquadratic memory between first-order oracle calls?",
+      "context_brief": "Subquadratic memory for near-optimal queries",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 4,
+          "quote": "At the other extreme, we might ask whether quadratic memory is necessary in order to achieve optimal query complexity:"
+        },
+        {
+          "page": 4,
+          "quote": "Question 3 ($200 or One Star Michelin Meal) Can we have T(d, M = O(d^(2-delta)), epsilon) = O~(d polylog 1/epsilon), for delta > 0, when d = Omega(log^c 1/epsilon) but d = O(1/epsilon^c) for all c?"
+        }
+      ]
+    },
+    {
+      "id": "q_004",
+      "question_text": "Does there exist any query-memory tradeoff (T,M) for convex Lipschitz optimization with limited memory that lies polynomially inside the currently unknown region between the two known extremes, namely the gradient-descent regime with memory on the order of d log(LB/epsilon) bits and query complexity on the order of 1/epsilon^2, and the center-of-mass regime with query complexity on the order of d log(1/epsilon) and memory on the order of d^2 log^2(LB/epsilon)? Or is every tradeoff in that intermediate square impossible?",
+      "context_brief": "Intermediate unknown square",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 3,
+          "quote": "We do not know whether any trade-offs inside the \"?\" square are possible or not."
+        },
+        {
+          "page": 4,
+          "quote": "Question 4 ($100 or Michelin Bib Gourmand Meal) Resolve the possibility or impossibility of some trade-off (T, M) polynomially inside the unknown square in Figure 1."
+        }
+      ]
+    }
+  ],
+  "needs_review": [],
+  "trace": [
+    {
+      "id": "1907.00762",
+      "stage": "map",
+      "notes": "Mapped a 9-page paper with sections Abstract, Introduction, Problem Formulation, Current Knowledge, Challenges, and three appendices. The formal open-problem content is concentrated on pages 3-4, with model definitions on page 2.",
+      "evidence_refs": [
+        "p1",
+        "p2",
+        "p3",
+        "p4"
+      ]
+    },
+    {
+      "id": "sec_1",
+      "stage": "extract_candidates",
+      "notes": "Introduction yields two informal candidate questions: whether optimal query complexity is achievable with O(d log(LB/epsilon)) memory, and how oracle complexity trades off with memory.",
+      "evidence_refs": [
+        "p1"
+      ]
+    },
+    {
+      "id": "sec_3",
+      "stage": "extract_candidates",
+      "notes": "Current Knowledge identifies the unknown interior square between the gradient-descent and center-of-mass extremes as an unresolved region.",
+      "evidence_refs": [
+        "p3"
+      ]
+    },
+    {
+      "id": "sec_4",
+      "stage": "extract_candidates",
+      "notes": "Challenges states four explicit numbered open questions. These become the canonical candidate set after deduplication.",
+      "evidence_refs": [
+        "p4"
+      ]
+    },
+    {
+      "id": "q_001",
+      "stage": "rewrite",
+      "notes": "Expanded Question 1 into a standalone statement by inlining the page-2 definition of T_{L,B}(d,M,epsilon), the optimization setting, and the exact first-order oracle model.",
+      "evidence_refs": [
+        "p2",
+        "p4"
+      ]
+    },
+    {
+      "id": "q_002",
+      "stage": "rewrite",
+      "notes": "Combined the linear-memory boundary prompt and Question 2 into one self-contained question, retaining the stated scaling regime for d and epsilon.",
+      "evidence_refs": [
+        "p4"
+      ]
+    },
+    {
+      "id": "q_003",
+      "stage": "rewrite",
+      "notes": "Rewrote Question 3 as a standalone subquadratic-memory question while preserving the stated d-versus-epsilon regime and near-optimal query target.",
+      "evidence_refs": [
+        "p4"
+      ]
+    },
+    {
+      "id": "q_004",
+      "stage": "rewrite",
+      "notes": "Expanded Question 4 by naming the two known endpoint regimes that bound the unknown square, using the page-3 discussion and Figure 1 summary.",
+      "evidence_refs": [
+        "p3",
+        "p4"
+      ]
+    },
+    {
+      "id": "q_001",
+      "stage": "dedupe",
+      "notes": "Merged the informal introduction questions about optimal query complexity with limited memory into the formal tradeoff-characterization problem stated as Question 1.",
+      "evidence_refs": [
+        "p1",
+        "p4"
+      ]
+    },
+    {
+      "id": "q_002",
+      "stage": "dedupe",
+      "notes": "Merged the boundary-regime prompt on page 4 into the more explicit formal statement labeled Question 2.",
+      "evidence_refs": [
+        "p4"
+      ]
+    },
+    {
+      "id": "q_003",
+      "stage": "dedupe",
+      "notes": "No near-duplicate distinct from Question 3 remained after review.",
+      "evidence_refs": [
+        "p4"
+      ]
+    },
+    {
+      "id": "q_004",
+      "stage": "dedupe",
+      "notes": "Merged the implicit unknown-square question from Current Knowledge into the explicit formulation labeled Question 4.",
+      "evidence_refs": [
+        "p3",
+        "p4"
+      ]
+    },
+    {
+      "id": "q_001",
+      "stage": "quality_gates",
+      "notes": "Passed self-containedness, evidence coverage, evidence completeness, no-new-facts, and schema checks.",
+      "evidence_refs": [
+        "p2",
+        "p4"
+      ]
+    },
+    {
+      "id": "q_002",
+      "stage": "quality_gates",
+      "notes": "Passed self-containedness, evidence coverage, evidence completeness, no-new-facts, and schema checks.",
+      "evidence_refs": [
+        "p4"
+      ]
+    },
+    {
+      "id": "q_003",
+      "stage": "quality_gates",
+      "notes": "Passed self-containedness, evidence coverage, evidence completeness, no-new-facts, and schema checks.",
+      "evidence_refs": [
+        "p4"
+      ]
+    },
+    {
+      "id": "q_004",
+      "stage": "quality_gates",
+      "notes": "Passed self-containedness, evidence coverage, evidence completeness, no-new-facts, and schema checks.",
+      "evidence_refs": [
+        "p3",
+        "p4"
+      ]
+    },
+    {
+      "id": "1907.00762",
+      "stage": "persist",
+      "notes": "Saved exact JSON output to outputs/parse-paper/1907.00762.json and updated outputs/latest.json.",
+      "evidence_refs": []
+    }
+  ]
+}

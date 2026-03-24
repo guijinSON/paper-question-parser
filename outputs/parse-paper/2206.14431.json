@@ -1,0 +1,223 @@
+{
+  "accepted": [
+    {
+      "id": "q_001",
+      "question_text": "Does there exist a membership-query algorithm that runs in time polynomial in the number of variables n, the target decision-tree size s, and 1/epsilon, and that properly learns any size-s decision tree over {0,1}^n to error at most epsilon under the uniform distribution? The learner should output a decision-tree hypothesis, and the problem remains open even if the learner is allowed to be only weakly proper, meaning it may return a decision tree whose size is not restricted to s.",
+      "context_brief": "Polynomial-time proper learning of decision trees",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 1,
+          "quote": "The main open problem of this article is the following: Open Problem 1 Design a poly(n, s, 1/epsilon)-time membership query algorithm for properly learning size-s decision trees over n variables to error epsilon under the uniform distribution."
+        },
+        {
+          "page": 2,
+          "quote": "We also mention here the distinction between a strictly proper versus weakly proper algorithm: the former returns a size-s decision tree hypothesis for a size-s target, whereas the latter can return a decision tree of any size. Open Problem 1 is open even for weakly proper algorithms."
+        }
+      ]
+    },
+    {
+      "id": "q_002",
+      "question_text": "Can a proper learning algorithm for size-s decision trees vary its amount of greediness across levels of the constructed tree, by searching over different numbers k of highly influential variables at different steps, in a way that preserves high accuracy while improving the runtime to polynomial time? In particular, is it enough to use k = polylog(s) near the top of the tree and then switch to constant k lower down?",
+      "context_brief": "Adaptive greediness in tree induction",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 3,
+          "quote": "Perhaps k need not be so big at every iteration? Can algorithms that choose a different amount of greediness (different k) at each step maintain accuracy while improving runtime?"
+        },
+        {
+          "page": 3,
+          "quote": "For example, it's not hard to show that an algorithm that uses k = polylog(s) for the first log s / log log s levels, and then k = O(1) for the remaining log s - log s / log log s would run in poly-time. Is such adaptive greediness sufficient to learn an accurate tree?"
+        }
+      ]
+    },
+    {
+      "id": "q_003",
+      "question_text": "Is there a way to choose the first ell levels of the learned decision tree all at once, for ell on the order of log log s, while examining only polylog(s) candidate choices at each step, so that the resulting proper learning algorithm for size-s decision trees runs in polynomial time? Equivalently, can the structural search space for these multi-level splits be reduced enough that the total number of subproblems stays polynomial in s?",
+      "context_brief": "Multi-level splitting search",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 3,
+          "quote": "We note that even slightly strengthening this structural result would immediately give a polynomial-time algorithm. Suppose that at each step, the algorithm tries to find the variables to be queried at the first ell levels of the tree (rather than only the root)."
+        },
+        {
+          "page": 3,
+          "quote": "More concretely, can we pin down ell = Theta(log log s) levels at once, while exploring only polylog(s) different choices at each step?"
+        }
+      ]
+    },
+    {
+      "id": "q_004",
+      "question_text": "If variable influence alone is not enough to identify a small set of near-optimal splitting choices when properly learning decision trees, does there exist a slightly higher-order splitting criterion that is still efficiently computable and is strong enough to recover such a small candidate set, thereby enabling a polynomial-time proper learning algorithm?",
+      "context_brief": "Higher-order splitting criteria",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 3,
+          "quote": "Furthermore, this subset can be identified by estimating the influence of each variable w.r.t. f_pi."
+        },
+        {
+          "page": 3,
+          "quote": "If the influence itself is not enough for identifying a small subset of near-optimal choices, would a slightly \"higher-order\" splitting criterion suffice?"
+        }
+      ]
+    },
+    {
+      "id": "q_005",
+      "question_text": "Can one design a polynomial-time proper learner for size-s decision trees under the additional assumption that the unknown target function is monotone? Ideally, can such an algorithm avoid membership queries and use only random examples while still properly learning the monotone decision-tree target?",
+      "context_brief": "Monotone-target intermediate milestone",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 4,
+          "quote": "A promising and independently interesting intermediate step towards Open Problem 1 is to design a polynomial-time proper learner under the assumption that the target function is monotone; potentially even one that uses only random examples."
+        }
+      ]
+    },
+    {
+      "id": "q_006",
+      "question_text": "As an intermediate step toward polynomial-time proper learning of decision trees, can one efficiently learn the target using a hypothesis class that is more expressive than decision trees but still retains their desirable interpretability properties, such as branching programs or generalized decision trees whose internal nodes branch on halfspace outcomes?",
+      "context_brief": "More expressive interpretable hypotheses",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 4,
+          "quote": "As an intermediate step towards such an algorithm, one could consider allowing the algorithm return more expressive hypotheses that nevertheless share the desirability of decision trees (e.g. interpretability)."
+        },
+        {
+          "page": 4,
+          "quote": "Two concrete examples are branching programs-generalizations of decision trees where the underlying graph is a DAG-and generalized decision trees whose internal nodes branch on the outcomes of halfspaces instead of singleton variables."
+        }
+      ]
+    }
+  ],
+  "needs_review": [],
+  "trace": [
+    {
+      "id": "doc_map",
+      "stage": "map",
+      "notes": "Mapped sections 1-4 and identified candidate question regions in the Introduction, Possible approaches, and Intermediate milestones sections.",
+      "evidence_refs": [
+        "p1",
+        "p2",
+        "p3",
+        "p4"
+      ]
+    },
+    {
+      "id": "sec_1",
+      "stage": "extract_candidates",
+      "notes": "Found the main explicit open problem in the Introduction and captured the weakly-proper clarification from the Background section.",
+      "evidence_refs": [
+        "p1",
+        "p2"
+      ]
+    },
+    {
+      "id": "sec_3",
+      "stage": "extract_candidates",
+      "notes": "Extracted explicit open questions about adaptive greediness, multi-level split selection, and higher-order splitting criteria from Possible approaches.",
+      "evidence_refs": [
+        "p3"
+      ]
+    },
+    {
+      "id": "sec_4",
+      "stage": "extract_candidates",
+      "notes": "Extracted intermediate milestones on monotone targets and more expressive interpretable hypotheses from Intermediate milestones.",
+      "evidence_refs": [
+        "p4"
+      ]
+    },
+    {
+      "id": "q_001",
+      "stage": "rewrite",
+      "notes": "Expanded the main open problem to include the uniform-distribution setting, proper-learning requirement, and the weakly-proper clarification supported later in the paper.",
+      "evidence_refs": [
+        "p1",
+        "p2"
+      ]
+    },
+    {
+      "id": "q_002",
+      "stage": "rewrite",
+      "notes": "Rewrote the adaptive-greediness discussion as a standalone learning-theory question with the concrete k schedule stated explicitly.",
+      "evidence_refs": [
+        "p3"
+      ]
+    },
+    {
+      "id": "q_003",
+      "stage": "rewrite",
+      "notes": "Rewrote the multi-level split-search question to inline the intended regime ell = Theta(log log s) and the polynomial-time motivation.",
+      "evidence_refs": [
+        "p3"
+      ]
+    },
+    {
+      "id": "q_004",
+      "stage": "rewrite",
+      "notes": "Separated the higher-order criterion question from the multi-level split question because the paper states it as an additional explicit possibility.",
+      "evidence_refs": [
+        "p3"
+      ]
+    },
+    {
+      "id": "q_005",
+      "stage": "rewrite",
+      "notes": "Rewrote the monotone-target milestone as a self-contained question and preserved the optional stronger variant using random examples only.",
+      "evidence_refs": [
+        "p4"
+      ]
+    },
+    {
+      "id": "q_006",
+      "stage": "rewrite",
+      "notes": "Rewrote the implicit intermediate milestone on richer but interpretable hypotheses using the two concrete representation families named by the paper.",
+      "evidence_refs": [
+        "p4"
+      ]
+    },
+    {
+      "id": "q_001",
+      "stage": "dedupe",
+      "notes": "No near-duplicate accepted items were merged; each accepted question addresses a distinct research direction.",
+      "evidence_refs": [
+        "p1",
+        "p3",
+        "p4"
+      ]
+    },
+    {
+      "id": "q_001",
+      "stage": "quality_gates",
+      "notes": "Accepted items passed self-containedness, evidence coverage, evidence completeness, no-new-facts, and schema checks.",
+      "evidence_refs": [
+        "p1",
+        "p2",
+        "p3",
+        "p4"
+      ]
+    },
+    {
+      "id": "persist_2206_14431",
+      "stage": "persist",
+      "notes": "Saved exact JSON to outputs/parse-paper/2206.14431.json and outputs/latest.json.",
+      "evidence_refs": []
+    }
+  ]
+}

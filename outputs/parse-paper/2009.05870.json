@@ -1,0 +1,187 @@
+{
+  "accepted": [
+    {
+      "id": "q_001",
+      "question_text": "For the hypergraphic planted clique (HPC) detection problem, where one must distinguish an Erd\u0151s-R\u00e9nyi d-hypergraph G_d(N, 1/2) from a planted-clique alternative G_d(N, 1/2, \u03ba) formed by choosing \u03ba vertices uniformly at random and connecting every hyperedge whose vertices all lie in that planted set, what is the sharp threshold on the clique size \u03ba at which polynomial-time singular-value-decomposition-based detection on a matricization or unfolding of the adjacency tensor succeeds, and is there some other polynomial-time algorithm that can solve HPC detection for \u03ba below that SVD threshold?",
+      "context_brief": "Algorithmic threshold for HPC detection",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 2,
+          "quote": "We de\ufb01ne Gd pN, 1{2, \u03baq as the hypergraphic planted clique (HPC) model with the clique size\n\u03ba. To generate G \u201e Gd pN, 1{2, \u03baq, we sample a random hypergraph from Gd pN, 1{2q, pick\n\u03ba vertices uniformly at random from rN s, denote them as K, and connect all hyperedges\ne if all vertices of e are in K. The hypergraphic planted clique detection (HPC) can be\nformulated as the following hypothesis testing problem:\n                   H0 : G \u201e Gd pN, 1{2q    v.s. H1 : G \u201e Gd pN, 1{2, \u03baq .                 (1)"
+        },
+        {
+          "page": 3,
+          "quote": "Challenge 1 Can we establish the sharp limit of \u03ba to guarantee that HPC can be solved by\nSVD on the matricization/unfolding of A? Is it possible to develop another polynomial-time\nalgorithm for HPC that works below this limit?"
+        }
+      ]
+    },
+    {
+      "id": "q_002",
+      "question_text": "Assuming the hypergraphic planted clique detection conjecture for fixed integer d \u2265 2, which states that when \u03ba grows strictly slower than N no sequence of polynomial-time tests can distinguish the null model G_d(N, 1/2) from the planted-clique model G_d(N, 1/2, \u03ba) with vanishing total error, can stronger evidence for this conjectured hardness be established for additional algorithmic frameworks beyond the Metropolis and low-degree polynomial methods already analyzed, specifically for classes such as statistical query, sum-of-squares, belief propagation, and approximate message passing?",
+      "context_brief": "Hardness evidence across algorithm classes",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 2,
+          "quote": "Conjecture 1 (HPC detection) Suppose d \u011b 2 is a fixed integer. If\n                                   ?\n                 lim sup log \u03ba{ log N \u010f 1 \u00b4 \u03c4 for any \u03c4 \u0105 0,\n                        N \u00d18\nfor any sequence of polynomial-time tests t\u03c6uN : G \u00d1 t0, 1u, lim inf N \u00d18 PH0 p\u03c6pGq \u201c 1q `\nPH1 p\u03c6pGq \u201c 0q \u0105 1{2."
+        },
+        {
+          "page": 3,
+          "quote": "Challenge 2 Can we provide more evidence for HPC detection conjecture under more\nclasses of algorithms, such as statistical query (SQ), sum-of-squares (SOS), belief prop-\nagation (BP), approximate message passing (AMP), etc, in addition to the evidence in\nLuo and Zhang (2020)?"
+        }
+      ]
+    },
+    {
+      "id": "q_003",
+      "question_text": "At the regime \u03ba = O(N^(1/2-\u03c4)) for \u03c4 > 0, what is the precise average-case computational relationship between hypergraphic planted clique detection and ordinary planted clique detection? More specifically, since the paper states that HPC detection is no harder than PC detection because there is a randomized polynomial-time reduction from HPC to PC that preserves the planted clique size \u03ba, can one also construct a randomized polynomial-time reduction from PC to HPC, thereby proving that the two detection problems are computationally equivalent in this threshold regime?",
+      "context_brief": "Equivalence of HPC and PC hardness",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 3,
+          "quote": "Challenge 3 At the threshold level of \u03ba \u201c OpN 1{2\u00b4\u03c4 q for \u03c4 \u0105 0, what is relationship between\nHPC detection and PC detection in their computational hardness?"
+        },
+        {
+          "page": 3,
+          "quote": "First, HPC detection is no harder than PC detection. Given the adjacency tensor A of\nhypergraph G, by \ufb01xing pd \u00b4 2q indices and varying the remaining two, we get an adjacency\nmatrix A from A which is a PC detection problem. So we can do a randomized polynomial-\ntime reduction from HPC detection to PC detection without changing the planted clique\nsize \u03ba."
+        },
+        {
+          "page": 4,
+          "quote": "If reduction from PC to HPC could be proved, we would be able to arrive\nat the conclusion that PC and HPC detection are equivalently hard and all hardness results\nestablished in PC detection can be applied to HPC."
+        }
+      ]
+    }
+  ],
+  "needs_review": [],
+  "trace": [
+    {
+      "id": "doc_map",
+      "stage": "map",
+      "notes": "Normalized https://arxiv.org/abs/2009.05870 to the arXiv PDF endpoint, downloaded a 5-page PDF, and extracted text with pdftotext after look_at could not access PDF contents directly. Section map from extracted text: 1. Introduction (page 1), 2. Planted Clique Detection and Hypergraphic Planted Clique Detection (page 2), 3. How hard is HPC detection? (page 3), References (pages 4-5). No Theorem, Proposition, Lemma, or Corollary labels were found. Core problem definitions appear in Section 2, and all explicit open-question material appears in Section 3 as Challenge 1-3.",
+      "evidence_refs": [
+        "p1",
+        "p2",
+        "p3"
+      ]
+    },
+    {
+      "id": "q_001",
+      "stage": "extract_candidates",
+      "notes": "Extracted explicit open challenge from Section 3 concerning the sharp SVD threshold for HPC detection and the possibility of polynomial-time algorithms below that threshold.",
+      "evidence_refs": [
+        "p3"
+      ]
+    },
+    {
+      "id": "q_002",
+      "stage": "extract_candidates",
+      "notes": "Extracted explicit open challenge from Section 3 asking for additional hardness evidence for the HPC detection conjecture across more algorithm classes.",
+      "evidence_refs": [
+        "p3"
+      ]
+    },
+    {
+      "id": "q_003",
+      "stage": "extract_candidates",
+      "notes": "Extracted explicit open challenge from Section 3 about the computational relationship between HPC detection and planted clique detection at the threshold regime.",
+      "evidence_refs": [
+        "p3",
+        "p4"
+      ]
+    },
+    {
+      "id": "q_001",
+      "stage": "rewrite",
+      "notes": "Expanded the question to restate the null and planted HPC models so the problem is understandable without the source text.",
+      "evidence_refs": [
+        "p2",
+        "p3"
+      ]
+    },
+    {
+      "id": "q_002",
+      "stage": "rewrite",
+      "notes": "Expanded the question to include the conjectured hardness setting and the target algorithm families named in the paper.",
+      "evidence_refs": [
+        "p2",
+        "p3"
+      ]
+    },
+    {
+      "id": "q_003",
+      "stage": "rewrite",
+      "notes": "Expanded the question to state both the known reduction direction and the desired reverse reduction needed for equivalence.",
+      "evidence_refs": [
+        "p3",
+        "p4"
+      ]
+    },
+    {
+      "id": "q_001",
+      "stage": "dedupe",
+      "notes": "Kept the explicit Challenge 1 formulation as the canonical item; no duplicate question elsewhere in the paper required merging.",
+      "evidence_refs": [
+        "p3"
+      ]
+    },
+    {
+      "id": "q_002",
+      "stage": "dedupe",
+      "notes": "Merged the abstract's general request for more hardness evidence into the explicit Challenge 2 item.",
+      "evidence_refs": [
+        "p1",
+        "p3"
+      ]
+    },
+    {
+      "id": "q_003",
+      "stage": "dedupe",
+      "notes": "Merged the abstract's equivalence conjecture into the more detailed Challenge 3 item.",
+      "evidence_refs": [
+        "p1",
+        "p3",
+        "p4"
+      ]
+    },
+    {
+      "id": "q_001",
+      "stage": "quality_gates",
+      "notes": "Passed self-containedness, evidence coverage, evidence completeness, no-new-facts, and schema conformance gates.",
+      "evidence_refs": [
+        "p2",
+        "p3"
+      ]
+    },
+    {
+      "id": "q_002",
+      "stage": "quality_gates",
+      "notes": "Passed self-containedness, evidence coverage, evidence completeness, no-new-facts, and schema conformance gates.",
+      "evidence_refs": [
+        "p2",
+        "p3"
+      ]
+    },
+    {
+      "id": "q_003",
+      "stage": "quality_gates",
+      "notes": "Passed self-containedness, evidence coverage, evidence completeness, no-new-facts, and schema conformance gates.",
+      "evidence_refs": [
+        "p3",
+        "p4"
+      ]
+    },
+    {
+      "id": "persist_2009_05870",
+      "stage": "persist",
+      "notes": "Saved exact JSON output to outputs/parse-paper/2009.05870.json and outputs/latest.json.",
+      "evidence_refs": []
+    }
+  ]
+}

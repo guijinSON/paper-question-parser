@@ -1,0 +1,379 @@
+{
+  "accepted": [
+    {
+      "id": "q_001",
+      "question_text": "Let H be a Hilbert space and D be a dictionary in H. For f in A_1(D), where A_1(D) is the closure in H of the finite expansions f = sum_{k in Lambda} a_k g_k with g_k in D and sum_{k in Lambda} |a_k| <= 1, consider the Power-Relaxed Greedy Algorithm defined by T_0^r(f)=0, T_1^r(f)=G_1(f), and for m >= 2 by T_m^r(f) = (1 - 1/m^alpha) T_{m-1}^r(f) + (1/m^alpha) g(R_{m-1}^r(f)), where g(R_{m-1}^r(f)) is a dictionary element maximizing the inner product with the current residual. Does there exist some exponent alpha_0 > 1 such that for every f in A_1(D) one has ||f - T_m^r(f)|| <= C m^{-alpha_0/2} for all m, i.e. a decay rate strictly better than the m^{-1/2} scale obtained from the known alpha = 1 result?",
+      "context_brief": "Power-Relaxed Greedy Algorithm in Hilbert spaces",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 6,
+          "quote": "Let H be a Hilbert space (over R) and D a dictionary in H. Related to this dictionary, we define A_tau(D), for tau > 0, as the clausure in H of the following set of functions: (f in H : f = sum_{k in Lambda} a_k g_k, g_k in D, |Lambda| < infinity and sum_{k in Lambda} |a_k|^tau <= 1)."
+        },
+        {
+          "page": 6,
+          "quote": "Power-Relaxed Greedy Algorithm: define R_0^r(f) = R_0^r(f, D) := f and T_0^r(f) = T_0^r(f, D) := 0. For m = 1, we set T_1^r(f) = T_1^r(f, D) := G_1(f) and R_1^r(f) = R_1^r(f, D) := R_1(f). Then, for m >= 2, T_m^r(f) = T_m^r(f, D) := (1 - 1/m^alpha) T_{m-1}^r(f) + 1/m^alpha g(R_{m-1}^r(f))."
+        },
+        {
+          "page": 9,
+          "quote": "Question 1. Is it possible to find alpha_0 > 1 such that ||f - T_m^r(f)|| . 1/m^{alpha_0/2}, m = 1, 2, .. for every f in A_1(D)?"
+        }
+      ]
+    },
+    {
+      "id": "q_002",
+      "question_text": "For a Hilbert space H with dictionary D and for f in A_1(D), can one replace the averaging schedule 1/m in the Relaxed Greedy Algorithm or 1/m^alpha in the Power-Relaxed Greedy Algorithm by another function 1/h(m) so that the resulting iterates T_m^r(f) = (1 - 1/h(m)) T_{m-1}^r(f) + (1/h(m)) g(R_{m-1}^r(f)) satisfy an approximation bound strictly better than the bound of Theorem 3.1, namely ||f - G_m^r(f)|| <= 2 / sqrt(m)?",
+      "context_brief": "Alternative averaging schedule for relaxed greedy updates",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 6,
+          "quote": "Theorem 3.1 Let D be a dictionary in a Hilbert space. Then, ||f - G_m^r(f)|| <= 2/sqrt(m), m = 1, 2, ...., for every f in A_1(D)."
+        },
+        {
+          "page": 9,
+          "quote": "Question 2. Is it possible to find another function h(m) such that if we define, for m >= 2, T_m^r = (1 - 1/h(m)) T_{m-1}^r(f) + 1/h(m) g(R_{m-1}^r(f)), such that we obtain a better bound than Theorem 3.1?"
+        }
+      ]
+    },
+    {
+      "id": "q_003",
+      "question_text": "In a quasi-Banach space, does the equivalence between almost-greedy bases and semi-greedy bases remain true for general Markushevich bases, without assuming that the basis is Schauder? Here, almost-greedy means that greedy projections approximate as well as the best coordinate projections up to a uniform constant, while semi-greedy means that for each greedy set A, the best approximation inside span{x_n : n in A} is bounded by a constant times the best |A|-term approximation error.",
+      "context_brief": "Almost-greedy versus semi-greedy in quasi-Banach spaces",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 13,
+          "quote": "Definition 4.8 We say that a Markushevich basis B in a quasi-Banach space X is almost-greedy if there is a positive constant C such that for every x in X, ||x - P_A(x)|| <= C inf_{|B|<=|A|} ||x - P_B(x)||, whenever A is a finite greedy set of x."
+        },
+        {
+          "page": 16,
+          "quote": "Definition 4.14 Let B be a Markushevich basis in a quasi-Banach space X. We say that the basis is semi-greedy if for every x in X, there exists a constant C such that min (||x - sum_{n in A} a_n x_n|| : a_n in F, forall n in A) <= C sigma_{|A|}(x), whenever A is any finite greedy set of x."
+        },
+        {
+          "page": 17,
+          "quote": "Theorem 4.17 Let B be a Schauder basis in a quasi-Banach space. The basis is semi-greedy if and only if the basis is almost-greedy."
+        },
+        {
+          "page": 17,
+          "quote": "Question 3. Is it possible to remove the condition of Schauder in the characterization of semi-greediness in quasi-Banach spaces?"
+        }
+      ]
+    },
+    {
+      "id": "q_004",
+      "question_text": "Suppose a basis has Property (A), meaning that moving the largest-magnitude coefficients to new coordinates and changing their signs in the admissible way does not change the norm. Must such a basis be unconditional? Equivalently, is Property (A) by itself strong enough to force greediness, rather than merely 1-almost-greediness?",
+      "context_brief": "Whether Property (A) forces unconditionality",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 17,
+          "quote": "To answer this question, F. Albiac and P. Wojtasczyk introduced the Property (A): given x = sum_{n in S} x_n^*(x) x_n with |S| < infinity, we write M(x) := {n in S : |x_n^*(x)| = max_{j in S} |x_j^*(x)|}. Hence, the basis has the Property (A) whenever ||x|| = ||sum_{n in M(x)} epsilon_n x_n^*(x) x_{lambda(n)} + P_{M^c(x)}(x)||."
+        },
+        {
+          "page": 18,
+          "quote": "Theorem 4.19 A basis is 1-almost-greedy if and only if the basis has the Property (A)."
+        },
+        {
+          "page": 18,
+          "quote": "Hence, other open question in the field is whether Property (A) implies unconditionality, meaning whether Property (A) is strong enough to imply that the basis is greedy."
+        }
+      ]
+    },
+    {
+      "id": "q_005",
+      "question_text": "Is 1-almost-greediness equivalent to 1-semi-greediness for bases in Banach spaces, and also for bases in quasi-Banach spaces? In other words, when a basis attains the isometric constant 1 for almost-greedy approximation, must it also attain the constant 1 for semi-greedy approximation, and conversely?",
+      "context_brief": "Isometric equivalence of 1-almost-greedy and 1-semi-greedy",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 18,
+          "quote": "Theorem 4.19 A basis is 1-almost-greedy if and only if the basis has the Property (A)."
+        },
+        {
+          "page": 18,
+          "quote": "Theorem 4.20 Let B be a bi-monotone Schauder basis in a p-Banach space. If B is 1-semi-greedy, then the basis is 3^{2/p}-almost-greedy."
+        },
+        {
+          "page": 18,
+          "quote": "Question 4. Is it true that 1-almost-greediness is equivalent to 1-semi-greediness in the context of Banach (and quasi-Banach) spaces?"
+        }
+      ]
+    },
+    {
+      "id": "q_006",
+      "question_text": "For the Haar system in L^p with 1 < p < infinity, can one find an equivalent norm under which the Haar basis becomes exactly 1-greedy, rather than merely (1 + epsilon)-greedy for each fixed epsilon > 0?",
+      "context_brief": "Exact 1-greedy renorming of the Haar system in L^p",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 18,
+          "quote": "Another line of study in the isometric case of greedy-type bases is the existence of renormings, that is, if my basis is C-greedy (or another type of greedy-like basis), does there exist an equivalent norm such that the basis becomes 1-greedy?"
+        },
+        {
+          "page": 19,
+          "quote": "One paper where this idea is posed is [16], where the authors proved that, for a fixed epsilon > 0, it is possible to find a renorming in L^p, 1 < p < infinity, such that the Haar system is (1 + epsilon)-greedy, but it is open whether one can get the constant 1."
+        }
+      ]
+    },
+    {
+      "id": "q_007",
+      "question_text": "Let B be a C-semi-greedy basis in a quasi-Banach space. Does there always exist an equivalent renorming of the space under which B becomes 1-semi-greedy?",
+      "context_brief": "Renorming semi-greedy bases to constant 1",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 19,
+          "quote": "This lemma allows us to have renormings of (strictly) quasi-Banach spaces based on non-linear operators. In fact, in [2], the authors proved that if B is C-quasi-greedy (resp. C-almost-greedy or C-greedy), there is a renorming such that the basis is 1-quasi-greedy (resp. 1-almost-greedy or 1-greedy)."
+        },
+        {
+          "page": 19,
+          "quote": "Question 5. If B is C-semi-greedy in a quasi-Banach space, is there a renorming such that the basis is 1-semi-greedy?"
+        }
+      ]
+    }
+  ],
+  "needs_review": [],
+  "trace": [
+    {
+      "id": "doc_map",
+      "stage": "map",
+      "notes": "Mapped the paper structure and identified the main open-problem regions in Section 3 (page 9), Section 4 (page 17), and Section 4.1 (pages 18-19). Recorded key notation A_1(D), the Power-Relaxed Greedy Algorithm, almost-greedy, semi-greedy, Property (A), and renorming terminology.",
+      "evidence_refs": [
+        "p1",
+        "p2",
+        "p6",
+        "p9",
+        "p17",
+        "p18",
+        "p19"
+      ]
+    },
+    {
+      "id": "sec_3",
+      "stage": "extract_candidates",
+      "notes": "Extracted two explicit Hilbert-space open questions from Section 3 about improving the decay exponent and replacing the averaging schedule.",
+      "evidence_refs": [
+        "p9"
+      ]
+    },
+    {
+      "id": "sec_4",
+      "stage": "extract_candidates",
+      "notes": "Extracted the quasi-Banach open question on removing the Schauder assumption from the almost-greedy versus semi-greedy characterization.",
+      "evidence_refs": [
+        "p16",
+        "p17"
+      ]
+    },
+    {
+      "id": "sec_4_1",
+      "stage": "extract_candidates",
+      "notes": "Extracted four isometric and renorming questions from Section 4.1, including the implicit Property (A) versus unconditionality question and the explicit Questions 4 and 5.",
+      "evidence_refs": [
+        "p18",
+        "p19"
+      ]
+    },
+    {
+      "id": "q_001",
+      "stage": "rewrite",
+      "notes": "Expanded Question 1 into a standalone statement by inlining the definitions of A_1(D) and the Power-Relaxed Greedy Algorithm using page 6 evidence.",
+      "evidence_refs": [
+        "p6",
+        "p9"
+      ]
+    },
+    {
+      "id": "q_002",
+      "stage": "rewrite",
+      "notes": "Rewrote Question 2 to make the role of h(m) explicit and tied the target improvement to the theorem 3.1 bound.",
+      "evidence_refs": [
+        "p6",
+        "p9"
+      ]
+    },
+    {
+      "id": "q_003",
+      "stage": "rewrite",
+      "notes": "Expanded the quasi-Banach equivalence question by inlining the paper's definitions of almost-greedy and semi-greedy and the existing Schauder-basis theorem.",
+      "evidence_refs": [
+        "p13",
+        "p16",
+        "p17"
+      ]
+    },
+    {
+      "id": "q_004",
+      "stage": "rewrite",
+      "notes": "Converted the implicit open issue about Property (A) into a standalone question and linked it to greediness through the paper's own explanation.",
+      "evidence_refs": [
+        "p17",
+        "p18"
+      ]
+    },
+    {
+      "id": "q_005",
+      "stage": "rewrite",
+      "notes": "Rewrote Question 4 as an isometric equivalence problem between the constant-1 almost-greedy and semi-greedy notions.",
+      "evidence_refs": [
+        "p18"
+      ]
+    },
+    {
+      "id": "q_006",
+      "stage": "rewrite",
+      "notes": "Rewrote the renorming remark for the Haar system in L^p as a self-contained exact-constant question.",
+      "evidence_refs": [
+        "p18",
+        "p19"
+      ]
+    },
+    {
+      "id": "q_007",
+      "stage": "rewrite",
+      "notes": "Expanded Question 5 into a standalone renorming problem for semi-greedy bases in quasi-Banach spaces.",
+      "evidence_refs": [
+        "p19"
+      ]
+    },
+    {
+      "id": "q_001",
+      "stage": "dedupe",
+      "notes": "No merge needed; the improved exponent problem is distinct from the alternative h(m) problem.",
+      "evidence_refs": [
+        "p9"
+      ]
+    },
+    {
+      "id": "q_002",
+      "stage": "dedupe",
+      "notes": "No merge needed; the h(m) schedule question is distinct from the alpha_0 exponent question.",
+      "evidence_refs": [
+        "p9"
+      ]
+    },
+    {
+      "id": "q_003",
+      "stage": "dedupe",
+      "notes": "No merge needed; the quasi-Banach Schauder-removal question is distinct from the isometric questions in Section 4.1.",
+      "evidence_refs": [
+        "p17"
+      ]
+    },
+    {
+      "id": "q_004",
+      "stage": "dedupe",
+      "notes": "No merge needed; Property (A) implying unconditionality is distinct from the explicit equivalence problem for 1-almost-greedy and 1-semi-greedy.",
+      "evidence_refs": [
+        "p18"
+      ]
+    },
+    {
+      "id": "q_005",
+      "stage": "dedupe",
+      "notes": "No merge needed; the constant-1 equivalence question is separate from the broader Property (A) question and from renorming problems.",
+      "evidence_refs": [
+        "p18"
+      ]
+    },
+    {
+      "id": "q_006",
+      "stage": "dedupe",
+      "notes": "No merge needed; the Haar-system renorming problem is a specific Banach-space instance rather than the general quasi-Banach semi-greedy renorming question.",
+      "evidence_refs": [
+        "p19"
+      ]
+    },
+    {
+      "id": "q_007",
+      "stage": "dedupe",
+      "notes": "No merge needed; the general semi-greedy renorming question remains distinct from the Haar-system constant-1 question.",
+      "evidence_refs": [
+        "p19"
+      ]
+    },
+    {
+      "id": "q_001",
+      "stage": "quality_gates",
+      "notes": "Passed self-containedness, evidence coverage, evidence completeness, no-new-facts, and schema conformance gates.",
+      "evidence_refs": [
+        "p6",
+        "p9"
+      ]
+    },
+    {
+      "id": "q_002",
+      "stage": "quality_gates",
+      "notes": "Passed self-containedness, evidence coverage, evidence completeness, no-new-facts, and schema conformance gates.",
+      "evidence_refs": [
+        "p6",
+        "p9"
+      ]
+    },
+    {
+      "id": "q_003",
+      "stage": "quality_gates",
+      "notes": "Passed self-containedness, evidence coverage, evidence completeness, no-new-facts, and schema conformance gates.",
+      "evidence_refs": [
+        "p13",
+        "p16",
+        "p17"
+      ]
+    },
+    {
+      "id": "q_004",
+      "stage": "quality_gates",
+      "notes": "Passed self-containedness, evidence coverage, evidence completeness, no-new-facts, and schema conformance gates.",
+      "evidence_refs": [
+        "p17",
+        "p18"
+      ]
+    },
+    {
+      "id": "q_005",
+      "stage": "quality_gates",
+      "notes": "Passed self-containedness, evidence coverage, evidence completeness, no-new-facts, and schema conformance gates.",
+      "evidence_refs": [
+        "p18"
+      ]
+    },
+    {
+      "id": "q_006",
+      "stage": "quality_gates",
+      "notes": "Passed self-containedness, evidence coverage, evidence completeness, no-new-facts, and schema conformance gates.",
+      "evidence_refs": [
+        "p18",
+        "p19"
+      ]
+    },
+    {
+      "id": "q_007",
+      "stage": "quality_gates",
+      "notes": "Passed self-containedness, evidence coverage, evidence completeness, no-new-facts, and schema conformance gates.",
+      "evidence_refs": [
+        "p19"
+      ]
+    },
+    {
+      "id": "persist",
+      "stage": "persist",
+      "notes": "Saved exact JSON result to outputs/parse-paper/2408.08935.json and updated outputs/latest.json.",
+      "evidence_refs": []
+    }
+  ]
+}
