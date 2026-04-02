@@ -6,9 +6,11 @@ This folder contains local OpenCode skills and runtime artifacts for prompt-driv
 
 - `.opencode/skills/paper-question-parser/SKILL.md`
 - `.opencode/skills/paper-question-refiner/SKILL.md`
+- `.opencode/skills/math-genealogy-archaeologist/SKILL.md`
 - `outputs/latest.json`
 - `outputs/paper-question-refiner.latest.json`
 - `outputs/parse-paper/*.json`
+- `outputs/math-genealogy-archaeologist/<arxiv_id>/`
 
 ## Skill 1: Parse open questions from one paper
 
@@ -40,8 +42,31 @@ This folder contains local OpenCode skills and runtime artifacts for prompt-driv
    - `targets_refiner` for `run_refiner.sh`
    - `targets_refiner2` for `run_refiner2.sh`
 
+## Skill 3: Reconstruct one paper's backward mathematical genealogy
+
+1. In the repo where you want to run this, ensure this path exists:
+   - `.opencode/skills/math-genealogy-archaeologist/SKILL.md`
+2. Invoke the skill with exactly one arXiv-first target:
+   - `/math-genealogy-archaeologist https://arxiv.org/abs/<id>`
+   - or `/math-genealogy-archaeologist https://arxiv.org/pdf/<id>.pdf`
+   - or `/math-genealogy-archaeologist <arxiv_id>`
+3. The skill is contract-bound and emits this fixed artifact set before any monologue:
+   - `claim-ledger.json`
+   - `trace.json`
+   - `report.md`
+   - `report.json`
+   - `monologue.md`
+4. This repo now includes a packaged example run for arXiv `2603.29576` at:
+   - `outputs/math-genealogy-archaeologist/2603.29576/claim-ledger.json`
+   - `outputs/math-genealogy-archaeologist/2603.29576/trace.json`
+   - `outputs/math-genealogy-archaeologist/2603.29576/report.md`
+   - `outputs/math-genealogy-archaeologist/2603.29576/report.json`
+   - `outputs/math-genealogy-archaeologist/2603.29576/monologue.md`
+5. The skill's fixed report ordering, source-access rules, and fail-closed behavior live in:
+   - `.opencode/skills/math-genealogy-archaeologist/references/`
+
 ## Notes
 
 - This bundle is skill-first (no external Python scripts required by user).
 - It uses built-in tools such as `look_at`, `read`, `bash`, and web/search tools available in OpenCode.
-- The parser skill and refiner skill coexist; adding the second skill does not replace the first one.
+- The parser skill, refiner skill, and math genealogy skill coexist; adding the newer skills does not replace the earlier ones.
