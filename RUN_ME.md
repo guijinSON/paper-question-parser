@@ -6,6 +6,8 @@ This folder contains local OpenCode skills and runtime artifacts for prompt-driv
 
 - `.opencode/skills/paper-question-parser/SKILL.md`
 - `.opencode/skills/paper-question-refiner/SKILL.md`
+- `.opencode/skills/math-genealogy-factual-trace/SKILL.md`
+- `.opencode/skills/math-genealogy-reconstructed-monologue/SKILL.md`
 - `.opencode/skills/math-genealogy-archaeologist/SKILL.md`
 - `outputs/latest.json`
 - `outputs/paper-question-refiner.latest.json`
@@ -42,7 +44,37 @@ This folder contains local OpenCode skills and runtime artifacts for prompt-driv
    - `targets_refiner` for `run_refiner.sh`
    - `targets_refiner2` for `run_refiner2.sh`
 
-## Skill 3: Reconstruct one paper's backward mathematical genealogy
+## Skill 3: Build the canonical factual genealogy bundle
+
+1. In the repo where you want to run this, ensure this path exists:
+   - `.opencode/skills/math-genealogy-factual-trace/SKILL.md`
+2. Invoke the skill with exactly one arXiv-first target:
+   - `/math-genealogy-factual-trace https://arxiv.org/abs/<id>`
+   - or `/math-genealogy-factual-trace https://arxiv.org/pdf/<id>.pdf`
+   - or `/math-genealogy-factual-trace <arxiv_id>`
+3. This is the authoritative stage. It owns retrieval, source-access tracking, genealogy selection, adjudication, quote-readiness, fail-closed decisions, and the fixed report artifacts:
+   - `claim-ledger.json`
+   - `trace.json`
+   - `report.md`
+   - `report.json`
+4. The factual bundle is canonical. A later monologue may depend on it, but may not override it.
+
+## Skill 4: Render the reconstructed monologue from a frozen factual bundle
+
+1. In the repo where you want to run this, ensure this path exists:
+   - `.opencode/skills/math-genealogy-reconstructed-monologue/SKILL.md`
+2. Invoke the skill with exactly one factual bundle directory path:
+   - `/math-genealogy-reconstructed-monologue /absolute/path/to/outputs/math-genealogy-archaeologist/<arxiv_id>`
+3. Required upstream artifacts in that directory are:
+   - `claim-ledger.json`
+   - `trace.json`
+   - `report.md`
+   - `report.json`
+4. This skill writes only:
+   - `monologue.md`
+5. The monologue is derived but independently readable. It is not canonical evidence and must not be run safely without a frozen factual bundle.
+
+## Skill 5: Compatibility wrapper for the split genealogy flow
 
 1. In the repo where you want to run this, ensure this path exists:
    - `.opencode/skills/math-genealogy-archaeologist/SKILL.md`
@@ -50,23 +82,30 @@ This folder contains local OpenCode skills and runtime artifacts for prompt-driv
    - `/math-genealogy-archaeologist https://arxiv.org/abs/<id>`
    - or `/math-genealogy-archaeologist https://arxiv.org/pdf/<id>.pdf`
    - or `/math-genealogy-archaeologist <arxiv_id>`
-3. The skill is contract-bound and emits this fixed artifact set before any monologue:
+3. The wrapper preserves the legacy arXiv-first entrypoint but now runs a two-stage pipeline:
+   - factual trace first
+   - reconstructed monologue second only if the factual bundle authorizes it
+4. The public output bundle stays stable:
    - `claim-ledger.json`
    - `trace.json`
    - `report.md`
    - `report.json`
    - `monologue.md`
-4. This repo now includes a packaged example run for arXiv `2603.29576` at:
+5. This repo includes a packaged example run for arXiv `2603.29576` at:
    - `outputs/math-genealogy-archaeologist/2603.29576/claim-ledger.json`
    - `outputs/math-genealogy-archaeologist/2603.29576/trace.json`
    - `outputs/math-genealogy-archaeologist/2603.29576/report.md`
    - `outputs/math-genealogy-archaeologist/2603.29576/report.json`
    - `outputs/math-genealogy-archaeologist/2603.29576/monologue.md`
-5. The skill's fixed report ordering, source-access rules, and fail-closed behavior live in:
-   - `.opencode/skills/math-genealogy-archaeologist/references/`
+   - `outputs/math-genealogy-archaeologist/2603.29576/LEGACY_NOTE.md`
+6. The current example monologue is legacy and non-compliant with the new monologue contract until regenerated. Treat the factual artifacts as historical examples of the packaged bundle shape, not as proof of current monologue compliance.
+7. Authority hierarchy:
+   - factual bundle is canonical
+   - monologue is derived narrative
+   - wrapper preserves user-facing entrypoint and fail-closed dependency
 
 ## Notes
 
 - This bundle is skill-first (no external Python scripts required by user).
 - It uses built-in tools such as `look_at`, `read`, `bash`, and web/search tools available in OpenCode.
-- The parser skill, refiner skill, and math genealogy skill coexist; adding the newer skills does not replace the earlier ones.
+- The parser skill, refiner skill, factual genealogy skill, reconstructed monologue skill, and compatibility wrapper coexist.
