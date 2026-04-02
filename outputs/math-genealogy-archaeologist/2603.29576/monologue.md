@@ -1,15 +1,17 @@
-# Grounded monologue
-
-Grounding claims: CL-001, CL-002, CL-003, CL-004, CL-005, CL-006, CL-007, CL-008, CL-009, CL-010, CL-011.
-
 This notebook-style monologue is a grounded reconstruction from the frozen ledger and completed report. It does not add new facts beyond adjudicated ledger claims. This is a plausible reconstruction, not a factual claim about the authors' private thoughts.
 
-I start from the non-framed exact-Lagrangian example rather than from the theorem statement. Large gives me the motivating flow category, and the target is explicit that the Lagrangian difference map can obstruct framing there. That already tells me why the framed story of AB24 is necessary but not sufficient: the machine exists, but the motivating geometry sits just outside its cleanest range.
+I would start from the framed case, because that is where the target itself starts. Abouzaid--Blumberg are not just somewhere in the bibliography; they supply the visible model in which flow categories already sit inside a stable infinity-category. That gives me the first fixed point in the genealogy.
 
-I then see the second pressure line. The target does not want only one replacement for framing. It wants orientation data, local systems, and filtrations to coexist without being forced into separate formalisms. That is why the Douglas strand matters on one side and the PS24 tangential-structure strand matters on the other. The former says twisted stable homotopy is the right language to have available; the latter says the tangential input itself should be adjustable.
+Then the pressure changes. The target says not all Floer flow categories are frameable, so the framed story cannot be the end of the road. Once that obstruction is in view, the paper's pull toward twisted stable homotopy becomes intelligible, and Douglas enters as a supporting framework rather than as a decorative citation.
 
-Plausible reconstruction: once those pieces are on the table, the natural question is not merely how to repair one obstructed framing problem. It is how to build a single mu-structured formalism that still keeps the flow-category geometry visible while landing in exactly the twisted-presheaf category that the combined inputs suggest. This is a plausible reconstruction, not a factual claim about the authors' private thoughts.
+I also see that the target wants several kinds of data to live in one place: tangential structure, local systems, and filtrations. The paper-body evidence does not let me say that any unread seed paper already unified those pieces in exactly this form, so I should not say that. What I can say is that the target presents twisted presheaves as the common generalization into which those examples fit.
 
-From that angle, the main theorem looks less like an isolated equivalence and more like the closure of a pressure system. AB24 contributes the categorical machine, Lar21 contributes the motivating non-framed Floer input, Dou05 contributes the twisted target language, and PS24 shows how tangential structure can be pushed and tuned. The paper's novelty is to make those lines meet at mu-structured flow categories and then prove that the resulting stable category is TwShv.
+The technical path is visible, even if I keep it bounded. Gepner--Haugseng, Gepner--Haugseng--Nikolaus, Christ--Dyckerhoff--Walde, Hedenlund--Moulinos, and Oldervoll appear as machinery ancestors: enriched infinity-categories, oplax-limit technology, lax additivity, twisted spectra, and quasi-unital inner Kan spaces. They look like the tools that make the comparison theorem run, not like alternate main conceptual parents of the whole project.
 
-I do not let the Furuta citation carry too much weight. The target itself marks that origin story as tentative, so in my ledger it stays a negative ancestor rather than a secure seed. That feels right: it belongs in the background of the reconstruction, but not at its center.
+Plausible reconstruction: the paper is trying to answer a question of the following shape. If framed flow categories already have a stable infinity-categorical interpretation, and if non-framed Floer situations demand twisted stable homotopy input, what is the correct μ-structured category in which those non-framed objects should live? This is a plausible reconstruction, not a factual claim about the authors' private thoughts.
+
+From the completed report, the answer that survives the evidence is concise. The paper builds `Flow^μ` and identifies it with `TwShv^μ`. That is the point where the framed ancestor, the twisted-stable-homotopy support, and the higher-categorical technique lineage all meet.
+
+I should also keep the limits in view. Large and Porcelli--Smith matter here, but in this run they matter as application-facing support for the Floer examples and appendix, not as fully reconstructed central seeds of the main theorem. Furuta stays outside the positive core because the target's own wording is too tentative for more.
+
+So the genealogy I trust is sparse. A framed-flow-category seed, a twisted-stable-homotopy support, and a cluster of technique ancestors are enough to explain the paper's mathematical pressure without pretending I have read more than I did.
