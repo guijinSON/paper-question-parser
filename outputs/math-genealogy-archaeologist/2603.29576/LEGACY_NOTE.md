@@ -5,13 +5,11 @@ This bundle is kept as a preserved example of the legacy combined `math-genealog
 ## Current status under the split contracts
 
 - `claim-ledger.json`, `trace.json`, `report.md`, and `report.json` remain useful as a historical example bundle.
-- `monologue.md` is legacy and non-compliant with the new `math-genealogy-reconstructed-monologue` contract until regenerated.
+- `monologue.md` has been regenerated and is now compliant with the split `math-genealogy-reconstructed-monologue` contract.
 
-## Why the current monologue is non-compliant
+## What remains legacy here
 
-- it is far shorter than the 10k-20k tokens target
-- it does not use the required literal pseudo-tool tags such as `READ_PAPER` or `INTERNET_SEARCH`
-- it does not show the required 3-4 explicit attempted routes with live hypothesis testing
-- it reads more like a summary than an independently readable reconstructed discovery transcript
+- the directory is still a preserved example of the older combined-wrapper bundle shape
+- this note exists for compatibility and history, not because the current monologue is failing contract checks
 
-Keep this bundle in place for compatibility and fixture history, but do not treat its `monologue.md` as a passing example for the new monologue-side contract.
+Keep this bundle in place for compatibility and fixture history, while treating its current `monologue.md` as a valid example of the split monologue-side contract.
