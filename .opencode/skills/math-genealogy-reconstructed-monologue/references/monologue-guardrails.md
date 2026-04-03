@@ -21,6 +21,7 @@ The monologue is a second-pass renderer over the frozen ledger and completed rep
 - The monologue may rearrange sequence and emphasis, but not evidence.
 - A `supported synthesis` stays a synthesis; it does not become a `fact` through narrative confidence.
 - A `speculative interpretation` stays visibly speculative.
+- The monologue may derive the target paper's research topic from ancestor tensions, but only as a bounded reconstruction from bundle-backed claims.
 
 ## Pseudo-search bounds
 
@@ -32,10 +33,13 @@ The monologue is a second-pass renderer over the frozen ledger and completed rep
 - If the factual bundle is fail-closed upstream, do not write `monologue.md` as if the run succeeded.
 - If `monologue_readiness.status = insufficient_quote_coverage`, do not write a best-effort monologue without actual quoted passages.
 - If required upstream artifacts are missing, fail closed.
+- If the draft is still materially below the full-length target or still lacks the required route-development beats, continue expanding in the same run instead of stopping for human feedback.
 
 ## Speculation marker
 
-Whenever the monologue uses a speculative bridge, include the sentence `This is a plausible reconstruction, not a factual claim about the authors' private thoughts.`
+- Include one fixed opening-note disclaimer that the transcript is a plausible reconstruction rather than a factual claim about the authors' private thoughts.
+- Do not repeat the disclaimer sentence throughout the monologue body.
+- Do not replace repeated disclaimers with body-level self-policing lines such as checking yourself against the bundle or explaining the contract from inside the transcript.
 
 ## Fixtures
 
