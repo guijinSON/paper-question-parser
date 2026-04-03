@@ -15,6 +15,8 @@ Use this skill when the user wants the long-form reconstructed discovery transcr
 
 This skill is downstream-only. It is a second-pass renderer over the frozen ledger and completed report. It consumes a factual bundle directory and produces only `monologue.md`.
 
+The purpose of the monologue is to sound like a real mathematician's working notebook while deriving the target paper's research topic from tensions, failures, and partial inheritances visible in its ancestors.
+
 ## Required references
 
 Before doing any substantive work, load these project-local references and treat them as the contract for this skill:
@@ -50,6 +52,7 @@ If the directory is missing any required upstream file, or if the factual bundle
 2. read `claim-ledger.json` and `report.md` / `report.json` as the canonical frozen evidence base
 3. check the bundle's monologue-readiness status and quote-eligibility fields before drafting
 4. render `monologue.md` only if the bundle is downstream-ready
+5. if the draft is still materially below the full compliant target length or still misses required route-development beats, continue expanding within the same run rather than stopping for human feedback
 
 The monologue is a second-pass renderer over the frozen ledger and completed report, not a parallel output path and not another genealogy analyzer.
 
@@ -58,3 +61,4 @@ The monologue is a second-pass renderer over the frozen ledger and completed rep
 - Write only `monologue.md` into the same bundle directory.
 - Keep the existing public artifact names stable.
 - If the factual bundle is blocked, fail closed rather than writing a best-effort monologue anyway.
+- Do not stop at a short partial draft when the bundle is downstream-ready; continue iterating until the monologue satisfies the style contract or a named fail-closed blocker is reached.

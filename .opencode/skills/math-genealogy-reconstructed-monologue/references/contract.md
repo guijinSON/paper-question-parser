@@ -34,6 +34,13 @@ That directory must contain:
 - The monologue skill must not perform retrieval, genealogy selection, or adjudication.
 - The monologue skill must not add new papers, new factual claims, or new quoted passages beyond the bundle.
 
+## Completion rule
+
+- A first draft is not success by itself.
+- Success means the monologue satisfies the full downstream style contract, including the full-length target and required route-development beats.
+- If the bundle is downstream-ready, the monologue skill must continue expanding within the same run until it reaches compliant completion or encounters a named fail-closed blocker.
+- The monologue skill must not pause for human feedback between partial expansion passes unless the user explicitly interrupts the run.
+
 ## Output contract
 
 - The only artifact this skill writes is `monologue.md`.
