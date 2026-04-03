@@ -62,6 +62,7 @@ Invoke the factual skill first. It owns:
 Invoke the monologue skill only after the factual stage has completed and only against the frozen factual bundle directory.
 
 The monologue skill is a second-pass renderer over the frozen ledger and completed report. It does not perform retrieval or adjudication.
+When the factual bundle is downstream-ready, the monologue stage should continue expanding within the same run until it reaches the compliant full-length target or hits a named fail-closed blocker; it should not stop for human feedback after a short partial draft.
 
 ### Stage 3: fail-closed dependency
 

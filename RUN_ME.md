@@ -71,8 +71,9 @@ This folder contains local OpenCode skills and runtime artifacts for prompt-driv
    - `report.md`
    - `report.json`
 4. This skill writes only:
-   - `monologue.md`
+    - `monologue.md`
 5. The monologue is derived but independently readable. It is not canonical evidence and must not be run safely without a frozen factual bundle.
+6. A compliant monologue run should continue expanding autonomously until it reaches the full downstream target length and route-development requirements, unless a named fail-closed blocker stops it.
 
 ## Skill 5: Compatibility wrapper for the split genealogy flow
 
@@ -98,7 +99,7 @@ This folder contains local OpenCode skills and runtime artifacts for prompt-driv
    - `outputs/math-genealogy-archaeologist/2603.29576/report.json`
    - `outputs/math-genealogy-archaeologist/2603.29576/monologue.md`
    - `outputs/math-genealogy-archaeologist/2603.29576/LEGACY_NOTE.md`
-6. The current example monologue is legacy and non-compliant with the new monologue contract until regenerated. Treat the factual artifacts as historical examples of the packaged bundle shape, not as proof of current monologue compliance.
+6. The packaged `2603.29576` monologue is a compliant example of the split monologue-side contract, while the directory itself remains a legacy combined-wrapper bundle shape.
 7. Authority hierarchy:
    - factual bundle is canonical
    - monologue is derived narrative
