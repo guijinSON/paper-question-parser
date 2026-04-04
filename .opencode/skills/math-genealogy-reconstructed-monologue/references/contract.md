@@ -40,6 +40,8 @@ That directory must contain:
 - Success means the monologue satisfies the full downstream style contract, including the full-length target and required route-development beats.
 - If the bundle is downstream-ready, the monologue skill must continue expanding within the same run until it reaches compliant completion or encounters a named fail-closed blocker.
 - The monologue skill must not pause for human feedback between partial expansion passes unless the user explicitly interrupts the run.
+- Before finalizing `monologue.md`, the skill must run at least two internal revision passes against the monologue guardrails.
+- A draft is not compliant if it still contains intention-language, overconfident historical synthesis, or unmarked hypothetical bridges that go beyond the frozen evidence base.
 
 ## Output contract
 

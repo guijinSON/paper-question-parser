@@ -41,5 +41,15 @@ When the monologue uses actual quoted passages, they must be drawn from quote-el
 - no claim to direct access to the authors' private thoughts
 - no body-level contract narration such as "the bundle tells me", "the contract does not allow", "I need to check myself against the bundle", or repeated self-policing about evidence discipline
 - no repeated disclaimer recitals inside the body
+- no intention-language unless directly supported, such as `the target wants`, `the paper wants`, `the authors want`, `the paper tries`, or `the paper aims`
+- no overconfident synthesis lines such as `this is where all the strands meet`, `the real point is`, or `everything converges here` unless the relation is explicitly bundle-backed
+
+## Preferred phrasing for bounded bridges
+
+- Prefer `I can read this as ...`, `this reads to me as ...`, or `this looks like ...` over intention-language such as `the paper wants ...`
+- Prefer `this move becomes legible here` or `these strands seem to come into closest alignment here` over teleological claims such as `this is where all the strands meet`
+- Prefer `Plausible reconstruction:` when moving from explicit evidence to an interpretive bridge
+- Prefer `appears`, `suggests`, `supports reading`, `frames`, or `presents` over stronger verbs like `proves`, `reveals`, `shows that the real point is`, or `must have intended`
+- Prefer grounding the sentence in a local object such as `this passage`, `this quoted pressure point`, `this move`, or `this comparison` rather than in broad historical objects such as `the paper`, `the field`, or `the research topic`
 
 Any speculative bridge must remain visibly speculative, but the required disclaimer should appear once in a fixed opening note rather than recurring inside the monologue body.

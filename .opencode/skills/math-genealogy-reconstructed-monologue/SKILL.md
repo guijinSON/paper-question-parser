@@ -52,9 +52,19 @@ If the directory is missing any required upstream file, or if the factual bundle
 2. read `claim-ledger.json` and `report.md` / `report.json` as the canonical frozen evidence base
 3. check the bundle's monologue-readiness status and quote-eligibility fields before drafting
 4. render `monologue.md` only if the bundle is downstream-ready
-5. if the draft is still materially below the full compliant target length or still misses required route-development beats, continue expanding within the same run rather than stopping for human feedback
+5. run an explicit self-critique pass against the monologue guardrails after the first complete draft
+6. revise the draft and run one more self-critique pass, specifically checking for intention-language, overconfident historical synthesis, and unmarked hypothetical bridges
+7. if the draft is still materially below the full compliant target length, still misses required route-development beats, or still contains guardrail violations, continue revising within the same run rather than stopping for human feedback
 
 The monologue is a second-pass renderer over the frozen ledger and completed report, not a parallel output path and not another genealogy analyzer.
+
+## Revision discipline
+
+- Treat every first complete draft as provisional rather than finished.
+- Before writing the final `monologue.md`, perform at least two revision passes inside the same run.
+- In each revision pass, specifically remove or weaken any sentence that attributes intentions, goals, motives, or strategy to the paper or its authors unless that language is directly supported by the factual bundle.
+- In each revision pass, weaken any sentence that turns bounded synthesis into settled historical structure unless the relation is explicit in the frozen evidence.
+- In each revision pass, mark any hypothetical bridge as plausible reconstruction rather than letting it read as settled fact.
 
 ## Output boundary
 

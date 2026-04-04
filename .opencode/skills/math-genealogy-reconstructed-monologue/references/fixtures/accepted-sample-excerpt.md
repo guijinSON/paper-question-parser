@@ -14,4 +14,4 @@ At first I think the problem is just technical bookkeeping. Then I hit the secon
 
 `<TOOL>REVISE_QUESTION | FROM: how do I patch the framed model? | TO: what stable infinity-categorical home is large enough for the non-framed data? </TOOL>`
 
-What matters is that the research topic is beginning to derive itself: the paper has to ask what stable home is large enough for non-framed flow-category data without erasing the geometry that produced the problem.
+Plausible reconstruction: I can read this pressure point as forcing the search for a stable home large enough for non-framed flow-category data without erasing the geometry that produced the problem.
