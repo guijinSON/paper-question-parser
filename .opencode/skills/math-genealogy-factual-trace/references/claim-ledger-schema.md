@@ -4,6 +4,8 @@
 
 `claim-ledger.json` is the audited evidence ledger for the run. Later renderers may only render from adjudicated ledger claims rather than inventing facts, filling gaps from memory, or upgrading downgraded evidence.
 
+It is also the primary frozen handoff artifact for downstream graph rendering. Later graph renderers may use `report.md` and `report.json` as compatible context only, and may not override the ledger or reopen factual adjudication.
+
 ## Top-level structure
 
 At minimum, `claim-ledger.json` must contain:
@@ -29,7 +31,9 @@ Each claim record must store all of the following fields:
 - `monologue_quote_eligible`: boolean stating whether the claim may supply actual quoted passages to the downstream monologue
 - `confidence`: explicit confidence value for the claim after adjudication
 
-The ledger may store additional implementation fields such as `source_ids`, `adjudication_status`, `conflict_group`, `notes`, `renderable`, or `monologue_quote_readiness_reason`, but the fields above are mandatory and stable.
+The ledger may store additional implementation fields such as `source_ids`, `adjudication_status`, `conflict_group`, `notes`, `renderable`, `relation_type`, `related_paper_nodes`, or `monologue_quote_readiness_reason`, but the fields above are mandatory and stable.
+
+When graph rendering is possible, later renderers should derive nodes and edges from adjudicated renderable claim records in this frozen ledger rather than from fresh retrieval, fresh adjudication, or free-form report narration.
 
 ## Field rules
 
@@ -95,7 +99,7 @@ Store explicit post-adjudication confidence. Confidence is an outcome of adjudic
 
 ## Monologue-readiness summary
 
-`monologue_readiness` must expose the downstream decision in machine-auditable form.
+`monologue_readiness` must expose the monologue-specific downstream decision in machine-auditable form.
 
 At minimum include:
 
@@ -104,6 +108,10 @@ At minimum include:
 - `directly_read_source_ids`: source IDs that can support downstream actual quoted passages
 - `notes`: explicit explanation of the readiness decision
 
+Preserve `monologue_readiness` as compatibility metadata for downstream prose rendering. A status such as `insufficient_quote_coverage` does not by itself block downstream graph rendering when adjudicated renderable genealogy relations remain available in the frozen ledger.
+
 ## Rendering constraint
 
-Only adjudicated ledger claims may be rendered into later outputs. Claims excluded, downgraded, unresolved, abstract-only, indirectly quoted, unread, or notation-unsafe in the ledger cannot silently become later report or monologue facts.
+Only adjudicated ledger claims may be rendered into later outputs. Claims excluded, downgraded, unresolved, abstract-only, indirectly quoted, unread, or notation-unsafe in the ledger cannot silently become later report, monologue, or graph facts.
+
+Downstream graph renderers must fail closed on upstream failure, missing frozen artifacts, or absence of adjudicated renderable genealogy relations. They must not fail solely because monologue quote coverage is insufficient.

@@ -63,7 +63,9 @@ Frozen evidence ledger that later renderers must consume instead of inventing ne
 
 At minimum, each claim entry must preserve `paper_node`, `claim_text`, `claim_type`, `source_access_level`, `source_tier`, `quotation_or_excerpt`, `quote_kind`, `directly_read`, `monologue_quote_eligible`, and `confidence`, with adjudication outcomes kept explicit rather than collapsed into prose.
 
-The top-level payload should also reserve a `monologue_readiness` block that explains whether the bundle can support downstream actual quoted passages.
+The top-level payload should also reserve a `monologue_readiness` block as compatibility metadata that explains whether the bundle can support downstream actual quoted passages. That block does not by itself decide whether a downstream graph renderer may run.
+
+Later downstream graph rendering, when present, happens only after factual bundle completion and consumes `claim-ledger.json` as its primary frozen graph input. Compatible renderers may consult `report.md` and `report.json` for context, but they may only render adjudicated frozen claims and relations already preserved in the bundle.
 
 ### `trace.json`
 
@@ -79,15 +81,19 @@ The trace must also reserve space for genealogy stopping-limit outcomes, includi
 
 Broken URLs, unreadable targets, abstract-only access, retry exhaustion, fallback exhaustion, and `insufficient_quote_coverage` must be reported as explicit source-access or downstream-readiness outcomes rather than being described as if the paper body had been read.
 
+`insufficient_quote_coverage` is monologue-specific compatibility metadata. By itself it is not an automatic blocker for downstream graph rendering when the frozen bundle still contains adjudicated renderable genealogy relations.
+
 ## Ordering invariant
 
 1. `claim-ledger.json` and `trace.json` may be produced during evidence work.
 2. `report.md` and `report.json` are finalized after adjudication.
-3. Downstream monologue rendering, if any, comes strictly after the factual bundle is complete.
-4. `report.md` and `report.json` may only render adjudicated ledger claims.
-5. `report.md` and `report.json` must preserve the stable section order from `fixed-report-template.md`.
-6. Named fail-closed outputs must stay visibly distinct from a full report and must use the variants defined in `fail-closed-output.md`.
-7. The factual side owns monologue-readiness and quote-eligibility metadata, but not `monologue.md` generation itself.
+3. Downstream rendering, if any, comes strictly after the factual bundle is complete.
+4. Downstream graph rendering, if any, consumes the frozen bundle only, with `claim-ledger.json` as the primary graphable input and `report.md` and `report.json` as compatible context only.
+5. `report.md` and `report.json` may only render adjudicated ledger claims.
+6. `report.md` and `report.json` must preserve the stable section order from `fixed-report-template.md`.
+7. Named fail-closed outputs must stay visibly distinct from a full report and must use the variants defined in `fail-closed-output.md`.
+8. The factual side owns monologue-readiness and quote-eligibility metadata as compatibility data, but not downstream renderer generation itself.
+9. Downstream graph rendering fail-closes for upstream failure, missing required frozen artifacts, or lack of adjudicated renderable genealogy relations, not merely for monologue quote-coverage shortfalls.
 
 ## Current scope
 
