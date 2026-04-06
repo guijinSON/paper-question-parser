@@ -7,6 +7,7 @@ This folder contains local OpenCode skills and runtime artifacts for prompt-driv
 - `.opencode/skills/paper-question-parser/SKILL.md`
 - `.opencode/skills/paper-question-refiner/SKILL.md`
 - `.opencode/skills/math-genealogy-factual-trace/SKILL.md`
+- `.opencode/skills/math-genealogy-graph-renderer/SKILL.md`
 - `.opencode/skills/math-genealogy-reconstructed-monologue/SKILL.md`
 - `.opencode/skills/math-genealogy-archaeologist/SKILL.md`
 - `outputs/latest.json`
@@ -57,9 +58,9 @@ This folder contains local OpenCode skills and runtime artifacts for prompt-driv
    - `trace.json`
    - `report.md`
    - `report.json`
-4. The factual bundle is canonical. A later monologue may depend on it, but may not override it.
+4. The factual bundle is canonical. Later downstream renderers may depend on it, but may not override it.
 
-## Skill 4: Render the reconstructed monologue from a frozen factual bundle
+## Skill 4: Legacy standalone monologue from a frozen factual bundle
 
 1. In the repo where you want to run this, ensure this path exists:
    - `.opencode/skills/math-genealogy-reconstructed-monologue/SKILL.md`
@@ -71,9 +72,9 @@ This folder contains local OpenCode skills and runtime artifacts for prompt-driv
    - `report.md`
    - `report.json`
 4. This skill writes only:
-    - `monologue.md`
-5. The monologue is derived but independently readable. It is not canonical evidence and must not be run safely without a frozen factual bundle.
-6. A compliant monologue run should continue expanding autonomously until it reaches the full downstream target length and route-development requirements, unless a named fail-closed blocker stops it.
+     - `monologue.md`
+5. This is a standalone downstream skill. It is not the current wrapper second stage.
+6. The monologue is derived but independently readable. It is not canonical evidence and must not run without a frozen factual bundle.
 
 ## Skill 5: Compatibility wrapper for the split genealogy flow
 
@@ -85,28 +86,22 @@ This folder contains local OpenCode skills and runtime artifacts for prompt-driv
    - or `/math-genealogy-archaeologist <arxiv_id>`
 3. The wrapper preserves the legacy arXiv-first entrypoint but now runs a two-stage pipeline:
    - factual trace first
-   - reconstructed monologue second only if the factual bundle authorizes it
+   - graph renderer second only if the factual bundle authorizes it
 4. The public output bundle stays stable:
    - `claim-ledger.json`
    - `trace.json`
    - `report.md`
    - `report.json`
-   - `monologue.md`
-5. This repo includes a packaged example run for arXiv `2603.29576` at:
-   - `outputs/math-genealogy-archaeologist/2603.29576/claim-ledger.json`
-   - `outputs/math-genealogy-archaeologist/2603.29576/trace.json`
-   - `outputs/math-genealogy-archaeologist/2603.29576/report.md`
-   - `outputs/math-genealogy-archaeologist/2603.29576/report.json`
-   - `outputs/math-genealogy-archaeologist/2603.29576/monologue.md`
-   - `outputs/math-genealogy-archaeologist/2603.29576/LEGACY_NOTE.md`
-6. The packaged `2603.29576` monologue is a compliant example of the split monologue-side contract, while the directory itself remains a legacy combined-wrapper bundle shape.
+   - `genealogy.svg`
+5. The wrapper keeps the same public directory path, `outputs/math-genealogy-archaeologist/<arxiv_id>/`, while the active derived artifact is now `genealogy.svg`.
+6. This repo's packaged `2603.29576` directory is still a legacy compatibility example and includes `LEGACY_NOTE.md`. Treat any monologue file there as deprecated packaged content, not as the current wrapper output contract.
 7. Authority hierarchy:
    - factual bundle is canonical
-   - monologue is derived narrative
+   - downstream renders are derived artifacts
    - wrapper preserves user-facing entrypoint and fail-closed dependency
 
 ## Notes
 
 - This bundle is skill-first (no external Python scripts required by user).
 - It uses built-in tools such as `look_at`, `read`, `bash`, and web/search tools available in OpenCode.
-- The parser skill, refiner skill, factual genealogy skill, reconstructed monologue skill, and compatibility wrapper coexist.
+- The parser skill, refiner skill, factual genealogy skill, graph renderer, reconstructed monologue skill, and compatibility wrapper coexist.
