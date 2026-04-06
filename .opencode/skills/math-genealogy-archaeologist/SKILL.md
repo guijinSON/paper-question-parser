@@ -1,6 +1,6 @@
 ---
 name: math-genealogy-archaeologist
-description: "Compatibility wrapper for the split genealogy pipeline. Accepts arXiv abs URLs, arXiv PDF URLs, and bare arXiv IDs, runs the factual trace stage first, then optionally runs the reconstructed monologue stage over the frozen factual bundle. Preserves the public output bundle names and path."
+description: "Compatibility wrapper for the split genealogy pipeline. Accepts arXiv abs URLs, arXiv PDF URLs, and bare arXiv IDs, runs the factual trace stage first, then optionally runs the graph-rendering stage over the frozen factual bundle. Preserves the public output bundle names and path."
 argument-hint: "<arXiv abs URL | arXiv PDF URL | bare arXiv ID>"
 allowed-tools:
   - Read
@@ -13,12 +13,12 @@ allowed-tools:
 
 # Math Genealogy Archaeologist
 
-Use this skill when the user wants the legacy arXiv-first entrypoint for one paper's backward mathematical genealogy, with a fixed report first and a monologue second.
+Use this skill when the user wants the legacy arXiv-first entrypoint for one paper's backward mathematical genealogy, with a fixed report first and a graph render second.
 
 This is now a compatibility wrapper. It orchestrates a one-way pipeline:
 
 1. `math-genealogy-factual-trace` runs first and owns retrieval, bounded source reading, genealogy selection, adjudication, quote-readiness, fail-closed decisions, and the canonical factual artifacts.
-2. `math-genealogy-reconstructed-monologue` runs second and consumes the frozen factual bundle directory only.
+2. `math-genealogy-graph-renderer` runs second and consumes the frozen factual bundle directory only.
 
 The wrapper preserves the public bundle shape under `outputs/math-genealogy-archaeologist/<arxiv_id>/` with stable artifact names:
 
@@ -26,12 +26,12 @@ The wrapper preserves the public bundle shape under `outputs/math-genealogy-arch
 - `claim-ledger.json`
 - `report.md`
 - `report.json`
-- `monologue.md`
+- `genealogy.svg`
 
 ## Split authority
 
 - Canonical factual rules live under `.opencode/skills/math-genealogy-factual-trace/`.
-- Canonical monologue rules live under `.opencode/skills/math-genealogy-reconstructed-monologue/`.
+- Canonical graph-rendering rules live under `.opencode/skills/math-genealogy-graph-renderer/`.
 - This wrapper does not duplicate those full contracts.
 
 ## Wrapper input contract
@@ -57,23 +57,23 @@ Invoke the factual skill first. It owns:
 - quote-readiness and `insufficient_quote_coverage` decisions
 - rendering `trace.json`, `claim-ledger.json`, `report.md`, and `report.json`
 
-### Stage 2: monologue second
+### Stage 2: graph rendering second
 
-Invoke the monologue skill only after the factual stage has completed and only against the frozen factual bundle directory.
+Invoke the graph-rendering skill only after the factual stage has completed and only against the frozen factual bundle directory.
 
-The monologue skill is a second-pass renderer over the frozen ledger and completed report. It does not perform retrieval or adjudication.
-When the factual bundle is downstream-ready, the monologue stage should continue expanding within the same run until it reaches the compliant full-length target or hits a named fail-closed blocker; it should not stop for human feedback after a short partial draft.
+The graph-rendering skill is a second-pass renderer over the frozen ledger and completed report. It does not perform retrieval or adjudication.
+When the factual bundle is downstream-ready and contains renderable genealogy evidence, the graph stage should complete within the same run by writing the deterministic `genealogy.svg` artifact, or stop at a named fail-closed blocker.
 
 ### Stage 3: fail-closed dependency
 
 - If the factual stage fails closed, stop there.
-- If the factual stage sets `monologue_readiness.status = insufficient_quote_coverage`, preserve the factual bundle and do not generate a best-effort monologue.
-- Preserve the stable artifact order: factual artifacts first, monologue second only when authorized.
+- If the frozen factual bundle is missing required upstream artifacts, reports an upstream-failed state, or lacks renderable genealogy evidence after adjudication, preserve the factual bundle and do not generate a best-effort graph.
+- Preserve the stable artifact order: factual artifacts first, graph output second only when authorized.
 
 ## Canonical paths
 
 - Factual skill entrypoint: `.opencode/skills/math-genealogy-factual-trace/SKILL.md`
-- Monologue skill entrypoint: `.opencode/skills/math-genealogy-reconstructed-monologue/SKILL.md`
+- Graph skill entrypoint: `.opencode/skills/math-genealogy-graph-renderer/SKILL.md`
 - Public wrapper entrypoint: `.opencode/skills/math-genealogy-archaeologist/SKILL.md`
 
 ## Compatibility note
