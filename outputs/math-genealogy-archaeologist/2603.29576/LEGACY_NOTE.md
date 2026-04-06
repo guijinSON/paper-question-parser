@@ -1,15 +1,14 @@
 # Legacy example note
 
-This bundle is kept as a preserved example of the legacy combined `math-genealogy-archaeologist` output directory and public artifact names.
+This packaged directory is preserved for compatibility history, but its active wrapper contract is now the migrated SVG bundle shape.
 
-## Current status under the split contracts
+## Current wrapper-facing contents
 
-- `claim-ledger.json`, `trace.json`, `report.md`, and `report.json` remain useful as a historical example bundle.
-- `monologue.md` has been regenerated and is now compliant with the split `math-genealogy-reconstructed-monologue` contract.
+- `claim-ledger.json`, `trace.json`, `report.md`, and `report.json` are the factual artifacts.
+- `genealogy.svg` is the current derived graph artifact for the migrated `math-genealogy-archaeologist` wrapper contract.
 
-## What remains legacy here
+## Deprecated legacy context
 
-- the directory is still a preserved example of the older combined-wrapper bundle shape
-- this note exists for compatibility and history, not because the current monologue is failing contract checks
-
-Keep this bundle in place for compatibility and fixture history, while treating its current `monologue.md` as a valid example of the split monologue-side contract.
+- Earlier packaged revisions of this directory also carried `monologue.md`.
+- That monologue artifact is deprecated packaged history only and is not part of the current wrapper output contract.
+- The deprecated monologue content has been removed from this active packaged example so the visible bundle matches the validator and public wrapper contract.
