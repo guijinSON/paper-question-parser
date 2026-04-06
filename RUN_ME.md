@@ -9,6 +9,7 @@ This folder contains local OpenCode skills and runtime artifacts for prompt-driv
 - `.opencode/skills/math-genealogy-factual-trace/SKILL.md`
 - `.opencode/skills/math-genealogy-graph-renderer/SKILL.md`
 - `.opencode/skills/math-genealogy-reconstructed-monologue/SKILL.md`
+- `.opencode/skills/math-genealogy-research-trajectory/SKILL.md`
 - `.opencode/skills/math-genealogy-archaeologist/SKILL.md`
 - `outputs/latest.json`
 - `outputs/paper-question-refiner.latest.json`
@@ -76,7 +77,32 @@ This folder contains local OpenCode skills and runtime artifacts for prompt-driv
 5. This is a standalone downstream skill. It is not the current wrapper second stage.
 6. The monologue is derived but independently readable. It is not canonical evidence and must not run without a frozen factual bundle.
 
-## Skill 5: Compatibility wrapper for the split genealogy flow
+## Skill 5: Downstream research trajectory from a frozen factual bundle
+
+1. In the repo where you want to run this, ensure this path exists:
+   - `.opencode/skills/math-genealogy-research-trajectory/SKILL.md`
+2. Invoke the skill with exactly one factual bundle directory path:
+   - `/math-genealogy-research-trajectory /absolute/path/to/outputs/math-genealogy-archaeologist/<arxiv_id>`
+3. Required upstream artifacts in that directory are:
+   - `claim-ledger.json`
+   - `trace.json`
+   - `report.md`
+   - `report.json`
+4. This skill writes only the downstream trajectory artifacts:
+   - `trajectory.md`
+   - `trajectory.manifest.json`
+5. This is a standalone downstream skill. It is optional and does not modify the canonical factual artifacts; it only adds derived trajectory outputs beside them.
+6. Descendant method-overlap scoring is separate from generation. The trajectory skill does not see later descendants during generation time.
+7. The post-generation evaluator entrypoint is:
+   - `python3 contract/evaluate_math_genealogy_method_overlap.py <trajectory.md> <descendants.json>`
+   It emits a machine-readable JSON report with:
+   - `method_candidates`
+   - `matched_descendant_methods`
+   - `overlap_ratio`
+   - `confidence`
+   - `reasons`
+
+## Skill 6: Compatibility wrapper for the split genealogy flow
 
 1. In the repo where you want to run this, ensure this path exists:
    - `.opencode/skills/math-genealogy-archaeologist/SKILL.md`
@@ -104,4 +130,5 @@ This folder contains local OpenCode skills and runtime artifacts for prompt-driv
 
 - This bundle is skill-first (no external Python scripts required by user).
 - It uses built-in tools such as `look_at`, `read`, `bash`, and web/search tools available in OpenCode.
-- The parser skill, refiner skill, factual genealogy skill, graph renderer, reconstructed monologue skill, and compatibility wrapper coexist.
+- The parser skill, refiner skill, factual genealogy skill, graph renderer, reconstructed monologue skill, research trajectory skill, and compatibility wrapper coexist.
+- The factual bundle remains canonical. Graph, monologue, and trajectory outputs are downstream derived artifacts.
