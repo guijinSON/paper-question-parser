@@ -1,62 +1,52 @@
-report_mode: full_report
+# Report mode: full_report
 
 ## Source ledger
 
-- Target arXiv abs: `read` only at the abstract/metadata level.
-- Target localized PDF: `quoted`; this supplied the readable paper body.
-- Target localized source (`main.tex`): `quoted`; this stabilized the introduction wording and citation context.
-- Target bibliography (`main.bbl`): `read`; this stabilized cited-work identity and titles.
-- PS24 arXiv abs: `quoted`; used as the single outward reinforcement check.
-- Lar21 MIT handle: `discovered` only; it was not directly read in this run.
+- Target identity was normalized to `arXiv:2603.29576`, with observed source URL `https://arxiv.org/abs/2603.29576` and visible version `v1`.
+- The arXiv landing page was read and quoted for metadata, abstract, and version information.
+- The target PDF was localized but not read as paper-body text in this runtime.
+- The arXiv source archive was localized, extracted, and read through `main.tex` and `main.bbl`; this is the paper-body evidence base for the genealogy claims below.
+- One outward reinforcement check was used on Abouzaid--Blumberg only, and it remained abstract-only reinforcement rather than sole support.
 
 ## Seed ranking
 
-1. **Lar21** - `immediate seed`.
-   The target makes Large's exact-Lagrangian flow category the motivating non-framed case, first in the introduction and then again in the geometric example.
-
-2. **AB24** - `technique ancestor`.
-   The paper explicitly starts from the framed-flow-category machine of Abouzaid-Blumberg and generalizes that machinery outside the framed regime.
-
-3. **Dou05** - `supporting seed`.
-   Douglas is the named framework source for twisted stable homotopy theory on the target side of the equivalence.
-
-4. **PS24** - `supporting seed`.
-   Tangential pairs give the concrete bridge for varying tangential structure while keeping the same Floer input, and the outward reinforcement check agrees with that reading.
-
-5. **Fur02** - `negative ancestor`.
-   It is worth recording because the target presents it as a possible early signal for the agenda, but the wording is tentative and the underlying source stayed unread here.
+1. **Abouzaid--Blumberg, _Foundation of Floer homotopy theory I: Flow categories_** — **immediate seed**. The target explicitly says Abouzaid--Blumberg show framed flow categories can be arranged into a stable infinity-category modeling spectra, and it presents the current paper as constructing Abouzaid--Blumberg style infinity-categories `Flow^μ`.
+2. **Douglas, _Twisted stable homotopy theory_** — **supporting seed**. The target explicitly says Douglas provided a framework for twisted stable homotopy theory needed for the non-framed setting.
+3. **Large, _Spectral Fukaya categories for Liouville manifolds_** — **supporting seed**, but only for the application-facing Lagrangian Floer examples and appendix, not as a ranked central parent of the main theorem.
+4. **Gepner--Haugseng; Gepner--Haugseng--Nikolaus; Christ--Dyckerhoff--Walde; Hedenlund--Moulinos; Oldervoll** — **technique ancestors**. These are the explicitly named technical frameworks for enriched infinity-categories, oplax limits, lax additivity, twisted spectra, and quasi-unital inner Kan spaces.
 
 ## Pressure points
 
-- The framed theory is too restrictive for the motivating exact-Lagrangian case because the Lagrangian difference map can obstruct framing.
-- Earlier examples point toward three outputs - Thom-spectrum modules, spectral local systems, and filtered spectral diagrams - so there is pressure for one common formalism instead of three parallel ones.
-- Tangential data has to be tunable, not fixed, which is why the tangential-pair strand matters in the supporting genealogy.
+- The target inherits a concrete obstruction: many Floer flow categories are not frameable, so framed-flow-category technology is too narrow on its own.
+- The target also inherits a packaging problem: orientation data, local systems, and filtrations should interact inside one stable infinity-categorical framework rather than as disconnected examples.
+- The decisive pressure point is therefore to build a μ-structured stable infinity-category and then identify it with a twisted-presheaf model.
 
 ## Missing-cell analysis
 
-- Lar21, Dou05, and Fur02 were not directly read as primary texts in this bounded run, so those edges rest on target-side framing rather than direct downstream quotation.
-- No depth-2 ancestor survived adjudication because the run did not read enough downstream source text to support a stronger backward chain.
-- The Furuta-origin thread remains downgraded because the target itself says "perhaps" and the preprint stayed unread.
+- No seed-paper body beyond the target itself was read in this run.
+- The one outward reinforcement check on Abouzaid--Blumberg was abstract-only.
+- Because of those access limits, the reconstruction does not safely support depth-2 ancestry or detailed claims about what individual seed papers prove beyond what the target explicitly states.
 
 ## Transfer-vs-novelty boundary
 
-- **Transferred:** AB24 supplies the framed-flow-category machine; Lar21 supplies the exact-Lagrangian flow-category input and its non-framed pressure; Dou05 supplies the twisted-stable-homotopy framework; PS24 supplies the tangential-structure tuning mechanism.
-- **Novel:** the target's distinctive move is the mu-structured synthesis that identifies structured flow categories with twisted presheaves.
+- The evidence supports transfer of several ingredients: the Abouzaid--Blumberg flow-category viewpoint, Douglas-style twisted stable homotopy, and technical machinery from enriched infinity-categories, oplax limits, lax additivity, twisted spectra, and quasi-unital inner Kan spaces.
+- The evidence also supports that the target's own theorem is the identification `Flow^(-) ≃ TwShv^(-)` in the μ-structured setting.
+- What the evidence does **not** support is a stronger historical claim that the target's novelty is only packaging or that one unread seed already contained the whole theorem in disguised form.
 
 ## Blind reconstruction
 
-Start from the exact-Lagrangian Floer case where framing fails, keep the flow-category input anyway, package orientation, local-system, and filtration behavior through a single mu-structure, and require that the resulting stable category match the twisted-presheaf category suggested by those inputs.
+The bounded reconstruction is that the paper starts from a known stable infinity-category of **framed** flow categories, confronts the fact that non-framed Floer settings require tangentially twisted stable homotopy technology, and then builds a μ-structured framework whose natural receiving category is that of μ-twisted presheaves.
 
 ## Comparison with target
 
-- **Agrees:** this reconstruction lands very close to the target's own framing of the problem and the theorem.
-- **Undershoots:** it does not reconstruct the deeper internal technical machinery of the later sections, because the run stayed bounded to readable framing evidence plus one reinforcement check.
-- **Conflicts:** none surfaced in the adjudicated ledger.
+- This reconstruction agrees with the target's accessible framing at the level of problem pressure: non-framed Floer settings are the obstacle, and twisted presheaves are the common home.
+- It also agrees with the stated theorem identifying `Flow^μ` with `TwShv^μ`.
+- It undershoots the target whenever a finer historical transmission story would require reading Abouzaid--Blumberg, Douglas, or other cited seeds directly.
 
 ## Reconstructed question
 
-Can one keep non-framed Floer flow-category inputs, let orientation/local-system/filtration data interact through a single `mu : C -> U/O`, and still recover the correct stable target category as twisted presheaves?
+How can one place non-framed Floer flow categories, together with their tangential structures and related local-system or filtration data, into a stable infinity-categorical framework that is naturally equivalent to a twisted-presheaf construction?
 
 ## Confidence and uncertainty
 
-Overall confidence is **medium**. Target access is strong because the paper body and source archive were directly read, and the main depth-1 seeds are explicitly named by the target. Confidence is capped because most downstream seed texts were not directly read, so the genealogy is strongest on immediate conceptual parents and weaker on deeper historical ancestry.
+Confidence is **medium**. The core depth-1 genealogy is directly supported by target-paper text, but the evidence floor is intentionally conservative: Abouzaid--Blumberg is the only reinforced immediate seed, Douglas is kept at supporting-seed level, application-facing Floer examples stay low-confidence, and Furuta is not promoted to a positive edge.

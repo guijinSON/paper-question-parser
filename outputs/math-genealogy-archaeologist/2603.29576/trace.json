@@ -1,175 +1,103 @@
 {
-  "execution_mode": "enriched",
+  "execution_mode": "baseline",
   "capabilities_used": [
-    "Skill",
-    "Read",
-    "WebFetch",
-    "Bash",
-    "WebSearch"
+    "read",
+    "grep",
+    "glob",
+    "webfetch",
+    "bash",
+    "background_explore",
+    "background_librarian",
+    "background_metis",
+    "background_oracle"
   ],
-  "retry_count": 0,
-  "fallback_path": [
-    "arxiv_abs",
-    "localized_pdf_text",
-    "localized_source_text"
-  ],
-  "input_normalization": {
-    "accepted_v1_shape": "arxiv_abs_url",
-    "canonical_target": "https://arxiv.org/abs/2603.29576",
-    "canonical_work_id": "arxiv:2603.29576",
-    "observed_source_url": "https://arxiv.org/abs/2603.29576",
-    "observed_version": "v1",
-    "alias_ids": [
-      "2603.29576",
-      "arxiv:2603.29576",
-      "https://arxiv.org/pdf/2603.29576",
-      "https://arxiv.org/src/2603.29576"
-    ],
-    "source_type": "arxiv-abs",
-    "duplicate_aliases_collapsed": false,
-    "version_conflict": false,
-    "published_version_reconciliation_required": false
+  "retry_count": {
+    "landing_page_fetch": 1,
+    "versioned_landing_page_fetch": 1,
+    "pdf_localization": 1,
+    "tex_source_localization": 1,
+    "html_fallback": 1,
+    "outward_check": 1
   },
-  "phase_transitions": [
-    {
-      "phase": "contract_lock",
-      "status": "completed"
-    },
-    {
-      "phase": "ingestion",
-      "status": "completed"
-    },
-    {
-      "phase": "genealogy_selection",
-      "status": "completed"
-    },
-    {
-      "phase": "report_render",
-      "status": "completed"
-    },
-    {
-      "phase": "monologue_render",
-      "status": "completed"
-    }
+  "fallback_path": [
+    "landing-page-text-read",
+    "localized-pdf-no-body-read",
+    "localized-tex-source-read"
   ],
+  "normalization": {
+    "input": "https://arxiv.org/abs/2603.29576",
+    "accepted_shape": "arxiv-abs-url",
+    "canonical_work_id": "arXiv:2603.29576",
+    "observed_source_url": "https://arxiv.org/abs/2603.29576",
+    "observed_version": "v1 visible on landing page; observed URL unversioned",
+    "alias_ids": [
+      "arXiv:2603.29576",
+      "arXiv:2603.29576v1"
+    ],
+    "source_type": "arxiv-abstract-page",
+    "version_conflict": false
+  },
   "sources": [
     {
       "source_id": "src-target-abs",
-      "label": "target arXiv abs",
-      "locator": "https://arxiv.org/abs/2603.29576",
+      "url": "https://arxiv.org/abs/2603.29576",
+      "source_type": "arxiv-abstract-page",
+      "source_access_state": "quoted",
+      "notes": "Landing page fetched first and read."
+    },
+    {
+      "source_id": "src-target-abs-v1",
+      "url": "https://arxiv.org/abs/2603.29576v1",
+      "source_type": "arxiv-versioned-abstract-page",
       "source_access_state": "read",
-      "observed_version": "v1",
-      "notes": "Landing page fetched first. Readable metadata and abstract only; not treated as full-paper body access."
+      "notes": "Fetched to verify visible version locator and matching abstract surface."
     },
     {
       "source_id": "src-target-pdf",
-      "label": "target localized PDF",
-      "locator": "/tmp/2603.29576.pdf",
-      "source_access_state": "quoted",
-      "notes": "Localized after abs-page read. Full paper text parsed successfully and quoted."
-    },
-    {
-      "source_id": "src-target-src",
-      "label": "target localized source archive",
-      "locator": "/tmp/2603.29576.src",
+      "url": "https://arxiv.org/pdf/2603.29576v1",
+      "source_type": "arxiv-pdf",
       "source_access_state": "localized",
-      "notes": "Archive downloaded successfully."
+      "notes": "Localized successfully; body text not read due missing extractor tooling."
     },
     {
       "source_id": "src-target-tex",
-      "label": "target source main.tex",
-      "locator": "/tmp/arxiv-2603.29576-src/main.tex",
+      "url": "https://arxiv.org/e-print/2603.29576v1",
+      "source_type": "arxiv-tex-source",
       "source_access_state": "quoted",
-      "notes": "Readable localized source text used for quoted introduction passages and citation context."
+      "notes": "Localized and extracted; main.tex and main.bbl read and quoted."
     },
     {
-      "source_id": "src-target-bbl",
-      "label": "target bibliography main.bbl",
-      "locator": "/tmp/arxiv-2603.29576-src/main.bbl",
-      "source_access_state": "read",
-      "notes": "Used to stabilize cited-work identity metadata and titles."
+      "source_id": "src-target-html",
+      "url": "https://arxiv.org/html/2603.29576",
+      "source_type": "arxiv-html",
+      "source_access_state": "unverified",
+      "notes": "404 on attempted HTML fallback."
     },
     {
-      "source_id": "src-ps24-abs",
-      "label": "PS24 arXiv abs",
-      "locator": "https://arxiv.org/abs/2411.03257",
+      "source_id": "src-ab-abstract",
+      "url": "https://arxiv.org/abs/2404.03193",
+      "source_type": "arxiv-abstract-page",
       "source_access_state": "quoted",
-      "notes": "Used as one outward reinforcement check for the tangential-structure edge."
-    },
-    {
-      "source_id": "src-ab24-abs",
-      "label": "AB24 arXiv abs",
-      "locator": "https://arxiv.org/abs/2404.03193",
-      "source_access_state": "read",
-      "notes": "Fetch returned title-level text only in this run; not used for a quoted claim."
-    },
-    {
-      "source_id": "src-lar21-mit",
-      "label": "Lar21 MIT handle",
-      "locator": "https://dspace.mit.edu/handle/1721.1/139233",
-      "source_access_state": "discovered",
-      "notes": "Discovered through bounded web search only; not directly read, so not promoted as independent reinforcement."
+      "notes": "Used for the one allowed outward reinforcement check on AB only; abstract-level access only."
     }
   ],
-  "genealogy": {
-    "depth_reached": 1,
-    "outward_reinforcement_used": true,
-    "selected_edges": [
-      {
-        "paper_node": "lar21",
-        "ancestor_role": "immediate seed",
-        "inclusion_reason": "Provides the exact-Lagrangian flow-category case that the target presents as its motivating non-frameable input.",
-        "edge_source_support": [
-          "src-target-tex"
-        ],
-        "outward_check_status": "not_used"
-      },
-      {
-        "paper_node": "ab24",
-        "ancestor_role": "technique ancestor",
-        "inclusion_reason": "Supplies the framed-flow-category categorical baseline and construction style generalized by the target.",
-        "edge_source_support": [
-          "src-target-pdf",
-          "src-target-tex"
-        ],
-        "outward_check_status": "attempted_title_only"
-      },
-      {
-        "paper_node": "dou05",
-        "ancestor_role": "supporting seed",
-        "inclusion_reason": "Provides the twisted stable homotopy framework that the target reuses on the twisted-presheaf side.",
-        "edge_source_support": [
-          "src-target-tex",
-          "src-target-bbl"
-        ],
-        "outward_check_status": "not_used"
-      },
-      {
-        "paper_node": "ps24",
-        "ancestor_role": "supporting seed",
-        "inclusion_reason": "Supplies the tangential-pair bridge that the target uses to explain pushforward of Floer tangential structures.",
-        "edge_source_support": [
-          "src-target-tex",
-          "src-ps24-abs"
-        ],
-        "outward_check_status": "reinforced"
-      },
-      {
-        "paper_node": "fur02",
-        "ancestor_role": "negative ancestor",
-        "inclusion_reason": "The target suggests it as a possible origin point for the non-framed agenda, but the claim remains tentative and unsupported by directly read primary text in this run.",
-        "edge_source_support": [
-          "src-target-tex",
-          "src-target-bbl"
-        ],
-        "outward_check_status": "not_used"
-      }
+  "phase_transitions": [
+    "contract_lock_complete",
+    "baseline_mode_selected",
+    "landing_page_read",
+    "pdf_localized_not_read",
+    "tex_source_localized_and_read",
+    "candidate_edges_adjudicated",
+    "oracle_review_complete"
+  ],
+  "genealogy_limits": {
+    "max_depth_reached": 1,
+    "stopping_reasons": [
+      "No seed-paper bodies beyond the target were read.",
+      "One outward reinforcement check used only for AB.",
+      "Depth-2 chaining would have depended on unread primary sources."
     ],
-    "evidence_quality_stop_reasons": [
-      "No directly read depth-2 source was added beyond the bounded outward reinforcement check.",
-      "The run avoided promoting unpublished or unread material into positive deep-ancestor claims."
-    ]
+    "outward_reinforcement_check_used": true
   },
-  "report_mode": "full_report",
   "fail_closed_reason": null
 }

@@ -1,250 +1,217 @@
 {
-  "canonical_work_id": "arxiv:2603.29576",
+  "canonical_work_id": "arXiv:2603.29576",
   "observed_source_url": "https://arxiv.org/abs/2603.29576",
-  "observed_version": "v1",
+  "observed_version": "v1 visible on landing page; observed URL unversioned",
   "alias_ids": [
-    "2603.29576",
-    "arxiv:2603.29576",
-    "https://arxiv.org/pdf/2603.29576",
-    "https://arxiv.org/src/2603.29576"
+    "arXiv:2603.29576",
+    "arXiv:2603.29576v1"
   ],
-  "source_type": "arxiv-abs",
+  "source_type": "arxiv-abstract-page",
   "report_mode": "full_report",
   "fail_closed_reason": null,
-  "execution_mode": "enriched",
+  "execution_mode": "baseline",
   "capabilities_used": [
-    "Skill",
-    "Read",
-    "WebFetch",
-    "Bash",
-    "WebSearch"
+    "read",
+    "grep",
+    "glob",
+    "webfetch",
+    "bash",
+    "background_explore",
+    "background_librarian",
+    "background_metis",
+    "background_oracle"
   ],
-  "retry_count": 0,
+  "retry_count": {
+    "landing_page_fetch": 1,
+    "versioned_landing_page_fetch": 1,
+    "pdf_localization": 1,
+    "tex_source_localization": 1,
+    "html_fallback": 1,
+    "outward_check": 1
+  },
   "fallback_path": [
-    "arxiv_abs",
-    "localized_pdf_text",
-    "localized_source_text"
-  ],
-  "section_order": [
-    "source_ledger",
-    "seed_ranking",
-    "pressure_points",
-    "missing_cell_analysis",
-    "transfer_vs_novelty_boundary",
-    "blind_reconstruction",
-    "comparison_with_target",
-    "reconstructed_question",
-    "confidence_and_uncertainty"
+    "landing-page-text-read",
+    "localized-pdf-no-body-read",
+    "localized-tex-source-read"
   ],
   "source_ledger": [
     {
-      "label": "target arXiv abs",
-      "source_access_state": "read",
-      "notes": "Abstract and metadata read; not used as paper-body access."
+      "source": "target landing page",
+      "status": "quoted",
+      "note": "Metadata, abstract, version, and locator surface were read and quoted."
     },
     {
-      "label": "target localized PDF",
-      "source_access_state": "quoted",
-      "notes": "Primary paper-body evidence source."
+      "source": "localized target PDF",
+      "status": "localized",
+      "note": "PDF was localized but not read as body text in this runtime."
     },
     {
-      "label": "target source main.tex",
-      "source_access_state": "quoted",
-      "notes": "Primary source for stable quoted introduction wording and citation context."
+      "source": "localized arXiv TeX source",
+      "status": "quoted",
+      "note": "Supplied the paper-body evidence used for genealogy claims."
     },
     {
-      "label": "target bibliography main.bbl",
-      "source_access_state": "read",
-      "notes": "Used for cited-work identity and title stabilization."
-    },
-    {
-      "label": "PS24 arXiv abs",
-      "source_access_state": "quoted",
-      "notes": "Single outward reinforcement check."
-    },
-    {
-      "label": "Lar21 MIT handle",
-      "source_access_state": "discovered",
-      "notes": "Located but not directly read in this run."
+      "source": "AB outward-check abstract",
+      "status": "quoted",
+      "note": "Abstract-only reinforcement; not sole support for the AB edge."
     }
   ],
   "seed_ranking": [
     {
       "rank": 1,
-      "paper_node": "lar21",
+      "paper_node": "AB24",
+      "title": "Foundation of Floer homotopy theory I: Flow categories",
       "ancestor_role": "immediate seed",
-      "inclusion_reason": "The target makes Large's exact-Lagrangian flow category the motivating non-frameable input case and returns to it as the concrete geometric application.",
-      "edge_source_support": "Target introduction and Example 0.0.9 in main.tex.",
-      "outward_check_status": "not_used"
+      "inclusion_reason": "Explicitly named as the stable infinity-category model for flow categories that the target generalizes to the μ-structured setting.",
+      "edge_source_support": [
+        "target paper body",
+        "AB abstract outward reinforcement"
+      ],
+      "outward_check_status": "reinforces"
     },
     {
       "rank": 2,
-      "paper_node": "ab24",
-      "ancestor_role": "technique ancestor",
-      "inclusion_reason": "AB24 supplies the framed-flow-category stable-categorical machine and semi-simplicial construction style that the target explicitly generalizes.",
-      "edge_source_support": "Target PDF introduction plus target source discussion of AB24-style categories.",
-      "outward_check_status": "attempted_title_only"
+      "paper_node": "Dou05",
+      "title": "Twisted stable homotopy theory",
+      "ancestor_role": "supporting seed",
+      "inclusion_reason": "Explicitly credited with providing framework for the twisted stable homotopy side of the non-framed story.",
+      "edge_source_support": [
+        "target paper body"
+      ],
+      "outward_check_status": "not_used"
     },
     {
       "rank": 3,
-      "paper_node": "dou05",
+      "paper_node": "Lar21",
+      "title": "Spectral Fukaya categories for Liouville manifolds",
       "ancestor_role": "supporting seed",
-      "inclusion_reason": "Douglas provides the twisted stable homotopy framework that the target reuses on the twisted-presheaf side.",
-      "edge_source_support": "Target introduction and bibliography entry for Dou05.",
+      "inclusion_reason": "Appears as an application-facing supporting source for the Lagrangian Floer examples and appendix only.",
+      "edge_source_support": [
+        "target paper body"
+      ],
       "outward_check_status": "not_used"
     },
     {
       "rank": 4,
-      "paper_node": "ps24",
-      "ancestor_role": "supporting seed",
-      "inclusion_reason": "PS24 gives the tangential-pair mechanism that lets the target explain how different tangential structures push forward through the same Floer flow category.",
-      "edge_source_support": "Target introduction and PS24 abstract reinforcement.",
-      "outward_check_status": "reinforced"
+      "paper_node": "GH15",
+      "title": "Gepner--Haugseng",
+      "ancestor_role": "technique ancestor",
+      "inclusion_reason": "Explicitly named as the enriched infinity-categorical coherence framework used to define μ-structured flow categories.",
+      "edge_source_support": [
+        "target paper body"
+      ],
+      "outward_check_status": "not_used"
     },
     {
       "rank": 5,
-      "paper_node": "fur02",
-      "ancestor_role": "negative ancestor",
-      "inclusion_reason": "Furuta is recorded because the target presents it as a possible origin point, but the evidence is hedged and unpublished, so it should not anchor the positive genealogy.",
-      "edge_source_support": "Target introduction wording plus bibliography metadata.",
+      "paper_node": "GHN17",
+      "title": "Gepner--Haugseng--Nikolaus",
+      "ancestor_role": "technique ancestor",
+      "inclusion_reason": "Explicitly cited for the oplax-limit technology used on the twisted-presheaf side of the comparison.",
+      "edge_source_support": [
+        "target paper body"
+      ],
+      "outward_check_status": "not_used"
+    },
+    {
+      "rank": 6,
+      "paper_node": "CDW25",
+      "title": "Christ--Dyckerhoff--Walde",
+      "ancestor_role": "technique ancestor",
+      "inclusion_reason": "Explicitly tied to the lax-additivity step that supports the oplax colimit or limit presentation of twisted presheaves.",
+      "edge_source_support": [
+        "target paper body"
+      ],
+      "outward_check_status": "not_used"
+    },
+    {
+      "rank": 7,
+      "paper_node": "HM25",
+      "title": "Hedenlund--Moulinos",
+      "ancestor_role": "technique ancestor",
+      "inclusion_reason": "Explicitly cited for the infinity-categorical framework that carries Douglas-style twisted spectra toward twisted presheaves.",
+      "edge_source_support": [
+        "target paper body"
+      ],
+      "outward_check_status": "not_used"
+    },
+    {
+      "rank": 8,
+      "paper_node": "Old26",
+      "title": "Oldervoll",
+      "ancestor_role": "technique ancestor",
+      "inclusion_reason": "Explicitly named for the quasi-unital inner Kan space machinery used to present the infinity-category underlying the flow construction.",
+      "edge_source_support": [
+        "target paper body"
+      ],
+      "outward_check_status": "not_used"
+    },
+    {
+      "rank": 9,
+      "paper_node": "PS24",
+      "title": "Porcelli--Smith",
+      "ancestor_role": "technique ancestor",
+      "inclusion_reason": "Appears as an appendix-facing technical input for structuring Floer flow categories, while remaining bounded rather than core-ranked.",
+      "edge_source_support": [
+        "target paper body"
+      ],
       "outward_check_status": "not_used"
     }
   ],
   "pressure_points": [
     {
-      "claim_ids": [
-        "CL-002"
-      ],
-      "text": "The framed story is too narrow for the motivating exact-Lagrangian case because the Lagrangian difference map can obstruct framing."
+      "claim": "Move from framed flow categories to non-framed Floer settings where tangential structures obstruct framing."
     },
     {
-      "claim_ids": [
-        "CL-004"
-      ],
-      "text": "Orientation data, spectral local systems, and filtration data appear separately in earlier examples, creating pressure for one common formalism rather than three parallel ones."
+      "claim": "Unify orientation, local-system, and filtration data inside one stable infinity-categorical container."
     },
     {
-      "claim_ids": [
-        "CL-007",
-        "CL-008"
-      ],
-      "text": "Tangential data must be adjustable rather than fixed, which is why the tangential-pair technology matters in the supporting genealogy."
+      "claim": "Make the comparison with twisted presheaves precise enough to identify Flow^μ with TwShv^μ."
     }
   ],
   "missing_cell_analysis": [
     {
-      "text": "Lar21, Dou05, and Fur02 were not directly read as primary texts in this bounded run, so their inclusion is supported by target-side discussion rather than by direct downstream quotation.",
-      "claim_ids": [
-        "CL-001",
-        "CL-005",
-        "CL-006"
-      ]
+      "gap": "No seed-paper body beyond the target was read."
     },
     {
-      "text": "No depth-2 ancestor survived adjudication because the run did not read enough downstream source text to support a stronger backward chain beyond the target's own framing.",
-      "claim_ids": [
-        "CL-010",
-        "CL-011"
-      ]
+      "gap": "AB reinforcement is abstract-only, so detailed transmission inside AB remains uninspected."
     },
     {
-      "text": "The Furuta-origin thread stays downgraded because the target itself marks it as tentative and the underlying preprint remained unread.",
-      "claim_ids": [
-        "CL-006"
-      ]
+      "gap": "Depth-2 ancestry is intentionally withheld because the bounded evidence floor is not met."
     }
   ],
-  "transfer_vs_novelty_boundary": {
-    "transferred": [
-      {
-        "text": "From AB24: framed flow categories as stable-categorical machinery and construction style.",
-        "claim_ids": [
-          "CL-003"
-        ]
-      },
-      {
-        "text": "From Lar21: the exact-Lagrangian flow-category input and its non-framed pressure.",
-        "claim_ids": [
-          "CL-001",
-          "CL-002"
-        ]
-      },
-      {
-        "text": "From Dou05 and the surrounding agenda: twisted stable homotopy as the right target-side language for the non-framed setting.",
-        "claim_ids": [
-          "CL-005",
-          "CL-006"
-        ]
-      },
-      {
-        "text": "From PS24: tangential-structure tuning as a mechanism for changing the structure carried by the same Floer data.",
-        "claim_ids": [
-          "CL-007",
-          "CL-008"
-        ]
-      }
-    ],
-    "novel": [
-      {
-        "text": "The target's distinctive move is the mu-structured synthesis that identifies structured flow categories with twisted presheaves.",
-        "claim_ids": [
-          "CL-009",
-          "CL-010"
-        ]
-      }
-    ]
-  },
-  "blind_reconstruction": {
-    "text": "Start from the exact-Lagrangian Floer case where framing fails, preserve the geometric input as a flow category anyway, package orientation, local-system, and filtration behavior through a single mu:C->U/O formalism, and demand that the resulting stable category agree with the twisted-presheaf category suggested by those inputs.",
-    "claim_ids": [
-      "CL-002",
-      "CL-004",
-      "CL-009",
-      "CL-011"
-    ]
-  },
-  "comparison_with_target": {
-    "agreements": [
-      {
-        "text": "The reconstruction agrees closely with the target's own framing: non-framed Floer input, twisted-presheaf output, and the role of mu-structured flow categories in between.",
-        "claim_ids": [
-          "CL-004",
-          "CL-009",
-          "CL-011"
-        ]
-      }
-    ],
-    "undershoots": [
-      {
-        "text": "This genealogy run undershoots the paper's deeper internal machinery, especially the later enriched-categorical and bordism-technical layers, because it bounded itself to the target's readable framing plus one reinforcement check.",
-        "claim_ids": [
-          "CL-010",
-          "CL-011"
-        ]
-      }
-    ],
-    "conflicts": []
-  },
-  "reconstructed_question": {
-    "text": "Can one keep the exact-Lagrangian and other non-framed Floer flow-category inputs, allow orientation/local-system/filtration data to interact through a single mu-structure, and still recover the correct stable target category as twisted presheaves?",
-    "claim_ids": [
-      "CL-004",
-      "CL-009",
-      "CL-011"
-    ]
-  },
+  "transfer_vs_novelty_boundary": [
+    {
+      "transferred": "Flow-category, twisted stable homotopy, enriched infinity-category, and oplax-limit machinery are explicitly imported from prior work."
+    },
+    {
+      "novelty_boundary": "The evidence supports that the target combines these ingredients to identify Flow^μ with μ-twisted presheaves, but not a stronger historical claim about exactly how much of the theorem was already latent in unread seed papers."
+    }
+  ],
+  "blind_reconstruction": [
+    {
+      "claim": "The motivating path appears to be: framed flow categories already had a stable infinity-categorical home, non-framed Floer settings demanded twisted stable homotopy technology, and the target builds a μ-structured framework that lands naturally in twisted presheaves."
+    }
+  ],
+  "comparison_with_target": [
+    {
+      "agreement": "This reconstruction matches the target's own framing of non-framed Floer pressure and the theorem Flow^(-) ≃ TwShv^(-)."
+    },
+    {
+      "undershoot": "It does not recover finer historical transmission claims inside AB, Douglas, or other seeds, because those paper bodies were unread in this run."
+    }
+  ],
+  "reconstructed_question": [
+    {
+      "claim": "How can non-framed Floer flow categories with tangential structure be organized into a stable infinity-category that also captures twisted spectra or twisted presheaf behavior?"
+    }
+  ],
   "confidence_and_uncertainty": {
-    "overall_confidence": "medium",
-    "text": "Confidence is medium. Target access is strong because the paper body and source archive were directly read, and the main depth-1 seeds are explicitly named by the target. Confidence is capped because the run did not directly read most downstream seed texts, so the genealogy is strongest on the paper's immediate conceptual parents and weakest on deeper historical claims.",
-    "claim_ids": [
-      "CL-001",
-      "CL-003",
-      "CL-005",
-      "CL-006",
-      "CL-007",
-      "CL-008",
-      "CL-010",
-      "CL-011"
+    "confidence": "medium",
+    "uncertainties": [
+      "Core depth-1 edges are target-supported, but deeper ancestry is intentionally not reconstructed.",
+      "Large and Porcelli--Smith are kept application-facing and low-confidence.",
+      "Furuta remains downgraded and non-renderable as a positive edge."
     ]
   }
 }
