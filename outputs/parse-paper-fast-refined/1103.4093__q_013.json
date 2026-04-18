@@ -1,0 +1,45 @@
+{
+  "arxiv_id": "1103.4093",
+  "question_id": "q_013",
+  "original_question": "What is the computational complexity of the twisted search conjugacy problem in polycyclic groups?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 1593.08,
+  "target_in_paper": "Section 11, \"Open Problems,\" under \"Complexity Analysis and Security,\" item 4: \"What is the complexity of the twisted search conjugacy problem in polycyclic groups?\"",
+  "completeness_score": 9,
+  "correct_elements": "Your draft already captures the exact open problem stated in the paper: it asks about the computational complexity, it singles out the twisted search conjugacy problem rather than a neighboring decision problem, and it restricts to polycyclic groups, matching the paper's Section 11 wording exactly.",
+  "missing_details": [
+    "The paper states the open problem but does not formally define the twisted search conjugacy problem in this article; to be stand-alone, the question should specify the twisted conjugacy equation whose witness is to be found.",
+    "The paper's computational model for polycyclic groups comes from Section 8: groups are handled via consistent polycyclic presentations with effectively computable normal forms; this should be made explicit.",
+    "It should specify whether the twisting map is an automorphism or, more generally, an endomorphism, since the paper itself does not say this at the point where the open problem is posed.",
+    "It should say whether the twisting map(s) are fixed in advance or part of the input.",
+    "It should specify how inputs are encoded: e.g. a consistent polycyclic presentation for the group, images of generators for the twist, and words or normal forms for the group elements.",
+    "It should specify that the complexity sought is ordinary worst-case complexity; this matters because the paper separately asks about generic-case complexity as a different open problem.",
+    "It should specify what the input size is measured against, since the paper only asks for 'complexity' informally.",
+    "It should make clear that this is a search problem: the output is an explicit witness element solving the twisted conjugacy equation, not merely a yes/no answer."
+  ],
+  "refined_question": "What is the worst-case computational complexity of the following search problem over polycyclic groups, in the natural input model of Section 8? Given a polycyclic group G by a consistent polycyclic presentation, a specified twisting endomorphism φ of G (encoded by its action on the generators), and elements u,v ∈ G (given as words or in normal form) such that v = x^{-1}uφ(x) for some x ∈ G, find such an element x.",
+  "equivalent_formulation": null,
+  "justification": "The draft is already essentially the exact official formulation from the paper's open-problems list, so the target is Section 11, \"Complexity Analysis and Security,\" item 4. Section 8 is the key nearby context because it explains how polycyclic groups are represented algorithmically in the paper: by consistent polycyclic presentations, with unique normal forms and the collection algorithm as the basic computational tool. Section 9 shows that the authors distinguish ordinary complexity from generic-case complexity, so the refined version makes the intended question worst-case to avoid conflating it with their separate generic-case open problem. The only substantive clarification added beyond the paper's wording is a stand-alone formulation of the twisted search problem itself, because the paper mentions twisted conjugacy as a cryptographic primitive in Section 4 but does not formally define the search version in this article.",
+  "citations": [
+    {
+      "section": "§4 Public Key Exchange Using Nonabelian Groups",
+      "label": "discussion following Definitions 4.1–4.4",
+      "page": "exact page unavailable in ar5iv HTML; journal article spans pp. 1-40"
+    },
+    {
+      "section": "§8 Cryptography With Polycyclic Groups",
+      "label": "Section 8",
+      "page": "exact page unavailable in ar5iv HTML; journal article spans pp. 1-40"
+    },
+    {
+      "section": "§9 Generic Complexity and Asymptotic Density",
+      "label": "Section 9",
+      "page": "exact page unavailable in ar5iv HTML; journal article spans pp. 1-40"
+    },
+    {
+      "section": "§11 Open Problems",
+      "label": "Complexity Analysis and Security, item 4",
+      "page": "exact page unavailable in ar5iv HTML; journal article spans pp. 1-40"
+    }
+  ]
+}

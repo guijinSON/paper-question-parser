@@ -1,0 +1,50 @@
+{
+  "arxiv_id": "2602.05394",
+  "question_id": "q_036",
+  "original_question": "Consider $n$ positive real numbers $lambda$, and consider the set of all $n x n$ orthonormal matrices $S$. Prove a tightness bound(s) between the (1) trace error of the optimal column subset selection of the worst case matrix $K$ possessing eigenvalues $lambda$: x_k (lambda) := _V S _ [n], | | = k K - K_:, K_ , ^-1 K_ ,: _K=V^ -> p diag(lambda) V and (2) the objective yielded by volume sampling any such $K$: y_k (lambda) := (E_ k-DPP(K) K- K_:, K_ , ^-1 K_ , :) _K=diag(lambda) = (k+1) e_k+1 (lambda)e_k(lambda) which is dependent on $lambda$ alone in terms of the elementary symmetric polynomials $e_k$.",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 12682.35,
+  "target_in_paper": "Problem 4.7 in §4.2, \"Clarifying relations between volume sampling and optimal subset selection.\"",
+  "completeness_score": 8.5,
+  "correct_elements": "Your draft is already very close to the paper’s actual target. It correctly identifies the comparison between two quantities attached to a fixed positive spectrum λ: x_k(λ), the worst-case optimal column-subset-selection/Nyström trace residual over matrices K with eigenvalues λ, and y_k(λ), the expected residual under k-DPP (volume sampling). It also correctly includes the core formulas x_k(λ)=max over orthogonal eigenbases of a min over k-column subsets, and y_k(λ)=(k+1)e_{k+1}(λ)/e_k(λ), which the paper states as the spectrum-only volume-sampling objective.",
+  "missing_details": [
+    "λ should be specified as a vector λ=(λ_1,...,λ_n) in (0,∞)^n, not a single scalar.",
+    "The problem should explicitly quantify k, with 1 <= k < n in the nontrivial regime.",
+    "The ambient field should be stated: the paper is working with real matrices; the 'orthonormal matrices' are real n x n orthogonal matrices V in O(n).",
+    "It should be explicit that K=V^\\top diag(λ)V is therefore a real symmetric positive-definite matrix with eigenvalues λ.",
+    "The subset notation should be defined: I \\subseteq [n]:={1,...,n} with |I|=k.",
+    "The matrix-block notation K_{:,I}, K_{I,I}, and K_{I,:} should be defined as the selected columns, principal submatrix, and selected rows, respectively.",
+    "The residual quantity should be stated cleanly as Tr(K-K_{:,I}K_{I,I}^{-1}K_{I,:}); the draft currently has OCR-style corruption in this formula.",
+    "The trace operator Tr should be named explicitly.",
+    "The probability law I ~ k-DPP(K) should be identified explicitly as size-k determinantal point process / volume sampling.",
+    "The elementary symmetric polynomials should be defined explicitly: e_j(λ)=sum over J \\subseteq [n], |J|=j of product over i in J of λ_i.",
+    "It should be stated explicitly that the expectation defining y_k(λ) is independent of the choice of eigenbasis V, so it may be evaluated at K=diag(λ).",
+    "The phrase 'tightness bound(s)' is not stand-alone as written; the refined question should make clear that one seeks sharp upper and/or lower comparison inequalities between x_k(λ) and y_k(λ), uniformly in λ.",
+    "The paper’s scope-specific motivation is omitted: the comparison is meant to clarify how tight a spectrum-only volume-sampling objective can be as a proxy for worst-case optimal subset selection, in light of the greedy-vs-volume-sampling relation discussed just before Problem 4.7."
+  ],
+  "refined_question": "Fix integers n >= 1 and 1 <= k < n, and let λ=(λ_1,...,λ_n) in (0,∞)^n. For each orthogonal matrix V in O(n), set K=V^\\top diag(λ)V, and for each subset I \\subseteq [n]:={1,...,n} with |I|=k define the column-subset-selection/Nyström trace residual by R(K,I):=Tr(K-K_{:,I}K_{I,I}^{-1}K_{I,:}). Define x_k(λ):=max_{V in O(n)} min_{I \\subseteq [n], |I|=k} R(K,I), where K=V^\\top diag(λ)V. Also define y_k(λ):=(E_{I ~ k-DPP(K)} R(K,I))|_{K=diag(λ)}=(k+1)e_{k+1}(λ)/e_k(λ), where e_j(λ)=sum_{J \\subseteq [n], |J|=j} prod_{i in J} λ_i. Prove sharp comparison bounds between x_k(λ) and y_k(λ), uniformly over λ; equivalently, determine how tight the spectrum-only k-DPP/volume-sampling objective y_k(λ) is as a proxy for the worst-case optimal column-subset-selection trace error x_k(λ).",
+  "equivalent_formulation": null,
+  "justification": "The draft matches Problem 4.7 essentially verbatim, including both displayed quantities and the Guruswami-Sinop formula for the k-DPP objective. The surrounding context in §4 identifies the ambient problem as CSSP/low-rank approximation, while §4.1.5 supplies the Nyström-residual viewpoint and explains why this trace/nuclear-type residual is the relevant object immediately before §4.2. The text right after Problem 4.7 also records the special edge case k=n-1, where x_{n-1}(λ)=y_{n-1}(λ) via Schur complements and Schur-Horn, confirming that your draft is aimed at this exact open problem rather than a neighboring one.",
+  "citations": [
+    {
+      "section": "§4",
+      "label": "Section 4 introduction",
+      "page": 27
+    },
+    {
+      "section": "§4.1.5",
+      "label": "Problem 4.6 and preceding Nyström-error context",
+      "page": 33
+    },
+    {
+      "section": "§4.2",
+      "label": "Problem 4.7",
+      "page": 34
+    },
+    {
+      "section": "§4.2",
+      "label": "Discussion immediately following Problem 4.7 (edge case k=n-1)",
+      "page": 34
+    }
+  ]
+}

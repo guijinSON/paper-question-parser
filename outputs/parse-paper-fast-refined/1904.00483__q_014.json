@@ -1,0 +1,58 @@
+{
+  "arxiv_id": "1904.00483",
+  "question_id": "q_014",
+  "original_question": "Let M be a complete Riemannian manifold. Does there exist a function f_M, invariant under rescaling of M, with the following property: whenever a geodesic net G on M has total length L, adjusted length L_tilde, diameter D, and n unbalanced vertices, the number of balanced vertices is at most f_M(L_tilde, L/D, n)? Here the adjusted length L_tilde is obtained by summing over all edges e_i the arclength integral of 1 / inj(e_i(s)), where inj(e_i(s)) is the injectivity radius of M at the point e_i(s). In particular, if M has injectivity radius inj > 0, must the number of balanced vertices be at most f_M(L / inj, L / D, n)?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 6525.78,
+  "target_in_paper": "Conjecture 3.4.3 (Boundedness conjecture for geodesic nets on Riemannian manifolds) in Section 3.4.",
+  "completeness_score": 8.5,
+  "correct_elements": "Your draft is very close to the paper's exact target. It correctly identifies the general Riemannian-manifold boundedness question, uses the same rescaling-invariant dependence on M, uses the same three parameters L_tilde, L/D, and n, defines L_tilde using the injectivity radius along edges, and includes the paper's stated special case when M has positive injectivity radius.",
+  "missing_details": [
+    "The official target is a conjecture in Section 3.4, namely Conjecture 3.4.3, not a broader neighboring problem.",
+    "The quantifier is over every geodesic net G on M with the stated parameters; the paper is not asking about arbitrary graphs.",
+    "The paper-wide conventions matter: throughout, geodesic nets are taken to be finite and connected.",
+    "A crucial hidden restriction is that balanced vertices of degree 2 are excluded; otherwise one could subdivide edges arbitrarily and create infinitely many balanced vertices without changing the geometry.",
+    "The nearby Section 3 conventions also exclude edges joining two unbalanced vertices.",
+    "For a stand-alone formulation, one should define a geodesic net and balanced/unbalanced vertices via the unit-tangent balancing condition at balanced vertices.",
+    "D should be identified as the diameter of the geodesic net G (its image in M), not the diameter of M.",
+    "n should be stated explicitly as the number of unbalanced vertices of G.",
+    "The adjusted length should be written as a sum over all edges, each parametrized by arclength: L_tilde = sum over edges e of integral of 1/inj_M(e(s)) ds.",
+    "In the injectivity-radius special case, inj means the global injectivity radius inj(M) > 0, and the displayed bound comes from the inequality L_tilde <= L/inj(M).",
+    "The paper states this general conjecture for geodesic nets, not for geodesic multinets."
+  ],
+  "refined_question": "Let M be a complete Riemannian manifold. Is the following boundedness conjecture true? There exists a function f_M, depending on M but invariant under rescaling of the metric on M, such that for every finite connected geodesic net G on M, with no edges joining two unbalanced vertices and with every balanced vertex of degree at least 3, if G has n unbalanced vertices, total length L, diameter D, and adjusted total length L_tilde defined by L_tilde := sum over all edges e of the arclength integral integral_e (1/inj_M(x)) ds (equivalently, sum over arc-length parametrized edges e(s) of integral 1/inj_M(e(s)) ds), then the number of balanced vertices of G is at most f_M(L_tilde, L/D, n)? In particular, if M has positive injectivity radius inj(M) > 0, must every such G satisfy that its number of balanced vertices is at most f_M(L/inj(M), L/D, n)?",
+  "equivalent_formulation": null,
+  "justification": "The draft is targeting the paper's most general boundedness statement, not the earlier Euclidean-plane versions. The decisive markers are the passage from Gromov's Euclidean conjecture to a general complete Riemannian manifold, the introduction of adjusted length using the injectivity radius along edges, the rescaling-invariant function f_M, and the final special case using inj(M) > 0. All of these appear together only in Conjecture 3.4.3. To make the question fully paper-faithful and stand-alone, one must also import the paper's global conventions on geodesic nets from Definition 1.1.1 and the opening of Section 3, especially finiteness, connectedness, the balancing condition, and the exclusion of degree-2 balanced vertices, since otherwise the boundedness question becomes trivialized by edge subdivision.",
+  "citations": [
+    {
+      "section": "1.1",
+      "label": "Definition 1.1.1",
+      "page": "not available in ar5iv HTML"
+    },
+    {
+      "section": "1.4",
+      "label": "Plan of the rest of the paper",
+      "page": "not available in ar5iv HTML"
+    },
+    {
+      "section": "3",
+      "label": "Opening conventions of Section 3",
+      "page": "not available in ar5iv HTML"
+    },
+    {
+      "section": "3.4",
+      "label": "Conjecture 3.4.1 (M. Gromov)",
+      "page": "not available in ar5iv HTML"
+    },
+    {
+      "section": "3.4",
+      "label": "Conjecture 3.4.2",
+      "page": "not available in ar5iv HTML"
+    },
+    {
+      "section": "3.4",
+      "label": "Conjecture 3.4.3 (Boundedness conjecture for geodesic nets on Riemannian manifolds)",
+      "page": "not available in ar5iv HTML"
+    }
+  ]
+}

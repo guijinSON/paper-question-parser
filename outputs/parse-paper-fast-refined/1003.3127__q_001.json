@@ -1,0 +1,48 @@
+{
+  "arxiv_id": "1003.3127",
+  "question_id": "q_001",
+  "original_question": "Let X = R^n, let f: X -> [-infinity, +infinity] be a convex Legendre function, let U = int dom f, and let C be a nonempty closed subset of U. The Bregman distance induced by f is D(x, y) = f(x) - f(y) - <grad f(y), x - y> for y in U. The set C is called left D-Chebyshev when, for every y in U, the left nearest-points map P_left,C(y) = {x in C | D(x, y) = inf_{z in C} D(z, y)} is a singleton. It is known that if f is supercoercive and C is left D-Chebyshev, then C is convex. Is the supercoercivity assumption actually necessary for that convexity conclusion?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 711.35,
+  "target_in_paper": "Section 8, Problem 1: \"Is the assumption that f be supercoercive in Fact 3.1 really essential?\" This is the open problem attached to the convexity theorem for left Bregman-Chebyshev sets.",
+  "completeness_score": 9,
+  "correct_elements": "Your draft already captures almost all of the paper-faithful setup behind Problem 1: the ambient space is finite-dimensional Euclidean space, f is taken to be Legendre, U = int dom f, C lies in U, the left Bregman distance and left nearest-points map are the relevant objects, the left D-Chebyshev condition is correctly quantified over all y in U, and the known implication you cite is exactly the content of Fact 3.1. Most importantly, your final question matches the paper’s actual open problem: whether the supercoercivity assumption in that convexity result can be removed.",
+  "missing_details": [
+    "The paper poses this as an explicit open problem, not as a theorem statement: it is Section 8, Problem 1, and it is explicitly tied back to Fact 3.1 in Section 3.",
+    "For a fully stand-alone formulation, f should be stated as a proper lower semicontinuous convex function of Legendre type; writing f : X -> [-infinity,+infinity] is broader than the paper’s standing framework.",
+    "The supercoercivity hypothesis should be defined explicitly: lim_{||x||->infinity} f(x)/||x|| = +infinity.",
+    "To avoid ambiguity, C should be said to be closed in the ambient Euclidean topology on X and satisfy C ⊂ U; the phrase 'closed subset of U' can otherwise be read as only relatively closed in U.",
+    "In the paper, the Bregman distance is defined on X x X, with the convention D_f(x,y)=+infinity when y is not in U; your draft only writes the y in U branch.",
+    "The paper’s official terminology/notation is 'left D-Chebyshev' and the left nearest-points map from Definition 1.6/Definition 1.7; using this exact naming makes the question maximally paper-faithful."
+  ],
+  "refined_question": "Let X = R^n with its Euclidean inner product, let f : X -> ]-infinity,+infinity] be a proper lower semicontinuous convex function of Legendre type, let U := int dom f, and let C be a nonempty subset of U that is closed in X. Define the left Bregman distance by D_f(x,y) = f(x) - f(y) - <∇f(y), x-y> for y in U (and D_f(x,y) = +infinity for y not in U), and define the left Bregman projection by P_left,C(y) := argmin_{x in C} D_f(x,y) for y in U. Assume that C is left D_f-Chebyshev, meaning that P_left,C(y) is a singleton for every y in U. Fact 3.1 states that if f is supercoercive, i.e. lim_{||x||->infinity} f(x)/||x|| = +infinity, then C must be convex. Is that supercoercivity assumption actually necessary, or does every nonempty closed left D_f-Chebyshev set C ⊂ U have to be convex for an arbitrary Legendre function f?",
+  "equivalent_formulation": null,
+  "justification": "The exact target in arXiv:1003.3127 is not a broader conjecture about all Bregman projections, but the narrowly phrased open problem listed as Problem 1 in Section 8. Section 3 first records the known theorem as Fact 3.1 ('if f is supercoercive and C is left D-Chebyshev, then C is convex') and immediately asks whether the supercoercivity assumption is really necessary; Section 8 then restates that question verbatim as Problem 1. Definitions 1.6 and 1.7 supply the paper’s notation and quantifiers for the left nearest-points map and left D-Chebyshev sets, so the refined question keeps exactly that scope and no broader one.",
+  "citations": [
+    {
+      "section": "1",
+      "label": "Definition 1.3",
+      "page": "chapter pp. 1-21"
+    },
+    {
+      "section": "1",
+      "label": "Definition 1.6",
+      "page": "chapter pp. 1-21"
+    },
+    {
+      "section": "1",
+      "label": "Definition 1.7",
+      "page": "chapter pp. 1-21"
+    },
+    {
+      "section": "3",
+      "label": "Fact 3.1 and the paragraph immediately following Fact 3.2",
+      "page": "chapter pp. 1-21"
+    },
+    {
+      "section": "8",
+      "label": "Problem 1",
+      "page": "chapter pp. 1-21"
+    }
+  ]
+}

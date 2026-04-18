@@ -1,0 +1,81 @@
+{
+  "arxiv_id": "1805.10452",
+  "question_id": "q_003",
+  "original_question": "Suppose F is a finite field and d is an invertible exponent over F such that the associated Weil spectrum {W_{F,d}(a) : a in F^*} has exactly three distinct values. Must that three-valued Weil spectrum always be symmetric, meaning that its two nonzero values are negatives of each other?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 5953.52,
+  "target_in_paper": "Section 10, Conjecture 10.5: whether every three-valued Weil sum W_{F,d} is symmetric.",
+  "completeness_score": 8.5,
+  "correct_elements": "Your draft is already very close to the paper's exact target. It has the right ambient setting (a finite field F), the right arithmetic condition on d (invertible exponent), the right object (the Weil spectrum {W_{F,d}(a) : a in F*}), the right cardinality condition (exactly three values), and the right notion of symmetry (the two nonzero values are negatives of each other). In substance, this matches Conjecture 10.5.",
+  "missing_details": [
+    "The paper fixes the Weil sum by Definition 1.3: if F has canonical additive character psi, then W_{F,d}(a)=sum_{x in F} psi(x^d-ax).",
+    "The canonical additive character is the paper's default one, psi(x)=exp(2pi i Tr_{F/F_p}(x)/p), where p is the characteristic of F.",
+    "The phrase 'invertible exponent over F' means that d is a positive integer with gcd(d, |F*|)=1 (Definition 1.1).",
+    "The spectrum is formally taken over a in F*=F\\{0}; the value a=0 is excluded from the Weil spectrum (Definition 1.4).",
+    "In the paper, 'three-valued' means exactly three distinct values of W_{F,d}(a) as a ranges over F* (Definition 10.1), not merely at most three.",
+    "No extra nondegeneracy hypothesis should be added: exact three-valuedness already forces d to be nondegenerate over F by Theorem 10.2.",
+    "For paper-faithful phrasing, the conjecture is stated as 'W_{F,d} is symmetric'; spectrum language is equivalent but should be tied to the paper's definition of symmetry.",
+    "Nearby context shows that if W_{F,d} is three-valued, then 0 is automatically one of the three values (Theorem 10.4), so symmetry concerns the remaining two values.",
+    "The surrounding discussion also notes that the two nonzero values already have opposite signs by Lemma 8.2; the open issue is whether they must also have equal magnitude."
+  ],
+  "refined_question": "Let F be a finite field of characteristic p, let psi(x)=exp(2pi i Tr_{F/F_p}(x)/p) be its canonical additive character, and let d be a positive integer with gcd(d, |F*|)=1. For each a in F define W_{F,d}(a)=sum_{x in F} psi(x^d-ax), and consider the Weil spectrum {W_{F,d}(a) : a in F*}, where F*=F\\{0}. If this spectrum has exactly three distinct values, must W_{F,d} be symmetric, meaning that its two nonzero values are negatives of each other?",
+  "equivalent_formulation": "Equivalently, by Theorems 10.3 and 10.4, if W_{F,d} is three-valued, must there exist a nonzero integer A such that {W_{F,d}(a) : a in F*}={0, A, -A}?",
+  "justification": "The draft is targeting the symmetry question for three-valued Weil sums, which is stated explicitly in Section 10 as Conjecture 10.5, not the broader neighboring Helleseth Three-Valued Conjecture (Conjecture 10.6). The paper first defines exact k-valuedness in Definition 10.1, then observes that in all known three-valued examples the two nonzero values are opposites, defines this property as 'symmetric', and states Conjecture 10.5 in exactly that form. Definitions 1.1, 1.3, and 1.4 provide the missing notation and scope. Theorem 10.2 explains why no extra nondegeneracy assumption is needed. Theorems 10.3 and 10.4 give a sharper equivalent restatement in terms of a spectrum of the form {0, A, -A}. The discussion immediately before Conjecture 10.5 also invokes Lemma 8.2 to show that opposite signs are already known, so the conjecture is specifically about whether the magnitudes must match. Corollary 10.9 shows the conjecture's role in implying Helleseth's Three-Valued Conjecture when [F:F_p] is a power of 2.",
+  "citations": [
+    {
+      "section": "1",
+      "label": "Definition 1.1",
+      "page": 2
+    },
+    {
+      "section": "1",
+      "label": "Definition 1.3",
+      "page": 2
+    },
+    {
+      "section": "1",
+      "label": "Definition 1.4",
+      "page": 2
+    },
+    {
+      "section": "8",
+      "label": "Lemma 8.2",
+      "page": 11
+    },
+    {
+      "section": "10",
+      "label": "Definition 10.1",
+      "page": 17
+    },
+    {
+      "section": "10",
+      "label": "Theorem 10.2",
+      "page": 17
+    },
+    {
+      "section": "10",
+      "label": "Theorem 10.3",
+      "page": 17
+    },
+    {
+      "section": "10",
+      "label": "Theorem 10.4",
+      "page": 17
+    },
+    {
+      "section": "10",
+      "label": "Conjecture 10.5",
+      "page": 17
+    },
+    {
+      "section": "10",
+      "label": "Corollary 10.9",
+      "page": 19
+    },
+    {
+      "section": "10",
+      "label": "Lemma 10.10",
+      "page": 19
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "arxiv_id": "1806.04980",
+  "question_id": "q_20_3",
+  "original_question": "Let K be a number field, let f (x) ∈ K(x) be a rational function of degree at least 2, let α ∈ K be a wandering point for f , let β ∈ K, and let c be a constant. Then the set ( ) X \u0001 + n n≥0: ordp f (α) − β ≤ c is finite. p.",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 6113.8,
+  "target_in_paper": "Section 20, Conjecture 20.3",
+  "completeness_score": 5,
+  "correct_elements": "Your draft identifies the correct ambient arithmetic-dynamical setting: a number field K, a rational function f(x) in K(x) of degree at least 2, a wandering point alpha in K, a comparison point beta in K, a constant c, and a finiteness statement for a set indexed by iterates n >= 0. That matches the data and overall shape of Conjecture 20.3.",
+  "missing_details": [
+    "The paper sums over all prime ideals p of the ring of integers O_K; the draft reads as though a single prime p is fixed.",
+    "The summand is ord_p^+(f^n(alpha) - beta), where ord_p^+(gamma) = max{ord_p(gamma), 0}, not ord_p(f^n(alpha) - beta) without the positive-part operator.",
+    "The valuation ord_p is the normalized valuation attached to the prime ideal p of O_K.",
+    "The set must be written explicitly as { n >= 0 : sum_p ord_p^+(f^n(alpha) - beta) <= c }.",
+    "To be stand-alone, 'wandering' should be defined as meaning that the forward orbit O_f(alpha) = {f^n(alpha) : n >= 0} is infinite.",
+    "The paper states this as a conjecture/open problem, not as a proved theorem.",
+    "For full self-containment one should specify the standard convention at f^n(alpha) = beta (equivalently ord_p(0) = +infinity), since the paper leaves that implicit."
+  ],
+  "refined_question": "Let K be a number field with ring of integers O_K. For each prime ideal p of O_K, let ord_p: K^x -> Z be the associated normalized valuation, extend by the standard convention ord_p(0) = +infinity, and define ord_p^+(gamma) = max{ord_p(gamma), 0}. Let f(x) in K(x) be a rational function of degree at least 2, let alpha in K be a wandering point for f (that is, O_f(alpha) = {f^n(alpha) : n >= 0} is infinite), let beta in K, and let c be a fixed constant. Must the set { n >= 0 : sum over all prime ideals p of O_K of ord_p^+(f^n(alpha) - beta) <= c } be finite?",
+  "equivalent_formulation": null,
+  "justification": "This is Conjecture 20.3 in Section 20. The match is exact in the choice of variables K, f, alpha, beta, c and in the finiteness conclusion for a set of iterate indices n. The crucial paper-faithful features missing from the draft are that the conjecture uses the sum over all prime ideals of O_K and the positive-part valuation ord_p^+, introduced in the paragraph immediately preceding the conjecture. The meaning of 'wandering' comes from Definition 2.1. The surrounding context shows that Conjecture 20.3 is presented as the natural generalization of Conjecture 20.2 in the subsection on primes in orbits.",
+  "citations": [
+    {
+      "section": "2",
+      "label": "Definition 2.1",
+      "page": 4
+    },
+    {
+      "section": "20",
+      "label": "Remark 20.1",
+      "page": "57-58"
+    },
+    {
+      "section": "20",
+      "label": "Conjecture 20.2",
+      "page": 58
+    },
+    {
+      "section": "20",
+      "label": "Conjecture 20.3",
+      "page": 58
+    }
+  ]
+}

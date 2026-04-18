@@ -1,0 +1,50 @@
+{
+  "arxiv_id": "2602.05394",
+  "question_id": "q_007",
+  "original_question": "What is the complexity of solving $(n,0,l,kappa)$ linear systems, and how is this affected by the model of computation (direct access vs matrix-vector product)?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 12505.84,
+  "target_in_paper": "Problem 2.7 (\"Small outlying singular values, k=0\") in Section 2.4, \"The effect of outlying singular values (or eigenvalues).\"",
+  "completeness_score": 8,
+  "correct_elements": "Your draft is very close to the paper's actual target: it matches Problem 2.7 almost verbatim, correctly focuses on the k=0 regime (small outlying singular values rather than large ones), and correctly highlights the paper's comparison between the direct-access model and the matrix-vector-product model.",
+  "missing_details": [
+    "It should explicitly say that the problem is about solving a linear system Ax=b, not just an abstract class of \"(n,0,l,κ) linear systems.\"",
+    "It should define what an (n,0,l,κ) matrix/system means: A is an n×n matrix with singular values σ1 ≥ ··· ≥ σn > 0 and, from Definition 2.4 with k=0, one has σ1/σn−l ≤ κ.",
+    "It should state the admissible range of l: in Definition 2.4, k,l ∈ {0,…,n} and k+l<n; when k=0 this means l<n.",
+    "It should make explicit the spectral interpretation: the bottom l singular values are the outliers, while the remaining singular values form a cluster with condition number κ.",
+    "It should specify that b is an arbitrary n-dimensional right-hand side vector.",
+    "It should clarify that the paper leaves the base field implicit; a faithful stand-alone question should therefore speak neutrally of an n×n matrix with singular values rather than assume a broader algebraic setting.",
+    "It should clarify what \"complexity\" is comparing: the nearby context distinguishes direct access from matrix-vector-product access, with direct-access complexity discussed in arithmetic operations and matrix-vector-product complexity discussed in query/operation terms.",
+    "It does not mention the accuracy target. Problem 2.7 itself leaves this implicit, but neighboring Problems 2.5 and 2.6 phrase the analogous objective as solving to high accuracy."
+  ],
+  "refined_question": "Let A be an n×n matrix with singular values σ1 ≥ ··· ≥ σn > 0, let l ∈ {0,…,n−1}, and suppose that A is an (n,0,l,κ) matrix in the sense of Definition 2.4, i.e. σ1/σn−l ≤ κ. For a given n-dimensional vector b, what is the complexity of solving the linear system Ax=b, and how does that complexity depend on whether A is given in the direct-access model or only through matrix-vector products?",
+  "equivalent_formulation": null,
+  "justification": "The draft is targeting Problem 2.7, not the neighboring large-outlier question Problem 2.5: your draft has k=0 and asks exactly about the effect of the computational model, which is the wording of Problem 2.7. To make it stand alone, the crucial missing ingredient is Definition 2.4, which introduces the notation (n,k,l,κ) via singular values and explains that l counts the bottom outliers. The direct-access versus matrix-vector-product comparison is motivated immediately beforehand in the discussion around Problem 2.5, and the paper then points to Problem 2.8 only as a related test case for the small-outlier regime, not as an equivalent reformulation.",
+  "citations": [
+    {
+      "section": "2.4",
+      "label": "Definition 2.4",
+      "page": 11
+    },
+    {
+      "section": "2.4",
+      "label": "Problem 2.5",
+      "page": 12
+    },
+    {
+      "section": "2.4",
+      "label": "Problem 2.6",
+      "page": 12
+    },
+    {
+      "section": "2.4",
+      "label": "Problem 2.7",
+      "page": 13
+    },
+    {
+      "section": "2.4",
+      "label": "Problem 2.8",
+      "page": 13
+    }
+  ]
+}

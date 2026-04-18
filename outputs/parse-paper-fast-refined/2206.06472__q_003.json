@@ -1,0 +1,37 @@
+{
+  "arxiv_id": "2206.06472",
+  "question_id": "q_003",
+  "original_question": "Let T012(a,b) denote the number of tilings of the (a,b)-benzel in which left stones are allowed, right stones are forbidden, and exactly two of the three bone orientations are allowed. Is it true that T012(3n+1, 3n+2) = 2^n n! for every n >= 1?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 8404.52,
+  "target_in_paper": "Section 3, Problem 3 (\"Left stones, two kinds of bones\") of arXiv:2206.06472.",
+  "completeness_score": 9,
+  "correct_elements": "Your draft targets exactly the right statement: Problem 3 in Section 3. It has the correct tiling type (type 012: right stones forbidden, left stones allowed, two bone types allowed), the correct benzel specialization ((3n+1, 3n+2)), the correct claimed enumeration (2^n n! = (2n)!!), and the correct quantifier n >= 1.",
+  "missing_details": [
+    "To be fully stand-alone, it should define the (a,b)-benzel itself rather than only naming it.",
+    "It should use the paper’s formal notation T_{ijk}(a,b): for 0 <= i,j <= 1 and 0 <= k <= 3, T_{ijk}(a,b) counts tilings in which the right stone is allowed iff i=1, the left stone is allowed iff j=1, and exactly k of the three bone orientations are allowed.",
+    "The paper makes explicit that, by the benzel’s threefold rotational symmetry, the count depends only on how many bone types are allowed, not on which two; so one may equivalently fix the two allowed bones to be the rising and falling bones.",
+    "The paper works with the symmetry convention T_{ijk}(a,b)=T_{ijk}(b,a) and typically reduces to 2 <= a <= b <= 2a; your specific pair (3n+1,3n+2) with n >= 1 already lies in that range.",
+    "The paper’s own phrasing uses the double-factorial notation (2n)!!, together with the identity (2n)!! = 2^n n!."
+  ],
+  "refined_question": "Let omega = exp(2pi i/3). For positive integers a,b satisfying 2 <= a <= 2b and 2 <= b <= 2a, the (a,b)-benzel is the union of the unit hexagonal cells lying fully inside the hexagon with vertices a omega + b, -a omega^2 - b, a omega^2 + b omega, -a - b omega, a + b omega^2, and -a omega - b omega^2. For 0 <= i,j <= 1 and 0 <= k <= 3, let T_{ijk}(a,b) denote the number of tilings of the (a,b)-benzel in which the right stone is allowed iff i=1, the left stone is allowed iff j=1, and exactly k of the three bone orientations are allowed. Is it true that, for every integer n >= 1, T_{012}(3n+1,3n+2) = (2n)!! = 2^n n!?",
+  "equivalent_formulation": "Equivalently, since only the number of allowed bone orientations matters, is it true that for every n >= 1 the (3n+1,3n+2)-benzel has exactly (2n)!! tilings by left stones, rising bones, and falling bones?",
+  "justification": "The nearest official formulation is exactly Problem 3 in Section 3 of the paper. I did not replace it with the broader neighboring statement combining Problems 2 and 3. The refinements only make explicit the benzel definition, the formal definition of T_{ijk}(a,b), the symmetry fact that renders the choice of the two bone orientations immaterial, and the paper’s preferred notation (2n)!!.",
+  "citations": [
+    {
+      "section": "1",
+      "label": "Definition of the (a,b)-benzel",
+      "page": 2
+    },
+    {
+      "section": "1",
+      "label": "Definition of T_{ijk}(a,b), rotational-symmetry reduction, and dependence only on the number of allowed bone types",
+      "page": 5
+    },
+    {
+      "section": "3",
+      "label": "Problem 3",
+      "page": 6
+    }
+  ]
+}

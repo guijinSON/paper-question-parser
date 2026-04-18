@@ -1,0 +1,45 @@
+{
+  "arxiv_id": "2502.19916",
+  "question_id": "q_004",
+  "original_question": "Let x_(0) <= x_(1) <= ... <= x_(K-1) denote the cycle points sorted in increasing order. Can one prove the dimension-1 cycling result using only the conjectured single cycle ordering (x_0, x_1, x_2, ..., x_{K-3}, x_{K-2}, x_{K-1}) = (x_(0), x_(1), x_(3), x_(5), ..., x_(4), x_(2))?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 10528.39,
+  "target_in_paper": "Section 2 (\"Open problem 1: behavior in dimension 1\"), specifically the second of the paper’s two connected conjectures at the end of the section: \"Can we prove it using only the cycle ordering given in Figure 4?\" Here \"it\" refers to the immediately preceding conjecture that the full purple cycle region is already achieved in dimension 1, which would imply that heavy-ball does not accelerate on scalar functions in F_{mu,L}.",
+  "completeness_score": 5,
+  "correct_elements": "Your draft correctly targets the narrow Figure 4 permutation conjecture rather than the broader dimension-1 acceleration question alone. It correctly uses the sorted cycle-point notation and captures the paper’s idea that one may be able to prove the 1D cycling/non-acceleration statement by restricting attention to a single canonical ordering of the cycle points.",
+  "missing_details": [
+    "The draft does not state the heavy-ball iteration itself: x_{t+1} = x_t - gamma f'(x_t) + beta (x_t - x_{t-1}).",
+    "It does not specify the ambient class of objectives: scalar functions f : R -> R in F_{mu,L}, i.e. L-smooth and mu-strongly convex.",
+    "It does not say what the sought \"dimension-1 cycling result\" is: namely, proving that the entire purple region of tunings for which cycles exist is already realized in dimension 1, as observed numerically in Figure 3.",
+    "It does not make the quantifiers explicit: for every tuning (gamma,beta) in that purple region, one seeks some cycle length K and some 1D cycle of length K.",
+    "It does not clarify that x_(0) <= ... <= x_(K-1) are the same cycle points x_0,...,x_{K-1} sorted increasingly, while (x_0,...,x_{K-1}) denotes the visitation order along the cycle.",
+    "It does not state that the Figure 4 ordering is the proposed single permutation used to search for all 1D cycles, i.e. the order 0,1,3,5,... and then back through the even indices to 2 (as reproduced in your draft).",
+    "It does not mention the paper’s equivalence between a fixed ordering/permutation and feasibility of the corresponding LP_{Sigma} subproblem, which is the formal mechanism through which the conjectured ordering is supposed to prove cycling.",
+    "It does not mention the consequence that proving the full 1D cycle region would rule out acceleration of heavy-ball on scalar F_{mu,L}, which is why the question matters in the paper."
+  ],
+  "refined_question": "For the heavy-ball method x_{t+1} = x_t - gamma f'(x_t) + beta (x_t - x_{t-1}) applied to scalar objectives f in F_{mu,L} (the class of L-smooth, mu-strongly convex functions f : R -> R), can one prove that every tuning (gamma,beta) in the full purple cycle region already admits a one-dimensional cycle, and moreover prove this by restricting to cycles x_0,...,x_{K-1} whose sorted points x_(0) <= ... <= x_(K-1) are visited in the single Figure 4 order (x_0,...,x_{K-1}) = (x_(0), x_(1), x_(3), x_(5), ..., x_(4), x_(2)) for some cycle length K, thereby recovering the whole dimension-1 cycle region and hence ruling out acceleration of heavy-ball on F_{mu,L} in dimension 1?",
+  "equivalent_formulation": "Equivalently, letting Sigma be the Figure 4 permutation, can one show that the LP_{Sigma} feasibility problem from Section 2, for varying cycle length K, is sufficient to recover exactly the full purple 1D cycle region? The paper states that for a fixed permutation/order Sigma, feasibility of LP_{Sigma} is equivalent to existence of a 1D heavy-ball cycle with that ordering.",
+  "justification": "This is the closest paper-faithful sharpening of your draft because the paper first states the broad Open problem 1 in Section 1, and then in Section 2 narrows it to two unnumbered connected conjectures. Your draft is plainly about the second of these, not the whole of Open problem 1: the paper asks whether one can prove the dimension-1 cycle region using only the single ordering from Figure 4. However, that sentence is not stand-alone in the paper, because the pronoun \"it\" refers back to the first connected conjecture immediately above it: proving that the full purple cycle region is achieved in dimension 1, which in turn implies non-acceleration in dimension 1. The refined version therefore keeps your exact Figure 4 ordering idea, but makes explicit the heavy-ball dynamics, the scalar class F_{mu,L}, the quantification over tunings and cycle length, the meaning of the sorted notation, and the consequence for acceleration. The paper does not contain numbered items Conjecture 1.1, Proposition 1.2, or Theorem 1.3; the nearest official formulation is this unnumbered pair of connected conjectures in Section 2.",
+  "citations": [
+    {
+      "section": "1",
+      "label": "Open problem 1",
+      "page": "not available in HTML view"
+    },
+    {
+      "section": "2",
+      "label": "Numerical approach for finding cycles in dimension 1; LP_{Sigma} equivalence",
+      "page": "not available in HTML view"
+    },
+    {
+      "section": "2",
+      "label": "Figure 4 and the conjectured single permutation",
+      "page": "not available in HTML view"
+    },
+    {
+      "section": "2",
+      "label": "Conclusion on Figures 5 and 6; two connected conjectures (i) and (ii)",
+      "page": "not available in HTML view"
+    }
+  ]
+}

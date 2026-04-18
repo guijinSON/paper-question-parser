@@ -1,0 +1,39 @@
+{
+  "arxiv_id": "math_9201271",
+  "question_id": "q_026",
+  "original_question": "Let P = P(n, mu) be the space of piecewise monotone maps f of the interval I = [0,1] with n laps and prescribed boundary action mu. Starting from f0 in P, define the sequence by replacing f_k with the unique degree n polynomial p_k in P having the same ordered critical values, then conjugating by the unique homeomorphism h_k sending critical points of f_k to those of p_k. If f0 has no Thurston obstruction, Thurston’s argument gives convergence of p_k to a polynomial p_infinity with the same kneading sequence, and computer experiments suggest that the maps f_k often converge to the same limit even when f0 is not post-critically finite. Formulate and prove a precise theorem capturing this convergence phenomenon.",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 14057.96,
+  "target_in_paper": "§3, \"Thurston's algorithm for real functions\" (Bielefeld, Tangerman, Veerman, Milnor), specifically Question 1.",
+  "completeness_score": 7,
+  "correct_elements": "The draft correctly identifies the ambient space P(n,μ) of piecewise monotone interval maps with n laps and prescribed boundary action, the iterative construction using the unique degree-n polynomial with the same ordered critical values, the conjugating homeomorphisms h_k, and the intended phenomenon: Thurston-style convergence of the polynomial lifts p_k and the hoped-for convergence of the conjugated maps f_k to the same limit. It also correctly notes that the paper is interested in extending the observed convergence beyond the polynomial/postcritically finite setting suggested by computer experiments.",
+  "missing_details": [
+    "The paper's stated known convergence result for p_k requires two hypotheses on f_0: it must be post-critically finite and there must be no Thurston obstruction; your draft omits the post-critically finite hypothesis at that point.",
+    "The paper specifies that each p_k is the unique degree-n polynomial in P whose critical points all lie in [0,1] and whose critical values are encountered in the same order as those of f_k; the condition 'all critical points in [0,1]' should be stated explicitly.",
+    "The construction of h_k is more precise than 'sending critical points of f_k to those of p_k': the paper also requires p_k∘h_k=f_k, and then defines f_{k+1}=h_k∘p_k=h_k∘f_k∘h_k^{-1}.",
+    "The paper does not specify a topology for 'converges'; a stand-alone question should state the intended mode of convergence (for example, uniform convergence on [0,1]).",
+    "The exact class beyond the post-critically finite case is not specified in the paper; a precise reformulation should ask for explicit sufficient hypotheses on f_0, rather than asserting convergence for all non-post-critically finite maps.",
+    "Key dynamical notions used in the statement are left implicit: 'lap,' 'post-critically finite,' 'Thurston obstruction,' and 'kneading sequence.' A stand-alone question should either define them or explicitly say they are meant in the standard sense of interval dynamics/Thurston theory.",
+    "The paper's official formulation is an open-ended problem ('Formulate and prove some precise statement in this direction'), not an already stated theorem. So a faithful rewrite should ask for explicit hypotheses and a precise convergence conclusion, rather than presupposing a universal theorem."
+  ],
+  "refined_question": "Let P=P(n,μ) be the space of piecewise monotone maps f:[0,1]→[0,1] with n laps and prescribed boundary map μ on {0,1}. Starting from f_0∈P, define inductively for each k≥0 the unique degree-n polynomial p_k∈P whose critical points all lie in [0,1] and whose critical values occur in the same order as those of f_k; let h_k:[0,1]→[0,1] be the unique homeomorphism sending the critical points of f_k to those of p_k and satisfying p_k∘h_k=f_k; and set f_{k+1}=h_k∘p_k=h_k∘f_k∘h_k^{-1}. Assume first that f_0 is post-critically finite and has no Thurston obstruction, so that Thurston's argument yields p_k→p_∞ with the same kneading sequence as f_0. Under what explicit hypotheses on f_0 (and in what natural topology on P, e.g. uniform convergence on [0,1]) can one prove that the conjugated maps f_k also converge to the same limit p_∞? In particular, can one formulate and prove such a convergence theorem for some class of non-post-critically-finite maps as well?",
+  "equivalent_formulation": null,
+  "justification": "The draft is aiming at the open problem stated in §3 after the paper sets up the real-interval version of Thurston's algorithm. The section defines P(n,μ), the polynomial lift p_k, the conjugacies h_k, and the iterates f_k, then states the known consequence of Thurston's argument only in the post-critically finite unobstructed case, and immediately asks: 'Question 1. Formulate and prove some precise statement in this direction.' Your draft is very close to this wording, but it inadvertently drops the post-critically finite assumption from the only convergence result explicitly claimed in the paper and leaves unspecified the convergence topology and the exact class of maps for which a theorem is sought. Since this paper is a problem list, there is no sharper official theorem nearby than §3, Question 1 itself.",
+  "citations": [
+    {
+      "section": "§3. Thurston's algorithm for real functions",
+      "label": "section setup (definition of P(n,μ), p_k, h_k, and f_{k+1})",
+      "page": "8-9"
+    },
+    {
+      "section": "§3. Thurston's algorithm for real functions",
+      "label": "pre-Question 1 context (post-critically finite, no Thurston obstruction ⇒ p_k→p_∞ with same kneading sequence)",
+      "page": "9"
+    },
+    {
+      "section": "§3. Thurston's algorithm for real functions",
+      "label": "Question 1",
+      "page": "9"
+    }
+  ]
+}

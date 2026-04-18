@@ -1,0 +1,57 @@
+{
+  "arxiv_id": "1103.4093",
+  "question_id": "q_001",
+  "original_question": "In noncommutative group-based cryptography, what is the most appropriate choice of platform group?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 1505.45,
+  "target_in_paper": "Section 11, Open Problems, General (1): \"What is the most appropriate platform group for non-commutative cryptography?\"",
+  "completeness_score": 8.5,
+  "correct_elements": "The draft already captures the exact open problem almost verbatim: it asks for the right platform group for noncommutative/nonabelian cryptography. It correctly focuses on the platform group itself, rather than on a specific attack, protocol parameter, or the separate polycyclic-subgroup question later in the list.",
+  "missing_details": [
+    "The paper's exact target is the Section 11 general open problem about the \"platform group\" for non-commutative cryptography.",
+    "The surrounding discussion shows that the intended setting is nonabelian groups used as cryptographic platforms in the surveyed protocols, especially the Anshel-Anshel-Goldfeld, Ko-Lee, and related key-transport schemes; in those sections the platform is typically given by a finite presentation.",
+    "A candidate platform group is implicitly expected to admit unique normal forms for its elements, and those normal forms should be easy to compute.",
+    "The normal-form setup is also assumed to make the word problem efficiently solvable, while the normal form of a product should not trivially reveal the hidden factors or secret keys.",
+    "The paper treats exponential growth as desirable, because it gives a large enough key space to make brute-force search infeasible.",
+    "The relevant hardness is not arbitrary hardness: the paper specifically emphasizes hard conjugacy/conjugator search problems, ideally with exponential-time complexity.",
+    "For Ko-Lee-type and Shamir-type constructions, the group should contain large commuting subgroups, or at least a large abelian subgroup; here \"large\" means large enough for random choices and not trivial small cases such as cyclic subgroups.",
+    "Generic-case behavior matters: the paper warns that braid groups can become weak under naive random subgroup selection because random subgroups are generically free.",
+    "The refined question should not silently decide whether the platform group should be finite or infinite, because that is asked separately as General Problem 2.",
+    "No ambient ring, field, polynomial degree, homogeneity, or nilpotency condition is involved here; the ambient object is a group-theoretic platform."
+  ],
+  "refined_question": "Among the nonabelian groups used as cryptographic platforms in the protocols surveyed in this paper - typically groups given by finite presentations - which group or class of groups is the most appropriate platform group for non-commutative cryptography, in the sense that it admits efficiently computable unique normal forms whose product normal forms do not reveal secret factors, has an efficiently solvable word problem and exponential growth, makes the relevant conjugacy/conjugator search problems computationally hard (ideally exponential-time), and, for Ko-Lee- and Shamir-type constructions, contains sufficiently large commuting subgroups (large enough to support random choices and not merely cyclic), while avoiding generic subgroup vulnerabilities such as those seen in braid groups?",
+  "equivalent_formulation": null,
+  "justification": "The draft is aimed at Section 11, General Problem 1 exactly. The paper states that open problem in a single sentence, so the only way to make it fully stand-alone while staying faithful is to import the criteria the authors use earlier to evaluate platform groups. Section 4 gives the basic platform-group assumptions for the AAG and Ko-Lee protocols; Section 5 explains the need for large commuting subgroups or a large abelian subgroup in key transport; Section 7 states the general desiderata for platform groups; Section 8 explains why polycyclic groups are attractive candidates because they realize many of those desiderata; and Sections 9-10 show that generic subgroup behavior can undermine an otherwise plausible platform choice, as in braid groups with naively random subgroups. The rewrite therefore preserves the exact open-problem target but makes explicit what \"most appropriate\" means in the paper, without folding in the separate finite-versus-infinite question.",
+  "citations": [
+    {
+      "section": "11",
+      "label": "Open Problems, General (1)",
+      "page": "not available in fetched HTML"
+    },
+    {
+      "section": "4",
+      "label": "Public Key Exchange Using Nonabelian Groups",
+      "page": "not available in fetched HTML"
+    },
+    {
+      "section": "5",
+      "label": "The Shamir Three Pass and Key Transport Protocols",
+      "page": "not available in fetched HTML"
+    },
+    {
+      "section": "7",
+      "label": "Braid Group Cryptography and Platform Groups",
+      "page": "not available in fetched HTML"
+    },
+    {
+      "section": "8",
+      "label": "Cryptography With Polycyclic Groups",
+      "page": "not available in fetched HTML"
+    },
+    {
+      "section": "9-10",
+      "label": "Generic Complexity and Asymptotic Density; The Generic Free Group Property",
+      "page": "not available in fetched HTML"
+    }
+  ]
+}

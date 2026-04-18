@@ -1,0 +1,33 @@
+{
+  "arxiv_id": "1406.1949",
+  "question_id": "q_015",
+  "original_question": "Find the asymptotic value of D(m,n), the minimum number of distinct distances determined between two planar point sets of sizes m and n when only cross-set distances are counted.",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 3883.96,
+  "target_in_paper": "Section 5, Problem 15 (the unrestricted bipartite distinct-distances problem in the plane): determine the asymptotic value of D(m,n), where the section first defines D(P1,P2) by counting only distances across P1 x P2 and then defines D(m,n) as the minimum of D(P1,P2) over planar point sets of respective sizes m and n.",
+  "completeness_score": 9,
+  "correct_elements": "Your draft identifies the correct target almost exactly: it is the bipartite planar distinct-distances problem, uses the right quantity D(m,n), correctly treats m and n as the two set sizes, and correctly specifies that only cross-set distances are counted.",
+  "missing_details": [
+    "The paper first defines D(P1,P2) explicitly as the number of distinct distances determined by pairs in P1 x P2; your draft states this informally but not as a formal definition.",
+    "D(m,n) is defined as a minimum over all point sets P1,P2 in R^2 with |P1|=m and |P2|=n; this minimization should be written explicitly.",
+    "The ambient space is the real Euclidean plane R^2, and the distance is the ordinary Euclidean distance.",
+    "The paper assumes without loss of generality that m <= n.",
+    "The problem is unrestricted apart from the cardinalities of the two sets; unlike nearby problems in the same section, there are no extra hypotheses such as lying on lines or curves.",
+    "Because D(m,n) depends on two variables, the phrase 'asymptotic value' is best made stand-alone by saying 'determine the asymptotic order of growth as a function of m and n.'"
+  ],
+  "refined_question": "For integers 1 <= m <= n, let D(P1,P2) be the number of distinct Euclidean distances ||p-q|| determined by pairs (p,q) in P1 x P2, where P1,P2 are finite subsets of R^2, and define D(m,n) := min{D(P1,P2) : P1,P2 subset R^2, |P1|=m, |P2|=n}. Determine the asymptotic order of growth of D(m,n) as a function of m and n.",
+  "equivalent_formulation": null,
+  "justification": "The draft matches the exact open problem stated in the paper's bipartite section. The surrounding context defines the bipartite distance count D(P1,P2) by counting only distances between points from different sets, then defines D(m,n) as the minimum such count over point sets in R^2 of sizes m and n, assumes m <= n without loss of generality, and immediately states Problem 15 as finding the asymptotic value of D(m,n). So the draft is already very close to the paper's intent; it mainly needs the formal definition, the Euclidean-plane setting, and the m <= n convention to be fully stand-alone and paper-faithful.",
+  "citations": [
+    {
+      "section": "5",
+      "label": "Bipartite problems; definition of D(P1,P2) and D(m,n)",
+      "page": "HTML lines 165-172"
+    },
+    {
+      "section": "5",
+      "label": "Problem 15",
+      "page": "HTML lines 173-177"
+    }
+  ]
+}

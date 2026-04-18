@@ -1,0 +1,39 @@
+{
+  "arxiv_id": "2405.17800",
+  "question_id": "q_026",
+  "original_question": "Topacogullari proved that for 1 <= h << x^(2/3), D_{3,2}(x, h) = x P3(log x) + O(x^(8/9 + epsilon)), where P3 is a degree-3 polynomial whose coefficients depend on h, and analogous results are known for D_{2,3}(x, h). Improve both the admissible range of h and the size of the error term, derive exact simple formulas for the coefficients of P3, and determine numerically whether |D_{3,2}(x, h) - x P3(log x)| has size about sqrt(x).",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 9804.7,
+  "target_in_paper": "Problem (26) in the section \"Additive divisor sums/shifted convolution sums\".",
+  "completeness_score": 9,
+  "correct_elements": "Your draft is already very close to the paper’s exact target. It correctly identifies the relevant object D_{3,2}(x,h), the range 1 <= h << x^(2/3), the asymptotic D_{3,2}(x,h) = x P_3(log x) + O(x^(8/9+epsilon)), the fact that P_3 has degree 3 with h-dependent coefficients, the mention of an analogous result for D_{2,3}(x,h), and the paper’s explicit numerical question asking whether |D_{3,2}(x,h) - x P_3(log x)| behaves like sqrt(x).",
+  "missing_details": [
+    "The paper defines d_k(n) by zeta(s)^k = sum_{n>=1} d_k(n)/n^s; this should be stated explicitly for a stand-alone question.",
+    "The paper defines D_{k,l}(x,h) = sum_{n<=x} d_k(n)d_l(n+h) for k,l > 0, x > 0, and h in N; your draft assumes this notation without defining it.",
+    "P_3 is a degree-3 polynomial in the variable log x, not a polynomial in x itself.",
+    "The O(x^(8/9+epsilon)) term is in the usual analytic-number-theory sense for arbitrary epsilon > 0; that quantifier is implicit in your draft.",
+    "The official problem is split into two tasks: first, improve the range of h and the size of the error term; second, compute exact simple formulas for the coefficients of P_3 and numerically study the remainder.",
+    "In the paper, the request for exact coefficient formulas and the numerical sqrt(x)-size test is explicitly attached to the D_{3,2} case; D_{2,3}(x,h) is mentioned only as an analogous known result, so one should not automatically broaden every subtask to D_{2,3} unless stated.",
+    "No extra algebraic ambient ring/field, homogeneity, or nilpotency hypotheses are involved here; the ambient setting is analytic number theory over positive integers, with variables x > 0 and h in N."
+  ],
+  "refined_question": "Let d_k(n) be defined by zeta(s)^k = sum_{n>=1} d_k(n)/n^s, and for k,l > 0, x > 0, and h in N set D_{k,l}(x,h) = sum_{n<=x} d_k(n)d_l(n+h). Topacogullari proved that for 1 <= h << x^(2/3), D_{3,2}(x,h) = x P_3(log x) + O_epsilon(x^(8/9+epsilon)), where P_3 is a degree-3 polynomial in log x whose coefficients depend on h; an analogous asymptotic was also obtained for D_{2,3}(x,h). Improve the admissible range of h and the error term in these asymptotics, and, in the D_{3,2} case, determine exact simple formulas for the coefficients of P_3 and numerically test whether the remainder D_{3,2}(x,h) - x P_3(log x) has order of magnitude about x^(1/2).",
+  "equivalent_formulation": null,
+  "justification": "The draft is targeting Problem (26) almost verbatim: that problem is the only place in the paper that mentions Topacogullari’s asymptotic for D_{3,2}(x,h), the range 1 <= h << x^(2/3), the error exponent 8/9 + epsilon, the degree-3 polynomial P_3 with h-dependent coefficients, the analogous D_{2,3}(x,h) result, and the specific numerical question about whether the remainder might be of size sqrt(x). To make the question fully stand-alone and paper-faithful, one needs to import the notation for d_k(n) and D_{k,l}(x,h) from the notation section and keep the scope narrow: the paper explicitly asks for coefficient formulas and numerical testing only in the D_{3,2} case.",
+  "citations": [
+    {
+      "section": "Introduction",
+      "label": "discussion of additive divisor sums as an active topic connected to moments of L-functions",
+      "page": 3
+    },
+    {
+      "section": "Notation",
+      "label": "definition of d_k(n) and D_{k,l}(x,h)",
+      "page": 4
+    },
+    {
+      "section": "Additive divisor sums/shifted convolution sums",
+      "label": "Problem (26)",
+      "page": "10-11"
+    }
+  ]
+}

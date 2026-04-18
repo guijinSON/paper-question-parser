@@ -1,0 +1,47 @@
+{
+  "arxiv_id": "2206.14431",
+  "question_id": "q_005",
+  "original_question": "Can one design a polynomial-time proper learner for size-s decision trees under the additional assumption that the unknown target function is monotone? Ideally, can such an algorithm avoid membership queries and use only random examples while still properly learning the monotone decision-tree target?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 8328.41,
+  "target_in_paper": "The draft is aiming at the Section 4 intermediate milestone on monotone targets: the paper asks for a polynomial-time proper learner for decision-tree targets under the additional promise that the target function is monotone, ideally using only random examples rather than membership queries.",
+  "completeness_score": 7.5,
+  "correct_elements": "Your draft correctly captures the specific intermediate milestone the paper highlights for monotone targets: it asks for a polynomial-time proper learner for size-s decision-tree targets under a monotonicity promise, and it also reflects the paper's stronger aspirational variant of avoiding membership queries and using only random examples.",
+  "missing_details": [
+    "The paper's ambient domain and codomain are Boolean functions f,h : {0,1}^n -> {0,1}, not an unspecified sample space.",
+    "The learning model is PAC learning under the uniform distribution on {0,1}^n.",
+    "The accuracy parameter epsilon is part of the statement: the learner should output h with Pr_{x~{0,1}^n}[h(x) != f(x)] <= epsilon.",
+    "The runtime target is specifically poly(n, s, 1/epsilon), not just an unspecified 'polynomial-time' bound.",
+    "The target is a size-s decision tree over n variables; that size parameter should appear explicitly.",
+    "The paper defines monotone to mean: if x is below x' in the standard product partial order on {0,1}^n, then f(x) <= f(x').",
+    "The paper distinguishes strictly proper from weakly proper: strictly proper means returning a size-s tree for a size-s target, while weakly proper allows any decision-tree size. The monotone-target milestone says only 'proper learner,' so your draft leaves the output-size requirement ambiguous.",
+    "The paper presents this as an intermediate milestone toward Open Problem 1, not as the main numbered open problem itself.",
+    "The paper's nearby context notes that an almost-polynomial-time strongly proper learner already exists, and when f is monotone that existing algorithm can already use only random examples; the missing goal is improving the runtime to poly(n,s,1/epsilon).",
+    "The paper does not formulate this monotone-target milestone as an agnostic-learning question, even though Theorem 2 discusses an agnostic result."
+  ],
+  "refined_question": "Does there exist a poly(n, s, 1/epsilon)-time proper PAC learning algorithm, under the uniform distribution on {0,1}^n, for monotone size-s decision-tree targets f : {0,1}^n -> {0,1}? Here monotone means that x <= x' coordinatewise implies f(x) <= f(x'), and proper means the algorithm outputs a decision-tree hypothesis h with Pr_{x~{0,1}^n}[h(x) != f(x)] <= epsilon. Ideally, can such a learner use only uniformly random labeled examples and no membership queries?",
+  "equivalent_formulation": null,
+  "justification": "This is the closest paper-faithful sharpening of your draft because the paper does not state a separate numbered conjecture for monotone decision trees; instead, in Section 4 it proposes the monotone-target case as an intermediate milestone toward the main open problem. Section 1 supplies the ambient PAC setting, notation, and runtime target for properly learning size-s decision trees under the uniform distribution. The nearby discussion on page 5620 adds the strict-versus-weak properness distinction, so the output-size requirement should not be silently strengthened beyond what Section 4 says. Theorem 2 is the key nearby contextual result: it gives an almost-polynomial-time strongly proper agnostic learner, and specifically notes that if the target is monotone then membership queries are unnecessary and random examples suffice. Hence the refined question should preserve the monotone-target promise and the 'ideally example-only' aspiration, while making explicit that the unresolved issue is achieving poly(n,s,1/epsilon) runtime in the uniform-distribution proper-learning setting.",
+  "citations": [
+    {
+      "section": "1. Introduction",
+      "label": "Open Problem 1",
+      "page": "5619"
+    },
+    {
+      "section": "1. Introduction",
+      "label": "strictly proper vs. weakly proper discussion",
+      "page": "5620"
+    },
+    {
+      "section": "2. Background and current status",
+      "label": "Theorem 2",
+      "page": "5620"
+    },
+    {
+      "section": "4. Intermediate milestones",
+      "label": "Monotone targets",
+      "page": "5622"
+    }
+  ]
+}

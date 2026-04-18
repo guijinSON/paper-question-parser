@@ -1,0 +1,38 @@
+{
+  "arxiv_id": "0909.0462",
+  "question_id": "q_011",
+  "original_question": "Consider the following queueing system. There are three servers and a Poisson arrival process of rate lambda. Each arrival becomes class 1, 2, or 3 with probability 1/3. Class 1 customers may be served by servers 1 and 2, class 2 customers by servers 2 and 3, and class 3 customers by servers 3 and 1. Upon arrival, a customer chooses the accessible server with the shorter workload. If served by its left server, the service time has distribution F_l; if served by its right server, the service time has distribution F_r. In this model, can stability depend on both the initial state and the full service-time distributions F_l and F_r rather than only on coarse summary parameters?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 474.66,
+  "target_in_paper": "Section 4, \"Stability may depend on the whole distribution\": the conjecture that even in simple queueing systems the stability conditions may depend both on the initial values and on the whole distribution of the driving sequences, illustrated by the three-server partially accessible queue with shortest-workload routing and left/right service-time laws F_l and F_r. ([ar5iv.labs.arxiv.org](https://ar5iv.labs.arxiv.org/pdf/0909.0462))",
+  "completeness_score": 8.5,
+  "correct_elements": "Your draft already matches the paper's specific example very closely: it has the three servers, Poisson arrival rate λ, three equally likely customer classes, the cyclic accessibility pattern, routing to the accessible server with smaller workload, and the left/right service-time laws F_l and F_r. It also asks exactly about dependence on initial values and on the full service-time distributions, which is the point of Section 4. ([ar5iv.labs.arxiv.org](https://ar5iv.labs.arxiv.org/pdf/0909.0462))",
+  "missing_details": [
+    "The paper frames this as a conjecture about the system's stability conditions, not as an established theorem. A paper-faithful rewrite should therefore ask whether this dependence can occur, rather than presupposing that it does. ([ar5iv.labs.arxiv.org](https://ar5iv.labs.arxiv.org/pdf/0909.0462))",
+    "The exact official wording is broader: stability conditions may depend both on the initial values and on the whole distribution of the driving sequences. In this example, the nontrivial driving distributions are the left- and right-service laws F_l and F_r. ([ar5iv.labs.arxiv.org](https://ar5iv.labs.arxiv.org/pdf/0909.0462))",
+    "To be fully stand-alone, the initial data should be described as the initial workload state (or initial values of the system), since the routing rule is workload-based. The draft says \"initial state\" but does not specify that workload is the relevant state variable here. ([ar5iv.labs.arxiv.org](https://ar5iv.labs.arxiv.org/pdf/0909.0462))",
+    "The paper does not specify how ties are broken when the two accessible workloads are equal. A self-contained research question should either state a tie-breaking convention or note that this detail is left implicit in the paper. ([ar5iv.labs.arxiv.org](https://ar5iv.labs.arxiv.org/pdf/0909.0462))",
+    "The draft says \"rather than only on coarse summary parameters\"; the paper's precise claim is dependence on the whole distribution, so the refined version should keep that phrase or an equally exact paraphrase rather than a looser summary. ([ar5iv.labs.arxiv.org](https://ar5iv.labs.arxiv.org/pdf/0909.0462))",
+    "The nearby context also says this is only an example \"where the conjecture may be true\" and that simulations, not proof, motivate it. That conjectural status is part of the paper's intent. ([ar5iv.labs.arxiv.org](https://ar5iv.labs.arxiv.org/pdf/0909.0462))"
+  ],
+  "refined_question": "Consider the three-server queueing system from Section 4 of Foss (2009): arrivals form a Poisson process of rate λ; each arrival independently becomes class i with probability 1/3 for i=1,2,3; class 1 can be served by servers 1 (left) and 2 (right), class 2 by servers 2 (left) and 3 (right), and class 3 by servers 3 (left) and 1 (right); each arrival is routed to the accessible server with the smaller current workload; and the service-time distribution is F_l when the customer is served by its left server and F_r when it is served by its right server. Is it possible that the stability conditions of this system depend on both the initial workload state and the full distributions F_l and F_r, rather than being determined solely by coarse summary characteristics of those driving distributions? ([ar5iv.labs.arxiv.org](https://ar5iv.labs.arxiv.org/pdf/0909.0462))",
+  "equivalent_formulation": null,
+  "justification": "This is the nearest official formulation in the paper: Section 4 first states the general conjecture about dependence of stability conditions on initial values and the whole distribution of the driving sequences, and then immediately specializes it to exactly the three-server, three-class, shortest-workload-routing model with left/right service laws F_l and F_r. The draft is therefore targeting Section 4, not the earlier multi-server FCFS, JSQ, or greedy-service sections. The paper also explicitly says that simulations suggest the conjecture may hold but that no rigorous proof is known. ([ar5iv.labs.arxiv.org](https://ar5iv.labs.arxiv.org/pdf/0909.0462))",
+  "citations": [
+    {
+      "section": "Section 4",
+      "label": "general conjecture ('stability conditions may depend both on the initial values and on the whole distribution of the driving sequences')",
+      "page": 4
+    },
+    {
+      "section": "Section 4",
+      "label": "three-server illustrative example with class accessibility, shortest-workload routing, and service laws F_l and F_r",
+      "page": 4
+    },
+    {
+      "section": "Section 4",
+      "label": "remark that simulations suggest the conjecture may hold but no rigorous proof is known",
+      "page": 4
+    }
+  ]
+}

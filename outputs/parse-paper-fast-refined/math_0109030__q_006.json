@@ -1,0 +1,42 @@
+{
+  "arxiv_id": "math_0109030",
+  "question_id": "q_006",
+  "original_question": "Let <n> denote the collection of increasing sequences drawn from {1, 2, ..., n}, and for a matrix A let A[alpha] denote the principal minor det A(alpha, alpha). Given n in the positive integers and prescribed numbers (p_alpha) for all nonempty alpha in <n>, does there exist a matrix A such that A[alpha] = p_alpha for every nonempty alpha in <n>?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 13774.55,
+  "target_in_paper": "Section 3, Problem 4: \"Assignment of principal minors.\"",
+  "completeness_score": 9,
+  "correct_elements": "Your draft already captures the paper's intended open problem very closely. It uses the correct indexing set of increasing sequences from {1,2,...,n}, the correct notation for principal minors A[alpha], the correct quantification over all nonempty alpha, and the correct existential question: whether prescribed principal minors can be realized by a matrix.",
+  "missing_details": [
+    "The paper's ambient matrix space is C^{n x n}; the matrix sought should be specified as a complex n x n matrix.",
+    "Accordingly, the prescribed values (p_alpha) should be identified as complex numbers, not left as unspecified 'numbers'.",
+    "The notation A(alpha, alpha) and A[alpha] := det A(alpha, alpha) comes from the paper's Section 2 and should be stated explicitly if the question is to be fully stand-alone.",
+    "The paper sets A[emptyset] := 1 by convention; this explains why only nonempty alpha are prescribed.",
+    "The paper immediately notes an explicit equivalent reformulation: prescribing all principal minors is equivalent to prescribing the characteristic polynomials, hence the eigenvalues, of all principal submatrices."
+  ],
+  "refined_question": "Let ⟨n⟩ denote the set of all increasing sequences alpha with entries in {1,2,...,n}. For a matrix A in C^{n x n}, write A(alpha, alpha) for the corresponding principal submatrix and A[alpha] := det A(alpha, alpha), with the convention A[emptyset] := 1. Given n in N and a family of complex numbers (p_alpha) indexed by all nonempty alpha in ⟨n⟩, does there exist a complex n x n matrix A such that A[alpha] = p_alpha for every nonempty alpha in ⟨n⟩?",
+  "equivalent_formulation": "Equivalently, given the characteristic polynomials (and hence the eigenvalue multisets) of all principal submatrices A(alpha, alpha), does there exist a complex n x n matrix realizing them? The paper states that specifying all principal minors is equivalent to specifying those characteristic polynomials, and vice versa.",
+  "justification": "The nearest official formulation is the paper's Section 3 open problem labeled \"4. Assignment of principal minors.\" Your draft is essentially a paraphrase of that statement after importing notation from Section 2. The only additions needed to make it fully self-contained and faithful are the ambient field C, the fact that A is an n x n square matrix, the convention A[emptyset] := 1, and the clarification that the prescribed data are complex numbers. The question should remain this general assignment problem, rather than being narrowed to GKK, Hermitian, or nonnegative matrices, because those appear only as possible specializations in the surrounding discussion, not as the main target of Problem 4.",
+  "citations": [
+    {
+      "section": "1 Motivation",
+      "label": "paper outlines five open problems related to stability of GKK tau-matrices",
+      "page": "1 (PDF page)"
+    },
+    {
+      "section": "2 Basic notions",
+      "label": "definition of ⟨n⟩, A(alpha,beta), A[alpha,beta], A[alpha], and A[emptyset] := 1",
+      "page": "2 (PDF page)"
+    },
+    {
+      "section": "3 GKK tau-matrix stability and related problems",
+      "label": "4. Assignment of principal minors",
+      "page": "3 (PDF page)"
+    },
+    {
+      "section": "3 GKK tau-matrix stability and related problems",
+      "label": "equivalence to an inverse eigenvalue problem via characteristic polynomials/eigenvalues of principal submatrices",
+      "page": "3 (PDF page)"
+    }
+  ]
+}

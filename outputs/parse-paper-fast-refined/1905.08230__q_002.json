@@ -1,0 +1,52 @@
+{
+  "arxiv_id": "1905.08230",
+  "question_id": "q_002",
+  "original_question": "Let ψ ∈ L2(R) be an orthonormal wavelet, and let ψ̂ denote its Fourier transform. Define the wavelet dimension function Dψ: R→N∪{0} by Dψ(ξ) := ∑_{j=1}^{∞} ∑_{k∈Z} |ψ̂(2^j(ξ+k))|^2.\n\nFix any function D:R→N∪{0} satisfying (D1) D is measurable and 1-periodic, (D2) D(ξ)+D(ξ+1/2)=D(2ξ)+1 a.e., (D3) ∑_{k∈Z} 1_Δ(ξ+k) ≥ D(ξ) a.e. where Δ = { ξ ∈ R : D(2^{−j} ξ) ≥ 1 for j ∈ N ∪ {0} }, and (D4) lim inf_{j→∞} D(2^{−j} ξ) ≥ 1 a.e.\n\nIs the set { ψ ∈ L2(R) : ψ is an orthonormal wavelet and Dψ = D } path connected in L2(R) norm?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 6559.8,
+  "target_in_paper": "Conjecture 2.1 in §2.1 of the arXiv version, with the needed notation and hypotheses supplied by Definition 2.1 and Theorem 2.4.",
+  "completeness_score": 9,
+  "correct_elements": "Your draft is already extremely close to the paper’s exact target. It uses the same wavelet-dimension formula Dψ(ξ) = Σ_{j=1}^∞ Σ_{k∈Z} |ψ̂(2^j(ξ+k))|^2, the same four conditions (D1)–(D4) that characterize wavelet dimension functions in Theorem 2.4, and it asks exactly whether the fiber {ψ ∈ L^2(R) : ψ is an orthonormal wavelet and Dψ = D} is path connected in the L^2(R) norm, which is precisely Conjecture 2.1.",
+  "missing_details": [
+    "The paper is in the classical one-dimensional dyadic setting, so 'orthonormal wavelet' should be made explicit as: {ψj,k(x) := 2^{j/2} ψ(2^j x − k) : j, k ∈ Z} is an orthonormal basis of L^2(R).",
+    "The Fourier transform convention used in the paper is implicit in your draft and should be stated: ψ̂(ξ) = ∫R ψ(x)e^(−2πixξ) dx, initially for ψ ∈ L^1(R) ∩ L^2(R), then extended to L^2(R).",
+    "The paper treats functions D satisfying (D1)–(D4) as 'wavelet dimension functions'; Theorem 2.4 also shows that every such D is actually realized by an orthonormal MSF wavelet, so the fiber in the conjecture is nonempty.",
+    "To make path connectedness fully stand-alone, one can spell it out as the existence of a continuous path Ψ : [0,1] → L^2(R) with Ψ(0), Ψ(1) in the fiber and Ψ(t) remaining in the same fiber for every t.",
+    "The scope should remain restricted to orthonormal dyadic wavelets on R; the paper mentions Parseval, Riesz, and higher-dimensional analogues nearby, but Conjecture 2.1 is not about those variants."
+  ],
+  "refined_question": "In the classical one-dimensional dyadic setting, let ψ ∈ L^2(R) be an orthonormal wavelet, meaning that {ψj,k(x) := 2^{j/2}ψ(2^j x − k) : j, k ∈ Z} is an orthonormal basis of L^2(R), and let ψ̂(ξ) := ∫R ψ(x)e^(−2πixξ) dx denote its Fourier transform. Define its wavelet dimension function by Dψ(ξ) := Σ_{j=1}^∞ Σ_{k∈Z} |ψ̂(2^j(ξ + k))|^2. If D : R → N ∪ {0} is a wavelet dimension function on R — equivalently, by Theorem 2.4, D is measurable and 1-periodic and satisfies (D1) D(ξ) + D(ξ + 1/2) = D(2ξ) + 1 a.e., (D2) Σ_{k∈Z} 1Δ(ξ + k) ≥ D(ξ) a.e. where Δ := {ξ ∈ R : D(2^(−j)ξ) ≥ 1 for all j ∈ N ∪ {0}}, and (D3) lim inf_{j→∞} D(2^(−j)ξ) ≥ 1 a.e. — is the set {ψ ∈ L^2(R) : ψ is an orthonormal wavelet and Dψ = D} path connected in the L^2(R) norm?",
+  "equivalent_formulation": null,
+  "justification": "The draft is aiming at the paper’s exact fiberwise connectivity conjecture, not the broader Problem 2.1. In the arXiv version, that statement is Conjecture 2.1 in §2.1. Theorem 2.4 gives exactly the formula for Dψ and the four conditions (D1)–(D4), and it also proves that these conditions characterize the possible dimension functions. The nearby context shows why this conjecture is singled out: Problem 2.1 asks whether all orthonormal wavelets are path connected, Theorem 2.2 proves this for MRA wavelets, Theorem 2.3 proves it for MSF wavelets, and the paper explicitly states that an affirmative answer to Problem 2.1 would follow from Conjecture 2.1 together with Theorems 2.3 and 2.4. So your draft is already essentially correct; it mainly needs the dyadic-wavelet definition, the Fourier-transform convention, and the explicit statement that D satisfying (D1)–(D4) is exactly what the paper calls a wavelet dimension function.",
+  "citations": [
+    {
+      "section": "§2",
+      "label": "Definition 2.1",
+      "page": 1
+    },
+    {
+      "section": "§2.1",
+      "label": "Problem 2.1",
+      "page": 1
+    },
+    {
+      "section": "§2.1",
+      "label": "Theorem 2.2",
+      "page": 2
+    },
+    {
+      "section": "§2.1",
+      "label": "Theorem 2.3",
+      "page": 3
+    },
+    {
+      "section": "§2.1",
+      "label": "Theorem 2.4",
+      "page": 3
+    },
+    {
+      "section": "§2.1",
+      "label": "Conjecture 2.1",
+      "page": 3
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "arxiv_id": "2501.17725",
+  "question_id": "q_021",
+  "original_question": "Does there exist a balanced ternary design BTD(17,17;8,2,12;12,8), meaning an arrangement of 17 elements into 17 blocks of cardinality 12 that can be represented by a 17 x 17 incidence matrix with entries in {0,1,2}, where each element appears with total multiplicity R = 12, appearing with multiplicity 1 in exactly 8 blocks and multiplicity 2 in exactly 2 blocks, and every pair of distinct elements appears together exactly 8 times?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 10447.38,
+  "target_in_paper": "Section 1, Table 1, in the Balanced Ternary Design row: the paper defines BTD(V,B;p1,p2,R;K,L) and then specializes the open-instance question to (V,B;p1,p2,R;K,L) = (17,17;8,2,12;12,8), which Table 1 marks as 'Exists'; Appendix B, Figure 18 presents a verified design for exactly these parameters.",
+  "completeness_score": 8.0,
+  "correct_elements": "Your draft correctly identifies the exact parameter set from the paper, the BTD notation BTD(17,17;8,2,12;12,8), the 17x17 incidence-matrix viewpoint with entries in {0,1,2}, the block size K=12, the row multiplicity pattern p1=8 and p2=2 so that R=12, and the intended existence question for that specific instance.",
+  "missing_details": [
+    "The paper's pair-balance condition is the weighted incidence condition sum_{b=1}^{17} m_{vb} m_{wb} = 8 for every distinct v,w; saying that two elements 'appear together exactly 8 times' is ambiguous because a shared block can contribute 1, 2, or 4 depending on multiplicities.",
+    "Because blocks are multisets, 'cardinality 12' means each block has total multiplicity 12, i.e. each column sum is 12, not necessarily 12 distinct elements.",
+    "To make the question fully stand-alone, the existential quantifier should be written explicitly over a matrix M = (m_{vb}) in {0,1,2}^{17x17}, with rows indexed by elements and columns indexed by blocks.",
+    "The row condition should be stated in matrix form: each row has exactly eight 1s and exactly two 2s, hence row sum 12.",
+    "To match the paper faithfully, the notation should be given exactly as BTD(V,B;p1,p2,R;K,L) with (V,B;p1,p2,R;K,L) = (17,17;8,2,12;12,8).",
+    "The paper phrases the task constructively ('Given ... we want to find BTD(...)'), so a paper-faithful reformulation may ask for an explicit construction rather than only a yes/no existence verdict."
+  ],
+  "refined_question": "Does there exist a balanced ternary design BTD(17,17;8,2,12;12,8), equivalently a collection of 17 multiset blocks on 17 points encoded by a matrix M = (m_{vb}) in {0,1,2}^{17x17}, such that each column has total multiplicity 12, each row has exactly eight entries equal to 1 and exactly two entries equal to 2 (hence row sum 12), and for every distinct points v,w in {1,...,17} one has sum_{b=1}^{17} m_{vb} m_{wb} = 8?",
+  "equivalent_formulation": null,
+  "justification": "The nearest official target is not a theorem or conjecture but the Balanced Ternary Design entry in Table 1 of Section 1. The definition immediately above the BTD open instances fixes the notation BTD(V,B;p1,p2,R;K,L), explains that the blocks are multisets represented by a VxB incidence matrix with entries in {0,1,2}, and gives the crucial weighted pair condition sum_b m_{vb} m_{wb} = L. The specific instance listed there is (17,17;8,2,12;12,8), and the paper records it as 'Exists'. Appendix B, Figure 18 gives a verified design for this exact parameter set. Your draft is already close, but the phrase 'appears together exactly 8 times' should be replaced by the paper's weighted incidence formula, and the multiset/column-sum interpretation of block size should be made explicit. No ambient ring/field, homogeneity, degree, or nilpotency assumptions are relevant to this combinatorial design problem.",
+  "citations": [
+    {
+      "section": "1 Introduction",
+      "label": "Table 1 (Balanced Ternary Design definition and open instance)",
+      "page": "page unavailable in arXiv HTML view"
+    },
+    {
+      "section": "Appendix B",
+      "label": "Figure 18",
+      "page": "page unavailable in arXiv HTML view"
+    }
+  ]
+}

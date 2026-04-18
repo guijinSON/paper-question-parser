@@ -1,0 +1,37 @@
+{
+  "arxiv_id": "2404.02236",
+  "question_id": "q_008",
+  "original_question": "Let G be a primitive distance-regular graph, and let Mc denote the average mixing matrix of its continuous-time quantum walk, defined by Mc = lim_{T -> infinity} (1/T) integral from 0 to T of M(t) dt, where M(t) = U(t) o U(-t) and U(t) = exp(itA). Prove that the rank of Mc is equal to the number of vertices of G.",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 9484.51,
+  "target_in_paper": "Section 4, Open Problem 4.1 (Average mixing matrix): \"If G is a primitive distance-regular graph, show that the rank of Mc is equal to the number of vertices.\"",
+  "completeness_score": 9,
+  "correct_elements": "Your draft already captures the exact open problem in the paper: the graph class is correct (primitive distance-regular graphs), the matrix under study is correct (the average mixing matrix Mc of the continuous-time quantum walk), and the target conclusion is correct (Mc should have full rank, i.e. rank equal to the number of vertices). Your draft also correctly includes the time-average definition of Mc and the mixing matrix M(t).",
+  "missing_details": [
+    "The paper uses A=A(G), the adjacency matrix of G; this should be stated explicitly.",
+    "It is cleaner to introduce n=|V(G)| and state the conclusion as rank(Mc)=n.",
+    "The notation \"∘\" should be identified as the Schur (Hadamard) product.",
+    "To match the paper's status of the statement, it should be phrased as an open research question (\"Is it true that ...?\") rather than as a theorem already known to be proved.",
+    "For full paper-faithfulness, one may record the equivalent spectral formula Mc = sum_{r=0}^d Er∘Er when A(G)=sum_{r=0}^d theta_r Er."
+  ],
+  "refined_question": "Let G be a primitive distance-regular graph on n=|V(G)| vertices, with adjacency matrix A=A(G). Define the continuous-time quantum walk transition matrix by U(t)=exp(itA), the mixing matrix by M(t)=U(t)∘U(-t), where ∘ denotes the Schur (Hadamard) product, the finite-interval average by Mc[0,T]=(1/T) integral_0^T M(t) dt, and the average mixing matrix by Mc = lim_{T->infinity} Mc[0,T]. Is it true that rank(Mc)=n; equivalently, does every primitive distance-regular graph have a full-rank average mixing matrix?",
+  "equivalent_formulation": "If A(G)=sum_{r=0}^d theta_r Er is the spectral decomposition of the adjacency matrix, then Mc = sum_{r=0}^d Er∘Er. So the same question can be stated as: for every primitive distance-regular graph G on n vertices, is rank(sum_{r=0}^d Er∘Er)=n?",
+  "justification": "The draft clearly targets Open Problem 4.1 in Section 4, not a different part of the paper. Section 4 supplies the exact nearby context: it defines M(t), the finite-interval average Mc[0,T], the limit Mc, and then immediately states the open problem that for primitive distance-regular graphs the rank of Mc should equal the number of vertices. The draft is already very close, but to make it fully stand-alone and paper-faithful it should explicitly identify A as the adjacency matrix, name the Schur product, introduce n=|V(G)|, and present the statement as an open research question rather than as an already-established theorem. The spectral-idempotent reformulation is also explicit in the same section.",
+  "citations": [
+    {
+      "section": "1",
+      "label": "Introduction",
+      "page": 1
+    },
+    {
+      "section": "4",
+      "label": "Average mixing matrix",
+      "page": 10
+    },
+    {
+      "section": "4",
+      "label": "Open Problem 4.1",
+      "page": 11
+    }
+  ]
+}

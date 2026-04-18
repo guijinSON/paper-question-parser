@@ -1,0 +1,49 @@
+{
+  "arxiv_id": "2108.04241",
+  "question_id": "q_013",
+  "original_question": "For scalar Caputo terminal value problems of the form CD^alpha_{a+} y(t) = f(t, y(t)) with a terminal condition y(b) = y*, what numerical strategy is best for updating the unknown initial value y(a) inside shooting methods, and how do shooting, collocation, Galerkin, Nystrom, spectral, and spectral-element approaches compare in computational cost, convergence, and the design of basis functions that capture the endpoint singular behaviour of exact solutions?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 7595.76,
+  "target_in_paper": "Section 3.3, \"Terminal value problems\" (the unnumbered open-question cluster around Eqs. (62a)-(63b)), especially the question of \"what the best algorithm for selecting the initial value in the next iteration step is,\" together with the immediately following call for comparisons between shooting and Fredholm-equation-based methods and the transfer of the spectral/spectral-element ideas from Section 3.2.",
+  "completeness_score": 7.5,
+  "correct_elements": "Your draft correctly identifies the paper's actual numerical target: scalar left-sided Caputo terminal value problems, the unknown initial value y(a) inside shooting methods, comparison with collocation/Galerkin/Nystrom-type approaches for the equivalent Fredholm formulation, and basis-function design that reflects endpoint singular behavior, including the possible use of spectral and spectral-element methods.",
+  "missing_details": [
+    "The paper restricts to the practically most important case 0 < alpha < 1, on a finite interval [a, a+T] with T > 0.",
+    "The problem is explicitly restricted to the scalar case y:[a, a+T] -> R; for b > a the analogous vector-valued problem y:[a, a+T] -> R^d with d >= 2 is said not to admit the same uniqueness guarantee.",
+    "The terminal condition is posed at b in [a, a+T], with the genuinely terminal case being b > a; the terminal datum is a real number y*.",
+    "To make the question stand-alone, f should be specified as the given nonlinearity in ^C D_{a+}^{alpha} y(t) = f(t,y(t)), naturally interpreted in the scalar setting as f:[a, a+T] x R -> R.",
+    "The paper decomposes the overall computation into two stages and stresses that only the first stage on [a,b] is novel: once y(a) has been found, the continuation to [a, a+T] is an ordinary fractional initial value problem.",
+    "The paper explicitly reformulates the first-stage terminal value problem on [a,b] as a weakly singular Fredholm integral equation with kernel G(t,s); this equivalent formulation is part of the intended scope.",
+    "The paper does not claim to know the best shooting update rule; rather, it states this as the main open question. So a faithful reformulation should ask for identifying or analyzing such a rule, not presume the answer is already known.",
+    "The paper does not offer a completed global comparison among shooting, collocation, Galerkin, and Nystrom methods; it says that such cost/comparison studies would be useful or welcome.",
+    "The spectral/spectral-element component comes from Section 3.2 and is proposed as a direction to be applied to terminal value problems; it is not presented there as an already established general-purpose solver for the terminal problem.",
+    "If basis functions are mentioned, the paper wants them to capture the asymptotic behavior of the exact solution as t -> a, and therefore the singular behavior of its derivatives, while still giving rapid convergence for the smooth remainder.",
+    "The Section 3.2 spectral context is specifically generalized-polynomial Petrov-Galerkin methodology, with possibly different trial and test spaces, not just generic spectral discretization.",
+    "Section 3.2 also notes that this spectral line of work is typically analyzed in L2, whereas many other FODE solvers are analyzed in the stronger Linfinity norm; this is part of the nearby context for any convergence-comparison wording."
+  ],
+  "refined_question": "For the scalar terminal value problem ^C D_{a+}^{alpha} y(t) = f(t,y(t)) on [a, a+T], with 0 < alpha < 1, T > 0, b in (a, a+T], y:[a, a+T] -> R, and y(b) = y* in R, where the genuinely new numerical task is the first-stage recovery of the unknown initial value y(a) from the restriction to [a,b], which algorithm for updating y(a) inside a shooting method gives the best balance of accuracy and computational effort, and how does such a shooting approach compare with direct discretizations of the associated weakly singular Fredholm equation by collocation, Nystrom, or Galerkin methods, including spectral and spectral-element variants whose trial/test bases use generalized polynomials with noninteger exponents chosen to match the t -> a asymptotics and derivative singularities of the exact solution, in terms of convergence behavior and computational cost?",
+  "equivalent_formulation": "Equivalently, on [a,b] one may ask for numerical methods for the Fredholm integral equation y(t) = y* + (1/Gamma(alpha)) integral_a^b G(t,s) f(s,y(s)) ds, where G(t,s) = -(b-s)^(alpha-1) for s > t and G(t,s) = (t-s)^(alpha-1) - (b-s)^(alpha-1) for s <= t, and then compare shooting against direct discretizations of this integral equation.",
+  "justification": "The draft is not aiming at a numbered conjecture or theorem; it is targeting the unnumbered open-problem discussion in Section 3.3. That section introduces exactly the scalar Caputo terminal value problem with terminal data at t=b, explains the scalar-only uniqueness restriction, reduces the overall computation to the nontrivial first stage on [a,b], reformulates that stage as a Fredholm equation, and then explicitly identifies as the central open shooting question the choice of the next initial-value iterate. Immediately afterward, the paper asks for comparisons with collocation, Galerkin, and Nystrom-type Fredholm solvers and for basis functions that encode the t -> a singular structure, explicitly pointing back to the spectral and spectral-element ideas of Section 3.2. Your draft is therefore close, but it needs the scalar restriction, the interval/order assumptions, the first-stage/Fredholm reformulation, and the fact that the paper frames these matters as open comparative questions rather than settled conclusions.",
+  "citations": [
+    {
+      "section": "3.2",
+      "label": "Unnumbered discussion of generalized-polynomial spectral methods, Petrov-Galerkin trial/test spaces, and spectral-element extensions; Eqs. (57)-(61)",
+      "page": "3258-3259"
+    },
+    {
+      "section": "3.3",
+      "label": "Eqs. (62a)-(62b): scalar Caputo terminal value problem, 0<alpha<1 context, and scalar-only uniqueness restriction",
+      "page": "3259-3260"
+    },
+    {
+      "section": "3.3",
+      "label": "Eqs. (63a)-(63b): equivalent Fredholm integral equation on [a,b]",
+      "page": "3260"
+    },
+    {
+      "section": "3.3",
+      "label": "Unnumbered open questions on the best shooting update rule, comparisons with collocation/Galerkin/Nystrom methods, and singularity-adapted basis functions including spectral/spectral-element transfer from Section 3.2",
+      "page": "3260-3261"
+    }
+  ]
+}

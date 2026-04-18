@@ -1,0 +1,51 @@
+{
+  "arxiv_id": "1606_07891",
+  "question_id": "q_007",
+  "original_question": "Fix H bounded and Lipschitz on R^{n+1}, let u ∈ W^{1,n}(R^n, R^{n+1}), and set b = H(u) ∈ W^{1,n}(R^n) ∩ L^∞(R^n). Determine the largest subspace V ⊂ H^1(R^n) for which the commutator [b, I] maps V to L^{n/(n-1)}(R^n) or to W^{1,1}(R^n), the commutators [b, R_α] map V to L^1(R^n), the Jacobian form du^1 ∧ ... ∧ du^n admits an atomic decomposition into b-atoms, and whether the answers change when u is assumed to solve an H-system.",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 4860.9,
+  "target_in_paper": "Section 4.1, Problem 4.1 (\"Questions concerning commutators\"), with background from Definition 2.3 and Problem 2.4 in Section 2.2.",
+  "completeness_score": 8,
+  "correct_elements": "The draft is already very close to the paper's actual target. It has the correct hypotheses on H and u, the correct definition b=H(u), the two endpoint commutator questions for [b,I] and [b,R_alpha], the b-atom question for du^1 ∧ ... ∧ du^n, and the final comparison between the general W^{1,n} setting and the additional assumption that u solves an H-system.",
+  "missing_details": [
+    "In the paper, H^1(R^n) means the real Hardy space, not the Sobolev space H^1; this should be stated explicitly.",
+    "The operator I should be defined: If(x)=∫_{R^n} K(x-y)f(y)dy with K(x)=c_n x/|x|^n, i.e. the gradient of the fundamental solution of the Laplacian.",
+    "The commutator convention should be stated explicitly: [b,T]f=bTf-T(bf).",
+    "Problem 4.1(a) also asks whether the relevant space V contains all n×n minors of Du; the draft omits this clause.",
+    "Problem 4.1(b) likewise asks whether V contains all n×n minors of Du; the draft omits this.",
+    "To make part (d) stand-alone, the H-system should be written out explicitly as -div(|∇u|^{n-2}∇u)=H(u)Ju.",
+    "The Jacobian vector Ju should be defined explicitly as Ju=∂_{x_1}u × ... × ∂_{x_n}u, whose coordinates are the n×n minors of Du.",
+    "For part (c), 'b-atoms' should be unpacked as classical Hardy-space atoms with the additional orthogonality condition to b (the paper paraphrases them as standard atoms additionally orthogonal to b).",
+    "Because I is vector-valued, the target spaces L^{n/(n-1)} and W^{1,1} in part (a) should be understood componentwise/vector-valued."
+  ],
+  "refined_question": "Let H: R^{n+1} -> R be bounded and Lipschitz, let u belong to W^{1,n}(R^n, R^{n+1}), and set b:=H(u) in W^{1,n}(R^n) ∩ L^∞(R^n). Write H^1(R^n) for the real Hardy space. Define If(x):=∫_{R^n} c_n (x-y)/|x-y|^n f(y) dy, let R_alpha denote the alpha-th Riesz transform for alpha=1,...,n, and define [b,T]f:=bTf-T(bf). Determine the largest subspace V ⊂ H^1(R^n) such that: (a) [b,I] maps V to L^{n/(n-1)}(R^n; R^n), and likewise when the target is replaced by W^{1,1}(R^n; R^n); in either case, does V contain all n×n minors of Du? (b) for every alpha=1,...,n, [b,R_alpha] maps V to L^1(R^n); does V contain all n×n minors of Du? (c) does the n-form du^1 ∧ ... ∧ du^n admit an atomic decomposition into b-atoms, meaning classical H^1-atoms that are additionally orthogonal to b? (d) do the answers to (a)-(c) change if u is further assumed to be a weak solution of the H-system -div(|∇u|^{n-2}∇u)=H(u)Ju, where Ju:=∂_{x_1}u × ... × ∂_{x_n}u has coordinates equal to the n×n minors of Du?",
+  "equivalent_formulation": null,
+  "justification": "The draft is essentially a near-verbatim restatement of the paper's Problem 4.1, rather than of some broader neighboring problem. The main paper-faithful corrections are to restore the exact Hardy-space setting, define the operator I used in Section 4.1, reinstate the paper's separate questions about whether V contains all n×n minors of Du in parts (a) and (b), and make the H-system in part (d) explicit using Definition 2.3. This keeps the scope exactly where the paper places it: an endpoint commutator problem tied to the regularity question for H-systems, with the authors explicitly noting that abstract characterizations from Perez and Ky do not directly tell one whether a given Jacobian lies in the relevant subspace V, and that positive answers to (a)-(c) would feed back into Problems 2.4 and 2.2.",
+  "citations": [
+    {
+      "section": "2.2",
+      "label": "Definition 2.3",
+      "page": 25
+    },
+    {
+      "section": "2.2",
+      "label": "Problem 2.4",
+      "page": 25
+    },
+    {
+      "section": "4.1",
+      "label": "preceding discussion defining I",
+      "page": 34
+    },
+    {
+      "section": "4.1",
+      "label": "Problem 4.1",
+      "page": 34
+    },
+    {
+      "section": "4.1",
+      "label": "paragraph after Problem 4.1",
+      "page": "34-35"
+    }
+  ]
+}

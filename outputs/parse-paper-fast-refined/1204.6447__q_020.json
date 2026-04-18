@@ -1,0 +1,40 @@
+{
+  "arxiv_id": "1204.6447",
+  "question_id": "q_020",
+  "original_question": "For every Boolean function f : {-1,1}^n -> {-1,1}, is the sum of the absolute values of the linear Fourier coefficients bounded by sqrt(deg(f))?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 2238.59,
+  "target_in_paper": "The unsectioned open problem titled \"Linear Coefficients versus Total Degree\".",
+  "completeness_score": 5,
+  "correct_elements": "Your draft correctly identifies the right open problem, the correct domain and codomain f:{-1,1}^n->{-1,1}, the fact that the question concerns the degree-1 Fourier coefficients, and the paper's main sqrt(deg(f)) upper-bound target.",
+  "missing_details": [
+    "The paper's statement is about the signed sum sum_{i=1}^n hat f(i), not the sum of absolute values sum_{i=1}^n |hat f(i)|. Adding absolute values makes the question strictly broader and no longer paper-faithful.",
+    "The notation hat f(i) should be defined as the singleton Fourier-Walsh coefficient hat f({i}) in the standard Fourier expansion on the uniform hypercube.",
+    "The ambient expansion should be specified: f(x)=sum_{S subseteq [n]} hat f(S) prod_{j in S} x_j.",
+    "The meaning of deg(f) should be made explicit: the total degree of the unique multilinear real polynomial representation of f, equivalently max{|S| : hat f(S) != 0}.",
+    "The question should quantify over all n and all Boolean functions on {-1,1}^n, not leave n implicit.",
+    "To be fully stand-alone, it should say that the Fourier coefficients are taken with respect to the uniform measure on {-1,1}^n.",
+    "The nearby paper context notes a stronger candidate upper bound, namely k * binom(k-1,(k-1)/2) * 2^(1-k) with k=deg(f), achieved by Majority on k bits; this is not the official statement, but it clarifies the intended scale of the conjecture.",
+    "The nearby paper context also records that the only general bound mentioned there is the trivial inequality sum_{i=1}^n hat f(i) <= I[f] <= deg(f), where I[f] is total influence."
+  ],
+  "refined_question": "Is it true that for every Boolean function f:{-1,1}^n->{-1,1}, if f(x)=sum_{S subseteq [n]} hat f(S) prod_{j in S} x_j is its standard Fourier-Walsh (equivalently, unique multilinear real) expansion under the uniform measure, and deg(f)=max{|S|: hat f(S) != 0}, then one has sum_{i=1}^n hat f({i}) <= sqrt(deg(f))?",
+  "equivalent_formulation": null,
+  "justification": "This draft is clearly aiming at the paper's page-9 problem \"Linear Coefficients versus Total Degree.\" The official statement there is exactly the signed first-level Fourier inequality sum_{i=1}^n hat f(i) <= sqrt(deg(f)); it does not use absolute values. The two remark bullets immediately below it supply the intended context: a stronger candidate bound k * binom(k-1,(k-1)/2) * 2^(1-k), attained by Majority on k bits, and the observation that no bound better than the trivial sum_{i=1}^n hat f(i) <= I[f] <= deg(f) was apparently known at the time. Because your draft changes the signed sum to a sum of absolute values and leaves the Fourier/degree conventions implicit, it needs sharpening to match the paper faithfully.",
+  "citations": [
+    {
+      "section": "Main matter (unsectioned problem list)",
+      "label": "Linear Coefficients versus Total Degree — Statement",
+      "page": 9
+    },
+    {
+      "section": "Main matter (unsectioned problem list)",
+      "label": "Linear Coefficients versus Total Degree — Remarks, first bullet",
+      "page": 9
+    },
+    {
+      "section": "Main matter (unsectioned problem list)",
+      "label": "Linear Coefficients versus Total Degree — Remarks, second bullet",
+      "page": 9
+    }
+  ]
+}

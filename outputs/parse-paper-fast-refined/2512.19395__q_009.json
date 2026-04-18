@@ -1,0 +1,54 @@
+{
+  "arxiv_id": "2512.19395",
+  "question_id": "q_009",
+  "original_question": "Fix k >= 2. If G has m edges and contains neither theta_{1,2,2k-1} nor theta_{1,2,2k}, must lambda(G) be at most (k - 1 + sqrt(4m - k^2 + 1)) / 2, with equality only for K_k joined with an independent set of size m/k - (k - 1)/2, for all sufficiently large m?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 12224.29,
+  "target_in_paper": "This draft is aiming at Conjecture 3.11 in §3, in the theta-graph discussion; the survey then records that this conjecture is proved by Theorem 3.12 for k = 2 and by Theorem 3.14 for k ≥ 3. citeturn10view0turn8view0",
+  "completeness_score": 7.5,
+  "correct_elements": "Your draft already captures the right forbidden theta family, the correct square-root upper bound, the intended extremal graph of the form K_k ∨ ((m/k - (k - 1)/2)K_1), and the asymptotic quantifier that m should be sufficiently large for each fixed k ≥ 2. citeturn10view0",
+  "missing_details": [
+    "The official hypothesis is disjunctive: G lies in 𝑢(m,θ_{1,2,2k-1}) ∪ 𝑢(m,θ_{1,2,2k}), meaning G is either θ_{1,2,2k-1}-free or θ_{1,2,2k}-free; your wording \"contains neither ... nor ...\" is stronger than the paper’s statement. citeturn10view0",
+    "In the paper, 𝑢(m,ℱ) denotes graphs with exactly m edges, no isolated vertices, and no subgraph isomorphic to any member of ℱ; the no-isolated-vertices condition is implicit in your draft and should be stated explicitly. citeturn1view1",
+    "k should be stated as a fixed integer, and \"for all sufficiently large m\" should be quantified as: there exists m_0 = m_0(k) such that the statement holds for every integer m ≥ m_0. citeturn10view0",
+    "The notation θ_{1,p,q} should be defined: it is the graph formed by three internally disjoint paths of lengths 1, p, and q joining the same two endpoints. citeturn10view0",
+    "λ(G) should be identified as the adjacency spectral radius of the finite, simple, undirected graph G. citeturn1view1turn9view1",
+    "The join notation should be unpacked: G_1 ∨ G_2 is the join of G_1 and G_2, and tK_1 is an independent set of size t. citeturn9view1",
+    "To make the equality case fully stand-alone, note that the extremal graph exists only when t = m/k - (k - 1)/2 is an integer, equivalently when m + k(k + 1)/2 ≡ 0 (mod k); the paper later points out this attainability issue explicitly. citeturn6view1turn4view3"
+  ],
+  "refined_question": "For each fixed integer k ≥ 2, does there exist m_0 = m_0(k) such that for every integer m ≥ m_0 and every finite simple graph G with exactly m edges and no isolated vertices, if G is either θ_{1,2,2k-1}-free or θ_{1,2,2k}-free, where θ_{1,p,q} denotes the graph consisting of three internally disjoint paths of lengths 1, p, and q between the same two vertices, then the adjacency spectral radius λ(G) satisfies λ(G) ≤ (k - 1 + √(4m - k^2 + 1))/2, with equality if and only if m/k - (k - 1)/2 is an integer and G ≅ K_k ∨ ((m/k - (k - 1)/2)K_1)? citeturn10view0turn1view1turn9view1turn6view1",
+  "equivalent_formulation": null,
+  "justification": "The nearest official formulation is Conjecture 3.11, because it uses exactly the pair of forbidden theta graphs θ_{1,2,2k-1} and θ_{1,2,2k}, the same upper bound, and the same join extremal graph. It should not be replaced by the neighboring cycle conjecture (Conjecture 3.10) or by the later residue-class problem/problem-specific refinements, since your draft clearly targets the theta version with the explicit K_k-join equality case. The main repairs are to restore the paper’s disjunctive hypothesis, add the hidden 𝑢(m,ℱ) convention that excludes isolated vertices, define θ_{1,p,q}, λ(G), and the join, and make the integrality/congruence issue in the equality case explicit. The survey also notes that this question is now resolved: Theorem 3.12 settles k = 2, and Theorem 3.14 settles all k ≥ 3 for large m. citeturn10view0turn8view0turn6view1turn4view3",
+  "citations": [
+    {
+      "section": "1. Introduction",
+      "label": "definitions of λ(G), 𝑢(m,ℱ), and the join G_1 ∨ G_2",
+      "page": "1-2"
+    },
+    {
+      "section": "3. Forbidding a subgraph whose chromatic number is at most 3",
+      "label": "definition of θ_{1,p,q} and Conjecture 3.11",
+      "page": "6"
+    },
+    {
+      "section": "3. Forbidding a subgraph whose chromatic number is at most 3",
+      "label": "Theorem 3.12",
+      "page": "6"
+    },
+    {
+      "section": "3. Forbidding a subgraph whose chromatic number is at most 3",
+      "label": "Theorem 3.14",
+      "page": "7"
+    },
+    {
+      "section": "3. Forbidding a subgraph whose chromatic number is at most 3",
+      "label": "remark before Problem 7 on when K_k ∨ ((m/k - (k - 1)/2)K_1) is well-defined",
+      "page": "8"
+    },
+    {
+      "section": "3. Forbidding a subgraph whose chromatic number is at most 3",
+      "label": "observation after Theorem 3.38 on when the bound is attainable",
+      "page": "11"
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "arxiv_id": "2012.04625",
+  "question_id": "q_012",
+  "original_question": "For Zabolotskiy's sequence defined by a_1=1, a_2=-1, and for n≥3 by a_n=-∑_{d|(n-2), 1≤d≤n-2} a_d, remove duplicate values and form the associated 4-regular graphs. Explain what arithmetic structure forces the observed regular graph pattern and decide whether that pattern persists as the graphs become larger.",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 7446.23,
+  "target_in_paper": "Section 2.7, \"The Zabolotskiy sequence\": the unnumbered closing question asking why the graphs obtained from the distinct values of Zabolotskiy’s sequence appear to be 4-regular, and whether this 4-regular pattern continues for larger truncations.",
+  "completeness_score": 6,
+  "correct_elements": "The draft correctly identifies the specific sequence from the paper, the need to discard repeated values before applying the paper’s graph construction, the observed 4-regularity phenomenon, and the two intended aspects of the problem: explaining the arithmetic origin of the pattern and determining whether it persists as the graphs grow.",
+  "missing_details": [
+    "The paper’s graph construction itself is omitted: for a list of m distinct real numbers, the graph is formed by taking the union of the cycle coming from the original order and the cycle coming from the increasing-value order, with wrap-around edges in both cycles.",
+    "It should say explicitly that duplicates are removed by keeping only first occurrences, so that the remaining sequence is an ordered list of distinct values to which the construction applies.",
+    "The vertex set of the graph should be specified, namely the positions 1,2,...,m in the de-duplicated list (equivalently, the first m distinct terms retained in order of appearance).",
+    "The draft does not state whether the graph is regarded as a simple graph after taking the union of the two cycles, which is part of the paper’s setup.",
+    "The phrase \"associated 4-regular graphs\" is slightly misleading: 4-regularity is the observed phenomenon to be explained, not part of the definition.",
+    "The quantifier is not sharp: the paper-faithful version should distinguish between \"for every m\" and \"for all sufficiently large m\" rather than saying only \"as the graphs become larger.\"",
+    "The problem should make clear that the sequence is integer-valued but the graph construction is the general one for distinct real numbers introduced earlier in the paper.",
+    "The recurrence should be written with the divisor condition in standard shorthand, e.g. a_n = -\\sum_{d\\mid(n-2)} a_d for n\\ge 3, together with the stated initial values."
+  ],
+  "refined_question": "Let (a_n)_{n\\ge 1} be Zabolotskiy’s sequence, defined by a_1=1, a_2=-1, and a_n=-\\sum_{d\\mid(n-2)} a_d for n\\ge 3. Delete repeated values, keeping only the first occurrence of each term, and write the resulting sequence of distinct values as b_1,b_2,\\dots. For each m\\ge 1, form the graph G_m on vertices \\{1,\\dots,m\\} by taking the union of (i) the cycle 1-2-\\cdots-m-1 coming from the order of appearance of b_1,\\dots,b_m, and (ii) the cycle obtained by ordering b_1,\\dots,b_m increasingly: if \\pi_m is such that b_{\\pi_m(1)}<\\cdots<b_{\\pi_m(m)}, add the edges \\pi_m(1)\\pi_m(2),\\dots,\\pi_m(m-1)\\pi_m(m),\\pi_m(m)\\pi_m(1). The computed examples in the paper suggest that these graphs are 4-regular. What arithmetic property of Zabolotskiy’s sequence forces this phenomenon, and does the 4-regularity of G_m hold indefinitely (in particular, for every m, or at least for all sufficiently large m)?",
+  "equivalent_formulation": null,
+  "justification": "Your draft is aimed at the Zabolotskiy subsection, not at a broader problem about arbitrary sequences. In the introduction the paper defines the graph attached to an ordered list of distinct real numbers as the union of the cycle in index order and the cycle in value order; this is the hidden setup needed to make the Zabolotskiy question stand alone. In the subsection on Zabolotskiy’s sequence, the paper first passes to distinct values because the original recurrence produces many repetitions, then records the empirical observation that the resulting graphs appear 4-regular, and ends by asking for an explanation of that apparent regularity and whether it continues for larger truncations. So the sharp paper-faithful target is the unnumbered open question at the end of that subsection, not a broader graph-theoretic or number-theoretic generalization.",
+  "citations": [
+    {
+      "section": "1",
+      "label": "definition of the graph associated to a list of distinct real numbers",
+      "page": "251-252"
+    },
+    {
+      "section": "2.7",
+      "label": "The Zabolotskiy sequence",
+      "page": "265"
+    },
+    {
+      "section": "2.7",
+      "label": "unnumbered open question at the end of the subsection",
+      "page": "265-266"
+    }
+  ]
+}

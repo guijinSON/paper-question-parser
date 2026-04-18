@@ -1,0 +1,66 @@
+{
+  "arxiv_id": "1204.6447",
+  "question_id": "q_017",
+  "original_question": "Fix a possibly infinite collection of affine constraints {(M_1,sigma_1),(M_2,sigma_2),...} over F2. For each n, let P_n be the property that a function f : F2^n -> {0,1} is (M_i,sigma_i)-free for every i. Must there exist a one-sided-error constant-query property-testing algorithm for P_n?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 2345.78,
+  "target_in_paper": "The draft is aiming at the unnumbered \"Bhattacharyya–Grigorescu–Shapira Conjecture\" entry in arXiv:1204.6447, i.e. the unrestricted conjecture that forbidding a fixed possibly infinite family of induced affine/linear patterns should yield a one-sided-error constant-query testable property. In fully formal notation, the closest precise formulations are Conjecture 2 plus Proposition 4 in arXiv:1201.0330 (affine version) and Conjecture 4 in arXiv:1010.5016 (linear-equation version).",
+  "completeness_score": 7.5,
+  "correct_elements": "You correctly captured the core quantifier structure: a fixed possibly infinite forbidden family, a property P_n for each ambient dimension n, Boolean-valued functions on F_2^n, and the desired conclusion of a one-sided-error constant-query tester. You also correctly targeted the unrestricted conjectural version rather than the proved low-complexity theorem, because your draft imposes no complexity bound on the forbidden family.",
+  "missing_details": [
+    "In the affine formulation used near this conjecture, each forbidden object is an induced affine constraint (A_i, sigma_i), where A_i is a tuple of affine linear forms on its own number ell_i of variables; writing just (M_i, sigma_i) leaves the constraint language underspecified.",
+    "Each constraint has its own size m_i and arity ell_i, and the whole collection is fixed once and for all, independently of n.",
+    "The exact meaning of '(A_i, sigma_i)-free' must be stated: there do not exist x_1, ..., x_{ell_i} in F_2^n whose evaluations under the forms in A_i realize the pattern sigma_i.",
+    "The property is really the family P = {P_n}_{n >= 1}, or equivalently a single affine-invariant property across all dimensions, not just a separate ad hoc definition for each n.",
+    "The testing notion needs normalized Hamming distance: f is epsilon-far from P_n if every g in P_n differs from f on more than an epsilon-fraction of F_2^n.",
+    "\"Constant-query\" should be quantified as: for every epsilon > 0 there exists q_A(epsilon), depending only on epsilon and the fixed forbidden family, but not on n.",
+    "\"One-sided error\" should be explicit: the tester always accepts every f in P_n and rejects every f that is epsilon-far from P_n with probability at least 2/3.",
+    "To be paper-faithful, one should note the equivalent reformulation via affine subspace hereditariness.",
+    "If one instead meant the proved theorem rather than the conjecture, then the paper-critical missing hypothesis is that every forbidden constraint has Cauchy–Schwarz complexity less than p; in the F_2 case this means complexity 1. Since your draft omits this, it matches the conjecture/open problem, not the theorem."
+  ],
+  "refined_question": "Fix a possibly infinite collection A = { (A_i, sigma_i) }_{i >= 1} of induced affine constraints over F_2, where for each i the constraint A_i = (a_{i,1}, ..., a_{i,m_i}) is an affine constraint on ell_i variables in the sense that a_{i,1}(X_1, ..., X_{ell_i}) = X_1 and, for j >= 2, a_{i,j}(X_1, ..., X_{ell_i}) = X_1 + sum_{t=2}^{ell_i} c_{i,j,t} X_t with c_{i,j,t} in F_2, and where sigma_i is in {0,1}^{m_i}. For each n, let P_n consist of all functions f : F_2^n -> {0,1} such that for every i there do not exist x_1, ..., x_{ell_i} in F_2^n with ( f(a_{i,1}(x_1, ..., x_{ell_i})), ..., f(a_{i,m_i}(x_1, ..., x_{ell_i})) ) = sigma_i. Must the property family P = {P_n}_{n >= 1} always admit a one-sided-error constant-query tester; that is, for every epsilon > 0, is there a query bound q_A(epsilon), independent of n, and a randomized oracle algorithm that makes at most q_A(epsilon) queries, always accepts every f in P_n, and rejects with probability at least 2/3 every f : F_2^n -> {0,1} that is epsilon-far from P_n?",
+  "equivalent_formulation": "Equivalently (by the paper’s explicit characterization of affine subspace-hereditary properties as A-freeness properties), is every affine-invariant property of Boolean functions on F_2^n that is closed under restriction to affine subspaces testable with one-sided error and a number of queries depending only on epsilon?",
+  "justification": "The draft matches the unrestricted conjectural problem, not the proved low-complexity result, because it asks for testability for an arbitrary fixed possibly infinite forbidden family with no complexity assumption. arXiv:1204.6447 states exactly this as the Bhattacharyya–Grigorescu–Shapira open problem. However, that paper is only an open-problems list, so to make the question stand-alone one must import the formal definitions of induced affine constraints and A-freeness, together with the equivalence to affine subspace hereditariness, from the original affine-invariant source paper. The low-complexity theorem shows a positive result only when every constraint has Cauchy–Schwarz complexity < p, so adding that hypothesis would make the question strictly weaker than the open problem you drafted.",
+  "citations": [
+    {
+      "section": "open-problems list of arXiv:1204.6447",
+      "label": "Bhattacharyya–Grigorescu–Shapira Conjecture",
+      "page": "n/a"
+    },
+    {
+      "section": "§1.2 of arXiv:1201.0330",
+      "label": "Definition 3",
+      "page": 2
+    },
+    {
+      "section": "§1.2 of arXiv:1201.0330",
+      "label": "Conjecture 2",
+      "page": 2
+    },
+    {
+      "section": "§1.2 of arXiv:1201.0330",
+      "label": "Proposition 4",
+      "page": 3
+    },
+    {
+      "section": "§1.3 of arXiv:1201.0330",
+      "label": "Theorem 6",
+      "page": 3
+    },
+    {
+      "section": "§1.3 of arXiv:1010.5016",
+      "label": "Conjecture 4",
+      "page": 4
+    },
+    {
+      "section": "§1.3 of arXiv:1010.5016",
+      "label": "Theorem 3",
+      "page": 3
+    },
+    {
+      "section": "§1.3 of arXiv:1010.5016",
+      "label": "Proposition 6",
+      "page": 4
+    }
+  ]
+}

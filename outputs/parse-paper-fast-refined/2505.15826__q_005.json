@@ -1,0 +1,42 @@
+{
+  "arxiv_id": "2505.15826",
+  "question_id": "q_005",
+  "original_question": "For trees T and mappings f with parking sequence s, can one enumerate or otherwise analyze defective parking functions, meaning pairs (T, s) or (f, s) in which exactly k drivers fail to park successfully?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 11077.05,
+  "target_in_paper": "The draft appears to target the paper’s unnumbered open-direction discussion about extending the existing theory of parking functions for rooted labelled trees and n-mappings to the defective setting, i.e. counting or asymptotically analyzing preference sequences for which not all drivers park, but exactly k drivers fail.",
+  "completeness_score": 6,
+  "correct_elements": "Your draft correctly identifies the right combinatorial objects (rooted trees T and mappings f), the right data attached to them (a parking sequence s), and the right defect statistic (exactly k unsuccessful drivers). It also correctly frames the problem as an enumeration/analysis question for pairs (T,s) or (f,s), which matches the total-count viewpoint used for tree and mapping parking functions.",
+  "missing_details": [
+    "The trees should be specified as rooted labelled trees on [n], with edges directed toward the root.",
+    "The mappings should be specified as n-mappings f:[n]->[n], viewed through their functional digraphs.",
+    "The preference sequence should be specified as s=(s_1,...,s_m) in [n]^m for m drivers.",
+    "The parking rule must be stated explicitly: drivers arrive in order; driver i first tries s_i and, if occupied, follows the unique outgoing edge repeatedly until finding a free vertex or exhausting all reachable vertices.",
+    "It should be explicit that the defect is exactly k, not at least k.",
+    "The parameter ranges should be stated: n>=1, m>=0, and 0<=k<=m.",
+    "It should be explicit whether the question concerns fixed T or fixed f, or total counts over all rooted labelled trees T on [n] and all n-mappings f:[n]->[n]. The paper-faithful version is the total-count viewpoint.",
+    "The refined question should connect to the successful case already studied via the totals F_{n,m} and M_{n,m}; otherwise the relation to the existing literature in the paper is implicit rather than stand-alone.",
+    "The draft says 'enumerate or otherwise analyze', which is broader than needed; the sharper formulation is to ask for exact and/or asymptotic counts of defective analogues of F_{n,m} and M_{n,m}.",
+    "The draft does not distinguish the tree process from the mapping process via the functional-digraph interpretation, which is part of the original setup."
+  ],
+  "refined_question": "For integers n>=1, m>=0, and 0<=k<=m, let T range over rooted labelled trees on [n] with edges oriented toward the root, and let f range over n-mappings f:[n]->[n] viewed as functional digraphs. For a preference sequence s=(s_1,...,s_m) in [n]^m, drivers arrive in order; driver i first tries vertex s_i and, if it is occupied, repeatedly follows the unique outgoing edge (toward the root in T, or along f in the mapping digraph) until reaching a free vertex, and fails if all reachable vertices are already occupied. Determine, exactly or asymptotically, the number of pairs (T,s) and the number of pairs (f,s) for which exactly k drivers fail to park; equivalently, develop the defective analogues of the total counts F_{n,m} and M_{n,m} from the successful case.",
+  "equivalent_formulation": null,
+  "justification": "The draft is close in spirit, but the paper-faithful version needs the full parking model, the ambient labelled objects, and the total-count viewpoint already used in the tree/mapping literature. The closest precise target is not a broader question about arbitrary graph-theoretic defects, but the narrow defective extension of the rooted-tree and n-mapping parking-function framework. The necessary notation and setup come from the standard definition of tree and mapping parking functions: rooted labelled trees, n-mappings, ordered drivers, and sequences s in [n]^m. The successful-case totals F_{n,m} and M_{n,m} are the natural quantities whose defective counterparts the refined question asks for. Your draft already had the central defect statistic right, but it left implicit the labelled setting, the directed parking rule, the parameters n and m, and the fact that the intended enumeration is over all trees or mappings rather than for a single fixed object.",
+  "citations": [
+    {
+      "section": "Abstract",
+      "label": "arXiv:2505.15826 abstract (survey scope and open directions)",
+      "page": "abs page"
+    },
+    {
+      "section": "Chapter 9.2",
+      "label": "Lackner thesis, Lemma 9.7 (tree parking-function setup and subtree characterization)",
+      "page": 159
+    },
+    {
+      "section": "Chapter 9.2",
+      "label": "Lackner thesis, discussion after Lemma 9.7 (mapping extension and definition of S(f,m), F_{n,m}, M_{n,m})",
+      "page": 160
+    }
+  ]
+}

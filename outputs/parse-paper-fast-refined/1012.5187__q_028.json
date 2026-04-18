@@ -1,0 +1,46 @@
+{
+  "arxiv_id": "1012.5187",
+  "question_id": "q_028",
+  "original_question": "Given the adjacency matrix of a graph G, determine whether there exists a simple polygon P whose vertex visibility graph is G, where two vertices of P are adjacent exactly when the segment joining them lies entirely inside P.",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 1085.68,
+  "target_in_paper": "Section 4.1, Open Problem 28: the recognition problem for visibility graphs of simple polygons.",
+  "completeness_score": 8.5,
+  "correct_elements": "Your draft already captures the correct problem class and direction: it is a decision problem, the input is a graph given by its adjacency matrix, the target object is a simple polygon, and adjacency is meant to come from vertex visibility in the polygon. This matches the paper's polygon visibility-graph recognition problem rather than the characterization or reconstruction problems.",
+  "missing_details": [
+    "State explicitly that G is a finite simple graph given by its adjacency matrix.",
+    "Specify that P is a simple polygon in the plane.",
+    "Make explicit that the vertices of G are put in bijection with the vertices of P.",
+    "Clarify that the visibility relation is only between polygon vertices, not arbitrary points of P.",
+    "Use the paper's exact polygon-visibility convention: the segment joining two polygon vertices must lie entirely within P, and this convention allows the segment to pass through a reflex vertex or graze along a polygonal edge.",
+    "Avoid the ambiguous word 'inside'; the paper uses 'lies entirely within P,' which includes boundary contact.",
+    "Do not add extra input such as a Hamiltonian cycle of G; that is the distinct, easier variant stated later as Open Problem 30.",
+    "Keep this as a recognition question only; it asks whether such a polygon exists, not to construct one.",
+    "Do not broaden the scope to polygons with holes, pseudo-polygons, or other variants; the target open problem in Section 4.1 is stated for simple polygons."
+  ],
+  "refined_question": "Given a finite simple graph G in adjacency-matrix form, decide whether there exists a simple polygon P in the plane and a bijection between V(G) and the vertices of P such that, for every two distinct vertices u,v in V(G), uv is an edge of G if and only if the line segment joining the corresponding vertices of P lies entirely within P; here visibility is understood in the paper's sense, so the segment may pass through a reflex vertex or graze along a polygonal edge.",
+  "equivalent_formulation": null,
+  "justification": "The draft is aiming at the polygon visibility-graph recognition problem, and the nearest official formulation is exactly Open Problem 28 in Section 4.1: 'Given a graph G in adjacency matrix form, determine whether G is the visibility graph of a simple polygon P.' The nearby context in Section 4.1 identifies this as the visibility-graph recognition problem for polygons, while the earlier definition in Section 1 gives the precise meaning of vertex visibility for polygons. The paper also separately states the Hamiltonian-cycle-supplied variant as Open Problem 30, so the draft should not be rewritten into that stronger-input version. The refined question therefore stays with Open Problem 28 and only adds the minimum definitional detail needed to make it stand alone and faithful to the paper.",
+  "citations": [
+    {
+      "section": "1",
+      "label": "definition of the vertex visibility graph of a polygon",
+      "page": 3
+    },
+    {
+      "section": "4.1",
+      "label": "visibility graph recognition problem for polygons (introductory paragraph)",
+      "page": 22
+    },
+    {
+      "section": "4.1",
+      "label": "Open Problem 28",
+      "page": 22
+    },
+    {
+      "section": "4.1",
+      "label": "Open Problem 30",
+      "page": 24
+    }
+  ]
+}

@@ -1,0 +1,64 @@
+{
+  "arxiv_id": "2406.05777",
+  "question_id": "q_001",
+  "original_question": "Given a Hilbert space H, a closed linear operator A acting on H, and a datum g in the range of A, under what assumptions does the inverse problem Af = g admit at least one solution f in the closure of the Krylov subspace K(A, g) = span{g, Ag, A^2 g, ...}? The question also asks for conditions that control whether the Krylov solution is unique and, if Krylov approximants fn are constructed by an abstract truncation algorithm, how quickly fn converges to f.",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 9979.11,
+  "target_in_paper": "Section 4, Question 1 (page 10), read together with the immediately following sentence that singles out uniqueness of the Krylov solution and convergence rates of Krylov approximants as the relevant refinements of the same problem; its notation and meaning are supplied by Section 2.1.",
+  "completeness_score": 8.5,
+  "correct_elements": "Your draft is already very close to the paper's actual target. It correctly identifies the Hilbert-space inverse problem Af = g, the assumption g ∈ ran A, the role of a closed operator A, the Krylov subspace K(A,g) = span{g, Ag, A^2g, ...}, the fact that the relevant notion is solvability by a solution lying in the closure of that subspace, and the two nearby refinements explicitly mentioned in the paper: uniqueness of the Krylov solution and convergence speed of truncation-based Krylov approximants.",
+  "missing_details": [
+    "The paper works in a complex Hilbert space, not just an unspecified Hilbert space (Section 2.1, page 3).",
+    "The question is posed in Section 4 as the main abstract problem motivated by Friedrichs-type inverse problems; in the paper's intended application, A is a closed realization arising from an abstract Friedrichs system (Section 3, equation (3.3), page 9; Section 4, page 10).",
+    "If A is unbounded, the Krylov subspace K(A,g) is only defined when g lies in the domain of every power of A, i.e. g ∈ ⋂_{n≥0} dom A^n; this hidden domain requirement is part of the nearby background and should be made explicit in a stand-alone formulation (Section 2.3, page 5; Definition 2.6, page 6).",
+    "The paper's terminology is that such an f is a Krylov solution; making that term explicit improves fidelity to the source (Section 2.1, page 3).",
+    "Uniqueness should be stated as uniqueness of the Krylov solution, not necessarily uniqueness of all solutions to Af = g (Section 4, page 10; compare Theorem 2.7, page 6).",
+    "The convergence issue is algorithm-dependent in the paper: the abstract truncation framework uses K_n(A,g) = span{g, Ag, ..., A^{n-1}g}, a possibly different trial space J_n(A,g), orthogonal projections P_n and Q_n, and compressed problems A_n f_n = g_n with A_n = Q_n A P_n and g_n = Q_n g (Section 2.1, equations (2.3)-(2.4), pages 3-4).",
+    "The paper does not give one final complete characterization of all such assumptions; Question 1 is posed as an open research direction, while nearby results only provide sufficient conditions in special classes such as bounded self-adjoint, compact normal, or self-adjoint/skew-adjoint operators with quasi-analytic data (Section 2.2, Proposition 2.1, Proposition 2.4, Proposition 2.5, page 5; Section 2.3, Theorem 2.7, page 6)."
+  ],
+  "refined_question": "In the abstract complex Hilbert-space setting motivated by Friedrichs-type inverse problems, let A be a closed operator on H and let g ∈ ran A; if A is unbounded, assume also that g ∈ ⋂_{n≥0} dom A^n so that K(A,g) := span{g, Ag, A^2g, ...} is defined. Under what assumptions on A and g does the inverse problem Af = g admit at least one Krylov solution, i.e. a solution f lying in the closure in H of K(A,g)? Under the same assumptions, when is this Krylov solution unique, and for the truncation scheme based on K_n(A,g), a trial space J_n(A,g), and the compressed problems A_n f_n = g_n with A_n := Q_n A P_n and g_n := Q_n g, what hypotheses ensure norm convergence f_n → f in H and allow quantitative control of the convergence rate?",
+  "equivalent_formulation": "Equivalent formulation used in Section 2.1: determine when one can solve the finite-dimensional truncated problems A_n f_n = g_n built from K_n(A,g) and J_n(A,g) so that the approximants f_n converge in H to an exact solution f of Af = g; the paper states that this norm convergence is tantamount to Krylov solvability.",
+  "justification": "The draft is capturing Section 4, Question 1 rather than a theorem from Section 1. That is the paper's official formulation of the main abstract problem, and the next sentence adds exactly the two refinements your draft mentions: uniqueness of the Krylov solution and convergence rate of Krylov approximants. Section 2.1 supplies the formal definition of Krylov solvability and the truncation framework, while Section 3 explains that the motivating operator class is that of Friedrichs-type realizations. The surrounding results in Sections 2.2 and 2.3 show that the paper is not asking for a broader neighboring problem, but specifically for assumptions on A and g guaranteeing existence, and in special cases uniqueness, of a Krylov solution together with approximation by truncation.",
+  "citations": [
+    {
+      "section": "2.1",
+      "label": "Equations (2.1)-(2.4) and the definition of Krylov solvability / truncation algorithms",
+      "page": "3-4"
+    },
+    {
+      "section": "2.2",
+      "label": "Proposition 2.1",
+      "page": 5
+    },
+    {
+      "section": "2.2",
+      "label": "Proposition 2.4",
+      "page": 5
+    },
+    {
+      "section": "2.2",
+      "label": "Proposition 2.5",
+      "page": 5
+    },
+    {
+      "section": "2.3",
+      "label": "Definition 2.6",
+      "page": 6
+    },
+    {
+      "section": "2.3",
+      "label": "Theorem 2.7",
+      "page": 6
+    },
+    {
+      "section": "3",
+      "label": "Equation (3.3) and the abstract Friedrichs-operator framework",
+      "page": 9
+    },
+    {
+      "section": "4",
+      "label": "Question 1",
+      "page": 10
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "arxiv_id": "2502.19916",
+  "question_id": "q_001",
+  "original_question": "For Polyak's heavy-ball method with update x_{t+1} = x_t - gamma*nabla f(x_t) + beta*(x_t - x_{t-1}), applied to scalar objective functions f: R -> R that are L-smooth and mu-strongly convex (the one-dimensional case of F_{mu,L}), does there exist a tuning of the step size gamma and momentum parameter beta that achieves acceleration, or is acceleration impossible even in dimension 1?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 10540.32,
+  "target_in_paper": "Section 1, Open problem 1: \"Does heavy-ball accelerate over scalar functions of F_{μ,L}?\" The paper then sharpens the intended negative direction in Section 2 via the connected conjecture asking whether the full cycle region already occurs in dimension 1, which would imply that heavy-ball cannot accelerate there either.",
+  "completeness_score": 8,
+  "correct_elements": "Your draft correctly identifies the algorithm (constant-parameter Polyak heavy-ball), the one-dimensional/scalar setting, the function class F_{μ,L} of L-smooth μ-strongly convex objectives, and the paper's core dichotomy: either some tuning (γ,β) yields acceleration in d=1, or acceleration is impossible even in dimension 1. That is essentially the paper's first open problem.",
+  "missing_details": [
+    "The paper's question is a worst-case, class-wide question over all scalar functions in F_{μ,L}, not a question about acceleration on some particular 1D instance.",
+    "The meaning of \"acceleration\" should be made explicit: the paper contrasts the non-accelerated O((L/μ) log(1/ε)) dependence of gradient descent with the accelerated O(sqrt(L/μ) log(1/ε)) dependence achieved by well-tuned heavy-ball on quadratics Q_{μ,L}.",
+    "The quantifiers over parameters should be explicit: for each pair 0 < μ ≤ L (equivalently condition number κ = L/μ), may one choose fixed constants γ and β depending only on μ and L?",
+    "It should be explicit that the question concerns the standard constant-parameter heavy-ball method, not adaptive, line-search, or time-varying parameter variants.",
+    "The ambient space should be stated explicitly: x_t ∈ ℝ and f: ℝ → ℝ.",
+    "To match the paper's framing, one should say that the target class is the full non-necessarily quadratic scalar class F_{μ,L}; quadratics Q_{μ,L} only provide the accelerated benchmark.",
+    "If one wants the paper's exact Section 2 intent, the negative conjectural route is cycle-based: the authors ask whether the same parameter region that yields cycles in higher dimension is already achieved in dimension 1.",
+    "The draft does not say that the paper presents numerical evidence for non-acceleration in dimension 1 and treats the question as still open because the apparent positive 1D claim in Wang et al. (2022) is said to rely on an incorrect inequality.",
+    "No homogeneity, polynomial degree, nilpotency, or non-real-field restrictions are part of this problem."
+  ],
+  "refined_question": "Let F_{μ,L}^{(1)} := {f: ℝ → ℝ : f is μ-strongly convex and L-smooth}, and consider the constant-parameter Polyak heavy-ball iteration x_{t+1} = x_t - γ f'(x_t) + β(x_t - x_{t-1}). For each pair 0 < μ ≤ L (equivalently κ = L/μ), does there exist a tuning (γ, β), depending only on μ and L, such that heavy-ball attains an accelerated worst-case convergence rate on the full scalar class F_{μ,L}^{(1)}—namely a dependence of order O(sqrt(κ) log(1/ε)), as opposed to the non-accelerated O(κ log(1/ε)) scaling—or is exact acceleration impossible even in dimension one?",
+  "equivalent_formulation": null,
+  "justification": "The nearest official formulation is the paper's Open problem 1 in Section 1, stated exactly as the question of whether heavy-ball accelerates over scalar functions in F_{μ,L}. Your draft already tracks that closely, but it leaves implicit the worst-case/class-wide nature of the question, the exact meaning of acceleration in terms of κ = L/μ, and the fact that γ and β are fixed algorithmic parameters tuned from problem constants rather than from the individual function. Section 2 shows the authors' intended negative direction: they report numerical evidence that the 1D cycle region matches the higher-dimensional cycle region used to rule out acceleration, and they explicitly formulate the connected conjecture that proving those cycles in dimension 1 would prove non-acceleration there as well. I therefore kept the rewrite narrowly focused on exact acceleration of standard heavy-ball over scalar F_{μ,L}, without broadening it to the paper's second open problem or to more technical permutation-search variants.",
+  "citations": [
+    {
+      "section": "Abstract",
+      "label": "first problem is exact acceleration in dimension one",
+      "page": "not available in accessed HTML version"
+    },
+    {
+      "section": "Section 1: Introduction, background, and open problems",
+      "label": "acceleration benchmark on Q_{μ,L} versus gradient descent",
+      "page": "not available in accessed HTML version"
+    },
+    {
+      "section": "Section 1: Introduction, background, and open problems",
+      "label": "Open problem 1",
+      "page": "not available in accessed HTML version"
+    },
+    {
+      "section": "Section 2: Open problem 1: behavior in dimension 1",
+      "label": "authors' conjectural non-acceleration and numerical cycle evidence",
+      "page": "not available in accessed HTML version"
+    },
+    {
+      "section": "Section 2: Open problem 1: behavior in dimension 1",
+      "label": "two connected conjectures, item (i)",
+      "page": "not available in accessed HTML version"
+    },
+    {
+      "section": "Section 2: Open problem 1: behavior in dimension 1",
+      "label": "Link to Wang et al. (2022)",
+      "page": "not available in accessed HTML version"
+    }
+  ]
+}

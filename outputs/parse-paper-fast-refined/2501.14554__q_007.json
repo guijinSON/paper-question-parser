@@ -1,0 +1,49 @@
+{
+  "arxiv_id": "2501.14554",
+  "question_id": "q_007",
+  "original_question": "For a combinatorial graph G and its continuous counterpart Gamma(G), let beta(G) be the minimum vertex-cover size in G and let beta_1(Gamma(G)) be the minimum number of radius-1 balls centered anywhere on Gamma(G) that cover all points of the continuous graph. What is the largest possible ratio beta(G)/beta_1(Gamma(G)) over all graphs G; in particular, is this ratio always at most 2?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 149.48,
+  "target_in_paper": "Section 3.2 (Vertex cover), paragraph \"Relaxation gap for r = 1\": \"What is the highest ratio between β(G) and β1(Γ(G)) over all G? Following intuition from the matching theory and known results for the minimum vertex cover problem, we conjecture the ratio is at most 2.\"",
+  "completeness_score": 8.8,
+  "correct_elements": "Your draft already matches the paper's intended open problem very closely. It correctly identifies the two compared quantities—β(G), the classical minimum vertex-cover size of a combinatorial graph G, and β1(Γ(G)), the minimum size of a radius-1 cover in the continuous counterpart Γ(G). It also correctly focuses on the relaxation-gap question at r = 1 and explicitly includes the paper's conjectured upper bound 2.",
+  "missing_details": [
+    "The paper works with finite combinatorial graphs G and their continuous counterparts Γ(G) obtained by replacing each edge of G with a unit-length continuous interval.",
+    "The metric on Γ(G) is the shortest-path metric induced by those unit-length intervals; this metric is needed to interpret both balls and covering.",
+    "A radius-1 ball means the metric ball B(p,1) in the sense of Definition 8, i.e. the inclusion-maximal subgraph consisting of all points at distance at most 1 from a center p.",
+    "The centers of the covering balls are allowed at arbitrary points of the continuous graph, not just at the original vertices of G; this relaxation is exactly what makes the continuous problem differ from the classical vertex-cover problem.",
+    "β1(Γ(G)) is specifically the cardinality of a minimum 1-cover: a family of radius-1 balls whose union covers every point of the continuous graph.",
+    "To make the question fully sharp, 'largest possible ratio' should be phrased as the supremum over all finite graphs G, since the paper asks for the 'highest ratio' without assuming an extremal graph exists.",
+    "The nearby context in the paper notes a candidate tight example: for complete graphs Kn with even n, the ratio is at least 2 - 2/n, which motivates asking whether 2 is the correct universal upper bound."
+  ],
+  "refined_question": "Let G be a finite combinatorial graph, and let Γ(G) be its continuous counterpart obtained by replacing each edge of G with a unit-length interval and equipping the resulting space with the induced shortest-path metric. Let β(G) denote the minimum size of a vertex cover of G, and let β1(Γ(G)) denote the minimum cardinality of a 1-cover of Γ(G), i.e. a family of metric balls {B(pi,1)} whose centers pi may be arbitrary points of Γ(G) and whose union covers all points of Γ(G). What is the supremum of β(G)/β1(Γ(G)) over all finite graphs G? In particular, is it always true that β(G) <= 2β1(Γ(G)), and if so is the constant 2 best possible?",
+  "equivalent_formulation": null,
+  "justification": "This draft clearly targets the Vertex Cover section rather than a broader neighboring problem. The paper first defines the continuous graph Γ(G) and the metric-ball notion in the preliminaries, then defines the r-cover number βr(Γ), and finally asks exactly, in Section 3.2 under \"Relaxation gap for r = 1\", for the highest ratio between β(G) and β1(Γ(G)) over all G, conjecturing that the ratio is at most 2. The complete-graph example given immediately afterward shows that, if true, the bound 2 would be asymptotically tight. No algebraic ambient ring/field, homogeneity, degree, or nilpotency hypotheses are relevant here; the missing content is entirely in the graph/metric definitions and quantifier scope.",
+  "citations": [
+    {
+      "section": "2 Preliminaries",
+      "label": "Definition 3",
+      "page": 2
+    },
+    {
+      "section": "2 Preliminaries",
+      "label": "Definition 4",
+      "page": 2
+    },
+    {
+      "section": "2 Preliminaries",
+      "label": "Definition 8",
+      "page": 3
+    },
+    {
+      "section": "3.2 Vertex cover",
+      "label": "Definition 10",
+      "page": 6
+    },
+    {
+      "section": "3.2 Vertex cover",
+      "label": "Relaxation gap for r = 1",
+      "page": 7
+    }
+  ]
+}

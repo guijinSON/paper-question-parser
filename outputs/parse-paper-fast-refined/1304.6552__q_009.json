@@ -1,0 +1,39 @@
+{
+  "arxiv_id": "1304.6552",
+  "question_id": "q_009",
+  "original_question": "Find an algorithm that decides whether a given numerical semigroup is of the form P(a, b, c, d) union {0}, where P(a, b, c, d) is the set of solutions of a contracted proportionally modular Diophantine inequality ax mod b <= cx - d with nonnegative integers a, b, c, d and b != 0 != c.",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 2908.98,
+  "target_in_paper": "Section 2, unnumbered open problem on page 17: after defining a contracted proportionally modular Diophantine inequality of the form ax mod b ≤ cx − d and the associated set P(a,b,c,d), the paper states that P(a,b,c,d) ∪ {0} is a numerical semigroup and that \"It is not yet known an algorithm to determine whether a semigroup is of this form.\"",
+  "completeness_score": 8.5,
+  "correct_elements": "Your draft is already very close to the paper’s actual intent. It identifies the correct class of numerical semigroups, uses the right inequality shape ax mod b ≤ cx − d, keeps the parameter restrictions a,b,c,d ∈ N with b > 0 and c > 0, and asks for the same algorithmic recognition problem posed in the paper for semigroups of the form P(a,b,c,d) ∪ {0}.",
+  "missing_details": [
+    "Make the input explicit: the problem is about a given numerical semigroup S ⊆ N; to make the algorithmic question stand-alone, S should be presented by a finite generating set, preferably its unique minimal generating set as recalled in Section 1.",
+    "State the existential quantifiers explicitly: decide whether there exist a,b,c,d ∈ N with b > 0 and c > 0.",
+    "Define P(a,b,c,d) inside the question rather than referring to it externally.",
+    "Specify the domain of the variable x appearing in P(a,b,c,d); the paper leaves this implicit in the numerical-semigroup setting.",
+    "Define \"ax mod b\" as the least nonnegative residue of ax modulo b.",
+    "Write the decision condition as an exact equality S = P(a,b,c,d) ∪ {0}.",
+    "Record the nearby contrast made by the paper: the analogous contracted modular recognition problem is known to be algorithmically solvable, so the intended open problem is specifically the extension to the contracted proportionally modular case."
+  ],
+  "refined_question": "Does there exist an algorithm that, given the minimal generating set of a numerical semigroup S ⊆ N = {0,1,2,...}, decides whether there exist a,b,c,d ∈ N with b > 0 and c > 0 such that S = {x ∈ N : (ax mod b) ≤ cx − d} ∪ {0}, where ax mod b denotes the least nonnegative residue of ax modulo b?",
+  "equivalent_formulation": null,
+  "justification": "This is the nearest official formulation of your draft in the paper. In Section 2 the authors first define contracted modular Diophantine inequalities and note that, unlike the next case, they are already algorithmically recognizable. They then define contracted proportionally modular Diophantine inequalities exactly in the form ax mod b ≤ cx − d, denote the associated solution set by P(a,b,c,d), and immediately state that it is not yet known how to determine algorithmically whether a numerical semigroup is of that form. So the paper’s target is precisely an algorithmic recognition problem for this class, not a broader question about ordinary proportionally modular semigroups, modular semigroups, or quotients.",
+  "citations": [
+    {
+      "section": "1",
+      "label": "unnumbered paragraph defining numerical semigroups and the unique minimal system of generators",
+      "page": 15
+    },
+    {
+      "section": "2",
+      "label": "unnumbered paragraph introducing proportionally modular Diophantine inequalities and proportionally modular numerical semigroups",
+      "page": 16
+    },
+    {
+      "section": "2",
+      "label": "unnumbered paragraph defining contracted modular and contracted proportionally modular Diophantine inequalities and stating that it is not known how to algorithmically recognize semigroups of the latter form",
+      "page": 17
+    }
+  ]
+}

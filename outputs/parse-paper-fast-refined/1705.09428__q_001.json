@@ -1,0 +1,58 @@
+{
+  "arxiv_id": "1705.09428",
+  "question_id": "q_001",
+  "original_question": "What is a complete characterization of solid bricks, where a brick is a nonbipartite matching covered graph with no nontrivial tight cuts and a matching covered graph is solid when every separating cut is tight? Equivalently for bricks, which nonbipartite matching covered graphs are free of nontrivial separating cuts, and what is the computational complexity of deciding from a given brick whether it is solid? In particular, is this decision problem in NP, and is it solvable in polynomial time?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 5514.85,
+  "target_in_paper": "Unsolved Problem 1.14 in Section 1.5: Characterize solid bricks, together with its paper-proved connection to Unsolved Problem 1.31 in Section 3.2.",
+  "completeness_score": 8.5,
+  "correct_elements": "Your draft correctly targets the paper's main open problem about characterizing solid bricks. It correctly states the definitions of a brick and of solidity, correctly notes the brick-specific equivalence between solidity and the absence of nontrivial separating cuts, and correctly includes the paper's decision-problem addendum asking whether recognition of solid bricks is in NP and whether it is polynomial-time solvable.",
+  "missing_details": [
+    "To be fully stand-alone, the ambient setting should be stated: all graphs are finite and loopless, and a matching covered graph is a connected graph of order at least two in which every edge is admissible, i.e. lies in some perfect matching.",
+    "If the definition of solidity is used in the form 'every separating cut is tight', then separating cut and tight cut should also be defined explicitly: a cut is separating if both cut-contractions are matching covered, and tight if every perfect matching meets the cut in exactly one edge.",
+    "The paper already observes just before Unsolved Problem 1.14 that recognizing solid bricks is in co-NP, so the open complexity questions in the paper are specifically whether the problem is in NP and whether it is in P, not whether it is in co-NP.",
+    "If you want to capture the paper's actual reduction/equivalence viewpoint, you should mention the second problem it connects to: characterizing \\overline{C_6}-free bricks, where \\overline{C_6} is the triangular prism and '\\overline{C_6}-free' means having no conformal minor isomorphic to \\overline{C_6}.",
+    "That paper-proved equivalence is not for all bricks without qualification: in Section 3.2 it is stated for simple nonplanar bricks distinct from the Petersen graph, and the full simple-brick comparison also requires the planar exceptions supplied by Theorem 1.33 (odd wheels, staircases of order 0 mod 4, and the tricorn).",
+    "There are no ambient ring/field, homogeneity, degree, nilpotency, or asymptotic quantifier issues in this problem; the hidden assumptions are entirely graph-theoretic."
+  ],
+  "refined_question": "Given a finite loopless brick G—that is, a connected nonbipartite matching covered graph of order at least two in which every edge lies in some perfect matching and which has no nontrivial tight cuts—characterize exactly when G is solid, meaning that every separating cut of G is tight (equivalently, that G has no nontrivial separating cuts), and determine the complexity of the decision problem SOLID-BRICK: on input a brick G, decide whether G is solid. In particular, is SOLID-BRICK in NP, and is SOLID-BRICK solvable in polynomial time?",
+  "equivalent_formulation": "Paper-proved alternate formulation: characterize simple nonplanar \\overline{C_6}-free bricks, where \\overline{C_6} is the triangular prism and '\\overline{C_6}-free' means having no conformal minor isomorphic to \\overline{C_6}; by Section 3.2, any simple nonplanar brick distinct from the Petersen graph is solid if and only if it is \\overline{C_6}-free, and together with Theorem 1.33 this yields that, apart from the staircases of order 0 mod 4, the tricorn, and the Petersen graph, a simple brick is solid if and only if it is \\overline{C_6}-free.",
+  "justification": "The nearest official formulation your draft is trying to capture is Unsolved Problem 1.14, not a broader neighboring statement. Section 1.5 gives the exact notion of solidity for matching covered graphs and notes that, for bricks, solid means free of nontrivial separating cuts. Immediately before the open problem, the paper records that solid-brick recognition is already in co-NP and cites the Reed-Wakabayashi characterization of nonsolidity via two disjoint odd cycles, which explains why the open complexity subquestions are NP and P. The paper's own contribution is then to connect this problem to Unsolved Problem 1.31: Section 3.2 proves the equivalence with \\overline{C_6}-freeness for simple nonplanar bricks other than the Petersen graph, while Theorem 1.33 supplies the planar exceptions needed for the simple-brick formulation.",
+  "citations": [
+    {
+      "section": "1.5 Solid bricks",
+      "label": "definition paragraph before Theorem 1.12",
+      "page": "ar5iv HTML lines 189-190 (page number unavailable)"
+    },
+    {
+      "section": "1.5 Solid bricks",
+      "label": "unnumbered paragraph before Theorem 1.13",
+      "page": "ar5iv HTML lines 197-202 (page number unavailable)"
+    },
+    {
+      "section": "1.5 Solid bricks",
+      "label": "Theorem 1.13",
+      "page": "ar5iv HTML lines 198-200 (page number unavailable)"
+    },
+    {
+      "section": "1.5 Solid bricks",
+      "label": "Unsolved Problem 1.14",
+      "page": "ar5iv HTML lines 203-205 (page number unavailable)"
+    },
+    {
+      "section": "1.7.3 Conformal minors and matching minors",
+      "label": "Unsolved Problem 1.31",
+      "page": "ar5iv HTML lines 370-372 (page number unavailable)"
+    },
+    {
+      "section": "1.7.3 Conformal minors and matching minors",
+      "label": "Theorem 1.33",
+      "page": "ar5iv HTML lines 378-380 (page number unavailable)"
+    },
+    {
+      "section": "3.2 Proof of the equivalence",
+      "label": "Theorem 3.7 and preceding paragraph",
+      "page": "ar5iv HTML lines 647-655 (page number unavailable)"
+    }
+  ]
+}

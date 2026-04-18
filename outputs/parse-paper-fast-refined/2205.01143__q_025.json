@@ -1,0 +1,52 @@
+{
+  "arxiv_id": "2205.01143",
+  "question_id": "q_025",
+  "original_question": "Explain why ensembles of Euler solutions can exhibit decreasing epsilon-entropy over time, despite the underlying Hamiltonian and Liouville-type structure of ideal fluid dynamics.",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 8225.54,
+  "target_in_paper": "Section 9.2, Problem 25: \"Explain the phenomenon of entropy decrease for solutions of the Euler equations (1.1).\"",
+  "completeness_score": 7,
+  "correct_elements": "Your draft correctly identifies the paper’s target phenomenon: the ε-entropy of an ensemble of 2D Euler states can decrease under long-time evolution, and this seems at first to clash with the Hamiltonian/Liouville viewpoint for ideal fluids. It also correctly frames the issue at the level of ensembles/probability measures rather than a single deterministic trajectory.",
+  "missing_details": [
+    "The paper is not asking this for arbitrary Hamiltonian PDEs; it is specifically about the incompressible Euler equations (1.1) for an ideal 2D fluid.",
+    "The ambient velocity space is the natural physical phase space V^0 = {u in L^2(M, R^2) : div u = 0, u tangent to ∂M}, with M a 2D fluid domain.",
+    "The ensemble is an initial velocity ensemble, i.e. a compactly supported probability measure μ_0 on V^0.",
+    "Because Euler must actually be well posed on the support of the ensemble, the paper adds that one should really start in a better regularity class, e.g. the Yudovich space Y = {u in V^0 : curl u in L^∞} or in V^s = T_e D^s_μ for some s > 2.",
+    "The evolving ensemble μ_t is the pushforward of μ_0 by the Euler flow at time t; that transport mechanism should be stated explicitly.",
+    "The ε-entropy in play is not the entropy of an invariant measure from ergodic theory; it is the measure ε-entropy defined in Section 9.1 via finite-dimensional projections X_n, ε-cube partitions C_j, cylinders K_j = π_n^(-1)(C_j), H_{ε,n}(μ) = -Σ_j μ(K_j) log_2 μ(K_j), and H_ε(μ) = sup_n H_{ε,n}(μ).",
+    "The paper also allows that only the principal asymptotic of H_ε(μ) as ε → 0 may be well defined; that asymptotic nature is part of the formulation.",
+    "The claimed 'decrease' is asymptotic, not pointwise in time: the text describes it as liminf_{t→∞} H_ε(μ_t) being asymptotically no larger than H_ε(μ_0), and more concretely says that for a limiting measure μ_∞ one should have H_ε(μ_∞) = O(H_ε(μ_0)) as ε → 0, with o(H_ε(μ_0)) for some μ_0.",
+    "The apparent Liouville paradox is resolved in the paper by noting that the velocity space alone is only 'half' of the true phase space; the missing half is the particle-position variable, represented by the flow map in D_μ.",
+    "There are no algebraic data such as ambient ring/field, homogeneity, degree, or nilpotency hypotheses here; the hidden assumptions are analytic and dynamical instead: domain M, the spaces V^0/Y/V^s, compact support of μ_0, pushforward under Euler flow, and the ε → 0 asymptotic regime."
+  ],
+  "refined_question": "For the incompressible Euler equations ∂_t u + u·∇u = -∇p, div u = 0 on a two-dimensional fluid domain M, let V^0 = {u in L^2(M, R^2) : div u = 0, u tangent to ∂M}, let μ_0 be a compactly supported probability measure on V^0 whose support lies in a well-posed class such as the Yudovich space Y = {u in V^0 : curl u in L^∞} or V^s = T_e D^s_μ with s > 2, and let μ_t be the pushforward of μ_0 by the Euler flow. Using the measure ε-entropy H_ε from Section 9.1, defined by finite-dimensional ε-cube projections H_{ε,n}(μ) = -Σ_j μ(K_j) log_2 μ(K_j) and H_ε(μ) = sup_n H_{ε,n}(μ), explain the entropy-decrease phenomenon described in the paper: namely, why one may expect that for a limiting measure μ_∞ of the transported ensemble, H_ε(μ_∞) = O(H_ε(μ_0)) as ε → 0, and for some μ_0 even H_ε(μ_∞) = o(H_ε(μ_0)), so that asymptotically liminf_{t→∞} H_ε(μ_t) is no larger than H_ε(μ_0); and explain why this does not contradict the Hamiltonian/Liouville structure of ideal fluid dynamics, since the velocity space V^0 records only half of the true phase space and the other half is the particle-position/flow-map variable in D_μ.",
+  "equivalent_formulation": null,
+  "justification": "The draft is clearly targeting Section 9.2 rather than any earlier conjecture/proposition/theorem sequence, because the keywords 'ε-entropy', 'ensembles', and the apparent conflict with Liouville/Hamiltonian structure occur exactly there. The nearest official formulation is Problem 25, whose wording is shorter than your draft but whose nearby context makes precise that the problem concerns an initial probability measure μ_0 on the 2D Euler velocity space, its pushforward μ_t under the Euler flow, and the asymptotic comparison of ε-entropies as ε → 0. Section 9.1 supplies the needed definition of H_ε for measures on a Hilbert space, while the final paragraph of Section 9.2 and the start of Section 10 explain why the phenomenon is only an apparent violation of Liouville’s theorem: Euler is Hamiltonian on the full phase space, but the entropy discussion is taking place on velocity space alone, which omits the particle-position/flow-map coordinates.",
+  "citations": [
+    {
+      "section": "1",
+      "label": "equation (1.1)",
+      "page": 2
+    },
+    {
+      "section": "9.1",
+      "label": "definitions of H_ε for sets/measures and Problem 24",
+      "page": 20
+    },
+    {
+      "section": "9.2",
+      "label": "setup with V^0, Y, V^s, μ_t, and the asymptotic entropy-decrease description",
+      "page": 21
+    },
+    {
+      "section": "9.2",
+      "label": "Problem 25",
+      "page": 21
+    },
+    {
+      "section": "10",
+      "label": "Hamiltonian formulation of the Euler equation",
+      "page": 21
+    }
+  ]
+}

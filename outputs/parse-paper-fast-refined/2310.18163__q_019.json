@@ -1,0 +1,43 @@
+{
+  "arxiv_id": "2310.18163",
+  "question_id": "q_019",
+  "original_question": "For every red-blue colouring of the edges of the hypercube Q_n, determine whether there must exist a path between some antipodal pair of vertices that changes colour only o(n) times.",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 9155.54,
+  "target_in_paper": "Section 8, Question 8.2 (posed as a step toward Conjecture 8.1 in “Antipodal paths in Q_n with few colour changes”).",
+  "completeness_score": 8.5,
+  "correct_elements": "Your draft is very close to the paper’s exact target. It correctly identifies the ambient graph Q_n, uses a red-blue edge-colouring, asks for existence of a path between some antipodal pair of vertices, and uses the asymptotic threshold o(n) colour-changes. Just as importantly, it does not accidentally strengthen the problem to the geodesic/one-switch statement of Conjecture 8.1, and it does not drift into the averaged variant of Question 8.3.",
+  "missing_details": [
+    "Define Q_n explicitly as the n-dimensional hypercube with vertex set {0,1}^n and edges joining pairs of vertices that differ in exactly one coordinate.",
+    "Define antipodal vertices explicitly: x and y are antipodal if they differ in every coordinate, equivalently y is the bitwise complement of x.",
+    "Specify what a colour-change on a path means: a position where two consecutive edges of the path receive different colours.",
+    "Make the asymptotic meaning of o(n) fully explicit, e.g. by asking for a function f(n)=o(n) bounding the number of colour-changes, or equivalently using the quantifier form “for every epsilon > 0, for all sufficiently large n”.",
+    "Clarify that the path is not required to be geodesic or shortest; this is essential because the stronger geodesic one-switch statement is Conjecture 8.1, not Question 8.2.",
+    "State the quantifiers in stand-alone form: for every n and every red-blue colouring of E(Q_n), there should exist some antipodal pair and a path between them meeting the bound."
+  ],
+  "refined_question": "Let Q_n be the n-dimensional hypercube with vertex set {0,1}^n and edges joining pairs of vertices that differ in exactly one coordinate. Two vertices are called antipodal if they differ in every coordinate. Is there a function f(n)=o(n) such that, for every n and every red-blue colouring of the edges of Q_n, there exist antipodal vertices x and y joined by an x-y path P for which the number of indices i at which the i-th and (i+1)-st edges of P have different colours is at most f(n)?",
+  "equivalent_formulation": null,
+  "justification": "The nearest official formulation is Question 8.2, not Conjecture 8.1. Section 8 first states the stronger Leader-Long conjecture that there should be a geodesic antipodal path with at most one colour-change, and then says “As a step towards this Conjecture ... Question 8.2,” whose exact wording is the o(n)-colour-change path version. The surrounding context defines the stronger geodesic problem, explains what “geodesic” means, and records the known upper bounds n/2 and then (3/8+o(1))n, confirming that Question 8.2 is precisely the asymptotic path problem your draft is aiming at. Question 8.3 is a different averaged variant over a randomly chosen antipodal pair, so your draft should not be rewritten in that direction. The refinement therefore keeps your scope but makes the notation, antipodality, colour-change count, and asymptotic quantifiers fully explicit.",
+  "citations": [
+    {
+      "section": "8",
+      "label": "Conjecture 8.1",
+      "page": 17
+    },
+    {
+      "section": "8",
+      "label": "Question 8.2",
+      "page": 17
+    },
+    {
+      "section": "8",
+      "label": "paragraph after Question 8.2",
+      "page": 17
+    },
+    {
+      "section": "8",
+      "label": "Question 8.3",
+      "page": "17-18"
+    }
+  ]
+}

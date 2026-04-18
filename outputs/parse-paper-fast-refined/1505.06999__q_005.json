@@ -1,0 +1,55 @@
+{
+  "arxiv_id": "1505.06999",
+  "question_id": "q_005",
+  "original_question": "In the same decision-stump setting where X = [0, 1]^n, H_b is the midpoint-rule stump class induced by the dataset, E_b is the effective stump set obtained after removing dominated stumps, and U_b^T = union_{t=1}^T {h_t} is the set of unique decision stumps selected by Optimal AdaBoost from E_b during T rounds, is it true that for mu-almost all probability spaces (D, Sigma, P) and any dataset D sampled from P, there exist m_0, T_0 > 0 such that whenever m > m_0 and T > T_0, the conditional expectation E[|U_b^T| | D] is bounded above by (log T + 1)^c for some c in [1, 2), P-almost surely?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 4476.36,
+  "target_in_paper": "Section 3, Conjecture 4 (\"Logarithmic Growth on Unique Stumps\"), together with the decision-stump notation introduced immediately before Problem 1.",
+  "completeness_score": 8.5,
+  "correct_elements": "The draft correctly identifies the Section 3 decision-stump setting: the feature space X = [0,1]^n, the midpoint-rule stump family induced by the sample, the effective stump set obtained by deleting dominated stumps, the set U_b^T of unique stumps selected by Optimal AdaBoost over T rounds, and the asymptotic claim that this quantity should grow only polylogarithmically in T with exponent c in [1,2). It also keeps the paper’s measure-theoretic quantifier pattern (\"for μ-almost all probability spaces\" and \"P-almost surely\") and the large-sample/large-time thresholds m_0, T_0.",
+  "missing_details": [
+    "The paper’s Section 1 preliminaries are not stated: binary labels Y = {-1,+1}, example space D = X × Y, and a dataset D = ((x^(1),y^(1)),...,(x^(m),y^(m))) of size m drawn i.i.d. from a probability space (D, Σ, P).",
+    "The draft should explicitly say that \"Optimal AdaBoost\" is the paper’s standard vanilla binary AdaBoost setup, together with the deterministic weak-learner tie-breaking convention assumed in the preliminaries.",
+    "The meaning of the outer quantifier \"for μ-almost all probability spaces\" is left implicit; the paper separately explains its ambient measure-theoretic convention for μ.",
+    "The sample-size parameter should be identified explicitly as m = |D|, so that \"for all sufficiently large m\" means: there exists m' such that if m > m', then the stated bound applies.",
+    "To be fully stand-alone, the domination relation should be spelled out: a stump h is removed when another stump h' is correct on every training example on which h is correct.",
+    "The midpoint-rule construction itself is only named, not defined: the paper constructs stumps by projecting onto each coordinate and placing thresholds at midpoints between consecutive sample values with different labels.",
+    "The draft does not name the exact target as the paper’s Conjecture 4, so it is not yet anchored to the nearest official formulation.",
+    "The phrase \"any dataset D sampled from P\" compresses two layers of quantification; the paper separates the underlying probability-space quantifier from the dataset notation and the sample-size condition."
+  ],
+  "refined_question": "Conjecture 4 (Logarithmic Growth on Unique Stumps). In the Section 3 decision-stump setting of Belanich and Ortiz, let X = [0,1]^n, Y = {-1,+1}, D = X × Y, and let D = ((x^(1),y^(1)),...,(x^(m),y^(m))) be a dataset of size m drawn i.i.d. from a probability space (D, Σ, P). Let H_b be the finite set of midpoint-rule decision stumps induced by D, let E_b be the effective stump set obtained from H_b by deleting every dominated stump, and let U_b^T = union_{t=1}^T {h_t}, where h_t is the decision stump selected at round t by vanilla Optimal AdaBoost under the paper’s deterministic tie-breaking convention. Is it true that, for μ-almost all probability spaces (D, Σ, P) and any dataset D, there exist thresholds m' and T' such that whenever m > m' and T > T', one has E[|U_b^T| | D] <= (log T + 1)^c for some c in [1,2), P-almost surely?",
+  "equivalent_formulation": null,
+  "justification": "The draft is already very close to the paper’s intended target, but the nearest official formulation is not the broader Section 3 bounding problem; it is specifically Conjecture 4, stated immediately after the definitions of the midpoint-rule stump class, the effective stump set, and the unique selected-stump set. To make the question stand alone while staying narrow, I imported only the omitted preliminaries that the paper relies on earlier: the binary classification setup, the i.i.d. sampling language, the meaning of m, and the deterministic-tie version of Optimal AdaBoost. I did not broaden the question to Problem 1’s general upper/lower bounds, nor to the Section 2 conjectures on no ties or decision boundaries.",
+  "citations": [
+    {
+      "section": "Abstract",
+      "label": "motivation and scope",
+      "page": "1"
+    },
+    {
+      "section": "1",
+      "label": "Technical Preliminaries and Notation",
+      "page": "1-2"
+    },
+    {
+      "section": "2",
+      "label": "paragraph preceding Conjecture 1 (measure-theoretic convention for μ)",
+      "page": "2-3"
+    },
+    {
+      "section": "3",
+      "label": "AdaBoosting Decision Stumps (definitions of midpoint-rule stumps, effective stumps, and unique selected stumps)",
+      "page": "3-4"
+    },
+    {
+      "section": "3",
+      "label": "Problem 1 (Bounding the Number of Effective Stumps)",
+      "page": "4"
+    },
+    {
+      "section": "3",
+      "label": "Conjecture 4 (Logarithmic Growth on Unique Stumps)",
+      "page": "4"
+    }
+  ]
+}

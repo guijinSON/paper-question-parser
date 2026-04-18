@@ -1,0 +1,49 @@
+{
+  "arxiv_id": "2304.10570",
+  "question_id": "q_003",
+  "original_question": "Given a variety X, a line bundle L on X, and an integer r, determine whether there exists a 0-dimensional subscheme X ⊆ X that is a disjoint union of degree-2 schemes such that the reduced subscheme X_red imposes independent conditions on L while X itself does not.",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 8607.01,
+  "target_in_paper": "Section 1.1 (\"Dimension of secant varieties\"), Problem 3.",
+  "completeness_score": 8.5,
+  "correct_elements": "Your draft is already very close to the paper's official formulation. It correctly identifies the ambient data (a variety X, a line bundle L on X, and an integer r), the existential nature of the question, the search for a 0-dimensional nonreduced scheme built from degree-2 pieces, the use of the reduced subscheme X_red, and the contrast between the reduced scheme imposing independent conditions on L while the full nonreduced scheme does not. Those are exactly the ingredients of Section 1.1, Problem 3.",
+  "missing_details": [
+    "The paper-wide convention is that the ambient field is C: the notation section says the notes mainly work over complex numbers unless stated otherwise.",
+    "To make the question stand-alone and unambiguous, the 0-dimensional subscheme should be renamed (for example, Z ⊆ X) rather than reusing X for both the ambient variety and the subscheme.",
+    "The role of r should be made explicit: Z should be a union of r pairwise disjoint degree-2 subschemes, so deg(Z)=2r and deg(Z_red)=r.",
+    "The phrase \"imposes independent conditions on L\" should be defined exactly as dim H^0(X, I_Z ⊗ L)=max{dim H^0(X,L)-deg(Z),0}.",
+    "It should be stated explicitly that Z_red means the reduced subscheme underlying Z.",
+    "A faithful stand-alone version should not add hypotheses that are not in Problem 3: there is no generic-support assumption, no smoothness assumption on X, and no extra homogeneity, polynomial-degree, operator, or nilpotency condition in this problem.",
+    "The nearby context explains that the restriction to degree-2 components is the tractable specialization relevant to Terracini loci; keeping that restriction explicit is part of the paper's intent."
+  ],
+  "refined_question": "Working over C, let X be a variety, let L be a line bundle on X, and let r >= 1. Determine whether there exists a zero-dimensional subscheme Z ⊆ X that is the union of r pairwise disjoint degree-2 subschemes (equivalently, deg(Z)=2r and deg(Z_red)=r) such that the reduced subscheme Z_red imposes independent conditions on L, namely dim H^0(X, I_{Z_red} ⊗ L)=max{dim H^0(X,L)-r,0}, while Z itself does not impose independent conditions on L, i.e. dim H^0(X, I_Z ⊗ L) > max{dim H^0(X,L)-2r,0}?",
+  "equivalent_formulation": null,
+  "justification": "The draft matches Section 1.1, Problem 3 essentially verbatim, so that is the exact target in the paper. To make it fully stand-alone, I imported two pieces of nearby context that Problem 3 relies on: the paper-wide convention that the notes work over complex numbers, and the precise cohomological definition of \"imposes independent conditions\" from the paragraph immediately before Problem 2. I also made explicit how the parameter r enters the problem: since the scheme is a union of degree-2 components and r is part of the input, the natural stand-alone sharpening is to say there are r such disjoint components, hence total degree 2r and reduced degree r. I did not broaden the problem to arbitrary fat-point schemes or add genericity assumptions, because the surrounding discussion instead emphasizes the degree-2 specialization and its connection to Terracini loci. The paper does not give a general equivalent reformulation of Problem 3, only special-case comments (for example, curves when r=2), so no alternate formulation is supplied.",
+  "citations": [
+    {
+      "section": "Notation",
+      "label": "Notation",
+      "page": 2
+    },
+    {
+      "section": "1.1",
+      "label": "Definition of \"imposes independent conditions\" (paragraph before Problem 2)",
+      "page": 3
+    },
+    {
+      "section": "1.1",
+      "label": "Paragraph introducing the degree-2 specialization and Terracini loci context",
+      "page": 3
+    },
+    {
+      "section": "1.1",
+      "label": "Problem 3",
+      "page": 3
+    },
+    {
+      "section": "1.1",
+      "label": "Discussion immediately after Problem 3 (r=2 edge variety; small-r cases)",
+      "page": 4
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "arxiv_id": "2303.00950",
+  "question_id": "q_002",
+  "original_question": "In the same fixed-budget best arm identification setting, does there exist an algorithm, other than uniform sampling itself, that performs uniformly no worse than uniform sampling for every bandit instance mu in S? The comparison is the asymptotic fixed-budget error exponent discussed in the paper, namely whether the algorithm can achieve a lower or equal value of lim sup_{n->infinity} n / log(1/p_{mu,n}) than the uniform-sampling benchmark for every instance.",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 8512.4,
+  "target_in_paper": "Section 3, Open problem 2: does there exist a fixed-budget algorithm, distinct from uniform sampling, that is instancewise at least as good as uniform sampling under the paper’s asymptotic comparison criterion? ([proceedings.mlr.press](https://proceedings.mlr.press/v178/open-problem-qin22a/open-problem-qin22a.pdf))",
+  "completeness_score": 8.5,
+  "correct_elements": "Your draft already identifies the right target: it is in the fixed-budget best-arm identification setting, asks for existence of an algorithm different from uniform sampling, quantifies over every bandit instance μ in S, and uses the same asymptotic comparison quantity as the paper, namely limsup_{n→∞} n/log(1/p_{μ,n}). ([proceedings.mlr.press](https://proceedings.mlr.press/v178/open-problem-qin22a/open-problem-qin22a.pdf))",
+  "missing_details": [
+    "S should be defined explicitly as the class of finite bandit instances μ=(μ_1,...,μ_k) having a unique best arm. ([proceedings.mlr.press](https://proceedings.mlr.press/v178/open-problem-qin22a/open-problem-qin22a.pdf))",
+    "The best-arm notation should be made explicit: if θ_i is the mean of arm μ_i, then I^*(μ)=argmax_{i∈[k]} θ_i, with [k]={1,...,k}. ([proceedings.mlr.press](https://proceedings.mlr.press/v178/open-problem-qin22a/open-problem-qin22a.pdf))",
+    "In the fixed-budget setting, the algorithm has only a sampling rule and a decision rule, and after exactly n samples it outputs an estimate \\hat I_n. ([proceedings.mlr.press](https://proceedings.mlr.press/v178/open-problem-qin22a/open-problem-qin22a.pdf))",
+    "The error probability should be stated explicitly as p_{μ,n}=P_μ(\\hat I_n ≠ I^*(μ)). ([proceedings.mlr.press](https://proceedings.mlr.press/v178/open-problem-qin22a/open-problem-qin22a.pdf))",
+    "To make the comparison stand-alone, the question should distinguish the candidate algorithm’s error probability from that of the uniform-sampling algorithm, for example p^A_{μ,n} versus p^{unif}_{μ,n}. The paper’s formulation is benchmark-relative, not a general lower-bound question. ([proceedings.mlr.press](https://proceedings.mlr.press/v178/open-problem-qin22a/open-problem-qin22a.pdf))",
+    "The phrase about being no worse than uniform sampling should be unpacked exactly as in the discussion immediately before Open problem 2: for every μ∈S, the candidate algorithm attains a limsup value of n/log(1/p_{μ,n}) no larger than the value achieved by uniform sampling on that same μ. ([proceedings.mlr.press](https://proceedings.mlr.press/v178/open-problem-qin22a/open-problem-qin22a.pdf))",
+    "The draft should say explicitly that this is only an existence question; it is not asking for the broader characterization of a full algorithm class A or of the fixed-budget complexity function Γ^*_{fb}, which belongs to Open problem 1. ([proceedings.mlr.press](https://proceedings.mlr.press/v178/open-problem-qin22a/open-problem-qin22a.pdf))",
+    "No extra restrictions such as Gaussian arms, Bernoulli arms, two-armed instances, or known variances should be added, because this open problem is posed for general μ∈S in the paper’s fixed-budget setup. ([proceedings.mlr.press](https://proceedings.mlr.press/v178/open-problem-qin22a/open-problem-qin22a.pdf))"
+  ],
+  "refined_question": "Let S be the class of bandit instances μ=(μ_1,...,μ_k) with finitely many arms and a unique best arm I^*(μ)=argmax_{i∈[k]} θ_i, where θ_i is the mean of μ_i. In the fixed-budget best-arm identification setting, an algorithm uses exactly n samples and then outputs an estimate \\hat I_n; for an algorithm A, write p^A_{μ,n}=P_μ(\\hat I_n ≠ I^*(μ)). Does there exist a fixed-budget algorithm A, distinct from the uniform-sampling algorithm, such that for every μ∈S, limsup_{n→∞} n/log(1/p^A_{μ,n}) ≤ limsup_{n→∞} n/log(1/p^{unif}_{μ,n})? ([proceedings.mlr.press](https://proceedings.mlr.press/v178/open-problem-qin22a/open-problem-qin22a.pdf))",
+  "equivalent_formulation": null,
+  "justification": "The nearest paper-faithful target is Open problem 2, which is introduced immediately after the author suggests a possible restrictive fixed-budget algorithm class consisting of procedures that are, on every instance, no worse than uniform sampling under the asymptotic quantity n/log(1/p_{μ,n}). The ambient notation is defined earlier: a bandit instance μ has finitely many arms, S is the class with a unique best arm, and in the fixed-budget setting p_{μ,n} is the probability that the final recommendation after n samples is not I^*(μ). Your draft therefore aims at Open problem 2 rather than Conjecture 1 or Conjecture 2. The main work needed to make it fully stand-alone is to spell out S, I^*(μ), p_{μ,n}, and the benchmark-relative inequality against the uniform-sampling algorithm on the same instance. The paper does not state a proved equivalent reformulation of this open problem nearby. ([proceedings.mlr.press](https://proceedings.mlr.press/v178/open-problem-qin22a/open-problem-qin22a.pdf))",
+  "citations": [
+    {
+      "section": "1. Introduction and problem formulation",
+      "label": "definition of bandit instance μ and unique best arm I^*(μ)",
+      "page": 1
+    },
+    {
+      "section": "3. Fixed-budget setting and its open problems",
+      "label": "definition of p_{μ,n}",
+      "page": 2
+    },
+    {
+      "section": "3. Fixed-budget setting and its open problems",
+      "label": "prelude defining the comparison with uniform sampling",
+      "page": 3
+    },
+    {
+      "section": "3. Fixed-budget setting and its open problems",
+      "label": "Open problem 2",
+      "page": 3
+    }
+  ]
+}

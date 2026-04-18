@@ -1,0 +1,47 @@
+{
+  "arxiv_id": "2012.02524",
+  "question_id": "q_033",
+  "original_question": "Does there exist a universal integer S such that every integer greater than 1 appears in Pascal's triangle at most S times?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 7286.71,
+  "target_in_paper": "Problem 33 (Singmaster's conjecture) in Section 8, \"Some conjectures with a dynamical flavour\".",
+  "completeness_score": 8.5,
+  "correct_elements": "The draft correctly captures the paper's target as an existence question about a single universal bound S for multiplicities of entries in Pascal's triangle, and it correctly excludes the exceptional value 1 by asking about integers greater than 1.",
+  "missing_details": [
+    "The paper states the bound as S in the natural numbers: \"There is a value S in N\".",
+    "To make the question fully stand-alone, \"appears in Pascal's triangle at most S times\" should be formalized as counting all positions (n,k) with n>=0, 0<=k<=n, and binomial(n,k)=m.",
+    "The nearby examples show that symmetric locations are counted as separate occurrences: for example, 120 is counted six times and 3003 is counted eight times.",
+    "The paper phrases the exception as \"any number different from 1\" because 1 occurs infinitely often in Pascal's triangle.",
+    "The draft does not explicitly identify Pascal's triangle entries with binomial coefficients, which is needed for a fully self-contained formulation."
+  ],
+  "refined_question": "Does there exist an integer S in N such that, for every integer m>1, the set of positions {(n,k) in Z^2 : n>=0, 0<=k<=n, and binomial(n,k)=m} has cardinality at most S?",
+  "equivalent_formulation": null,
+  "justification": "The draft is clearly aiming at the paper's Problem 33, Singmaster's conjecture, in Section 8. The paper's exact statement is: there exists S in N such that any number different from 1 appears in Pascal's triangle at most S times. Your draft already preserves the main quantifiers and the exclusion of 1 by using \"every integer greater than 1.\" What it leaves implicit is the exact meaning of multiplicity: the nearby context counts occurrences by positions in Pascal's triangle, i.e. by pairs (n,k) with binomial(n,k)=m, as illustrated by the examples that 120 appears 6 times and 3003 appears 8 times. Those examples also show that symmetric entries are counted separately. The paper does not broaden the problem beyond this exact bounded-multiplicity question, so the refined version keeps the scope narrow and faithful.",
+  "citations": [
+    {
+      "section": "1",
+      "label": "Introduction (summary of Section 8 including Singmaster's conjecture)",
+      "page": 1
+    },
+    {
+      "section": "8",
+      "label": "Problem 33 (Singmaster's conjecture)",
+      "page": 31
+    },
+    {
+      "section": "8",
+      "label": "Problem 33 nearby context: 120 appears 6 times",
+      "page": 31
+    },
+    {
+      "section": "8",
+      "label": "Problem 33 nearby context: 3003 appears 8 times and hence S>=8",
+      "page": 31
+    },
+    {
+      "section": "8",
+      "label": "Problem 33 nearby context: any m>1 appears only finitely many times",
+      "page": 31
+    }
+  ]
+}

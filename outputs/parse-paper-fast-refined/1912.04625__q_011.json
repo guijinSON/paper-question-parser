@@ -1,0 +1,44 @@
+{
+  "arxiv_id": "1912.04625",
+  "question_id": "q_011",
+  "original_question": "Let Omega be a bounded open convex subset of R^d with Lipschitz boundary and 0 in its interior. For 0 <= beta < d and f : Z^d -> R, define the discrete centered fractional maximal operator associated to Omega by M_{Omega,beta} f(n) = sup_{r>=0} N(0,r)^{beta/d - 1} sum_{m in Omega(0,r)} |f(n+m)|, where N(x,r) counts lattice points in the Omega-ball Omega(x,r). When 0 <= beta < 1 and q = d/(d-beta), does every discrete function f satisfy ||∇M_{Omega,beta} f||_{ell^q(Z^d)} <= C(d,Omega,beta) ||∇f||_{ell^1(Z^d)}? More generally, does inequality (6.4) hold for all alpha <= beta and q = d/(d-beta+alpha)? The paper asks the analogous questions for the uncentered operator as well.",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 6952.68,
+  "target_in_paper": "Question 11 in §6.2 (\"Multidimensional results\"), immediately after the definitions of the multidimensional discrete fractional maximal operators associated to a convex set Ω, Theorem 6.4, and the necessary scaling condition (6.5).",
+  "completeness_score": 8.5,
+  "correct_elements": "Your draft is very close to the paper-faithful target. It correctly identifies the multidimensional discrete fractional maximal operator associated to a bounded open convex set Ω with Lipschitz boundary and 0 in int(Ω); it places the question in the hard range 0 ≤ β < 1; it gives the critical exponent q = d/(d-β) for the endpoint gradient estimate; it recognizes the more general α-parameter version with q = d/(d-β+α); and it notes that the paper asks the analogous question for the uncentered operator as well.",
+  "missing_details": [
+    "The nearest official formulation in the paper is not a theorem or conjecture in the introduction but Question 11 in §6.2; the draft should identify that exact target.",
+    "The draft references inequality (6.4) without stating it explicitly. To be stand-alone, it should spell out the general inequality rather than cite its label only.",
+    "The discrete gradient ∇ is not defined. In this setting one should specify ∇f(n) = (f(n+e1)-f(n), ..., f(n+ed)-f(n)).",
+    "The lattice Ω-balls and counting function should be defined explicitly, not only informally through Ω(0,r) and N(0,r).",
+    "The role of the uncentered operator should be stated precisely if it is included, rather than only mentioned loosely.",
+    "The quantifier on f should be made stand-alone: at minimum, one should indicate that the question concerns discrete functions f : Z^d → R for which the right-hand side of the proposed estimate is finite; in the α-generalization this also implicitly brings in the ℓ^1-norm of f.",
+    "The nearby paper context matters: Theorem 6.4 gives only non-endpoint approximations to the desired bound, and (6.5) gives the necessary critical relation q = d/(d-β+α); that is why Question 11 is phrased exactly at that exponent."
+  ],
+  "refined_question": "Let Ω ⊂ R^d be a bounded open convex set with Lipschitz boundary and 0 ∈ int(Ω). For x ∈ Z^d and r ≥ 0, let Ω(x,r) denote the discrete Ω-ball of center x and radius r, and let N(x,r) = #Ω(x,r). For 0 ≤ β < d and f : Z^d → R, define the centered discrete fractional maximal operator associated to Ω by M_{Ω,β}f(n) = sup_{r≥0} N(0,r)^{β/d-1} ∑_{m∈Ω(0,r)} |f(n+m)|, and define the discrete gradient by ∇f(n) = (f(n+e_1)-f(n), ..., f(n+e_d)-f(n)). In the open range 0 ≤ β < 1, is it true that with q = d/(d-β) one has the endpoint estimate ||∇M_{Ω,β}f||_{ℓ^q(Z^d)} ≤ C(d,Ω,β) ||∇f||_{ℓ^1(Z^d)} for every discrete function f for which the right-hand side is finite? More generally, for 0 ≤ α ≤ β < 1 and q = d/(d-β+α), does the critical inequality ||∇M_{Ω,β}f||_{ℓ^q(Z^d)} ≤ C(d,Ω,α,β) ||∇f||_{ℓ^1(Z^d)}^{1-α} ||f||_{ℓ^1(Z^d)}^α hold? The same question is asked in the paper for the uncentered discrete fractional maximal operator \\widetilde{M}_{Ω,β}.",
+  "equivalent_formulation": null,
+  "justification": "The draft is clearly targeting the paper's Question 11 in §6.2, not a broader neighboring problem. The official question is asked only after the paper defines the multidimensional discrete centered/uncentered fractional maximal operators attached to a convex set Ω, recalls Theorem 6.4 as the current partial result, and then derives the necessary critical exponent relation (6.5). Your first sentence matches the operator and the endpoint range 0 ≤ β < 1; your second sentence matches the paper's exact generalization from the endpoint case to the α-parameter family tied to the critical scaling q = d/(d-β+α). The main incompleteness is that your draft refers to (6.4) without stating it, and it leaves implicit the discrete gradient and the precise discrete Ω-ball notation.",
+  "citations": [
+    {
+      "section": "§6.2",
+      "label": "definitions of the multidimensional discrete centered and uncentered fractional maximal operators associated to Ω",
+      "page": "pp. 83–84"
+    },
+    {
+      "section": "§6.2",
+      "label": "Theorem 6.4",
+      "page": "p. 84"
+    },
+    {
+      "section": "§6.2",
+      "label": "equation (6.5)",
+      "page": "p. 85"
+    },
+    {
+      "section": "§6.2",
+      "label": "Question 11",
+      "page": "p. 85"
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "arxiv_id": "0909.0462",
+  "question_id": "q_006",
+  "original_question": "Consider a multi-server queue, for example a two-server queue, with stationary ergodic input {(t_n, sigma_n)} and the join-the-shortest-queue discipline, meaning each arriving customer immediately joins the shortest of the individual queues. Assuming only the obvious stability condition and no extra hypotheses, how many stationary regimes can this model have?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 383.47,
+  "target_in_paper": "Section 2, \"Further problems on multi-server queues,\" first open problem: \"how many stationary regimes may exist if we do not assume any extra condition in addition to the obvious stability condition?\"",
+  "completeness_score": 8.5,
+  "correct_elements": "The draft already captures the correct problem very closely: it is about a multi-server, in particular two-server, queue with stationary ergodic input {(t_n, sigma_n)} under the join-the-shortest-queue discipline, and it asks exactly about the number of stationary regimes under no assumptions beyond the natural stability requirement.",
+  "missing_details": [
+    "The paper places the question in the setting of a finite number of identical servers, phrased as a \"multi-server (say, 2-server) queue.\"",
+    "It should explicitly state that there are individual queues in front of the servers.",
+    "The join-the-shortest-queue rule in the paper includes tie-breaking: if several queues are shortest, the customer joins one of them at random.",
+    "To be fully stand-alone, the input notation should be unpacked: t_n is the interarrival time between customers n and n+1, and sigma_n is the service time of customer n.",
+    "The phrase \"obvious stability condition\" is left implicit in Section 2; to make the question self-contained one should spell out the natural load condition inherited from the surrounding multi-server discussion, namely E[sigma_1] < m E[t_1] (hence E[sigma_1] < 2 E[t_1] in the two-server case).",
+    "The phrase \"stationary regimes\" should be clarified as stationary probability measures for the natural state process of the JSQ system.",
+    "The paper presents this as one of three open problems in Section 2, not as Conjecture 1.1 or a result from Section 1."
+  ],
+  "refined_question": "Consider a queueing system with a finite number m of identical servers, already in the case m = 2, with a separate queue in front of each server. Let {(t_n, sigma_n)} be a stationary ergodic input sequence, where t_n is the interarrival time between customers n and n+1 and sigma_n is the service time of customer n. Each arriving customer is routed immediately by the join-the-shortest-queue rule, i.e. to a queue of minimal current length, with ties broken at random among the shortest queues. Assuming only the natural stability condition E[sigma_1] < m E[t_1] and no further hypotheses, how many stationary regimes can the resulting JSQ system-state process have?",
+  "equivalent_formulation": null,
+  "justification": "The draft is targeting Section 2 rather than Conjecture 1.1, Proposition 1.2, or Theorem 1.3, because it explicitly switches from FCFS to the join-the-shortest-queue discipline and asks about multiplicity of stationary regimes. Section 2 states this question essentially verbatim and adds the nearby contextual details needed to make it stand-alone: separate queues, immediate routing to a shortest queue with random tie-breaking, and the fact that the model is non-monotone and not suited to Loynes-type arguments. Since Section 2 leaves the stability condition informal, the stand-alone rewrite makes explicit the natural multi-server load condition used in the surrounding multi-server setup.",
+  "citations": [
+    {
+      "section": "1.1",
+      "label": "Convergence in the total variation to the stationarity (multi-server setup and stability condition E[sigma_1] < m E[t_1])",
+      "page": 2
+    },
+    {
+      "section": "2",
+      "label": "Further problems on multi-server queues (definition of the JSQ model with individual queues and random tie-breaking)",
+      "page": 3
+    },
+    {
+      "section": "2",
+      "label": "Further problems on multi-server queues (first open problem: number of stationary regimes under only the obvious stability condition)",
+      "page": 3
+    },
+    {
+      "section": "2",
+      "label": "Further problems on multi-server queues (context: no monotonicity, not amenable to Loynes-type schemes, entirely open)",
+      "page": 3
+    }
+  ]
+}

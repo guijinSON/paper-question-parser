@@ -1,0 +1,41 @@
+{
+  "arxiv_id": "cond-mat-0004231",
+  "question_id": "q_014",
+  "original_question": "For the full WSK algorithm in the q=3 Potts antiferromagnet on n x n periodic square lattices at and down to zero temperature, can one rigorously prove rapid mixing behavior consistent with the numerically observed constant-time mixing (absence of critical slowing down)?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 13091.5,
+  "target_in_paper": "Nearest target: the unnumbered open problem in Section 5 on the dynamics of the q-coloring model (the antiferromagnetic Potts model at zero temperature), asking for a rigorous proof of fast mixing/no critical slowing down for the Wang-Swendsen-Kotecký algorithm in the square-lattice q=3 coloring case suggested by earlier Monte Carlo evidence.",
+  "completeness_score": 5,
+  "correct_elements": "Your draft correctly identifies the relevant model (the q=3 square-lattice Potts antiferromagnet), the relevant nonlocal Markov chain (the full Wang-Swendsen-Kotecký algorithm), the toroidal/periodic finite-volume setting, and the intended phenomenon to be proved rigorously: rapid mixing consistent with the numerically observed absence of critical slowing down.",
+  "missing_details": [
+    "The paper's actual scope here is the q-coloring model, i.e. the antiferromagnetic Potts model exactly at zero temperature; your draft broadens this to positive temperatures ('at and down to zero temperature').",
+    "The finite-volume state space should be stated explicitly: proper 3-colorings of the periodic square lattice (uniform measure at T=0).",
+    "The WSK move should be defined explicitly: choose two distinct colors, look at the induced subgraph on those colors, decompose it into Kempe components, and flip/keep each component independently with probability 1/2 in the zero-temperature coloring formulation.",
+    "The periodic square-lattice torus has parity/divisibility subtleties that matter at T=0; to make the question stand-alone, one should restrict to the bipartite case n even (or otherwise specify exactly which toroidal sizes are intended and whether the state space is nonempty).",
+    "Your draft does not distinguish ergodicity from mixing. At zero temperature, ergodicity itself is part of the hidden context for toroidal lattices and should either be assumed or built into the question.",
+    "The phrase 'rapid mixing' needs a precise meaning: e.g. total-variation mixing time polynomial in the number of vertices, versus the stronger numerically suggested uniform O(1) bound ('no critical slowing down').",
+    "The quantifiers should be explicit: for every even n, or for all sufficiently large even n, with mixing bounds uniform in n.",
+    "The numerically observed 'constant-time mixing' refers to bounded autocorrelation times / absence of critical slowing down; that is not automatically the same statement as a uniform total-variation mixing bound, so the target theorem should say which notion is to be proved.",
+    "Ambient ring/field, homogeneity, degree restrictions, and nilpotency conditions are not applicable here; this is a statistical-mechanics/Markov-chain problem rather than a polynomial-algebra problem."
+  ],
+  "refined_question": "For the zero-temperature 3-state Potts antiferromagnet on the periodic square lattice, i.e. the uniform measure on proper 3-colorings of the n x n square-lattice torus, in the bipartite case n even where the zero-temperature Wang-Swendsen-Kotecký chain is the Kempe-chain dynamics, can one prove that this Markov chain mixes rapidly as n grows—ideally with a mixing time bounded uniformly in n (equivalently, no critical slowing down), and at minimum polynomially in n—thereby placing the numerically observed bounded autocorrelation times in the square-lattice q=3 case on a rigorous footing?",
+  "equivalent_formulation": null,
+  "justification": "The accessible arXiv abstract fixes the paper's scope to the q-coloring model, explicitly identified with the antiferromagnetic Potts model at zero temperature, and says that one of the paper's themes is the dynamics of local and nonlocal Monte Carlo algorithms, specifically ergodicity and rapid mixing. That means the closest faithful sharpening of your draft should stay at T=0 rather than broaden to positive temperatures. The version note also says that Sections 4 and 5 required corrections because of a confusion between different notions of mixing time, which is a strong signal that any refined question must make the mixing notion explicit. Because your draft is clearly trying to capture the square-lattice q=3 WSK rapid-mixing issue motivated by earlier Monte Carlo work, the narrowest stand-alone formulation is the zero-temperature toroidal square-lattice 3-coloring problem, with the hidden bipartite-size assumption made explicit and the target conclusion stated as either polynomial mixing or, more sharply, uniform O(1) mixing/no critical slowing down.",
+  "citations": [
+    {
+      "section": "Abstract",
+      "label": "Scope of the paper: the q-coloring model is the antiferromagnetic Potts model at zero temperature; the paper studies ergodicity and rapid mixing of local and nonlocal Monte Carlo algorithms",
+      "page": "arXiv abstract page"
+    },
+    {
+      "section": "Sections 4 and 5 (via version note)",
+      "label": "Version 2 corrected a confusion between different notions of mixing time in Sections 4 and 5",
+      "page": "arXiv abstract page"
+    },
+    {
+      "section": "5",
+      "label": "Nearest target: unnumbered discussion/open problems on dynamics of the q-coloring model",
+      "page": "exact page not available from accessible source listing"
+    }
+  ]
+}

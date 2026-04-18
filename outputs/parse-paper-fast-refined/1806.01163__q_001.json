@@ -1,0 +1,37 @@
+{
+  "arxiv_id": "1806.01163",
+  "question_id": "q_001",
+  "original_question": "Let f : R^n -> R^m be a function that is Lipschitz continuous near a point x_bar, and assume every matrix in Clarke's generalized Jacobian of f at x_bar is surjective. If y_bar = f(x_bar), must there exist a continuous local selection s of the inverse image mapping f^{-1} near y_bar such that s(y_bar) = x_bar and s is calm at y_bar, meaning that for some constant gamma > 0 one has ||s(y) - x_bar|| <= gamma ||y - y_bar|| for all nearby y?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 5967.13,
+  "target_in_paper": "Section 2, Conjecture 2.1 (\"Existence of Local Calm Selections\"), motivated by Theorem 2.1 (Bartle-Graves) and introduced in Section 1 as the paper's question about local calm sections.",
+  "completeness_score": 9,
+  "correct_elements": "Your draft is already very close to the paper's actual target. It has the correct finite-dimensional setting f: R^n -> R^m, the correct local Lipschitz assumption around x_bar, the correct hypothesis that every matrix in Clarke's generalized Jacobian at x_bar is surjective, the correct reference value y_bar = f(x_bar), and the correct conclusion sought in the paper: a continuous local selection of f^{-1} through (y_bar, x_bar) that is calm at y_bar.",
+  "missing_details": [
+    "Make the selection property explicit: there should exist a neighborhood V of y_bar and a single-valued map s: V -> R^n such that f(s(y)) = y for every y in V.",
+    "State the locality with an explicit neighborhood quantifier rather than only saying 'near' or 'nearby'.",
+    "Use the paper's exact framing that the selection is 'around y_bar for x_bar', i.e. it passes through the given preimage point x_bar.",
+    "Name the generalized Jacobian in the paper's notation as Clarke's generalized Jacobian ∂f(x_bar).",
+    "If you want the question to mirror the paper's motivation, note that this is the nonsmooth finite-dimensional analogue of the Bartle-Graves local selection theorem stated just before the conjecture."
+  ],
+  "refined_question": "Let f: R^n -> R^m be Lipschitz continuous around x_bar, let y_bar := f(x_bar), and assume that every matrix A in Clarke's generalized Jacobian ∂f(x_bar) is surjective. Does there exist a neighborhood V of y_bar and a continuous map s: V -> R^n such that s(y_bar) = x_bar, f(s(y)) = y for all y in V, and s is calm at y_bar in the sense that for some constant gamma > 0 one has ||s(y) - x_bar|| <= gamma ||y - y_bar|| for all y in V?",
+  "equivalent_formulation": null,
+  "justification": "The draft is trying to capture the open problem in Section 2 on local calm selections, and more specifically it is essentially a restatement of Conjecture 2.1. The nearby context matters: Section 1 announces that Section 2 concerns existence of local calm sections, and Section 2 first states the Bartle-Graves theorem as the smooth/strictly differentiable prototype before posing the nonsmooth finite-dimensional conjecture. Your draft already matches the main hypothesis and conclusion of Conjecture 2.1, but a fully stand-alone formulation should explicitly define what the local selection does on a neighborhood V of y_bar, namely f(s(y)) = y, and should make clear that the selection passes through the prescribed point x_bar. The paper also notes immediately after the conjecture that when n = m this reduces to Clarke's inverse function theorem, and when m <= n the same surjectivity hypothesis yields metric regularity by Pourciau; these are contextual remarks, not extra assumptions.",
+  "citations": [
+    {
+      "section": "Section 1",
+      "label": "Introduction",
+      "page": "PDF p. 2"
+    },
+    {
+      "section": "Section 2",
+      "label": "Theorem 2.1 (Bartle-Graves)",
+      "page": "PDF p. 3"
+    },
+    {
+      "section": "Section 2",
+      "label": "Conjecture 2.1",
+      "page": "PDF p. 3"
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "arxiv_id": "2602.05394",
+  "question_id": "q_019",
+  "original_question": "Extend Paige's analysis of the Lanczos algorithm to the block Lanczos algorithm. The exact analysis will depend on the use of an orthogonalization scheme used within blocks, so either specify certain assumptions on the accuracy of the scheme, or analyze a standard ``good'' algorithm.",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 12457.35,
+  "target_in_paper": "Problem 2.19 in Section 2.6 (\"Symmetric Krylov methods in finite precision arithmetic\")",
+  "completeness_score": 9,
+  "correct_elements": "Your draft is already extremely close to the paper's official formulation: it identifies the correct target (extending Paige's finite-precision Lanczos analysis to block Lanczos) and it preserves the paper's key caveat that the result depends on the within-block orthogonalization, so one should either assume an accuracy model for that orthogonalization or analyze a standard numerically reliable implementation.",
+  "missing_details": [
+    "The finite-precision setting is implicit in your draft; in the paper this problem belongs specifically to Section 2.6 on symmetric Krylov methods in finite precision arithmetic, not to exact arithmetic.",
+    "The matrix class is only implicit: the surrounding discussion is about symmetric matrices, and the neighboring linear-system motivation emphasizes the SPD case; a stand-alone version should say explicitly that the target is the block Lanczos process for real symmetric matrices.",
+    "To be self-contained, the question should name the block Lanczos data and objects being analyzed (for example, a real symmetric matrix A and an initial block V1 of block size s, producing a computed block Krylov basis and block tridiagonal reduction), even though the paper does not introduce this notation locally.",
+    "The paper highlights a block-specific exact-arithmetic complication that your draft leaves implicit: blocks may become rank deficient and therefore require deflation, and a faithful formulation should mention that this behavior must be incorporated into the analysis.",
+    "A stand-alone formulation should make clear that the goal is a \"Paige-style\" finite-precision analysis analogous to Paige's analyses [Pai76, Pai80], rather than a generic convergence or perturbation analysis of block Lanczos.",
+    "The orthogonalization issue should be stated as an explicit fork: either impose quantitative assumptions on the accuracy of the within-block orthogonalization, or fix one specific standard \"good\" orthogonalization algorithm and analyze that implementation.",
+    "The paper's intended scope is narrower than a general study of all block Krylov variants: it is meant to provide theoretical justification and insight for block Krylov methods in finite precision arithmetic, not to absorb nearby but different directions such as general inexact matvec/preconditioner models (Problem 2.18).",
+    "There are no homogeneity, degree, nilpotency, or 'for all sufficiently large m' conditions in this problem; those categories are not part of the paper's formulation here."
+  ],
+  "refined_question": "In the finite-precision setting for symmetric Krylov methods, extend Paige's finite-precision analysis of the standard Lanczos algorithm to the block Lanczos algorithm for a real symmetric matrix A and an initial block V1: after either (i) specifying quantitative accuracy assumptions for the within-block orthogonalization, or (ii) fixing a specific standard numerically \"good\" orthogonalization procedure, develop a Paige-style description of the computed block Lanczos process that explicitly handles block rank deficiency and deflation and that yields theoretical justification and insight for the practical behavior of block Krylov methods in finite precision arithmetic.",
+  "equivalent_formulation": null,
+  "justification": "The draft is targeting the paper's exact official statement, namely Problem 2.19 in Section 2.6. The surrounding context first places the problem inside symmetric Krylov methods in finite precision arithmetic, then recalls that Paige's finite-precision analysis of standard Lanczos is foundational for later analyses, distinguishes the nearby but different preconditioner/inexact-matvec question as Problem 2.18, and finally states that block Lanczos is a natural next generalization. The paragraph immediately before Problem 2.19 adds the crucial hidden assumptions and scope: no Paige-style block-Lanczos analysis is known, block methods are complicated even in exact arithmetic because blocks can become rank deficient and require deflation, and the analysis must depend on the within-block orthogonalization. Because the paper gives no proposition or theorem proving an equivalent reformulation of Problem 2.19, no alternate equivalent version should be invented here.",
+  "citations": [
+    {
+      "section": "1",
+      "label": "Introduction",
+      "page": 3
+    },
+    {
+      "section": "2.6",
+      "label": "Section 2.6, opening context on symmetric Krylov methods in finite precision arithmetic",
+      "page": 17
+    },
+    {
+      "section": "2.6",
+      "label": "Problem 2.18",
+      "page": "17-18"
+    },
+    {
+      "section": "2.6",
+      "label": "Paragraph preceding Problem 2.19",
+      "page": 18
+    },
+    {
+      "section": "2.6",
+      "label": "Problem 2.19",
+      "page": 18
+    }
+  ]
+}

@@ -1,0 +1,64 @@
+{
+  "arxiv_id": "1204.6447",
+  "question_id": "q_022",
+  "original_question": "For each constant delta > 0, do s^{-O(1)}-biased densities delta-fool all size-s DNF formulas; equivalently, if f : {0,1}^n -> {-1,1} is computable by a size-s DNF and phi is an s^{-O(1)}-biased density on {0,1}^n, must |E_{x~{0,1}^n}[f(x)] - E_{y~phi}[f(y)]| <= delta?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 2297.06,
+  "target_in_paper": "The survey open problem titled \"ε-biased Sets for DNFs\" in arXiv:1204.6447 (main matter, pp. 9-10), sourced there to [DETT10].",
+  "completeness_score": 9,
+  "correct_elements": "Your draft already tracks the paper extremely closely: it preserves the leading quantifier \"for each constant δ > 0,\" the target class \"size-s DNF formulas,\" the desired bias scale \"s^{-O(1)},\" and the paper’s expectation-based unpacking of what it means to δ-fool a DNF. It also matches the survey’s {-1,1}-valued formulation of the test function.",
+  "missing_details": [
+    "The phrase \"s^{-O(1)}-biased\" hides a quantifier that should be made explicit: for each fixed constant δ > 0, the question is whether there exists a constant c = c(δ) > 0 such that bias at most s^{-c} suffices.",
+    "A stand-alone version should define what \"ε-biased\" means: for every nonempty S ⊆ [n], the distribution φ must satisfy |E_{y∼φ}[χ_S(y)]| ≤ ε, where χ_S(x) = ∏_{i∈S} (-1)^{x_i}.",
+    "The ambient reference distribution should be named explicitly as the uniform distribution U_n on {0,1}^n.",
+    "The object called a \"density\" in the survey should be stated explicitly as a probability distribution on {0,1}^n.",
+    "The meaning of \"size-s DNF\" should be made explicit: a DNF formula on n Boolean variables with at most s terms, each term being an AND of literals.",
+    "The universal scope over parameters should be stated explicitly: for all n and all size parameters s (not just for one fixed n or one fixed DNF).",
+    "To avoid mixing encodings, a stand-alone statement should either stay consistently with {-1,1}-valued functions or else consistently use {0,1}-valued DNFs; the paper’s survey statement uses the {-1,1} encoding."
+  ],
+  "refined_question": "For every fixed constant δ > 0, does there exist a constant c = c(δ) > 0 such that, for all n and s ≥ 1, every probability distribution φ on {0,1}^n satisfying |E_{y∼φ}[χ_S(y)]| ≤ s^{-c} for every nonempty S ⊆ [n] δ-fools every DNF formula on n variables with at most s terms? Equivalently, if f : {0,1}^n → {-1,1} is computable by a DNF of size at most s and φ is s^{-c}-biased in the above sense, must |E_{x∼U_n}[f(x)] - E_{y∼φ}[f(y)]| ≤ δ?",
+  "equivalent_formulation": null,
+  "justification": "In arXiv:1204.6447 itself, the exact target is the survey item \"ε-biased Sets for DNFs,\" and your draft is essentially a near-verbatim paraphrase of that item. The survey’s statement is brief, so I made explicit the hidden quantifier inside s^{-O(1)}, the meaning of ε-bias via nontrivial parity characters, the role of the uniform distribution U_n, and the standard term-count meaning of DNF size. I did not broaden the scope to width-w DNFs, read-once DNFs, or AC0. The nearby context in the survey and in DETT10 shows why this exact sharpening is the paper-faithful one: DETT10 proves general-DNF fooling only for much smaller bias, namely roughly exp(-O(log^2(s/δ) log log(s/δ))), proves a stronger polynomial-bias result only for read-once DNFs, and gives lower bounds showing that for general DNFs one needs bias at least m^{-Ω(log(1/δ))} in the low-error regime. So the open problem is specifically whether polynomially small bias in s suffices once δ is fixed as a constant.",
+  "citations": [
+    {
+      "section": "Main matter",
+      "label": "ε-biased Sets for DNFs",
+      "page": 9
+    },
+    {
+      "section": "Main matter",
+      "label": "Remarks under ε-biased Sets for DNFs",
+      "page": 10
+    },
+    {
+      "section": "1 Introduction",
+      "label": "Our Results",
+      "page": 2
+    },
+    {
+      "section": "2 Preliminaries",
+      "label": "Definition 2.2 (δ-fools, ε-biased)",
+      "page": 4
+    },
+    {
+      "section": "2 Preliminaries",
+      "label": "Definition 2.4 (DNF)",
+      "page": 4
+    },
+    {
+      "section": "3 Fooling Read-once DNF formulas",
+      "label": "Theorem 3.1",
+      "page": "6-7"
+    },
+    {
+      "section": "4 Fooling general DNF formulas",
+      "label": "Theorem 4.2",
+      "page": "7-8"
+    },
+    {
+      "section": "5.3 Lower bounds for fooling general DNFs",
+      "label": "Corollary 5.10",
+      "page": 16
+    }
+  ]
+}

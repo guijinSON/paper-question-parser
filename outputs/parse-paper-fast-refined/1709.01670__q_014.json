@@ -1,0 +1,48 @@
+{
+  "arxiv_id": "1709.01670",
+  "question_id": "q_014",
+  "original_question": "For the open-shop problem O|p_ij=1, ST_sd,b|C_max with unit-time operations and sequence-dependent setup times between g batches, is the problem fixed-parameter tractable when parameterized by the number g of batches?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 5489.3,
+  "target_in_paper": "Open Problem 14 in Section 5.3 (Makespan with sequence-dependent setup times): Is O|p_ij = 1, ST_sd,b|C_max fixed-parameter tractable parameterized by the number g of batches? ([arxiv.org](https://arxiv.org/pdf/1709.01670.pdf))",
+  "completeness_score": 9,
+  "correct_elements": "Your draft already matches the paper’s exact target problem: it uses the same open-shop setting O, the same unit-operation restriction p_ij=1, the same sequence-dependent batch-setup qualifier ST_sd,b, the same objective C_max, and the same parameter g equal to the number of batches. ([arxiv.org](https://arxiv.org/pdf/1709.01670.pdf))",
+  "missing_details": [
+    "You should make explicit that O denotes the open-shop environment, where each job has exactly one operation on each machine and the order of a job’s operations is unrestricted. ([arxiv.org](https://arxiv.org/pdf/1709.01670.pdf))",
+    "You should state that p_ij=1 means every operation o_ij has unit processing time, not merely that each job has unit total processing time. ([arxiv.org](https://arxiv.org/pdf/1709.01670.pdf))",
+    "You should say that the jobs are partitioned into exactly g batches. ([arxiv.org](https://arxiv.org/pdf/1709.01670.pdf))",
+    "You should specify the meaning of ST_sd,b: on any machine, switching from a job in batch p to a job in batch q incurs a sequence-dependent setup time s_pq ∈ N. ([arxiv.org](https://arxiv.org/pdf/1709.01670.pdf))",
+    "To be fully stand-alone, note that because the notation is O rather than O_m, the number of machines is not fixed in advance and is part of the input. ([arxiv.org](https://arxiv.org/pdf/1709.01670.pdf))",
+    "The nearby high-multiplicity comment is context only: the paper says such an FPT algorithm would be desirable, but it is not part of the formal statement of Open Problem 14. ([arxiv.org](https://arxiv.org/pdf/1709.01670.pdf))"
+  ],
+  "refined_question": "Is the open-shop scheduling problem O|p_ij=1, ST_sd,b|C_max fixed-parameter tractable with respect to the parameter g, where the number of machines is part of the input, each job has exactly one unit-time operation on each machine, the operations of each job may be scheduled in arbitrary order, the jobs are partitioned into g batches, and switching on any machine from a job in batch p to a job in batch q incurs a sequence-dependent setup time s_pq ∈ N? ([arxiv.org](https://arxiv.org/pdf/1709.01670.pdf))",
+  "equivalent_formulation": null,
+  "justification": "This is the nearest official formulation in the paper: the statement appears verbatim as Open Problem 14 in Section 5.3, and the surrounding text there provides the hidden assumptions your draft leaves implicit, namely the partition into g batches and the semantics of the setup times s_pq. Sections 2.1.1–2.1.3 supply the notation needed to make the question stand alone: O for open shop, ST_sd,b for sequence-dependent batch setup times, and C_max for makespan; Section 5.3 then gives the exact p_ij=1 version and asks about parameterization by g alone. The paper only adds, as a side remark, that handling the high-multiplicity encoding would also be desirable. ([arxiv.org](https://arxiv.org/pdf/1709.01670.pdf))",
+  "citations": [
+    {
+      "section": "2.1.1",
+      "label": "Machine models (open shop definition; O without a subscript means the number of machines is part of the input)",
+      "page": 1
+    },
+    {
+      "section": "2.1.2",
+      "label": "Processing time restrictions (unit-time notation)",
+      "page": 1
+    },
+    {
+      "section": "2.1.2",
+      "label": "Batch setup times (ST_sd,b)",
+      "page": 2
+    },
+    {
+      "section": "2.1.3",
+      "label": "Objective functions (makespan C_max)",
+      "page": 2
+    },
+    {
+      "section": "5.3",
+      "label": "Open Problem 14",
+      "page": 6
+    }
+  ]
+}

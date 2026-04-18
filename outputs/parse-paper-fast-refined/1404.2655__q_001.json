@@ -1,0 +1,57 @@
+{
+  "arxiv_id": "1404.2655",
+  "question_id": "q_001",
+  "original_question": "In recovery problems with noisy data, why do semidefinite-programming relaxations of maximum-likelihood estimators often remain tight beyond the exact-recovery regime? More concretely, when noise is large enough that the maximum-likelihood estimator cannot exactly recover the ground truth, under what structural or probabilistic conditions does the SDP relaxation still return a solution that lies in the original nonconvex model class, or equivalently matches the lower-rank quasi-maximum-likelihood solution instead of requiring a rounding step?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 3732.41,
+  "target_in_paper": "Section 2, Conjecture 1 (the generalized orthogonal Procrustes rank-recovery conjecture for the SDP relaxation), read together with the model setup and the formulations (1), (2), and (3) in Section 1.",
+  "completeness_score": 6.5,
+  "correct_elements": "Your draft correctly identifies the paper's central phenomenon: SDP relaxations of likelihood-based estimators can remain tight even when exact recovery of the ground truth is impossible, and 'tight' here means no rounding is needed because the SDP optimizer already corresponds to the nonconvex model. It also correctly focuses on the relation between the relaxed SDP and the lower-rank quasi-MLE/rank-constrained formulation, which is exactly how the paper formalizes the issue in the generalized Procrustes example.",
+  "missing_details": [
+    "The paper's official statement is not a general question about recovery problems; it is a specific conjecture for the generalized orthogonal Procrustes problem.",
+    "The ambient field is the real numbers: A, A_i, O_i, X, and C all lie over R.",
+    "The dimensions and quantifiers are part of the conjecture: d > 1, n > 2, m >= d + 1.",
+    "The underlying signal matrix A is not arbitrary in the conjecture; its m columns are random points in R^d with i.i.d. coordinates uniform on [0,1].",
+    "The orthogonal transformations are quantified as an arbitrary deterministic sequence O_1, ..., O_n in O_d, not random rotations.",
+    "The observations must be specified exactly: A_i = O_i A + sigma eta_i in R^{d x m}, where each eta_i has i.i.d. standard Gaussian entries.",
+    "The draft does not state the original quasi-MLE explicitly: minimize sum_{i<j} ||O_i^T A_i - O_j^T A_j||_F^2 over O_i in O_d.",
+    "The equivalence between the original MLE over A and O_i and the quasi-MLE requires the paper's mild assumption that ||A||_F is fixed (with ||A||_F != 0 mentioned in footnote 1).",
+    "The nonconvex model class is not just 'lower rank' in the abstract; in the lifted formulation it is the feasible set X >= 0, X_{ii} = I_d, rank(X) <= d.",
+    "The SDP relaxation must be identified exactly as dropping the rank constraint from the rank-constrained problem.",
+    "The paper's notion of tightness is rank exactly d, not merely some unspecified low-rank or model-consistent solution.",
+    "The draft asks for structural or probabilistic conditions in general, but the paper only conjectures existence of a positive noise threshold sigma_* in this specific random model.",
+    "The probability statement should specify that the randomness is over A and the Gaussian noise matrices eta_i; O_i are arbitrary.",
+    "The draft does not reflect the paper's explicit scope restriction that for d > 1 exact recovery under noise is impossible even for the rank-constrained problem, so the question is specifically about rank recovery rather than exact recovery.",
+    "The phrase 'with high probability' is left informal in the paper; no asymptotic parameter is specified there, so a paper-faithful rewrite should preserve that wording rather than invent a new asymptotic regime."
+  ],
+  "refined_question": "In the generalized orthogonal Procrustes model of Bandeira-Khoo-Singer, let d > 1, n > 2, and m >= d + 1. Let A in R^{d x m} have i.i.d. coordinates uniform on [0,1], let O_1, ..., O_n be any sequence of orthogonal matrices in O_d, and observe A_i = O_i A + sigma eta_i in R^{d x m}, where each eta_i has i.i.d. N(0,1) entries. Assuming ||A||_F is fixed so that the MLE reduces to the quasi-MLE min over O_1,...,O_n in O_d of sum over i<j of ||O_i^T A_i - O_j^T A_j||_F^2, equivalently to the rank-constrained program max Tr(CX) subject to X positive semidefinite, X_{ii} = I_d for all i, and rank(X) <= d, with block matrix C defined by C_{ij}^T = A_j A_i^T, does there exist a constant sigma_* > 0 such that for every sigma < sigma_*, with high probability over A and the noise, the optimizer of the SDP relaxation obtained by dropping rank(X) <= d still has rank exactly d, and therefore coincides with the quasi-MLE without any rounding step?",
+  "equivalent_formulation": "Equivalently, in this same random generalized-Procrustes model, is the SDP max Tr(CX) subject to X positive semidefinite and X_{ii} = I_d tight below some positive noise threshold sigma_*, in the precise sense that its optimizer is feasible for the rank-constrained problem max Tr(CX) subject to X positive semidefinite, X_{ii} = I_d, rank(X) <= d, hence matching the quasi-MLE?",
+  "justification": "The draft is clearly trying to capture the paper's main open phenomenon, but the nearest official formulation is narrower: Section 1 sets up the generalized Procrustes MLE, rewrites it as the quasi-MLE (1), then as the rank-constrained lifted problem (2), and finally as the relaxed SDP (3). Section 1 also explains that for d > 1 exact recovery under noise is impossible even for the nonconvex problem, so the relevant question is not exact recovery of the ground truth but rank recovery of the SDP optimizer. Section 2 then states the actual conjecture: below some positive noise level, the solution of the relaxation (3) has rank d and therefore matches the quasi-MLE solution of (2). That is the sharpest stand-alone version of your draft that remains faithful to the paper's actual intent. In this paper, the relevant formal target is Conjecture 1; there are no separate items labeled Conjecture 1.1, Proposition 1.2, or Theorem 1.3 to prefer instead.",
+  "citations": [
+    {
+      "section": "Abstract",
+      "label": "Motivating phenomenon: SDP relaxations remain tight even when MLE cannot exactly recover the ground truth",
+      "page": 1
+    },
+    {
+      "section": "1. Introduction",
+      "label": "Generalized orthogonal Procrustes model and MLE/quasi-MLE setup, including the assumption that ||A||_F is fixed and equation (1)",
+      "page": "1-2"
+    },
+    {
+      "section": "1. Introduction",
+      "label": "Lifted rank-constrained formulation (2) and SDP relaxation (3)",
+      "page": 2
+    },
+    {
+      "section": "1. Introduction",
+      "label": "Statement that for d > 1 exact recovery under noise is impossible, but the relaxation often recovers the quasi-MLE anyway",
+      "page": 2
+    },
+    {
+      "section": "2. An open problem",
+      "label": "Conjecture 1",
+      "page": 2
+    }
+  ]
+}

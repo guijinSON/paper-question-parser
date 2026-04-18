@@ -1,0 +1,61 @@
+{
+  "arxiv_id": "2505.15351",
+  "question_id": "q_016",
+  "original_question": "How do object priors such as positivity, support constraints, or a low-dimensional generative prior f_0 = G(z_0) affect the weak-recovery and full-recovery thresholds alpha_WR and alpha_FR in probabilistic phase retrieval?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 11023.91,
+  "target_in_paper": "Section 6.2, Question 6.6: “What is the dependence of α_WR and α_FR on the object priors?” It should be read together with the immediately preceding paragraph that names positivity constraints, support constraints, and generative priors f0 = G(z0), and with the MMSE-based threshold definitions introduced earlier in Section 6. ([link.springer.com](https://link.springer.com/content/pdf/10.1007/s43670-025-00117-0.pdf))",
+  "completeness_score": 8.5,
+  "correct_elements": "Your draft is already very close to the paper’s actual target. It correctly identifies that the open problem is about how object priors change the weak-recovery and full-recovery thresholds α_WR and α_FR, and it uses exactly the examples listed by the paper: positivity constraints, support constraints, and a low-dimensional generative prior of the form f0 = G(z0) with d < n. ([link.springer.com](https://link.springer.com/content/pdf/10.1007/s43670-025-00117-0.pdf))",
+  "missing_details": [
+    "The paper’s setting is complex-valued: the unknown object lies in C^n, the sensing matrix lies in C^{m×n}, and the baseline object model before adding priors is f0 ~ Unif(S^{n−1}), the uniform distribution on the complex unit sphere. ([link.springer.com](https://link.springer.com/content/pdf/10.1007/s43670-025-00117-0.pdf))",
+    "The measurement model is the noiseless probabilistic phase-retrieval model y = A(f0) = |Af0|^2, with absolute value taken coordinatewise. ([link.springer.com](https://link.springer.com/content/pdf/10.1007/s43670-025-00117-0.pdf))",
+    "The asymptotic regime is essential: m, n → ∞ while the oversampling ratio α = m/n stays fixed. The paper does not phrase this in finite-dimensional terms such as “for all sufficiently large m.” ([link.springer.com](https://link.springer.com/article/10.1007/s43670-025-00117-0))",
+    "The thresholds are defined through the Bayes-optimal estimator minimizing mean-squared error, not only informally. One must state MMSE(α) = lim_{n→∞} E||f_Bayes − f0||_2^2 and MMSE_0 = inf_{α>0} MMSE(α), with the expectation taken over the random sensing matrix A. ([link.springer.com](https://link.springer.com/content/pdf/10.1007/s43670-025-00117-0.pdf))",
+    "Weak recovery is formally α_WR = inf{α > 0 : MMSE(α) < E||f0||_2^2}; the phrase “better than a random guess” is shorthand for this inequality. ([link.springer.com](https://link.springer.com/content/pdf/10.1007/s43670-025-00117-0.pdf))",
+    "Full recovery is formally α_FR = inf{α > 0 : MMSE(α) = MMSE_0}; in the paper this is an MMSE notion and is explicitly weaker than injectivity, and it may still be imperfect when MMSE_0 > 0. ([link.springer.com](https://link.springer.com/content/pdf/10.1007/s43670-025-00117-0.pdf))",
+    "For the generative-prior example, the paper states specifically f0 = G(z0) for some z0 in C^d with d < n. ([link.springer.com](https://link.springer.com/content/pdf/10.1007/s43670-025-00117-0.pdf))",
+    "The surrounding setup still depends on the random sensing ensemble A and its statistical properties; Question 6.6 isolates the dependence on priors within that broader Section 6 framework rather than replacing it. ([link.springer.com](https://link.springer.com/article/10.1007/s43670-025-00117-0))",
+    "There are no homogeneity, degree, or nilpotency hypotheses in this section; the hidden assumptions that need to be made explicit are instead the complex random-matrix measurement model, the Bayesian/MMSE definitions, and the asymptotic fixed-α regime. ([link.springer.com](https://link.springer.com/content/pdf/10.1007/s43670-025-00117-0.pdf))"
+  ],
+  "refined_question": "In the probabilistic noiseless phase-retrieval framework of Section 6, let f0 ∈ C^n be recovered from measurements y = |Af0|^2 with random sensing matrix A ∈ C^{m×n}, and let m, n → ∞ with fixed oversampling ratio α = m/n. If f_Bayes denotes the Bayes-optimal estimator of f0, define MMSE(α) = lim_{n→∞} E||f_Bayes − f0||_2^2, MMSE_0 = inf_{α>0} MMSE(α), α_WR = inf{α > 0 : MMSE(α) < E||f0||_2^2}, and α_FR = inf{α > 0 : MMSE(α) = MMSE_0}. When the baseline prior f0 ~ Unif(S^{n−1}) is replaced by object priors such as positivity constraints, support constraints, or a low-dimensional generative prior f0 = G(z0) with z0 ∈ C^d and d < n, how do the thresholds α_WR and α_FR depend on these object priors?",
+  "equivalent_formulation": null,
+  "justification": "The draft is clearly targeting Question 6.6 rather than a neighboring problem: immediately before Question 6.6, the paper introduces exactly the same prior types named in your draft and says that they can influence α_WR and α_FR. To make the question stand-alone and faithful to the paper, one has to import the Section 6 probabilistic model, the asymptotic regime α = m/n with m, n → ∞, and the exact MMSE-based definitions of weak and full recovery from Eqs. (16)–(19). The paper also clarifies in Remark 6.3 that “full recovery” here is not injectivity but the attainment of the optimal asymptotic MMSE. There is no explicit equivalent reformulation of Question 6.6 elsewhere in the paper. ([link.springer.com](https://link.springer.com/content/pdf/10.1007/s43670-025-00117-0.pdf))",
+  "citations": [
+    {
+      "section": "2.1",
+      "label": "Finite-dimensional setup",
+      "page": "2-3"
+    },
+    {
+      "section": "6",
+      "label": "Question 6.2",
+      "page": "20-21"
+    },
+    {
+      "section": "6",
+      "label": "Equations (16)-(19)",
+      "page": 21
+    },
+    {
+      "section": "6",
+      "label": "Remark 6.3",
+      "page": "21-22"
+    },
+    {
+      "section": "6.1",
+      "label": "Results for a random measurement matrix",
+      "page": 22
+    },
+    {
+      "section": "6.2",
+      "label": "Question 6.5 and preceding paragraph on object priors",
+      "page": 24
+    },
+    {
+      "section": "6.2",
+      "label": "Question 6.6",
+      "page": 25
+    }
+  ]
+}

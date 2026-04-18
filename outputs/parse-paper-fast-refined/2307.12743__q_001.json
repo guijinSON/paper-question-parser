@@ -1,0 +1,43 @@
+{
+  "arxiv_id": "2307.12743",
+  "question_id": "q_001",
+  "original_question": "Let M be a complete d-dimensional Riemannian manifold with Riemannian metric, distance function, and exponential and logarithm maps, and let Bbar(x_ref, r) be a geodesically convex subset of M, meaning that for every x and y in the ball there is a unique minimizing geodesic segment connecting them and that segment stays inside the ball. Let f: Bbar(x_ref, r) -> R be geodesically convex, meaning that f composed with every geodesic segment in the ball is an ordinary convex function, and assume f is M-Lipschitz on the ball. In the black-box first-order model, after querying a point x_k in M, the algorithm receives the value f(x_k) and a subgradient g at x_k. If the sectional curvatures of M lie in [-K, K] and zeta_t = t / tanh(t), does there exist a deterministic first-order algorithm that, for every epsilon in (0, 1), finds a point x such that f(x) - f* <= epsilon M r in at most O(poly(zeta_{r sqrt(K)}, d) log(1/epsilon)) oracle queries, while using only poly(zeta_{r sqrt(K)}, d) arithmetic operations per iteration to determine the next query, where f* is the minimum of f over Bbar(x_ref, r)?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 9006.94,
+  "target_in_paper": "Open Question 1 in Section 1 (Introduction and background), page 2.",
+  "completeness_score": 8.8,
+  "correct_elements": "Your draft is already very close to the paper’s official formulation. It correctly captures the ambient setting of a complete d-dimensional Riemannian manifold, the bounded sectional-curvature hypothesis [-K, K], the assumption that the closed ball Bbar(x_ref, r) is geodesically convex, the geodesic convexity and Lipschitz continuity of f on that ball, the first-order black-box oracle returning function values and subgradients, the curvature factor zeta_{r sqrt(K)}, the target accuracy f(x) - f* <= epsilon times the Lipschitz constant times r, and the simultaneous requirements of O(poly(zeta_{r sqrt(K)}, d) log(1/epsilon)) oracle complexity and poly(zeta_{r sqrt(K)}, d) arithmetic work per iteration.",
+  "missing_details": [
+    "There is a notation clash: your draft uses M both for the manifold and for the Lipschitz constant. In the paper, the manifold is denoted by calligraphic M and the Lipschitz constant by M; for a stand-alone rewrite these should be separated, e.g. by renaming the Lipschitz constant to L.",
+    "Bbar(x_ref, r) should be identified explicitly as the closed metric ball of radius r centered at x_ref, with the added assumption that this ball is geodesically convex.",
+    "The manifold subgradient oracle should be stated precisely: after querying x_k, the algorithm receives f(x_k) and g_k in T_{x_k}M such that f(y) >= f(x_k) + <g_k, log_{x_k}(y)> for all y in the domain ball.",
+    "The quantifiers should be fully explicit: the same deterministic first-order algorithm is asked to work for every admissible manifold, every geodesically convex ball, every admissible geodesically convex Lipschitz function, and every epsilon in (0,1).",
+    "Since f is posed on Bbar(x_ref, r), the query points should be stated to lie in that domain (or else the oracle domain must be enlarged explicitly).",
+    "If K = 0, the expression zeta_{r sqrt(K)} should be interpreted via the continuous extension zeta_0 = 1."
+  ],
+  "refined_question": "Let (M, <.,.>) be a complete d-dimensional Riemannian manifold whose sectional curvatures lie in [-K, K], and let D = Bbar(x_ref, r) be the closed metric ball of radius r about x_ref, assumed to be geodesically convex in the sense that every x, y in D are joined by a unique minimizing geodesic segment contained in D. Let f: D -> R be geodesically convex and L-Lipschitz on D. In the first-order black-box model, a deterministic algorithm may query points x_k in D and receives f(x_k) together with a subgradient g_k in T_{x_k}M satisfying f(y) >= f(x_k) + <g_k, log_{x_k}(y)> for all y in D. Writing f* = min_{x in D} f(x) and zeta_t = t/tanh(t) (with zeta_0 = 1 by continuity), does there exist a deterministic first-order algorithm A such that, for every epsilon in (0,1), A outputs a point x in D with f(x) - f* <= epsilon L r after at most O(poly(zeta_{r sqrt(K)}, d) log(epsilon^{-1})) oracle queries, while each iteration uses only poly(zeta_{r sqrt(K)}, d) arithmetic operations to determine the next query, in addition to the oracle queries?",
+  "equivalent_formulation": null,
+  "justification": "The draft is targeting the paper’s main introductory open problem, namely Open Question 1, rather than the later constant-curvature partial result. The paper’s official statement asks exactly for an ellipsoid-method-type deterministic first-order algorithm on a bounded-curvature Riemannian manifold with both logarithmic dependence on epsilon^{-1} in the oracle count and polynomial per-iteration arithmetic complexity. Section 2 is nearby context only: it gives a partial positive result for spaces of constant curvature, not the full bounded-curvature statement. So the right refinement is to sharpen your draft into the official Open Question 1, while making the oracle model and quantifiers fully explicit and fixing the notation clash between the manifold and the Lipschitz constant.",
+  "citations": [
+    {
+      "section": "Abstract",
+      "label": "Abstract",
+      "page": 1
+    },
+    {
+      "section": "1",
+      "label": "Definitions preceding Open Question 1",
+      "page": 2
+    },
+    {
+      "section": "1",
+      "label": "Open Question 1",
+      "page": 2
+    },
+    {
+      "section": "2",
+      "label": "An ellipsoid-like method for spaces of constant curvature",
+      "page": 3
+    }
+  ]
+}

@@ -1,0 +1,62 @@
+{
+  "arxiv_id": "2303.11464",
+  "question_id": "q_008",
+  "original_question": "For which families of binary-column sets A can one efficiently approximate, rather than exactly compute, the probability in the Computational Problem that two independent random binary matrices x and y satisfy m_i^A(x) = m_i^A(y) for every i?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 8576.08,
+  "target_in_paper": "Section 2, Open Problem 2.4, read together with Definition 2.2 and the unnumbered Computational Problem immediately following Example 2.3.",
+  "completeness_score": 7,
+  "correct_elements": "Your draft correctly targets the approximation version of the Section 2 combinatorial problem tied to commutative quantum-circuit expressiveness, and it keeps the right event: the probability that two random binary matrices x and y satisfy m_i^A(x) = m_i^A(y) for all i. It also correctly treats A as a binary-column set governing the indicators m_i^A.",
+  "missing_details": [
+    "The paper quantifies over arbitrary positive integers n and t, with 1 <= m <= 2^n - 1.",
+    "A is not just any family of binary columns: it is an n x m binary matrix A = (a_1^T, ..., a_m^T) whose columns a_i are nonzero and pairwise distinct.",
+    "x and y are n x t binary matrices written as x = (x_1^T, ..., x_t^T) and y = (y_1^T, ..., y_t^T), where each column x_j, y_j lies in {0,1}^n.",
+    "The probability is with respect to x and y sampled uniformly at random; independence is implicit in the paper's sampling language but should be stated explicitly in a stand-alone formulation.",
+    "The draft leaves m_i^A undefined. The paper defines m_i^A(x) = sum_{j=1}^t <a_i, x_j>_2, where < , >_2 is the mod-2 inner product in GF(2)^n, while the outer sum is taken in Z.",
+    "The mixed arithmetic is important: the inner product is over GF(2), but the resulting indicators are integer counts.",
+    "The official target is 'For which choices of A can we approximate answers to Computational Problem?'; your phrase 'efficiently approximate' adds a complexity qualifier that the paper does not include in Open Problem 2.4.",
+    "The contrast with exact computation is nearby context from Open Problem 2.2 and the sentence introducing Open Problem 2.4, but it is not part of the formal statement of Open Problem 2.4 itself.",
+    "The motivation from the paper is that approximate answers to Computational Problem yield approximations to the expressiveness of commutative quantum circuits.",
+    "There are no homogeneity, degree, nilpotency, characteristic-p, or 'for all sufficiently large m' conditions in this target problem; the relevant ambient structures are binary vectors over GF(2) and integer-valued counts."
+  ],
+  "refined_question": "Let n and t be positive integers, let 1 <= m <= 2^n - 1, and let A = (a_1^T, ..., a_m^T) be an n x m binary matrix whose columns a_i in {0,1}^n are nonzero and pairwise distinct. For x = (x_1^T, ..., x_t^T) and y = (y_1^T, ..., y_t^T) in {0,1}^{n x t}, define m_i^A(x) = sum_{j=1}^t <a_i, x_j>_2, where < , >_2 denotes the inner product in GF(2)^n and the outer sum is taken in Z. If x and y are sampled independently and uniformly at random from {0,1}^{n x t}, for which choices of A can one approximate the probability that m_i^A(x) = m_i^A(y) for every i = 1, ..., m?",
+  "equivalent_formulation": null,
+  "justification": "The nearest official formulation is Open Problem 2.4 at the end of Section 2, not the broader exact/efficient questions in Open Problems 2.2 and 2.3. The surrounding setup that makes the question stand-alone is supplied by the Section 2 introduction, Definition 2.2, and the unnumbered Computational Problem. Your draft is close in spirit, but it omits the full setup for n, t, m, A, x, y, and m_i^A, and it strengthens the paper's statement by inserting 'efficiently,' which belongs to the neighboring exact-computation discussion rather than to Open Problem 2.4 itself. The nearby solved cases in Lemma 2.5 and Lemma 2.7 confirm that the intended scope is to identify classes of A for which this probability can be handled, and Open Problem 2.4 asks for the approximation analogue of that task.",
+  "citations": [
+    {
+      "section": "2",
+      "label": "Introduction",
+      "page": "568-569"
+    },
+    {
+      "section": "2",
+      "label": "Definition 2.2",
+      "page": 570
+    },
+    {
+      "section": "2",
+      "label": "Computational Problem",
+      "page": 570
+    },
+    {
+      "section": "2",
+      "label": "Lemma 2.5",
+      "page": "571-572"
+    },
+    {
+      "section": "2",
+      "label": "Lemma 2.7",
+      "page": "572-574"
+    },
+    {
+      "section": "2",
+      "label": "Open Problem 2.2",
+      "page": 574
+    },
+    {
+      "section": "2",
+      "label": "Open Problem 2.4",
+      "page": "574-575"
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "arxiv_id": "1401.0300",
+  "question_id": "q_085",
+  "original_question": "Is a flexibly permutation-stable group always permutation-stable?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 3525.71,
+  "target_in_paper": "Problem 21.85 in the section \"New Problems (21st issue, 2026)\": \"Is a flexibly permutation-stable group always permutation-stable?\"",
+  "completeness_score": 6,
+  "correct_elements": "Your draft captures the exact official open problem in the paper, essentially verbatim, and it has the right logical direction: whether flexible permutation stability implies permutation stability. It also stays narrowly focused on the specific question asked in the paper, rather than drifting to the neighboring question about SL_n(Z).",
+  "missing_details": [
+    "In the paper, these notions are stated only for a finitely generated group G; that hypothesis is implicit in your draft and should be made explicit.",
+    "The paper defines permutation stability using the normalized Hamming distance d_n(σ,τ)=(1/n)|{x in {1,...,n} : σ(x) != τ(x)}| on S_n; your draft does not supply this metric.",
+    "The term almost-homomorphism must be defined: it is a sequence of set-theoretic maps f_n:G->S_n such that d_n(f_n(g)f_n(h),f_n(gh))->0 as n->infinity for all g,h in G.",
+    "The term close to a homomorphism must be defined: there must exist homomorphisms ρ_n:G->S_n with d_n(ρ_n(g),f_n(g))->0 as n->infinity for all g in G.",
+    "The paper defines flexible permutation stability via the flexible distance d_n^flex, and that definition is missing from your draft.",
+    "The flexible distance is d_n^flex(α,β)=(1/n)(|{x in {1,...,n} : α(x) != β(x)}|+(m-n)) for α in S_n and β in S_m with n<=m; this must be stated to make the question stand-alone.",
+    "Flexible closeness allows approximation by homomorphisms ρ_n:G->S_{m_n} into larger symmetric groups, with integers m_n>=n; your draft does not mention the larger target groups or the sequence m_n.",
+    "The quantifiers are pointwise in the group elements: the limits are required for every g,h in G and every g in G as n->infinity, not merely on a generating set or uniformly over finite subsets.",
+    "The draft does not indicate that the question compares two paper-defined properties and therefore needs the exact local notation from Problems 21.83 and 21.84 to be interpretable on its own."
+  ],
+  "refined_question": "Let G be a finitely generated group. For σ,τ in S_n, define d_n(σ,τ)=(1/n)|{x in {1,...,n} : σ(x) != τ(x)}|. A sequence of set-theoretic maps f_n:G->S_n is called an almost-homomorphism if d_n(f_n(g)f_n(h),f_n(gh))->0 as n->infinity for every g,h in G. The group G is called permutation-stable if for every almost-homomorphism {f_n} there exists a sequence of group homomorphisms ρ_n:G->S_n such that d_n(ρ_n(g),f_n(g))->0 as n->infinity for every g in G. For α in S_n and β in S_m with n<=m, define d_n^flex(α,β)=(1/n)(|{x in {1,...,n} : α(x) != β(x)}|+(m-n)). The group G is called flexibly permutation-stable if for every almost-homomorphism {f_n} there exist integers m_n>=n and group homomorphisms ρ_n:G->S_{m_n} such that d_n^flex(f_n(g),ρ_n(g))->0 as n->infinity for every g in G. Must every finitely generated flexibly permutation-stable group be permutation-stable?",
+  "equivalent_formulation": null,
+  "justification": "The nearest official target is exactly Problem 21.85. However, that question is not self-contained unless one imports the definitions given immediately before it: Problem 21.83 defines d_n, almost-homomorphism, closeness to a homomorphism, and permutation stability; Problem 21.84 defines d_n^flex, flexible closeness, and flexible permutation stability. Those nearby items also impose the finitely generated hypothesis on G and specify the relevant quantifiers as limits holding for all g,h in G or all g in G as n tends to infinity. No separate equivalent reformulation is stated there, so the sharp paper-faithful rewrite is simply the same implication question with all of 21.83-21.84 unfolded.",
+  "citations": [
+    {
+      "section": "New Problems (21st issue, 2026)",
+      "label": "21.83",
+      "page": 174
+    },
+    {
+      "section": "New Problems (21st issue, 2026)",
+      "label": "21.84",
+      "page": 174
+    },
+    {
+      "section": "New Problems (21st issue, 2026)",
+      "label": "21.85",
+      "page": 174
+    }
+  ]
+}

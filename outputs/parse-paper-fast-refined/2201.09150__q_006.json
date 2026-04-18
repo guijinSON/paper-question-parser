@@ -1,0 +1,50 @@
+{
+  "arxiv_id": "2201.09150",
+  "question_id": "q_006",
+  "original_question": "For the multispecies movement model in which populations respond to dynamic densities of landscape marks left by other populations, determine whether time-dependent solutions exist in a bounded domain with periodic boundary conditions and a top-hat detection kernel, and whether those solutions remain well defined as R tends to 0+.",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 7937.71,
+  "target_in_paper": "Section 2.2.2, Open Problem 6 for model (2.11): the explicit landscape-mark system in which each population moves according to the perceived density of foreign marks, asking for existence of time-dependent solutions on a bounded domain with periodic boundary conditions and a top-hat detection function, and asking whether the solution theory stays well defined as R→0+. ([math.ualberta.ca](https://www.math.ualberta.ca/~hwang/WangSalmaniwReview.pdf))",
+  "completeness_score": 8.5,
+  "correct_elements": "Your draft already captures the correct model class (multiple interacting populations responding to landscape marks left by other populations), the fact that the target is the time-dependent problem rather than the steady-state problem, the bounded periodic-domain setting, the top-hat detection choice, and the additional R→0+ local-limit/well-definedness issue. ([math.ualberta.ca](https://www.math.ualberta.ca/~hwang/WangSalmaniwReview.pdf))",
+  "missing_details": [
+    "The exact PDE system (2.11) is missing: for i=1,…,n, ∂_t u_i = d_iΔu_i − γ_i∇·(u_i∇p_i^{g,R}) and ∂_t p_i = Σ_{j=1}^n α_{ij}u_j − μp_i, where p_i is the density of marks foreign to population u_i. ([math.ualberta.ca](https://www.math.ualberta.ca/~hwang/WangSalmaniwReview.pdf))",
+    "The perception operator is not defined: a^{g,R}(x,t)=∫_Ω a(y,t)g(x−y)dy in the paper’s notation, so p_i^{g,R} is a spatial convolution/perception of p_i rather than p_i itself. ([math.ualberta.ca](https://www.math.ualberta.ca/~hwang/WangSalmaniwReview.pdf))",
+    "The top-hat detection function should be identified in the paper’s sense as the normalized kernel that is uniform within perceptual range R and zero beyond; the draft names the kernel but does not define R as the perceptual range. ([math.ualberta.ca](https://www.math.ualberta.ca/~hwang/WangSalmaniwReview.pdf))",
+    "The quantifiers and variables should be explicit: there are n interacting populations indexed by i=1,…,n, with coefficients d_i>0, μ>0, γ_i∈R, and interaction parameters α_{ij} whose sign encodes attraction or repulsion. ([math.ualberta.ca](https://www.math.ualberta.ca/~hwang/WangSalmaniwReview.pdf))",
+    "To make the question stand-alone, one should say that periodic boundary conditions apply to the full system and that, in higher dimensions, this is equivalently a problem on a torus; this matters because the paper uses periodicity to avoid redefining the kernel near the boundary. ([math.ualberta.ca](https://www.math.ualberta.ca/~hwang/WangSalmaniwReview.pdf))",
+    "The phrase in what sense do solutions exist is essential in the source: the problem is not merely yes/no existence, but the appropriate solution concept and regularity class (weak, strong, or classical), together with the needed class of periodic initial data and whether the existence is local or global in time. ([math.ualberta.ca](https://www.math.ualberta.ca/~hwang/WangSalmaniwReview.pdf))",
+    "The R→0+ clause should be made explicit as a local-limit question: since the kernels are assumed to converge to a Dirac mass as R→0+, the intended issue is whether the nonlocal solution theory connects meaningfully to the corresponding local system obtained by replacing p_i^{g,R} by p_i. ([math.ualberta.ca](https://www.math.ualberta.ca/~hwang/WangSalmaniwReview.pdf))",
+    "Not applicable here: ambient ring/field, homogeneity, degree restrictions, nilpotency, and phrases like for all sufficiently large m are not part of the paper’s formulation, because the target statement is a PDE well-posedness/local-limit problem rather than an algebraic one. ([math.ualberta.ca](https://www.math.ualberta.ca/~hwang/WangSalmaniwReview.pdf))"
+  ],
+  "refined_question": "Let Ω be a bounded domain with periodic boundary conditions (equivalently, a torus in higher dimensions). For i=1,…,n, let u_i(x,t) denote the density of population i and p_i(x,t) the density of landscape marks foreign to population i, and consider the system ∂_t u_i = d_iΔu_i − γ_i∇·(u_i∇p_i^{g,R}), ∂_t p_i = Σ_{j=1}^n α_{ij}u_j − μp_i, where p_i^{g,R}(x,t)=∫_Ω p_i(y,t)g_R(x−y)dy is the periodic perception convolution and g_R is the top-hat detection kernel (uniform on the ball of radius R and zero outside, normalized to have integral 1). For suitable periodic initial data, in what function-space sense can one establish existence of time-dependent solutions to this explicit landscape-mark model (2.11), and does this solution theory remain well defined as R→0+, in the sense of yielding a meaningful local-limit connection to the system with p_i^{g,R} replaced by p_i? ([math.ualberta.ca](https://www.math.ualberta.ca/~hwang/WangSalmaniwReview.pdf))",
+  "equivalent_formulation": "Equivalently, one may pose the same existence/local-limit question for (2.11) on the d-dimensional torus, because the paper states that periodic boundary conditions in higher dimensions are equivalent to studying the problem on a torus. ([math.ualberta.ca](https://www.math.ualberta.ca/~hwang/WangSalmaniwReview.pdf))",
+  "justification": "The draft is already very close to Open Problem 6. I sharpened it only by restoring the paper’s precise system (2.11), the perception notation p_i^{g,R}, the role of R as perceptual range, the need to specify a solution concept and initial data, and the intended local-limit meaning of the R→0+ clause. I did not broaden it to the steady-state problem (Open Problem 7) or to other memory models, and I kept the periodic bounded-domain/top-hat setting because the paper treats that as the analytically first and most natural version of this question, while later emphasizing that top-hat kernels are especially difficult because of their discontinuity and that periodic boundaries avoid boundary-kernel technicalities. ([math.ualberta.ca](https://www.math.ualberta.ca/~hwang/WangSalmaniwReview.pdf))",
+  "citations": [
+    {
+      "section": "2.1",
+      "label": "Equations (2.3) and (2.5)",
+      "page": "8-10"
+    },
+    {
+      "section": "2.2.2",
+      "label": "Equation (2.11)",
+      "page": "15"
+    },
+    {
+      "section": "2.2.2",
+      "label": "Open Problem 6",
+      "page": "15"
+    },
+    {
+      "section": "4.1.2",
+      "label": "Periodic boundary condition discussion",
+      "page": "40"
+    },
+    {
+      "section": "5.1.1",
+      "label": "Well-posedness discussion for discontinuous top-hat kernels",
+      "page": "55"
+    }
+  ]
+}

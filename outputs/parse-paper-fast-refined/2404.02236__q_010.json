@@ -1,0 +1,53 @@
+{
+  "arxiv_id": "2404.02236",
+  "question_id": "q_010",
+  "original_question": "Compute the completely positive semidefinite rank of the average mixing matrix Mc. Here the completely positive semidefinite rank of a completely positive semidefinite matrix M is the smallest dimension d such that M is the Gram matrix of positive semidefinite matrices of size d x d.",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 9548.92,
+  "target_in_paper": "Section 4, subsection \"Different takes on the positivity of M_c\", Open Problem 4.3: \"Compute the cpsd-rank of M_c.\"",
+  "completeness_score": 8,
+  "correct_elements": "Your draft targets the exact open problem stated in the paper and already uses the same local notion of completely positive semidefinite rank. It also stays narrowly focused on M_c rather than drifting to the neighboring problems on non-negative rank or cp-rank.",
+  "missing_details": [
+    "The paper's problem is about the average mixing matrix attached to a graph G; the draft does not quantify over G or mention its adjacency matrix A(G).",
+    "To make the question stand-alone, define the continuous-time quantum walk transition matrix U(t)=exp(itA(G)).",
+    "Define the mixing matrix M(t)=U(t) ◦ U(-t), where ◦ is the Schur (entrywise) product.",
+    "Define the average mixing matrix M_c as M_c = lim_{T→∞} (1/T) ∫_0^T M(t) dt; the paper also gives the equivalent spectral formula M_c = sum_{r=0}^m E_r ◦ E_r when A(G)=sum_{r=0}^m θ_r E_r.",
+    "The open problem is posed for general graphs in this framework; the nearby simple-eigenvalue result is contextual and is not an added hypothesis of Open Problem 4.3.",
+    "If you want the cpsd-rank definition to be fully explicit, specify the factorization as M_c being the Gram matrix of k×k positive semidefinite matrices, equivalently (M_c)_{ij}=Tr(P_iP_j) for suitable positive semidefinite P_i."
+  ],
+  "refined_question": "Let G be a graph on n vertices with adjacency matrix A(G), transition matrix U(t)=exp(itA(G)), mixing matrix M(t)=U(t) ◦ U(-t), and average mixing matrix M_c := lim_{T→∞} (1/T) ∫_0^T M(t) dt, equivalently M_c = sum_{r=0}^m E_r ◦ E_r when A(G)=sum_{r=0}^m θ_rE_r is the spectral decomposition of A(G). Determine the completely positive semidefinite rank of M_c; that is, find the smallest integer k for which there exist k×k positive semidefinite matrices P_1,...,P_n such that (M_c)_{ij}=Tr(P_iP_j) for all i,j.",
+  "equivalent_formulation": null,
+  "justification": "The nearest official formulation is exactly Open Problem 4.3 in Section 4. The surrounding context that must be imported to make the question stand-alone is all local: Section 4 defines M(t)=U(t) ◦ U(-t), the uniform average over [0,T], the limit M_c, and the spectral identity M_c = sum_r E_r ◦ E_r. The immediately following subsection defines cpsd-rank, states that M_c is completely positive semidefinite and that cpsd-rank(M_c) is at most n, and then asks to compute it. Lemma 4.1, which follows right after Open Problem 4.3, supplies nearby context about the simple-eigenvalue case and confirms that no such restriction is part of Open Problem 4.3 itself.",
+  "citations": [
+    {
+      "section": "Section 1",
+      "label": "Introduction (definition of U(t)=exp(itA(G)))",
+      "page": 1
+    },
+    {
+      "section": "Section 4",
+      "label": "definition of M(t), the uniform average, and the average mixing matrix M_c",
+      "page": 11
+    },
+    {
+      "section": "Section 4",
+      "label": "spectral formula M_c = sum_r E_r ◦ E_r",
+      "page": 11
+    },
+    {
+      "section": "Section 4, subsection \"Different takes on the positivity of M_c\"",
+      "label": "definition of completely positive semidefinite rank and the bound cpsd-rank(M_c) ≤ n",
+      "page": 12
+    },
+    {
+      "section": "Section 4, subsection \"Different takes on the positivity of M_c\"",
+      "label": "Open Problem 4.3",
+      "page": 12
+    },
+    {
+      "section": "Section 4, subsection \"Different takes on the positivity of M_c\"",
+      "label": "Lemma 4.1",
+      "page": 12
+    }
+  ]
+}

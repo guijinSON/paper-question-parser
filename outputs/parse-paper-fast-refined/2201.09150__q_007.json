@@ -1,0 +1,57 @@
+{
+  "arxiv_id": "2201.09150",
+  "question_id": "q_007",
+  "original_question": "For the same landscape-mark model, determine whether spatially non-constant steady states exist in a bounded periodic domain with a top-hat detection kernel, and whether those steady states persist in the local limit R -> 0+.",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 7923.29,
+  "target_in_paper": "Section 2.2.2, Open Problem 7, for the landscape-mark dynamic memory model (2.11).",
+  "completeness_score": 8,
+  "correct_elements": "The draft correctly identifies the landscape-mark model, the steady-state rather than time-dependent problem, the periodic bounded-domain setting, the top-hat detection kernel, and the local-limit question as R -> 0+. Those are exactly the core ingredients of Open Problem 7.",
+  "missing_details": [
+    "The official target should be named explicitly: Open Problem 7 for model (2.11); the phrase \"same landscape-mark model\" is not stand-alone.",
+    "The unknowns should be stated: u_i(x,t) is the density of population i and p_i(x,t) is the density of marks foreign to population i, for i = 1,...,n.",
+    "The governing system should be included: partial_t u_i = d_i Delta u_i - gamma_i div(u_i grad p_{i,g,R}) and partial_t p_i = sum_{j=1}^n alpha_{ij} u_j - mu p_i.",
+    "The nearby context defines the perceived mark field through the perception operator: p_{i,g,R}(x,t) = integral over Omega of p_i(y,t) g(x-y) dy, interpreted periodically on the bounded domain.",
+    "The top-hat detection function should be defined from (2.3): in one dimension, g_R(z) = 1/(2R) for |z| <= R and 0 otherwise; the paper notes the higher-dimensional norm-based generalization.",
+    "The boundary condition should be phrased exactly as periodic boundary conditions on a bounded domain Omega (equivalently, a torus in higher dimensions), not merely as a \"bounded periodic domain.\"",
+    "The paper asks \"in what sense do spatially non-constant solutions exist,\" so the solution framework or regularity notion is part of the open problem; the draft currently sounds like a bare yes/no existence question.",
+    "The local-limit clause should match the paper's wording: \"Do solutions remain well defined in the limit as R -> 0+?\" rather than only whether they \"persist.\"",
+    "The nearby statement notes that spatially constant steady states are already clear; the open question is specifically about non-constant steady states beyond those.",
+    "Algebraic notions such as ambient ring/field, homogeneity degree, or nilpotency are not relevant here; the missing stand-alone data are the PDE variables, operator definitions, kernel, and boundary conditions."
+  ],
+  "refined_question": "For the landscape-mark model (2.11), with unknowns u_i(x,t) (density of population i) and p_i(x,t) (density of marks foreign to population i), i = 1,...,n, given by partial_t u_i = d_i Delta u_i - gamma_i div(u_i grad p_{i,g,R}) and partial_t p_i = sum_{j=1}^n alpha_{ij} u_j - mu p_i on a bounded domain Omega with periodic boundary conditions, where p_{i,g,R}(x) is the periodic spatial convolution of p_i with the top-hat detection kernel g_R from (2.3) (in one dimension, g_R(z) = 1/(2R) for |z| <= R and 0 otherwise), beyond the obvious spatially constant equilibria, in what sense do spatially non-constant periodic steady states (u_i,p_i) exist for the steady-state problem associated to (2.11), and do these steady states remain well defined in the local limit R -> 0+?",
+  "equivalent_formulation": null,
+  "justification": "The draft is clearly targeting Open Problem 7 in Section 2.2.2, posed immediately after the landscape-mark system (2.11) is introduced. Open Problem 7 asks almost verbatim about spatially non-constant steady states for (2.11) under periodic boundary conditions, a top-hat detection function, and the limit R -> 0+. To make the question fully stand-alone and faithful to the paper, one must supply the variables u_i and p_i, the PDE system and perception operator from the surrounding context, the definition of the top-hat kernel from Section 2.1, and the meaning of periodic boundary conditions on a bounded domain from Section 4.1.2. I did not broaden the question to Open Problem 8 (qualitative properties of the non-constant steady states) or Open Problem 9 (other boundary conditions), since the draft does not ask for those.",
+  "citations": [
+    {
+      "section": "2.1",
+      "label": "Eq. (2.3)",
+      "page": "9"
+    },
+    {
+      "section": "2.1",
+      "label": "Eq. (2.5)",
+      "page": "10"
+    },
+    {
+      "section": "2.2.2",
+      "label": "Eq. (2.11)",
+      "page": "14-15"
+    },
+    {
+      "section": "2.2.2",
+      "label": "Open Problem 7",
+      "page": "15"
+    },
+    {
+      "section": "4.1.2",
+      "label": "periodic boundary conditions discussion",
+      "page": "40-41"
+    },
+    {
+      "section": "5.1.1",
+      "label": "well-posedness discussion for the top-hat detection function",
+      "page": "54"
+    }
+  ]
+}

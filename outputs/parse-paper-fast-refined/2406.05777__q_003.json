@@ -1,0 +1,49 @@
+{
+  "arxiv_id": "2406.05777",
+  "question_id": "q_003",
+  "original_question": "Investigate when the inverse problem Af = g is Krylov-solvable for the prototypical Friedrichs operator on H = L^2(R) given by dom A = H^1(R) and Af = -f' + f, and more generally for first-order operators of the form A = -d/dx + c(x) where c : R -> C is chosen so that c(x) + overline{c(x)} is a positive bounded function separated from zero. The problem is to identify suitable assumptions on the datum g and, in the variable-coefficient case, on the coefficient c under which Krylov solvability holds.",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 9982.06,
+  "target_in_paper": "Section 4, Question 3: to investigate the Krylov-solvability of the inverse problem induced by the prototypical operator (4.4) or the variable-coefficient variant (4.5), under suitable conditions on the datum g and the coefficient c.",
+  "completeness_score": 8.5,
+  "correct_elements": "The draft identifies the right concrete target in the paper: the one-dimensional toy model singled out in Section 4 after the abstract Questions 1 and 2. It correctly uses the prototypical operator on L^2(R) with domain H^1(R), includes the variable-coefficient first-order variant, and asks for assumptions on g and c ensuring Krylov-solvability. It also stays narrowly focused on Question 3 rather than drifting to the broader classical Friedrichs-operator problem of Question 4.",
+  "missing_details": [
+    "The draft should explicitly define Krylov-solvability: for the inverse problem Af = g, one asks whether there exists a solution f in the closure of the Krylov subspace K(A,g) = span{g, Ag, A^2 g, ...} in H.",
+    "Because the operators in Question 3 are unbounded, the Krylov subspace is only defined when g lies in the domain of every power of A; this smooth-vector requirement is implicit in the paper's surrounding discussion.",
+    "The stand-alone question should say that one is considering data g for which Af = g is solvable (equivalently, g is in the range of A), since Krylov-solvability is a refinement of solvability, not a substitute for it.",
+    "In the variable-coefficient case, the role of the condition on c should be tied explicitly to the Friedrichs structure: c should be chosen so that A remains of Friedrichs type, i.e. A + A* is a bounded self-adjoint coercive multiplication operator; the draft's condition on c + conjugate(c) is a concrete way to encode this.",
+    "The ambient space should be stated as the complex Hilbert space H = L^2(R), since the paper formulates the example in the complex Hilbert-space setting.",
+    "To remain fully paper-faithful, the question should not ask for a complete characterization or necessary-and-sufficient conditions unless stated as an aspiration; the paper's own wording is only to investigate Krylov-solvability under suitable conditions on g and c.",
+    "The nearby context records a known partial sufficient condition in the model case: if the Fourier transform of g is smooth and compactly supported, then the problem for (4.4) has a unique Krylov solution. A refined formulation should not present that particular condition as still open."
+  ],
+  "refined_question": "Let H = L^2(R) be the complex Hilbert space, and let A be the unbounded first-order Friedrichs operator with domain H^1(R) acting by Af = -f' + f. More generally, let A_c be the operator with domain H^1(R) acting by A_c f = -f' + c(x)f, where c : R -> C is chosen so that A_c is still of Friedrichs type, equivalently so that A_c + A_c* is the bounded self-adjoint coercive multiplication operator by c + conjugate(c) (for example, c + conjugate(c) is bounded and bounded below by a positive constant). For data g such that the inverse problem Af = g (respectively A_c f = g) is solvable and the associated Krylov subspace K(A,g) = span{g, Ag, A^2 g, ...} (respectively K(A_c,g)) is well defined, determine suitable assumptions on g, and in the variable-coefficient case also on c, that guarantee the existence of a solution f lying in the closure of the corresponding Krylov subspace; that is, determine when the inverse problem induced by (4.4) or (4.5) is Krylov-solvable.",
+  "equivalent_formulation": null,
+  "justification": "Your draft is aimed at the paper's concrete one-dimensional open problem, namely Question 3 in Section 4, not at the broader matrix-valued Friedrichs problem of Question 4. The surrounding discussion shows that Question 3 is the concrete differential-operator analogue of the abstract Questions 1 and 2, and that the hidden technical background comes from the definition of Krylov solvability and from the smooth/quasi-analytic vector machinery for unbounded operators in Section 2, together with the Friedrichs-type coercivity condition A + A* bounded self-adjoint coercive from Section 3. The refined version therefore keeps your operators and scope, but makes explicit the solvability assumption, the definition of the Krylov subspace, the need for g to be in the domains of all powers of A, and the fact that the condition on c is only there to keep the operator in the Friedrichs class. It also avoids overstating the problem as a full characterization, which the paper does not claim, and respects the nearby note that one sufficient condition for the constant-coefficient model is already known.",
+  "citations": [
+    {
+      "section": "Section 4",
+      "label": "Question 3; equations (4.4) and (4.5)",
+      "page": "pp. 347-348"
+    },
+    {
+      "section": "Section 4",
+      "label": "paragraph immediately after Question 3 (partial result for Fourier transform of g smooth and compactly supported)",
+      "page": "p. 348"
+    },
+    {
+      "section": "Section 2",
+      "label": "Definition 2.6",
+      "page": "pp. 340-341"
+    },
+    {
+      "section": "Section 2",
+      "label": "Theorem 2.7",
+      "page": "p. 341"
+    },
+    {
+      "section": "Section 3",
+      "label": "equation (3.3) and discussion of abstract Friedrichs operators",
+      "page": "pp. 344-345"
+    }
+  ]
+}

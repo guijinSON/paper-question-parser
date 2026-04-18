@@ -1,0 +1,54 @@
+{
+  "arxiv_id": "2206.06472",
+  "question_id": "q_006",
+  "original_question": "Let T103(a,b) denote the number of tilings of the (a,b)-benzel in which right stones are allowed, left stones are forbidden, and all three bone orientations are allowed. Is it true that T103(n, 2n-3) = (3n+3)(3n-7)!/((n-5)! (2n-1)!) for every n >= 5, with the same formula also yielding 0 for n = 3 and n = 4 if one formally interprets 1/(-1)! and 1/(-2)! as 0?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 8354.36,
+  "target_in_paper": "Section 6, Problem 6 (\"Right stones, three kinds of bones\").",
+  "completeness_score": 8.8,
+  "correct_elements": "Your draft already matches the paper's official formulation very closely: it correctly uses the type-103 notation, identifies the permitted prototiles as right stones plus all three bone orientations with left stones forbidden, chooses the same one-parameter family of benzels (n, 2n-3), states the exact factorial formula, keeps the quantifier n >= 5, and includes the paper's parenthetical convention that the same expression formally gives 0 at n = 3 and n = 4 if 1/(-1)! and 1/(-2)! are interpreted as 0.",
+  "missing_details": [
+    "The draft is not fully stand-alone because it does not define the (a,b)-benzel itself; in the paper this is the polyhex whose unit-hexagon centers (i,j,k) in Z^3 satisfy i+j+k=1 and -(a-1) <= j-i, k-j, i-k <= b-1.",
+    "It leaves implicit the formal meaning of T_{ijk}(a,b): for 0 <= i,j <= 1 and 0 <= k <= 3, the right stone is allowed iff i=1, the left stone is allowed iff j=1, and exactly k of the three bone prototiles are allowed.",
+    "It does not say that tilings are by translates of the prototiles (right stone, left stone, vertical bone, rising bone, falling bone).",
+    "It omits the admissible parameter range for benzels, namely integers a,b with 2 <= a <= 2b and 2 <= b <= 2a; for the family (n, 2n-3), this means n >= 3.",
+    "It does not mention the paper's nearby contextual description that this family lies on a peripheral diagonal b = 2a - 3 of the table of values.",
+    "It omits the paper's computational status note that the identity was verified for 5 <= n <= 16.",
+    "No ambient ring/field, operator, homogeneity, degree, or nilpotency assumptions are involved here; this is purely an enumerative problem over integer parameters."
+  ],
+  "refined_question": "For integers a,b with 2 <= a <= 2b and 2 <= b <= 2a, let the (a,b)-benzel be the polyhex consisting of unit hexagons whose centers (i,j,k) in Z^3 satisfy i+j+k=1 and -(a-1) <= j-i, k-j, i-k <= b-1. Let T_{103}(a,b) denote the number of tilings of this region by translates of the right stone and the three bone trihexes (vertical, rising, and falling), with the left stone forbidden. Is it true that for every integer n >= 5 one has T_{103}(n, 2n-3) = ((3n+3)(3n-7)!)/((n-5)!(2n-1)!)? As in the paper, the same expression formally gives 0 for n = 3 and n = 4 if 1/(-1)! and 1/(-2)! are interpreted as 0.",
+  "equivalent_formulation": null,
+  "justification": "The draft is targeting the paper's official Problem 6, not a broader neighboring question. Section 1 defines both the benzel and the notation T_{ijk}(a,b), and Table 1 identifies type 103 with Problems 6-7. In Section 6, Problem 6 is exactly the closed-form question for T_{103}(n,2n-3), while Problem 7 is the different existence-only question for all type-103 benzels with nonnegative Conway-Lagarias invariant. So the right refinement is to keep the exact formula question and only make the paper's implicit definitions explicit.",
+  "citations": [
+    {
+      "section": "1",
+      "label": "Definition of the (a,b)-benzel",
+      "page": "2-3"
+    },
+    {
+      "section": "1",
+      "label": "Definition of T_{ijk}(a,b)",
+      "page": 5
+    },
+    {
+      "section": "1",
+      "label": "Table 1 (type 103 corresponds to Problems 6-7)",
+      "page": 6
+    },
+    {
+      "section": "6",
+      "label": "Problem 6",
+      "page": 8
+    },
+    {
+      "section": "6",
+      "label": "Paragraph after Problem 6 (peripheral diagonal; verified for 5 <= n <= 16)",
+      "page": 8
+    },
+    {
+      "section": "6",
+      "label": "Problem 7",
+      "page": 9
+    }
+  ]
+}

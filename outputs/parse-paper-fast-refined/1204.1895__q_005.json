@@ -1,0 +1,64 @@
+{
+  "arxiv_id": "1204.1895",
+  "question_id": "q_005",
+  "original_question": "For dimension d >= 2, suppose the family of cookie stacks is i.i.d. and uniformly elliptic, meaning there exists kappa > 0 such that every transition probability ω(z,e,i) is at least kappa almost surely. Must the excited random walk always fall into one of the two global behaviors: recurrence, meaning every site is visited infinitely often almost surely, or transience, meaning no site is visited infinitely often almost surely?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 2151.37,
+  "target_in_paper": "Section 3.2, Problem 3.21 (p. 128): \"Assume (IID) and (UEL). Is the ERW either recurrent or transient?\"",
+  "completeness_score": 8.5,
+  "correct_elements": "Your draft is aimed at the right open problem. It has the correct dimension range d ≥ 2, the correct hypotheses ((IID) cookie stacks and (UEL) uniform ellipticity), and the correct global dichotomy between recurrence and transience. Its verbal definitions of recurrence and transience are also very close to the paper’s Definition 3.1.",
+  "missing_details": [
+    "The paper’s ambient model should be stated explicitly: an excited random walk X=(X_n)_{n≥0} on Z^d with nearest-neighbor steps E={±e_1,...,±e_d}, started at 0, in a cookie environment ω=(ω(z,e,i))_{z∈Z^d,e∈E,i∈N}.",
+    "(IID) means the family of cookie stacks (ω(z,·,·))_{z∈Z^d} is i.i.d. under the environment law P, not merely that the individual transition probabilities are i.i.d.",
+    "(UEL) should be quantified exactly as in the paper: there exists κ>0 such that for every z∈Z^d, e∈E, and i∈N, one has ω(z,e,i)≥κ P-a.s.",
+    "The almost-sure statements in the recurrence/transience dichotomy are under the averaged law P_0 (annealed law), not under the quenched law or an unspecified probability measure.",
+    "To match Definition 3.1 exactly, transient should also be identified with the equivalent condition |X_n|→∞ P_0-a.s.",
+    "The paper phrases this as an open problem, not a theorem or conjecture: the official formulation is the question whether the ERW is either recurrent or transient.",
+    "If you want the question to be fully stand-alone, you should include the transition rule (1.1): on the i-th visit to z, the walk jumps from z to z+e with probability ω(z,e,i)."
+  ],
+  "refined_question": "Let X=(X_n)_{n≥0} be the excited random walk on Z^d, d ≥ 2, started at 0, in a nearest-neighbor cookie environment ω=(ω(z,e,i))_{z∈Z^d,e∈E,i∈N}, where E={±e_1,...,±e_d}. Assume that under the environment law P the cookie stacks (ω(z,·,·))_{z∈Z^d} are i.i.d. and uniformly elliptic, i.e. there exists κ>0 such that P-a.s. ω(z,e,i)≥κ for every z∈Z^d, e∈E, and i∈N. Under the averaged law P_0, is X necessarily either recurrent, meaning that every site z∈Z^d is visited infinitely often P_0-a.s., or transient, meaning that no site is visited infinitely often P_0-a.s.?",
+  "equivalent_formulation": "Under the same assumptions, is it true that either every site of Z^d is visited infinitely often P_0-a.s., or else |X_n|→∞ as n→∞ P_0-a.s.?",
+  "justification": "The nearest official target is Problem 3.21 in Section 3.2, which asks exactly this recurrence/transience dichotomy under (IID) and (UEL) for d ≥ 2 (p. 128). Definition 3.1 gives the paper’s precise meanings of recurrent and transient and explicitly identifies transience with |X_n|→∞ under P_0 (p. 118). The nearby Theorem 3.16 and Problem 3.20 are related context about directional zero-one laws for the events A_ℓ, but they are not the same question (pp. 124 and 128). Section 1 supplies the exact model, the i.i.d. stack assumption (IID), and uniform ellipticity (UEL) (pp. 107-108). Finally, your draft’s two-way dichotomy is consistent with the paper’s scope because Definition 2.1 and Theorem 2.5 show that under (IID) together with (UEL), the finite-range alternative is excluded, so the remaining issue is exactly whether the walk must be recurrent or transient (pp. 113 and 115).",
+  "citations": [
+    {
+      "section": "1",
+      "label": "(IID)",
+      "page": 107
+    },
+    {
+      "section": "1",
+      "label": "(UEL)",
+      "page": 108
+    },
+    {
+      "section": "2",
+      "label": "Definition 2.1",
+      "page": 113
+    },
+    {
+      "section": "2",
+      "label": "Theorem 2.5",
+      "page": 115
+    },
+    {
+      "section": "3",
+      "label": "Definition 3.1",
+      "page": 118
+    },
+    {
+      "section": "3.2",
+      "label": "Theorem 3.16",
+      "page": 124
+    },
+    {
+      "section": "3.2",
+      "label": "Problem 3.20",
+      "page": 128
+    },
+    {
+      "section": "3.2",
+      "label": "Problem 3.21",
+      "page": 128
+    }
+  ]
+}

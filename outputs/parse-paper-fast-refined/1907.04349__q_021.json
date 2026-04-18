@@ -1,0 +1,44 @@
+{
+  "arxiv_id": "1907.04349",
+  "question_id": "q_021",
+  "original_question": "For a graph Γ on n vertices, must its Seidel energy satisfy S(Γ) >= 2(n - 1), with equality at the complete graph K_n?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 6715.78,
+  "target_in_paper": "Section 3.8, Conjecture 3.35 (the Seidel energy conjecture for graphs on n vertices).",
+  "completeness_score": 8,
+  "correct_elements": "Your draft identifies the right target: the Seidel-energy lower bound for a graph on n vertices, with the correct benchmark value 2(n − 1) and the complete graph K_n as the extremal model. This is exactly the conjectural inequality recorded in the paper.",
+  "missing_details": [
+    "The paper defines the Seidel matrix explicitly as S = J_n − I_n − 2A(Γ), where J_n is the all-ones matrix and I_n is the identity; without this, the notation is not self-contained.",
+    "The paper defines the Seidel energy as the sum of the absolute values of the eigenvalues of the Seidel matrix; your draft presumes this definition but does not state it.",
+    "The graph here is an ordinary graph on n vertices, viewed through its Seidel matrix as a signed complete graph; that context is implicit in your draft and should be made explicit.",
+    "The paper’s nearby prose says the intended minimizers are K_n and the graphs Seidel-switching equivalent to K_n, not just K_n literally.",
+    "The official formulation in the paper is the inequality S(Γ) ≥ S(K_n) = 2(n − 1); it does not itself state an equality characterization, so adding 'with equality at K_n' should be tightened to the switching-class version if included.",
+    "To be fully stand-alone, the question should specify that the relevant eigenvalues are the real eigenvalues of the real symmetric Seidel matrix.",
+    "There are no ambient-ring, homogeneity, degree, or nilpotency conditions relevant here; the essential missing data are the graph/matrix definitions, quantifier 'for every graph on n vertices,' and the Seidel-switching scope of the extremal case."
+  ],
+  "refined_question": "For every graph Γ on n vertices, let S = J_n − I_n − 2A(Γ) be its Seidel matrix, where J_n is the n×n all-ones matrix and I_n is the identity matrix, and let S(Γ) denote the Seidel energy, i.e. the sum of the absolute values of the eigenvalues of S. Is it true that S(Γ) ≥ S(K_n) = 2(n − 1)?",
+  "equivalent_formulation": "Among all graphs on n vertices, do the complete graph K_n and, more generally, all graphs Seidel-switching equivalent to K_n minimize the Seidel energy?",
+  "justification": "The draft is aiming at the Seidel-energy conjecture stated in Section 3.8 as Conjecture 3.35. The paper first defines the Seidel matrix of a graph and then the Seidel energy, and immediately states the conjecture in the exact form S(Γ) ≥ S(K_n) = 2(n − 1) (Section 3.8, pp. 14 and 16). Your draft already has the right inequality and extremal constant. What it lacks are the explicit matrix/energy definitions and the nearby contextual refinement that the intended minimizers are K_n up to Seidel switching, not just K_n as a lone graph. That switching-class nuance is supported by the paper’s general discussion that switching-equivalent signed graphs have similar matrices and hence the same spectrum (Section 1, p. 1), together with the Section 3.8 interpretation of Seidel matrices as adjacency matrices of signed complete graphs. So the closest paper-faithful sharpening is the exact inequality formulation of Conjecture 3.35, with the switching-class minimizer statement given only as the alternate formulation from the surrounding text. The paper also notes immediately afterward that this conjecture had very recently been proved, but the official target statement in the paper is still Conjecture 3.35.",
+  "citations": [
+    {
+      "section": "1",
+      "label": "switching equivalence preserves spectra via signature similarity",
+      "page": 1
+    },
+    {
+      "section": "3.1",
+      "label": "Seidel matrix interpreted as adjacency matrix of a signed complete graph / Seidel switching context",
+      "page": 5
+    },
+    {
+      "section": "3.8",
+      "label": "definition of Seidel matrix",
+      "page": 14
+    },
+    {
+      "section": "3.8",
+      "label": "Conjecture 3.35",
+      "page": 16
+    }
+  ]
+}

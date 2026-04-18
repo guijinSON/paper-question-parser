@@ -1,0 +1,50 @@
+{
+  "arxiv_id": "1905.01736",
+  "question_id": "q_003",
+  "original_question": "If a Markov modulated Poisson process (MMPP) has event-stationary inter-event times with squared coefficient of variation c^2 equal to 1, must the process itself be a Poisson process?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 6565.89,
+  "target_in_paper": "The draft is targeting the separate unnumbered concluding conjecture about the equality case c^2 = 1, not the main conjecture c^2 \\u2265 1. The paper states in the conclusion: all MMPPs with c^2 = 1 should be Poisson, and adds the sharper related claim that if c^2 = 1 then all modulation rates \\u03bb_i are equal.",
+  "completeness_score": 8.5,
+  "correct_elements": "Your draft already matches the paper on the core mathematical implication: it is about MMPPs, it uses the event-stationary interarrival-time SCV c^2, it focuses on the equality case c^2 = 1 rather than the broader inequality c^2 \\u2265 1, and it asks exactly whether this forces the process to collapse to a Poisson process.",
+  "missing_details": [
+    "The paper works with irreducible finite-state MMPPs of arbitrary order p, not with general Cox processes or arbitrary point processes.",
+    "The quantity c^2 should be defined explicitly as c^2 := Var(T_1^\\u03b1)/E[T_1^\\u03b1]^2, where T_1^\\u03b1 is the generic event-stationary interarrival time.",
+    "Event-stationary should be specified via initialization of the background phase process in \\u03b1, the stationary distribution of the embedded chain P.",
+    "The MMPP parameterization should be made explicit: D = diag(\\u03bb_1,\\dots,\\u03bb_p) with \\u03bb_i \\u2265 0, Q irreducible, and C = Q - D.",
+    "The quantifier should be stated clearly: the question is for every irreducible MMPP of arbitrary order p; the paper notes that the order-2 case is already proved.",
+    "\\\"Poisson process\\\" should be sharpened to \\\"homogeneous Poisson process\\\".",
+    "The paper also records the sharper internal formulation that c^2 = 1 should force \\u03bb_1 = \\cdots = \\u03bb_p.",
+    "The paper treats this as an unproved concluding conjecture, distinct from the main conjectures about c^2 \\u2265 1 and the stochastic order T_1^\\u03c0 \\u2265_st T_1^\\u03b1."
+  ],
+  "refined_question": "For every irreducible finite-state Markov-modulated Poisson process of order p, written as a MAP with D = diag(\\u03bb_1,\\dots,\\u03bb_p), \\u03bb_i \\u2265 0, and C = Q - D for an irreducible generator Q, let T_1^\\u03b1 denote the interarrival time in the event-stationary version of the process, where the background phase is initialized in the stationary distribution \\u03b1 of the embedded chain. If the squared coefficient of variation c^2 := Var(T_1^\\u03b1)/E[T_1^\\u03b1]^2 satisfies c^2 = 1, must the MMPP actually be a homogeneous Poisson process?",
+  "equivalent_formulation": null,
+  "justification": "The nearest paper-faithful target is not the main conjecture that irreducible MMPPs satisfy c^2 \\u2265 1, but the narrower equality-case question raised in the conclusion: whether c^2 = 1 characterizes Poisson behavior within the class of MMPPs. The introduction and preliminaries define c^2, T_1^\\u03b1, event-stationarity, and the MMPP parameterization, while the order-2 result shows the intended rigidity phenomenon in the only case the paper proves completely. So the sharp stand-alone rewrite should keep the scope exactly at the equality case inside irreducible finite-state MMPPs.",
+  "citations": [
+    {
+      "section": "Introduction",
+      "label": "eq. (1.1) and discussion of property (III) c^2 for event-stationary interarrival times",
+      "page": 56
+    },
+    {
+      "section": "Preliminaries",
+      "label": "Proposition 2.2 (event-stationary initialization \\u03b7 = \\u03b1)",
+      "page": 58
+    },
+    {
+      "section": "Preliminaries",
+      "label": "eq. (2.2) for c^2 and the MMPP parameterization D = diag(\\u03bb_i), C = Q - D",
+      "page": "59-60"
+    },
+    {
+      "section": "Main results",
+      "label": "Proposition 3.7 (order-2 case: c^2 = 1 iff \\u03bb_1 = \\u03bb_2)",
+      "page": "63-64"
+    },
+    {
+      "section": "Conclusion",
+      "label": "unnumbered concluding conjecture: all MMPPs with c^2 = 1 are Poisson; sharper claim that c^2 = 1 forces all \\u03bb_i to be equal",
+      "page": 66
+    }
+  ]
+}

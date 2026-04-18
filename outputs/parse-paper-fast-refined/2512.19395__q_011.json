@@ -1,0 +1,47 @@
+{
+  "arxiv_id": "2512.19395",
+  "question_id": "q_011",
+  "original_question": "For integers q >= p >= 3, what is the maximum spectral radius among graphs in G(m, theta_{1,p,q})? Equivalently, characterize the extremal graphs with m edges that avoid the theta graph formed by three internally disjoint paths of lengths 1, p, and q between the same two endpoints.",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 12253.73,
+  "target_in_paper": "Section 3, Problem 8, with its complete resolution supplied nearby by Theorem 3.27 and Theorem 3.36.",
+  "completeness_score": 6.5,
+  "correct_elements": "Your draft correctly identifies the forbidden graph family as theta graphs of the form θ_{1,p,q}, uses the paper’s class notation 𝒢(m,θ_{1,p,q}), asks for the extremal adjacency spectral radius at fixed edge size m, and asks for the extremal graphs attaining that maximum. Those are exactly the core ingredients of Problem 8 in the survey’s theta-graph discussion.",
+  "missing_details": [
+    "The paper’s ambient graph class is finite, simple, undirected graphs; this is set globally in Section 1.",
+    "The notation 𝒢(m,F) is not just 'graphs with m edges avoiding F': it means F-free graphs with exactly m edges and no isolated vertices.",
+    "The spectral radius is the adjacency spectral radius λ(G), i.e. the largest eigenvalue of the real symmetric adjacency matrix A(G).",
+    "In the survey, the broad question is posed as Problem 8, but the actual complete answer is split into two cases: the special case (p,q)=(3,3) and the remaining cases handled by parameterizing p+q as 2k+1 or 2k+2.",
+    "The special case θ_{1,3,3} is treated separately in Theorem 3.27, with the explicit condition m ≥ 43.",
+    "The general case is not stated for arbitrary small m: Theorem 3.36 requires an integer k ≥ 3 and the explicit lower bound m ≥ (9/4)k^6 + 6k^5 + 46k^4 + 56k^3 + 196k^2.",
+    "The general case also requires the hidden quantifier that either p+q = 2k+1 or r+s = 2k+2; equivalently, the theorem groups θ_{1,p,q}-free and θ_{1,r,s}-free graphs by the sum of the two longer path lengths.",
+    "The extremal graph form is implicit in your draft but not stated: in the general case it is K_k ∨ ((m/k) - (k-1)/2)K_1, and in the special case (p,q)=(3,3) it is K_2 ∨ ((m-1)/2)K_1.",
+    "Your draft does not reflect that the survey presents the result as a complete solution to Problem 8 only after combining Theorem 3.27 with Theorem 3.36.",
+    "The phrase 'equivalently' is a little too strong as written: the paper’s edge-spectral-Turán problem asks both for the maximum value and for the extremal graphs; characterizing extremal graphs is the companion task rather than a separately stated proved equivalence."
+  ],
+  "refined_question": "Let θ_{1,p,q} denote the theta graph formed by three internally disjoint paths of lengths 1, p, and q joining the same two endpoints, and let 𝒢(m,θ_{1,p,q}) be the family of simple θ_{1,p,q}-free graphs with exactly m edges and no isolated vertices. For integers q ≥ p ≥ 3, determine the maximum adjacency spectral radius λ(G) over all G ∈ 𝒢(m,θ_{1,p,q}) and characterize the extremal graphs attaining it; in the paper’s actual resolution, this must be stated with the paper’s two-case split, namely the special case (p,q)=(3,3) with m ≥ 43, and the general case in which k ≥ 3, p+q ∈ {2k+1, 2k+2}, and m ≥ (9/4)k^6 + 6k^5 + 46k^4 + 56k^3 + 196k^2.",
+  "equivalent_formulation": null,
+  "justification": "The draft is closest to Problem 8, which asks exactly for the maximum spectral radius in 𝒢(m,θ_{1,p,q}) for q ≥ p ≥ 3. To make that question stand alone and faithful to the survey, one must import the global definition of 𝒢(m,F) from Section 1 and the meaning of λ(G) as adjacency spectral radius. The nearby context also shows that the paper does not treat all (p,q) uniformly in one theorem: Theorem 3.27 handles θ_{1,3,3}, while Theorem 3.36 handles the remaining cases by grouping them according to p+q = 2k+1 or 2k+2 with an explicit lower bound on m. Since the survey itself says that Theorem 3.36 together with Theorem 3.27 solves Problem 8 completely, a paper-faithful stand-alone version of your draft should include that split and those thresholds rather than leave the scope implicit.",
+  "citations": [
+    {
+      "section": "1",
+      "label": "Problem 2",
+      "page": 1
+    },
+    {
+      "section": "3",
+      "label": "Problem 8",
+      "page": 8
+    },
+    {
+      "section": "3",
+      "label": "Theorem 3.27",
+      "page": 8
+    },
+    {
+      "section": "3",
+      "label": "Theorem 3.36",
+      "page": 9
+    }
+  ]
+}

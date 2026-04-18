@@ -1,0 +1,47 @@
+{
+  "arxiv_id": "2602.05394",
+  "question_id": "q_017",
+  "original_question": "How many bits of precision are necessary to guarantee that CG applied to an $n$ by $n$ SPD linear system $Ax=b$ obtains an approximate solution with normwise backward error at most $epsilon$ in $n$ (or fewer) steps?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 12478.49,
+  "target_in_paper": "Problem 2.17 in Section 2.6, \"Symmetric Krylov methods in finite precision arithmetic\": \"How many bits of precision are necessary to guarantee that CG applied to an n by n SPD linear system Ax = b obtains an approximate solution with normwise backward error at most ε in n (or fewer) steps?\"",
+  "completeness_score": 9,
+  "correct_elements": "Your draft is already extremely close to the paper's exact formulation. It correctly identifies the method (CG), the problem class (an n by n SPD linear system Ax = b), the performance target (normwise backward error at most ε), and the finite-termination budget (n or fewer steps). These are exactly the core ingredients of Problem 2.17.",
+  "missing_details": [
+    "The problem sits in Section 2.6, so the setting is explicitly finite precision arithmetic, not exact arithmetic.",
+    "The nearby discussion makes clear that implementation matters; the intended reading is a standard good finite-precision implementation of CG, not an arbitrary CG-like variant.",
+    "The problem is about unpreconditioned CG as stated; preconditioning and inexact preconditioner application are treated separately in Problem 2.18.",
+    "To make the question fully stand-alone, the ambient field should be stated explicitly: A is a real symmetric positive definite matrix and b is a real vector.",
+    "The quantifiers are implicit in the paper's one-line statement; a stand-alone version should say that the guarantee is sought uniformly over all n, all real SPD A in R^{n×n}, all b in R^n, and a prescribed tolerance ε > 0.",
+    "The unknown being sought is a worst-case precision requirement, naturally interpreted as a function of n and ε.",
+    "The phrase \"bits of precision\" should be made explicit as floating-point significand/mantissa bits.",
+    "The phrase \"normwise backward error\" is not defined in the one-line statement; to be fully self-contained, one should specify the norm and the precise backward-error convention, or at least say \"in the standard normwise linear-system sense.\"",
+    "\"n (or fewer) steps\" should be stated as \"at most n CG iterations.\"",
+    "\"Obtains an approximate solution\" should be clarified as \"returns a computed CG iterate x_hat_k for some k ≤ n.\""
+  ],
+  "refined_question": "For the standard unpreconditioned conjugate-gradient method executed in finite-precision floating-point arithmetic with b-bit significand precision, what is the smallest worst-case precision b = b(n, ε) that guarantees the following: for every real symmetric positive definite matrix A ∈ R^{n×n}, every right-hand side b_vec ∈ R^n, and every tolerance ε > 0, the computed CG iterates contain some x_hat_k with k ≤ n whose normwise backward error is at most ε, in the standard normwise sense for linear systems?",
+  "equivalent_formulation": null,
+  "justification": "The draft is essentially a near-verbatim restatement of Problem 2.17, so the correct target is not a broader neighboring issue but that exact open problem. Section 2.6 frames the entire discussion as one about symmetric Krylov methods in finite precision arithmetic. The sentence immediately before Problem 2.17 says it is \"a related problem\" to Problem 2.16, where the paper explicitly says to use standard good implementations; the paragraph immediately after Problem 2.17 then points to Paige's standard floating-point analysis of Lanczos and Greenbaum's analysis of CG. That nearby context supports only a very light sharpening: make explicit the finite-precision setting, the standard implementation reading, the real SPD/unpreconditioned scope, the worst-case quantifiers, and the interpretation of \"n (or fewer) steps\" as at most n CG iterations. Because the paper does not state an equivalent reformulation of Problem 2.17, none should be supplied.",
+  "citations": [
+    {
+      "section": "2.6",
+      "label": "Section heading \"Symmetric Krylov methods in finite precision arithmetic\"",
+      "page": 17
+    },
+    {
+      "section": "2.6",
+      "label": "Problem 2.16",
+      "page": 18
+    },
+    {
+      "section": "2.6",
+      "label": "Problem 2.17",
+      "page": 18
+    },
+    {
+      "section": "2.6",
+      "label": "Paragraph following Problem 2.17 discussing Paige's analysis of Lanczos and Greenbaum's analysis of CG",
+      "page": 18
+    }
+  ]
+}

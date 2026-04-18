@@ -1,0 +1,49 @@
+{
+  "arxiv_id": "1904.00483",
+  "question_id": "q_012",
+  "original_question": "Can the number of balanced vertices of a geodesic net in the Euclidean plane be bounded above by a function of only two quantities: the number of unbalanced vertices and the total imbalance? Here the total imbalance is the sum, over all unbalanced vertices, of the norms of their imbalance vectors.",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 6560.31,
+  "target_in_paper": "Section 3.4, Conjecture 3.4.1 (M. Gromov) in the arXiv version of the paper.",
+  "completeness_score": 8,
+  "correct_elements": "Your draft is very close to the paper’s official formulation. It correctly identifies the ambient space (the Euclidean plane), the object of study (a geodesic net, not an arbitrary graph), the quantity to be bounded (the number of balanced vertices), and the two controlling parameters (the number of unbalanced vertices and the total imbalance). It also gives the paper’s notion of total imbalance in substance: the sum over unbalanced vertices of the norms of their imbalance vectors.",
+  "missing_details": [
+    "The paper’s standing conventions matter: all considered geodesic nets are connected.",
+    "Balanced vertices of degree 2 are excluded; this is essential, since the paper notes that one can insert arbitrarily many degree-2 balanced vertices along an edge.",
+    "The paper also imposes the convention that there are no edges between unbalanced vertices.",
+    "To be fully stand-alone, the imbalance vector Imb(v) should be defined explicitly as the sum of the outgoing unit tangent vectors to all edges incident to an unbalanced vertex v.",
+    "The Euclidean-plane specialization should be made explicit: a geodesic net in R^2 is a finite embedded straight-edge graph (distinct edges do not intersect or self-intersect).",
+    "The quantifier should be stated explicitly as the existence of a function F such that for every such geodesic net N, the number of balanced vertices is bounded by F applied to the number of unbalanced vertices and the total imbalance.",
+    "The paper’s conjecture is stated for geodesic nets, not geodesic multinets; the text says an extension to multinets might be plausible, but it is not the official conjecture."
+  ],
+  "refined_question": "Does there exist a function F : N x [0, infinity) -> N such that every connected geodesic net N in R^2, in the sense and standing conventions of the paper (finite embedded straight-edge graph, no edges between unbalanced vertices, and every balanced vertex of degree at least 3), satisfies #B(N) <= F(|S|, sum_{v in S} ||Imb(v)||), where S is the set of unbalanced vertices, B(N) is the set of balanced vertices, and Imb(v) is the sum of the unit tangent vectors to the edges incident to v, directed away from v?",
+  "equivalent_formulation": "Equivalent special case stated in the discussion immediately after Conjecture 3.4.1: does there exist a function G : N -> N such that any connected geodesic net in R^2, under the same conventions, with n unbalanced vertices and with imbalance exactly 1 at every unbalanced vertex, has at most G(n) balanced vertices?",
+  "justification": "The draft is aiming at the paper’s official open problem in Section 3.4: Conjecture 3.4.1 (M. Gromov), which states that the number of balanced vertices of a geodesic net in the Euclidean plane is bounded above in terms of the number of unbalanced vertices and the total imbalance (§3.4, p. 13). To make this fully stand-alone and faithful to the paper, one must import the definitions of imbalance vector and total imbalance from Definition 1.1.1 (§1.1, p. 2), as well as the standing conventions immediately after that definition that all nets under discussion are connected, have no edges between unbalanced vertices, and have no balanced vertices of degree 2 (§1.1, p. 2). That degree restriction is crucial because the paper explicitly says degree-2 balanced vertices can be inserted arbitrarily along an edge. Section 1.2 then specializes the notion to the Euclidean setting, where edges are straight segments in R^2, and records formula (1.2.2), which is later used to derive the one-way auxiliary reformulation Conjecture 3.4.2 (§1.2, pp. 3-4; §3.4, p. 15). I did not use Conjecture 3.4.2 as the alternate formulation because the paper says only that Conjecture 3.4.1 would follow from it, not that the two are equivalent. By contrast, the paper explicitly says that the special case in which every unbalanced vertex has imbalance 1 is equivalent to the full conjecture (discussion immediately after Conjecture 3.4.1, p. 14).",
+  "citations": [
+    {
+      "section": "1.1",
+      "label": "Definition 1.1.1 and standing conventions following it",
+      "page": 2
+    },
+    {
+      "section": "1.2",
+      "label": "Euclidean specialization and formulas (1.2.1)-(1.2.2)",
+      "page": "3-4"
+    },
+    {
+      "section": "3.4",
+      "label": "Conjecture 3.4.1 (M. Gromov)",
+      "page": 13
+    },
+    {
+      "section": "3.4",
+      "label": "discussion following Conjecture 3.4.1 (equivalence with the unit-imbalance case)",
+      "page": 14
+    },
+    {
+      "section": "3.4",
+      "label": "Conjecture 3.4.2",
+      "page": 15
+    }
+  ]
+}

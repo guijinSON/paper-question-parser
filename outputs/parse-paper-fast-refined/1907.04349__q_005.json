@@ -1,0 +1,43 @@
+{
+  "arxiv_id": "1907.04349",
+  "question_id": "q_005",
+  "original_question": "Characterize all connected signed graphs whose spectral radius does not exceed sqrt(2 + sqrt(5)).",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 6641.66,
+  "target_in_paper": "Problem 3.11 (Hoffman Program for Signed Graphs): characterize all connected signed graphs whose spectral radius does not exceed √(2 + √5).",
+  "completeness_score": 9.5,
+  "correct_elements": "The draft already matches the paper's official formulation almost verbatim. It has the correct class of objects (connected signed graphs), the correct invariant (spectral radius of the signed adjacency matrix), and the exact threshold √(2 + √5). It also targets the right part of the paper: Section 3.3, where the authors frame this as the next Hoffman-threshold case after the already solved cyclotomic case ρ ≤ 2.",
+  "missing_details": [
+    "Make the object explicit: a signed graph should be written as Γ = (G, σ), where G is the underlying graph and σ : E(G) → {+1, -1} is the signature.",
+    "Define the matrix in question: A(Γ) is the signed adjacency matrix with entries 0, +1, -1 according to nonedges, positive edges, and negative edges.",
+    "Define spectral radius explicitly as ρ(Γ) = max{|λ| : λ is an eigenvalue of A(Γ)}. This matters because for signed graphs the largest eigenvalue λ1(Γ) need not equal the spectral radius.",
+    "Clarify that 'connected' refers to the underlying graph G being connected.",
+    "If the characterization is meant as a classification theorem, one should specify whether graphs are classified literally or up to switching isomorphism; the paper develops switching equivalence earlier, but Problem 3.11 itself does not restate that quotient.",
+    "To stay paper-faithful, the scope should remain exactly this Hoffman-program threshold problem, not a broader question about arbitrary spectral bounds or about unsigned graphs."
+  ],
+  "refined_question": "Let Γ = (G, σ) be a connected signed graph, where σ : E(G) → {+1, -1}, and let A(Γ) be its signed adjacency matrix. Writing ρ(Γ) = max{|λ| : λ is an eigenvalue of A(Γ)}, characterize all connected signed graphs Γ for which ρ(Γ) ≤ √(2 + √5).",
+  "equivalent_formulation": null,
+  "justification": "The nearest official formulation in arXiv:1907.04349 is exactly Problem 3.11 in Section 3.3. The surrounding discussion shows that the authors intend this as the signed-graph analogue of the next step in Hoffman's program for bounded spectral radius: the case ρ ≤ 2 is said to be already solved by Theorem 3.8, and the next significant limit point is √(2 + √5). The introduction supplies the needed notation for signed graphs, signed adjacency matrices, eigenvalues, and the definition of spectral radius; this is important because, in signed graphs, the largest eigenvalue need not equal the spectral radius. Theorem 2.5 explains why this is a natural signed-graph problem by bounding the signed spectral radius by that of the underlying unsigned graph. So the draft is already very sharp, but to be fully stand-alone it should explicitly define Γ, A(Γ), and ρ(Γ), and it should avoid silently assuming that 'spectral radius' means the largest eigenvalue.",
+  "citations": [
+    {
+      "section": "1",
+      "label": "Introduction (definitions of signed graph Γ = (G, σ), adjacency matrix A(Γ), eigenvalues λ1(Γ) ≥ ··· ≥ λn(Γ), and spectral radius ρ(Γ))",
+      "page": "1-2"
+    },
+    {
+      "section": "2",
+      "label": "Theorem 2.5 (Eigenvalue Spread)",
+      "page": 3
+    },
+    {
+      "section": "3.3",
+      "label": "Theorem 3.8",
+      "page": 6
+    },
+    {
+      "section": "3.3",
+      "label": "Problem 3.11 (Hoffman Program for Signed Graphs)",
+      "page": 8
+    }
+  ]
+}

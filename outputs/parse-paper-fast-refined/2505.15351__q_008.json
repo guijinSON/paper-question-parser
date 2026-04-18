@@ -1,0 +1,50 @@
+{
+  "arxiv_id": "2505.15351",
+  "question_id": "q_008",
+  "original_question": "Assume the object is a sparse crystallographic model consisting of a background term plus finitely many weighted Dirac masses at unknown positions in the plane, and let a Schwartz-class probe be given. From phaseless ptychographic measurements of the form A(f)(r, xi) = |F(f · S_r w)(xi)|^2 over probe shifts r and frequencies xi in a measurement domain Omega, can one recover all atom positions t_j and complex weights a_j?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 10962.19,
+  "target_in_paper": "Section 4.2, Problem 4.4 (Sparse crystallography).",
+  "completeness_score": 8.5,
+  "correct_elements": "Your draft already captures the core target very well: it identifies the simplified sparse crystallographic model, the 2D continuous setting, the Schwartz-class probe, the phaseless shifted-probe Fourier measurements, and the recovery target consisting of the atom locations t_j and weights a_j. This matches the paper's official Problem 4.4 closely.",
+  "missing_details": [
+    "The paper fixes the background term to be the Lebesgue measure lambda, not an arbitrary background: f = lambda + sum_{j=1}^N a_j delta_{t_j}.",
+    "The simplified model is explicitly obtained from the crystallographic model in Section 4.1 and writes a_j = e^{i omega_j} - 1 for j = 1,...,N.",
+    "The object is a distribution/measure on R^2, with t_j in R^2 and N finite.",
+    "The probe is explicitly required to satisfy w in S(R^2).",
+    "The measurement data are indexed by prescribed sets of probe shifts R and frequencies Omega: r in R and xi in Omega.",
+    "To be fully stand-alone, the shift and Fourier operators should be defined: S_r w(x) = w(x-r) and F[g](xi) = integral over R^2 of g(x)e^{-i<x,xi>} dx.",
+    "The official formulation is a recovery task (Problem 4.4); the paper separates the uniqueness question and the efficient/stable reconstruction question into Question 4.6 and Question 4.7, rather than building those conditions into Problem 4.4 itself.",
+    "If one mentions the no-background case, the paper notes separately in Remark 4.5 that f = sum_{j=1}^N a_j delta_{t_j} reduces to a standard sparse phase retrieval setting."
+  ],
+  "refined_question": "Let f be the simplified sparse crystallographic object on R^2 given by f = lambda + sum_{j=1}^N a_j delta_{t_j}, where lambda is the Lebesgue measure, N < infinity, t_j in R^2, and a_j = e^{i omega_j} - 1 in C. Let w in S(R^2) be a known probe, let S_r w(x) = w(x-r), and let F[g](xi) = integral over R^2 of g(x)e^{-i<x,xi>} dx. Given the phaseless ptychographic measurements A(f)(r,xi) = |F(f · S_r w)(xi)|^2 for all probe shifts r in a prescribed set R and frequencies xi in a prescribed set Omega, can one recover the atom positions t_j and weights a_j for j = 1,...,N?",
+  "equivalent_formulation": null,
+  "justification": "The draft is clearly aiming at the paper's Section 4.2 sparse-crystallography recovery problem, not the broader object-parameterization question in Section 4.1 and not the Wigner-distribution section. The official nearest formulation is Problem 4.4, whose model (7) is exactly a Lebesgue background plus finitely many Dirac masses and whose measurement formula (8) is exactly the phaseless shifted-probe Fourier data in your draft. The nearby context adds the hidden assumptions needed to make the question stand-alone: the continuous notation for Fourier transform and shifts from Section 2.2, the origin of the model from Section 4.1, the explicit identification a_j = e^{i omega_j}-1 in (7), and the follow-up uniqueness/algorithmic scope in Questions 4.6 and 4.7. The discrete formula (10) is only a further discretization, not an explicitly proved equivalent reformulation, so it should not replace Problem 4.4.",
+  "citations": [
+    {
+      "section": "2.2",
+      "label": "Infinite-dimensional setup",
+      "page": 3
+    },
+    {
+      "section": "4.1",
+      "label": "Eq. (5) and Eq. (6)",
+      "page": "9-10"
+    },
+    {
+      "section": "4.2",
+      "label": "Eq. (7)",
+      "page": 11
+    },
+    {
+      "section": "4.2",
+      "label": "Problem 4.4 and Remark 4.5",
+      "page": 11
+    },
+    {
+      "section": "4.2",
+      "label": "Eq. (10), Question 4.6, Question 4.7",
+      "page": 12
+    }
+  ]
+}

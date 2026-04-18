@@ -1,0 +1,36 @@
+{
+  "arxiv_id": "1110.1144",
+  "question_id": "q_008",
+  "original_question": "For a fixed integer k ≥ 2, let ex(n, C2k) denote the Turán number of the even cycle C2k, meaning the maximum number of edges in an n-vertex graph containing no copy of C2k. Does there exist a positive constant c such that ex(n, C2k) ≥ c n^(1+1/k)?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 1719.28,
+  "target_in_paper": "Section 2, under the heading \"Erdős conjecture 2\" (unnumbered conjecture, p. 4): Erdős conjectured that there exists a positive constant c such that ex(n, C_{2k}) >= c n^(1+1/k).",
+  "completeness_score": 8.5,
+  "correct_elements": "Your draft already captures the paper's intended target almost exactly: it uses the same extremal function ex(n, C_{2k}), the same forbidden subgraph C_{2k}, and the same lower-bound order n^(1+1/k) as the conjecture stated at the start of Section 2. The added phrase \"for a fixed integer k >= 2\" is consistent with the surrounding context and makes the dependence on k clearer than the paper's brief formulation.",
+  "missing_details": [
+    "The paper's ambient graph class is finite simple graphs: ex(n, H) is defined as the maximum number of edges in an n-vertex graph containing no copy of H as a subgraph.",
+    "The constant should be made explicit as depending on k, i.e. c = c(k) > 0; this dependence is implicit in the paper and is consistent with the nearby upper bound ex(n, C_{2k}) <= c_k n^(1+1/k).",
+    "The quantifier over n is left implicit in your draft; to make the question fully stand-alone, one should specify whether the inequality is intended for all sufficiently large n (the natural asymptotic reading in this context).",
+    "It helps to state explicitly that C_{2k} denotes the cycle of length 2k."
+  ],
+  "refined_question": "For each fixed integer k >= 2, let ex(n, C_{2k}) be the Turán number of the cycle C_{2k}, that is, the maximum number of edges in a finite simple n-vertex graph containing no subgraph isomorphic to C_{2k}. Is it true that there exists a constant c = c(k) > 0 such that ex(n, C_{2k}) >= c n^(1+1/k) for all sufficiently large n?",
+  "equivalent_formulation": "Equivalently, using the notation of Section 1, if m_i(n) denotes the number of i-cycles in the complete graph K_n, then ex(n, C_{2k}) = f(0, 0, m_3(n), ..., m_{2k-1}(n), 0, m_{2k+1}(n), ..., m_n(n)); the question is whether this special case of f(a_1, ..., a_n) is bounded below by c(k) n^(1+1/k).",
+  "justification": "The draft clearly targets the even-cycle Turán problem, not the repeated-cycle-length problems in Section 1 or Hajós' conjecture in Section 3. The exact matching statement appears at the beginning of Section 2 under \"Erdős conjecture 2\". Section 1 supplies the formal definition of ex(n, H) and explicitly rewrites ex(n, C_k) as a special case of the cycle-distribution extremal function f(a_1, ..., a_n). The nearby Theorem 2.1 gives the matching upper-bound exponent 1 + 1/k, confirming that the conjecture is about the correct asymptotic order and that the constant is understood to depend on k. So the sharp paper-faithful refinement is the same conjecture, with the graph class, dependence c = c(k), and asymptotic quantifier over n stated explicitly.",
+  "citations": [
+    {
+      "section": "Section 1",
+      "label": "Definition of ex(n, H) and equality ex(n, C_k) = f(0, 0, m_3(n), ..., m_{k-1}(n), 0, m_{k+1}(n), ..., m_n(n))",
+      "page": 3
+    },
+    {
+      "section": "Section 2",
+      "label": "\"Erdős conjecture 2\" (unnumbered conjecture)",
+      "page": 4
+    },
+    {
+      "section": "Section 2",
+      "label": "Theorem 2.1",
+      "page": 4
+    }
+  ]
+}

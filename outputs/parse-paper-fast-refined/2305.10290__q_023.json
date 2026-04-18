@@ -1,0 +1,44 @@
+{
+  "arxiv_id": "2305.10290",
+  "question_id": "q_023",
+  "original_question": "Given a graph F, what is the minimum possible spectral radius of an n-vertex F-saturated graph?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 8873.18,
+  "target_in_paper": "Section 14, Problem 8, introduced immediately after Conjecture 15 in the section on minimum spectral radius of K_{r+1}-saturated graphs: \"Given a graph F, what is the minimum spectral radius of an F-saturated graph on n vertices?\"",
+  "completeness_score": 9,
+  "correct_elements": "Your draft already captures the exact target almost verbatim. It asks for the minimum spectral radius among n-vertex F-saturated graphs, which is precisely the statement of Problem 8 in Section 14. It also keeps the scope at the paper's intended level of generality (arbitrary graph F), rather than collapsing to the preceding clique-only case in Conjecture 15.",
+  "missing_details": [
+    "The paper works with simple, undirected, unweighted graphs throughout, so those standing assumptions should be made explicit if the question is to be fully stand-alone.",
+    "The spectral radius here is the adjacency spectral radius: if A(G) is the adjacency matrix of G with eigenvalues lambda_1(G) >= ... >= lambda_n(G), then rho(G) = lambda_1(G).",
+    "F-saturated must be defined: G contains no copy of F as a subgraph, but for every non-edge e of G, the graph G+e contains a copy of F.",
+    "The paper explicitly notes the equivalent formulation: F-saturated means maximal F-free; this can be used as an alternate formulation but should not replace the main wording unless stated as equivalent.",
+    "To be fully quantified, F should be treated as a fixed graph and n as a fixed positive integer, and the minimum is taken over all graphs G with |V(G)| = n satisfying the F-saturation condition.",
+    "The problem is exact, not asymptotic: the paper does not add qualifiers such as 'for sufficiently large n'.",
+    "No extra algebraic conditions such as ambient field, homogeneity, degree of a polynomial, or nilpotency are involved here; the only hidden operator choice is that the spectral radius is taken for the adjacency matrix."
+  ],
+  "refined_question": "For a fixed graph F and positive integer n, determine the minimum adjacency spectral radius rho(G) among all simple undirected unweighted graphs G on n vertices that are F-saturated; that is, G contains no copy of F, but G+e contains a copy of F for every non-edge e of G.",
+  "equivalent_formulation": "Equivalently, for a fixed graph F and positive integer n, determine min{rho(G) : |V(G)| = n and G is a maximal F-free graph}.",
+  "justification": "The draft is aiming at Section 14, Problem 8, not at the narrower Conjecture 15. Conjecture 15 treats only the special case F = K_{r+1}, while Problem 8 immediately asks for the corresponding minimum-spectral-radius question for an arbitrary graph F. The only substantive additions needed to make the draft fully stand-alone and paper-faithful are the paper's standing conventions (simple, undirected, unweighted graphs; adjacency spectral radius) and the explicit definition of F-saturated, together with the paper's stated equivalence with maximal F-free.",
+  "citations": [
+    {
+      "section": "Introduction",
+      "label": "Standing notation and conventions for graphs, adjacency matrix, eigenvalues, and spectral radius",
+      "page": "not available in HTML view; article begins at p. 33"
+    },
+    {
+      "section": "Section 14",
+      "label": "Definition of F-saturated and equivalence with maximal F-free",
+      "page": 46
+    },
+    {
+      "section": "Section 14",
+      "label": "Conjecture 15 (Kim-Kim-Kostochka-O), the K_{r+1}-saturated special case motivating the general problem",
+      "page": 47
+    },
+    {
+      "section": "Section 14",
+      "label": "Problem 8",
+      "page": 47
+    }
+  ]
+}

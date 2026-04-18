@@ -1,0 +1,40 @@
+{
+  "arxiv_id": "2012.04625",
+  "question_id": "q_017",
+  "original_question": "Characterize which sequences produce the paper's 'spiral' type of associated 4-regular graph. In particular, make precise the heuristic that spiral graphs arise from consecutive blocks of increasing subsequences, and determine how far the model a(n,k)=exp(k(f(n)-f(k))) captures the full phenomenon after reading the triangular array by rows and removing duplicates.",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 7474.64,
+  "target_in_paper": "The draft is closest to the open problem in Section 2 concerning the sequence obtained by reading Pascal's triangle row by row and keeping each integer only at its first appearance: explain why the associated sequence-graph for large initial segments has the paper's visually spiral form, rather than asking for a broad classification of all sequences with that behavior. ([arxiv.org](https://arxiv.org/abs/2012.04625))",
+  "completeness_score": 4,
+  "correct_elements": "Your draft correctly focuses on the paper's sequence-to-graph construction rather than on an unrelated graph-theory problem, and it correctly identifies the two core heuristics that seem to drive the example: (i) the sequence is generated row by row from a triangular array with duplicates removed, and (ii) the resulting order naturally decomposes into consecutive increasing blocks, which appears to be responsible for the spiral-looking 4-regular graphs. ([arxiv.org](https://arxiv.org/abs/2012.04625))",
+  "missing_details": [
+    "The concrete sequence is not named. The nearest paper-faithful target is the permutation of the positive integers obtained from Pascal's triangle by reading rows left-to-right and recording each number only the first time it appears (OEIS A014631). ([oeis.org](https://oeis.org/A014631?utm_source=openai))",
+    "The associated graph must be defined explicitly: for the first N terms a_1, ..., a_N of a sequence of distinct real numbers, one forms a graph on {1, ..., N} by adding the cycle edges in index order and also the cycle edges in value order, where pi satisfies a_{pi(1)} < ... < a_{pi(N)}; this is the source of the 4-regularity. ([arxiv.org](https://arxiv.org/abs/2012.04625))",
+    "The quantifier is over finite initial segments G_N of an infinite sequence, not over one infinite graph. ([arxiv.org](https://arxiv.org/abs/2012.04625))",
+    "The word 'spiral' is only a visual description unless formalized. A stand-alone question has to say whether one seeks a geometric embedding statement, an asymptotic description of G_N, or a purely combinatorial surrogate such as a theorem about successive increasing blocks.",
+    "The row-reading rule for the triangular array is implicit. One should specify the index set for the array entries, the order within each row, and the precise duplicate-deletion convention ('first occurrence only').",
+    "The model T(n,k)=exp(k(f(n)-f(k))) is underspecified: the allowed domain of n and k, the class of functions f, and the requirement that the resulting rowwise list be strictly distinct after duplicate deletion are all missing.",
+    "Your draft broadens the problem from explaining one paper example to classifying all sequences that produce spiral graphs. The paper's apparent intent is narrower: explain the spiral phenomenon for the specific sequence/example at hand, with the model only as a possible heuristic comparison.",
+    "Ambient ring/field, homogeneity, degree restrictions, and nilpotency conditions are not part of this problem; the paper's setup here is combinatorial, based on permutations/distinct real sequences rather than algebraic data. ([arxiv.org](https://arxiv.org/abs/2012.04625))"
+  ],
+  "refined_question": "Let a=(a_m)_{m>=1} be the permutation of the positive integers obtained by scanning Pascal's triangle row by row from left to right and recording each integer only at its first appearance. For each N, let G_N be the 4-regular graph on vertices {1,...,N} obtained from the initial segment a_1,...,a_N by joining i to i+1 mod N and also joining pi(j) to pi(j+1) mod N, where pi is the unique permutation such that a_{pi(1)}<...<a_{pi(N)}. Explain, in a precise combinatorial way, why the graphs G_N arising from this sequence exhibit the paper's spiral-looking structure for large N. In particular, determine whether this behavior is forced by the fact that the sequence is built from consecutive row-contributions that are increasing blocks, and assess to what extent the same mechanism is captured by replacing Pascal's triangle with a lower-triangular array T(n,k)=exp(k(f(n)-f(k))) that is read row by row with repeated values deleted at first occurrence.",
+  "equivalent_formulation": null,
+  "justification": "The accessible paper metadata confirms the global setup: the paper generates a graph from an ordered list of distinct real numbers and studies structured examples via the resulting 4-regular graphs. ([arxiv.org](https://arxiv.org/abs/2012.04625)) The draft's reference to a triangular array read row by row with duplicates removed matches the Pascal-triangle first-occurrence sequence identified by OEIS A014631, which is explicitly linked to this paper. ([oeis.org](https://oeis.org/A014631?utm_source=openai)) The draft's 'spiral' language therefore appears to target the paper's Pascal-triangle example, not a general classification of all such graphs. The journal metadata fixes the article and pagination as Involve 15 (2022), 251-270. ([arxiv.org](https://arxiv.org/abs/2012.04625)) I could verify the article identity, the sequence-to-graph framework, and the relevant Pascal-triangle sequence, but the browser did not expose the full subsection text for the exact internal problem label; accordingly, the subsection/page information below is given at the highest fidelity supported by the accessible sources. ([arxiv.org](https://arxiv.org/abs/2012.04625))",
+  "citations": [
+    {
+      "section": "Section 1",
+      "label": "Introduction / sequence-to-graph construction from an ordered list of distinct real numbers",
+      "page": "251 (article begins at 251; abstract accessible on arXiv)"
+    },
+    {
+      "section": "Section 2 (exact subsection number not recoverable from accessible metadata)",
+      "label": "Pascal-triangle first-occurrence example and its spiral-looking graph",
+      "page": "within 251-270"
+    },
+    {
+      "section": "Journal metadata",
+      "label": "Involve 15 (2022), 251-270",
+      "page": "251-270"
+    }
+  ]
+}

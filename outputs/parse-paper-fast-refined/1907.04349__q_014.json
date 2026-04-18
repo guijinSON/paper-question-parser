@@ -1,0 +1,49 @@
+{
+  "arxiv_id": "1907.04349",
+  "question_id": "q_014",
+  "original_question": "For a signed graph consisting of 2k odd cycles of pairwise equal length and opposite signs, is the signature described in Proposition 3.27 the signature that minimizes spectral radius?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 6769.27,
+  "target_in_paper": "Section 3.5, the unnumbered open problem stated immediately after Proposition 3.27, read as a special case of Problem 3.18 on signatures minimizing the spectral radius.",
+  "completeness_score": 8,
+  "correct_elements": "Your draft identifies the correct local target in the paper: the question asked right after Proposition 3.27. It correctly focuses on the specific signing from Proposition 3.27, on graphs built from 2k odd cycles with matched equal lengths and opposite signs, and on whether that signing minimizes spectral radius.",
+  "missing_details": [
+    "The minimization is over all signatures on the same fixed underlying graph, not over all signed graphs of that general shape.",
+    "The spectral radius here is the adjacency spectral radius of the signed adjacency matrix: ρ(G,σ) = ρ(Aσ) = max_i |λ_i(Aσ)|.",
+    "To make the cycle hypothesis stand-alone, one should say that the 2k odd cycles can be partitioned into k pairs such that the two cycles in each pair have the same length, and the Proposition 3.27 signing gives opposite signs to the two cycles in each pair.",
+    "The quantifier should be explicit: for every other signature τ:E(G)→{+1,-1}, one asks whether ρ(G,σ0) ≤ ρ(G,τ).",
+    "Because switching equivalent signatures are cospectral, the question is really about the switching class of the Proposition 3.27 signing, not a single representative.",
+    "The integer k should be specified as k ≥ 1.",
+    "The local open question comes from the subsection on adjacency signatures minimizing spectral radius, so it should not be phrased as a Laplacian, signless Laplacian, or largest-eigenvalue problem."
+  ],
+  "refined_question": "Let G be an underlying graph consisting of 2k odd cycles, with k ≥ 1, such that these cycles can be partitioned into k pairs and the two cycles in each pair have the same length. Let σ0 be the signature from Proposition 3.27, namely the signing in which the two cycles in each equal-length pair have opposite signs. Does σ0 minimize the adjacency spectral radius among all signatures on G; that is, is it true that ρ(G,σ0) ≤ ρ(G,τ) for every signature τ:E(G)→{+1,-1}, where ρ(G,τ) is the spectral radius of the signed adjacency matrix Aτ?",
+  "equivalent_formulation": "Equivalently, since switching equivalent signatures have the same adjacency spectrum, is the switching class of the Proposition 3.27 signing the switching class that minimizes adjacency spectral radius among all signatures of the fixed underlying graph G?",
+  "justification": "The draft is targeting the exact sentence that follows Proposition 3.27 in Section 3.5, not the broader neighboring conjectures. The paper first sets the general minimization problem in Problem 3.18, then defines the spectral radius of a signing as the spectral radius of its signed adjacency matrix, and finally motivates Proposition 3.27 by saying that a minimizing signature should balance cycle contributions so the characteristic polynomial is as close as possible to the matching polynomial. The very next sentence asks whether the Proposition 3.27 signing is the minimizing one. The refined version therefore keeps the scope strictly on that fixed-signature-versus-all-signatures comparison for the same underlying graph, and only adds the definitions and quantifiers needed to make the question self-contained and faithful to the paper.",
+  "citations": [
+    {
+      "section": "1",
+      "label": "Introduction (switching, adjacency matrix, spectral radius)",
+      "page": "1-2"
+    },
+    {
+      "section": "3.5",
+      "label": "Problem 3.18",
+      "page": 10
+    },
+    {
+      "section": "3.5",
+      "label": "Conjecture 3.25",
+      "page": 13
+    },
+    {
+      "section": "3.5",
+      "label": "Problem 3.26",
+      "page": 13
+    },
+    {
+      "section": "3.5",
+      "label": "Proposition 3.27 and the following open problem",
+      "page": 14
+    }
+  ]
+}

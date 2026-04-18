@@ -1,0 +1,50 @@
+{
+  "arxiv_id": "2501.14554",
+  "question_id": "q_006",
+  "original_question": "Let alpha_r(Gamma) be the maximum size of a set of points in a continuous graph Gamma whose pairwise distances are at least 2r, and let beta_r(Gamma) be the minimum number of radius-r balls whose union covers all points of Gamma. For a continuous graph with n endpoints, what bound holds for alpha_r(Gamma)+beta_r(Gamma) as a function of n and r, and is that bound tight?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 10376.45,
+  "target_in_paper": "Section 3.2 (\"Vertex cover\"), unnumbered open problem \"The α−β duality\": \"Given r > 0, what is the bound on α_r(Γ) + β_r(Γ) for a continuous graph Γ in terms of n and r? Is the bound tight?\"",
+  "completeness_score": 8.5,
+  "correct_elements": "Your draft correctly identifies the paper’s two relevant parameters: α_r(Γ) as the maximum size of an r-independent set and β_r(Γ) as the minimum size of an r-cover by radius-r balls. It also correctly recognizes that the paper asks for a bound on α_r(Γ)+β_r(Γ) in terms of the number of endpoints n and the radius r, and asks whether such a bound is tight. This is indeed the open question singled out in the paper’s Section 3.2 under the heading \"The α−β duality.\"",
+  "missing_details": [
+    "The paper’s ambient object is a continuous graph Γ=(V,E) in which each edge is a unit-length rectifiable interval; this unit-length assumption is part of the paper’s setup and matters for asking for a bound depending only on n and r.",
+    "The metric d is the shortest-path metric induced by concatenating edge-lengths along the continuous graph; this should be stated explicitly to make the notions of r-independence and balls stand alone.",
+    "The parameter n should be identified explicitly as n=|V|, the number of endpoints of Γ.",
+    "The radius should be quantified as an arbitrary positive real number r>0.",
+    "For α_r(Γ), the maximization is over subsets I⊆E of points of the continuous graph, not just over endpoints.",
+    "For β_r(Γ), the covering balls are balls B(p,r) centered at arbitrary points p∈E, not only at endpoints V.",
+    "To stay fully faithful to the paper’s formulation, it helps to mention the motivating special case r=1, where the paper records the exact identity α_1(Γ)+β_1(Γ)=n.",
+    "The question should make explicit that the desired bound is universal over all continuous graphs with n endpoints and depends only on n and r."
+  ],
+  "refined_question": "Let Γ=(V,E) be a continuous graph in the sense of the paper: each edge is a unit-length rectifiable interval, distances are measured by the induced shortest-path metric, and n=|V| is the number of endpoints. For a real number r>0, let α_r(Γ) be the maximum cardinality of a set I⊆E such that d(p,q)≥2r for all distinct p,q∈I, and let β_r(Γ) be the minimum cardinality of an r-cover of Γ by balls B(p,r) whose centers p may lie anywhere in E. Since for r=1 one has α_1(Γ)+β_1(Γ)=n, determine the sharp bound, as a function of n and r alone, on α_r(Γ)+β_r(Γ) for arbitrary continuous graphs Γ with n endpoints, and decide whether that bound is tight.",
+  "equivalent_formulation": null,
+  "justification": "The draft is clearly targeting the unnumbered open question in Section 3.2 titled \"The α−β duality,\" not a numbered conjecture or theorem elsewhere. The paper first defines continuous graphs, their metric balls, r-independence number α_r, and r-cover number β_r, then recalls that the classical identity α(G)+β(G)=n has a continuous analogue for r=1, namely α_1(Γ)+β_1(Γ)=n, and finally asks for the general-r bound in terms of n and r. Your draft already captures the mathematical core, but to be fully stand-alone and paper-faithful it needs the paper’s geometric setup (unit-length continuous edges, shortest-path metric), the precise meaning of n, the quantifier r>0, and the fact that both independent-set points and cover centers range over all points of E, not merely the endpoint set V.",
+  "citations": [
+    {
+      "section": "2 Preliminaries",
+      "label": "Definitions 1–3",
+      "page": 2
+    },
+    {
+      "section": "2 Preliminaries",
+      "label": "Definition 8",
+      "page": 2
+    },
+    {
+      "section": "3.1 Maximum independent set",
+      "label": "Definition 9",
+      "page": 3
+    },
+    {
+      "section": "3.2 Vertex cover",
+      "label": "Definition 10",
+      "page": 6
+    },
+    {
+      "section": "3.2 Vertex cover",
+      "label": "The α−β duality (unnumbered open question)",
+      "page": "6-7"
+    }
+  ]
+}

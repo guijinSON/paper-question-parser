@@ -1,0 +1,45 @@
+{
+  "arxiv_id": "2602.05394",
+  "question_id": "q_012",
+  "original_question": "Develop a descriptive convergence bound for GMRES applied to nonnormal linear algebraic systems, that particularly describes the (transient) behavior early in the iteration.",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 12522.01,
+  "target_in_paper": "Section 2.5, Problem 2.12 (Preconditioning and Convergence of Iterative Solvers)",
+  "completeness_score": 9.0,
+  "correct_elements": "Your draft already matches the paper very closely: it identifies the correct method (GMRES), the correct class of problems (nonnormal linear algebraic systems), the correct deliverable (a descriptive convergence bound), and the correct phenomenon to be captured (early/transient iteration behavior).",
+  "missing_details": [
+    "To be fully stand-alone, the linear system should be written explicitly as Ax = b with A square.",
+    "It helps to state that A is nonsingular, since GMRES is being discussed as a solver for a linear algebraic system.",
+    "The coefficient matrix should be identified as the nonnormal object; if one wants a self-contained formulation, one can allow A over R or C.",
+    "The quantity whose convergence is to be bounded should be made explicit: the GMRES residuals r_k = b - A x_k, typically through the relative residual history ||r_k||_2 / ||r_0||_2.",
+    "The phrase descriptive convergence bound should be clarified to mean a bound that reflects actual observed GMRES behavior, not merely a generic worst-case or asymptotic estimate.",
+    "The phrase early transient behavior should be clarified as the pre-asymptotic initial phase of the iteration, which may include slow progress or stagnation before later acceleration.",
+    "The paper does not impose a specific preconditioner, model PDE, eigenvalue-cluster hypothesis, or restarted-GMRES setting in Problem 2.12 itself; adding such restrictions would drift toward neighboring Problems 2.13 or 2.14.",
+    "There are no homogeneity, degree, nilpotency, or similar algebraic restrictions relevant to this problem, so none should be added."
+  ],
+  "refined_question": "For a square nonsingular nonnormal matrix A over R or C and a linear system Ax = b, can one derive a GMRES convergence bound for the relative residual history ||r_k||_2 / ||r_0||_2, where r_k = b - A x_k, that is genuinely descriptive of the observed iteration-by-iteration convergence and, in particular, captures the early transient (pre-asymptotic) phase rather than only asymptotic behavior?",
+  "equivalent_formulation": null,
+  "justification": "The draft is essentially a paraphrase of the paper's official Problem 2.12, so the right refinement is to make the question self-contained without broadening it. I therefore made explicit the linear system Ax = b, the square nonsingular nonnormal matrix A, and the residual sequence r_k whose norm decay GMRES controls. I did not add preconditioning hypotheses, eigenvalue-cluster assumptions, a specific non-selfadjoint model problem, or an explanation of post-transient acceleration in convection-diffusion, because those belong to the neighboring Problems 2.13 and 2.14 rather than Problem 2.12. The subsection heading supplies the surrounding theme, but the exact target remains the development of a descriptive GMRES convergence bound that captures early transient behavior.",
+  "citations": [
+    {
+      "section": "2.5",
+      "label": "Preconditioning and Convergence of Iterative Solvers",
+      "page": "not available from accessible web text"
+    },
+    {
+      "section": "2.5",
+      "label": "Problem 2.12",
+      "page": "not available from accessible web text"
+    },
+    {
+      "section": "2.5",
+      "label": "Problem 2.13",
+      "page": "not available from accessible web text"
+    },
+    {
+      "section": "2.5",
+      "label": "Problem 2.14",
+      "page": "not available from accessible web text"
+    }
+  ]
+}

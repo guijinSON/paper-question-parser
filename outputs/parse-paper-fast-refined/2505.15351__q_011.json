@@ -1,0 +1,50 @@
+{
+  "arxiv_id": "2505.15351",
+  "question_id": "q_011",
+  "original_question": "Suppose a generative prior is used to reconstruct a signal by solving a latent-space inverse problem and the resulting solution is z-tilde. Can one detect, or even quantify, the reconstruction bias |G(z-tilde) - f_0| between the generated reconstruction and the true signal, especially when the true signal may lie outside the generative model’s range because of imperfections or defects?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 11039.7,
+  "target_in_paper": "Section 5.1.2, Question 5.4 (Detecting bias)",
+  "completeness_score": 9,
+  "correct_elements": "Your draft is already very close to the paper’s exact target. It correctly identifies: (i) reconstruction with a generative prior via a latent optimization, (ii) the optimized latent variable z-tilde, (iii) the bias between the generated reconstruction G(z-tilde) and the true signal f_0, and (iv) the out-of-range/defect setting where the true signal may not lie in the range of G because of imperfections.",
+  "missing_details": [
+    "The paper places the question in the nonlinear inverse-problem setup y = A(f_0) + epsilon, with A:C^n -> C^m and additive bounded noise epsilon.",
+    "The latent reconstruction problem should be stated explicitly as the generative reconstruction problem (12): minimize over z in C^k the data misfit ||A(G(z)) - y||_2^2.",
+    "The generative model is G:C^k -> C^n with k < n.",
+    "The paper’s nearby defect model is explicit: f_0 = G(z_0) + eta, where G(z_0) is the 'perfect' signal and eta represents imperfections/manufacturing defects.",
+    "The broader motivating context is phase retrieval, with A(f) = |Af|^2 as a special case of the general inverse problem.",
+    "The surrounding theoretical discussion assumes A and G are injective and bi-Lipschitz with constants alpha, beta >= 1, and that A o G is bi-Lipschitz with constant gamma < alpha; this is not part of the literal wording of Question 5.4, but it is part of the nearby context in which the bias is interpreted.",
+    "Lemma 5.3 identifies the approximation term ||G(z_0) - f_0||_2 as the bias contribution in the reconstruction bound, so the question is not just about any discrepancy, but about detecting/quantifying the model-mismatch term that appears in the error analysis.",
+    "If one wants to mention the paper’s proposed route, the nearby concrete specialization is the Fraunhofer/Fourier case A(f) = |Ff|^2 with spatially sparse eta, where Vanderlugt correlation is suggested to highlight defects."
+  ],
+  "refined_question": "Let y = A(f_0) + epsilon be noisy measurements of an unknown signal f_0 in C^n under an injective measurement map A:C^n -> C^m, and let G:C^k -> C^n, with k < n, be a generative prior used through the latent reconstruction problem z-tilde in argmin_{z in C^k} ||A(G(z)) - y||_2^2. In the out-of-distribution defect model f_0 = G(z_0) + eta, where G(z_0) represents the 'perfect' signal and eta models imperfections or manufacturing defects, can one, from the measurements y and the computed latent minimizer z-tilde, detect or quantitatively estimate the bias ||G(z-tilde) - f_0||_2?",
+  "equivalent_formulation": null,
+  "justification": "The draft matches the paper’s official open question almost verbatim: Question 5.4 in Section 5.1.2 asks whether, given a solution z-tilde to the generative reconstruction problem, one can detect or quantify the bias |G(z-tilde) - f_0|. I kept that question narrow and only made explicit the setup that the paper defines immediately before it: the nonlinear inverse problem y = A(f_0) + epsilon, the generative parameterization f = G(z) with G:C^k -> C^n and k < n, and the defect model f_0 = G(z_0) + eta. I also aligned the wording with the nearby bias-variance discussion in Lemma 5.3, which identifies the approximation term ||G(z_0) - f_0||_2 as the relevant bias contribution, and with Section 5.1.3, which proposes Vanderlugt correlation in the Fourier/Fraunhofer case as one concrete route toward detecting the defect structure. This is therefore the nearest paper-faithful stand-alone sharpening of your draft, without broadening it to the later unified-approach problem.",
+  "citations": [
+    {
+      "section": "5",
+      "label": "Section setup and Eq. (12)",
+      "page": "12-13"
+    },
+    {
+      "section": "5.1",
+      "label": "Methods / bi-Lipschitz assumptions",
+      "page": 14
+    },
+    {
+      "section": "5.1.1",
+      "label": "Lemma 5.3",
+      "page": 14
+    },
+    {
+      "section": "5.1.2",
+      "label": "Question 5.4",
+      "page": 15
+    },
+    {
+      "section": "5.1.3",
+      "label": "Vanderlugt correlation",
+      "page": "15-16"
+    }
+  ]
+}

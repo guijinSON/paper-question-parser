@@ -1,0 +1,40 @@
+{
+  "arxiv_id": "2012.04625",
+  "question_id": "q_009",
+  "original_question": "For the Recamán sequence defined by a_0=0 and a_n=a_{n-1}-n when that value is positive and has not appeared earlier, and a_n=a_{n-1}+n otherwise, remove repeated values and form the associated 4-regular graphs of initial segments. Give a precise explanation of the extraordinary graph structure that appears after duplicates are removed.",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 7483.07,
+  "target_in_paper": "The paper’s Recamán-sequence open problem: explain or characterize the striking family of 4-regular graphs obtained when one first deletes repeated values from the Recamán sequence and then applies the paper’s graph-construction to successive initial segments.",
+  "completeness_score": 7,
+  "correct_elements": "Your draft correctly identifies the underlying sequence (the Recamán sequence), the necessary preprocessing step (delete repeated values so the list is distinct), the object built from the sequence (the paper’s associated 4-regular graphs of initial segments), and the real mathematical target of the subsection: not a new variant of Recamán’s arithmetic, but an explanation of the unexpectedly rigid graph structure that appears after deduplication.",
+  "missing_details": [
+    "The paper’s graph construction must be stated explicitly: for a distinct list b_1, ..., b_N, one forms a graph on vertices {1, ..., N} by connecting consecutive indices in the original order cyclically and also consecutive indices in the order induced by sorting the values b_1, ..., b_N cyclically.",
+    "The deduplicated sequence should be defined precisely as the sequence of first occurrences of the distinct values appearing in the Recamán sequence, preserving original time order.",
+    "It should be explicit that the initial segment is taken after deduplication: first form the infinite deduplicated sequence b_1, b_2, ..., then take its first N terms.",
+    "The permutation π_N that orders b_1, ..., b_N increasingly should be named, since it is needed to define the second Hamiltonian cycle and thus the graph itself.",
+    "The problem in the paper is not merely to 'explain an extraordinary structure' informally; it is to give a precise structural characterization of the resulting family of graphs, or of the apparent limiting object they suggest.",
+    "The cyclic wrap-around edges should be included: (N,1) in the original-order cycle and (π_N(N), π_N(1)) in the value-order cycle.",
+    "It helps to say that the graph is the union of two cyclic orderings/Hamiltonian cycles, which is why it is 4-regular in this framework.",
+    "The asymptotic scope should be stated: the question concerns the persistent large-scale structure of G_N as N grows, not a one-off property of a single finite graph."
+  ],
+  "refined_question": "Let r_0 = 0 and, for n >= 1, define the Recamán sequence by r_n = r_{n-1} - n if r_{n-1} - n > 0 and r_{n-1} - n has not occurred among r_0, ..., r_{n-1}, and otherwise r_n = r_{n-1} + n. Let b_1, b_2, ... be the sequence obtained from r_0, r_1, r_2, ... by retaining only the first occurrence of each value, in the order in which those values first appear. For each N >= 1, let π_N be the permutation of {1, ..., N} such that b_{π_N(1)} < b_{π_N(2)} < ... < b_{π_N(N)}, and define G_N to be the graph on vertex set {1, ..., N} whose edge set is the union of the two cyclic orderings {(i,i+1): 1 <= i < N} ∪ {(N,1)} and {(π_N(i), π_N(i+1)): 1 <= i < N} ∪ {(π_N(N), π_N(1))}. What exact combinatorial or topological structure do the graphs G_N exhibit for large N? In particular, can one give a precise description of the apparently highly organized family of 4-regular graphs arising from the deduplicated Recamán sequence, or identify a natural limiting object that explains this structure?",
+  "equivalent_formulation": null,
+  "justification": "The draft is clearly aiming at the Recamán subsection of the paper, where the authors apply their general graph-construction for distinct real sequences to the Recamán sequence after first removing repetitions. The introduction sets up the graph-construction from a distinct ordered list, and the Recamán subsection then uses exactly that setup to isolate an unexpected, visually striking family of 4-regular graphs. So the paper-faithful refinement is not a broader question about Recamán’s arithmetic behavior, nor a vague request for a picture-based explanation, but a sharply posed request to characterize the graph family G_N produced from the deduplicated sequence and to explain its apparent large-scale structure. Your draft was already close in spirit; the main missing pieces were the exact graph definition, the role of the ordering permutation, and the asymptotic/structural nature of the question.",
+  "citations": [
+    {
+      "section": "1",
+      "label": "Introduction (graph construction from an ordered list of distinct real numbers)",
+      "page": "251-252"
+    },
+    {
+      "section": "2.4",
+      "label": "Recamán sequence subsection",
+      "page": "258-259"
+    },
+    {
+      "section": "Vol. 15, No. 2 table of contents",
+      "label": "Placement of 'Finding structure in sequences of real numbers via graph theory: a problem list' in the issue",
+      "page": "issue PDF p. 15 / article pp. 251-270"
+    }
+  ]
+}

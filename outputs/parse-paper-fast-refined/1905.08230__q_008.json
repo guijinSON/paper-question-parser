@@ -1,0 +1,58 @@
+{
+  "arxiv_id": "1905.08230",
+  "question_id": "q_008",
+  "original_question": "Let ψ be a Parseval wavelet, meaning ∑_{j,k∈Z} |⟨f, ψ_{j,k}⟩|^2 = ||f||^2 for all f ∈ L2(R), where ψ_{j,k}(x) := 2^{j/2} ψ(2^j x − k).\n\nDefine V(ψ) := span{ψ_{j,k} : j < 0, k ∈ Z}. Let D be the dilation operator (Df)(x) = √2 f(x).\n\nIs it true that ⋂_{j∈Z} D^j(V(ψ)) = {0}?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 6588.07,
+  "target_in_paper": "Problem 2.5 in §2.5, Baggett’s problem on the intersection of negative dilates, equivalently whether every dyadic Parseval wavelet is associated with a generalized multiresolution analysis.",
+  "completeness_score": 7,
+  "correct_elements": "Your draft correctly identifies the paper’s target problem: a one-dimensional dyadic Parseval wavelet on L²(R), its negative-dilate space V(ψ), and the question whether the intersection of all dyadic dilates of that space is trivial. This is exactly the mathematical content of Problem 2.5.",
+  "missing_details": [
+    "The paper works in the classical one-dimensional dyadic setting of Section 2, i.e. ψ ∈ L²(R) with ψ_{j,k}(x) = 2^{j/2} ψ(2^j x − k).",
+    "V(ψ) is the closed linear span of the negative dilates and translates, not just the algebraic span.",
+    "The dilation operator must be the dyadic dilation compatible with the wavelet atoms, namely Df(x) = √2 f(2x); the draft’s formula Df(x) = √2 f(x) is incorrect.",
+    "The paper introduces V_j := D^j(V(ψ)) for all j ∈ Z and asks whether this sequence satisfies the missing GMRA axiom (M3).",
+    "The surrounding context makes explicit that this is Baggett’s question of whether every Parseval wavelet comes from a generalized multiresolution analysis.",
+    "If one uses the GMRA reformulation, one should remember that GMRA here means a sequence of closed subspaces satisfying the MRA axioms (M1)–(M4) together with shift-invariance of V_0, and Problem 2.5 isolates the possible failure of (M3)."
+  ],
+  "refined_question": "Let ψ ∈ L²(R) be a dyadic Parseval wavelet, meaning that the affine system ψ_{j,k}(x) := 2^{j/2}ψ(2^j x − k), for j, k ∈ Z, is a Parseval frame for L²(R). Define the space of negative dilates by V(ψ) := closure of span{ψ_{j,k} : j < 0, k ∈ Z}, and let D be the dyadic dilation operator Df(x) := √2 f(2x). For each j ∈ Z set V_j := D^j(V(ψ)). Is it always true that intersection over j ∈ Z of V_j equals {0}?",
+  "equivalent_formulation": "Equivalently: is every dyadic Parseval wavelet ψ ∈ L²(R) associated with a generalized multiresolution analysis, with V_0 = V(ψ) and V_j = D^j(V(ψ))?",
+  "justification": "The draft is clearly targeting §2.5 rather than the connectivity questions earlier in the paper. The official statement is Problem 2.5, immediately after Definitions 2.4 and 2.5, and the surrounding paragraph explicitly says that Baggett’s problem asks whether every Parseval wavelet must come from a GMRA. Definitions 2.1 and 2.2 provide the dyadic wavelet normalization and the MRA/GMRA axiom (M3) that Problem 2.5 isolates. Relative to that official formulation, the draft is close but needs two key corrections to be fully paper-faithful: V(ψ) should be a closed span, and the dyadic dilation operator must be the usual one compatible with ψ_{j,k}(x)=2^{j/2}ψ(2^j x−k).",
+  "citations": [
+    {
+      "section": "§2",
+      "label": "Definition 2.1",
+      "page": 1
+    },
+    {
+      "section": "§2.1",
+      "label": "Definition 2.2",
+      "page": 2
+    },
+    {
+      "section": "§2.1",
+      "label": "Parseval wavelet definition (unnumbered paragraph after Conjecture 2.1)",
+      "page": 3
+    },
+    {
+      "section": "§2.5",
+      "label": "Introductory paragraph before Definition 2.4",
+      "page": 6
+    },
+    {
+      "section": "§2.5",
+      "label": "Definition 2.4",
+      "page": 6
+    },
+    {
+      "section": "§2.5",
+      "label": "Definition 2.5",
+      "page": 6
+    },
+    {
+      "section": "§2.5",
+      "label": "Problem 2.5",
+      "page": 6
+    }
+  ]
+}

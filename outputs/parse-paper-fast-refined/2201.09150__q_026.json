@@ -1,0 +1,56 @@
+{
+  "arxiv_id": "2201.09150",
+  "question_id": "q_026",
+  "original_question": "Determine under what conditions a unique solution exists for the time-dependent delayed diffusion-advection model with nonlocal maturation effects under homogeneous Dirichlet boundary conditions.",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 7930.5,
+  "target_in_paper": "Open Problem 26 in Section 2.3.1 (Discrete time delays, scalar equations): determine conditions for existence and uniqueness of solutions to the time-dependent problem (2.23) under homogeneous Dirichlet boundary conditions.",
+  "completeness_score": 7,
+  "correct_elements": "Your draft correctly identifies the paper’s target as a time-dependent delayed diffusion-advection problem with a nonlocal effect and homogeneous Dirichlet boundary data, and it correctly focuses on existence and uniqueness rather than on steady states or pattern formation. This matches Open Problem 26 closely. The only substantive drift is that the paper does not fix the reaction term as specifically a maturation model: in (2.23), the delayed nonlocal term enters through u_sigma inside a general factor F(u,u_sigma), and the kernel K is described as modeling nonlocal intraspecific competition for resources or space; the maturation interpretation is only one possible biological reading inherited from the discussion around (2.22), not the exact wording of Open Problem 26.",
+  "missing_details": [
+    "The exact target is the specific scalar PDE (2.23), not the broader class of delayed diffusion-advection models.",
+    "The equation itself is missing: u_t = Delta u + d div(u grad u_tau) + lambda u F(u,u_sigma).",
+    "The delayed advection term must be defined explicitly as u_tau(x,t) = u(x,t-tau), with tau > 0.",
+    "The delayed nonlocal term must be defined explicitly as u_sigma(x,t) = integral over Omega of K(x,y)u(y,t-sigma)dy, with sigma > 0.",
+    "The parameters appearing in the model are omitted: d is a real advection-to-diffusion ratio, and lambda > 0 is a scaled constant.",
+    "The kernel K(x,y) should be identified as a reasonably smooth spatial kernel; the paper cites this regularity as part of the model description.",
+    "The growth term is not an arbitrary 'maturation effect' in the paper’s statement; it is a general application-dependent function F(u,u_sigma).",
+    "The ambient setting should be stated: a bounded spatial domain Omega subset of R^n with boundary, since homogeneous Dirichlet data are imposed on partial Omega.",
+    "The boundary condition should be written explicitly as u = 0 on partial Omega for t > 0; the paper also interprets this as a hostile boundary condition.",
+    "Because this is a time-delay problem, one must specify prescribed initial history data for u on a past interval, not just an initial value at t = 0.",
+    "The solution concept is unspecified; to be stand-alone, the question should say in what class uniqueness is sought (classical, strong, weak, or mild solution).",
+    "The time horizon is unspecified; the paper’s general well-posedness discussion distinguishes local-in-time from global-in-time existence, so the refined question should leave explicit which is being asked for.",
+    "The draft does not mention that the cited prior work studied only inhomogeneous steady states for model (2.23), and that extending this to the time-dependent problem is exactly why Open Problem 26 is posed.",
+    "No algebraic ambient ring/field, homogeneity degree, or nilpotency condition is relevant here; the analogous missing ambient data are the spatial domain, delays, kernel regularity, initial history, and solution class."
+  ],
+  "refined_question": "Let Omega be a bounded domain in R^n, let tau,sigma > 0, let d be a real parameter and lambda > 0, and consider the delayed diffusion-advection equation\nu_t = Delta u + d div(u grad u_tau) + lambda u F(u,u_sigma) in Omega for t > 0,\nwhere u_tau(x,t) = u(x,t-tau) and u_sigma(x,t) = integral over Omega of K(x,y)u(y,t-sigma)dy for a sufficiently regular spatial kernel K(x,y). Under what assumptions on the domain Omega, the kernel K, the nonlinearity F, and the prescribed initial history of u does the homogeneous Dirichlet problem u = 0 on partial Omega for t > 0 admit a unique time-dependent solution in a precisely stated solution class?",
+  "equivalent_formulation": null,
+  "justification": "The draft is aiming at the paper’s Open Problem 26, which is posed immediately after the introduction of model (2.23) in the discrete-delay scalar section. The refined version keeps the scope exactly there: it does not broaden to other delay models, other boundary conditions, or steady states. It restores the paper’s exact PDE structure, including the two distinct delays, the nonlocal delayed term u_sigma, the role of the kernel K, the parameters d and lambda, and the fact that the boundary condition is homogeneous Dirichlet. It also incorporates the nearby contextual points the paper treats as part of well-posedness: uniqueness is relative to given initial data, one must specify a solution notion, and for time-dependent problems one should be explicit about whether existence is local or global. This is paper-faithful and sharper than the draft while staying as close as possible to the original open problem.",
+  "citations": [
+    {
+      "section": "2.3.1",
+      "label": "Equation (2.23)",
+      "page": "22-23"
+    },
+    {
+      "section": "2.3.1",
+      "label": "Open Problem 26",
+      "page": "23"
+    },
+    {
+      "section": "4.1.1",
+      "label": "Existence discussion for time-dependent problems and solution notions",
+      "page": "37"
+    },
+    {
+      "section": "4.1.2",
+      "label": "Uniqueness relative to initial data; homogeneous Dirichlet as hostile boundary condition",
+      "page": "38-40"
+    },
+    {
+      "section": "5.1.2",
+      "label": "Model (2.23): only steady states studied previously; time-dependent existence remains open",
+      "page": "56"
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "arxiv_id": "2602.05394",
+  "question_id": "q_003",
+  "original_question": "Algebraic Multigrid Analysis for Theoretical Computer Scientists: Show that for polynomially bounded SWCDDM matrices $M$, Algebraic Multigrid runs in time $~O(nnz(M))$ to compute an (implicitly represented) symmetric matrix $Z$, which can be applied in $O(nnz(M))$ time, and satisfies the condition that $ Omega(1) M^-1 Z O(1) M^-1$. In particular, the constants are independent of the problem size $n$.",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 12508.04,
+  "target_in_paper": "Problem 2.3 (\"Algebraic Multigrid Analysis for Theoretical Computer Scientists\") in Section 2.2, \"Correctness of multigrid methods beyond the standard model problems.\"",
+  "completeness_score": 8.5,
+  "correct_elements": "Your draft is already very close to the paper's official formulation. It correctly identifies the target as the algebraic-multigrid problem for polynomially bounded SWCDDM matrices, the near-linear setup time \\tilde{O}(\\mathrm{nnz}(M)), the requirement that the output be implicit rather than an explicit inverse, the O(\\mathrm{nnz}(M)) application time, and the intended spectral-equivalence guarantee to M^{-1} with constants independent of the problem size n.",
+  "missing_details": [
+    "The paper's exact target is Problem 2.3 in Section 2.2, with the title \"Algebraic Multigrid Analysis for Theoretical Computer Scientists\"; your draft does not name the official problem label/title.",
+    "The ambient space is real matrices: M \\in \\mathbb{R}^{n\\times n}, and the output is an implicit symmetric operator/matrix Z.",
+    "SWCDDM must be defined from Definition 2.1: M is symmetric diagonally dominant (SDD), has nonpositive off-diagonal entries (SDDM), and every weakly diagonally dominant row i is connected by a chain of indices to a strictly diagonally dominant row.",
+    "Weakly diagonally dominant should be stated explicitly as M(i,i)=\\sum_{j\\neq i}|M(i,j)|; the strictly diagonally dominant endpoint in the chain condition is otherwise left implicit.",
+    "The phrase \"polynomially bounded\" is not self-contained as written in the draft. Definition 2.2 makes it a family-level condition: a collection is c-polynomially bounded if \\max_{i,j}|M(i,j)| \\le n^c for some constant c independent of n.",
+    "The spectral condition must be written in Loewner order as \\alpha M^{-1} \\preceq Z \\preceq \\beta M^{-1} for absolute constants \\alpha,\\beta>0; the draft's displayed relation is missing the order symbols and constants.",
+    "The runtime statement should distinguish setup time \\tilde{O}(\\mathrm{nnz}(M)) from application time O(\\mathrm{nnz}(M)) for applying Z to a vector.",
+    "The notation \\mathrm{nnz}(M) should be defined as the number of nonzero entries of M, and \\tilde{O}(\\cdot) should be understood as hiding polylogarithmic factors.",
+    "The phrase \"constants are independent of n\" should be tied explicitly to the spectral-equivalence constants in the bounds \\alpha M^{-1} \\preceq Z \\preceq \\beta M^{-1}."
+  ],
+  "refined_question": "Problem 2.3 (Algebraic Multigrid Analysis for Theoretical Computer Scientists). Let M \\in \\mathbb{R}^{n\\times n} belong to a c-polynomially bounded family of symmetric weakly-chained diagonally dominant M-matrices (SWCDDM), meaning that M is symmetric diagonally dominant, has nonpositive off-diagonal entries, and every weakly diagonally dominant row i (i.e. M_{ii}=\\sum_{j\\neq i}|M_{ij}|) lies on a chain of indices leading to a strictly diagonally dominant row; assume moreover that the family is c-polynomially bounded in the sense that \\max_{i,j}|M_{ij}|\\le n^c for some constant c independent of n. Show that, on input M, Algebraic Multigrid runs in \\tilde{O}(\\mathrm{nnz}(M)) time to compute an implicit symmetric operator Z that can be applied to a vector in O(\\mathrm{nnz}(M)) time and satisfies \\alpha M^{-1} \\preceq Z \\preceq \\beta M^{-1} for absolute constants \\alpha,\\beta>0 independent of n, where \\mathrm{nnz}(M) is the number of nonzero entries of M and \\preceq denotes the Loewner order.",
+  "equivalent_formulation": null,
+  "justification": "This is the nearest official formulation in the paper. Section 2.2 explicitly motivates the question as proving O(n)-type complexity for multigrid on a general algebraically defined class of systems with polynomially bounded SWCDDM matrices, then immediately supplies the needed notation in Definitions 2.1 and 2.2 and states Problem 2.3 with essentially the same runtime and spectral-equivalence target as in your draft. Your draft is therefore targeting Problem 2.3 directly, not a broader neighboring problem; the main omissions are the exact SWCDDM and polynomial-boundedness definitions and the precise Loewner-order form of the spectral bound.",
+  "citations": [
+    {
+      "section": "2",
+      "label": "Contents: Section 2.2 \"Correctness of multigrid methods beyond the standard model problems\"",
+      "page": 8
+    },
+    {
+      "section": "2.2",
+      "label": "Motivation paragraph introducing the conjecture on polynomially bounded SWCDDM matrices",
+      "page": "8-9"
+    },
+    {
+      "section": "2.2",
+      "label": "Definition 2.1",
+      "page": "8-9"
+    },
+    {
+      "section": "2.2",
+      "label": "Definition 2.2",
+      "page": "8-9"
+    },
+    {
+      "section": "2.2",
+      "label": "Problem 2.3 (Algebraic Multigrid Analysis for Theoretical Computer Scientists)",
+      "page": "8-9"
+    }
+  ]
+}

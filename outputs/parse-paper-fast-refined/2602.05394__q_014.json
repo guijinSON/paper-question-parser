@@ -1,0 +1,43 @@
+{
+  "arxiv_id": "2602.05394",
+  "question_id": "q_014",
+  "original_question": "Explain the convergence acceleration of GMRES after the initial (transient) phase that is observed in some convection-diffusion model problems such as the one in~. In particular, explain whether or not the speed of convergence can be related to eigeninformation (i.e., eigenvalue location and eigenvector conditioning) of the discretized convection-diffusion operators.",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 12432.52,
+  "target_in_paper": "Problem 2.14 in Section 2.5: \"Explain the convergence acceleration of GMRES after the initial (transient) phase that is observed in some convection-diffusion model problems such as the one in [LS05]. In particular, explain whether or not the speed of convergence can be related to eigeninformation (i.e., eigenvalue location and eigenvector conditioning) of the discretized convection-diffusion operators.\"",
+  "completeness_score": 9,
+  "correct_elements": "Your draft is already very close to the paper’s official formulation. It correctly identifies the method (GMRES), the phenomenon to be explained (acceleration after an initial transient/slow phase), the model class (convection-diffusion discretizations), and the candidate explanatory mechanism emphasized by the paper (eigeninformation, namely eigenvalue location and eigenvector conditioning).",
+  "missing_details": [
+    "The paper makes this a specific open problem, Problem 2.14 in Section 2.5, rather than a broad question about GMRES on nonsymmetric systems in general.",
+    "The motivating example is not an arbitrary convection-diffusion discretization but the SUPG-discretized convection-diffusion model problem discussed in [LS05].",
+    "The surrounding discussion stresses that these discretized operators are highly nonnormal and may have very ill-conditioned eigenvectors; that nonnormality is part of why the question is difficult.",
+    "The paper distinguishes between two issues: [LS05] largely explains the length of the initial slow phase, whereas the open problem is to explain the acceleration after that phase.",
+    "The official wording asks whether or not the post-transient convergence speed can be related to eigeninformation; the answer is not assumed to be positive.",
+    "To be fully stand-alone, the question should specify that 'speed of convergence' refers to the later-stage GMRES residual decay / iteration-count behavior for the finite-dimensional discretized operator A in a system Ax=b."
+  ],
+  "refined_question": "Let A be a highly nonnormal nonsymmetric matrix arising from a streamline-upwind/Petrov-Galerkin (SUPG) discretization of a convection-diffusion model problem, and suppose GMRES is applied to Ax=b. In examples of this type, the GMRES residual often exhibits an initial transient phase of slow decay followed by a noticeably faster decay. Which properties of the underlying PDE, the SUPG discretization, or the matrix A govern this post-transient acceleration, and can the speed of this later GMRES convergence be explained in terms of spectral data of A—specifically the locations of its eigenvalues together with the conditioning of its eigenvectors—or is such eigeninformation insufficient?",
+  "equivalent_formulation": null,
+  "justification": "The draft is targeting the paper’s Problem 2.14 almost verbatim, not the broader neighboring Problem 2.12 about descriptive GMRES bounds for nonnormal systems or Problem 2.13 about rigorous links between eigenvalue clustering and GMRES for preconditioned nonsymmetric model problems. The nearby context in Section 2.5 sharpens the scope: the motivating case is an SUPG-discretized convection-diffusion model problem from [LS05]; the operators are emphasized to be highly nonnormal with ill-conditioned eigenvectors; [LS05] is said to explain mainly the length of the initial slow phase, leaving unexplained the acceleration afterward; and the paper explicitly frames the open issue as whether that later convergence speed can or cannot be tied to eigenvalue location and eigenvector conditioning. No algebraic side conditions such as homogeneity, degree, or nilpotency are part of this problem.",
+  "citations": [
+    {
+      "section": "2.5",
+      "label": "Section 2.5 (Preconditioning and convergence of iterative solvers)",
+      "page": 14
+    },
+    {
+      "section": "2.5",
+      "label": "Problem 2.12",
+      "page": 16
+    },
+    {
+      "section": "2.5",
+      "label": "Problem 2.13",
+      "page": 16
+    },
+    {
+      "section": "2.5",
+      "label": "Problem 2.14",
+      "page": 16
+    }
+  ]
+}

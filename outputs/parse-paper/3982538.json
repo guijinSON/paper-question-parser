@@ -1,0 +1,143 @@
+{
+  "source": {
+    "url": "https://zbmath.org/3982538",
+    "resolved_locator": "/Users/songuijin/Documents/GitHub/paper-question-parser/.sisyphus/paper-question-parser/tmp/open_problems_in_stringology_preview.pdf",
+    "title": "Open Problems in Stringology",
+    "title_origin": "source_text"
+  },
+  "accepted": [
+    {
+      "id": "q_001",
+      "question_text": "Let Σ be a finite alphabet and let $ be a separator symbol not in Σ. Can a one-way multihead deterministic finite automaton recognize the string-matching language {x$uxv | u, x, v are strings in Σ*}, that is, determine whether an input contains two occurrences of the same pattern x separated as x$uxv? Equivalently, can one-way multihead deterministic finite automata perform string matching?",
+      "context_brief": "one-way multihead automata for string matching",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 2,
+          "quote": "Question 1: Can a one-way multihead dfa perform string matching?"
+        },
+        {
+          "page": 2,
+          "quote": "More specifically, can such an automaton recognize the language {x$uxvlu, x, v E E*}."
+        }
+      ]
+    },
+    {
+      "id": "q_002",
+      "question_text": "Fix a pattern string x. In the Boyer-Moore approach, one can imagine a deterministic finite automaton that remembers which parts of x need not be compared again after a mismatch when the pattern is shifted. What is the exact number of states such a Boyer-Moore automaton must have, or at least what are tight upper and lower bounds for that number as a function of |x| and the alphabet?",
+      "context_brief": "state complexity of Boyer-Moore automata",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 2,
+          "quote": "Question 2: The number of states in a \"Boyer-Moore dfa\"."
+        },
+        {
+          "page": 2,
+          "quote": "Knuth [19] suggested using a dfa that will \"remember\" those parts of the pattern that need not be compared. The question is to find the exact number, or alternatively close upper and lower bounds on the number of states such a dfa must have."
+        }
+      ]
+    },
+    {
+      "id": "q_003",
+      "question_text": "For string matching on an input of length n, can one design optimal parallel algorithms—meaning algorithms using p processors and time t with pt = O(n)—for larger processor ranges than were then known, specifically for ranges such as p ≤ n on a WRAM or p ≤ n/log n on a PRAM, while still solving the same string-matching problem efficiently?",
+      "context_brief": "more-processor optimal parallel string matching",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 2,
+          "quote": "Question 3: Parallel algorithms."
+        },
+        {
+          "page": 2,
+          "quote": "Recently, optimal parallel algorithms (those with pt = O(n), where p = number of processors, t = time) were developed for string matching for a wide range of values of p: on the WRAM for p <= n / log n and on the PRAM (for p <= n / log^2 n) ... Is it possible to design optimal parallel algorithms with a larger number of processors (e.g. p <= n on the WRAM, p <= n/ log n on the PRAM)?"
+        }
+      ]
+    }
+  ],
+  "needs_review": [],
+  "trace": [
+    {
+      "id": "resolve_source",
+      "stage": "input",
+      "notes": "Resolved the zbMATH record to the exact Springer chapter \"Open Problems in Stringology\" and downloaded the source-authorized preview PDF for extraction. The readable artifact available in this run was a two-page preview rather than the full eight-page chapter.",
+      "evidence_refs": [
+        "zbmath-record",
+        "springer-preview"
+      ]
+    },
+    {
+      "id": "doc_map",
+      "stage": "map",
+      "notes": "Mapped the available preview PDF. Page 1 contains the title, abstract, introduction, and the start of Section 1 (Questions about String Matching). Page 2 contains complete statements for Questions 1 and 2 and a complete leading statement for Question 3.",
+      "evidence_refs": [
+        "p1",
+        "p2"
+      ]
+    },
+    {
+      "id": "sec_1",
+      "stage": "extract_candidates",
+      "notes": "Extracted three explicit question statements visible in the preview: one-way multihead automata for string matching, the state complexity of a Boyer-Moore automaton, and larger-processor optimal parallel string matching.",
+      "evidence_refs": [
+        "p2"
+      ]
+    },
+    {
+      "id": "q_001",
+      "stage": "rewrite",
+      "notes": "Expanded the language-recognition formulation of Question 1 into a standalone string-matching question by inlining the separator symbol and the role of the repeated pattern x.",
+      "evidence_refs": [
+        "p2"
+      ]
+    },
+    {
+      "id": "q_002",
+      "stage": "rewrite",
+      "notes": "Restated Question 2 as a state-complexity problem for a Boyer-Moore-style automaton that remembers which comparisons can be skipped after a mismatch.",
+      "evidence_refs": [
+        "p2"
+      ]
+    },
+    {
+      "id": "q_003",
+      "stage": "rewrite",
+      "notes": "Made Question 3 self-contained by inlining the paper's definition of optimal parallel algorithms and the cited WRAM/PRAM processor regimes.",
+      "evidence_refs": [
+        "p2"
+      ]
+    },
+    {
+      "id": "dedupe_all",
+      "stage": "dedupe",
+      "notes": "No near-duplicate question statements were found among the three extracted items.",
+      "evidence_refs": [
+        "p2"
+      ]
+    },
+    {
+      "id": "quality_all",
+      "stage": "quality_gates",
+      "notes": "All accepted items are explicit question statements supported by verbatim quotes from the readable preview. The source available in this run is only a partial preview, so the extraction is limited to questions visible on preview pages 1-2.",
+      "evidence_refs": [
+        "p1",
+        "p2"
+      ]
+    },
+    {
+      "id": "persist",
+      "stage": "persist",
+      "notes": "Saved the exact JSON payload to outputs/parse-paper/3982538.json and updated outputs/latest.json.",
+      "evidence_refs": [
+        "outputs/parse-paper/3982538.json",
+        "outputs/latest.json"
+      ]
+    }
+  ]
+}

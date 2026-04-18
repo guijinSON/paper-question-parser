@@ -1,0 +1,42 @@
+{
+  "arxiv_id": "1102.5727",
+  "question_id": "q_019",
+  "original_question": "Let p be a prime, let C be a nonzero element of the finite field F(p), and let alpha be a primitive root modulo p. Determine the number of integers i in [p-1] that satisfy the congruence i ≡ C alpha^i (mod p).",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 1228.66,
+  "target_in_paper": "Section 7.2, Problem 19: determine the number of roots i in [p-1] of the congruence i ≡ C alpha^i (mod p), arising as the fixed-point equation for a W1 permutation.",
+  "completeness_score": 9,
+  "correct_elements": "Your draft already matches the paper's official Problem 19 almost verbatim: it has the correct hypotheses that p is prime, C is nonzero in the field with p elements, alpha is a primitive root modulo p, the unknowns are i in [p-1], and the target is the number of solutions to i ≡ C alpha^i (mod p).",
+  "missing_details": [
+    "Expand the paper's notation [p-1] as {1,2,...,p-1}, since Section 3 defines [n] to mean the first n positive integers.",
+    "State explicitly that C lies in F(p)^*, the multiplicative group of the finite field F(p), and that alpha is a generator of F(p)^*.",
+    "Clarify that the congruence is modulo p, so the integer i on the left is being identified with its residue class in F(p) when compared with C alpha^i.",
+    "Include the paper's nearby motivation: this equation is exactly the fixed-point condition for the exponential Welch Costas permutation f(i) = alpha^(i-1+c) mod p, with C = alpha^(c-1).",
+    "Make explicit that the problem asks for the exact number of roots for the given data (p, C, alpha), not an average, asymptotic, or existence statement."
+  ],
+  "refined_question": "Let p be a prime, let C be a nonzero element of the finite field F(p), and let alpha be a primitive root of F(p). Determine the number of solutions i in {1,2,...,p-1} to the congruence i ≡ C alpha^i (mod p).",
+  "equivalent_formulation": "Equivalently, for c in {0,1,...,p-2}, let f:[p-1]->[p-1] be the exponential Welch permutation f(i)=alpha^(i-1+c) mod p from Theorem 1. Since C=alpha^(c-1), determine the number of fixed points i with f(i)=i.",
+  "justification": "This draft is targeting Section 7.2's fixed-point problem for Welch Costas permutations, not the neighboring Problem 18. Theorem 1 defines the W1 exponential Welch permutation by f(i)=alpha^(i-1+c) mod p (Section 3.2.1, Theorem 1, p. 3). In Section 7.2, the paper explicitly derives equation (12), showing that the fixed-point condition f(i)=i is equivalent to i ≡ C alpha^i (mod p) with C=alpha^(c-1) (Section 7.2, equation (12), p. 13). Problem 19 then states exactly this question in official form (Section 7.2, Problem 19, p. 13). The only refinements needed to make your draft fully stand-alone are to unpack [p-1] using the notation introduced in Section 3 and to expose the fixed-point/W1 context.",
+  "citations": [
+    {
+      "section": "3",
+      "label": "notation [n] preceding Definition 1",
+      "page": 2
+    },
+    {
+      "section": "3.2.1",
+      "label": "Theorem 1 (Exponential Welch construction W1^{exp}(p, alpha, c))",
+      "page": 3
+    },
+    {
+      "section": "7.2",
+      "label": "equation (12)",
+      "page": 13
+    },
+    {
+      "section": "7.2",
+      "label": "Problem 19",
+      "page": 13
+    }
+  ]
+}

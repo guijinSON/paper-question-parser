@@ -1,0 +1,48 @@
+{
+  "arxiv_id": "1012.5187",
+  "question_id": "q_037",
+  "original_question": "Design an approximation algorithm for computing a maximum hidden set in a visibility graph.",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 1031.59,
+  "target_in_paper": "Section 4.6, Open Problem 37: the paper asks for an approximation algorithm for the maximum hidden set problem in visibility graphs of simple polygons.",
+  "completeness_score": 8.5,
+  "correct_elements": "Your draft correctly identifies the exact open problem the paper states in Section 4.6: it asks for an approximation algorithm for a maximum hidden set in a visibility graph. It also uses the paper's terminology closely; in this section, a hidden set is exactly an independent set of the visibility graph.",
+  "missing_details": [
+    "The relevant scope is Section 4 on polygons: here the graph is the vertex visibility graph of a simple polygon, not an arbitrary visibility graph from the point, segment, bar-visibility, or rectangle-visibility parts of the survey.",
+    "\"Hidden set\" should be defined explicitly as a hidden vertex set, i.e. an independent set H of vertices with no adjacent pair in the visibility graph.",
+    "The optimization objective is maximum cardinality: maximize |H| among all hidden sets in G.",
+    "To make the question stand-alone, the visibility graph itself should be defined: vertices correspond to polygon vertices, and two vertices are adjacent exactly when the corresponding polygon vertices are mutually visible inside the polygon.",
+    "The nearby Open Problem 36 studies a different input model in which the boundary Hamiltonian cycle is also given. Open Problem 37 does not include that extra input assumption, so the refined version should not assume the Hamiltonian cycle is part of the input.",
+    "The paper does not specify a target approximation ratio or a restricted subclass here; it asks for any provable approximation algorithm in the general simple-polygon visibility-graph setting."
+  ],
+  "refined_question": "Given a graph G promised to be the vertex visibility graph of a simple polygon P—that is, V(G) is the vertex set of P and two vertices are adjacent exactly when the corresponding polygon vertices are mutually visible inside P—design a polynomial-time approximation algorithm for the maximum hidden set problem: compute a hidden set H ⊆ V(G), where a hidden set means an independent set of G, whose size is within a provable approximation factor of the maximum possible hidden-set size. Do not assume that the Hamiltonian cycle corresponding to the boundary of P is provided as part of the input.",
+  "equivalent_formulation": "Design a polynomial-time approximation algorithm for the maximum independent set problem on visibility graphs of simple polygons.",
+  "justification": "The draft is targeting Section 4.6 exactly: Open Problem 37 on page 26 asks for an approximation algorithm for computing a maximum hidden set of a visibility graph. The surrounding paragraph in Section 4.6 defines hidden vertex sets as independent sets and supplies the relevant complexity context, so the independent-set meaning and maximum-cardinality objective should be made explicit. Open Problem 36, immediately above, separately asks about the stronger input model where the boundary Hamiltonian cycle is given, so Open Problem 37 should be read as the more general version without that extra input. Section 4.1 and the polygon visibility-graph definition in Section 1 show that, in this part of the paper, the relevant visibility graphs are vertex visibility graphs of simple polygons.",
+  "citations": [
+    {
+      "section": "1",
+      "label": "definition of the vertex visibility graph of a polygon",
+      "page": 2
+    },
+    {
+      "section": "4.1",
+      "label": "opening setup for polygon visibility graphs of simple polygons",
+      "page": 21
+    },
+    {
+      "section": "4.6",
+      "label": "definition of hidden vertex set / independent set and surrounding context",
+      "page": 26
+    },
+    {
+      "section": "4.6",
+      "label": "Open Problem 36",
+      "page": 26
+    },
+    {
+      "section": "4.6",
+      "label": "Open Problem 37",
+      "page": 26
+    }
+  ]
+}

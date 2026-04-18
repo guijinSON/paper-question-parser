@@ -1,0 +1,52 @@
+{
+  "arxiv_id": "2201.09150",
+  "question_id": "q_053",
+  "original_question": "Determine whether travelling-wave solutions exist for the nonlocal system in which a single species moves using an explicit dynamic cognitive map, and if they do, compute or estimate how wave speed depends on kernel choice, perceptual radius, and other parameters, and whether the result extends to multiple interacting species.",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 8093.46,
+  "target_in_paper": "Section 4.5, Open Problem 53: travelling-wave existence and wave-speed dependence for the explicit dynamic-map nonlocal system (2.11), starting from the single-species case and asking for extension to n interacting species.",
+  "completeness_score": 8.5,
+  "correct_elements": "Your draft already captures the correct official target very closely: it is about travelling-wave solutions for the explicit dynamic-map system (not the implicit-memory model), asks for existence first, then for computation or estimation of wave speed, explicitly highlights dependence on kernel choice and perceptual radius, and ends with the paper's own extension question to multiple interacting species.",
+  "missing_details": [
+    "The paper's exact target is Open Problem 53 in Section 4.5, and it refers specifically to system (2.11), not to a generic nonlocal cognitive-movement system.",
+    "To make the question stand-alone, the PDE must be written down: for n species, (u_i,p_i) satisfy u_{i,t} = d_i Delta u_i - gamma_i div(u_i grad(p_i)_{g,R}) and p_{i,t} = sum_{j=1}^n alpha_{ij} u_j - mu p_i; the single-species case is the n=1 reduction of this system.",
+    "The nonlocal operator must be defined: p_{g,R}(x,t) = integral over the spatial domain of p(y,t) g(x-y) dy, with subscripts g and R denoting dependence on detection kernel and perceptual radius.",
+    "The kernel family should be stated exactly as in (2.3): top-hat, Gaussian, or exponential detection functions; broadening to arbitrary kernels would go beyond the official formulation.",
+    "The travelling-wave setting in Section 4.5 is the unbounded-domain setting, with the standard one-dimensional ansatz (u,p)(x,t) = (U,P)(x-ct); your draft does not say this explicitly.",
+    "The relevant parameters should be named rather than hidden inside 'other parameters': in the single-species reduction these are at least d, gamma, alpha, mu, together with g and R; in the n-species system they become d_i, gamma_i, alpha_{ij}, mu.",
+    "There is a hidden modeling nuance around the single-species reduction of (2.11): the surrounding discussion notes that the cited biological literature often assumes no self-interaction (alpha_{ii}=0), so a nontrivial n=1 problem implicitly requires allowing alpha_{11} to produce a genuine one-species explicit-map system.",
+    "The draft does not distinguish the paper's explicit-map variable p in (2.11) from the later conflict-zone memory variable k in (2.13); staying paper-faithful requires keeping the target on (2.11).",
+    "Section 4.5 discusses stability of travelling waves in general, but Open Problem 53 itself asks only about existence and wave-speed computation/estimation; a refined question should not add stability as part of the formal target.",
+    "Algebraic notions such as ambient ring/field, homogeneity, degree, and nilpotency are not relevant here; the stand-alone formulation instead needs the spatial domain, PDE operators, convolution kernel, and parameter quantifiers."
+  ],
+  "refined_question": "For the explicit dynamic-map nonlocal system (2.11), consider first its single-species reduction on an unbounded one-dimensional domain, u_t = d u_xx - gamma (u (p_{g,R})_x)_x and p_t = alpha u - mu p, where p_{g,R}(x,t) = integral over R of p(y,t) g(x-y) dy and g is one of the three detection functions in (2.3) (top-hat, Gaussian, or exponential) with perceptual radius R > 0. Do there exist nontrivial travelling-wave solutions of the form (u,p)(x,t) = (U,P)(x-ct)? If so, can the wave speed c be computed explicitly or estimated in terms of the detection function g, the perceptual radius R, and the remaining model parameters d, gamma, alpha, mu? Finally, can analogous travelling-wave existence and wave-speed results be extended from this single-species case to the full n-species system (2.11)?",
+  "equivalent_formulation": null,
+  "justification": "This paper is a review/open-problems article, so the nearest official formulation is not a conjecture or theorem but Open Problem 53 in Section 4.5. Your draft is already close to that wording. The nearby context needed to make it precise comes from Section 2.1, which defines the admissible detection functions in (2.3), and Section 2.2.2, which introduces the explicit-map system (2.11) and its parameters. Section 4.5 then places the question in the travelling-wave framework for unbounded domains and asks exactly for existence, wave-speed dependence on detection function/perceptual radius/other parameters, and extension to n interacting species. I therefore kept the scope on (2.11), did not broaden to other dynamic-memory systems such as (2.13), and did not enlarge the kernel class beyond the three forms named in (2.3).",
+  "citations": [
+    {
+      "section": "2.1",
+      "label": "equation (2.3) and discussion of detection functions",
+      "page": 8
+    },
+    {
+      "section": "2.2.2",
+      "label": "equation (2.11)",
+      "page": 14
+    },
+    {
+      "section": "2.2.2",
+      "label": "discussion immediately following equation (2.11)",
+      "page": 14
+    },
+    {
+      "section": "4.5",
+      "label": "travelling-wave discussion",
+      "page": 52
+    },
+    {
+      "section": "4.5",
+      "label": "Open Problem 53",
+      "page": 53
+    }
+  ]
+}

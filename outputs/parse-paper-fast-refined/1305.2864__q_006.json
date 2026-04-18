@@ -1,0 +1,53 @@
+{
+  "arxiv_id": "1305.2864",
+  "question_id": "q_006",
+  "original_question": "How can hundreds of phytoplankton species coexist while competing for only one or a few limiting nutrients, even though the principle of competitive exclusion predicts that at equilibrium only one or a few species should remain? Can a nonequilibrium model that combines turbulent water advection, species-specific drift relative to the water, regeneration of the limiting nutrient, and species-dependent nutrient uptake and growth explain sustained coexistence of many plankton species?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 2956.19,
+  "target_in_paper": "Section 7, \"The paradox of plankton\"—specifically the paper’s open modeling problem of explaining Hutchinson’s paradox via the advection-growth system (7.1)–(7.2). This paper does not give a numbered conjecture, proposition, or theorem for this topic; the closest official formulation is the Section 7 statement of the paradox together with the proposed PDE model and its assumptions.",
+  "completeness_score": 7.5,
+  "correct_elements": "Your draft correctly identifies the paper’s actual target: the paradox that many phytoplankton species coexist despite competition for very few limiting resources and despite the competitive exclusion principle. It also correctly captures the paper’s proposed mechanism as nonequilibrium, and it already includes the main ingredients of the model introduced in Section 7: turbulent water advection, species-specific drift relative to the water, regeneration of the limiting nutrient, and species-dependent uptake/growth effects.",
+  "missing_details": [
+    "The paper’s ecological paradox is introduced as competition for one or a few limiting resources, but the actual model in Section 7 uses a single limiting resource density f(t,x), not several nutrient fields.",
+    "The paper works in a spatial setting with x ∈ R^3 and species indexed by n = 1,2,…,N; this should be stated explicitly.",
+    "The variables should be named explicitly as in the paper: v(t,x) is the three-dimensional turbulent water velocity, w_n(t,x) are the plankton drifting velocities relative to water, f(t,x) is the density of the limiting resource, and ρ_n(t,x) are the densities of the plankton species.",
+    "The exact PDE system should be included: ∂_t f + (v·∇)f = -G(ρ_1,…,ρ_N)f + F(t,x) and ∂_t ρ_n + [(v+w_n)·∇]ρ_n = H_n(f)ρ_n for n = 1,…,N.",
+    "The structural assumptions on G are missing: G(0,0,…,0)=0, and G(ρ_1,…,ρ_N) is strictly monotonically increasing in each ρ_n.",
+    "The structural assumptions on H_n are missing: H_n(f_n)=0 for species-specific critical food densities f_n, and each H_n(f) is strictly monotonically increasing in f.",
+    "The paper gives a specific drift ansatz that should be recorded: w_n = κ_n∇f + random noise or random walk, where κ_n are the drifting coefficients of different plankton species.",
+    "The food-regeneration term is not just generic regeneration: the paper assumes F(t,x) > 0 and periodic in t with relatively long period.",
+    "The paper explicitly ties the question to Hutchinson’s proposed explanation that equilibrium cannot be reached in reality; that non-equilibrium motivation should be stated directly.",
+    "The paper presents this as an open modeling problem, not as a proved theorem or formal conjecture; the refined question should preserve that status.",
+    "Algebraic metadata such as ambient ring/field, homogeneity, degree restrictions, nilpotency, or phrases like 'for all sufficiently large m' are not part of this paper and should not be imported; the stand-alone formulation instead needs the PDE domain, variables, and monotonicity/periodicity hypotheses."
+  ],
+  "refined_question": "In the setting of the plankton paradox from Section 7, can Hutchinson’s non-equilibrium explanation—that the ecological equilibrium is not actually reached—be realized within the specific PDE model proposed in the paper: for x ∈ R^3 and species n = 1,…,N, with turbulent water velocity v(t,x), limiting-resource density f(t,x), plankton densities ρ_n(t,x), and species drifts w_n = κ_n∇f + random noise or random walk, does the system ∂_t f + (v·∇)f = -G(ρ_1,…,ρ_N)f + F(t,x), ∂_t ρ_n + [(v+w_n)·∇]ρ_n = H_n(f)ρ_n, where G(0,…,0)=0 and is strictly increasing in each ρ_n, H_n(f_n)=0 and is strictly increasing in f, and F(t,x)>0 is periodic in t with relatively long period, explain how many phytoplankton species can persist while competing for a single limiting nutrient even though competitive exclusion predicts that only one or a few species should survive at equilibrium?",
+  "equivalent_formulation": null,
+  "justification": "The draft clearly targets Section 7 rather than any numbered theorem-like statement elsewhere in the paper: it restates the paradox of coexistence under competitive exclusion and then asks about exactly the model ingredients introduced in equations (7.1)–(7.2). The nearest official formulation is therefore the Section 7 prose statement of the paradox together with the PDE system and the assumptions listed immediately after it. To keep the question paper-faithful, the rewrite narrows 'one or a few nutrients' to the paper’s actual modeled quantity, a single limiting-resource field f(t,x), and adds the exact variables, domain, drift law, monotonicity conditions, and periodic forcing that the paper specifies. Because the paper does not state an equivalence, theorem, or conjecture here, no alternate equivalent formulation should be invented.",
+  "citations": [
+    {
+      "section": "Abstract",
+      "label": "paradox of plankton listed as one of the paper’s major open problems",
+      "page": 379
+    },
+    {
+      "section": "1",
+      "label": "Introduction",
+      "page": "379-380"
+    },
+    {
+      "section": "7",
+      "label": "The paradox of plankton: statement of the paradox and Hutchinson’s non-equilibrium idea",
+      "page": "387-388"
+    },
+    {
+      "section": "7",
+      "label": "Equations (7.1)-(7.2)",
+      "page": "389-390"
+    },
+    {
+      "section": "7",
+      "label": "Assumptions on G, H_n, w_n, F, and the critical food densities f_n",
+      "page": "390-391"
+    }
+  ]
+}

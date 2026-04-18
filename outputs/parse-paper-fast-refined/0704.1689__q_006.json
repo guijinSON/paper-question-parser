@@ -1,0 +1,64 @@
+{
+  "arxiv_id": "0704.1689",
+  "question_id": "q_006",
+  "original_question": "Let P(z) be a homogeneous harmonic polynomial of degree d >= 2 written in the form P(z) = sum_{i=1}^k h alpha_i, z i^d with isotropic vectors alpha_i in C^n, and define the graph G(P) to have vertex set {1, 2, ..., k} with an edge between i and j exactly when <alpha_i, alpha_j> is nonzero. What necessary or sufficient conditions on this labeled graph G(P) ensure that P(z) is Hessian nilpotent?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 255.43,
+  "target_in_paper": "Section 8.1, Open Problem 8.4(a)",
+  "completeness_score": 7,
+  "correct_elements": "Your draft is already aimed at the correct part of the paper. It correctly focuses on a homogeneous harmonic polynomial of degree d >= 2 over C, written as a sum of d-th powers of isotropic linear forms, defines a graph from the nonvanishing pairings between the isotropic vectors, and asks for necessary or sufficient graph-theoretic conditions guaranteeing that P is Hessian nilpotent. That is essentially the content of Open Problem 8.4(a).",
+  "missing_details": [
+    "The ambient setting should be stated explicitly: P(z) belongs to C[z1, ..., zn], and the pairing is the standard C-bilinear form on C^n, not a Hermitian inner product.",
+    "The paper fixes notation h_beta(z) := <beta, z> and X(C^n) := {alpha in C^n | <alpha, alpha> = 0}; the vectors alpha_i are required to lie in X(C^n).",
+    "The representation comes from Theorem 8.1: after absorbing nonzero coefficients ci into the alpha_i, one writes P(z) = sum_{i=1}^k h_{alpha_i}(z)^d; the paper also assumes the summands {h_{alpha_i}^d}_{i=1}^k are linearly independent.",
+    "The official problem is about the labeled graph G(P), not just the underlying simple graph. The labels are given by <alpha_i, alpha_j>, or, when d is even, by the symmetric weights h_{alpha_i}(z)^{(d-2)/2}<alpha_i, alpha_j>h_{alpha_j}(z)^{(d-2)/2}.",
+    "Hessian nilpotent must be defined explicitly: Hes P = (partial^2 P / partial z_i partial z_j) is a nilpotent n x n matrix over C[z].",
+    "To stay paper-faithful, one should note that G(P) is defined after fixing a decomposition of P of the form above.",
+    "Nearby context sharpens the scope: by Corollary 8.5, one may restrict attention to the case where G(P) is connected."
+  ],
+  "refined_question": "Let P(z) in C[z1, ..., zn] be a homogeneous harmonic polynomial of degree d >= 2. Fix a decomposition, as in Theorem 8.1, of the form P(z) = sum_{i=1}^k h_{alpha_i}(z)^d, where h_{alpha_i}(z) := <alpha_i, z>, each alpha_i lies in X(C^n) = {alpha in C^n | <alpha, alpha> = 0}, and the polynomials h_{alpha_i}(z)^d are linearly independent. Define the labeled graph G(P) on vertex set [k] = {1, ..., k} by joining i and j exactly when <alpha_i, alpha_j> != 0, with edge labels given by these pairings (or, when d is even, equivalently by the symmetric weights h_{alpha_i}(z)^{(d-2)/2}<alpha_i, alpha_j>h_{alpha_j}(z)^{(d-2)/2}). What necessary or sufficient conditions on this labeled graph G(P) guarantee that P is Hessian nilpotent, i.e. that the Hessian matrix Hes P = (partial^2 P / partial z_i partial z_j) is nilpotent? In view of Corollary 8.5, it is enough to answer this for connected G(P).",
+  "equivalent_formulation": "Equivalently, by Theorem 8.2 and Corollary 8.3, determine graph-theoretic conditions on the label data that force nilpotency of the matrix Psi_P = (<alpha_i, alpha_j> h_{alpha_j}(z)^{d-2})_{i,j}; when d is even, one may equivalently use the symmetric matrix Psi_{P,(d-2)/2} = (h_{alpha_i}(z)^{(d-2)/2}<alpha_i, alpha_j>h_{alpha_j}(z)^{(d-2)/2})_{i,j}.",
+  "justification": "The draft is not best matched to the introductory Vanishing Conjecture statements, but to the graph-theoretic part of the paper announced in Section 1.2 and developed in Section 8.1. There, Theorem 8.1 gives exactly the isotropic-power decomposition used in the draft; Theorem 8.2 and Corollary 8.3 explain why the labeled graph is relevant to Hessian nilpotency; and Open Problem 8.4(a) asks almost verbatim for necessary or sufficient conditions on the labeled graph G(P) that ensure a homogeneous harmonic polynomial P is HN. Corollary 8.5 gives the immediate sharpening that one may restrict to connected graphs, and Theorem 8.6 records partial results in that direction. So the closest official formulation is Open Problem 8.4(a), with the surrounding notation and reductions from Section 8.1.",
+  "citations": [
+    {
+      "section": "1.1",
+      "label": "Background and motivation (definition of HN polynomial)",
+      "page": "135-136"
+    },
+    {
+      "section": "1.2",
+      "label": "Arrangement of the paper",
+      "page": 138
+    },
+    {
+      "section": "8.1",
+      "label": "Theorem 8.1",
+      "page": "156-157"
+    },
+    {
+      "section": "8.1",
+      "label": "Theorem 8.2",
+      "page": 157
+    },
+    {
+      "section": "8.1",
+      "label": "Corollary 8.3",
+      "page": 157
+    },
+    {
+      "section": "8.1",
+      "label": "Open Problem 8.4",
+      "page": 158
+    },
+    {
+      "section": "8.1",
+      "label": "Corollary 8.5",
+      "page": 158
+    },
+    {
+      "section": "8.1",
+      "label": "Theorem 8.6",
+      "page": 158
+    }
+  ]
+}

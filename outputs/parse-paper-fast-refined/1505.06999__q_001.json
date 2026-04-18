@@ -1,0 +1,41 @@
+{
+  "arxiv_id": "1505.06999",
+  "question_id": "q_001",
+  "original_question": "Let X be the feature space, let the binary label set be {-1, +1}, let D = {(x^(l), y^(l))}_{l=1}^m be a dataset sampled from a probability space (D, Sigma, P), and let H be a weak-hypothesis class that is AdaBoost-natural with respect to D, meaning that H contains the constant classifier h(x) = 1, is closed under negation, and every h in H misclassifies at least one example in D. For Optimal AdaBoost, let w_t in Delta_m denote the example-weight distribution at round t, let err(h; w, D) = sum_{l=1}^m w(l) 1[h(x^(l)) != y^(l)], and let H(w_t, D) = arg min_{h in H} err(h; w_t, D), with the weak learner using a deterministic tie-breaking rule to select a representative hypothesis. Is it true that for mu-almost all probability spaces (D, Sigma, P), for any dataset D sampled from P, and for mu-almost all such H, there exist m_0, T_0 > 0 such that whenever m > m_0, then P-almost surely, for every t > T_0, either H(w_t, D) contains exactly one hypothesis, or every pair of hypotheses in H(w_t, D) agrees on all training examples in D, or the total w_t-weight of the training examples on which two tied optimal hypotheses disagree converges to 0 as t tends to infinity?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 4526.38,
+  "target_in_paper": "Section 2, Conjecture 1 (\"No-Ties Conjecture\") of arXiv:1505.06999; this is the nearest official formulation of the draft's question in the paper itself.",
+  "completeness_score": 8.0,
+  "correct_elements": "Your draft is already very close to the paper's actual target. It correctly identifies the question as the no-ties issue for standard binary Optimal AdaBoost; it includes the paper's AdaBoost-natural assumptions on the weak-hypothesis class H; it uses the weighted-error minimizer set H(w_t, D); it incorporates the deterministic tie-breaking setup from the preliminaries; it keeps the paper's almost-everywhere quantifier pattern over underlying probability spaces and hypothesis classes; and it captures the paper's intended three-way alternative: eventual uniqueness of the minimizing weak hypothesis, eventual agreement of all minimizing hypotheses on the training sample, or asymptotically vanishing total w_t-weight of the disagreement region among tied minimizers.",
+  "missing_details": [
+    "The nearest official target is specifically Section 2, Conjecture 1 (No-Ties Conjecture), not a broader convergence or ergodicity question.",
+    "The paper's symbol mu is overloaded: it denotes the relevant Borel/counting measure on the parameter spaces indexing admissible probability spaces and admissible measurable hypothesis spaces. Your draft uses mu but does not say what ambient parameter spaces it measures.",
+    "The paper distinguishes the underlying probability space from the sampled training dataset. Using D for both the dataset and the sample space is potentially confusing in a stand-alone statement.",
+    "The weak-hypothesis class should be stated explicitly as a class of binary-valued functions h:X->{-1,+1}.",
+    "The paper's third branch concerns the total w_t-weight of the disagreement set of the entire minimizer set H(w_t, D). Your phrase 'on which two tied optimal hypotheses disagree' is slightly ambiguous when more than two hypotheses tie.",
+    "The quantifier 'for every t > T_0' should govern only the eventual no-tie/agreement branch. The third branch is an asymptotic limit statement as t tends to infinity, not a separate for-all-large-t clause.",
+    "The preliminaries include an extra consistency convention for the representative hypothesis: if two tie-sets H(w, D) and H(w', D) are equal, then their chosen representatives are also equal. Your draft mentions deterministic tie-breaking but omits this second consistency clause.",
+    "The scope should explicitly say that this is the standard binary, exponential-loss, 'vanilla' version of Optimal AdaBoost, exactly as in the paper.",
+    "In a stand-alone restatement, it is helpful to say that m_0 and T_0 may depend on the underlying probability space and on H, as is implicit in the paper's quantifier structure."
+  ],
+  "refined_question": "In the standard binary 'vanilla' Optimal AdaBoost setting of the paper, let X be the feature space, Y = {-1,+1}, let D = ((x^(1), y^(1)), ..., (x^(m), y^(m))) be an i.i.d. training sample of size m from an underlying probability space, and let H be a weak-hypothesis class of functions h:X->Y that is AdaBoost-natural with respect to D, meaning: (i) the constant classifier +1 belongs to H; (ii) H is closed under negation; and (iii) every h in H misclassifies at least one example of D. For each round t, let w_t be the AdaBoost example-weight distribution on the m training examples, let err(h; w_t, D) = sum_{l=1}^m w_t(l) 1[h(x^(l)) != y^(l)], and let H(w_t, D) = argmin_{h in H} err(h; w_t, D). Assume, as in the paper's preliminaries, a deterministic tie-breaking rule for choosing a representative minimizer from H(w_t, D). Is the following No-Ties Conjecture true: for mu-almost all underlying probability spaces and mu-almost all measurable hypothesis classes H that are AdaBoost-natural with respect to D, there exist m_0, T_0 > 0 such that whenever m > m_0, then with probability 1 over the sampled dataset D, either (a) for every t > T_0 the minimizer set H(w_t, D) is a singleton, or (b) for every t > T_0 every pair h, h' in H(w_t, D) agrees on all training examples x^(1), ..., x^(m), or else (c) the total current weight of the disagreement set of the tied minimizers tends to 0, i.e. sum_{l=1}^m w_t(l) 1[there exist h, h' in H(w_t, D) with h(x^(l)) != h'(x^(l))] -> 0 as t -> infinity?",
+  "equivalent_formulation": null,
+  "justification": "The draft is targeting the paper's Section 2 No-Ties Conjecture, not the measure-zero decision-boundary conjecture, the constructive-proof conjecture, or the decision-stump problem. The match is clear because your draft reproduces the conjecture's three substantive alternatives: eventual uniqueness of the minimizing weak hypothesis, eventual agreement of all minimizing hypotheses on the training set, or vanishing total sample-weight on the disagreement set of tied minimizers. The notation you used is drawn from the nearby preliminaries in Section 1: AdaBoost-naturality of H, the example-weight sequence w_t, the minimizer set H(w_t, D), and the deterministic tie-breaking convention. The main refinements needed are to tighten the scope of the quantifiers, disambiguate the underlying probability space from the sampled dataset, and state the third branch as the weighted disagreement-set limit of the whole minimizer set rather than an ambiguous pairwise disagreement statement.",
+  "citations": [
+    {
+      "section": "1",
+      "label": "Introduction",
+      "page": 1
+    },
+    {
+      "section": "1",
+      "label": "Technical Preliminaries and Notation",
+      "page": "1-2"
+    },
+    {
+      "section": "2",
+      "label": "Conjecture 1 (No-Ties Conjecture)",
+      "page": 2
+    }
+  ]
+}

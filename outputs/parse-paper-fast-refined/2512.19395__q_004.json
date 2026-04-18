@@ -1,0 +1,52 @@
+{
+  "arxiv_id": "2512.19395",
+  "question_id": "q_004",
+  "original_question": "Fix k >= 1. Does there exist an integer N(k) such that every non-bipartite graph G in G(m, {C_3, C_5, ..., C_{2k+1}}) with even m >= N(k) satisfies one of the three exact spectral extremal descriptions in Conjecture 2.11, according to the congruence class of m - (2k - 1) modulo 3?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 12278.49,
+  "target_in_paper": "Section 2, Conjecture 2.11 (Li and Yu, 2023), in the section \"Forbidding subgraphs involving consecutive odd cycles,\" together with the immediately preceding Problem 5 and Theorem 2.10 that motivate the even-size conjecture.",
+  "completeness_score": 7.5,
+  "correct_elements": "Your draft is aimed at the right target: it matches the subject, quantifier pattern, parity restriction, forbidden family, and modulo-3 trichotomy of Section 2, Conjecture 2.11. In particular, it correctly fixes k >= 1, restricts to non-bipartite graphs in 𝒢(m,{C_3,C_5,...,C_{2k+1}}), requires even m to be sufficiently large, and recognizes that the conclusion is an exact spectral extremal classification depending on the residue class of m-(2k-1) modulo 3.",
+  "missing_details": [
+    "The paper defines 𝒢(m,ℱ) to mean the family of ℱ-free graphs with exactly m edges and no isolated vertices; your draft uses the notation but does not unpack the no-isolated-vertices condition.",
+    "The paper works with finite, simple, undirected graphs; this ambient graph-theoretic setting is implicit in your draft but not stated.",
+    "The operator λ(G) should be identified explicitly as the adjacency spectral radius (the largest eigenvalue in modulus of the adjacency matrix).",
+    "The conjecture does not merely say that one of three descriptions holds; it specifies three exact extremal graphs and equality cases, which should be written out explicitly rather than referenced indirectly.",
+    "The three congruence cases should be stated precisely as residue classes of m-(2k-1) modulo 3, together with the corresponding extremal graph in each case.",
+    "To be stand-alone, the constructions S_{2k-1}(K_{s,t}), S_{2k-1}^+(K_{2,t}), and S_{2k-1}^-(K_{3,t}) must be defined, not just named.",
+    "The uniqueness clause matters: in each case the conjecture says equality holds if and only if G is isomorphic to the designated extremal graph.",
+    "The phrase \"for all sufficiently large even m\" should be rendered in the paper-faithful quantifier form: there exists an integer N(k) such that the statement holds for every even m >= N(k).",
+    "The nearby context in Section 2 shows that Conjecture 2.11 is the even-m continuation of the odd-m theorem (Theorem 2.10) and is patterned on the earlier k=1 and k=2 even-size results (Theorems 2.6 and 2.9); that motivation is absent from the draft.",
+    "The survey also records that Conjecture 2.11 was very recently confirmed with N(k)=30k+45; that does not change the target, but it is part of the exact paper context."
+  ],
+  "refined_question": "For each fixed integer k >= 1, does there exist an integer N(k) such that, for every even integer m >= N(k), every non-bipartite graph G in 𝒢(m,{C_3,C_5,...,C_{2k+1}}) (that is, every finite simple graph with exactly m edges, no isolated vertices, and containing none of C_3,C_5,...,C_{2k+1} as a subgraph) satisfies the following exact adjacency-spectral extremal classification: if λ(G) denotes the spectral radius of the adjacency matrix of G, then\n(1) if m-(2k-1) ≡ 0 (mod 3), one has λ(G) <= λ(S_{2k-1}(K_{3,(m-2k+1)/3})), with equality if and only if G ≅ S_{2k-1}(K_{3,(m-2k+1)/3});\n(2) if m-(2k-1) ≡ 1 (mod 3), one has λ(G) <= λ(S_{2k-1}^+(K_{2,(m-2k)/2})), with equality if and only if G ≅ S_{2k-1}^+(K_{2,(m-2k)/2}); and\n(3) if m-(2k-1) ≡ 2 (mod 3), one has λ(G) <= λ(S_{2k-1}^-(K_{3,(m-2k+2)/3})), with equality if and only if G ≅ S_{2k-1}^-(K_{3,(m-2k+2)/3})?\nHere S_{2k-1}(K_{s,t}) is the graph obtained from K_{s,t} by replacing one edge by a path on 2k+1 vertices (equivalently, subdividing that edge 2k-1 times); S_{2k-1}^+(K_{2,t}) is obtained from S_{2k-1}(K_{2,t}) by attaching a pendant edge to a vertex of maximum degree; and S_{2k-1}^-(K_{3,t}) is obtained from K_{3,t} by deleting one edge and then replacing an edge incident to the resulting degree-2 vertex by a path on 2k+1 vertices.",
+  "equivalent_formulation": null,
+  "justification": "The draft clearly targets Section 2, Conjecture 2.11: it asks exactly for the sufficiently-large even-size edge-spectral extremal classification of non-bipartite {C_3,C_5,...,C_{2k+1}}-free graphs, split by the residue class of m-(2k-1) modulo 3. Section 1 supplies the needed notation 𝒢(m,ℱ) and the definition of spectral radius, while Theorem 2.10 and Problem 5 provide the immediate odd-m precursor and the transition to the even-m problem. Theorems 2.6 and 2.9 show the same three-case modulo pattern for the first two values of k, which is exactly the local context from which Conjecture 2.11 is formulated. The main gap in your draft is that it points to Conjecture 2.11 by label instead of writing out the three sharp bounds, the precise extremal graphs, and the equality conditions, so it is not yet stand-alone. The survey also notes immediately after the conjecture that Lou, Lu and Zhai confirmed it with N(k)=30k+45, so the conjecture is recorded in the paper together with its recent resolution.",
+  "citations": [
+    {
+      "section": "1",
+      "label": "Introductory notation and Problem 2",
+      "page": "ar5iv HTML lines 12-23"
+    },
+    {
+      "section": "2",
+      "label": "Theorem 2.6 and Theorem 2.9",
+      "page": "ar5iv HTML lines 60-76 and 96-111"
+    },
+    {
+      "section": "2",
+      "label": "Theorem 2.10",
+      "page": "ar5iv HTML lines 114-120"
+    },
+    {
+      "section": "2",
+      "label": "Problem 5",
+      "page": "ar5iv HTML lines 121-124"
+    },
+    {
+      "section": "2",
+      "label": "Conjecture 2.11",
+      "page": "ar5iv HTML lines 126-143"
+    }
+  ]
+}

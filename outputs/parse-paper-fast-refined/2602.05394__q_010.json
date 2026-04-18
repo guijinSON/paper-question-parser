@@ -1,0 +1,43 @@
+{
+  "arxiv_id": "2602.05394",
+  "question_id": "q_010",
+  "original_question": "What is the bit complexity of solving an $n x n$ linear system with $nnz(A)$ non-zeros? In particular, does the $~ O(n* nnz(A))$ runtime extend to the Word-RAM model.",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 12460.15,
+  "target_in_paper": "Section 2.4, Problem 2.10 (Bit complexity of sparse systems).",
+  "completeness_score": 9,
+  "correct_elements": "The draft already matches the paper very closely: it asks for the bit complexity of solving an n × n sparse linear system, measures sparsity by nnz(A), and focuses on whether the real-RAM \\~O(n · nnz(A)) bound extends to the Word-RAM model. That wording is essentially the wording of Problem 2.10.",
+  "missing_details": [
+    "The system itself should be stated explicitly as Ax = b.",
+    "nnz(A) should be identified as the number of nonzero entries of A.",
+    "The comparison being asked is specifically between the real-RAM \\~O(n · nnz(A)) running time and the Word-RAM/bit-complexity model.",
+    "The paper introduces this as the sparse special case of the broader bit-complexity question for (n, k, l, κ) systems, arising when all singular values are treated as outlying.",
+    "The motivating issue is precision growth in Krylov subspace methods: in the Word-RAM model, the required precision can grow with the rank of the Krylov subspace.",
+    "To stay paper-faithful, one should not add assumptions not present in Problem 2.10, such as SPD/symmetry, a specific field, a condition-number bound, or a fixed error/backward-stability target; those are not stated in the displayed problem itself."
+  ],
+  "refined_question": "What is the bit complexity, in the Word-RAM model, of solving a sparse n × n linear system Ax = b when nnz(A) denotes the number of nonzero entries of A? In particular, does the real-RAM \\~O(n · nnz(A)) running time extend to the Word-RAM model?",
+  "equivalent_formulation": null,
+  "justification": "The draft is targeting Problem 2.10, not the broader neighboring Problem 2.9. The giveaway is the exact sparse-system phrasing with nnz(A) and the question about whether the \\~O(n · nnz(A)) running time extends to the Word-RAM model; this appears verbatim in Problem 2.10 (§2.4, p. 14). The nearby context in the same subsection explains that this sparse question is an important special case of the broader (n, k, l, κ) framework, introduced after Definition 2.4 and the discussion of outlying singular values (§2.4, p. 11), and specifically arises when all singular values are treated as outlying and one contemplates n Krylov/Lanczos-type iterations instead of a direct O(n^ω) solve (§2.4, p. 14).",
+  "citations": [
+    {
+      "section": "2.4",
+      "label": "Section 2.4 (The effect of outlying singular values (or eigenvalues))",
+      "page": 11
+    },
+    {
+      "section": "2.4",
+      "label": "Definition 2.4",
+      "page": 11
+    },
+    {
+      "section": "2.4",
+      "label": "Problem 2.9",
+      "page": 14
+    },
+    {
+      "section": "2.4",
+      "label": "Problem 2.10",
+      "page": 14
+    }
+  ]
+}

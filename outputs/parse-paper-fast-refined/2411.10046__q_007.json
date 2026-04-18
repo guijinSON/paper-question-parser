@@ -1,0 +1,49 @@
+{
+  "arxiv_id": "2411.10046",
+  "question_id": "q_007",
+  "original_question": "For a graph G with maximum degree Delta(G), is the list packing number always at most Delta(G) + 1? In other words, must chi*_l(G) <= Delta(G) + 1 hold for every graph G?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 10422.85,
+  "target_in_paper": "Section 2, under “Upper bound by a function of maximum degree,” Problem 2.5 of arXiv:2411.10046. This is the workshop-paper restatement of the main bounded-degree list-packing question from the cited paper [5], namely Conjecture 3(i) in Section 1 of List packing number of bounded degree graphs.",
+  "completeness_score": 9,
+  "correct_elements": "Your draft identifies the correct parameter (maximum degree Δ(G)), the correct invariant (the list packing number χ^*_ℓ(G)), the correct universal quantifier (for every graph G), and the exact inequality asked in the paper, χ^*_ℓ(G) ≤ Δ(G) + 1. It is essentially a near-verbatim restatement of Problem 2.5.",
+  "missing_details": [
+    "The draft does not define χ^*_ℓ(G). In the paper, χ^*_ℓ(G) is the least integer k such that every k-list-assignment L of G admits an L-packing of size k.",
+    "It omits the definition of a k-list-assignment: a function L: V(G) → 2^N with |L(v)| = k for every vertex v.",
+    "It omits the definition of an L-colouring and properness: a colouring c with c(v) ∈ L(v) for all v, and c(u) ≠ c(v) for every edge uv.",
+    "It omits the definition of disjointness for the packed colourings: if c1, ..., ck are the colourings, then ci(v) ≠ cj(v) for every vertex v and all i ≠ j.",
+    "It does not explicitly say that no extra hypotheses are imposed: the question is over all graphs, not only planar, bipartite, connected, regular, or bounded-order graphs.",
+    "It does not mention that the paper frames this as the central maximum-degree upper-bound problem for list packing, i.e. a Brooks-type analogue for χ^*_ℓ.",
+    "There are no ambient ring/field, homogeneity, nilpotency, or 'for sufficiently large' conditions in this problem; the hidden content is entirely in the graph-theoretic definitions above."
+  ],
+  "refined_question": "Let G be a graph. For an integer k, a k-list-assignment of G is a function L: V(G) → 2^N such that |L(v)| = k for every v ∈ V(G). An L-colouring c of G is proper if c(v) ∈ L(v) for all v and c(u) ≠ c(v) whenever uv ∈ E(G). A collection c1, ..., ck of proper L-colourings is pairwise disjoint if ci(v) ≠ cj(v) for every v ∈ V(G) and all i ≠ j. Define the list packing number χ^*_ℓ(G) to be the least integer k such that every k-list-assignment L of G admits k pairwise-disjoint proper L-colourings. Is it true that χ^*_ℓ(G) ≤ Δ(G) + 1 for every graph G?",
+  "equivalent_formulation": null,
+  "justification": "Problem 2.5 in Section 2 of arXiv:2411.10046 is exactly the maximum-degree question your draft is aiming at, and the notation needed to read it self-containedly is defined immediately beforehand in the same section. The cited bounded-degree paper [5] confirms that this is not a side variant but the authors’ main maximum-degree conjecture for list packing, with small-degree evidence and a proved fractional relaxation nearby. So the faithful refinement is to keep your inequality unchanged and add only the missing definitions of k-list-assignment, proper L-colouring, disjointness, and χ^*_ℓ(G).",
+  "citations": [
+    {
+      "section": "Section 2",
+      "label": "definitions of list-assignment, L-colouring, disjointness, and χ^*_ℓ(G)",
+      "page": 3
+    },
+    {
+      "section": "Section 2",
+      "label": "Problem 2.5",
+      "page": 3
+    },
+    {
+      "section": "Section 1 of cited paper [5], List packing number of bounded degree graphs",
+      "label": "Conjecture 3(i)",
+      "page": 1
+    },
+    {
+      "section": "Section 1 of cited paper [5], List packing number of bounded degree graphs",
+      "label": "Theorem 4(i)",
+      "page": "1-2"
+    },
+    {
+      "section": "Section 1 of cited paper [5], List packing number of bounded degree graphs",
+      "label": "Theorem 7",
+      "page": 2
+    }
+  ]
+}

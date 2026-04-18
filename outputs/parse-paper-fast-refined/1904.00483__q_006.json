@@ -1,0 +1,51 @@
+{
+  "arxiv_id": "1904.00483",
+  "question_id": "q_006",
+  "original_question": "Is there a function f(n) such that every geodesic multinet in the Euclidean plane with three boundary (unbalanced) vertices and with multiplicity of every edge at most n has at most f(n) balanced vertices?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 6523.08,
+  "target_in_paper": "Problem 3.1.4 in Section 3.1, as motivated by Example 3.1.1 and contrasted with Theorem 3.1.2.",
+  "completeness_score": 7.5,
+  "correct_elements": "Your draft already matches the paper's target very closely: it has the right ambient space (the Euclidean plane), the right object class (geodesic multinets), the right boundary data (three boundary/unbalanced vertices), the right parameter to control (the maximum edge multiplicity n), and the right conclusion sought (a bound on the number of balanced vertices depending only on n).",
+  "missing_details": [
+    "The paper's exact target is an open problem, not a theorem or conjecture: specifically Problem 3.1.4 in Section 3.1.",
+    "The quantifiers should be explicit: for each positive integer n, does there exist a bound f(n) that works for every such multinet?",
+    "The paper uses the standing convention that only connected geodesic (multi)nets are considered.",
+    "A crucial hidden convention is that balanced vertices of degree 2 are excluded (equivalently, under the paper's conventions balanced vertices are nonisolated and have degree at least 3). Without this, one could subdivide an edge into arbitrarily many degree-2 balanced vertices, making the question trivially fail.",
+    "Another standing convention is that the considered nets do not contain edges between unbalanced vertices.",
+    "To be stand-alone, the question should say what a geodesic multinet in the Euclidean plane is: a finite multigraph in R^2 whose edges are straight line segments, where edges may intersect or self-intersect, each edge has a positive integer multiplicity, and the multiplicity-weighted sum of unit tangent vectors is zero at each balanced vertex.",
+    "The paper uses 'boundary' and 'unbalanced' synonymously, and 'balanced' synonymously with 'inner' or 'free'; making that explicit helps the question stand alone.",
+    "The bound is meant to depend only on n, not on the geometry of the three boundary points.",
+    "No ambient ring/field, homogeneity, degree-of-polynomial, or nilpotency hypotheses are relevant here; the omitted data are geometric and graph-theoretic conventions, especially connectedness and the exclusion of degree-2 balanced vertices."
+  ],
+  "refined_question": "For each positive integer n, does there exist a function f: N -> N such that every connected geodesic multinet in R^2 with exactly three unbalanced (boundary) vertices, no edges joining two unbalanced vertices, all balanced vertices of degree at least 3, and every edge carrying a positive integer multiplicity at most n, has at most f(n) balanced vertices? Here a geodesic multinet in R^2 means a finite multigraph whose edges are straight line segments, where intersections and self-intersections are allowed, and at every balanced vertex the multiplicity-weighted sum of the unit tangent vectors of the incident edges is zero.",
+  "equivalent_formulation": null,
+  "justification": "The draft is targeting Problem 3.1.4 essentially verbatim. In Section 3.1, Example 3.1.1 constructs geodesic multinets with three unbalanced vertices and arbitrarily many balanced vertices, but the nearby discussion emphasizes that some edge multiplicities become unbounded in that construction. Immediately after that, Theorem 3.1.2 shows the extreme rigidity of the corresponding geodesic-net problem with three unbalanced vertices. Problem 3.1.4 then asks whether imposing a uniform upper bound on edge multiplicities suffices to bound the number of balanced vertices. The main omissions in the draft are the paper's standing conventions needed to make the question faithful and stand-alone, especially connectedness, exclusion of degree-2 balanced vertices, and the convention that there are no edges between unbalanced vertices.",
+  "citations": [
+    {
+      "section": "1.1",
+      "label": "Definition 1.1.1 and standing conventions",
+      "page": "ar5iv HTML lines 24-31 (page number not available in HTML view)"
+    },
+    {
+      "section": "1.2",
+      "label": "Euclidean specialization of geodesic multinets",
+      "page": "ar5iv HTML lines 33-47 (page number not available in HTML view)"
+    },
+    {
+      "section": "3.1",
+      "label": "Example 3.1.1",
+      "page": "ar5iv HTML lines 123-141, especially 133-137 (page number not available in HTML view)"
+    },
+    {
+      "section": "3.1",
+      "label": "Theorem 3.1.2",
+      "page": "ar5iv HTML lines 144-146 (page number not available in HTML view)"
+    },
+    {
+      "section": "3.1",
+      "label": "Problem 3.1.4",
+      "page": "ar5iv HTML lines 153-155 (page number not available in HTML view)"
+    }
+  ]
+}

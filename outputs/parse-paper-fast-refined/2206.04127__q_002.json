@@ -1,0 +1,54 @@
+{
+  "arxiv_id": "2206.04127",
+  "question_id": "q_002",
+  "original_question": "Let J: L2(0,1) -> L2(0,1) be the integration operator [Jx](s) = integral_0^s x(t) dt for 0 <= s <= 1, and let A := B^(H) o J: L2(0,1) -> l2. Is the inverse problem Ax = y moderately ill-posed, in the sense that there exist constants C > 0 and kappa > 0 such that C i^(-kappa) <= sigma_i(A) for all i in N, or is it instead exponentially ill-posed?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 8301.13,
+  "target_in_paper": "Open Question 2 in §1 (Introduction): whether the composite Hausdorff moment problem Ax = y with A = B^(H) o J is moderately ill-posed or exponentially ill-posed.",
+  "completeness_score": 8,
+  "correct_elements": "Your draft is already very close to the paper's actual target. It identifies the correct operator J, the correct composite forward operator A = B^(H) o J, the correct ambient setting L^2(0,1) -> ell^2, and the exact dichotomy posed in the paper: polynomial-type lower bounds for singular values (moderate ill-posedness) versus exponential decay (exponential ill-posedness).",
+  "missing_details": [
+    "The draft does not define the Hausdorff moment operator B^(H); in the paper it is [B^(H) z]_j = integral_0^1 t^(j-1) z(t) dt for j = 1,2,... .",
+    "The paper formulates the problem as the operator equation Ax = y with unknown x in L^2(0,1) and data y in ell^2, interpreted as recovering x from monomial moments of its antiderivative Jx.",
+    "The nearby context states that A = B^(H) o J is a compact, injective, bounded linear operator with non-closed range; this is why singular values are the relevant measure of ill-posedness here.",
+    "The paper's definition of 'moderately ill-posed' is specifically: there exist C > 0 and kappa > 0 such that C i^(-kappa) <= sigma_i(A) for every i in N; if moreover no such bound holds with exponent kappa - epsilon for any epsilon > 0, then the degree is exactly kappa.",
+    "The exponential alternative should be stated in the paper's singular-value language: there exist C1, C2, theta > 0 such that sigma_i(A) <= C1 exp(-C2 i^theta) for all i in N.",
+    "The paper places the question in the context of the currently known gap exp(-C i) <= sigma_i(A) <= C i^(-3/2) for all sufficiently large i, so the unresolved issue is which side reflects the true asymptotic behavior.",
+    "A nearby motivating fact is that A* A is a Hilbert-Schmidt integral operator with kernel k(s,t) = sum_{j=1}^infty ((1 - s^j)(1 - t^j))/j^2, which is continuous on [0,1]^2 but not C^1 there; this limited smoothness is part of why exponential decay is analytically doubtful in the paper."
+  ],
+  "refined_question": "Let B^(H): L^2(0,1) -> ell^2 be the Hausdorff moment operator defined by [B^(H) z]_j = integral_0^1 t^(j-1) z(t) dt for j = 1,2,..., and let J: L^2(0,1) -> L^2(0,1) be the integration operator [Jx](s) = integral_0^s x(t) dt for 0 <= s <= 1. For the compact, injective composite operator A := B^(H) o J : L^2(0,1) -> ell^2 and the inverse problem Ax = y, determine the actual asymptotic regime of its nonincreasing singular values sigma_i(A): does there exist C > 0 and kappa > 0 such that C i^(-kappa) <= sigma_i(A) for every i in N, so that the problem is moderately ill-posed in the sense of Definition 1, or do there exist C1, C2, theta > 0 such that sigma_i(A) <= C1 exp(-C2 i^theta) for every i in N, so that the problem is exponentially ill-posed?",
+  "equivalent_formulation": null,
+  "justification": "The draft is aiming at the paper's Open Question 2, asked in the introduction immediately after Definition 1. That is the nearest official formulation and should not be broadened to the more general kernel-smoothness question (Open Question 3). The refined version keeps the paper's narrow focus on the specific composite Hausdorff moment operator A = B^(H) o J, adds the missing definition of B^(H), states the data and solution spaces explicitly, and restores the exact singular-value criteria used in the paper for moderate and exponential ill-posedness. It also stays faithful to the surrounding analytical context: Proposition 1 gives the presently known two-sided but incompatible bounds on sigma_i(A), while Proposition 2 explains why the kernel smoothness of A* A makes exponential decay analytically questionable.",
+  "citations": [
+    {
+      "section": "§1 Introduction",
+      "label": "Equation (1)",
+      "page": "1"
+    },
+    {
+      "section": "§1 Introduction",
+      "label": "Equations (3)-(5)",
+      "page": "2"
+    },
+    {
+      "section": "§1 Introduction",
+      "label": "Definition 1",
+      "page": "2-3"
+    },
+    {
+      "section": "§1 Introduction",
+      "label": "Open Question 2",
+      "page": "3"
+    },
+    {
+      "section": "§2",
+      "label": "Proposition 1",
+      "page": "5"
+    },
+    {
+      "section": "§2",
+      "label": "Proposition 2",
+      "page": "5-6"
+    }
+  ]
+}

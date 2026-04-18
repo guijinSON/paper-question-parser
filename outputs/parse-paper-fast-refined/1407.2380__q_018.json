@@ -1,0 +1,38 @@
+{
+  "arxiv_id": "1407.2380",
+  "question_id": "q_018",
+  "original_question": "In the Credit Metrics portfolio-simulation setting, can one make precise and then evaluate a hybrid-sequence strategy that selects the s credits contributing most to portfolio risk, simulates those coordinates with an s-dimensional low-discrepancy sequence of N points, simulates the remaining coordinates with pseudo-random numbers, and compares the resulting performance with pure Monte Carlo and pure quasi-Monte Carlo methods?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 4153.07,
+  "target_in_paper": "Section 3, Open Problem 15: the paper’s exact target is to carry out the sketched CreditMetrics hybrid-simulation program in detail and analyze its performance against pure Monte Carlo and pure quasi-Monte Carlo methods. ([ar5iv.org](https://ar5iv.org/pdf/1407.2380))",
+  "completeness_score": 8.5,
+  "correct_elements": "Your draft already captures the core of the paper’s actual open problem: it is set in J.P. Morgan’s CreditMetrics framework; it uses a hybrid construction in which the coordinates corresponding to the most risk-relevant credits are simulated by an s-dimensional low-discrepancy sample of N points while the remaining coordinates are simulated pseudo-randomly; and it asks for a performance comparison with pure MC and pure QMC. That is essentially the content of the three-step program stated immediately before Open Problem 15. ([ar5iv.org](https://ar5iv.org/pdf/1407.2380))",
+  "missing_details": [
+    "The paper first fixes the simulation setting more concretely: the task in CreditMetrics is to estimate the percentile of the future value of a bank’s credit portfolio one year ahead, and each credit in the portfolio is one simulation dimension. Your draft presupposes this context but does not state it. ([ar5iv.org](https://ar5iv.org/pdf/1407.2380))",
+    "Before selecting the risky credits, the paper explicitly asks to determine a dimension s (for given sample size N and total portfolio dimension d) for which using an s-dimensional low-discrepancy sequence of N points is preferable to pseudo-random sampling in s dimensions. Your draft mentions selecting s risky credits, but not this prior optimization/choice of s as part of the problem. ([ar5iv.org](https://ar5iv.org/pdf/1407.2380))",
+    "The paper does not say merely 'highest-risk coordinates'; it asks to determine which credits contribute most to the risk of the whole portfolio, with the nearby context noting that a credit’s contribution depends on face amount, rating class (including downgrade/default probabilities), and correlation properties within the portfolio. Those criteria are implicit in your draft and should be made explicit for a stand-alone formulation. ([ar5iv.org](https://ar5iv.org/pdf/1407.2380))",
+    "In Section 3 the author explicitly changes the meaning of 'hybrid sequence' for this application: here it means a combination of a low-discrepancy sequence with a pseudo-random sequence, not one of the earlier purely deterministic hybrid classes discussed in the paper. Your draft assumes this, but does not state the redefinition. ([ar5iv.org](https://ar5iv.org/pdf/1407.2380))",
+    "The paper asks to 'carry out the above sketched program ... in detail,' so the target is not only conceptual precision but an actual detailed implementation and empirical/performance analysis inside the CreditMetrics simulation procedure. ([ar5iv.org](https://ar5iv.org/pdf/1407.2380))",
+    "No ambient ring/field, homogeneity, degree, or nilpotency hypotheses are relevant here; this is an applied simulation open problem, so the hidden assumptions to surface are model-setting details (portfolio dimension, sample size, one-year horizon, coordinate/risk-selection rule, and comparison baseline), not algebraic data. ([ar5iv.org](https://ar5iv.org/pdf/1407.2380))"
+  ],
+  "refined_question": "In J.P. Morgan’s original CreditMetrics setting for a bank portfolio of d credits, where one estimates the percentile of the portfolio’s value one year in the future and each credit corresponds to one simulation coordinate, can one, for a fixed sample size N, carry out in detail the following program: first determine an integer s ≤ d for which an s-dimensional low-discrepancy sample of N points is preferable to pseudo-random sampling in s dimensions; next identify the s credits that contribute most to the total portfolio risk (taking into account, as indicated in the paper, face amount, rating class, and correlation properties within the portfolio); and then run the CreditMetrics simulation with a hybrid sampler that uses the s low-discrepancy coordinates for those selected credits and pseudo-random coordinates for the remaining d − s credits, followed by a performance analysis against pure Monte Carlo and pure quasi-Monte Carlo methods? ([ar5iv.org](https://ar5iv.org/pdf/1407.2380))",
+  "equivalent_formulation": null,
+  "justification": "The draft is aimed not at the discrepancy-theoretic open problems earlier in the paper, but at the finance application placed at the end of Section 3. There the author explicitly gives a three-step CreditMetrics program—choose s for given N and dimension, identify the credits with largest contribution to total portfolio risk, and simulate those coordinates by a low-discrepancy sequence while using pseudo-random numbers for the rest—and then states Open Problem 15 asking to carry out this program in detail and compare it with pure MC and pure QMC. The refinement above stays as close as possible to that exact formulation while making the CreditMetrics objective and the role of each variable stand alone. ([ar5iv.org](https://ar5iv.org/pdf/1407.2380))",
+  "citations": [
+    {
+      "section": "Abstract",
+      "label": "Abstract: the paper is about discrepancy estimates for sequences and hybrid sequences, and it collects open problems on this topic. ([arxiv.org](https://arxiv.org/abs/1407.2380))",
+      "page": "n/a (arXiv abstract page)"
+    },
+    {
+      "section": "3",
+      "label": "Section 3, discussion immediately before Open Problem 15: CreditMetrics application sketch, including one-dimension-per-credit, choice of s, risk-contributing credits, and hybrid low-discrepancy/pseudo-random simulation. ([ar5iv.org](https://ar5iv.org/pdf/1407.2380))",
+      "page": "n/a (ar5iv HTML lines 261-276)"
+    },
+    {
+      "section": "3",
+      "label": "Open Problem 15. ([ar5iv.org](https://ar5iv.org/pdf/1407.2380))",
+      "page": "n/a (ar5iv HTML lines 277-279)"
+    }
+  ]
+}

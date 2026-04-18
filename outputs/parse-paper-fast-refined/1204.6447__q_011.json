@@ -1,0 +1,38 @@
+{
+  "arxiv_id": "1204.6447",
+  "question_id": "q_011",
+  "original_question": "Fix r in N, odd n, and 0 < epsilon < 1/2. For f : {-1,1}^n -> {-1,1}, let P(f) be the probability that r independent epsilon-noisy copies of a uniform x all give the same output under f. Among odd functions f, is P(f) always maximized by a majority function Maj_k on some odd number k of inputs?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 2241.89,
+  "target_in_paper": "The unnumbered open problem titled \"Optimality of Majorities for Non-Interactive Correlation Distillation.\"",
+  "completeness_score": 9.1,
+  "correct_elements": "Your draft already matches the paper's official statement very closely: it fixes r, odd n, and 0 < epsilon < 1/2; defines P(f) from r noisy views of a common uniform source x; asks for the maximizer over odd Boolean functions f : {-1,1}^n -> {-1,1}; and correctly allows the optimizer to be a majority function on some odd number of inputs rather than insisting on dictator or full majority.",
+  "missing_details": [
+    "Define \"odd\" explicitly as f(-x) = -f(x) for every x in {-1,1}^n.",
+    "Define an epsilon-noisy copy precisely: if X is uniform on {-1,1}^n, then conditional on X each Y^(i) is formed by independently flipping each coordinate of X with probability epsilon; equivalently, Y_j^(i) = X_j with probability 1 - epsilon and Y_j^(i) = -X_j with probability epsilon, independently over all i and j.",
+    "Clarify that the r noisy copies are independent only conditional on the common source X.",
+    "Clarify how Maj_k is viewed as an n-variable function: for some odd k <= n, it is the majority of k selected coordinates and ignores the remaining n - k coordinates.",
+    "Make explicit that the existential quantifier on k is part of the conclusion: for the fixed parameters r, n, epsilon, there should exist some odd k <= n for which Maj_k attains the maximum of P(f) over all odd f.",
+    "If fully stand-alone notation is desired, state that the event in P(f) is equality of all r outputs, not that they are all +1."
+  ],
+  "refined_question": "Fix integers r >= 1 and odd n >= 1, and fix epsilon in (0,1/2). For each Boolean function f : {-1,1}^n -> {-1,1}, let X be uniform on {-1,1}^n, and conditional on X let Y^(1),...,Y^(r) be independent epsilon-noisy copies of X, meaning that for every i in {1,...,r} and j in {1,...,n}, Y_j^(i) = X_j with probability 1 - epsilon and Y_j^(i) = -X_j with probability epsilon, independently over all i and j. Define P(f) = Pr[f(Y^(1)) = f(Y^(2)) = ... = f(Y^(r))]. Among all odd functions f (that is, f(-x) = -f(x) for every x), is P(f) always maximized by a majority function Maj_k on some odd number k <= n of input coordinates, viewed as an n-variable function by ignoring the remaining n - k coordinates?",
+  "equivalent_formulation": null,
+  "justification": "The draft is targeting the exact page-6 open problem \"Optimality of Majorities for Non-Interactive Correlation Distillation,\" and its wording is already very close to the paper's statement. The only sharpening needed to make it fully stand-alone is to unpack the shorthand conventions the paper leaves implicit: the definition of oddness, the coordinatewise epsilon-noise model, the conditional independence of the noisy copies given the common source X, and the way Maj_k is embedded into an n-variable Boolean function. I kept the scope exactly at this open problem and preserved the paper's \"some odd k\" conclusion, which the same-page remark shows is essential because the optimizer need not be either Maj_1 or Maj_n.",
+  "citations": [
+    {
+      "section": "Front matter",
+      "label": "For notation and definitions, see e.g. analysisofbooleanfunctions.org",
+      "page": "title page"
+    },
+    {
+      "section": "Unnumbered problem list",
+      "label": "Optimality of Majorities for Non-Interactive Correlation Distillation (Statement)",
+      "page": 6
+    },
+    {
+      "section": "Unnumbered problem list",
+      "label": "Optimality of Majorities for Non-Interactive Correlation Distillation (Remark: neither Maj_1 nor Maj_n need maximize)",
+      "page": 6
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "arxiv_id": "2602.05394",
+  "question_id": "q_021",
+  "original_question": "Deterministic Pseudospectral Shattering: Give a provably correct and efficient deterministic algorithm for the following task: on input $A C^n x n$ and $delta>0$, output a perturbation $E$ with $ |E | delta$ such that $kappa_eig(A+E) C(delta/n)^c$, where $C,c$ are universal constants. In this context, efficient means $O(n^3 ^c(n/delta))$ arithmetic operations, either in exact arithmetic or, more ambitiously, in finite arithmetic with $O( ^c(n/delta))$ bits of precision.",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 12465.3,
+  "target_in_paper": "Problem 3.1 (Deterministic Pseudospectral Shattering) in Section 3.1, “Deterministic pseudospectral shattering / Minami bound.”",
+  "completeness_score": 8.8,
+  "correct_elements": "Your draft already targets the correct problem in the paper: a deterministic analogue of the randomized pseudospectral-shattering step used before diagonalization/Schur-form algorithms. It correctly identifies the ambient class of inputs as arbitrary complex n×n matrices, includes the perturbation-budget parameter δ>0, asks for a perturbation E of norm at most δ, asks for a polynomial bound on the post-perturbation eigenproblem condition number, and preserves the paper’s intended efficiency target of O(n^3 polylog(n/δ)) arithmetic operations, with the aspirational finite-precision variant using polylogarithmically many bits.",
+  "missing_details": [
+    "The mathematical notation is garbled in several places and needs the missing inequality signs restored: the paper asks for ∥E∥≤δ and for a bound of the form κ_eig(A+E)≤… .",
+    "The intended polynomial dependence is in n/δ, not δ/n. The surrounding motivation and equation (6) state that the goal is to make κ_eig(A+E) polynomially bounded in n/δ.",
+    "The ambient field should be stated cleanly as A ∈ ℂ^{n×n}.",
+    "To make the question stand-alone, κ_eig should be defined from the nearby context: κ_eig(B)=κ_V(B)/gap(B).",
+    "The nearby context also defines gap(B) as the minimum distance between two distinct eigenvalues: gap(B)=min_{i≠j}|λ_i−λ_j|.",
+    "The nearby context explains that κ_V(B) is the condition number of a matrix of normalized eigenvectors of B; this should be stated or referenced explicitly.",
+    "It is implicit that the requested bound forces A+E to have simple spectrum, since κ_eig is finite only when there are no multiple eigenvalues.",
+    "The norm ∥·∥ should be named explicitly to make the problem self-contained; in this context it is the standard matrix/operator norm used in the paper’s backward-error discussion.",
+    "The universality of the constants C,c should be explicit: they are independent of A, n, and δ.",
+    "The paper frames the finite-precision version as a more ambitious strengthening, not as part of the minimal exact-arithmetic statement; that scope distinction should be preserved."
+  ],
+  "refined_question": "Problem 3.1 (Deterministic Pseudospectral Shattering). Given an arbitrary matrix A ∈ ℂ^{n×n} and a parameter δ>0, design a provably correct deterministic algorithm that outputs a perturbation E with ∥E∥≤δ such that κ_eig(A+E)≤C(n/δ)^c for universal constants C,c>0, where κ_eig(B):=κ_V(B)/gap(B), gap(B):=min_{i≠j}|λ_i−λ_j|, and κ_V(B) denotes the condition number of a matrix of normalized eigenvectors of B. The algorithm should run in O(n^3 log^c(n/δ)) arithmetic operations; more ambitiously, achieve the same guarantee in finite precision using only O(log^c(n/δ)) bits of precision.",
+  "equivalent_formulation": null,
+  "justification": "The draft is essentially a near-verbatim transcription of the paper’s Problem 3.1 in Section 3.1, not the neighboring Hermitian-tridiagonal Problem 3.2. The only substantive repair needed is to restore the missing inequalities and correct the scaling to polynomial in n/δ, which is the paper’s explicit intent in the motivation and equation (6). I also made the question stand-alone by importing the nearby definitions of κ_eig, gap, and κ_V from the same subsection, while keeping the scope exactly at the arbitrary-matrix deterministic shattering problem posed in the paper.",
+  "citations": [
+    {
+      "section": "3.1 Deterministic pseudospectral shattering / Minami bound",
+      "label": "Motivation, equation (6), and definition of κ_eig",
+      "page": 21
+    },
+    {
+      "section": "3.1 Deterministic pseudospectral shattering / Minami bound",
+      "label": "Problem 3.1 (Deterministic Pseudospectral Shattering)",
+      "page": 21
+    },
+    {
+      "section": "3.1 Deterministic pseudospectral shattering / Minami bound",
+      "label": "Remarks after Problem 3.1",
+      "page": 21
+    },
+    {
+      "section": "3.1 Deterministic pseudospectral shattering / Minami bound",
+      "label": "Problem 3.2 (Deterministic Minami Perturbation)",
+      "page": 22
+    }
+  ]
+}

@@ -1,0 +1,63 @@
+{
+  "arxiv_id": "1907.08768",
+  "question_id": "q_003",
+  "original_question": "Does there exist a framed manifold of Kervaire invariant one in dimension 2^7 - 2 = 126? Equivalently, in the formulation recalled by the paper, does the class h_6^2 ∈ Ext^{2,2^7}_{A_2}(F_2,F_2) represent a stable homotopy element θ_6 : S^{126} → S^0? The paper notes that the cases i ≤ 5 are known to exist and the cases i ≥ 7 do not exist, leaving exactly i = 6 unresolved.",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 6843.45,
+  "target_in_paper": "No exact match. The closest paper-faithful target is the unlabeled Section 1 discussion immediately after Corollary 1.4: for t >= 2, whether the fifth Singer algebraic transfer Tr_5 is an isomorphism in the bidegrees (5, 5 + (13*2^t - 5)); the paper reduces this to computing GL_5-invariants in degree 47.",
+  "completeness_score": 1,
+  "correct_elements": "The only real overlap is thematic: your draft is an unresolved Ext/stable-homotopy existence question, and this paper also uses the Singer transfer to study specific Ext groups related to stable homotopy. But the concrete problem you wrote down (dimension 126, h_6^2, theta_6, Kervaire invariant one) is not the problem this paper states or investigates. The paper's actual focus is the Peterson hit problem for P_5 and the fifth Singer transfer in internal degrees 13*2^t - 5.",
+  "missing_details": [
+    "The paper works at the prime 2, over the field F_2, with the mod-2 Steenrod algebra A_2.",
+    "The relevant rank is d = 5, not the Kervaire-invariant rank/index from your draft; the paper studies GL_5(F_2) acting on P_5 = F_2[x_1, x_2, x_3, x_4, x_5].",
+    "The homogeneous degree actually under study is n_t = 13*2^t - 5 = 5(2^t - 1) + 8*2^t, with t a non-negative integer in Theorem 1.1 and the remaining unresolved range t >= 2 in the Section 1 discussion.",
+    "The central quotient is QP_5 = F_2 ⊗_{A_2} P_5 ≅ P_5 / A_2^+ P_5, and the paper studies its homogeneous pieces (QP_5)_{n_t}.",
+    "The relevant transfer map is the fifth Singer algebraic transfer Tr_5: F_2 ⊗_{GL_5(F_2)} P_{A_2}H_n(B((Z/2)^5)) -> Ext_{A_2}^{5,5+n}(F_2,F_2).",
+    "The notation P_{A_2}H_n(B((Z/2)^5)) means the A_2-annihilated subspace of homology; this dualizes to (QP_5)_n.",
+    "The nearby Ext-theoretic input used by the paper is Ext_{A_2}^{5,5+(13*2^t-5)}(F_2,F_2) = 0 for t = 0 and = <h_{t+1}f_{t-1}> for t >= 1, with h_{t+1}f_{t-1} already known to lie in Im(Tr_5).",
+    "Singer's conjecture here means that Tr_d is a monomorphism for every positive integer d; the paper proves the relevant rank-5 cases only in bidegrees (5,13) and (5,26), then asks about t >= 2.",
+    "The paper reduces the unresolved family t >= 2 by the iterated Kameko squaring operation: for t >= 2, the iterated map (gSq^0_*)^{t-2}: (QP_5)_{13*2^t-5} -> (QP_5)_{47} is a GL_5-module isomorphism.",
+    "So the concrete unresolved case singled out by the paper is degree 47: compute the GL_5(F_2)-invariants of (QP_5)_{47}, or more sharply understand whether (Ker(gSq^0_*)(5,47))^{GL_5} is trivial.",
+    "None of the Kervaire-specific data in your draft—framed manifolds of Kervaire invariant one in dimension 126, the class h_6^2, or the stable element theta_6—is part of the paper's stated question."
+  ],
+  "refined_question": "Fix F_2 and the mod-2 Steenrod algebra A_2. Let P_5 = F_2[x_1, x_2, x_3, x_4, x_5], let QP_5 = F_2 ⊗_{A_2} P_5, and let Tr_5: F_2 ⊗_{GL_5(F_2)} P_{A_2}H_{n_t}(B((Z/2)^5)) -> Ext_{A_2}^{5,5+n_t}(F_2,F_2) denote the fifth Singer algebraic transfer. For n_t = 13*2^t - 5 = 5(2^t - 1) + 8*2^t with t >= 2, is Tr_5 an isomorphism in bidegree (5,5+n_t)? The paper reduces this family to the unresolved computation of the GL_5(F_2)-invariants in (QP_5)_{47} via iterated Kameko squaring.",
+  "equivalent_formulation": null,
+  "justification": "The paper's abstract and Section 1 show that its main subject is the Peterson hit problem for P_5 together with consequences for the fifth Singer transfer, and its labeled main results are Theorems 1.1, 1.2, and 1.3 in degrees 13*2^t - 5. After proving the cases t = 0 and t = 1, the introduction explicitly isolates the remaining unresolved case t >= 2 and explains that the problem reduces, through iterated Kameko squaring, to degree 47. That Section 1 question is therefore the nearest stand-alone research question faithful to the paper's actual intent; your Kervaire-invariant-one draft is a different problem from a different paper context.",
+  "citations": [
+    {
+      "section": "Abstract",
+      "label": "paper scope and main objective",
+      "page": "643"
+    },
+    {
+      "section": "1",
+      "label": "description of Singer transfer and Singer's monomorphism conjecture",
+      "page": "645-646"
+    },
+    {
+      "section": "1",
+      "label": "Theorem 1.1",
+      "page": "647"
+    },
+    {
+      "section": "1",
+      "label": "Theorem 1.2",
+      "page": "648"
+    },
+    {
+      "section": "1",
+      "label": "Theorem 1.3",
+      "page": "649"
+    },
+    {
+      "section": "1",
+      "label": "Ext computation in degree 13*2^t - 5 and open discussion after Corollary 1.4 for t >= 2",
+      "page": "650-651"
+    },
+    {
+      "section": "2.1",
+      "label": "Kameko squaring operation and dual map on QP_d",
+      "page": "652-653"
+    }
+  ]
+}

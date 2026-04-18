@@ -1,0 +1,56 @@
+{
+  "arxiv_id": "2512.19395",
+  "question_id": "q_008",
+  "original_question": "Fix k >= 2. If G has m edges and contains neither C_{2k+1} nor C_{2k+2}, must lambda(G) be at most (k - 1 + sqrt(4m - k^2 + 1)) / 2, with equality only for K_k joined with an independent set of size m/k - (k - 1)/2, for all sufficiently large m?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 12161.8,
+  "target_in_paper": "Section 3, Conjecture 3.10 (Zhai, Lin and Shu [44], 2021), as motivated by Theorem 3.9 and discussed immediately before the stronger Conjecture 3.11; the survey also notes that Conjecture 3.10 is resolved via Theorems 3.12 and 3.14.",
+  "completeness_score": 6.5,
+  "correct_elements": "Your draft gets the main numerical bound, the extremal graph shape, the fixed-parameter regime k >= 2, and the asymptotic phrase 'for all sufficiently large m' essentially right. It is clearly aiming at the cycle-forbidding conjecture stated in Section 3.",
+  "missing_details": [
+    "The paper works with finite, undirected, simple graphs.",
+    "The relevant class is G(m,F): graphs with exactly m edges and no isolated vertices; your draft omits the 'no isolated vertices' condition built into the paper's notation.",
+    "The paper's hypothesis is G in G(m,C_{2k+1}) union G(m,C_{2k+2}), i.e. G is either C_{2k+1}-free or C_{2k+2}-free. Your draft instead asks about graphs containing neither cycle, which is a stronger and different hypothesis.",
+    "The paper uses lambda(G) as the adjacency spectral radius lambda_1(G); this should be stated explicitly in a stand-alone question.",
+    "The paper says k is a fixed integer k >= 2, so the threshold implicit in 'sufficiently large m' may depend on k.",
+    "To make 'for all sufficiently large m' stand alone, it should be unpacked as: there exists m_0 = m_0(k) such that the statement holds for all m >= m_0.",
+    "The equality case K_k vee ((m/k) - (k-1)/2)K_1 implicitly requires (m/k) - (k-1)/2 to be a nonnegative integer; equivalently, equality is only possible when that join graph is well defined.",
+    "Join notation vee should be defined: K_k vee tK_1 is the graph obtained by joining K_k to an independent set of size t.",
+    "No ambient ring/field, homogeneity, degree-of-polynomial, or nilpotency conditions are involved here; the ambient setting is purely spectral graph theory."
+  ],
+  "refined_question": "Fix a positive integer k >= 2. Does there exist an integer m_0 = m_0(k) such that, for every finite simple graph G with m >= m_0 edges and no isolated vertices, if G is either C_{2k+1}-free or C_{2k+2}-free, then its adjacency spectral radius satisfies lambda(G) <= (k - 1 + sqrt(4m - k^2 + 1))/2, with equality if and only if G is isomorphic to K_k vee tK_1, where t = m/k - (k - 1)/2 and vee denotes graph join?",
+  "equivalent_formulation": null,
+  "justification": "The bound and extremal graph in your draft match the official statement of Conjecture 3.10 in Section 3. However, the paper phrases the hypothesis as membership in G(m,C_{2k+1}) union G(m,C_{2k+2}), meaning 'either C_{2k+1}-free or C_{2k+2}-free,' not 'contains neither.' Section 1 supplies the hidden notation needed to make the question stand alone: lambda(G) is the adjacency spectral radius, G(m,F) means F-free graphs with m edges and no isolated vertices, and vee is the join. The nearby context shows why Conjecture 3.10 is the right target rather than a neighboring problem: Theorem 3.9 gives the k = 2 cases C5 and C6, Conjecture 3.11 is explicitly presented as a stronger theta-graph version that implies Conjecture 3.10, and Theorem 3.14 says 'Consequently, Conjecture 3.10 was also resolved' (with Theorem 3.12 covering k = 2).",
+  "citations": [
+    {
+      "section": "Section 1",
+      "label": "notation for lambda(G), G(m,F), and join",
+      "page": "1-2"
+    },
+    {
+      "section": "Section 3",
+      "label": "Theorem 3.9",
+      "page": 6
+    },
+    {
+      "section": "Section 3",
+      "label": "Conjecture 3.10",
+      "page": 6
+    },
+    {
+      "section": "Section 3",
+      "label": "Conjecture 3.11",
+      "page": "6-7"
+    },
+    {
+      "section": "Section 3",
+      "label": "Theorem 3.12",
+      "page": 7
+    },
+    {
+      "section": "Section 3",
+      "label": "Theorem 3.14",
+      "page": 7
+    }
+  ]
+}

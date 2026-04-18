@@ -1,0 +1,47 @@
+{
+  "arxiv_id": "0911.2206",
+  "question_id": "q_002",
+  "original_question": "For the same incompressible Jeffreys-type viscoelastic fluid model with div v = 0, v|∂Ω = 0, motion equation ∂v/∂t + Σ_i v_i ∂v/∂x_i − Div σ + ∇p = f, and constitutive law σ + λ1 Dσ/Dt = 2η(E + λ2 DE/Dt), are all weak solutions regular without placing restrictions on the coefficients, external force, or initial data, in dimensions n ≥ 2?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 613.72,
+  "target_in_paper": "The draft is trying to capture the survey's open problem about global-in-time strong solvability of the initial-boundary value problem for the incompressible Jeffreys model in a bounded domain: local strong solutions are known, and global strong solutions are known under smallness assumptions, but global strong solvability for arbitrary data remains open in general, indeed the authors stress that this is not known even in two space dimensions.",
+  "completeness_score": 3,
+  "correct_elements": "Your draft correctly points to the incompressible Jeffreys-type viscoelastic fluid setting, includes the momentum equation with convection, pressure, and stress, imposes the no-slip boundary condition, and has the right 'large-data / no smallness assumptions' flavor of the unresolved issue discussed by the authors.",
+  "missing_details": [
+    "The paper's actual open problem is not formulated as 'are all weak solutions regular?'; rather, it is the lack of a general global-in-time strong solvability theorem for the initial-boundary value problem.",
+    "The relevant domain is a sufficiently regular bounded domain Ω, not an arbitrary domain.",
+    "The spatial dimension in the authors' precise formulation is n = 2 or 3; the survey emphasizes that the difficulty persists even for n = 2, so 'n >= 2' is broader than the paper's focal formulation.",
+    "The constitutive derivative is not an unspecified material derivative D/Dt; in the strong-solution section the paper uses Jeffreys' law with Oldroyd's derivative D_a/Dt.",
+    "The rheological parameters are constrained: η > 0, 0 < λ2 < λ1, and -1 <= a <= 1.",
+    "The open problem concerns continuation of the local strong solution for arbitrary data, not unconditional regularity of every weak solution.",
+    "The initial conditions are part of the formulation and include both the velocity datum and the stress/elastic datum (in the paper's reformulation, the transformed stress τ = σ - 2η(λ2/λ1)E(u)).",
+    "The known positive result nearby is only local strong existence for sufficiently smooth data, and global strong existence only under smallness assumptions on the initial data and body force.",
+    "To make the question stand alone, one should specify the time interval [0,T] and ask whether the local strong solution extends to all of [0,T] for every T > 0.",
+    "If one wants to stay fully paper-faithful, the question should be tied to the exact bounded-domain initial-boundary value problem studied by Guillope-Saut and reviewed by the authors, rather than to an unrestricted weak-regularity problem."
+  ],
+  "refined_question": "Let Ω be a sufficiently regular bounded domain in R^n with n = 2 or 3, let T > 0, and consider the incompressible Jeffreys model with Oldroyd derivative D_a/Dt, -1 <= a <= 1, η > 0, and 0 < λ2 < λ1: ∂_t u + (u·∇)u - Div σ + ∇p = f in (0,T)×Ω, σ + λ1 D_aσ/Dt = 2η(E(u) + λ2 D_aE(u)/Dt), div u = 0 in (0,T)×Ω, and u = 0 on (0,T)×∂Ω. For arbitrary initial data and body force in the regularity class for which the local strong solution exists, does that local strong solution necessarily extend to a global strong solution on the whole interval [0,T] without any smallness assumptions on the data? In particular, can one prove such global strong solvability even in two space dimensions?",
+  "equivalent_formulation": null,
+  "justification": "The survey is a review of 'recent results and main unsolved problems' for Jeffreys-type models. In the authors' expanded treatment of the same material, they state explicitly that one has local strong solvability for the bounded-domain incompressible Jeffreys-Oldroyd problem, while global strong solvability is known only under smallness assumptions; they then emphasize that global strong solvability for arbitrary data is open in general and not known even in two dimensions. The subsequent introduction of weak solutions is presented as a way to proceed precisely because unrestricted strong solvability is unavailable. So the closest paper-faithful sharpening of your draft is the open global strong-solvability question, not an unrestricted statement that every weak solution is regular.",
+  "citations": [
+    {
+      "section": "Abstract",
+      "label": "paper scope: review of recent results and main unsolved problems",
+      "page": "arXiv abstract page"
+    },
+    {
+      "section": "Expanded treatment by the same authors, Preface",
+      "label": "statement that global strong solvability is open in general, even in two dimensions",
+      "page": "vi-vii"
+    },
+    {
+      "section": "Expanded treatment by the same authors, Section 5.1",
+      "label": "Theorem 5.1.1 and Remark 5.1.3",
+      "page": "103-105"
+    },
+    {
+      "section": "Expanded treatment by the same authors, Section 6.1.1",
+      "label": "weak solutions introduced because unrestricted strong solvability is open in the general case",
+      "page": "141-142"
+    }
+  ]
+}

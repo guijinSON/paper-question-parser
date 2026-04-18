@@ -1,0 +1,62 @@
+{
+  "arxiv_id": "2110.15458",
+  "question_id": "q_001",
+  "original_question": "Let k be a positive definite kernel on a compact domain X subset R^d, let H_k be the associated reproducing kernel Hilbert space, and suppose an unknown reward function f belongs to H_k with ||f||_{H_k} <= B. In the online setting, a learner sequentially chooses points x_1, x_2, ... in X, observes noisy rewards y_i = f(x_i) + epsilon_i with i.i.d. sub-Gaussian noise, and may choose each new point using all previous observations. If mu_n(x) and sigma_n(x) are the surrogate Gaussian-process posterior mean and standard deviation after n observations, what is the smallest possible growth rate in n of a confidence-width factor rho_n(delta) for which, with probability at least 1 - delta, the uniform bound |f(x) - mu_n(x)| <= rho_n(delta) sigma_n(x) holds for all x in X? In particular, can the existing online RKHS confidence interval be improved by an O~(sqrt(gamma_n)) factor, where gamma_n is the maximal information gain?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 7735.11,
+  "target_in_paper": "Section 3, Open Problem (immediately following Theorem 2 on online RKHS confidence intervals).",
+  "completeness_score": 9.0,
+  "correct_elements": "Your draft is very close to the paper's exact target. It correctly identifies the RKHS setting on a compact subset of R^d, the adaptive online sampling model with i.i.d. sub-Gaussian noise, the GP-surrogate quantities mu_n and sigma_n, the uniform high-probability confidence bound |f(x) - mu_n(x)| <= rho_n(delta) sigma_n(x), and the main asymptotic question: how rho_n(delta) should grow with n in the online setting. It also correctly singles out the paper's specific sharpening goal, namely whether the known online confidence width can be improved by an O~(sqrt(gamma_n)) factor.",
+  "missing_details": [
+    "The paper assumes k : X x X -> R is positive definite with respect to a finite Borel measure on X; the functions and rewards are real-valued.",
+    "The online setting is formalized by a measurability condition, not just informal adaptivity: with F_i = sigma(x_1, ..., x_{i+1}, epsilon_1, ..., epsilon_i), one requires x_i to be F_{i-1}-measurable and epsilon_i to be F_i-measurable.",
+    "The exact noise assumption is R-sub-Gaussianity in moment-generating-function form: E[exp(eta epsilon_i)] <= exp(eta^2 R^2 / 2) for all eta in R and all i.",
+    "The surrogate model is specifically a zero-mean GP with kernel k and regularization parameter lambda > 0.",
+    "To make mu_n and sigma_n fully stand-alone, the paper defines y_n = (y_1, ..., y_n)^T, k_n(x) = (k(x,x_1), ..., k(x,x_n))^T, K_n = [k(x_i, x_j)]_{i,j=1}^n, mu_n(x) = k_n(x)^T (lambda^2 I_n + K_n)^(-1) y_n, and sigma_n^2(x) = k(x,x) - k_n(x)^T (lambda^2 I_n + K_n)^(-1) k_n(x).",
+    "The current best online confidence factor being challenged is stated explicitly in Theorem 2: rho_n(delta) = B + (R / lambda) sqrt(2(gamma_{n-1} + 1 + log(1/delta))).",
+    "The paper's gamma_n is defined precisely as gamma_n := sup_{x_1,...,x_n in X} log det(lambda^2 I_n + K_n), not just informally as information gain.",
+    "The official open problem is about the lowest growth rate of rho_n(delta) as a function of n for a valid uniform-in-x confidence interval at sample size n; it is not stated as a confidence sequence simultaneous over all n.",
+    "The nearby discussion makes the intended target sharper: the authors expect the extra sqrt(gamma_n) factor in the online width might be replaceable by an O~(d log n) term.",
+    "No extra Lipschitz or Holder assumption is part of the open problem itself; those assumptions only appear in the offline comparison."
+  ],
+  "refined_question": "Let X be a compact subset of R^d, let k : X x X -> R be a positive-definite kernel with respect to a finite Borel measure, let H_k be the associated RKHS, and fix lambda > 0. Suppose f in H_k satisfies ||f||_{H_k} <= B, and an online algorithm chooses x_1, x_2, ... adaptively in the sense that x_i is measurable with respect to the past, then observes y_i = f(x_i) + epsilon_i, where the noise variables are i.i.d. and R-sub-Gaussian: E[exp(eta epsilon_i)] <= exp(eta^2 R^2/2) for all eta in R. For the zero-mean GP surrogate with kernel k and regularization lambda, define y_n = (y_1, ..., y_n)^T, k_n(x) = (k(x,x_1), ..., k(x,x_n))^T, K_n = [k(x_i,x_j)]_{i,j=1}^n, mu_n(x) = k_n(x)^T (lambda^2 I_n + K_n)^(-1) y_n, and sigma_n^2(x) = k(x,x) - k_n(x)^T (lambda^2 I_n + K_n)^(-1) k_n(x). What is the smallest asymptotic growth rate, as n increases, of a factor rho_n(delta) such that for every adaptive online design and every delta in (0,1), one has P(for all x in X, |f(x) - mu_n(x)| <= rho_n(delta) sigma_n(x)) >= 1 - delta? In particular, can one improve the current online bound from Theorem 2, rho_n(delta) = B + (R/lambda) sqrt(2(gamma_{n-1} + 1 + log(1/delta))), by removing an O~(sqrt(gamma_n)) factor, where gamma_n := sup_{x_1,...,x_n in X} log det(lambda^2 I_n + K_n), and perhaps reduce the width to O~(d log n)?",
+  "equivalent_formulation": null,
+  "justification": "The draft is targeting the paper's Section 3 Open Problem almost exactly, rather than a broader regret question. Section 2 supplies the formal assumptions and notation: Assumption 1 gives the RKHS norm bound and sub-Gaussian noise model, Definition 1 gives the online/adaptive measurability condition, and the Surrogate GP Model paragraph defines mu_n and sigma_n. Section 3 then states Theorem 2, the currently known online confidence interval with width B + (R/lambda) sqrt(2(gamma_{n-1} + 1 + log(1/delta))), and immediately after that asks: what is the lowest growth rate of rho_n(delta) with n, and can the width be reduced by an O~(sqrt(gamma_n)) factor? Section 4 further explains the intended sharpening by saying the authors expect the extra sqrt(gamma_n) term in the online width could be replaced by O~(d log n), but this is presented as motivation/discussion rather than as an equivalent reformulation.",
+  "citations": [
+    {
+      "section": "1",
+      "label": "Introduction",
+      "page": "PDF pp. 1-2"
+    },
+    {
+      "section": "2",
+      "label": "Assumption 1",
+      "page": "PDF p. 2"
+    },
+    {
+      "section": "2",
+      "label": "Definition 1",
+      "page": "PDF p. 3"
+    },
+    {
+      "section": "2",
+      "label": "Surrogate GP Model",
+      "page": "PDF p. 3"
+    },
+    {
+      "section": "3",
+      "label": "Theorem 2",
+      "page": "PDF pp. 3-4"
+    },
+    {
+      "section": "3",
+      "label": "Open Problem",
+      "page": "PDF p. 4"
+    },
+    {
+      "section": "4",
+      "label": "Discussion",
+      "page": "PDF p. 4"
+    }
+  ]
+}

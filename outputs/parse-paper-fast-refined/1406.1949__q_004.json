@@ -1,0 +1,44 @@
+{
+  "arxiv_id": "1406.1949",
+  "question_id": "q_004",
+  "original_question": "Prove or disprove that for every near-optimal planar n-point set P and every epsilon > 0, every constant-degree algebraic curve contains at most O(n^(0.5+epsilon)) points of P.",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 3873.66,
+  "target_in_paper": "Section 2, Problem 4 of the current arXiv version of 1406.1949 (the same question appears as Problem 5 on page 3 of the June 7, 2014 PDF draft): the open problem on whether near-optimal planar point sets can have a constant-degree curve containing as many as n^{1/2+epsilon} points.",
+  "completeness_score": 7,
+  "correct_elements": "Your draft is aimed at the right open problem: the Section 2 structural question about near-optimal planar point sets and heavy constant-degree curves. It correctly keeps the setting planar, uses near-optimal point sets rather than arbitrary sets, and preserves the paper's conjectural threshold n^{1/2+epsilon}. Your phrasing with an upper bound on |P ∩ C| is also mathematically equivalent in spirit to the paper's official 'no curve contains Omega(...) points' formulation.",
+  "missing_details": [
+    "The draft does not define 'near-optimal'. In the paper, this means a set P of n points in R^2 with D(P)=O(n/sqrt(log n)), where D(P) is the number of distinct Euclidean distances determined by pairs of points of P (Section 2, p. 2 of the June 7, 2014 PDF draft).",
+    "The ambient setting should be explicit: P is a finite subset of R^2 and n=|P|.",
+    "The paper's quantifier on epsilon is weaker than your draft: it asks for a sufficiently small positive constant epsilon, not for every epsilon > 0 (Section 2, Problem 4 in the current version / Problem 5 in the June 7, 2014 draft, p. 3).",
+    "To be fully stand-alone, 'constant-degree curve' should be defined as an algebraic curve C={(x,y) in R^2 : f(x,y)=0} for some polynomial f in R[x,y] whose total degree is bounded by an absolute constant independent of n (Section 3, paragraph before Problem 5 in the current version).",
+    "It should be made explicit that lines and circles are included in the final open problem; they are not excluded here, even though one intermediate bound quoted just before the problem applies only to curves with no line or circle components (Section 2, p. 3 of the June 7, 2014 PDF draft).",
+    "If O(.) or Omega(.) notation is used, the intended meaning is asymptotic in n; the hidden constants may depend on epsilon and on the fixed degree bound, but not on n.",
+    "There are no extra hypotheses here such as homogeneity, irreducibility, nilpotency, or positive-characteristic assumptions; adding any of those would broaden or distort the paper's scope."
+  ],
+  "refined_question": "Let P be a set of n points in R^2, and let D(P) denote the number of distinct Euclidean distances determined by pairs of points of P. Assume that P is near-optimal in the sense that D(P)=O(n/sqrt(log n)). Prove or disprove that, for a sufficiently small positive constant epsilon, no algebraic curve C subset R^2 defined by a polynomial in R[x,y] of total degree bounded by an absolute constant contains Omega(n^{1/2+epsilon}) points of P.",
+  "equivalent_formulation": null,
+  "justification": "This is the nearest official formulation to your draft. The draft is not asking for the Section 3 problem about the minimum number of distinct distances among points constrained to lie on a curve; instead, it asks about how many points of a near-optimal planar set can lie on a curve. That matches the Section 2 structural problem exactly. The surrounding Section 2 discussion first defines near-optimal sets, then records known bounds for lines, circles, and constant-degree algebraic curves, and finally poses the sharper open problem with exponent 1/2+epsilon. The only substantive ways in which your draft departs from the paper are that it omits the definition of near-optimality and strengthens the epsilon-quantifier from 'for sufficiently small epsilon > 0' to 'for every epsilon > 0'.",
+  "citations": [
+    {
+      "section": "2",
+      "label": "definition of near-optimal point sets",
+      "page": "2"
+    },
+    {
+      "section": "2",
+      "label": "discussion preceding Problem 4 in the current version / Problem 5 in the June 7, 2014 PDF draft (known line, circle, and curve bounds)",
+      "page": "3"
+    },
+    {
+      "section": "2",
+      "label": "Problem 4 in the current arXiv version (same statement as Problem 5 in the June 7, 2014 PDF draft)",
+      "page": "3"
+    },
+    {
+      "section": "3",
+      "label": "paragraph before Problem 5 defining a constant-degree algebraic curve as the zero set of a constant-degree polynomial",
+      "page": "HTML lines 83-84 in the current arXiv HTML version"
+    }
+  ]
+}

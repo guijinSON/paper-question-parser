@@ -1,0 +1,45 @@
+{
+  "arxiv_id": "1002.3786",
+  "question_id": "q_001",
+  "original_question": "Consider the normal linear regression prediction problem with unknown variance, under the special design assumption (AS1) used in the paper: m >= k >= 3, n = mN for a positive integer N, and the design matrix satisfies X = 1_N \\otimes X~ = (X~', ..., X~')'. Under alpha-divergence loss D_alpha with -1 < alpha < 1, does the predictive density based on the same shrinkage prior pi_S,1(beta, sigma^2) = (beta' X~' X~ beta)^(1-k/2) (sigma^2)^(-2) improve on the best invariant predictive density, namely the generalized Bayes predictive density based on the right invariant prior pi_I,1(beta, sigma^2) = (sigma^2)^(-1)?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 631.05,
+  "target_in_paper": "Conjecture 1.1 in Section 1, read together with the surrounding setup and the partial positive result given by Proposition 1.2 and Theorem 1.3: under the paper's special repeated-design assumption (AS1), the unresolved question is whether the generalized Bayes predictive density based on the shrinkage prior pi_S,1 dominates the best invariant predictive density (the generalized Bayes rule under the right invariant prior pi_I,1) for alpha-divergence loss outside the proved alpha = 1 case.",
+  "completeness_score": 8,
+  "correct_elements": "Your draft correctly identifies the paper's core setting: normal linear regression prediction with unknown variance; the special design assumption (AS1) with n = mN and X = 1_N \\otimes X~; the specific shrinkage prior pi_S,1(beta, sigma^2) proportional to (beta' X~' X~ beta)^(1-k/2) (sigma^2)^(-2); the right invariant prior pi_I,1(beta, sigma^2) proportional to (sigma^2)^(-1); and the dominance question relative to the best invariant predictive density under alpha-divergence loss. It also correctly uses the paper's notation pi_S,1 and pi_I,1 and focuses on the paper's narrow conjectural comparison rather than a broader neighboring problem.",
+  "missing_details": [
+    "The statistical model itself should be stated explicitly: y | (beta, sigma^2) ~ N_n(X beta, sigma^2 I_n) and y~ | (beta, sigma^2) ~ N_m(X~ beta, sigma^2 I_m), with y and y~ conditionally independent.",
+    "The parameter space should be made explicit: beta in R^k and sigma^2 in (0, infinity).",
+    "The matrix dimensions and rank conditions should be stated explicitly: X is n x k, X~ is m x k, and rank(X~) = k (hence m >= k).",
+    "The exact meaning of improvement/dominance should be given: alpha-divergence risk of p_hat_S,1 is <= that of p_hat_I,1 for every (beta, sigma^2), with strict inequality for some parameter value.",
+    "The loss should be identified as risk under D_alpha, not just pointwise D_alpha; the paper's decision-theoretic question is about integrated risk over the joint law of the observed sample and future sample.",
+    "The draft should identify the predictive densities themselves, not only the priors: p_hat_S,1 and p_hat_I,1 are the generalized Bayes predictive densities induced by pi_S,1 and pi_I,1.",
+    "The role of alpha = 1 should be clarified from the nearby context: Proposition 1.2 supplies the alpha = 1 reduction to an estimation problem, and Theorem 1.3 proves the alpha = 1 dominance result under (AS1).",
+    "Your draft does not say whether the conjectural range is intended to include the KL endpoint alpha = -1; the paper's nearby discussion makes that endpoint important, whereas your wording excludes it."
+  ],
+  "refined_question": "In the normal linear regression prediction problem with unknown variance, where y | (beta, sigma^2) ~ N_n(X beta, sigma^2 I_n) and y~ | (beta, sigma^2) ~ N_m(X~ beta, sigma^2 I_m) are conditionally independent, beta in R^k, sigma^2 > 0, rank(X~) = k, and the special design assumption (AS1) holds: m >= k >= 3, n = mN for some positive integer N, and X = 1_N \\otimes X~ = (X~', ..., X~')', is it true that, for alpha-divergence risk with -1 <= alpha < 1, the generalized Bayes predictive density p_hat_S,1 induced by the shrinkage prior pi_S,1(beta, sigma^2) proportional to (beta' X~' X~ beta)^(1-k/2) (sigma^2)^(-2) dominates the best invariant predictive density p_hat_I,1 induced by the right invariant prior pi_I,1(beta, sigma^2) proportional to (sigma^2)^(-1), in the sense that R_alpha((beta, sigma^2), p_hat_S,1) <= R_alpha((beta, sigma^2), p_hat_I,1) for all (beta, sigma^2), with strict inequality for some (beta, sigma^2)?",
+  "equivalent_formulation": null,
+  "justification": "The draft is very close to the paper's main unresolved question, because it uses exactly the paper's repeated-design assumption (AS1) and the same two benchmark priors. What it lacks is the formal decision-theoretic packaging used in the paper: the observed/future Gaussian model, the generalized Bayes predictive densities induced by those priors, the definition of dominance via alpha-divergence risk, and the nearby clarification that Proposition 1.2 handles the alpha = 1 reduction while Theorem 1.3 proves the alpha = 1 case under (AS1). Those nearby results are precisely why the paper's official open question is sharper than the draft: the open part is the extension beyond the proved alpha = 1 case, not the alpha = 1 case itself.",
+  "citations": [
+    {
+      "section": "1",
+      "label": "Conjecture 1.1",
+      "page": 43
+    },
+    {
+      "section": "1",
+      "label": "Proposition 1.2",
+      "page": 44
+    },
+    {
+      "section": "1",
+      "label": "Theorem 1.3",
+      "page": 44
+    },
+    {
+      "section": "2",
+      "label": "problem setup / canonical form and notation",
+      "page": 45
+    }
+  ]
+}

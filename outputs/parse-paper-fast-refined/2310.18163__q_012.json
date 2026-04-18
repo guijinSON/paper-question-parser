@@ -1,0 +1,39 @@
+{
+  "arxiv_id": "2310.18163",
+  "question_id": "q_012",
+  "original_question": "For the k-dimensional discrete torus T_n^k with an equal-size red-blue colouring of its vertices, let p_R be the probability that a random walk started from a uniformly random red vertex remains in the red class for at least two steps, and define p_B analogously for blue. Determine, for dimensions k>=3, which pairs (p_R,p_B) in [0,1]^2 can occur; in particular, decide whether the attainable region is exactly the convex hull of {(0,0)} together with the points (l/(2k), l^2/(2k)^2) and (l^2/(2k)^2, l/(2k)) for k<=l<=2k.",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 9237.56,
+  "target_in_paper": "Section 6 of arXiv:2310.18163, \"Asymmetry of transition probabilities in the two-coloured torus,\" specifically the main question for k >= 3 and the tentative conjecture that the asymptotic attainable region is the stated convex hull.",
+  "completeness_score": 8,
+  "correct_elements": "Your draft already captures the right object (the k-dimensional discrete torus), the balanced red-blue vertex colouring, the two probabilities p_R and p_B defined from 2-step colour-retention for a random walk, the focus on dimensions k >= 3, and the paper's tentative convex-hull description with vertices (0,0), (l/(2k), l^2/(2k)^2), and (l^2/(2k)^2, l/(2k)) for k <= l <= 2k.",
+  "missing_details": [
+    "The paper's formulation is asymptotic in n, not an exact fixed-n characterization: Section 6 says the k = 2 answer is known only 'essentially' once the appropriate large-n limit is defined, so the k >= 3 question should likewise be phrased in terms of the asymptotic attainable region / limit points as n grows.",
+    "The torus should be defined explicitly: T_n^k has vertex set Z_n^k, with x adjacent to x \\pm e_i for each i in [k], addition taken modulo n.",
+    "The colouring should be called balanced, meaning each colour class has exactly half of the vertices; equivalently, |R| = |B| = n^k/2, so one only considers n for which this is possible.",
+    "The walk should be specified as the simple random walk: after choosing the start uniformly from the relevant colour class, each step moves to a uniformly random neighbour.",
+    "The event should be stated precisely as 'the walk stays in its starting colour class for the first two steps.'",
+    "To match the paper, this should be posed as an open problem / tentative conjecture, not as a theorem request.",
+    "The paper mentions t-step walks for t >= 3 only as a separate further generalisation; that should not be folded into the main refined question."
+  ],
+  "refined_question": "Let T_n^k be the k-dimensional discrete torus with vertex set Z_n^k, where x is adjacent to x \\pm e_i for each i in [k] (mod n), and let c: V(T_n^k) -> {red, blue} be a balanced colouring, i.e. each colour class has size n^k/2. For the simple random walk on T_n^k, define p_R(c) to be the probability that, when the starting vertex is chosen uniformly from the red class and each step then moves to a uniformly random neighbour, the walk remains in the red class for its first two steps; define p_B(c) analogously for blue. For a fixed dimension k >= 3, determine the asymptotic attainable region of pairs (p_R(c), p_B(c)), meaning the set of limit points of such pairs arising from balanced colourings of T_n^k as n -> infinity through admissible values of n. Is this region exactly conv({(0,0)} U {(l/(2k), l^2/(2k)^2) : k <= l <= 2k} U {(l^2/(2k)^2, l/(2k)) : k <= l <= 2k})?",
+  "equivalent_formulation": null,
+  "justification": "The draft is targeting the Section 6 torus problem very closely: that section defines T_n^k, the balanced red-blue colouring, and p_R, p_B exactly in this 2-step random-walk sense, then asks what happens for k >= 3 and states the same tentative convex-hull conjecture. The main point needing repair is that the paper's intended formulation is asymptotic in n: Section 6 explicitly says the k = 2 answer is only known 'essentially' once the appropriate large-n limit is defined, and the cited companion paper's abstract likewise states the k = 2 result asymptotically. So the refined version makes the large-n / limit-point quantification explicit, spells out the torus and walk definitions, and keeps the scope exactly at the k >= 3 two-step torus question rather than broadening to the separate t-step variant.",
+  "citations": [
+    {
+      "section": "Section 6",
+      "label": "Asymmetry of transition probabilities in the two-coloured torus",
+      "page": 13
+    },
+    {
+      "section": "Section 6",
+      "label": "main question and tentative conjecture for k >= 3",
+      "page": 13
+    },
+    {
+      "section": "Abstract",
+      "label": "Asymmetry of 2-step Transit Probabilities in 2-Coloured Regular Graphs",
+      "page": 1
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "arxiv_id": "1805.03334",
+  "question_id": "q_006",
+  "original_question": "A disconnected matching is a matching M such that |M| = 1 or the induced subgraph <M> is disconnected, and beta_dc(G) denotes the maximum size of a disconnected matching in G. What is the computational complexity of determining beta_dc(G), especially since the survey notes complexity results for several other matching varieties but leaves beta_dc unresolved?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 5989.29,
+  "target_in_paper": "The survey’s open problem about the computational complexity of the disconnected matching number, i.e. determining the maximum size of a matching whose saturated vertices induce a disconnected subgraph.",
+  "completeness_score": 8,
+  "correct_elements": "Your draft correctly identifies the relevant matching notion (disconnected matching), the parameter notation β_dc(G), and the main unresolved issue: the computational complexity of determining that parameter. It also correctly situates the question against the survey’s discussion of other matching variants whose complexity status is known.",
+  "missing_details": [
+    "The paper-standard notation is G[M], the subgraph induced by the vertices saturated by M; your draft uses <M>, which is understandable but not paper-faithful.",
+    "The graph class should be stated explicitly: the question is about arbitrary finite simple graphs G, not just trees or any special subclass.",
+    "It helps to say explicitly that the parameter is the maximum cardinality of such a matching, so the target is the maximum disconnected matching problem rather than the lower maximal variant β_dc^-(G).",
+    "To make the complexity question fully stand-alone, one should specify the equivalent decision formulation: given a graph G and an integer k, decide whether β_dc(G) ≥ k. Your draft alludes to complexity, but does not state the decision problem.",
+    "The motivating context in the foundational discussion is that, among the seven maximum P-matching parameters considered there, connected and isolate-free matchings are polynomial-time computable and acyclic matching is NP-hard, leaving only the disconnected matching number unresolved; this sharpens why β_dc(G) is the exact missing case.",
+    "This is a graph-theoretic problem, so ambient ring/field, homogeneity, degree of a polynomial, nilpotency, and phrases such as 'for all sufficiently large m' are not applicable here."
+  ],
+  "refined_question": "For a finite simple graph G, let β_dc(G) denote the maximum cardinality of a matching M such that |M| = 1 or the induced subgraph G[M] on the vertices saturated by M is disconnected. What is the computational complexity of determining β_dc(G) for a given graph G (equivalently, of deciding, given G and k, whether β_dc(G) ≥ k)?",
+  "equivalent_formulation": null,
+  "justification": "The draft is already aimed at the right unresolved issue, but it needs tightening to match the paper-faithful formulation. The relevant notion is the disconnected matching number β_dc(G), defined via the induced subgraph on the saturated vertices. In the foundational treatment of P-matchings, disconnected matchings are defined exactly this way, and the authors note that after polynomial-time results for connected and isolate-free matching numbers and NP-hardness for acyclic matching, the only unresolved complexity question among those maximum P-matching parameters is the disconnected matching number. They then state this explicitly as an open question: 'What is the complexity of the disconnected matching number?' The refined question keeps that exact scope, avoids drifting to lower maximal variants or special graph classes, and makes the computational problem fully stand-alone by adding the standard decision version.",
+  "citations": [
+    {
+      "section": "Front matter / bibliographic entry",
+      "label": "arXiv:1805.03334; publication information for the survey",
+      "page": "231-238"
+    },
+    {
+      "section": "§1.1",
+      "label": "Example (7): definition of disconnected matching and β_dc(G)",
+      "page": 2
+    },
+    {
+      "section": "§2.2",
+      "label": "complexity discussion: connected and isolate-free are polynomial-time, acyclic is NP-hard, leaving disconnected unresolved",
+      "page": 6
+    },
+    {
+      "section": "§5",
+      "label": "Open Question 1: 'What is the complexity of the disconnected matching number?'",
+      "page": 11
+    }
+  ]
+}

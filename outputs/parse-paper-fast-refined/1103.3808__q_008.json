@@ -1,0 +1,49 @@
+{
+  "arxiv_id": "1103.3808",
+  "question_id": "q_008",
+  "original_question": "If an integer sequence a(n) is good for ℓ-recurrence of powers, must each power sequence a(n)^k be good for 1-recurrence for k = 1, ..., ℓ?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 1463.12,
+  "target_in_paper": "Section 4.4, Problem 5, \"Powers of sequences and recurrence\": whether good ℓ-recurrence of powers for a single integer sequence forces 1-recurrence of each power sequence (a(n)^k), for k = 1, ..., ℓ. ([ar5iv.org](https://ar5iv.org/pdf/1103.3808))",
+  "completeness_score": 7.5,
+  "correct_elements": "Your draft already captures the exact local target of the paper: it asks the recurrence analogue of the immediately preceding convergence theorem, keeps the hypothesis \"good for ℓ-recurrence of powers,\" and asks for the conclusion for each derived power sequence (a(n)^k), k = 1, ..., ℓ, without drifting to convergence or commuting-transformations variants. ([ar5iv.org](https://ar5iv.org/pdf/1103.3808))",
+  "missing_details": [
+    "The hypothesis needs the paper's exact definition of \"good for ℓ-recurrence of powers\": for every k_1, ..., k_ℓ in Z, every invertible measure-preserving system (X, B, μ, T), and every A in B with μ(A) > 0, there exists n in N with a(n) ≠ 0 such that μ(A ∩ T^(-k_1 a(n))A ∩ ... ∩ T^(-k_ℓ a(n))A) > 0. ([users.math.uoc.gr](https://users.math.uoc.gr/~frantzikinakis/OpenProblems/OpenProblems.pdf?utm_source=openai))",
+    "The phrase \"of powers\" refers to powers of a single transformation T along the multiples k_1 a(n), ..., k_ℓ a(n); it does not mean that the hypothesis already involves the sequences a(n), a(n)^2, ..., a(n)^ℓ. ([users.math.uoc.gr](https://users.math.uoc.gr/~frantzikinakis/OpenProblems/OpenProblems.pdf?utm_source=openai))",
+    "The conclusion \"good for 1-recurrence\" should be made explicit for each fixed j = 1, ..., ℓ: the sequence (a(n)^j) must satisfy, for every invertible measure-preserving system (X, B, μ, T) and every A in B with μ(A) > 0, that μ(A ∩ T^(-a(n)^j)A) > 0 for some n in N with a(n) ≠ 0. ([users.math.uoc.gr](https://users.math.uoc.gr/~frantzikinakis/OpenProblems/OpenProblems.pdf?utm_source=openai))",
+    "The ambient setting is measurable dynamics, not a purely combinatorial or topological formulation: one works with invertible measure-preserving systems and positive-measure sets A. ([users.math.uoc.gr](https://users.math.uoc.gr/~frantzikinakis/OpenProblems/OpenProblems.pdf?utm_source=openai))",
+    "The quantifiers should be explicit: ℓ is a fixed positive integer; the implication is universal over all systems, all positive-measure sets, and all integer coefficients k_1, ..., k_ℓ. ([users.math.uoc.gr](https://users.math.uoc.gr/~frantzikinakis/OpenProblems/OpenProblems.pdf?utm_source=openai))",
+    "A nearby contextual detail omitted from the draft is that the immediately preceding theorem proves the corresponding convergence statement, which is exactly what motivates this recurrence problem in §4.4. ([ar5iv.org](https://ar5iv.org/pdf/1103.3808))",
+    "The paper remarks that the existence of one witnessing n already forces infinitely many such n; that is contextual background, not part of the formal question, but it is an implicit nuance attached to the definition. ([users.math.uoc.gr](https://users.math.uoc.gr/~frantzikinakis/OpenProblems/OpenProblems.pdf?utm_source=openai))"
+  ],
+  "refined_question": "Fix ℓ in N. Let (a(n))_{n in N} be a sequence of integers such that for every k_1, ..., k_ℓ in Z, every invertible measure-preserving system (X, B, μ, T), and every measurable set A in B with μ(A) > 0, there exists n in N with a(n) ≠ 0 for which μ(A ∩ T^(-k_1 a(n))A ∩ ... ∩ T^(-k_ℓ a(n))A) > 0. Must it then follow that, for each j = 1, ..., ℓ, the power sequence (a(n)^j)_{n in N} is good for 1-recurrence; that is, for every invertible measure-preserving system (X, B, μ, T) and every A in B with μ(A) > 0, there exists n in N with a(n) ≠ 0 such that μ(A ∩ T^(-a(n)^j)A) > 0? ([users.math.uoc.gr](https://users.math.uoc.gr/~frantzikinakis/OpenProblems/OpenProblems.pdf?utm_source=openai))",
+  "equivalent_formulation": "Equivalent via the correspondence-principle theorem in §3.1: assume that for every k_1, ..., k_ℓ in Z and every set E subset Z of positive upper density, there exist m in Z and n in N with a(n) ≠ 0 such that {m, m + k_1 a(n), ..., m + k_ℓ a(n)} is contained in E. Must it follow that for each j = 1, ..., ℓ and every set E subset Z of positive upper density, there exist m in Z and n in N such that {m, m + a(n)^j} is contained in E? ([users.math.uoc.gr](https://users.math.uoc.gr/~frantzikinakis/OpenProblems/OpenProblems.pdf?utm_source=openai))",
+  "justification": "The draft clearly targets §4.4 rather than a neighboring problem: it is essentially the exact open question stated there. The hidden hypothesis is supplied by Definition 3.1 in §3.1, while the unnumbered theorem immediately before the problem gives the convergence analogue with the same conclusion for the sequences (a(n)^j), which is why the paper presents this as the natural recurrence version. The theorem in §3.1 on positive-density patterns is the paper's explicit equivalent reformulation. The surrounding text in §4.4 also notes that the problem is open even when ℓ = 2. ([users.math.uoc.gr](https://users.math.uoc.gr/~frantzikinakis/OpenProblems/OpenProblems.pdf?utm_source=openai))",
+  "citations": [
+    {
+      "section": "3.1",
+      "label": "Definition 3.1",
+      "page": 12
+    },
+    {
+      "section": "3.1",
+      "label": "Definition 3.1, footnote 20",
+      "page": 12
+    },
+    {
+      "section": "3.1",
+      "label": "Theorem (correspondence-principle reformulation of recurrence notions)",
+      "page": 14
+    },
+    {
+      "section": "4.4",
+      "label": "Theorem (immediately preceding Problem 5)",
+      "page": 19
+    },
+    {
+      "section": "4.4",
+      "label": "Problem 5",
+      "page": 19
+    }
+  ]
+}

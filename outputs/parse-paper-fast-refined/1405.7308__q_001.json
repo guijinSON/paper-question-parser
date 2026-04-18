@@ -1,0 +1,51 @@
+{
+  "arxiv_id": "1405.7308",
+  "question_id": "q_001",
+  "original_question": "For the modified focusing nonlinear Schrodinger equation on R^d, with d = 2 in the no-group-velocity-dispersion case or d = 3 in the anomalous-group-velocity-dispersion case,\n\n i partial_t v + Delta v + (1 + f(epsilon^r |v|^2)) |v|^2 v = 0,\n\nwhere f models high-intensity corrections such as a cubic-quintic or saturated nonlinearity, can one rigorously prove the oscillatory dynamics reported in experiments and numerics, in which a solution focuses, then defocuses, then refocuses, in an almost periodic or recurrent way rather than simply collapsing once?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 3793.43,
+  "target_in_paper": "§4.1.1, Open Problem 1: \"Establish rigorously the oscillatory phenomenon of the solutions to (51) observed in physical experiments (see, e.g., [18]).\"",
+  "completeness_score": 8,
+  "correct_elements": "Your draft correctly identifies the right part of the paper: the nonlinearity-only modification of the focusing NLS, in the physically relevant cases d=2 (no GVD) and d=3 (anomalous GVD), with higher-intensity corrections modeled by a cubic-quintic or saturated nonlinearity. It also correctly captures the qualitative phenomenon singled out by the authors: solutions that focus, then defocus, then refocus in an almost periodic-looking way, as reported in experiments and numerics.",
+  "missing_details": [
+    "The paper’s official target is Open Problem 1 in §4.1.1, not the neighboring Open Problem 2 about the limit ε→0 for times t>T after the blow-up time of the cubic NLS.",
+    "The relevant equation is the specialization of the general scalar model (3) obtained by setting P2(ε∇)=I, α2=0, and α3=0; these reductions are paper-critical and should be stated.",
+    "The unknown v is complex-valued, with v=v(t,x), t>0, x∈ℝ^d, and Δ is the spatial Laplacian on ℝ^d.",
+    "The paper assumes ε>0 is a small parameter, r>0, and f:ℝ_+→ℝ is smooth and vanishes at the origin.",
+    "The standard examples explicitly named in the paper are the cubic-quintic case f(s)=-s and saturated nonlinearities satisfying that (1+f(s))s is bounded on ℝ_+.",
+    "The dimension/GVD matching should be stated exactly as in the paper: d=2 in the no-group-velocity-dispersion case and d=3 in the anomalous-group-velocity-dispersion case.",
+    "The official open problem does not quantify over all solutions, generic solutions, or a specified class of initial data; it simply asks to establish rigorously the oscillatory phenomenon for solutions to (51).",
+    "The phrase \"almost periodic fashion\" is descriptive in the paper, not a formal dynamical-systems definition of almost periodicity or recurrence, so \"recurrent way\" is slightly broader than the official wording.",
+    "The nearby context matters: the authors first explain that saturated and cubic-quintic corrections prevent finite-time breakdown, and only then raise the open problem of rigorously describing the resulting oscillatory dynamics."
+  ],
+  "refined_question": "Let ε>0, r>0, and let f:ℝ_+→ℝ be smooth with f(0)=0. Consider the complex-valued equation for v=v(t,x), t>0, x∈ℝ^d, obtained from the general model (3) by taking P2(ε∇)=I, α2=0, and α3=0:\n\ni∂_t v + Δv + (1+f(ε^r|v|^2))|v|^2v = 0,\n\nwith d=2 in the no-group-velocity-dispersion case and d=3 in the anomalous-group-velocity-dispersion case (in particular including the cubic-quintic case f(s)=-s and saturated nonlinearities for which (1+f(s))s is bounded). Can one rigorously establish for solutions to this equation the oscillatory filamentation behavior observed in physical experiments and numerical simulations—namely, that the solution focuses, then defocuses, then refocuses, and so on in an almost periodic fashion?",
+  "equivalent_formulation": null,
+  "justification": "This draft is aiming at Open Problem 1 in §4.1.1. In that section the authors isolate the effect of modifying only the nonlinearity, reduce the general model (3) to Eq. (51), and discuss the standard cubic-quintic and saturated corrections. After noting that these corrections prevent finite-time breakdown, they explicitly state that experiments and numerics suggest a focus/defocus/refocus almost-periodic behavior and formulate Open Problem 1 to rigorously establish that oscillatory phenomenon. That is much closer to your draft than the adjacent Open Problem 2, which instead asks for the behavior of v^ε as ε→0 for times beyond the cubic-NLS blow-up time.",
+  "citations": [
+    {
+      "section": "Introduction",
+      "label": "discussion of filamentation and the discrepancy between cubic NLS blow-up and physical observations",
+      "page": "20-21"
+    },
+    {
+      "section": "§1.1",
+      "label": "Eq. (3) and the assumptions on P2, α1, α2, α3, f, r",
+      "page": "22-23"
+    },
+    {
+      "section": "§4.1.1",
+      "label": "Eq. (51)",
+      "page": "53"
+    },
+    {
+      "section": "§4.1.1",
+      "label": "discussion of saturated and cubic-quintic nonlinearities and prevention of finite-time breakdown",
+      "page": "54-55"
+    },
+    {
+      "section": "§4.1.1",
+      "label": "Open Problem 1",
+      "page": "55"
+    }
+  ]
+}

@@ -1,0 +1,57 @@
+{
+  "arxiv_id": "1907.07471",
+  "question_id": "q_002",
+  "original_question": "Can one prove a lower bound for computing X_alpha in the same two-coordinate unitary-step model that is stronger than Omega(alpha n log n), possibly by choosing a nontrivial unitary representation Psi of U(n), composing the entropy-style potential Phi with Psi, and in particular exploiting the order-k determinant representation Psi_det^k(U) whose (I, J) entry is det U_{I,J}?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 6913.59,
+  "target_in_paper": "Section 2.2, \"Stronger improvements?\"—the open problem asking whether one can prove a lower bound for computing X_α that is stronger than the Ω(α n log n) bound from Section 2.1, with the explicitly suggested representation-theoretic route of replacing Φ by Φ∘Ψ. The determinant/minor representation mentioned in your draft matches the specific representation proposed there. The paper does not package this as a numbered conjecture; the nearest official formulation is this Section 2.2 question, read together with Section 2, Section 2.1, and the nearby conjectural discussion in footnote 1.",
+  "completeness_score": 8,
+  "correct_elements": "Your draft correctly identifies the exact object X_α, the same two-coordinate unitary-step computational model, the currently proved Ω(α n log n) lower bound from the paper, and the paper’s proposed strategy of using a nontrivial unitary representation Ψ and the composed potential Φ∘Ψ. It also captures the paper’s specific interest in determinant/minor-type representations.",
+  "missing_details": [
+    "The matrix being computed is 2n×2n, not n×n: X_α acts on C^{2n}.",
+    "The ambient field is C, and the group under discussion is the unitary group of the relevant dimension (for X_α, naturally U(2n), or U(N) with N=2n).",
+    "F must be defined explicitly as the normalized n×n Fourier matrix, and X_α is built from it via G = [[0, F], [-F^*, 0]] and X_α = (cos α)I_{2n} + (sin α)G.",
+    "The computational model should be stated precisely: one seeks a factorization X_α = R_m ... R_1 where each R_t is unitary and equals the identity except on a single 2×2 unitary block, i.e. one arbitrary two-coordinate unitary gate per step, with no extra memory.",
+    "The current best lower bound from the paper is not just 'entropy-style' in general; it is specifically the Section 2.1 bound Ω(α n log n), improving the more basic Ω(α^2 n log n) bound from Section 2.",
+    "The relevant parameter regime is small real α (the paper discusses α in the small-angle regime, e.g. α in (0, π/4), and α may depend on n).",
+    "The asymptotic question should specify the complexity measure m as a function of n and α, typically as n→∞ with α=α(n).",
+    "If the determinant representation is mentioned, it should be defined precisely: for k-subsets I,J of [2n], (Ψ_det^k(U))_{I,J} = det(U_{I,J}), where U_{I,J} is the k×k submatrix with row set I and column set J.",
+    "Your draft does not mention the paper’s nearby stronger conjectural target from footnote 1, namely Ω((n log n)/log(1/α)), which is the concrete benchmark motivating 'stronger than Ω(α n log n)'.",
+    "The draft does not mention the paper’s note that even restricted small-α cases are already interesting, so the problem should remain narrowly about X_α rather than drifting to a broader Fourier-transform lower-bound program."
+  ],
+  "refined_question": "Let F be the normalized n×n discrete Fourier matrix over C, let G := [[0, F], [-F^*, 0]] ∈ C^{2n×2n}, and for a real parameter α define X_α := (cos α)I_{2n} + (sin α)G, so that X_α is unitary and X_{α'}X_α = X_{α+α'}. In the no-extra-memory linear model where computing X_α means factoring X_α = R_m ... R_1 with each R_t a 2n×2n unitary matrix that is the identity except on one 2×2 unitary block (one arbitrary two-coordinate unitary gate per step), can one prove a lower bound on m that is asymptotically stronger than the Ω(α n log n) bound of Section 2.1 for small α=α(n) (for example α∈(0,π/4])? In particular, can one obtain the conjecturally correct Ω((n log n)/log(1/α)) bound, or any super-Ω(α n log n) bound, by replacing the basic entropy potential Φ(U) = -∑_{i,j}|U_{ij}|^2 log |U_{ij}|^2 with Φ∘Ψ for a nontrivial unitary representation Ψ of U(2n), especially the order-k determinant/minor representation defined by (Ψ_det^k(U))_{I,J} = det(U_{I,J}) for k-subsets I,J ⊂ [2n]?",
+  "equivalent_formulation": null,
+  "justification": "The draft is aimed squarely at the open problem posed in Section 2.2. Section 2 defines G and X_α and explains why the naive entropy argument only gives Ω(α^2 n log n), while Section 2.1 improves this to Ω(α n log n). Section 2.2 then explicitly asks whether one can prove a stronger lower bound than α n log n and proposes exactly the representation-theoretic strategy your draft mentions: choose a unitary representation Ψ and study Φ∘Ψ; the nearby text specifically discusses determinant/minor-based representations. Footnote 1 gives the paper’s concrete conjectural benchmark Ω((n log n)/log(1/α)), and the following subsection emphasizes that even small-α special cases are already nontrivial. So the refined question stays tightly on the paper’s actual X_α problem, while making the model, matrix definitions, ambient group, and determinant representation explicit.",
+  "citations": [
+    {
+      "section": "1",
+      "label": "Eq. (3); two-coordinate unitary-step model; entropy potential Φ",
+      "page": 2
+    },
+    {
+      "section": "2",
+      "label": "Definition of G and X_α; Eq. (4); basic Ω(α^2 n log n) discussion",
+      "page": 3
+    },
+    {
+      "section": "2.1",
+      "label": "\"A slight improvement: Lower bound of Ω(α n log n)\" and footnote 1",
+      "page": 3
+    },
+    {
+      "section": "2.2",
+      "label": "\"Stronger improvements?\"; representation-theoretic approach Φ∘Ψ",
+      "page": 4
+    },
+    {
+      "section": "2.2",
+      "label": "determinant/minor representation Ψ_det^k(U)",
+      "page": 4
+    },
+    {
+      "section": "2.3",
+      "label": "\"Important Note\" that even restricted small-α cases are interesting",
+      "page": 4
+    }
+  ]
+}

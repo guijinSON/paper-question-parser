@@ -1,0 +1,49 @@
+{
+  "arxiv_id": "2104.09324",
+  "question_id": "q_003",
+  "original_question": "Among all plane regions of width 1 that can be moved through a right-angled hallway of width 1 by continuous rigid motions in the plane, which region has the largest possible area?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 7437.66,
+  "target_in_paper": "Section 2, Problem 2 (\"Moving Sofa Problem\").",
+  "completeness_score": 6.5,
+  "correct_elements": "Your draft correctly identifies the paper’s target as the Moving Sofa Problem: it asks for an area-maximizing planar region that can be moved around a right-angled corner in a hallway of width 1, using continuous rigid motions in the plane rather than any 3-dimensional lifting or reorientation (Section 2, Problem 2, p. 4).",
+  "missing_details": [
+    "In the paper, the unknown object is not just any subset but a plane region S, and earlier the paper defines a plane region to mean a closed connected subset of R^2 (\"Formalization of some intuitive geometric concepts,\" Definition, p. 2).",
+    "The width-1 condition belongs to the hallway, not to the region itself. The hallway is formalized as H = {(x,y) in R^2 : x <= 1, y <= 1, and (x >= 0 or y >= 0)}, i.e. an L-shaped hallway of width 1 (Section 2, formal discussion immediately after Problem 2, p. 4).",
+    "The paper also normalizes the initial placement of the sofa by requiring that if (x,y) is in S, then 0 <= x <= 1 and y <= 1 (Section 2, p. 4).",
+    "Feasibility is expressed by the existence of a one-parameter family of rigid motions Phi_t, indexed by t in a closed interval I, such that Phi_t(S) is contained in H for every t in I (Section 2, p. 4).",
+    "The continuity requirement is pointwise: for each fixed point p = (x0,y0) in S, the trajectory gamma(t) = Phi_t(p) must be a parametrized plane curve, which is how the paper encodes motion 'continously and without teleportation'; this relies on the earlier definition of parametrized plane curve (\"Formalization of some intuitive geometric concepts,\" Definition, p. 2; Section 2, p. 4).",
+    "No convexity assumption should be inserted: the paper explicitly states that the sofa need not be convex (Section 2, p. 4).",
+    "There are no ambient ring/field choices, degree or homogeneity restrictions, nilpotency hypotheses, operator conventions, or asymptotic quantifiers in this problem; the ambient setting is Euclidean geometry in R^2 (\"Formalization of some intuitive geometric concepts,\" p. 2; Section 2, p. 4)."
+  ],
+  "refined_question": "Determine the plane region S of largest Euclidean area, where a plane region means a closed connected subset of R^2, such that after the normalization that every (x,y) in S satisfies 0 <= x <= 1 and y <= 1, there exists a closed interval I and a one-parameter family of rigid motions {Phi_t}_{t in I} of the plane with Phi_t(S) contained in H for every t in I, and such that for each fixed point p in S the path t -> Phi_t(p) is a parametrized plane curve, where H = {(x,y) in R^2 : x <= 1, y <= 1, and (x >= 0 or y >= 0)} is the right-angled hallway of width 1. In other words, determine the largest-area sofa that can be moved around a right-angled corner in a unit-width hallway, with no convexity assumption.",
+  "equivalent_formulation": null,
+  "justification": "The draft is clearly aiming at the paper’s Section 2 open problem, whose official statement is Problem 2: determine the plane region S of largest area that can be moved around a right-angled corner in a hallway of width one (Section 2, Problem 2, p. 4). To make the question stand-alone while staying faithful to the paper, the rewrite imports the paper’s earlier definition of plane region as a closed connected subset of R^2 (\"Formalization of some intuitive geometric concepts,\" p. 2), the precise hallway H and the paper’s normalization of the sofa’s initial position (Section 2, p. 4), and the formal meaning of 'rigidly move through H' via a one-parameter family of rigid motions with pointwise continuous trajectories (Section 2, p. 4 together with the definition of parametrized plane curve on p. 2). The phrase 'regions of width 1' in the draft is not paper-faithful, because in the paper the width-one condition applies to the hallway, not to the sofa. The rewrite also preserves the paper’s scope by not adding convexity, since the paper explicitly says the sofa need not be convex (Section 2, p. 4).",
+  "citations": [
+    {
+      "section": "Formalization of some intuitive geometric concepts",
+      "label": "Definition (plane region)",
+      "page": 2
+    },
+    {
+      "section": "Formalization of some intuitive geometric concepts",
+      "label": "Definition (parametrized plane curve)",
+      "page": 2
+    },
+    {
+      "section": "2 Moving Sofa Problem",
+      "label": "Problem 2",
+      "page": 4
+    },
+    {
+      "section": "2 Moving Sofa Problem",
+      "label": "Formal hallway and motion formulation immediately after Problem 2",
+      "page": 4
+    },
+    {
+      "section": "2 Moving Sofa Problem",
+      "label": "Remark that the sofa need not be convex",
+      "page": 4
+    }
+  ]
+}

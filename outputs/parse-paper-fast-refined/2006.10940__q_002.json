@@ -1,0 +1,45 @@
+{
+  "arxiv_id": "2006.10940",
+  "question_id": "q_002",
+  "original_question": "In the same adversarial contextual bandit setting with nested finite policy classes Π1 ⊂ Π2 ⊂ ⋯ ⊂ ΠM, can one design a model-selection algorithm that for every m ∈ [M] either (1) achieves regret Reg(Πm) ≤ O(poly(K, M, log log |Π|) · √(T log |Πm|)), or (2) achieves regret Reg(Πm) ≤ O(poly(K, M, log log |Π|) · T^α log^(1−α) |Πm|) for some α ∈ [1/2, 1)? Alternatively, can one prove that no algorithm can achieve the second type of guarantee for any α ∈ [1/2, 1)?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 7023.32,
+  "target_in_paper": "Section 2, Open Problem 1b: the weaker adversarial contextual-bandit model-selection problem for nested finite policy classes. Your draft is targeting this statement, not Open Problem 1a and not the stochastic realizable Open Problem 2. ([proceedings.mlr.press](https://proceedings.mlr.press/v125/foster20a/foster20a.pdf))",
+  "completeness_score": 8.5,
+  "correct_elements": "Your draft is already very close to the paper’s official formulation. It correctly places the question in the adversarial contextual bandit setting, uses a finite nested sequence of policy classes Π1 ⊂ Π2 ⊂ ⋯ ⊂ ΠM, includes both weaker regret targets with a poly(K, M, log log |Π|) overhead, keeps the exponent range α ∈ [1/2, 1), and preserves the paper’s alternative request for an impossibility result for item 2. It also correctly focuses on simultaneous guarantees over all m, which is exactly the model-selection theme of the paper. ([proceedings.mlr.press](https://proceedings.mlr.press/v125/foster20a/foster20a.pdf))",
+  "missing_details": [
+    "The ambient online-learning setup should be stated explicitly: a context space X, a finite action set A = {1, ..., K}, horizon T, and an adaptive adversary that at each round t chooses a context xt ∈ X and loss vector ℓt ∈ [0,1]^A; the learner observes xt, chooses at, and only the scalar loss ℓt(at) is revealed. ([proceedings.mlr.press](https://proceedings.mlr.press/v125/foster20a/foster20a.pdf))",
+    "The regret notation should be defined exactly. In the paper, Reg(Π) := max_{π∈Π} E[∑_{t=1}^T ℓt(at) - ∑_{t=1}^T ℓt(π(xt))], so the guarantees are expected regret guarantees against the best policy in Πm. ([proceedings.mlr.press](https://proceedings.mlr.press/v125/foster20a/foster20a.pdf))",
+    "The quantifier 'for any sequence' is essential: the algorithm is asked to work for every finite nested sequence Π1 ⊂ Π2 ⊂ ⋯ ⊂ ΠM = Π, not just for one fixed family. The equality ΠM = Π is part of the paper’s formulation. ([proceedings.mlr.press](https://proceedings.mlr.press/v125/foster20a/foster20a.pdf))",
+    "The paper explicitly restricts attention to finite sequences of policy classes, while noting that infinite sequences are natural but omitted for simplicity. If the question is to be fully paper-faithful, that finiteness restriction should be retained. ([proceedings.mlr.press](https://proceedings.mlr.press/v125/foster20a/foster20a.pdf))",
+    "There is a subtle logical issue in your wording: Open Problem 1b asks for a single algorithm that satisfies either item 1 for all m or item 2 for all m. It is not a per-class 'for every m either (1) or (2)' disjunction. ([proceedings.mlr.press](https://proceedings.mlr.press/v125/foster20a/foster20a.pdf))",
+    "In item 2, α is a single fixed exponent in [1/2,1) for the guarantee, not something that varies with m. ([proceedings.mlr.press](https://proceedings.mlr.press/v125/foster20a/foster20a.pdf))",
+    "The nearby explanatory paragraph supplies the intended meaning of item 2: it is a relaxation meant to require sublinear regret in T whenever the single-class benchmark √(T log |Πm|) is itself sublinear; the exponents α and 1-α are required to sum to 1 for this reason. That interpretive context is implicit in your draft but not stated. ([proceedings.mlr.press](https://proceedings.mlr.press/v125/foster20a/foster20a.pdf))",
+    "The paper also explains that the dependence on K, M, and log log |Π| is intentionally treated as secondary in item 1 relative to the central model-selection difficulty; including this helps preserve the exact intent of the relaxation. ([proceedings.mlr.press](https://proceedings.mlr.press/v125/foster20a/foster20a.pdf))"
+  ],
+  "refined_question": "Consider the adversarial contextual bandit setting with context space X, finite action set A = {1, ..., K}, and horizon T. On each round t, an adaptive adversary selects a context xt ∈ X and a loss vector ℓt ∈ [0,1]^A (possibly depending on a1, ..., a_{t-1}); the learner observes xt, chooses an action at, and observes only ℓt(at). For a finite nested sequence of policy classes Π1 ⊂ Π2 ⊂ ⋯ ⊂ ΠM = Π ⊂ (X → A), define Reg(Πm) := max_{π∈Πm} E[∑_{t=1}^T ℓt(at) - ∑_{t=1}^T ℓt(π(xt))]. Does there exist a single contextual-bandit model-selection algorithm such that, for every such finite nested sequence, it guarantees either (i) Reg(Πm) ≤ O(poly(K, M, log log |Π|) · √(T log |Πm|)) for all m ∈ [M], or (ii) for some fixed α ∈ [1/2,1), Reg(Πm) ≤ O(poly(K, M, log log |Π|) · T^α (log |Πm|)^(1-α)) for all m ∈ [M])? If not, can one prove that no algorithm can achieve guarantee (ii) for any α ∈ [1/2,1)? ([proceedings.mlr.press](https://proceedings.mlr.press/v125/foster20a/foster20a.pdf))",
+  "equivalent_formulation": null,
+  "justification": "The draft is trying to capture Open Problem 1b almost verbatim. The exact official target is the weaker adversarial model-selection question in Section 2, immediately after Open Problem 1a. The surrounding text is important because it supplies the formal adversarial contextual-bandit setup, the exact definition of Reg(Π), the requirement that the guarantee hold uniformly over all m for any finite nested sequence, and the paper’s explanation that item 2 is intended as a weaker sublinearity-preserving relaxation. Those are the main hidden assumptions needed to make the question fully stand-alone and paper-faithful. ([proceedings.mlr.press](https://proceedings.mlr.press/v125/foster20a/foster20a.pdf))",
+  "citations": [
+    {
+      "section": "2",
+      "label": "Problem Formulation",
+      "page": 1
+    },
+    {
+      "section": "2",
+      "label": "Open Problem 1a",
+      "page": 2
+    },
+    {
+      "section": "2",
+      "label": "Open Problem 1b",
+      "page": 2
+    },
+    {
+      "section": "3",
+      "label": "Challenges and Partial Progress",
+      "page": 3
+    }
+  ]
+}

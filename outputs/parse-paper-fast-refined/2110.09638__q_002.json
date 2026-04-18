@@ -1,0 +1,52 @@
+{
+  "arxiv_id": "2110.09638",
+  "question_id": "q_002",
+  "original_question": "In the same decentralized channel-capture setting, the paper assumes that after every slot each user is told the exact number of users who transmitted, so that F[t]=0 means idle, F[t]=1 means success, and F[t]>=2 means a collision with a known number of transmitters. If that exact transmitter-count feedback is not available and users instead receive more limited feedback, what decentralized algorithms are then optimal for minimizing the expected time to the first success or otherwise achieving optimal channel-capture performance?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 7660.76,
+  "target_in_paper": "The second open question in the Introduction: \"What algorithms are optimal when more limited feedback information is used?\"",
+  "completeness_score": 7.5,
+  "correct_elements": "Your draft correctly identifies the paper's limited-feedback open problem in the same decentralized channel-capture setting, correctly contrasts it with the paper's stronger exact transmitter-count feedback F[t], and correctly keeps the main objective tied to minimizing the expected time to the first successful transmission.",
+  "missing_details": [
+    "The problem is for a fixed positive integer n users, not just an unspecified decentralized setting.",
+    "The users are initially indistinguishable/unlabeled and cannot tell which user they are; there is no central coordinator.",
+    "All users know n and receive the same common feedback after each slot.",
+    "The algorithms are decentralized in the paper's specific sense: each user independently implements the same causal randomized rule based only on the common feedback history.",
+    "The horizon is infinite/no deadline, and the objective is the expected time Z_n to the first slot with exactly one transmitter.",
+    "The paper's baseline stronger model assumes error-free full feedback F[t] in {0,1,...,n}, where F[t] is the exact number of transmitters on slot t; your draft states this informally but does not package it as the formal baseline model.",
+    "The official open question is specifically about minimizing expected capture time under weaker feedback, not the broader phrase \"or otherwise achieving optimal channel-capture performance.\"",
+    "The paper does not fix one single weaker feedback alphabet in the open question itself; nearby context mentions weaker models such as success/fail and idle/success/collision, so a stand-alone version should either specify a particular coarsening of F[t] or explicitly say \"a weaker common feedback signal than F[t].\"",
+    "Your draft does not explicitly connect the question to the paper's notation z_n^* (infimum expected time over all independently implemented algorithms) and Z_n (time to first success), which is the paper's formal optimization language.",
+    "The draft does not distinguish this limited-feedback open problem from the separate full-feedback conjecture about the paper's divide-and-conquer algorithm being optimal for all n."
+  ],
+  "refined_question": "For a fixed positive integer n, consider the infinite-horizon decentralized slotted multiple-access problem with n initially indistinguishable users, common knowledge of n, and no central coordinator, in which each user independently applies the same causal randomized algorithm based only on the common slot-by-slot feedback history, and a success occurs on slot t if and only if exactly one user transmits. Let Z_n denote the time of the first success. The paper studies this problem under full error-free feedback F[t] in {0,1,...,n}, where F[t] is the exact number of transmitters on slot t. If this exact transmitter-count feedback is replaced by a specified weaker common feedback signal (that is, a coarsening of F[t]), which decentralized algorithms minimize E[Z_n]?",
+  "equivalent_formulation": null,
+  "justification": "The draft is aiming at the paper's second open question in the Introduction, not at the paper's separate conjecture about optimality of its full-feedback divide-and-conquer algorithm. The Introduction explicitly lists the limited-feedback question after summarizing the full-feedback model and the proposed algorithm. Section I-C defines the strong feedback variable F[t]. Section IV and IV-A define the n-user decentralized capture problem, the indistinguishability of users, the objective of minimizing the time to first success, and the notation Z_n and z_n. Section V then defines z_n^* as the infimum over all independently implemented algorithms under the full-feedback model, which helps clarify that the limited-feedback question should keep the same objective while changing only the information structure. I therefore sharpened your draft by making the user symmetry, common feedback, causal decentralized implementation, and optimization criterion explicit, while removing the broader phrase about \"otherwise achieving optimal channel-capture performance,\" which goes beyond the paper's official formulation.",
+  "citations": [
+    {
+      "section": "I. Introduction",
+      "label": "open question (ii)",
+      "page": 1
+    },
+    {
+      "section": "I-B. Distributed MAC and repeated games",
+      "label": "discussion of weaker feedback models and prior asymptotic results",
+      "page": 2
+    },
+    {
+      "section": "I-C. Feedback details and physical layer",
+      "label": "definition of F[t] and exact transmitter-count feedback",
+      "page": 2
+    },
+    {
+      "section": "IV. Multi-User MAC / IV-A. Minimizing the expected time to the first success",
+      "label": "definition of the decentralized n-user problem, z_n^*, Z_n, z_n, and the same-algorithm implementation setting",
+      "page": "5-6"
+    },
+    {
+      "section": "V. Converse",
+      "label": "definition of z_n^* over all independently implemented algorithms and separation from the full-feedback optimality conjecture",
+      "page": 6
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "arxiv_id": "1407.2380",
+  "question_id": "q_023",
+  "original_question": "Can one obtain a better lower bound for the discrepancy of the two-dimensional Halton sequence, and ideally determine whether its true order is (log N)^2 / N or not?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 4169.03,
+  "target_in_paper": "Section 4, Open Problem 18: the problem of improving the lower bound for the discrepancy of a two-dimensional Halton sequence, and ideally deciding whether its discrepancy has order (log N)^2 / N.",
+  "completeness_score": 8.5,
+  "correct_elements": "Your draft already identifies the exact object in the paper (the two-dimensional Halton sequence), the precise direction of progress sought (a better lower bound), and the paper's stronger aspirational endpoint (deciding whether the expected order is (log N)^2 / N). It also stays narrowly on the pure Halton-sequence problem rather than drifting to hybrid or generalized variants.",
+  "missing_details": [
+    "The paper's Halton sequence is defined in Section 1 using two fixed pairwise coprime integers b1, b2 >= 2; your draft does not say whether the question is for a fixed choice of bases or for the class of all such two-dimensional Halton sequences.",
+    "To make the question stand-alone, one should define the two-dimensional Halton sequence explicitly as x_n = (phi_{b1}(n), phi_{b2}(n)), where if n = sum_{j>=0} n_j b^j then phi_b(n) = sum_{j>=0} n_j b^{-j-1}.",
+    "The discrepancy meant here is the ordinary discrepancy D_N of the first N points, not the star discrepancy; this should be stated explicitly.",
+    "A stand-alone formulation should define D_N via axis-parallel subintervals B of [0,1)^2 and A_N(B) = #{0 <= n < N : x_n in B}.",
+    "The lower-bound side of the problem should include the usual discrepancy-theoretic quantifier 'for infinitely many N' when one asks for a bound of order (log N)^2 / N.",
+    "The nearby context says that, at the time of the paper, no better lower bound was known for the two-dimensional Halton sequence than the general lower bound available for arbitrary sequences in [0,1)^2; your draft does not mention this baseline.",
+    "If one wants the phrase 'true order' to be fully precise, one should note that Halton sequences already have the classical upper bound D_N = O((log N)^2 / N), so the real issue is whether a matching lower bound of that order holds infinitely often.",
+    "No ambient ring/field, homogeneity, degree, or nilpotency hypotheses are relevant in this paper; the missing structure is purely the sequence definition, the discrepancy operator, and the quantifiers."
+  ],
+  "refined_question": "Fix coprime integers b1, b2 >= 2, and let H2 = (x_n)_{n>=0} be the two-dimensional Halton sequence x_n = (phi_{b1}(n), phi_{b2}(n)), where if n = sum_{j>=0} n_j b^j then phi_b(n) = sum_{j>=0} n_j b^{-j-1}. For the discrepancy D_N(H2) of the first N points x_0, ..., x_{N-1}, defined by D_N(H2) = sup_B |A_N(B)/N - lambda(B)| with A_N(B) = #{0 <= n < N : x_n in B} and B ranging over all axis-parallel subintervals of [0,1)^2, can one prove a lower bound sharper than the currently known general lower bound for arbitrary sequences in [0,1)^2? In particular, does there exist a constant c = c(b1,b2) > 0 such that D_N(H2) >= c (log N)^2 / N for infinitely many N, thereby showing that the discrepancy of the two-dimensional Halton sequence has the expected order (log N)^2 / N; or is its true order smaller?",
+  "equivalent_formulation": null,
+  "justification": "The draft is essentially a near-paraphrase of Section 4, Open Problem 18. The immediately preceding paragraph explains exactly why this is singled out: among basic low-discrepancy constructions, the two-dimensional Halton sequence still lacked any lower bound beyond the general Bilyk-Lacey-type bound for arbitrary sequences in [0,1)^2. Section 1 provides the notation needed to make the question self-contained, namely the definition of discrepancy and the definition of Halton sequences via radical-inverse functions in pairwise coprime bases. Because the draft already points specifically to the two-dimensional Halton lower-bound problem, it clearly targets Open Problem 18 rather than neighboring problems such as the digital-sequence question in Open Problem 17 or the Halton-Kronecker questions in Section 3.",
+  "citations": [
+    {
+      "section": "1 Introduction",
+      "label": "definition of discrepancy",
+      "page": "ar5iv HTML lines 11-14; page number unavailable in HTML rendering"
+    },
+    {
+      "section": "1 Introduction",
+      "label": "definition of Halton sequence",
+      "page": "ar5iv HTML lines 28-33; page number unavailable in HTML rendering"
+    },
+    {
+      "section": "4 Miscellaneous problems",
+      "label": "paragraph immediately preceding Open Problem 18",
+      "page": "ar5iv HTML lines 324-340; page number unavailable in HTML rendering"
+    },
+    {
+      "section": "4 Miscellaneous problems",
+      "label": "Open Problem 18",
+      "page": "ar5iv HTML lines 342-346; page number unavailable in HTML rendering"
+    }
+  ]
+}

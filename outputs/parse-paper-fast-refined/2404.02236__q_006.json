@@ -1,0 +1,45 @@
+{
+  "arxiv_id": "2404.02236",
+  "question_id": "q_006",
+  "original_question": "Determine whether C9 admits instantaneous uniform mixing for the continuous-time quantum walk.",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 9490.59,
+  "target_in_paper": "Section 3.1, Open Problem 3.2: \"Determine if C9 admits uniform mixing.\"",
+  "completeness_score": 8.5,
+  "correct_elements": "The draft correctly identifies the exact graph singled out in the paper, C9, and the exact phenomenon under study, instantaneous uniform mixing for the adjacency-matrix continuous-time quantum walk. This matches the paper's explicit Open Problem 3.2 rather than a broader neighboring problem.",
+  "missing_details": [
+    "It should specify that C9 is the cycle graph on 9 vertices.",
+    "It should state that the continuous-time quantum walk is the adjacency-based walk used in the paper, with transition matrix U(t)=exp(itA(C9)).",
+    "It should make the quantifier explicit: determine whether there exists a real time tau at which uniform mixing occurs.",
+    "It should define the mixing matrix M(t)=U(t)∘U(-t), since the paper defines uniform mixing through M(t).",
+    "It should state the exact uniform-mixing condition for n=9: M(tau)=J/9, i.e. every entry of M(tau) equals 1/9.",
+    "To be fully stand-alone, it may also record the equivalent condition proved in the paper's setup: every entry of U(tau) has absolute value 1/3.",
+    "It should note that the paper uses \"instantaneous uniform mixing\" and \"uniform mixing\" interchangeably, so the target is existence of such a time, not a stronger all-times property.",
+    "It should make clear that this is the specific C9 problem from Open Problem 3.2, not the broader root-of-unity problem of Open Problem 3.1 or the general characterization problem of Open Problem 3.3."
+  ],
+  "refined_question": "Let C9 be the cycle graph on 9 vertices, with adjacency matrix A(C9). For the adjacency-based continuous-time quantum walk U(t)=exp(itA(C9)), define the mixing matrix by M(t)=U(t)∘U(-t). Does there exist a real time tau such that C9 admits instantaneous uniform mixing, i.e. M(tau)=J/9?",
+  "equivalent_formulation": "Equivalently, does there exist tau in R such that every entry of U(tau)=exp(itau A(C9)) has absolute value 1/3?",
+  "justification": "This is exactly the paper's Open Problem 3.2 in the uniform-mixing section, so the draft should not be broadened beyond C9. The nearby Section 3 context defines the continuous-time quantum walk by U(t)=exp(itA), the mixing matrix by M(t)=U(t)∘U(-t), and says that a graph on n vertices has uniform mixing at time tau iff all entries of M(tau) equal 1/n, equivalently all entries of U(tau) have the same absolute value. Corollary 3.2 gives a necessary-and-sufficient criterion when the adjacency matrix is a relation of an association scheme, and the paragraph immediately before Open Problem 3.2 explains why C9 is isolated here: like the Hadamard graph, it is a formally self-dual distance-regular graph of diameter 4, but applying Corollary 3.2 appears difficult. The paper also notes that prior work had already ruled out even cycles and cycles of prime length, which is why the question is specifically about C9 rather than general cycles.",
+  "citations": [
+    {
+      "section": "3 Uniform mixing",
+      "label": "definition preceding Open Problem 3.1",
+      "page": 5
+    },
+    {
+      "section": "3.1 Uniform mixing in association schemes",
+      "label": "Corollary 3.2",
+      "page": 7
+    },
+    {
+      "section": "3.1 Uniform mixing in association schemes",
+      "label": "Lemma 3.3",
+      "page": 7
+    },
+    {
+      "section": "3.1 Uniform mixing in association schemes",
+      "label": "Open Problem 3.2",
+      "page": 8
+    }
+  ]
+}

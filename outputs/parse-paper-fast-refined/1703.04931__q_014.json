@@ -1,0 +1,59 @@
+{
+  "arxiv_id": "1703.04931",
+  "question_id": "q_014",
+  "original_question": "For the QR algorithm applied to random matrices, can one control, as n tends to infinity, the bulk eigenvalue-ratio statistics |lambda_{j+1}/lambda_j| and |lambda_{j-1}/lambda_j| near the eigenvalue lambda_j closest to zero, together with the associated normalized eigenvectors, so as to prove the analogue of the Toda-algorithm universality theorem for QR?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 5377.78,
+  "target_in_paper": "The exact target is the specific QR open problem in Problem 4: for the first QR halting/1x1-deflation time T^(1)_{epsilon,n,QR,E}, control as n -> infinity the statistics of the bulk ratios lambda_{j+1}/lambda_j and lambda_{j-1}/lambda_j, where lambda_j is the eigenvalue of H closest to 0, together with the associated normalized eigenvectors, in order to prove the QR analogue of Theorem 1. ([sigma-journal.com](https://sigma-journal.com/2017/016/sigma17-016.pdf))",
+  "completeness_score": 8,
+  "correct_elements": "Your draft correctly identifies the QR algorithm, the fact that the relevant spectral data are neighboring ratios around the eigenvalue closest to 0 in the bulk, the need to include eigenvector information, and the goal of proving an analogue of the Toda universality theorem. That is exactly the narrow QR problem isolated in Problem 4, rather than the later broader question about general deflation times for arbitrary algorithms. ([sigma-journal.com](https://sigma-journal.com/2017/016/sigma17-016.pdf))",
+  "missing_details": [
+    "The paper frames the question for the first QR halting/deflation statistic T^(1)_{epsilon,n,QR,E}, not for the QR algorithm in the abstract.",
+    "The surrounding random-matrix class is the same one used in Theorem 1 and the immediately preceding discussion: random n x n matrices H from real (beta = 1) or complex (beta = 2) invariant or Wigner ensembles.",
+    "lambda_j must be specified as the eigenvalue of H closest to 0 and, in the paper's words, lambda_j is assumed to satisfy lambda_j ~ 0 deep in the bulk of the spectrum.",
+    "The paper uses the signed ratios lambda_{j+1}/lambda_j and lambda_{j-1}/lambda_j, not absolute values.",
+    "The needed input is joint control of those ratio statistics together with the corresponding normalized eigenvector statistics, in the same nearby sense that Theorem 1 depends jointly on eigenvalue and eigenvector data through (8) and (9).",
+    "The intended conclusion is a QR analogue of Theorem 1, i.e. a universality theorem for the centered and scaled first QR halting-time statistic, not merely some qualitative asymptotic control.",
+    "The paper does not state an explicit limiting distribution for the QR case here, so a faithful rewrite should not assert one."
+  ],
+  "refined_question": "Let H be an n x n random matrix drawn from a real (beta = 1) or complex (beta = 2) invariant or Wigner ensemble, and let T^(1)_{epsilon,n,QR,E} denote the first QR halting/1x1-deflation time. If lambda_j is the eigenvalue of H closest to 0, with lambda_j ~ 0 deep in the bulk of the spectrum, can one determine jointly, as n -> infinity, the statistics of the signed bulk ratios lambda_{j+1}/lambda_j and lambda_{j-1}/lambda_j together with the corresponding normalized eigenvector data, strongly enough to prove a QR analogue of Theorem 1, namely universality for the centered and scaled first QR halting-time statistic? ([sigma-journal.com](https://sigma-journal.com/2017/016/sigma17-016.pdf))",
+  "equivalent_formulation": null,
+  "justification": "The draft is already close, but the paper's actual target is the narrower QR paragraph on p. 10, not the broader later problem about deflation times for arbitrary algorithms. Theorem 1 and the surrounding discussion explain that the Toda proof requires precise joint eigenvalue/eigenvector input; the QR paragraph then states that, for QR, edge gaps are replaced by the bulk ratios lambda_{j+1}/lambda_j and lambda_{j-1}/lambda_j near the eigenvalue closest to 0, and that proving the QR analogue of Theorem 1 is an open problem. The refinements above therefore add the missing halting-time notation, ensemble class, bulk-location condition, and the fact that the paper uses signed ratios rather than absolute values. ([sigma-journal.com](https://sigma-journal.com/2017/016/sigma17-016.pdf))",
+  "citations": [
+    {
+      "section": "Problem 4 (numerical computation with random data)",
+      "label": "Definition of T_{epsilon,n,A,E} and tau_{epsilon,n,A,E}",
+      "page": "7-8"
+    },
+    {
+      "section": "Problem 4 (numerical computation with random data)",
+      "label": "Theorem 1 (universality for the Toda algorithm)",
+      "page": "8-9"
+    },
+    {
+      "section": "Problem 4 (numerical computation with random data)",
+      "label": "Equations (3)-(5)",
+      "page": "9"
+    },
+    {
+      "section": "Problem 4 (numerical computation with random data)",
+      "label": "Condition 1 and Condition 2",
+      "page": "9"
+    },
+    {
+      "section": "Problem 4 (numerical computation with random data)",
+      "label": "Equations (6)-(9)",
+      "page": "10"
+    },
+    {
+      "section": "Problem 4 (numerical computation with random data)",
+      "label": "Open problem for the QR algorithm",
+      "page": "10"
+    },
+    {
+      "section": "Problem 4 (numerical computation with random data)",
+      "label": "Meaning of T^(1) as the first 1x1 deflation time",
+      "page": "11"
+    }
+  ]
+}

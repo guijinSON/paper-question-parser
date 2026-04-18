@@ -1,0 +1,55 @@
+{
+  "arxiv_id": "2009.09410",
+  "question_id": "q_004",
+  "original_question": "Let f be a nonzero function in L1(R) with compact support, and suppose that f + Lambda is a tiling at some level w where Lambda is a discrete set of tempered growth, meaning that #(Lambda intersect (-r,r)) = O(r^N) as r -> +infinity for some N. Must Lambda necessarily be of the form Lambda = union from j=1 to N of (a_j Z + b_j), so that in particular Lambda has bounded density and periodic structure?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 7145.17,
+  "target_in_paper": "Section 6.3, \"Tilings of unbounded density\" — the open problem asking whether the conclusion of Theorem 1.5 still holds when the bounded-density hypothesis on the translation set is weakened to tempered growth.",
+  "completeness_score": 9,
+  "correct_elements": "Your draft is already very close to the paper-faithful formulation. It has the correct ambient space R, the correct class of functions f ∈ L1(R), the key extra hypothesis that f is nonzero with compact support, the correct weakening on the translation set Λ (discrete and of tempered growth), and the correct intended conclusion: that Λ should have periodic structure, equivalently be a finite union of arithmetic progressions and hence have bounded density. It also correctly captures that the question is about extending the compact-support periodicity theorem beyond bounded density.",
+  "missing_details": [
+    "The paper defines 'f + Λ is a tiling at level w' by the condition sum_{λ∈Λ} f(x−λ) = w almost everywhere, with the series required to converge absolutely almost everywhere.",
+    "The paper explicitly says Λ is a discrete set 'not a multi-set'; that exclusion should be kept.",
+    "The periodic-structure conclusion is stated as a disjoint union of finitely many arithmetic progressions, not merely an arbitrary union.",
+    "The exact structural form is Λ = ⨆_{j=1}^M (a_j Z + b_j) with a_j, b_j real and a_j > 0.",
+    "It is better not to reuse N both for the tempered-growth exponent and for the number of arithmetic progressions.",
+    "If 'bounded density' is mentioned, the paper’s definition is sup_x #(Λ ∩ [x, x+1)) < ∞.",
+    "The paper explicitly rephrases the question as: does Theorem 1.5 remain valid if bounded density is replaced by tempered growth?",
+    "Nearby context notes that Theorem 1.9 does not answer this negatively, because its constructed tiling uses a function with unbounded support; this helps delimit the exact scope of the open problem."
+  ],
+  "refined_question": "Let f ∈ L1(R) be a nonzero function with compact support, and let Λ ⊂ R be a discrete set, not a multiset, of tempered growth; that is, there exists N such that #(Λ ∩ (−r,r)) = O(r^N) as r → +∞. Assume that f + Λ is a tiling of R at some level w, meaning that ∑_{λ∈Λ} f(x−λ) = w almost everywhere and the series converges absolutely almost everywhere. Must Λ necessarily have periodic structure, i.e. can it be represented as a disjoint union Λ = ⨆_{j=1}^M (a_j Z + b_j) for some real numbers a_j > 0 and b_j?",
+  "equivalent_formulation": "Does Theorem 1.5 remain valid if the hypothesis that the translation set Λ has bounded density is replaced by the weaker hypothesis that Λ has tempered growth?",
+  "justification": "The draft is targeting the open problem stated explicitly in Section 6.3 (p. 20), not the level-zero density question around Theorem 1.3. The paper first defines tiling in the Introduction via equation (1.1) (p. 1). It then defines periodic structure by equation (1.4) and proves Theorem 1.5 (p. 3), which says that compact support plus bounded density forces Λ to be of that periodic form. The notion of tempered growth is introduced in Section 1.5 via equation (1.6) (p. 4) and again formally in Definition 4.1 (p. 11). Section 6.3 then asks almost exactly your question: whether, for nonzero compactly supported f, a tiling by a discrete tempered-growth set Λ must still force Λ to be of the form (1.4). The paper itself immediately paraphrases this as asking whether Theorem 1.5 remains valid under tempered growth, and it also records that Theorem 1.9 does not give a counterexample because there the function f has unbounded support.",
+  "citations": [
+    {
+      "section": "1",
+      "label": "Equation (1.1)",
+      "page": 1
+    },
+    {
+      "section": "1.2",
+      "label": "Theorem 1.3",
+      "page": 2
+    },
+    {
+      "section": "1.3",
+      "label": "Equation (1.4) and Theorem 1.5",
+      "page": 3
+    },
+    {
+      "section": "1.5",
+      "label": "Equation (1.6), Theorems 1.9 and 1.10",
+      "page": 4
+    },
+    {
+      "section": "4.1",
+      "label": "Definition 4.1",
+      "page": 11
+    },
+    {
+      "section": "6.3",
+      "label": "Open problem \"Tilings of unbounded density\"",
+      "page": 20
+    }
+  ]
+}

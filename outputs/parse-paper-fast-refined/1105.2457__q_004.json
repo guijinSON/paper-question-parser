@@ -1,0 +1,58 @@
+{
+  "arxiv_id": "1105.2457",
+  "question_id": "q_004",
+  "original_question": "For obstacle scattering in the high-frequency limit, given an infinite sequence of long-living resonances k_j with Re k_j -> infinity, what spatial or phase-space structure do the associated metastable states have? More specifically, can one prove in the obstacle setting that these metastable states microlocalize near the outgoing tail K^+ and are described by semiclassical measures that are invariant under the flow up to global decay?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 1626.97,
+  "target_in_paper": "Section 1.2, Question (3), as sharpened by the introductory summary on page R128 that states the expected answer for metastable states and explicitly notes that no rigorous result is proved there for obstacles, together with the model result proved in Section 9.1 as Theorem 10 for smooth scattering Hamiltonians.",
+  "completeness_score": 8.5,
+  "correct_elements": "Your draft captures the right part of the paper very closely. It identifies the correct object (long-living/high-frequency resonances and their associated metastable states), the correct geometric structure (the outgoing tail K^+), and the correct expected asymptotic description (microlocal concentration plus semiclassical measures that are flow-invariant up to an overall decay factor). It also correctly specializes the smooth-Hamiltonian result of Section 9.1 to the obstacle-scattering setting, which is exactly what the introduction says should be possible but is not proved in the paper.",
+  "missing_details": [
+    "The obstacle model should be specified: the exterior domain Omega = R^d \\ setminus union_i O_i of finitely many strictly convex obstacles with smooth boundary, satisfying the no-eclipse condition, with Dirichlet boundary conditions for the Laplacian.",
+    "The exact official formulation in the paper is not a proved theorem for obstacles but Question (3) in Section 1.2, followed by the statement that no rigorous obstacle result is obtained there and that Theorem 10 should likely adapt to that setting.",
+    "The classical phase space and flow should be stated explicitly: the billiard flow phi^t on the unit cotangent bundle S^*Omega, with trapped set K and outgoing tail K^+ = {rho in S^*Omega : phi^t(rho) remains uniformly bounded as t -> -infinity}.",
+    "The metastable states should be defined as purely outgoing resonant states u_j associated with resonances k_j, solving (Delta_Omega + k_j^2)u_j = 0 in Omega with Dirichlet boundary conditions.",
+    "To make the question stand alone, one should specify the high-frequency/semi-classical scaling used in the paper: h ~ k^{-1}, equivalently z(h) = h^2 k^2 / 2 for P(h) = -h^2 Delta_Omega / 2.",
+    "The paper formulates the rigorous smooth analogue for resonances z(h) in a semiclassical window D(E, C h), not just for an arbitrary sequence k_j with Re k_j -> infinity; the obstacle version should mirror that scale or at least specify a fixed strip/semiclassical box of long-living resonances.",
+    "The states are normalized in the interaction region B(0, R_0): ||u_j(h)||_{L^2(B(0,R_0))} = 1.",
+    "The microlocalization statement should be made precise in Wigner-distribution form: for any compactly supported test symbol a supported away from K_E^+, one has <W_h[u(h)], a> = O(h^infinity).",
+    "The decay-invariant measure statement should be written explicitly: for every extracted semiclassical measure mu, (phi^t)_* mu = e^{-t Lambda} mu inside T^*B(0,R_0) for all t >= 0.",
+    "The decay rate Lambda should be tied to the resonances exactly as in Theorem 10: along the chosen subsequence, lim Im z(h)/h = -Lambda/2.",
+    "If one wants the obstacle version only, one should avoid phrasing it as though Theorem 10 is already proved in that setting; the paper presents this only as a very plausible adaptation."
+  ],
+  "refined_question": "Let Omega = R^d \\ setminus union_{i=1}^J O_i be the exterior of finitely many strictly convex smooth obstacles satisfying the no-eclipse condition, let Delta_Omega be the Dirichlet Laplacian on Omega, and let phi^t be the billiard flow on S^*Omega with outgoing tail K^+ = {rho in S^*Omega : phi^t(rho) stays uniformly bounded as t -> -infinity}. For a semiclassical/high-frequency sequence of long-living resonances k_j of -Delta_Omega with Re k_j -> infinity, choose associated purely outgoing resonant states u_j solving (Delta_Omega + k_j^2)u_j = 0 and normalized in the interaction region B(0,R_0). Can one prove, in this obstacle setting, the analogue of Theorem 10: namely that the Wigner distributions of u_j are semiclassically negligible away from K^+, and that every semiclassical measure mu obtained from a subsequence is a decay-eigenmeasure for the billiard flow, in the sense that (phi^t)_* mu = e^{-t Lambda} mu on T^*B(0,R_0) for all t >= 0, with Lambda determined by the asymptotic resonance widths (equivalently, after the standard scaling z(h) = h^2 k_j^2 / 2, by lim Im z(h)/h = -Lambda/2)?",
+  "equivalent_formulation": "Equivalent semiclassical formulation used in the paper: for P(h) = -h^2 Delta_Omega / 2 (the obstacle Hamiltonian) and a sequence of resonances z(h) in a window D(E, C h) corresponding to the high-frequency resonances k_j via z(h) = h^2 k_j^2 / 2, prove the obstacle analogue of Theorem 10: normalized resonant states u(h) microlocalize on the outgoing tail K_E^+, and any subsequential semiclassical measure mu on the interaction region satisfies (phi^t)_* mu = e^{-t Lambda} mu for all t >= 0, with Lambda = -2 lim Im z(h)/h.",
+  "justification": "The paper's official obstacle-side statement is Question (3) in Section 1.2: for an infinite sequence of long-living resonances, determine the spatial or phase-space structure of the associated metastable states. Immediately after stating Theorem 2, the introduction explains what the expected answer should be: such states should microlocalize near the outgoing tail K^+ and admit semiclassical measures invariant under the flow up to a global decay factor, but the author explicitly says that no rigorous result of this type is obtained in the obstacle case and that Theorem 10 should probably adapt. Section 9.1 then gives the precise proven analogue for smooth scattering Hamiltonians: first, Wigner distributions are negligible away from K_E^+, and then Theorem 10 states that any semiclassical measure is a Lambda-eigenmeasure for the flow with decay rate read from the imaginary parts of the resonances. So the sharp paper-faithful reformulation is not a broad question about resonance states in general, but specifically the obstacle-scattering analogue of Theorem 10.",
+  "citations": [
+    {
+      "section": "1.2",
+      "label": "Questions (1)-(3), item (3)",
+      "page": "R126"
+    },
+    {
+      "section": "1.2",
+      "label": "equation (9)",
+      "page": "R126"
+    },
+    {
+      "section": "1.2",
+      "label": "discussion after Theorem 2 ('The question (3) has been studied...')",
+      "page": "R128"
+    },
+    {
+      "section": "3",
+      "label": "equation (19) and Remark 3.1",
+      "page": "R133"
+    },
+    {
+      "section": "9.1",
+      "label": "discussion citing [7, theorem 2.1] on microlocalization near K_E^+",
+      "page": "R158"
+    },
+    {
+      "section": "9.1",
+      "label": "Theorem 10 and equations (66)-(67)",
+      "page": "R159"
+    }
+  ]
+}

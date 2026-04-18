@@ -1,0 +1,43 @@
+{
+  "arxiv_id": "1204.6447",
+  "question_id": "q_023",
+  "original_question": "Does every polynomial threshold function representation of the inner product mod 2 function IP_{2n} : F2^{2n} -> {-1,1} require at least 3^n monomials?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 2273.29,
+  "target_in_paper": "The unnumbered open-problem entry \"PTF Sparsity for Inner Product Mod 2\" in arXiv:1204.6447. This paper is a compendium of open problems, so the prompt's reference to Conjecture 1.1 / Proposition 1.2 / Theorem 1.3 does not match this arXiv ID.",
+  "completeness_score": 8.5,
+  "correct_elements": "Your draft is already very close to the paper's official formulation. It targets the exact open problem about polynomial-threshold-function sparsity for the inner product mod 2 function on 2n bits, uses the correct function name IP_{2n}, and asks for the exact lower bound 3^n. It also stays on the basic question stated in the paper rather than drifting to the stronger XOR-product variant mentioned only in the remark.",
+  "missing_details": [
+    "To be fully stand-alone, the question should define the function explicitly: for x,y in F_2^n, IP_{2n}(x,y) = (-1)^{sum_{i=1}^n x_i y_i}, where the sum is mod 2.",
+    "The paper uses the standard term \"PTF representation\" without re-defining it locally; a stand-alone version should say that this means a real polynomial p whose sign matches the function on the Boolean cube.",
+    "Because the input space is written as F_2^{2n} but the representing polynomial is real-valued, a self-contained statement should make explicit that the polynomial is evaluated on Boolean inputs identified with {0,1}^{2n}.",
+    "A fully explicit version should remove sign ambiguity by saying p(z) > 0 when IP_{2n}(z)=1 and p(z) < 0 when IP_{2n}(z)=-1 for every Boolean input z.",
+    "The coefficient field of the representing polynomial is implicit in the paper; it should be stated to be over the reals.",
+    "The statement is quantified over every positive integer n, not merely over infinitely many n or all sufficiently large n.",
+    "The monomial count should be stated as the number of nonzero monomials (nonzero-coefficient terms) in the representing polynomial.",
+    "No degree restriction is part of the paper's question; a paper-faithful stand-alone version should make clear that the lower bound is asked with no restriction on degree.",
+    "No homogeneity assumption appears in the paper.",
+    "No nilpotency or quotient-ring condition appears in the paper.",
+    "The nearby bullet about f xor g giving multiplicative lower bounds is described by the paper as a \"much stronger statement,\" not as an equivalent reformulation, so it should not replace the main question."
+  ],
+  "refined_question": "For every positive integer n, let IP_{2n}: F_2^{2n} -> {-1,1} be the inner-product-mod-2 function defined by IP_{2n}(x,y) = (-1)^{sum_{i=1}^n x_i y_i}, where x,y in F_2^n and the sum is taken modulo 2. Is it true that every real polynomial p(x_1,...,x_n,y_1,...,y_n), with no restriction on degree, such that p(x,y) > 0 exactly when IP_{2n}(x,y)=1 and p(x,y) < 0 exactly when IP_{2n}(x,y)=-1 for all (x,y) in {0,1}^{2n}, must contain at least 3^n nonzero monomials?",
+  "equivalent_formulation": null,
+  "justification": "The exact target is the page-9 entry titled \"PTF Sparsity for Inner Product Mod 2,\" whose statement asks essentially your question verbatim. Unlike the paper described in your instructions, arXiv:1204.6447 is not organized around numbered conjectures and theorems; it is an open-problems list. The front matter explicitly says that notation and definitions are assumed from external standard Boolean-function references rather than developed in the note itself, so the only needed sharpening is to spell out the standard implicit pieces: the formula for IP_{2n}, what a PTF representation means, that the representing polynomial is real-valued, that monomial count means nonzero monomials, and that there is no extra degree/homogeneity restriction. The only nearby variant in the paper is a separate remark labeled \"much stronger,\" so it is context rather than an equivalent restatement.",
+  "citations": [
+    {
+      "section": "front matter",
+      "label": "notation and definitions note",
+      "page": "1st PDF page (tool page P0)"
+    },
+    {
+      "section": "main matter",
+      "label": "PTF Sparsity for Inner Product Mod 2",
+      "page": "10th PDF page (tool page P9)"
+    },
+    {
+      "section": "main matter",
+      "label": "remark under PTF Sparsity for Inner Product Mod 2",
+      "page": "10th PDF page (tool page P9)"
+    }
+  ]
+}

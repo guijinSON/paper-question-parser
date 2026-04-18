@@ -1,0 +1,50 @@
+{
+  "arxiv_id": "2311.03081",
+  "question_id": "q_022",
+  "original_question": "Let Delta be a balanced simplicial (d-1)-sphere on vertex set [n], meaning there is a coloring c:[n]->[d] with c(u) != c(v) on every edge. Let Theta = theta_1, ..., theta_d be the colored linear system of parameters defined by theta_i = sum_{c(v)=i} x_v. Does the Artinian reduction S/(I_Delta + (Theta)) always have the strong Lefschetz property, or at least the weak Lefschetz property?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 9304.13,
+  "target_in_paper": "Section 4, Problem 4.2 (the 'Balanced spheres' subsection) of arXiv:2311.03081; the paper explicitly notes that this is the question asked in [19, Conjecture 1.3].",
+  "completeness_score": 8,
+  "correct_elements": "Your draft already captures the core mathematical content very well: it uses the right class of complexes (balanced simplicial (d-1)-spheres), the right distinguished l.s.o.p. (the colored one coming from the coloring), the right Artinian reduction, and it asks exactly the Lefschetz-property question the paper highlights for this setting.",
+  "missing_details": [
+    "The ambient ring should be specified as a standard graded polynomial ring S = k[x_1,...,x_n], with k[Delta] = S/I_Delta.",
+    "The ground field assumption from the paper's Section 4 is missing: the standing setup there is a field of characteristic 0; the cited original source [19, Conjecture 1.3] also states the conjecture in characteristic 0.",
+    "The quantifier should be explicit: the question is whether this holds for every balanced simplicial (d-1)-sphere Delta (with its colored l.s.o.p.), not just for a fixed example.",
+    "The question should make clear that Theta is the specific colored l.s.o.p. induced by the coloring, not an arbitrary or generic l.s.o.p.",
+    "To be fully stand-alone, SLP should be defined: there should exist a homogeneous degree-1 element omega in A_1 such that multiplication by omega^(d-2i) gives isomorphisms A_i -> A_(d-i) for all 0 <= i <= floor(d/2), where A = k[Delta]/Theta k[Delta].",
+    "To be fully stand-alone, WLP should be defined: there should exist a homogeneous degree-1 element omega in A_1 such that multiplication A_i -> A_(i+1) by omega has maximal rank for every i.",
+    "It is helpful to spell out the equivalence between the two quotient presentations A = k[Delta]/Theta k[Delta] and A ~= S/(I_Delta + (Theta)).",
+    "Because Delta is a simplicial sphere, the Artinian reduction is the standard graded Artinian Gorenstein algebra relevant to the usual Lefschetz-property definitions; this role of the sphere hypothesis is implicit in the draft."
+  ],
+  "refined_question": "Let k be a field of characteristic 0, let S = k[x_1,...,x_n] be standard graded, and let Delta be a balanced simplicial (d-1)-sphere on vertex set [n]. Thus there exists a proper d-coloring kappa:[n] -> [d], and if I_Delta is the Stanley-Reisner ideal of Delta, then the colored linear system of parameters is Theta = (theta_1,...,theta_d) with theta_i = sum_{kappa(v)=i} x_v. For the Artinian reduction A = k[Delta]/Theta k[Delta] ~= S/(I_Delta + (Theta)), must A have the strong Lefschetz property; that is, does there always exist a linear form omega in A_1 such that the maps times omega^(d-2i): A_i -> A_(d-i) are isomorphisms for all 0 <= i <= floor(d/2)? If not, does A at least always have the weak Lefschetz property, meaning that for some linear form omega in A_1 the maps times omega: A_i -> A_(i+1) have maximal rank for every i?",
+  "equivalent_formulation": null,
+  "justification": "The closest official formulation inside arXiv:2311.03081 is Problem 4.2 in Section 4. The surrounding context there fixes the standard notation for Stanley-Reisner rings over a field of characteristic 0 and recalls that for a balanced complex the forms theta_i = sum_{kappa(v)=i} x_v give a colored l.s.o.p. The problem is placed immediately after Theorem 4.1, which says that a generic l.s.o.p. yields SLP for every simplicial sphere; the open issue is whether the distinguished colored l.s.o.p. does so as well. The paper also explicitly says that this is the question asked in [19, Conjecture 1.3], and that cited source supplies the precise terminology 'colored SLP' and the same colored-s.o.p. setup. So the refined question should stay narrowly at the balanced-sphere, coarse-graded Lefschetz problem for the specific colored Artinian reduction, without drifting to broader a-balanced, multigraded, manifold, or generic-l.s.o.p. variants.",
+  "citations": [
+    {
+      "section": "Section 4",
+      "label": "Problem 4.2",
+      "page": "n/a (ar5iv HTML lines 202-205)"
+    },
+    {
+      "section": "Section 4",
+      "label": "introductory notation for Stanley-Reisner rings and characteristic-0 setup",
+      "page": "n/a (ar5iv HTML lines 195-202)"
+    },
+    {
+      "section": "Section 4",
+      "label": "Theorem 4.1",
+      "page": "n/a (ar5iv HTML lines 197-201)"
+    },
+    {
+      "section": "Section 1 of the source cited there as [19]",
+      "label": "definition of balanced complex, colored system of parameters, and 'colored SLP'",
+      "page": "2-3"
+    },
+    {
+      "section": "Section 1 of the source cited there as [19]",
+      "label": "Conjecture 1.3",
+      "page": 4
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "arxiv_id": "1907.04349",
+  "question_id": "q_006",
+  "original_question": "Does there exist a constant c such that every unsigned graph G with smallest adjacency eigenvalue at least -3 is c-integrable, meaning there is an integer matrix N such that c(A - floor(λ_min)I) = NN^T where A is the adjacency matrix of G and λ_min is its smallest eigenvalue?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 6712.61,
+  "target_in_paper": "Section 3.4, Conjecture 3.15: There exists a constant c such that if G is an unsigned graph with smallest eigenvalue at least -3, then G is c-integrable.",
+  "completeness_score": 9,
+  "correct_elements": "Your draft already captures the paper's target almost exactly. It asks for a universal constant c, restricts to unsigned graphs with smallest adjacency eigenvalue at least -3, and uses the paper's c-integrability notion via the shifted matrix A - floor(lambda_min) I.",
+  "missing_details": [
+    "The official target in arXiv:1907.04349 is specifically a conjecture: Conjecture 3.15 in Section 3.4.",
+    "The constant c should be understood as a universal positive integer (the paper defines s-integrability only for natural numbers s), independent of the graph G.",
+    "To make the question fully stand-alone, G should be stated to be a finite unsigned graph; the conjecture does not assume connectivity.",
+    "lambda_min(G) should be identified explicitly as the smallest eigenvalue of the adjacency matrix A(G); adjacency is the default matrix throughout the paper.",
+    "The integrability definition in the paper is tied to the positive-semidefinite shift A(G) - floor(lambda_min(G)) I.",
+    "To match the paper's displayed factorization, one should write c(A(G) - floor(lambda_min(G)) I) = M^T M for some integer matrix M in Z^{m x |V(G)|}; your NN^T form is equivalent up to transposition but is not the paper's displayed orientation.",
+    "The nearby context records only a partial result from [59, Theorem 1.3]: connected graphs with smallest eigenvalue at least -3 and sufficiently large valency are 2-integrable. Those extra hypotheses are not part of Conjecture 3.15."
+  ],
+  "refined_question": "Does there exist a positive integer c such that every finite unsigned graph G with adjacency matrix A(G) and smallest adjacency eigenvalue lambda_min(G) >= -3 is c-integrable, in the sense that, writing B := A(G) - floor(lambda_min(G)) I, there exists an integer matrix M in Z^{m x |V(G)|} for some m with cB = M^T M?",
+  "equivalent_formulation": null,
+  "justification": "The draft clearly targets Section 3.4 of the survey, not a different earlier conjecture. More precisely, it matches Conjecture 3.15, which asks for a universal c making every unsigned graph with smallest eigenvalue at least -3 c-integrable. The nearby page-9 context is exactly the right one to consult: it defines s-integrability, states Theorem 3.13 for signed graphs at the threshold -2, and then distinguishes Problem 3.14 (extend [59, Theorem 1.3] to signed graphs) from the separate unsigned-graph conjecture 3.15. Because your draft asks about unsigned graphs and a universal constant c with no large-valency hypothesis, it is Conjecture 3.15 rather than Problem 3.14.",
+  "citations": [
+    {
+      "section": "1",
+      "label": "Introduction (adjacency matrix is the default matrix in the paper)",
+      "page": 1
+    },
+    {
+      "section": "3.4",
+      "label": "Definition of s-integrable graphs",
+      "page": 9
+    },
+    {
+      "section": "3.4",
+      "label": "Theorem 3.13",
+      "page": 9
+    },
+    {
+      "section": "3.4",
+      "label": "Problem 3.14",
+      "page": 9
+    },
+    {
+      "section": "3.4",
+      "label": "Conjecture 3.15",
+      "page": 9
+    }
+  ]
+}

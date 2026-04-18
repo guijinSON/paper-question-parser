@@ -1,0 +1,40 @@
+{
+  "arxiv_id": "1107.4876",
+  "question_id": "q_006",
+  "original_question": "Let f in End(C^n,O) be non-invertible and dominant, let c(f^k) be the order of the k-th iterate, and let c_infinity(f)=lim_{k->+infinity} c(f^k)^{1/k}. Must c_infinity(f) always be an algebraic integer of degree at most n? Equivalently, do there always exist integers a_0,...,a_{n-1} such that c_infinity^n + a_{n-1} c_infinity^{n-1} + ... + a_0 = 0, and does there always exist delta in (0,1] with delta c_infinity^k <= c(f^k) <= c_infinity^k for all k >= 1?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 1701.1,
+  "target_in_paper": "Section 3.1, open problem (OP5): the question whether for every non-invertible dominant holomorphic germ f in End(C^n,O), the asymptotic attraction rate c_infinity(f)=lim_{k->+infinity} c(f^k)^{1/k} is an algebraic integer of order at most n and whether c(f^k) is uniformly comparable to c_infinity(f)^k.",
+  "completeness_score": 8.3,
+  "correct_elements": "Your draft correctly identifies the right object (a non-invertible dominant germ f in End(C^n,O)), the invariant c(f^k) coming from the order of the k-th iterate, the asymptotic attraction rate c_infinity(f)=lim_{k->+infinity} c(f^k)^{1/k}, and the two substantive parts of the paper-faithful question: (i) algebraicity of c_infinity(f) with an n-dimensional degree/order bound, and (ii) existence of a uniform constant delta in (0,1] such that delta c_infinity(f)^k <= c(f^k) <= c_infinity(f)^k for all k>=1. This is indeed the open problem stated in the paper.",
+  "missing_details": [
+    "The paper is asking about holomorphic local dynamical systems, i.e. germs f:(C^n,O)->(C^n,O) fixing the origin O; this should be stated explicitly to make the question stand-alone.",
+    "The order c(f) is defined via the homogeneous expansion f(z)=sum_{j>=c(f)} P_j(z), where P_j is an n-tuple of homogeneous polynomials of degree j and P_{c(f)} is not identically zero; your draft uses c(f^k) without defining c(f).",
+    "The paper defines 'dominant' by det Jac(f) not identically zero; that hidden assumption should be unpacked.",
+    "The paper's terminology is 'algebraic integer of order at most n'; the displayed polynomial condition is the precise stand-alone version to use.",
+    "The quantifier is universal in the dimension and the germ: for each n and every non-invertible dominant f in End(C^n,O), does the conclusion hold?",
+    "The paper asks the delta-bound as an additional clause ('Moreover ...'), not as an equivalent reformulation. So 'equivalently' is not paper-faithful here.",
+    "The question is specifically about holomorphic germs in End(C^n,O), not about formal germs or polynomial self-maps, even though nearby discussion compares with those settings.",
+    "If one wants full stand-alone fidelity, one may mention that c_infinity(f) exists because c(f^{h+k})>=c(f^h)c(f^k), but this is motivational context rather than part of the problem statement itself."
+  ],
+  "refined_question": "Fix n>=1, and let f in End(C^n,O) be a non-invertible dominant holomorphic germ fixing the origin O, with homogeneous expansion f(z)=sum_{j>=c(f)} P_j(z), where each P_j is an n-tuple of homogeneous polynomials of degree j and P_{c(f)} is not identically O; thus c(f) is the order of f. For the iterates f^k, define c_infinity(f):=lim_{k->+infinity} c(f^k)^{1/k}. Must c_infinity(f) always be an algebraic integer of order at most n, i.e. do there always exist integers a_0,...,a_{n-1} such that c_infinity(f)^n+a_{n-1}c_infinity(f)^{n-1}+...+a_0=0? Moreover, does there always exist a constant delta in (0,1] such that delta c_infinity(f)^k <= c(f^k) <= c_infinity(f)^k for every k>=1?",
+  "equivalent_formulation": null,
+  "justification": "The draft matches OP5 almost exactly, but it is not fully stand-alone because it leaves implicit the ambient category (holomorphic germs fixing the origin), the definition of c(f) via the homogeneous expansion, and the paper's meaning of 'dominant'. The nearby context in Section 3.1 supplies precisely these definitions and shows why the problem is posed: Theorem 9 states the dimension-2 result of Favre-Jonsson, namely that for non-invertible dominant germs in dimension 2, c_infinity is a quadratic integer and c(f^k) is uniformly comparable to c_infinity^k. OP5 then asks for the corresponding n-dimensional statement. I did not keep the word 'equivalently' from the draft because the paper does not state an equivalence between the algebraicity clause and the delta-bound; it asks both together as one open problem.",
+  "citations": [
+    {
+      "section": "3.1",
+      "label": "Definition 11",
+      "page": 9
+    },
+    {
+      "section": "3.1",
+      "label": "Theorem 9",
+      "page": "9-10"
+    },
+    {
+      "section": "3.1",
+      "label": "OP5",
+      "page": 10
+    }
+  ]
+}

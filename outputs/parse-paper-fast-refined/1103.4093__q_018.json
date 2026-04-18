@@ -1,0 +1,60 @@
+{
+  "arxiv_id": "1103.4093",
+  "question_id": "q_018",
+  "original_question": "How can the proposed noncommutative group-based cryptosystems be implemented in practice?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 1619.42,
+  "target_in_paper": "Section 11, Open Problems, subsection \"Implementation,\" item 1: \"How can we implement the proposed cryptosystems?\"",
+  "completeness_score": 7.5,
+  "correct_elements": "Your draft correctly identifies that the paper poses an implementation-focused open problem about the noncommutative/nonabelian group-based cryptosystems discussed in the survey, and it rightly emphasizes practical realization rather than pure cryptanalysis or abstract platform selection.",
+  "missing_details": [
+    "The nearest official formulation is an open problem, not a solved construction: Section 11, \"Implementation,\" item 1 asks, \"How can we implement the proposed cryptosystems?\"",
+    "The phrase \"proposed cryptosystems\" should be made explicit: in this paper it refers to the surveyed noncommutative group-based schemes from Sections 3-8, including free-group cryptography, nonabelian public-key exchange and key transport protocols, digital-signature/authentication/password schemes, braid-group/platform-group schemes, and polycyclic-group schemes.",
+    "A stand-alone version should state that implementation requires choosing explicit platform groups and concrete representations of group elements; Section 3 says implementation needs a concrete representation together with a way to rewrite/decrypt.",
+    "The computational prerequisites hidden in the paper's discussion should be spelled out: efficiently computable normal forms, solvable and practically efficient word-problem procedures, and in some protocols efficient multiplication and inversion.",
+    "Protocol-dependent implementation requirements should be named: for Ko-Lee/AAG/Shamir-type schemes the platform may need large commuting subgroups; for free-group cryptography the Reidemeister-Schreier rewriting process is implementation-relevant; for polycyclic groups the collection algorithm and consistent polycyclic presentations are implementation-relevant.",
+    "To stay faithful to the paper, the question should preserve the security side of implementation: the concrete realization should not destroy the assumed hardness of the relevant group-theoretic search problems such as search conjugacy or conjugator-search problems.",
+    "The draft does not separate this general implementation question from the adjacent but distinct Section 11 implementation question about whether GAP can be used for practical and secure cryptography.",
+    "There are no ambient ring/field, homogeneity, degree, nilpotency, or \"for all sufficiently large m\" parameters in this paper/problem; the missing hidden assumptions are algorithmic and group-theoretic rather than polynomial/algebraic."
+  ],
+  "refined_question": "For the noncommutative/nonabelian group-based cryptosystems surveyed in this paper, how can one give concrete practical implementations by choosing explicit finitely presented platform groups and effective representations of group elements so that normal forms and the word problem are efficiently computable, protocol-specific operations such as multiplication/inversion and rewriting procedures (for example, Reidemeister-Schreier rewriting in the free-group setting and collection in the polycyclic setting) are practical, and any required large commuting subgroups can be generated, while the underlying hard group-theoretic search problems on which security is based remain computationally infeasible?",
+  "equivalent_formulation": null,
+  "justification": "This paper has no Conjecture 1.1, Proposition 1.2, or Theorem 1.3; those labels are not present here. The draft matches almost verbatim the official open problem in Section 11 under \"Implementation,\" item 1. The surrounding sections show what the paper leaves implicit: Section 3 says implementation needs a concrete representation and a rewriting/decryption mechanism; Sections 4 and 5 require finitely presented platform groups with easy normal forms, efficient group operations, and in some protocols commuting subgroups; Section 7 says practical platform groups need efficiently computable normal forms and solvable word problems; Section 8 identifies consistent polycyclic presentations and the collection algorithm as practical computational tools; and Section 6 notes a MAGNUS-based implementation for the authentication/password setting. Because the paper does not state any proved equivalent reformulation of this implementation problem, no alternate formulation should be invented, and the adjacent GAP question in Section 11 is related but not equivalent.",
+  "citations": [
+    {
+      "section": "11",
+      "label": "Open Problems — Implementation (1)",
+      "page": "exact page not exposed in ar5iv HTML; journal article pagination is pp. 1-40"
+    },
+    {
+      "section": "3",
+      "label": "The Fundamentals of Free Group Cryptography",
+      "page": "exact page not exposed in ar5iv HTML; journal article pagination is pp. 1-40"
+    },
+    {
+      "section": "4",
+      "label": "Public Key Exchange Using Nonabelian Groups",
+      "page": "exact page not exposed in ar5iv HTML; journal article pagination is pp. 1-40"
+    },
+    {
+      "section": "5",
+      "label": "The Shamir Three Pass and Key Transport Protocols",
+      "page": "exact page not exposed in ar5iv HTML; journal article pagination is pp. 1-40"
+    },
+    {
+      "section": "6",
+      "label": "Digital Signatures, Authentication and Password Security",
+      "page": "exact page not exposed in ar5iv HTML; journal article pagination is pp. 1-40"
+    },
+    {
+      "section": "7",
+      "label": "Braid Group Cryptography and Platform Groups",
+      "page": "exact page not exposed in ar5iv HTML; journal article pagination is pp. 1-40"
+    },
+    {
+      "section": "8",
+      "label": "Cryptography With Polycyclic Groups",
+      "page": "exact page not exposed in ar5iv HTML; journal article pagination is pp. 1-40"
+    }
+  ]
+}

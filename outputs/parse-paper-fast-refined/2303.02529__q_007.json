@@ -1,0 +1,57 @@
+{
+  "arxiv_id": "2303.02529",
+  "question_id": "q_007",
+  "original_question": "For the discrete-time critical beta-splitting tree DTCS(n), study combinatorial properties of fringe clades, including the number K_n of distinct clade shapes that appear in a realization, the largest clade shape that appears more than once, and the smallest clade shape that does not appear at all.",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 8597.79,
+  "target_in_paper": "The draft targets the combinatorial clade-shape problem stated explicitly as Open Problem 4 in §4.6 of arXiv:2303.02529v2, and only briefly retained in the current v3 as the \"interesting statistics\" mentioned in §9.2 (\"Comparing with cladogram data\").",
+  "completeness_score": 6.5,
+  "correct_elements": "Your draft correctly identifies the right model (the discrete-time critical beta-splitting tree DTCS(n)), the right combinatorial viewpoint (clade shapes arising in a realization), and the same three statistics that the paper singles out: the number of distinct clade shapes present, the largest repeated clade shape, and the smallest absent clade shape. It is therefore very close in substance to the paper’s intended question.",
+  "missing_details": [
+    "The paper formulates the problem through the random clade-count variables N_n(χ), where χ is a finite clade shape and N_n(χ) is the number of copies of χ occurring in one realization of DTCS(n).",
+    "K_n should be defined exactly as K_n := Σ_χ 1{N_n(χ) ≥ 1}.",
+    "A \"shape\" means a rooted binary clade shape with left/right branches identified; the paper explicitly says that when grouping clades of the same shape, it does not distinguish left and right branches.",
+    "To be stand-alone, DTCS(n) itself should be defined: recursively, a size-m clade splits into sizes i and m-i with probability q(m,i) = m / (2 h_{m-1} i(m-i)) for 1 ≤ i ≤ m-1, where h_{m-1} = Σ_{r=1}^{m-1} 1/r.",
+    "The scope is the discrete-time model DTCS(n), not the continuous-time model CTCS(n).",
+    "The paper asks to study distributions of these quantities; your draft does not say whether the goal is exact distribution, asymptotics, moments, concentration, or limiting laws.",
+    "The phrase \"fringe clades\" is slightly misleading here: the motivation comes from the fringe-tree discussion, but the quantities themselves count clade shapes occurring anywhere in a realization of DTCS(n).",
+    "The phrases \"largest clade shape\" and \"smallest clade shape\" are not fully well-defined unless one specifies the ordering; the natural paper-faithful interpretation is by leaf-count |χ|, with an additional tie convention only if one wants a unique shape rather than just the extremal size.",
+    "If the question asks for the shape itself rather than only the extremal size, one must say what to do when several shapes of the same maximal/minimal size qualify.",
+    "The nearby context says that explicit bounds on |a(n,i) - a(i)| would likely be useful for these statistics, where a(n,i) is the occupation probability of state i in the harmonic descent chain and a(i) = lim_n a(n,i)."
+  ],
+  "refined_question": "For the discrete-time critical beta-splitting tree DTCS(n), defined recursively by splitting each clade of size m ≥ 2 into subclades of sizes i and m-i with probability q(m,i) = m/(2 h_{m-1} i(m-i)) for 1 ≤ i ≤ m-1, let χ range over finite rooted binary clade shapes, regarded up to left/right reflection, and let N_n(χ) be the number of clades in a realization of DTCS(n) having shape χ. Study the distributions of the following combinatorial clade-shape statistics: K_n := Σ_χ 1{N_n(χ) ≥ 1}, the number of distinct clade shapes present; the maximal leaf-size max{|χ| : N_n(χ) ≥ 2}, i.e. the size of the largest clade shape that appears more than once; and the minimal leaf-size min{|χ| : N_n(χ) = 0}, i.e. the size of the smallest clade shape absent from the realization (with a tie convention added only if one wants a unique extremal shape rather than just the extremal size).",
+  "equivalent_formulation": null,
+  "justification": "The match is very tight. In the fuller official formulation, after introducing the fringe-tree viewpoint and the clade-count variables N_n(χ), the paper states Open Problem 4 and lists exactly your three statistics: K_n, the largest repeated clade, and the smallest missing clade. Section 4.4 supplies the hidden notation N_n(χ) and the convention that clade shapes are identified up to left/right reflection; §2 supplies the DTCS(n) definition; and nearby Open Problem 5 explains why quantitative control of a(n,i) versus its limit a(i) is expected to matter. In the current v3, the same topic survives only as a brief suggestion in §9.2, so the sharper stand-alone formulation should follow the earlier explicit Open Problem 4 wording rather than the vaguer v3 sentence.",
+  "citations": [
+    {
+      "section": "§2",
+      "label": "Definition (1) of DTCS(n)",
+      "page": 2
+    },
+    {
+      "section": "§4.2",
+      "label": "The (limit) fringe process",
+      "page": "10-11"
+    },
+    {
+      "section": "§4.4",
+      "label": "Properties of the fringe tree; N_n(χ) and shape convention",
+      "page": "16-17"
+    },
+    {
+      "section": "§4.6",
+      "label": "Open Problem 4",
+      "page": 19
+    },
+    {
+      "section": "§4.6",
+      "label": "Open Problem 5",
+      "page": 19
+    },
+    {
+      "section": "§9.2",
+      "label": "Comparing with cladogram data (brief v3 restatement)",
+      "page": "n/a"
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "arxiv_id": "2206.04127",
+  "question_id": "q_005",
+  "original_question": "Let H_n = (1/(i+j-1))_(i,j=1)^n be the n x n truncation of the infinite Hilbert matrix. For any fixed index i, does sigma_i(H_n) converge to pi as n -> infinity? If not, what is the asymptotic behavior of sigma_i(H_n) as n increases?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 8285.74,
+  "target_in_paper": "Open Question 5 in Section 3 (\"Numerical results for the discretized problem and an attempt to explain\"): the fixed-index singular values of the truncated Hilbert matrices H_n.",
+  "completeness_score": 9,
+  "correct_elements": "Your draft already matches the paper's Open Question 5 almost verbatim: it uses the same matrices H_n = (1/(i+j-1))_(i,j=1)^n, fixes an index i, asks whether σ_i(H_n) tends to π as n → ∞, and asks for the alternative behavior if that limit fails. It also correctly focuses on singular values of the finite Hilbert sections rather than broadening to a different operator family. ([tu-chemnitz.de](https://www.tu-chemnitz.de/mathematik/inverse_probleme/fulltext/GH_2022.pdf))",
+  "missing_details": [
+    "State explicitly that H = (1/(j+k-1))_(j,k=1)^∞ is the infinite Hilbert matrix and that H_n is its n×n leading principal section (the paper calls these the \"n-dimensional segments\" of H), so the question is about these specific finite sections and not arbitrary discretizations. ([tu-chemnitz.de](https://www.tu-chemnitz.de/mathematik/inverse_probleme/fulltext/GH_2022.pdf))",
+    "Make the ambient setting explicit: H is viewed as an operator on ℓ^2, while H_n is a finite real matrix (equivalently an operator on ℝ^n or ℂ^n with the Euclidean norm). ([tu-chemnitz.de](https://www.tu-chemnitz.de/mathematik/inverse_probleme/fulltext/GH_2022.pdf))",
+    "Specify that i is a fixed element of ℕ, independent of n, and that the limit is taken along n → ∞ with n ≥ i.",
+    "For a fully stand-alone formulation, specify what σ_i means, e.g. the i-th singular value under the usual nonincreasing ordering.",
+    "For paper-faithful context, note that π appears because the paper recalls just before Open Question 5 that 1 ≤ σ_1(H_n) ≤ π and that σ_1(H_n) → π = σ_1(H); the open part is whether the same limiting value persists for every fixed i. ([tu-chemnitz.de](https://www.tu-chemnitz.de/mathematik/inverse_probleme/fulltext/GH_2022.pdf))",
+    "The nearby equivalent reformulation through the Cholesky sections L_n is omitted in the draft: L_n L_n^* = H_n, hence σ_i(L_n) = √σ_i(H_n). This is the paper's immediate local reformulation. ([tu-chemnitz.de](https://www.tu-chemnitz.de/mathematik/inverse_probleme/fulltext/GH_2022.pdf))"
+  ],
+  "refined_question": "Let H = (1/(j+k-1))_{j,k=1}^∞ be the infinite Hilbert matrix, and for each n ∈ ℕ let H_n = (1/(j+k-1))_{j,k=1}^n denote its n×n leading principal section. For a fixed i ∈ ℕ (with n ≥ i), let σ_i(H_n) be the i-th singular value of H_n. Is it true that lim_{n→∞} σ_i(H_n) = π for every fixed i? If not, what is the behavior of σ_i(H_n) as n → ∞ for fixed i?",
+  "equivalent_formulation": "Equivalently, if L is the lower-triangular Cholesky factor of H and L_n is its n×n leading principal section, so that L_n L_n^* = H_n and σ_i(L_n) = √σ_i(H_n), is it true that lim_{n→∞} σ_i(L_n) = √π for every fixed i ∈ ℕ? If not, what is the behavior of σ_i(L_n) as n → ∞ for fixed i?",
+  "justification": "The draft clearly targets Open Question 5, stated in Section 3 immediately after the paper recalls the relations L_n L_n^* = H_n and σ_i(L_n) = √σ_i(H_n), the known limit for the top singular value σ_1(H_n) → π, and the conjectural extension of that phenomenon to fixed higher indices. The paper then formulates the question exactly at the level of fixed-i singular values of H_n, so the refined version only restores the missing setup and indexing details without broadening the problem. ([tu-chemnitz.de](https://www.tu-chemnitz.de/mathematik/inverse_probleme/fulltext/GH_2022.pdf))",
+  "citations": [
+    {
+      "section": "1 Introduction",
+      "label": "discussion defining the infinite Hilbert matrix H and its n-dimensional segments H_n",
+      "page": 2
+    },
+    {
+      "section": "3 Numerical results for the discretized problem and an attempt to explain",
+      "label": "discussion before Open Question 5: L_n L_n^* = H_n, σ_i(L_n) = √σ_i(H_n), and 1 ≤ σ_1(H_n) ≤ π = lim_{n→∞} σ_1(H_n)",
+      "page": 8
+    },
+    {
+      "section": "3 Numerical results for the discretized problem and an attempt to explain",
+      "label": "Open Question 5",
+      "page": 8
+    }
+  ]
+}

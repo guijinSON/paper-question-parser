@@ -1,0 +1,50 @@
+{
+  "arxiv_id": "1210.7320",
+  "question_id": "q_008",
+  "original_question": "Determine whether there exist two permutation patterns whose avoidance counts switch relative order more than once, and in particular whether two patterns can switch places infinitely often as n grows.",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 2595.37,
+  "target_in_paper": "Section 4, \"Are layered patterns the most easily avoided?\", especially the discussion on page 248 of Stankova and West [42, Figure 9 and Conjecture 2]: after exhibiting a single reversal in avoidance-count order, the paper asks whether any pair of patterns can switch order twice or more, and records the weaker conjecture that for any pair sigma and tau there exists N such that either Av_sigma(n) < Av_tau(n) for all n > N or Av_sigma(n) > Av_tau(n) for all n > N.",
+  "completeness_score": 7.5,
+  "correct_elements": "Your draft correctly identifies the specific Section 4 phenomenon: comparing avoidance counts of two permutation patterns as n varies, asking whether their relative order can reverse more than once, and highlighting the stronger possibility of infinitely many reversals.",
+  "missing_details": [
+    "The paper is discussing classical permutation patterns; from Section 3 onward it states that, unless otherwise noted, the remainder of the paper concerns classical patterns.",
+    "The avoidance-count notation should be made explicit: Av_sigma(n) is the number of permutations of length n that avoid the pattern sigma.",
+    "The comparison is made in the Section 4 setting of patterns being \"easiest to avoid,\" so sigma and tau are being compared as patterns of the same fixed length k.",
+    "The paper frames the first issue as an existence/nonexistence question: it is unknown whether any pair of patterns exhibits a second switch in relative order, and Stankova and West conjecture that no pair does.",
+    "The weaker conjecture should be stated exactly with quantifiers: for any pair sigma, tau there exists an integer N such that either Av_sigma(n) < Av_tau(n) for all n > N, or Av_sigma(n) > Av_tau(n) for all n > N.",
+    "The phrase \"switch relative order more than once\" should be formalized as the sign of Av_sigma(n) - Av_tau(n) changing at least twice as n increases.",
+    "The phrase \"switch places infinitely often\" should be formalized as there being infinitely many n with Av_sigma(n) < Av_tau(n) and infinitely many n with Av_sigma(n) > Av_tau(n).",
+    "Because the paper's weaker formulation uses strict inequalities, a fully stand-alone version should either exclude Wilf-equivalent pairs or explicitly say how equality cases are treated."
+  ],
+  "refined_question": "Fix k and let sigma, tau be two non-Wilf-equivalent classical permutation patterns in S_k. If Av_sigma(n) denotes the number of permutations in S_n that avoid sigma, can the inequality between Av_sigma(n) and Av_tau(n) reverse more than once as n increases? More weakly, must there exist an integer N such that either Av_sigma(n) < Av_tau(n) for all n > N or Av_sigma(n) > Av_tau(n) for all n > N; equivalently, can two such patterns switch places infinitely often?",
+  "equivalent_formulation": null,
+  "justification": "The draft is targeting the specific Section 4 discussion that follows the example Av_53241(n) < Av_43251(n) for 7 <= n <= 12 but Av_53241(13) > Av_43251(13). The paper then says that it is unknown whether such a switch occurs twice or more for any pair of patterns, and immediately records the weaker Stankova-West conjecture that every pair is eventually strictly ordered. The Introduction shows that Section 4 is about comparing patterns by how many permutations of the same length avoid them, Section 3 defines Av_p(n) and fixes the classical-pattern scope for the remainder of the paper, and Section 2 supplies the Wilf-equivalence language needed to make the strict-inequality formulation fully stand-alone.",
+  "citations": [
+    {
+      "section": "1",
+      "label": "Introduction: Section 4 concerns patterns avoided by more permutations than other patterns of the same length",
+      "page": 240
+    },
+    {
+      "section": "2",
+      "label": "Kinds of patterns: definition of classical pattern occurrence and Wilf equivalence",
+      "page": "241-243"
+    },
+    {
+      "section": "3",
+      "label": "Enumeration and asymptotics of avoiders: classical-pattern convention for the remainder of the paper and definition of Av_p(n)",
+      "page": 245
+    },
+    {
+      "section": "4",
+      "label": "Are layered patterns the most easily avoided?: fixed-length comparison context",
+      "page": 247
+    },
+    {
+      "section": "4",
+      "label": "Stankova and West [42, Figure 9 and Conjecture 2]: one-switch example, open question about a second switch, and weaker eventual-order conjecture",
+      "page": 248
+    }
+  ]
+}

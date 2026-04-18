@@ -1,0 +1,54 @@
+{
+  "arxiv_id": "math_0109030",
+  "question_id": "q_005",
+  "original_question": "For each of the following matrix classes C: (i) the matrices A_{n,k,t} for positive integers n and k and t in (0, 1), (ii) GKK tau-matrices, (iii) GKK matrices, and (iv) tau-matrices, let C_n denote the subclass consisting of matrices in C of order at most n. For a fixed n, do all positive stable matrices in C_n satisfy the spectral-angle inequality |arg(lambda - l(A))| <= pi/2 - pi/n for every eigenvalue lambda in sigma(A), where l(A) is the minimum real eigenvalue of A when one exists and infinity otherwise?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 13933.77,
+  "target_in_paper": "Section 3, Problem 3c (using inequality (2) from Problem 3 and the notation from Section 2).",
+  "completeness_score": 8.5,
+  "correct_elements": "Your draft correctly identifies the paper's third subproblem under Problem 3: it fixes an order bound, forms the subclasses C_n of matrices of order at most n, asks only about stable matrices, uses the same spectral-sector inequality (2), and lists exactly the four classes of interest that the paper names in items (i)–(iv). It is therefore aimed at Problem 3c rather than the neighboring Problems 3a or 3b.",
+  "missing_details": [
+    "The paper works with complex square matrices A in C^{n×n}; this ambient field is implicit in the draft.",
+    "Problem 3c depends on Section 2 definitions that are not spelled out in the draft: l(A) := min(sigma(A) ∩ R) with min emptyset := infinity, and 'stable' means 'positive stable,' i.e. sigma(A) lies in the open right half-plane.",
+    "The classes 'GKK matrix' and 'tau-matrix' need their paper-specific meanings to make the question stand-alone: a GKK matrix is a weakly sign-symmetric P-matrix; a tau-matrix is a P-matrix with eigenvalue monotonicity l(A(alpha,alpha)) <= l(A(beta,beta)) < infinity whenever emptyset != beta subseteq alpha, together with l(A) >= 0.",
+    "To define 'weakly sign-symmetric' exactly as in the paper, one must say that A[alpha,beta]A[beta,alpha] >= 0 for all almost principal minors, i.e. minors of dispersal 1.",
+    "The family A_{n,k,t} is not defined in this short note itself; the paper refers to the matrices A_{2k+2,k,t} 'defined there' in Holtz [11]. A stand-alone formulation should therefore either cite [11] explicitly or include that external definition.",
+    "There is a notation clash in the draft: n is used both as the order bound in C_n and as the first index in A_{n,k,t}. Renaming the order bound (for example to N) makes the question sharper.",
+    "The note defines l(A) = infinity when sigma(A) has no real eigenvalue, but Problem 3c does not separately explain how the expression arg(lambda - l(A)) is to be interpreted in that case; this is a hidden edge case in the paper's formulation."
+  ],
+  "refined_question": "For a fixed positive integer N, let C_N denote the subclass of matrices of order at most N in one of the following classes C: (i) the family {A_{m,k,t} : m,k in N, t in (0,1)} defined in Holtz [11]; (ii) GKK tau-matrices; (iii) GKK matrices; or (iv) tau-matrices. Here matrices are complex and square; a GKK matrix means a weakly sign-symmetric P-matrix, and a tau-matrix means a P-matrix satisfying eigenvalue monotonicity l(A(alpha,alpha)) <= l(A(beta,beta)) < infinity whenever emptyset != beta subseteq alpha, together with l(A) >= 0, where l(A) := min(sigma(A) ∩ R) and min emptyset := infinity. Must every stable matrix A in C_N (that is, every A with sigma(A) contained in the open right half-plane) satisfy the spectral-angle inequality |arg(lambda - l(A))| <= pi/2 - pi/N for every eigenvalue lambda in sigma(A)?",
+  "equivalent_formulation": null,
+  "justification": "The draft is aiming at the paper's Problem 3c, not at the broader stability-threshold questions 3a or 3b. In Section 3 the paper first recalls Varga's spectral-sector inequality (2), then notes Holtz's unstable examples A_{2k+2,k,t}, and then asks three bounded-order questions 3a, 3b, 3c for subclasses C_n of four specific classes C. Your draft matches 3c exactly in structure and in the list of classes. The only changes needed are to import the definitions from Section 2, remove the notational ambiguity between the order bound and the family index in A_{n,k,t}, and acknowledge that the family A_{n,k,t} is only referenced in this note via [11] rather than defined here.",
+  "citations": [
+    {
+      "section": "1 Motivation",
+      "label": "motivation for five open problems after unstable GKK tau-matrices were found",
+      "page": 1
+    },
+    {
+      "section": "2 Basic notions",
+      "label": "definitions of l(A), omega-matrix, tau-matrix, and stable",
+      "page": 2
+    },
+    {
+      "section": "2 Basic notions",
+      "label": "definitions of P-matrix, weak sign symmetry, and GKK",
+      "page": 2
+    },
+    {
+      "section": "3 GKK tau-matrix stability and related problems",
+      "label": "Problem 3 and inequality (2)",
+      "page": 2
+    },
+    {
+      "section": "3 GKK tau-matrix stability and related problems",
+      "label": "Problem 3c and classes (i)-(iv)",
+      "page": 3
+    },
+    {
+      "section": "3 GKK tau-matrix stability and related problems",
+      "label": "reference to unstable A_{2k+2,k,t} examples from [11] motivating Problems 3a-3c",
+      "page": 3
+    }
+  ]
+}

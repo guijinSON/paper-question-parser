@@ -1,0 +1,50 @@
+{
+  "arxiv_id": "2201.09150",
+  "question_id": "q_051",
+  "original_question": "Determine whether travelling-wave solutions exist for the distributed-delay movement model with temporal kernels of the forms introduced in equation (2.27), and if they do, compute or estimate how wave speed depends on the delay parameter and on advection and diffusion rates.",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 8066.07,
+  "target_in_paper": "Open Problem 51 in Section 4.5, interpreted using the distributed-delay scalar model (2.28) and the weak/strong temporal kernels in (2.27).",
+  "completeness_score": 9,
+  "correct_elements": "Your draft already captures the core of the paper's exact target almost verbatim: it asks about travelling-wave existence for the distributed-delay model, it singles out the temporal kernels introduced in equation (2.27), and it asks for wave-speed computation/estimation together with dependence on the delay parameter and on advection/diffusion rates.",
+  "missing_details": [
+    "The exact object is Open Problem 51, namely the scalar distributed-delay problem (2.28), not just a generic distributed-delay movement model.",
+    "The PDE itself should be stated: u_t = d1 Δu - γ ∇·(u∇v_u) + f(u), where f is the birth/death term appearing in the model.",
+    "The advective potential v_u must be defined by the spatiotemporal convolution (2.26), using the heat-equation Green function G(d3,x,y,t-s).",
+    "The two temporal kernels in (2.27) should be written explicitly: G_w(t;τ)=τ^{-1}e^{-t/τ} and G_s(t;τ)=tτ^{-2}e^{-t/τ}.",
+    "The travelling-wave setting from Section 4.5 should be made explicit: problems on an unbounded domain, typically Ω=R, with ansatz u(x,t)=w(x-ct).",
+    "The paper's question is scalar/single-species; it should not be broadened to the system questions in Open Problems 52 or 53.",
+    "The parameters whose influence is in scope should be named more concretely: the delay τ and the movement parameters governing advection and diffusion, namely the diffusion coefficient d1, the advection strength γ (or d2 in the Appendix notation), and potentially the Green-kernel diffusion parameter d3.",
+    "The paper does not impose additional algebraic data such as ambient ring/field, homogeneity, degree, nilpotency, or a phrase like for all sufficiently large m; those are not part of this PDE problem and should not be inserted."
+  ],
+  "refined_question": "For the scalar distributed-delay animal-movement equation on an unbounded one-dimensional domain x∈R, u_t = d1 u_xx - γ ∂_x(u ∂_x v_u) + f(u), where v_u(x,t)=∫_{-∞}^t ∫_R G(d3,x,y,t-s) K(t-s;τ)u(y,s) dy ds with G(d3,x,y,t-s) the heat-equation Green function of diffusion rate d3 and K equal to either the weak kernel G_w(t;τ)=τ^{-1}e^{-t/τ} or the strong kernel G_s(t;τ)=tτ^{-2}e^{-t/τ}, do travelling-wave solutions u(x,t)=w(x-ct) exist; and, if so, can the wave speed c be computed or estimated as a function of the delay parameter τ and of the advection/diffusion parameters governing the model?",
+  "equivalent_formulation": null,
+  "justification": "The draft is essentially a paraphrase of Open Problem 51 in Section 4.5 (page 52): it asks about travelling-wave solutions for the distributed-delay problem (2.28) with temporal kernels from (2.27), and about how wave speed depends on τ and advection/diffusion rates. Section 2.3.2 (pages 25-26) supplies the exact model, the spatiotemporal convolution, and the weak/strong kernel formulas that make the question stand alone. Section 4.5 also supplies the intended travelling-wave setting: an unbounded domain and the ansatz u(x,t)=w(x-ct). I did not broaden the question to the neighboring discrete-delay problem (Open Problem 50) or to the system problems (Open Problems 52-53). Although Appendix A proves a weak-kernel equivalence to a Keller-Segel-type system on bounded domains with Neumann data, the paper does not explicitly state that equivalence as a travelling-wave reformulation on R, so no alternate formulation is given.",
+  "citations": [
+    {
+      "section": "2.3.2",
+      "label": "equations (2.26)-(2.28)",
+      "page": "25-26"
+    },
+    {
+      "section": "2.3.2",
+      "label": "equation (2.27)",
+      "page": "25"
+    },
+    {
+      "section": "4.5",
+      "label": "travelling-wave ansatz u(x,t)=w(x-ct)",
+      "page": "51-52"
+    },
+    {
+      "section": "4.5",
+      "label": "Open Problem 51",
+      "page": "52"
+    },
+    {
+      "section": "Appendix",
+      "label": "Lemma A.1 and equations (A.2)-(A.3)",
+      "page": "65"
+    }
+  ]
+}

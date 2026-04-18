@@ -1,0 +1,44 @@
+{
+  "arxiv_id": "1102.5727",
+  "question_id": "q_026",
+  "original_question": "Give an efficient conversion in both directions between Costas arrays (or more generally Golomb rectangles) and Golomb rulers. In particular, for a given Costas array or family of Costas arrays, determine the minimum number of blank rows that must be added at the bottom so that stacking the columns in order produces a Golomb ruler.",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 1300.56,
+  "target_in_paper": "Section 8.3, Problem 26, \"Relation between Costas arrays and Golomb rulers\" (p. 18). ([arxiv.org](https://arxiv.org/pdf/1102.5727.pdf))",
+  "completeness_score": 9,
+  "correct_elements": "Your draft already captures the exact open problem almost verbatim: it asks for efficient conversion between Costas arrays (and more generally Golomb rectangles) and Golomb rulers, and it isolates the paper's specific subproblem of minimizing the number of blank rows added at the bottom before stacking columns to obtain a Golomb ruler. That is precisely the content of Problem 26 in Section 8.3. ([arxiv.org](https://arxiv.org/pdf/1102.5727.pdf))",
+  "missing_details": [
+    "To be fully stand-alone, the question should define a Costas array as an n x n permutation array with one dot in each row and column and with all distance vectors between pairs of dots distinct. ([arxiv.org](https://arxiv.org/pdf/1102.5727.pdf))",
+    "It should define a Golomb rectangle using the paper's scope: a rectangular binary array with N > 2 dots whose autocorrelation range is exactly {N, 1, 0}. ([arxiv.org](https://arxiv.org/pdf/1102.5727.pdf))",
+    "It should define a Golomb ruler in the paper's normalized form: a finite set of integers {0 = g1 < ... < gm} in N with all pairwise differences distinct, equivalently a binary vector with marks at those positions. ([arxiv.org](https://arxiv.org/pdf/1102.5727.pdf))",
+    "The special minimization clause is stated in the paper for a given Costas array, or a family of Costas arrays; it is not separately stated there for arbitrary Golomb rectangles. ([arxiv.org](https://arxiv.org/pdf/1102.5727.pdf))",
+    "The padding-and-stacking operation should be made explicit: first append b blank rows below the array, then concatenate the columns in left-to-right order to form a one-dimensional binary vector. ([arxiv.org](https://arxiv.org/pdf/1102.5727.pdf))",
+    "For paper-faithful context, the stand-alone version should record the known baseline already mentioned there: any n x n Costas array (or more generally a Golomb rectangle) can be converted by this method after adding at least n - 2 blank rows, while some Costas arrays empirically work with fewer. ([arxiv.org](https://arxiv.org/pdf/1102.5727.pdf))",
+    "If one wants full algorithmic precision, the term \"efficient\" remains informal in the paper; no complexity model is specified, so a refined stand-alone question can keep that wording but should not silently assume a particular complexity class. ([arxiv.org](https://arxiv.org/pdf/1102.5727.pdf))"
+  ],
+  "refined_question": "Let A be an n x n Costas array, meaning a binary permutation array with exactly one dot in each row and each column and with all vectors between pairs of dots distinct; more generally, let A be a Golomb rectangle, meaning a rectangular binary array with N > 2 dots whose autocorrelation range is {N, 1, 0}. A Golomb ruler is a finite set G = {0 = g1 < ... < gm} subset of N whose pairwise differences are all distinct. Find efficient conversion procedures between Costas arrays (or, more generally, Golomb rectangles) and Golomb rulers in both directions. In particular, for a given n x n Costas array A, or for a specified family of Costas arrays, determine the least integer b >= 0 such that, after adjoining b blank rows below A and then concatenating the columns of the resulting array from left to right (each read top-to-bottom), the resulting one-dimensional binary vector is a Golomb ruler. ([arxiv.org](https://arxiv.org/pdf/1102.5727.pdf))",
+  "equivalent_formulation": null,
+  "justification": "The draft is targeting Problem 26 in Section 8.3, not a neighboring problem, because the distinctive combination of objects and operations in your draft—Costas arrays, Golomb rectangles, Golomb rulers, adding blank rows at the bottom, and stacking columns in order—appears together there and nowhere else in the paper. The nearby definitions needed to make the question self-contained are Definition 1 for Costas arrays (Section 3.1, p. 2), Definition 12 for Golomb rectangles (Section 8.1, p. 16), and Definition 15 for Golomb rulers/Sidon sets (Section 8.3, p. 17). The paper's immediate context also explains the minimization subquestion by noting a known construction with at least n - 2 added rows and empirical evidence that fewer rows may suffice for some Costas arrays. ([arxiv.org](https://arxiv.org/pdf/1102.5727.pdf))",
+  "citations": [
+    {
+      "section": "3.1",
+      "label": "Definition 1",
+      "page": 2
+    },
+    {
+      "section": "8.1",
+      "label": "Definition 12",
+      "page": 16
+    },
+    {
+      "section": "8.3",
+      "label": "Definition 15",
+      "page": 17
+    },
+    {
+      "section": "8.3",
+      "label": "Problem 26",
+      "page": 18
+    }
+  ]
+}

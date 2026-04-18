@@ -16,13 +16,16 @@ This folder contains local OpenCode skills and runtime artifacts for prompt-driv
 
 1. In the repo where you want to run this, ensure this path exists:
     - `.opencode/skills/paper-question-parser/SKILL.md`
-2. Invoke the skill with one paper source:
+2. Invoke the skill with one source:
     - `/paper-question-parser /absolute/path/to/paper.pdf`
     - or `/paper-question-parser https://arxiv.org/abs/<id>`
+    - or `/paper-question-parser https://doi.org/<doi>`
+    - or `/paper-question-parser <direct-pdf-or-problem-page-url>`
 3. Output is returned in chat and auto-saved to:
-    - `outputs/parse-paper/<input_name_sanitized>.json`
+    - `outputs/parse-paper/<source_name_sanitized>.json`
     - `outputs/latest.json`
-4. The canonical output schema lives in `.opencode/skills/paper-question-parser/SKILL.md`; accepted items now include `question_text`, `context_brief`, `meta`, and `evidence`.
+4. The parser now resolves local PDFs, arXiv URLs, DOI/publisher/HAL/DBLP/zbMATH/OpenAlex/Crossref landing pages, workshop/problem pages, and MathOverflow threads to one readable PDF or HTML source before extraction.
+5. The canonical output schema lives in `.opencode/skills/paper-question-parser/SKILL.md`; parser outputs now include a top-level `source` object with the original URL/path, resolved locator, and title, and accepted items include `question_text`, `context_brief`, `meta`, and `evidence`.
 
 ## Skill 2: Refine one question into self-contained form
 
@@ -70,3 +73,4 @@ This folder contains local OpenCode skills and runtime artifacts for prompt-driv
 - This bundle is skill-first (no external Python scripts required by user).
 - It uses built-in tools such as `look_at`, `read`, `bash`, and web/search tools available in OpenCode.
 - The parser skill, refiner skill, and math genealogy skill coexist; adding the newer skills does not replace the earlier ones.
+- The parser skill supports non-arXiv scholarly URLs; the refiner skill remains arXiv-centered.

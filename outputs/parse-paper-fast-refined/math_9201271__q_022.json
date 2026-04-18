@@ -1,0 +1,69 @@
+{
+  "arxiv_id": "math_9201271",
+  "question_id": "q_022",
+  "original_question": "Let P1 be a monic polynomial with connected Julia set and a repelling fixed point x0 having a landing ray with rotation number p/q, and let P2 be a monic polynomial with a ray of the same rotation number landing on a repelling periodic point of period dividing q. In the intertwining construction, one cuts along the corresponding cycles of rays, fills the holes in the slit dynamical plane of P2 by the wedges from P1, and adjusts near inverse images of the cut rays to obtain a continuous branched map. When does this topological intertwining construction produce a map conjugate to a polynomial?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 14198.82,
+  "target_in_paper": "The draft is aiming at the historical intertwining problem quoted in Section 4.1, but the nearest official paper-faithful formulation is Theorem 3.1 (Main Theorem) in Section 3, together with its equivalent birenormalization formulation in Section 5. Conjecture 3.1 is only the separate question of continuous extension to the omitted root point.",
+  "completeness_score": 5,
+  "correct_elements": "Your draft correctly captures the Section 4.1 Bielefeld problem almost verbatim: cut along a q-cycle of external rays with a prescribed combinatorial rotation number, slit the second dynamical plane along matching rays, glue in the wedges, adjust near inverse images of the cuts, and ask whether the resulting branched map is realized by a polynomial. It also correctly focuses on connected Julia sets, repelling landing points, and matching rotation data.",
+  "missing_details": [
+    "The paper does not prove the statement for arbitrary monic polynomials P1 and P2. Its proved result specializes to quadratic polynomials k_c(z)=z^2+c, more precisely to quadratic-like maps hybrid equivalent to such quadratics.",
+    "The ambient setting is complex dynamics over C, with external rays defined via the Bottcher coordinate for polynomials with connected Julia set.",
+    "The rotation datum must be a reduced rational p/q in Q/Z, and the paper uses the term combinatorial rotation number.",
+    "A second combinatorial parameter is essential: an odd integer m=2k+1 with 1 <= m <= 2q-1, recording how many of the 2q landing rays are encountered counterclockwise from the critical point -1 to the critical point +1.",
+    "The domain is not the full class of quadratics with the right ray pattern, but the small Mandelbrot copy M_{p/q} growing from the p/q-limb, with the root parameter root_{p/q} removed.",
+    "The paper's actual construction in Section 4.2 uses repelling fixed points of the quadratic-like maps with combinatorial rotation number p/q, not the broader 'repelling periodic point of period dividing q' language of the historical quote.",
+    "The target is not an unspecified polynomial: it is a marked cubic polynomial P_{A,D} in the cubic connectedness locus, normalized so that the critical points are -1 and +1.",
+    "The target locus C_{p/q,m} must be defined: it consists of marked cubic polynomials for which 2q distinct external rays of combinatorial rotation number p/q land at a fixed point, with the integer m specifying the cyclic ordering relative to the critical points.",
+    "The paper proves straightening to a unique cubic polynomial via a cubic-like map and hybrid equivalence; 'conjugate to a polynomial' is too loose and should be sharpened to 'hybrid equivalent to a unique cubic polynomial' in the normalized family.",
+    "Well-definedness, uniqueness, and continuity are not immediate from the slit-and-glue construction in Section 4.2; they are established in Section 5 through the birenormalization map R x S, using continuity, surjectivity, properness, and injectivity.",
+    "The official theorem also states the hyperbolic-component consequence: the embedding sends H_{p/q} x H_{p/q} onto a disjoint-type component H_{p/q,m} of type D_{q,q}.",
+    "Boundary behavior at the omitted root parameter is a separate issue. The paper isolates that as Conjecture 3.1, so it should not be merged with the main existence-and-embedding statement."
+  ],
+  "refined_question": "Fix a reduced rational p/q in Q/Z and an odd integer m=2k+1 with 1 <= m <= 2q-1. Let M_{p/q} be the small copy of the Mandelbrot set growing from the hyperbolic component H_{p/q}, with root root_{p/q}, and let C_{p/q,m} be the locus of marked cubic polynomials P_{A,D} whose fixed point is the landing point of 2q distinct external rays of combinatorial rotation number p/q, with exactly m of those rays encountered when moving counterclockwise from the critical point -1 to the critical point +1. For every pair c,c' in M_{p/q} \\ {root_{p/q}}, does the Epstein-Yampolsky intertwining surgery on quadratic-like maps hybrid equivalent to k_c(z)=z^2+c and k_{c'}(z)=z^2+c' straighten to a unique cubic polynomial P_{A,D} in C_{p/q,m}, and do these polynomials vary so as to define a homeomorphic embedding h_{p/q,m}:(M_{p/q} \\ {root_{p/q}}) x (M_{p/q} \\ {root_{p/q}}) -> C_{p/q,m} that sends H_{p/q} x H_{p/q} onto a disjoint-type component H_{p/q,m} of type D_{q,q}?",
+  "equivalent_formulation": "Equivalently, if B_{p/q,m} denotes the set of birenormalizable cubics in C_{p/q,m}, is the birenormalization map R x S: B_{p/q,m} -> (M_{p/q} \\ {root_{p/q}}) x (M_{p/q} \\ {root_{p/q}}) a homeomorphism, so that h_{p/q,m}=(R x S)^(-1)?",
+  "justification": "The draft clearly tracks the quoted Bielefeld intertwining problem in Section 4.1, but the paper's own precise formulation is Theorem 3.1 rather than the historical quote itself. The introduction summarizes the result as showing that 'any two quadratics may be intertwined to obtain a cubic polynomial.' Section 4.2 and Proposition 4.1 explain how the quasiconformally corrected slit-and-glue construction yields a cubic-like map, and straightening gives a unique cubic polynomial P_{A,D}. Section 5 then supplies the missing well-definedness and uniqueness through the birenormalization map: Proposition 5.3 gives surjectivity, Proposition 5.6 gives injectivity, and Section 5.4 defines h_{p/q,m}=(R x S)^(-1), yielding Theorem 3.1. Conjecture 3.1 is adjacent but different: it asks only whether h_{p/q,m} extends continuously to the omitted root point.",
+  "citations": [
+    {
+      "section": "1",
+      "label": "Introduction",
+      "page": 152
+    },
+    {
+      "section": "2.3",
+      "label": "Theorem 2.13 and the definition of the small copy M_{p/q} and its root root_{p/q}",
+      "page": 157
+    },
+    {
+      "section": "2.4",
+      "label": "Definition of disjoint-type hyperbolic components in the cubic family",
+      "page": "158-159"
+    },
+    {
+      "section": "3",
+      "label": "Theorem 3.1 (Main Theorem)",
+      "page": 162
+    },
+    {
+      "section": "3",
+      "label": "Conjecture 3.1",
+      "page": 163
+    },
+    {
+      "section": "4.1",
+      "label": "History: quoted Bielefeld intertwining problem",
+      "page": 164
+    },
+    {
+      "section": "4.2",
+      "label": "Proposition 4.1, straightening to a unique cubic polynomial, and Remark 4.2",
+      "page": "166-167"
+    },
+    {
+      "section": "5.1-5.4",
+      "label": "Propositions 5.2, 5.3, 5.4, 5.6 and the definition h_{p/q,m}=(R x S)^(-1)",
+      "page": "170-174"
+    }
+  ]
+}

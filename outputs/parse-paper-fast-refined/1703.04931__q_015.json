@@ -1,0 +1,52 @@
+{
+  "arxiv_id": "1703.04931",
+  "question_id": "q_015",
+  "original_question": "For some eigenvalue algorithm A, can one prove a universality theorem for the deflation time T_{epsilon,n,A,E}, where T_{epsilon,n,A,E} is the smallest time at which the evolving matrix becomes approximately block diagonal to accuracy epsilon and the problem depends on statistics of both eigenvalues and eigenvectors?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 5340.28,
+  "target_in_paper": "Problem 4 (numerical computation with random data), specifically the open problem on pp. 11-12 asking for the analog of Theorem 1 for the deflation time T_{epsilon,n,A,E}.",
+  "completeness_score": 7.5,
+  "correct_elements": "Your draft correctly targets the deflation-time universality problem in Problem 4, not the already-proved Toda stopping-time theorem itself. It also correctly captures the paper's main extra difficulty: unlike the first stopping time T^(1), the deflation time depends on eigenvector statistics as well as eigenvalue statistics, and for the deflation problem the dependence is on all eigenvector components, not just the first ones.",
+  "missing_details": [
+    "The ambient matrix class is not stated: the surrounding context is n x n random real symmetric or complex Hermitian matrices H drawn from an ensemble E; Theorem 1 is stated for beta = 1,2 invariant or Wigner ensembles.",
+    "The paper distinguishes discrete and continuous eigenvalue algorithms. Accordingly, T_{epsilon,n,A,E}(H) is the smallest iteration k in the discrete case or smallest time t in the continuous case.",
+    "The evolving matrix should be named explicitly: X_k with X_0 = H in the discrete case, or X(t) with X(0)=H in the continuous case, evolving isospectrally under algorithm A and converging to diagonal form.",
+    "Approximate block diagonalization needs the exact paper-faithful form: there must exist some 1 <= j <= n-1 such that X(t) = [[P_t, B_t],[B_t^*, Q_t]] with P_t of size j x j, Q_t of size (n-j) x (n-j), and ||B_t|| = ||B_t^*|| <= epsilon.",
+    "The consequence of deflation should be included: for such t, the eigenvalues of the block-diagonal matrix diag(P_t,Q_t) agree with the eigenvalues of H to O(epsilon).",
+    "The question should specify that the goal is a rigorous analog of Theorem 1, i.e. a universality result in the large-n limit, with epsilon and n in an appropriate scaling regime, rather than merely a finite-n bound or heuristic statement.",
+    "The notion of universality in this section is tied to normalized stopping times: earlier the paper introduces tau_{epsilon,n,A,E} = (T_{epsilon,n,A,E} - <T_{epsilon,n,A,E}>)/sigma_{epsilon,n,A,E}, and later refers to proving universality for centered and scaled variables. Your draft does not mention normalization/centering.",
+    "For A = Toda, the paper says there is an analog E_def(t) of E(t) in equation (3), and T_{epsilon,n,A,E} is the first time for which E_def(t) = epsilon^2; this more precise formulation is missing.",
+    "The paper emphasizes that the deflation problem requires statistics of all eigenvector components together with eigenvalues; your draft says both eigenvalues and eigenvectors matter, but not that all components enter.",
+    "The nearby context distinguishes the first deflation step from later ones: after the first block split, controlling T^(2) would require information on second eigenvector components, and so on. This hierarchy is part of the paper's intended scope."
+  ],
+  "refined_question": "Let H be an n x n real symmetric or complex Hermitian random matrix drawn from an ensemble E, and let A be an isospectral eigenvalue algorithm, discrete or continuous, whose evolution X starts at H and converges to diagonal form. Define the deflation time T_{epsilon,n,A,E}(H) to be the smallest iteration/time for which, for some 1 <= j <= n-1, X has a block decomposition X = [[P, B],[B^*, Q]] with P of size j x j, Q of size (n-j) x (n-j), and ||B|| = ||B^*|| <= epsilon, so that the eigenvalues of the deflated matrix diag(P,Q) agree with those of H up to O(epsilon). Can one prove, for some specific eigenvalue algorithm A (for example A = Toda), a rigorous analog of Theorem 1: namely, in an appropriate joint scaling regime of epsilon and n as n -> infinity, establish a universal limiting law for the properly normalized deflation time T_{epsilon,n,A,E}, independent of the choice of ensemble E within the relevant symmetry class, even though the relevant deflation error depends on the eigenvalues and on all components of the eigenvectors of H?",
+  "equivalent_formulation": "For A = Toda, an equivalent formulation given in the paper is: prove the analog of Theorem 1 for the first time T_{epsilon,n,Toda,E} at which the Toda deflation error E_def(t), the deflation analogue of E(t) in equation (3), satisfies E_def(t) = epsilon^2.",
+  "justification": "The phrase deflation time T_{epsilon,n,A,E} appears explicitly only in Problem 4, and the paper states verbatim that the most challenging problem is to prove the analog of Theorem 1 for this quantity. Your draft's reference to approximate block diagonalization and dependence on both eigenvalues and eigenvectors matches the two paragraphs that define deflation in block form and explain that, for deflation, the controlling quantity involves all components of the eigenvectors in addition to the eigenvalues. This is not the preceding QR-algorithm open problem, which is about bulk eigenvalue ratios lambda_{j+1}/lambda_j and lambda_{j-1}/lambda_j near zero together with associated eigenvectors, and it is not Theorem 1 itself, which concerns the first Toda stopping time T^(1) for computing the largest eigenvalue rather than general block deflation.",
+  "citations": [
+    {
+      "section": "Problem 4 (numerical computation with random data)",
+      "label": "definition of T_{epsilon,n,A,E} and tau_{epsilon,n,A,E}",
+      "page": "8-9"
+    },
+    {
+      "section": "Problem 4 (numerical computation with random data)",
+      "label": "Theorem 1 (universality for the Toda algorithm)",
+      "page": "9-10"
+    },
+    {
+      "section": "Problem 4 (numerical computation with random data)",
+      "label": "equations (3)-(5) and the discussion that the statistics of T^(1) depend on eigenvalues and eigenvector components",
+      "page": 10
+    },
+    {
+      "section": "Problem 4 (numerical computation with random data)",
+      "label": "open problem beginning The most challenging problem for eigenvalue computation with random data is to prove the analog of Theorem 1 for the deflation time T_{epsilon,n,A,E}",
+      "page": 11
+    },
+    {
+      "section": "Problem 4 (numerical computation with random data)",
+      "label": "paragraph defining deflation by block form and discussing T^(2)",
+      "page": "11-12"
+    }
+  ]
+}

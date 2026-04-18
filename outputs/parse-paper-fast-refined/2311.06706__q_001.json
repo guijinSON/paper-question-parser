@@ -1,0 +1,50 @@
+{
+  "arxiv_id": "2311.06706",
+  "question_id": "q_001",
+  "original_question": "For each integer d at least 3, does there exist an infinite family of d-dimensional bounded-degree simplicial complexes that are coboundary expanders with F2 coefficients? Equivalently, can one construct higher-dimensional analogues of expander graphs whose vertex degrees stay uniformly bounded while their d-dimensional F2-coboundary Cheeger constants remain uniformly bounded away from zero?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 9328.39,
+  "target_in_paper": "Problem 1.3 in Section 1, restricted to its still-open part after Theorem 1.9: for each fixed d >= 3, whether there exist families of d-dimensional bounded-degree F2-coboundary expanders.",
+  "completeness_score": 7,
+  "correct_elements": "Your draft correctly identifies the paper’s target as the unresolved existence problem for bounded-degree higher-dimensional F2-coboundary expanders, and it correctly isolates the remaining range d >= 3, since the paper proves the d = 2 case. It also correctly keeps the scope to simplicial complexes, infinite families, bounded degree, and F2 coefficients.",
+  "missing_details": [
+    "The paper’s official formulation is Problem 1.3 for all d >= 2; your d >= 3 restriction is the remaining open part only because Theorem 1.9 settles d = 2.",
+    "Each member of the family should be a finite d-dimensional simplicial complex.",
+    "In the paper, 'F2-coboundary expander' is governed by the collection of i-coboundary Cheeger constants h_B^i(X,F2) for all 0 <= i < d, not by a single 'd-dimensional coboundary Cheeger constant.'",
+    "To be stand-alone, the question should specify the paper’s definition h_B^i(X,F2) = inf over F2-valued i-cochains alpha not in B^i(X,F2) of ||delta_i alpha|| / d(alpha, B^i(X,F2)).",
+    "The distance d and norm ||.|| are not arbitrary: they come from the probability distributions mu_i on oriented i-cells, via the normalized discrepancy d(alpha,beta) = P_{sigma ~ mu_i}[alpha(sigma) != beta(sigma)].",
+    "The uniform lower bound must be quantified explicitly: there should exist a constant lambda > 0 independent of the family index m, and the bound should hold for every 0 <= i < d.",
+    "The degree bound should be uniform across the whole family; elsewhere the paper makes this explicit as the existence of a single k such that every vertex degree in every complex is at most k.",
+    "Your 'equivalently' sentence is only heuristic as written: 'higher-dimensional analogues of expander graphs' is motivational language in the paper, but the exact equivalent reformulation should be stated directly in terms of the h_B^i constants."
+  ],
+  "refined_question": "For each fixed integer d >= 3, do there exist constants k, lambda > 0 and an infinite family {X_m}_{m>=1} of finite d-dimensional simplicial complexes such that every vertex of every X_m has degree at most k and, for every m and every 0 <= i < d, the i-coboundary Cheeger constant h_B^i(X_m,F2) is at least lambda, where h_B^i(X,F2) is the infimum of ||delta_i alpha|| / d(alpha,B^i(X,F2)) over all F2-valued i-cochains alpha not in B^i(X,F2), with d the normalized distance induced by the paper’s probability distributions on oriented i-cells?",
+  "equivalent_formulation": "Equivalently, after Theorem 1.9 settles the case d = 2, is the remaining d >= 3 part of Problem 1.3 true: does there exist, for each fixed d >= 3, an infinite bounded-degree family {X_m} of finite d-dimensional simplicial complexes with inf_m min_{0 <= i < d} h_B^i(X_m,F2) > 0?",
+  "justification": "The draft is clearly aiming at Gromov’s Problem 1.3 as presented in this paper, not at a broader neighboring problem. The paper first defines the F2 i-coboundary Cheeger constants h_B^i in (1.1) and then asks in Problem 1.3 whether there are bounded-degree d-dimensional F2-coboundary expanders. It later states explicitly that Section 5 solves only the d = 2 case and that the problem remains open for d >= 3, so the sharp paper-faithful version of your draft is exactly the unresolved d >= 3 portion of Problem 1.3. The main correction needed is that the paper’s notion of d-dimensional F2-coboundary expansion is not a single top-dimensional Cheeger constant, but the uniform positivity of the family of constants h_B^i for all 0 <= i < d, computed using the normalized distance on F2-valued cochains coming from the chosen distributions on oriented cells.",
+  "citations": [
+    {
+      "section": "1",
+      "label": "Equations (1.1)-(1.3)",
+      "page": 2
+    },
+    {
+      "section": "1",
+      "label": "Problem 1.3",
+      "page": 2
+    },
+    {
+      "section": "1",
+      "label": "Theorem 1.9",
+      "page": 4
+    },
+    {
+      "section": "5",
+      "label": "opening paragraph of Section 5",
+      "page": 20
+    },
+    {
+      "section": "6.2",
+      "label": "Problem 6.5",
+      "page": 23
+    }
+  ]
+}

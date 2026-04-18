@@ -1,0 +1,40 @@
+{
+  "arxiv_id": "2602.05394",
+  "question_id": "q_040",
+  "original_question": "Nelson--Nguyen conjecture: Subspace embedding properties of sparse random matrices: Prove or disprove the Nelson--Nguyen conjecture: A SparseStack embedding with parameters $ = O(( r) / epsilon)$ and $k = O(r / epsilon^2)$ is an oblivious subspace embedding with parameters $alpha = 1 - epsilon$ and $beta = 1+epsilon$.",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 12678.86,
+  "target_in_paper": "Problem 5.4 in §5.2, \"Nelson–Nguyen conjecture: Subspace embedding properties of sparse random matrices.\"",
+  "completeness_score": 7,
+  "correct_elements": "Your draft clearly targets the right open problem: the Nelson–Nguyen conjecture about SparseStack matrices, with the intended near-optimal parameter tradeoff ζ = O((log r)/ε) and k = O(r/ε^2), and the target embedding distortion 1±ε. It also stays at the correct level of specificity: SparseStack, not a broader class of sparse sketches.",
+  "missing_details": [
+    "The first parameter is not fully written in the draft; in the paper it is the sparsity parameter ζ, and the conjectured bound is ζ = O((log r)/ε).",
+    "The paper uses the specific SparseStack model of Definition 5.2, not an arbitrary sparse random matrix.",
+    "The ambient space is real: Ω ∈ R^{n×k}, the subspace is V ⊆ R^n, and the sketch acts as x ↦ Ω^T x ∈ R^k.",
+    "SparseStack is parameterized by integers ζ,b ≥ 1 with k := bζ, so k is tied to a block size b; equivalently Ω^T has exactly ζ nonzeros per column, one in each of ζ blocks of size b.",
+    "The random construction itself is omitted: the i-th row is (1/√ζ)[ρ_{i1}e^*_{s_{i1}}, …, ρ_{iζ}e^*_{s_{iζ}}], where ρ_{ij} are iid Rademacher signs and s_{ij} are iid uniform indices in {1,…,b}.",
+    "The quantifier is over every fixed r-dimensional subspace V ⊆ R^n (with n arbitrary and r ≤ n), not just some subspace.",
+    "The phrase \"oblivious subspace embedding\" must be unpacked using Definition 5.1: for every fixed r-dimensional subspace V, with probability at least 1−δ over Ω, one has (1−ε)||x||_2^2 ≤ ||Ω^T x||_2^2 ≤ (1+ε)||x||_2^2 for all x ∈ V; the paper's problem statement suppresses the failure-probability parameter δ.",
+    "The Big-O notation hides absolute constants, which a stand-alone formulation should make explicit."
+  ],
+  "refined_question": "Let n,r ∈ N with r ≤ n and let ε ∈ (0,1). For integers ζ,b ≥ 1, set k := bζ, and let Ω ∈ R^{n×k} be a SparseStack random matrix in the sense of Definition 5.2: the i-th row of Ω is (1/√ζ)[ρ_{i1}e^*_{s_{i1}}, …, ρ_{iζ}e^*_{s_{iζ}}], where the ρ_{ij} are iid Rademacher random variables and the s_{ij} are iid uniform on {1,…,b} (equivalently, Ω^T ∈ R^{k×n} has exactly ζ nonzeros in each column, one in each of ζ blocks of size b). Prove or disprove that there exist absolute constants C1,C2 and an absolute failure probability δ < 1 such that, whenever ζ ≤ C1(log r)/ε and k ≤ C2 r/ε^2, then for every fixed r-dimensional subspace V ⊆ R^n, with probability at least 1−δ over Ω, one has (1−ε)||x||_2^2 ≤ ||Ω^T x||_2^2 ≤ (1+ε)||x||_2^2 for all x ∈ V.",
+  "equivalent_formulation": null,
+  "justification": "The draft is aiming at the exact official open problem stated in the paper as Problem 5.4 in the subsection on sparse dimensionality reduction maps. To make that problem stand alone, one has to import only the paper-local definitions on which the statement depends: Definition 5.2 for the SparseStack distribution and Definition 5.1 for what it means to be a subspace embedding / oblivious subspace embedding. I did not broaden the question to general sparse embeddings or neighboring sketching problems, and I retained the paper’s precise asymptotic target and 1±ε distortion objective.",
+  "citations": [
+    {
+      "section": "§5.1",
+      "label": "Definition 5.1 (Subspace embeddings and injections)",
+      "page": "not available in accessible snippet"
+    },
+    {
+      "section": "§5.2",
+      "label": "Definition 5.2 (SparseStack [KN12])",
+      "page": "not available in accessible snippet"
+    },
+    {
+      "section": "§5.2",
+      "label": "Problem 5.4 (Nelson–Nguyen conjecture: Subspace embedding properties of sparse random matrices)",
+      "page": "not available in accessible snippet"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "arxiv_id": "2505.15351",
+  "question_id": "q_019",
+  "original_question": "Can the subspace-completion approach used in Wigner distribution deconvolution be generalized so that it can recover a signal when an arbitrary number of Fourier coefficients are missing, while still keeping the computational cost reasonable?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 10990.26,
+  "target_in_paper": "Section 8.1, Question 8.2: Can a version of SC be designed to handle an arbitrary number of missing coefficients with a reasonable operational cost?",
+  "completeness_score": 8.5,
+  "correct_elements": "Your draft is very close to the paper’s actual target. It correctly identifies that the issue is the Subspace Completion (SC) method inside discrete Wigner Distribution Deconvolution (WDD), that the desired extension is from the currently treated regime to one with an arbitrary number of missing Fourier coefficients, and that computational/operational cost must remain reasonable. It also avoids drifting into the neighboring but distinct questions about theoretical justification (Question 8.3) or band-limit assumptions for uniqueness with symmetric windows (Question 8.4).",
+  "missing_details": [
+    "The paper’s question is posed in the finite-dimensional discrete WDD setting, not the continuous STFT setting.",
+    "The ambient space is complex: the object and window are vectors f, w in C^n.",
+    "The paper’s notation uses [n] = {0, 1, ..., n-1}; vector indices are modulo n.",
+    "The relevant operators must be specified: F is the n x n unitary discrete Fourier transform, S_r is the circular shift operator, and x ◦ y denotes coordinatewise (Hadamard) product.",
+    "The measurements are I_{xi,x} = |F[f ◦ S_x w]_{xi}|^2, with scan positions x in X and detector/frequency index xi in [n].",
+    "The nearby context assumes all scan positions are available, i.e. X = [n], because this is required for the discrete WDD identity (26) used in the discussion.",
+    "The coefficients that may be missing are not arbitrary Fourier coefficients of f itself; they are the coefficients F[f ◦ S_xi f]_x appearing in the discrete WDD factorization (F^{-1} I F)_{xi,x} = F[f ◦ S_xi f]_x F[w ◦ S_xi w]_x.",
+    "The localized-window regime should be stated: supp(w) = [delta] for some delta < n/2.",
+    "The baseline fast-recovery setting preceding the open problem assumes the nonvanishing condition F[w ◦ S_xi w]_x != 0 on the relevant index range in (27), under which the diagonals f ◦ S_xi f are recovered in O(n delta log n) operations.",
+    "The current SC method being generalized is the one where one diagonal f ◦ S_{xi0} f is completely recovered and each remaining diagonal is missing at most one Fourier coefficient; your draft omits this precise starting point.",
+    "The motivating source of additional missing coefficients should be stated: they arise when F[w ◦ S_xi w]_x vanishes or is truncated because it is too small relative to noise.",
+    "Question 8.2 itself does not impose band-limitedness, uniqueness guarantees, or a stability theorem; those issues are separated in Questions 8.3 and 8.4, so they should not be folded into the refined version.",
+    "The phrase 'reasonable operational cost' is left informal in the paper; a faithful rewrite should preserve that wording rather than replace it with a stronger asymptotic claim not made there.",
+    "No homogeneity, degree, nilpotency, or 'for all sufficiently large m' hypotheses are part of this formulation; importing such restrictions would be unfaithful to the paper."
+  ],
+  "refined_question": "In the finite-dimensional discrete Wigner Distribution Deconvolution setting, with object f in C^n, known localized window w in C^n with supp(w) = [delta] = {0, ..., delta - 1} for some delta < n/2, all scan positions X = [n] = {0, ..., n - 1}, unitary DFT F, circular shifts S_r, and measurements I_{xi,x} = |F[f ◦ S_x w]_{xi}|^2 satisfying (F^{-1} I F)_{xi,x} = F[f ◦ S_xi f]_x F[w ◦ S_xi w]_x, can one design a version of Subspace Completion that extends the current case where one diagonal f ◦ S_{xi0} f is fully recovered and every other diagonal is missing at most one Fourier coefficient, to the case of an arbitrary number of missing coefficients F[f ◦ S_xi f]_x (for instance because F[w ◦ S_xi w]_x vanishes or is truncated when small), while keeping the operational cost reasonable?",
+  "equivalent_formulation": null,
+  "justification": "The draft is aiming at Section 8.1, Question 8.2 on page 29. It is not best matched to Question 8.3 or 8.4, because its emphasis is exactly on extending Subspace Completion to arbitrarily many missing coefficients while maintaining manageable cost. The surrounding context in Section 8 on pages 27-28 introduces the discrete WDD model and the factorization (26), and Section 8.1 on pages 28-29 explains both the present SC regime (one fully recovered diagonal, the others each missing at most one Fourier coefficient) and the motivation for more missing coefficients coming from zeros or truncation of F[w ◦ S_xi w]_x. The introduction also explicitly says that Section 8 concerns the mathematical foundations of Wigner Distribution Deconvolution and unique recovery criteria, which confirms the draft’s overall target. No explicit equivalent reformulation of Question 8.2 is proved nearby in the paper, so none should be supplied.",
+  "citations": [
+    {
+      "section": "1.2",
+      "label": "Organization of the paper; summary of Section 8",
+      "page": "1-2"
+    },
+    {
+      "section": "2.1",
+      "label": "Finite-dimensional setup and notation for [n], f, w, F, S_r, and coordinatewise product",
+      "page": "2-3"
+    },
+    {
+      "section": "8",
+      "label": "Equations (22)-(27) and the discrete WDD setup",
+      "page": "27-28"
+    },
+    {
+      "section": "8.1",
+      "label": "Question 8.1 and Subspace Completion context",
+      "page": "28-29"
+    },
+    {
+      "section": "8.1",
+      "label": "Question 8.2",
+      "page": 29
+    }
+  ]
+}

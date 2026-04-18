@@ -1,0 +1,55 @@
+{
+  "arxiv_id": "2201.09150",
+  "question_id": "q_018",
+  "original_question": "For the same nonlocal conflict-generation memory model, determine whether spatially non-constant steady states exist in a bounded periodic domain and describe their qualitative properties.",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 7957.07,
+  "target_in_paper": "Section 2.2.2, Open Problem 18, concerning the steady-state problem associated with model (2.16), the extension of the conflict-zone memory model in which conflict generation itself is made nonlocal through perception. The paper asks for existence, under periodic boundary conditions in a bounded domain with a top-hat detection function, of spatially non-constant steady states and for their qualitative properties. ([math.ualberta.ca](https://www.math.ualberta.ca/~hwang/WangSalmaniwReview.pdf))",
+  "completeness_score": 8.0,
+  "correct_elements": "Your draft has identified the right nearby problem family: the nonlocal conflict-generation memory model, the search for spatially non-constant steady states, the bounded periodic setting, and the request to describe qualitative properties. Those are exactly the core ingredients of Open Problem 18. ([math.ualberta.ca](https://www.math.ualberta.ca/~hwang/WangSalmaniwReview.pdf))",
+  "missing_details": [
+    "The paper’s exact target is Open Problem 18 for problem (2.16), not the neighboring comparison problem Open Problem 19 and not the earlier local-conflict model (2.13). ([math.ualberta.ca](https://www.math.ualberta.ca/~hwang/WangSalmaniwReview.pdf))",
+    "The draft does not state the underlying PDE system. In context, problem (2.16) is obtained by keeping the movement equation from (2.13), ∂_t u_i = d_i Δu_i + γ_i ∇·(u_i ∇k_i^{g,R}), and replacing the cognitive-map equation by ∂_t k_i = u_i^{g,R} Σ_{j=1}^n ρ_{ij}u_j − (μ + βu_i)k_i, for i = 1, ..., n. This reuse of the u_i-equation is implicit from the paper’s presentation. ([math.ualberta.ca](https://www.math.ualberta.ca/~hwang/WangSalmaniwReview.pdf))",
+    "The perception operator is missing: for any field a, the paper defines a^{g,R}(x,t) = ∫_Ω a(y,t)g(x−y)dy, and the superscripts g,R in u_i^{g,R} and k_i^{g,R} depend on this operator. ([math.ualberta.ca](https://www.math.ualberta.ca/~hwang/WangSalmaniwReview.pdf))",
+    "The official formulation fixes the kernel choice to the top-hat detection function from (2.3), with perceptual radius R, rather than an arbitrary nonlocal kernel. ([math.ualberta.ca](https://www.math.ualberta.ca/~hwang/WangSalmaniwReview.pdf))",
+    "The paper leaves the solution concept open by asking 'in what sense do ... solutions exist'; a faithful stand-alone question should not collapse this to bare existence alone, but should allow for weak/classical or other appropriate steady-state notions. ([math.ualberta.ca](https://www.math.ualberta.ca/~hwang/WangSalmaniwReview.pdf))",
+    "The draft leaves implicit the variables and parameters: real-valued, typically nonnegative population densities u_i and cognitive maps k_i for n interacting populations, with parameters d_i > 0, γ_i ≥ 0, encounter rates ρ_{ij}, and decay parameters μ, β ≥ 0. ([math.ualberta.ca](https://www.math.ualberta.ca/~hwang/WangSalmaniwReview.pdf))",
+    "The paper also states immediately after (2.16) that this formulation assumes the same perceptual kernel and perceptual radius for each population. ([math.ualberta.ca](https://www.math.ualberta.ca/~hwang/WangSalmaniwReview.pdf))",
+    "The phrase 'bounded periodic domain' should be unpacked: in one dimension this is a bounded interval with periodic boundary conditions, and in higher dimensions the paper says this is equivalent to working on a torus; this choice is emphasized because it avoids boundary-definition issues for the nonlocal kernel. ([math.ualberta.ca](https://www.math.ualberta.ca/~hwang/WangSalmaniwReview.pdf))"
+  ],
+  "refined_question": "Let Ω be a bounded domain with periodic boundary conditions (equivalently, a torus in higher dimensions), let g be the top-hat detection kernel with perceptual radius R > 0, and define the perception operator by a^{g,R}(x,t) = ∫_Ω a(y,t)g(x−y)dy. For n interacting populations u_i and conflict-memory maps k_i, consider the nonlocal conflict-generation model obtained by keeping the movement equation from (2.13) and using the cognitive-map equation (2.16): ∂_t u_i = d_i Δu_i + γ_i ∇·(u_i ∇k_i^{g,R}) and ∂_t k_i = u_i^{g,R} Σ_{j=1}^n ρ_{ij}u_j − (μ + βu_i)k_i, for i = 1, ..., n, with the same perceptual kernel and perceptual radius for each population. In what sense do spatially non-constant steady-state solutions of this periodic bounded-domain problem exist, and what qualitative properties do these steady states exhibit? ([math.ualberta.ca](https://www.math.ualberta.ca/~hwang/WangSalmaniwReview.pdf))",
+  "equivalent_formulation": "Equivalently, study the same steady-state problem on a torus with the top-hat kernel, since the paper states that periodic boundary conditions in higher dimensions amount to the torus formulation. ([math.ualberta.ca](https://www.math.ualberta.ca/~hwang/WangSalmaniwReview.pdf))",
+  "justification": "The draft is trying to capture Open Problem 18 almost exactly. The decisive clue is the phrase 'nonlocal conflict-generation memory model': Section 2.2.2 first introduces the local conflict-memory model (2.13), then explicitly modifies the conflict-generation term to include perception, yielding (2.16), and immediately states Open Problem 18 about spatially non-constant steady states and their qualitative properties under periodic boundary conditions with a top-hat detection function in a bounded domain. I therefore kept the question narrow and did not broaden it to the time-dependent existence problem (Open Problem 17) or the comparative question asking how (2.16) differs from (2.13) (Open Problem 19). The only additions are the paper’s own notation and hidden assumptions needed to make the question stand alone. ([math.ualberta.ca](https://www.math.ualberta.ca/~hwang/WangSalmaniwReview.pdf))",
+  "citations": [
+    {
+      "section": "2.1",
+      "label": "Equations (2.3) and (2.5)",
+      "page": "PDF pp. 7-9"
+    },
+    {
+      "section": "2.2.2",
+      "label": "Equation (2.13)",
+      "page": "PDF p. 15"
+    },
+    {
+      "section": "2.2.2",
+      "label": "Equation (2.16)",
+      "page": "PDF p. 17"
+    },
+    {
+      "section": "2.2.2",
+      "label": "Open Problem 18",
+      "page": "PDF p. 17"
+    },
+    {
+      "section": "2.2.2",
+      "label": "Open Problem 19",
+      "page": "PDF pp. 17-18"
+    },
+    {
+      "section": "4.1.2",
+      "label": "Periodic boundary condition discussion",
+      "page": "PDF pp. 39-40"
+    }
+  ]
+}

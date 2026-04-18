@@ -1,0 +1,49 @@
+{
+  "arxiv_id": "1012.5187",
+  "question_id": "q_044",
+  "original_question": "For each integer k, does there exist an integer n such that every k-blocked point set has at most n points? Here a k-blocked point set is a set of planar points colored with k colors so that mutually visible points receive different colors and points that are not visible because of collinear blockers receive the same color.",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 1173.14,
+  "target_in_paper": "Section 2.4, Conjecture 3 of arXiv:1012.5187, which restates the original blocked-point-set conjecture from Greg Aloupis et al., Blocking Coloured Point Sets (arXiv:1002.0190, §1, Conjecture 1).",
+  "completeness_score": 8.5,
+  "correct_elements": "The draft already captures the main quantifier pattern of the paper-faithful conjecture: for each integer k, one asks whether there is a uniform bound n=n(k) on the size of every k-blocked planar point set. It also correctly identifies that the colouring is governed by visibility versus blocking, and it stays narrowly focused on the bounded-size conjecture rather than drifting to larger neighboring problems.",
+  "missing_details": [
+    "The paper defines a k-blocked object as a finite point set P in the Euclidean plane; finiteness should be stated explicitly.",
+    "Visibility is defined with respect to the same point set P: distinct points v,w in P are visible if no point of P lies in the interior of the segment vw.",
+    "A blocker is not just any collinear point; it must be another point x in P lying in the interior of the segment joining the two points.",
+    "The colouring condition is biconditional: two distinct points have the same colour if and only if some other point of P blocks them; equivalently, they have different colours if and only if they are visible.",
+    "It is cleaner to say the colours come from a k-element colour set such as {1,...,k}.",
+    "The paper also uses the equivalent graph-theoretic formulation that the visibility graph is complete k-partite; mentioning this makes the question fully aligned with the paper's setup.",
+    "The facts that at most three points are collinear and that each colour class is in general position are consequences of the definition in the paper, not extra hypotheses of the conjecture."
+  ],
+  "refined_question": "Let P be a finite set of points in the Euclidean plane. For distinct points v,w,x in P, say that x blocks v and w if x lies in the interior of the segment joining v and w; say that v and w are visible with respect to P if no point of P blocks them. Call P k-blocked if its points can be coloured with colours 1,...,k so that for every distinct v,w in P, the points v and w receive the same colour if and only if some other point of P blocks them (equivalently, v and w receive different colours if and only if they are visible). Is it true that for every integer k at least 1 there exists an integer n=n(k) such that every k-blocked point set P satisfies |P|<=n?",
+  "equivalent_formulation": "Equivalently, if the colour classes of a k-blocked point set P have sizes n1,...,nk, then the visibility graph of P is the complete k-partite graph K(n1,...,nk); the question asks whether the total size n1+...+nk is bounded solely as a function of k over all representable k-sets {n1,...,nk}.",
+  "justification": "Your draft is already very close to the official conjecture, but the paper's exact intent depends on its precise internal definitions of blocking and visibility. In arXiv:1012.5187 the statement appears in §2.4 as Conjecture 3, immediately after the survey defines k-blocked point sets and notes two basic consequences: no four collinear points and each colour class in general position. The original paper cited there gives the same conjecture in its introduction and makes explicit the equivalent complete-k-partite visibility-graph formulation. The refined version therefore keeps exactly the conjecture's scope while adding the missing stand-alone definitions: finiteness, Euclidean ambient space, blockers lying in the interior of a segment, and the crucial if-and-only-if colouring rule. I have not broadened the question beyond the bounded-size conjecture itself.",
+  "citations": [
+    {
+      "section": "arXiv:1012.5187, §2.4 Blockers of Visibility Graphs",
+      "label": "Conjecture 3",
+      "page": "page unavailable in ar5iv HTML"
+    },
+    {
+      "section": "arXiv:1012.5187, §2.4 Blockers of Visibility Graphs",
+      "label": "Lemmas 4-5",
+      "page": "page unavailable in ar5iv HTML"
+    },
+    {
+      "section": "arXiv:1002.0190, §1 Introduction",
+      "label": "Definition of k-blocked set; equivalence with complete k-partite visibility graph; Conjecture 1",
+      "page": 1
+    },
+    {
+      "section": "arXiv:1002.0190, §2 Some Background Motivation",
+      "label": "Proposition 3",
+      "page": 2
+    },
+    {
+      "section": "arXiv:1002.0190, §4 4-Blocked Point Sets",
+      "label": "Theorem 7; Corollary 8",
+      "page": 3
+    }
+  ]
+}

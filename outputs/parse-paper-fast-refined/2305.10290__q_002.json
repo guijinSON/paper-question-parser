@@ -1,0 +1,43 @@
+{
+  "arxiv_id": "2305.10290",
+  "question_id": "q_002",
+  "original_question": "Let G be a graph of order n with clique number omega. Is it always true that sqrt(s+(G)) <= (1 - 1/omega)n, where s+(G) is the sum of the squares of the positive adjacency eigenvalues of G?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 8782.67,
+  "target_in_paper": "Section 1.2, Conjecture 2 (Elphick–Wocjan), the paper’s \"extension of Wilf’s inequality.\"",
+  "completeness_score": 8,
+  "correct_elements": "Your draft identifies the correct target: the conjectural clique-number bound involving s^+(G), n, and ω(G). The inequality you wrote is algebraically equivalent to the paper’s official Wilf-style formulation, and your definition of s^+(G) as the sum of the squares of the positive adjacency eigenvalues is on the right object.",
+  "missing_details": [
+    "The paper works with finite simple, undirected, unweighted graphs; that ambient convention should be stated if the question is to be fully stand-alone.",
+    "n should be identified explicitly as |V(G)|, and ω should be identified explicitly as the clique number ω(G).",
+    "s^+(G) should be defined from the adjacency matrix A(G): if λ_1(G), ..., λ_n(G) are the adjacency eigenvalues, then s^+(G) = Σ_{λ_i(G)>0} λ_i(G)^2.",
+    "The official formulation in the paper is given as a strengthening of Wilf’s lower bound on ω(G), namely ω(G) ≥ n/(n - sqrt(s^+(G))); your draft uses the algebraically rearranged form instead.",
+    "The nearby context notes that the conjecture is exact for complete regular multipartite graphs; this is not part of the question itself, but it is part of the paper-faithful framing.",
+    "Because the notation s^+(G) is introduced in Section 1.1 and then reused in Section 1.2, a stand-alone version must import that notation explicitly rather than assuming it is already known."
+  ],
+  "refined_question": "Let G be a finite simple undirected graph with n = |V(G)|, clique number ω(G), adjacency matrix A(G), and adjacency eigenvalues λ_1(G), ..., λ_n(G). Define s^+(G) := Σ_{λ_i(G)>0} λ_i(G)^2. Is it true that for every such graph G one has ω(G) ≥ n/(n - sqrt(s^+(G)))?",
+  "equivalent_formulation": "Equivalently, is it always true that sqrt(s^+(G)) ≤ (1 - 1/ω(G)) n?",
+  "justification": "The draft is trying to capture the paper’s Conjecture 2 in Section 1.2, not the Hong-type conjecture from Section 1.1 and not the Bollobás–Nikiforov discussion in Section 2. In Section 1.2 the survey explicitly presents the problem as an extension of Wilf’s inequality obtained by replacing the spectral radius μ with sqrt(s^+(G)); that makes the Wilf-style lower-bound form the nearest official formulation. Your draft already has the right inequality content, but it omits the paper-wide graph conventions and the full spectral definition of s^+(G), which is introduced just above in Section 1.1 and then used in Section 1.2. So the refined version keeps your scope exactly, adds the missing notation, and restores the paper’s official direction of the inequality.",
+  "citations": [
+    {
+      "section": "Introduction",
+      "label": "paper-wide graph conventions and basic notation",
+      "page": "33-34 (journal version)"
+    },
+    {
+      "section": "§1.1",
+      "label": "definition of s^+(G) and s^-(G) immediately before Conjecture 1",
+      "page": "34-35 (journal version)"
+    },
+    {
+      "section": "§1.2",
+      "label": "Conjecture 2",
+      "page": "35 (journal version)"
+    },
+    {
+      "section": "§1.2",
+      "label": "discussion immediately after Conjecture 2 (exactness for complete regular multipartite graphs)",
+      "page": "35 (journal version)"
+    }
+  ]
+}

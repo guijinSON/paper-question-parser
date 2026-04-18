@@ -1,0 +1,48 @@
+{
+  "arxiv_id": "2206.06472",
+  "question_id": "q_001",
+  "original_question": "Consider the finite triangular-grid regions called (a,b)-benzels, tiled by five trihex prototiles: a right-pointing stone, a left-pointing stone, and three bone orientations. Let T003(a,b) count tilings that allow no stones and all three bone orientations. For k >= 2, what exact formula governs T003(k(3k-1)/2, k(3k+1)/2)? More weakly, is there a recurrence or other counting method that is substantially more efficient than brute-force enumeration for these bone-only benzels?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 8321.5,
+  "target_in_paper": "Section 2, Problem 1 (\"No stones, three kinds of bones\").",
+  "completeness_score": 9,
+  "correct_elements": "Your draft is already very close to the paper's exact target: it identifies the correct tiling class (type 003: no stones, all three bone orientations), the correct special family of benzels indexed by k >= 2, and even includes the paper's fallback goal of finding a recurrence or some other counting method more efficient than brute-force enumeration. This is exactly the problem posed in Section 2 after Table 1 identifies type 003 with Problem 1. ([samuelfhopkins.com](https://www.samuelfhopkins.com/OPAC/files/proceedings/propp.pdf))",
+  "missing_details": [
+    "The paper's notation T_{ijk}(a,b) is defined in Section 1: i indicates whether the right stone is allowed, j indicates whether the left stone is allowed, and k is the number of allowed bone orientations. Thus T_{003}(a,b) specifically means tilings of the (a,b)-benzel with neither stone allowed and all three bone orientations allowed.",
+    "The nearby context in Section 2 states an implicit classification fact: an (a,b)-benzel can be tiled by bones alone only when (a,b) = (k(3k-1)/2, k(3k+1)/2) or the reversed pair, for some integer k >= 2; this necessary condition is also sufficient.",
+    "Because Section 1 states T_{ijk}(a,b) = T_{ijk}(b,a), the paper fixes the ordered pair (k(3k-1)/2, k(3k+1)/2) without loss of generality.",
+    "To be fully stand-alone, the question should say that the task is exact enumeration of these bone-only tilings, not merely existence of a tiling; existence is already supplied as known context in the paper.",
+    "The paper's weaker fallback request is slightly narrower than your wording: it asks for any method of determining the number of tilings that is more efficient than brute-force enumeration, explicitly giving recurrence relations as an example.",
+    "No ambient ring, field, homogeneity, degree, nilpotency, or asymptotic 'sufficiently large' condition is part of the original problem; this is a finite exact-enumeration question in combinatorial tiling theory."
+  ],
+  "refined_question": "Let T_{003}(a,b) denote the number of tilings of the (a,b)-benzel in which neither the right stone nor the left stone is allowed and all three bone orientations are allowed. Section 2 states that a benzel admits such a bone-only tiling only when (a,b) = (k(3k-1)/2, k(3k+1)/2) or its reversal, for some integer k >= 2. Determine an exact formula for T_{003}(k(3k-1)/2, k(3k+1)/2) for k >= 2; failing that, give a method (for example, a recurrence) that computes these numbers more efficiently than brute-force enumeration.",
+  "equivalent_formulation": "Equivalently, determine T_{003}(a,b) for all benzels: by the Section 2 classification and the symmetry T_{003}(a,b)=T_{003}(b,a), one has T_{003}(a,b)=0 unless (a,b)=(k(3k-1)/2, k(3k+1)/2) or (k(3k+1)/2, k(3k-1)/2) for some k >= 2, so the only nontrivial values are exactly those in Problem 1.",
+  "justification": "The draft is not aiming at a broader neighboring problem; it is essentially a paraphrase of Section 2, Problem 1. Section 1 defines T_{ijk}(a,b) and Table 1 identifies type 003 with Problem 1. The paragraph immediately before Problem 1 supplies the hidden scope condition that bone-only tilings occur exactly for the pentagonal-number family (up to swapping a and b), and the sentence immediately after Problem 1 gives the weaker fallback request for a recurrence or other faster counting method. Since no algebraic ambient structure or asymptotic regime is involved, the refined version should stay narrowly focused on exact enumeration of this one family of bone-only benzels. ([samuelfhopkins.com](https://www.samuelfhopkins.com/OPAC/files/proceedings/propp.pdf))",
+  "citations": [
+    {
+      "section": "1",
+      "label": "Definition of T_{ijk}(a,b)",
+      "page": "P4"
+    },
+    {
+      "section": "1",
+      "label": "Table 1 (type 003 corresponds to Problem 1)",
+      "page": "P5"
+    },
+    {
+      "section": "2",
+      "label": "Paragraph preceding Problem 1 (classification of bone-only tileable benzels)",
+      "page": "P5"
+    },
+    {
+      "section": "2",
+      "label": "Problem 1",
+      "page": "P5"
+    },
+    {
+      "section": "2",
+      "label": "Sentence after Problem 1 (recurrence / non-brute-force counting method)",
+      "page": "P5"
+    }
+  ]
+}

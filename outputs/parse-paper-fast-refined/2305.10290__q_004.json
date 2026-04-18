@@ -1,0 +1,38 @@
+{
+  "arxiv_id": "2305.10290",
+  "question_id": "q_004",
+  "original_question": "Let G be a graph with m edges, let n+(G) be the number of positive adjacency eigenvalues counted with multiplicity, and let ell = min{n+(G), omega(G)}. Must the inequality sum_{i=1}^{ell} lambda_i(G)^2 <= 2(1 - 1/omega(G))m always hold?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 8792.81,
+  "target_in_paper": "Section 2, Conjecture 4 of arXiv:2305.10290 (the Liu–Ning survey), which records the Elphick–Linz–Wocjan strengthening of the Bollobás–Nikiforov conjecture.",
+  "completeness_score": 8.5,
+  "correct_elements": "Your draft has the right target inequality, the correct use of the clique number omega(G), the correct parameter ell = min{n^+(G), omega(G)}, and the correct interpretation of n^+(G) as the number of positive adjacency eigenvalues counted with multiplicity. It is also correctly framed as a universal conjectural statement about graphs with m edges.",
+  "missing_details": [
+    "The paper works with the adjacency spectrum of a finite simple graph; in the survey's standing assumptions, graphs are simple, undirected, and unweighted.",
+    "The eigenvalues should be explicitly introduced as the real eigenvalues of the adjacency matrix A(G), ordered as lambda_1(G) >= ... >= lambda_n(G), counted with multiplicity.",
+    "The conjecture is stated for any non-empty graph G (equivalently, m >= 1), not just an arbitrary graph without saying whether the empty graph is included.",
+    "The sum is over the largest ell adjacency eigenvalues; this is implicit in your notation but should be made explicit to be fully stand-alone.",
+    "It helps to say explicitly that ell = min{n^+(G), omega(G)} is essential: the nearby discussion notes that replacing ell by omega(G) alone gives a counterexample (the cycle C_5).",
+    "The conjecture has no connectivity hypothesis here and does not exclude complete graphs; that is part of what distinguishes it from the original Bollobás–Nikiforov conjecture discussed immediately before it."
+  ],
+  "refined_question": "Let G be a finite simple non-empty graph with adjacency matrix A(G), m = e(G) edges, clique number omega(G), and adjacency eigenvalues lambda_1(G) >= ... >= lambda_n(G), counted with multiplicity. Let n^+(G) be the number of positive eigenvalues of A(G), and define ell = min{n^+(G), omega(G)}. Is it true for every such graph G that sum_{i=1}^{ell} lambda_i(G)^2 <= 2m(omega(G)-1)/omega(G)?",
+  "equivalent_formulation": null,
+  "justification": "The draft clearly targets the conjecture in Section 2 on the Bollobás–Nikiforov problem, because the distinctive feature ell = min{n^+(G), omega(G)} appears there and in the immediately following remark. The introduction of the survey supplies the standing graph assumptions and the ordered adjacency-spectrum notation. The nearby discussion after Conjecture 4 explains why the min{n^+(G), omega(G)} cutoff is necessary by noting that taking only omega(G) would fail for C_5. So the paper-faithful stand-alone version is the universal inequality above, stated for the ordered adjacency eigenvalues of a finite simple non-empty graph.",
+  "citations": [
+    {
+      "section": "Introduction",
+      "label": "standing definitions and notation",
+      "page": "HTML lines 12-15"
+    },
+    {
+      "section": "Section 2",
+      "label": "Conjecture 4",
+      "page": "HTML lines 53-58"
+    },
+    {
+      "section": "Section 2",
+      "label": "discussion immediately after Conjecture 4",
+      "page": "HTML lines 60-62"
+    }
+  ]
+}

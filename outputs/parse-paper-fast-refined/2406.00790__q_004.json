@@ -1,0 +1,54 @@
+{
+  "arxiv_id": "2406.00790",
+  "question_id": "q_004",
+  "original_question": "For integers e and m with 3 <= e < m, define the combinatorial upper bound C(e,m) as follows: choose the integer r such that binom(e+r-1, r-1) <= m < binom(e+r, r), set s = m - binom(e+r-1, r-1), and define C(e,m) = binom(e+r-1, r) + s^{<r>} - s, where s^{<r>} is the Macaulay-shift quantity coming from the unique binomial expansion of s used on the page. Determine exactly which pairs (e,m) satisfy R(e,m) = C(e,m), where R(e,m) is the supremum of rho(Gamma) for numerical semigroups Gamma with edim(Gamma) = e + 1 and mult(Gamma) = m.",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 239.06,
+  "target_in_paper": "Section 2 (\"Embedding dimension and multiplicity\"), Problem 4 of arXiv:2406.00790: determine the pairs (e,m) for which the general Elias-Robbiano-Valla upper bound for the number of minimal relations is attained, i.e. for which R(e,m)=C(e,m). The survey points to this as the sharpness problem for the upper bound introduced immediately before in Theorem 5.",
+  "completeness_score": 8.8,
+  "correct_elements": "Your draft is already very close to the paper-faithful target. It correctly focuses on the sharpness question for the combinatorial upper bound C(e,m), uses the right integer range 3 <= e < m, uses the paper's codimension convention edim(Gamma)=e+1, and asks for a complete characterization of when the extremal value R(e,m) reaches that bound.",
+  "missing_details": [
+    "rho(Gamma) should be defined explicitly as the common cardinality of a minimal presentation of Gamma; equivalently, it is the first Betti number beta_1 of the local or graded semigroup ring attached to Gamma.",
+    "Gamma should be identified explicitly as a numerical semigroup (equivalently, numerical monoid in the cited source), i.e. a cofinite additive submonoid of Z_{>=0}.",
+    "It helps to say that e is the embedding codimension of the semigroup ring, so the corresponding semigroups have embedding dimension e+1 because the ring has dimension 1.",
+    "If one uses the equivalent commutative-algebra formulation, the ambient ring should be stated: over an arbitrary field k, one considers the local semigroup ring k[[Gamma]] (or equivalently the graded semigroup ring k[Gamma]); for the first Betti number this reformulation is field-independent.",
+    "The draft does not explicitly say that C(e,m) is the Elias-Robbiano-Valla upper bound coming from Macaulay expansion/very compressed lexsegment ideals; naming that source makes the intent clearer and closer to the paper.",
+    "Since C(e,m) is an integer upper bound for the integer-valued invariant rho(Gamma), the condition R(e,m)=C(e,m) is equivalent to asking for existence of some Gamma with rho(Gamma)=C(e,m); stating this equivalence makes the question fully stand-alone.",
+    "The paper frames this equality problem as a first step toward the broader problem of determining R(e,m) itself; that context is implicit in the draft but not stated."
+  ],
+  "refined_question": "For integers e and m with 3 <= e < m, let R(e,m) = sup{rho(Gamma) : Gamma is a numerical semigroup with edim(Gamma)=e+1 and mult(Gamma)=m}, where rho(Gamma) denotes the cardinality of a minimal presentation of Gamma. Let r be the unique integer such that binom(e+r-1,r-1) <= m < binom(e+r,r), set s = m - binom(e+r-1,r-1), and define C(e,m) = binom(e+r-1,r) + s^{<r>} - s, where s^{<r>} is the Macaulay shift determined by the unique Macaulay expansion of s. Determine all pairs (e,m) for which the Elias-Robbiano-Valla upper bound is sharp on numerical semigroups, i.e. for which R(e,m)=C(e,m).",
+  "equivalent_formulation": "Equivalently, over any field k, characterize the pairs (e,m) for which there exists a numerical semigroup Gamma with mult(Gamma)=m and edim(Gamma)=e+1 such that beta_1(k[[Gamma]]) = C(e,m), since rho(Gamma)=beta_1(k[[Gamma]]) for numerical semigroups.",
+  "justification": "The draft is targeting the survey's Problem 4, not the broader Problem 2. In Section 2 of arXiv:2406.00790, Problem 2 asks for the extremal function R(e,m), Theorem 5 recalls the general upper bound R(e,m) <= C(e,m), and Problem 4 then asks exactly for the values of (e,m) where equality holds. The hidden conventions needed to make this stand alone come from Section 1 of the survey, where rho(Gamma) is identified with the first Betti number of the semigroup ring, and from the introduction of the cited source [MS24], where the Macaulay-expansion definition of C(e,m) and the partial sharpness/non-sharpness results are stated. So the narrowest official target is the equality problem R(e,m)=C(e,m), not the larger task of determining R(e,m) in full.",
+  "citations": [
+    {
+      "section": "Section 1, Generalities",
+      "label": "equation (1)",
+      "page": "page not exposed in the arXiv HTML conversion"
+    },
+    {
+      "section": "Section 2, Embedding dimension and multiplicity",
+      "label": "Problem 2",
+      "page": "page not exposed in the arXiv HTML conversion"
+    },
+    {
+      "section": "Section 2, Embedding dimension and multiplicity",
+      "label": "Theorem 5",
+      "page": "page not exposed in the arXiv HTML conversion"
+    },
+    {
+      "section": "Section 2, Embedding dimension and multiplicity",
+      "label": "Problem 4",
+      "page": "page not exposed in the arXiv HTML conversion"
+    },
+    {
+      "section": "Section 1, Introduction of the cited source [MS24]",
+      "label": "Problem 1.1 and equation (1)",
+      "page": "1-2"
+    },
+    {
+      "section": "Section 1, Introduction of the cited source [MS24]",
+      "label": "Theorem 1.2",
+      "page": "2"
+    }
+  ]
+}

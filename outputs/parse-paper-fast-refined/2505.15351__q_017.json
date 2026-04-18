@@ -1,0 +1,50 @@
+{
+  "arxiv_id": "2505.15351",
+  "question_id": "q_017",
+  "original_question": "In event-driven 4D STEM operated in an extremely low-dose regime, where the number of measurements is much larger than the signal dimension but each detector pixel receives very few particles and the measurements are effectively quantized, can one design an efficient phase-retrieval reconstruction method and prove theoretical guarantees for both reconstruction quality and stability in that acquisition model?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 10937.1,
+  "target_in_paper": "Section 7.1, Problem 7.1 (\"Event-driven 4D STEM acquisition\") within Section 7 (\"One-Bit Quantization for Event-Driven 4D STEM Acquisition in Low-Dose Applications\").",
+  "completeness_score": 8.5,
+  "correct_elements": "Your draft already captures the core official problem very well: it identifies the event-driven 4D-STEM setting, the extremely low-dose regime, the fact that the data are effectively quantized, the oversampled regime m >> n, and the two main goals stated in the paper—designing an efficient reconstruction method and proving reconstruction/stability guarantees.",
+  "missing_details": [
+    "The unknown is a complex-valued object f in C^n, and the paper works in the standard finite-dimensional phase-retrieval model A(f)=|Af|^2 with A in C^{m x n}; this ambient space and operator definition are implicit in your draft but not stated.",
+    "The paper does not ask for an arbitrary low-dose phase-retrieval method: it specializes to the ptychographic/4D-STEM measurement matrix A = [F D_1; ...; F D_l], where D_k = diag(S_k w), w in C^n is the probe, and F is the discrete Fourier transform matrix.",
+    "The underlying noise model is Poisson: the detector counts satisfy y_j ~ Poisson(A(f)(j)) independently. Your draft mentions quantization, but not the Poisson count model from which that quantization arises.",
+    "The one-bit viewpoint in the paper is specifically the truncation min{y_j,1}, motivated by event-driven detectors that record only the first particle arrival; this should be stated explicitly if the question is to be fully stand-alone.",
+    "The paper's regime is 'low overall dose' together with m >> n, meaning that increasing the number of measurements forces even lower dose per measurement; consequently, most detector pixels record 0 and only a few record 1.",
+    "The nearby context adds a paper-specific emphasis that it would be especially interesting to adapt the earlier one-bit low-dose method discussed in Section 7 to the structured 4D-STEM matrix (21); your draft does not mention this narrowed contextual target.",
+    "The paper gives concrete scale information motivating 'extremely low dose' (about 50 counts per probe position over a 256 x 256 detector, i.e. roughly 7.6 x 10^-4 detections per pixel on average, with only a small but non-negligible chance of counts exceeding 1 near the central diffraction order).",
+    "No homogeneity, degree restriction, nilpotency condition, or 'for all sufficiently large m' quantifier appears in this problem; those notions are not part of the paper's actual formulation."
+  ],
+  "refined_question": "Let f in C^n be an unknown object and let the phaseless measurement map be A(f)=|Af|^2, where in the ptychographic 4D-STEM setting the measurement matrix has the form A = [F D_1; ...; F D_l] with D_k = diag(S_k w), probe w in C^n, and F the discrete Fourier transform. Suppose the data are acquired in the event-driven low-dose regime, so that the detector counts satisfy y_j ~ Poisson(A(f)(j)) independently, but in practice only first-arrival/one-bit data min{y_j,1} are available, with m >> n and low overall dose so that most detector pixels record 0 and only a few record 1. Can one design an efficient reconstruction method that recovers f up to global phase from this structured acquisition model, and prove rigorous reconstruction and stability guarantees for this event-driven 4D-STEM measurement setup?",
+  "equivalent_formulation": null,
+  "justification": "The draft is targeting the exact open problem stated in Section 7.1 as Problem 7.1. The surrounding text in Section 7 provides the hidden assumptions needed to make that problem precise and paper-faithful: the finite-dimensional complex phase-retrieval model, the structured ptychographic matrix in equation (21), the Poisson low-dose count model, the one-bit truncation viewpoint induced by event-driven detectors, and the intended m >> n / low-total-dose regime. The sentence immediately following Problem 7.1 further confirms that the intended scope is this structured 4D-STEM setting with naturally quantized measurements.",
+  "citations": [
+    {
+      "section": "2",
+      "label": "Finite-dimensional setup",
+      "page": "2-3"
+    },
+    {
+      "section": "7",
+      "label": "Equation (21) and Poisson measurement model",
+      "page": 25
+    },
+    {
+      "section": "7",
+      "label": "One-bit quantization discussion",
+      "page": 26
+    },
+    {
+      "section": "7.1",
+      "label": "Event-driven 4D STEM acquisition context",
+      "page": "26-27"
+    },
+    {
+      "section": "7.1",
+      "label": "Problem 7.1",
+      "page": 27
+    }
+  ]
+}

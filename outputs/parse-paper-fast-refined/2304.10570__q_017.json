@@ -1,0 +1,52 @@
+{
+  "arxiv_id": "2304.10570",
+  "question_id": "q_017",
+  "original_question": "For the variety IMMr,V ⊆ P(S^dV) of homogeneous polynomials admitting an algebraic branching program of width at most r, determine defining equations for small r and small dim(V).",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 8650.51,
+  "target_in_paper": "Problem 17 in Section 3.2 (Variety of ABPs of small width): Determine equations for IMM_{r,V} ⊆ P(S^dV) for small values of r and dim V.",
+  "completeness_score": 8,
+  "correct_elements": "The draft already matches the paper's intended problem very closely: it names the correct variety IMM_{r,V}, places it in the correct ambient projective space P(S^dV), keeps the homogeneous-polynomial/algebraic-branching-program viewpoint, and asks for defining equations in exactly the small-r, small-dim(V) regime singled out in Problem 17.",
+  "missing_details": [
+    "The paper works over the complex numbers C.",
+    "V is a finite-dimensional complex vector space, and P(S^dV) means the projective space of lines in S^dV.",
+    "S^dV is identified with the space of degree-d homogeneous polynomials on V^*, so the ambient polynomial space should be stated explicitly.",
+    "The relevant complexity measure is the iterated matrix multiplication complexity imm_C(f), not only the informal phrase 'admits an algebraic branching program of width at most r.'",
+    "imm_C(f) is defined as the least integer r such that f = M_1 ... M_d with M_1 in V ⊗ Mat_{1×r}(C), M_j in V ⊗ Mat_{r×r}(C) for 2 ≤ j ≤ d-1, and M_d in V ⊗ Mat_{r×1}(C); equivalently, the matrix entries are linear forms.",
+    "The variety is projective, so its points are classes [f] with imm_C(f) ≤ r.",
+    "The problem asks for defining equations of the Zariski-closed variety IMM_{r,V}, not for its dimension and not for a border version.",
+    "The degree d is part of the data and the problem stays in the homogeneous setting; the paper does not additionally restrict d to be small.",
+    "The phrase 'small values of r and dim V' is intentionally qualitative in the paper; there is no further asymptotic quantifier such as 'for all sufficiently large m'.",
+    "No nilpotency condition appears in the paper's formulation; adding one would change the problem."
+  ],
+  "refined_question": "Over C, let V be a finite-dimensional vector space and let d ≥ 1. Identify S^dV with the space of degree-d homogeneous polynomials on V^*. For a homogeneous polynomial f in S^dV, define imm_C(f) to be the least integer r such that f can be written as f = M_1 ... M_d with M_1 in V ⊗ Mat_{1×r}(C), M_j in V ⊗ Mat_{r×r}(C) for 2 ≤ j ≤ d-1, and M_d in V ⊗ Mat_{r×1}(C). Equivalently, imm_C(f) is the minimum width of an algebraic branching program for f. Define IMM_{r,V} := { [f] in P(S^dV) : imm_C(f) ≤ r }. Determine defining equations for the projective variety IMM_{r,V} for small values of r and dim V.",
+  "equivalent_formulation": "Equivalently, for small values of r and dim V, determine defining equations for the projective variety of degree-d homogeneous polynomials on V^* that admit an algebraic branching program of width at most r.",
+  "justification": "The draft clearly targets Section 3.2 rather than any other part of the paper. In Section 3.1, the paper defines the iterated matrix multiplication complexity imm_C(f) for homogeneous f in S^d C^N via a product of matrices whose entries are linear forms. In Section 3.2, it then defines IMM_{r,V} = { [f] in P(S^dV) : imm_C(f) ≤ r }, notes that this set is Zariski closed, and poses Problem 17 exactly as determining equations for IMM_{r,V} for small values of r and dim V. To make the question stand-alone and faithful to the paper, the rewrite restores the ambient field C, the projective and homogeneous setting, and the precise matrix-factorization definition of ABP width. The nearby context also makes clear that the paper is not asking for a border analogue, a nilpotency variant, or an asymptotic statement beyond the qualitative phrase 'small values of r and dim V.'",
+  "citations": [
+    {
+      "section": "Notation",
+      "label": "Notation",
+      "page": 2
+    },
+    {
+      "section": "3.1. Relations between different measures of complexity",
+      "label": "definition of imm_C(f)",
+      "page": 10
+    },
+    {
+      "section": "3.2. Variety of ABPs of small width",
+      "label": "definition of IMM_{r,V}",
+      "page": 10
+    },
+    {
+      "section": "3.2. Variety of ABPs of small width",
+      "label": "context preceding Problem 17",
+      "page": 10
+    },
+    {
+      "section": "3.2. Variety of ABPs of small width",
+      "label": "Problem 17",
+      "page": 11
+    }
+  ]
+}

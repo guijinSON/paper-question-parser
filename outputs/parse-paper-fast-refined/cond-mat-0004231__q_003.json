@@ -1,0 +1,49 @@
+{
+  "arxiv_id": "cond-mat-0004231",
+  "question_id": "q_003",
+  "original_question": "In the hard-core/repulsive-gas context, Dobrushin's approach proves nonvanishing of the partition function Z first and then analyticity/convergence of log Z. Can this approach be extended so that it works without assuming hard-core self-repulsion?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 12938.43,
+  "target_in_paper": "The exact match is the open question in Section 3, immediately after the discussion of the Mayer expansion (3.22): whether Dobrushin's reverse-order method of first proving nonvanishing of Z in a polydisc and only then deducing analyticity/convergence of log Z can be made to work without the assumption of hard-core self-repulsion.",
+  "completeness_score": 8,
+  "correct_elements": "Your draft captures the core issue very well: it correctly identifies the Dobrushin strategy as proving zero-freeness of the partition function first and then deducing analyticity/convergence of log Z, and it correctly singles out the paper's open question about removing the hard-core self-repulsion assumption.",
+  "missing_details": [
+    "The paper's partition function is the grand-canonical gas Z(w,W)=sum_{N>=0} (1/N!) sum_{x_1,...,x_N in X} (prod_i w_{x_i})(prod_{1<=i<j<=N} W(x_i,x_j)), not just an abstract 'hard-core/repulsive-gas context'.",
+    "The single-particle state space X is finite in the theorem/open-question setup, the fugacity vector is w in C^X, and W:X x X -> C is symmetric.",
+    "The relevant domain is a specified polydisc D_R={w: |w_x|<R_x for all x}; Theorem 3.1 actually proves nonvanishing on the closed polydisc.",
+    "The off-diagonal hard-core assumption has already been removed in Theorem 3.1: the theorem allows general physical and repulsive interactions 0<=W(x,y)<=1. The only assumption still present, and the one the open question asks about removing, is diagonal hard-core self-repulsion W(x,x)=0.",
+    "The proof method at issue is the elementary induction on the cardinality of the state space (or on restricted partition functions Z_Lambda), using the subset expansion made possible by W(x,x)=0; this is more specific than just 'Dobrushin's approach'.",
+    "The downstream conclusion is not only analyticity of log Z but convergence in that polydisc of the Taylor/Mayer expansion (3.22) for log Z.",
+    "For theorem-level fidelity, one can mention the restricted partition functions Z_Lambda(w,W) for all subsets Lambda subseteq X, since Theorem 3.1 is stated in that stronger form."
+  ],
+  "refined_question": "Let X be a finite single-particle state space, let w={w_x}_{x in X} be complex fugacities, and let W:X x X -> C be a symmetric two-particle Boltzmann factor. For the grand partition function Z(w,W)=sum_{N=0}^infty (1/N!) sum_{x_1,...,x_N in X} (prod_{i=1}^N w_{x_i})(prod_{1<=i<j<=N} W(x_i,x_j)), assume W is physical and repulsive, i.e. 0<=W(x,y)<=1 for all x,y in X, but do not assume hard-core self-repulsion W(x,x)=0. Can one obtain, by a Dobrushin-style elementary induction analogous to Theorem 3.1, a direct zero-free criterion for Z(w,W) (or for the restricted partition functions Z_Lambda) in a specified polydisc D_R={w in C^X: |w_x|<R_x for all x}, so that analyticity of log Z and convergence there of the Mayer expansion (3.22) follow afterwards, without relying first on the usual explicit combinatorial bounds for the Mayer coefficients?",
+  "equivalent_formulation": null,
+  "justification": "Section 3 defines the grand-canonical partition function Z(w,W), the notions 'physical', 'repulsive', and 'hard-core self-repulsive', and explains that the hard-core self-repulsion assumption W(x,x)=0 is what allows the partition function to be rewritten as a sum over subsets; this subset representation underlies the inductive Dobrushin argument. Theorem 3.1 then gives a zero-free criterion for physical and repulsive interactions under the still-present assumption W(x,x)=0. After introducing the Mayer expansion (3.22), the paper explicitly states the open question: whether Dobrushin's reverse-order method can be made to work without hard-core self-repulsion. So the sharp stand-alone version should ask specifically about removing the diagonal condition W(x,x)=0 while keeping the repulsive-gas setting and the Dobrushin-style proof strategy fixed.",
+  "citations": [
+    {
+      "section": "3",
+      "label": "equation (3.1) and definitions of physical, repulsive, hard-core, and hard-core self-repulsive",
+      "page": "47"
+    },
+    {
+      "section": "3",
+      "label": "equations (3.2)-(3.3) and surrounding discussion of the subset expansion",
+      "page": "47"
+    },
+    {
+      "section": "3",
+      "label": "Theorem 3.1",
+      "page": "47-48"
+    },
+    {
+      "section": "3",
+      "label": "equation (3.22) and the discussion of the Mayer expansion",
+      "page": "50-51"
+    },
+    {
+      "section": "3",
+      "label": "open question stated immediately after the discussion following equation (3.22)",
+      "page": "51"
+    }
+  ]
+}

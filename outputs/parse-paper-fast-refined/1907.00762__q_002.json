@@ -1,0 +1,59 @@
+{
+  "arxiv_id": "1907.00762",
+  "question_id": "q_002",
+  "original_question": "In the regime where the dimension d is larger than polylogarithmic in 1/epsilon but smaller than polynomial in 1/epsilon, and only essentially linear memory is available between oracle calls, can convex L-Lipschitz optimization be solved with a number of first-order queries that is polynomial in d? More specifically, when the memory budget satisfies M = Theta(d polylog(LB/epsilon)) or M = O~(d), is T(d,M,epsilon) = O(poly d) achievable in that intermediate scaling regime?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 6701.02,
+  "target_in_paper": "Section 4 (Challenges), Question 2: “Can we have T(d, M = Õ(d), ε) = O(poly d) when d = Ω(log^c(1/ε)) but d = O((1/ε)^c) for all c?”; this is introduced immediately after the paper identifies the linear-memory boundary as the most important regime. ([proceedings.mlr.press](https://proceedings.mlr.press/v99/woodworth19a/woodworth19a.pdf))",
+  "completeness_score": 8.5,
+  "correct_elements": "Your draft is already very close to the paper’s actual target. It correctly focuses on the intermediate regime where d is too large for 1/ε^2 to be polynomial in d but still far below polynomial in 1/ε, it correctly uses the memory bottleneck “between oracle calls,” and it asks the right sharp question: whether essentially linear memory can still permit query complexity polynomial in d. Those are exactly the ingredients singled out in the lead-in to Section 4, Question 2. ([proceedings.mlr.press](https://proceedings.mlr.press/v99/woodworth19a/woodworth19a.pdf))",
+  "missing_details": [
+    "The paper’s T(d, M, ε) is not informal notation: after defining T_{L,B}(d, M, ε) in Section 2, Eq. (4), the authors normalize to L = B = 1 and write T(d, M, ε) := T_{1,1}(d, M, ε). Your draft should state this explicitly or else keep the general notation T_{L,B}(d, M, ε). ([proceedings.mlr.press](https://proceedings.mlr.press/v99/woodworth19a/woodworth19a.pdf))",
+    "The algorithmic model is specifically the class A_{M,T} of deterministic first-order methods whose entire inter-oracle state is compressed to M bits; decoder functions choose x_t from the M-bit state, encoder functions update that M-bit state using the oracle reply, and an output map reads the final M-bit state. ([proceedings.mlr.press](https://proceedings.mlr.press/v99/woodworth19a/woodworth19a.pdf))",
+    "The oracle is exact first-order: at x_t it returns F(x_t) and a subgradient ∇F(x_t); if F is nondifferentiable, the guarantee must hold for every valid subgradient sequence. ([proceedings.mlr.press](https://proceedings.mlr.press/v99/woodworth19a/woodworth19a.pdf))",
+    "The function class must be specified: F^d_{L,B} consists of convex, L-Lipschitz functions F: ℝ^d → ℝ with some minimizer x* satisfying ||x*||_2 ≤ B, and the ε guarantee is measured against min_{||x||≤B} F(x). ([proceedings.mlr.press](https://proceedings.mlr.press/v99/woodworth19a/woodworth19a.pdf))",
+    "The nearest official formulation is Question 2 itself, which is narrower than a general request to characterize all linear-memory tradeoffs; the broader characterization problem is Question 1, while your draft is really about the specific linear-memory incursion singled out just before Question 2. ([proceedings.mlr.press](https://proceedings.mlr.press/v99/woodworth19a/woodworth19a.pdf))",
+    "The dimension regime should be stated in the paper’s own form, not only paraphrased: the prose says d is 'larger then poly-logarithmic but smaller then polynomial in 1/ε,' and Question 2 writes this as d = Ω(log^c(1/ε)) but d = O((1/ε)^c) for all c. ([proceedings.mlr.press](https://proceedings.mlr.press/v99/woodworth19a/woodworth19a.pdf))",
+    "To make the question fully paper-faithful, it helps to mention why this regime matters: Section 3 places it inside the unknown region between the gradient-descent extreme (linear memory, quadratic-in-1/ε queries) and the center-of-mass extreme (near-optimal queries, quadratic memory). ([proceedings.mlr.press](https://proceedings.mlr.press/v99/woodworth19a/woodworth19a.pdf))"
+  ],
+  "refined_question": "Let T(d, M, ε) := T_{1,1}(d, M, ε) be the minimax number of exact first-order oracle queries required by a deterministic algorithm whose entire state between oracle calls is compressed to M bits, where each oracle call at x_t returns F(x_t) and an arbitrary valid subgradient of a convex 1-Lipschitz function F: ℝ^d → ℝ having some minimizer x* with ||x*||_2 ≤ 1. In the regime highlighted by Woodworth and Srebro where d is larger than poly-logarithmic but smaller than polynomial in 1/ε (written in Question 2 as d = Ω(log^c(1/ε)) but d = O((1/ε)^c) for all c), is it possible to have T(d, M, ε) = O(poly d) with essentially linear memory M = Õ(d)? ([proceedings.mlr.press](https://proceedings.mlr.press/v99/woodworth19a/woodworth19a.pdf))",
+  "equivalent_formulation": null,
+  "justification": "The draft is aiming at Section 4, Question 2 rather than the broader Question 1. Section 3 explains that the tradeoff region between the gradient-descent corner and the center-of-mass corner is unknown, and Section 4 then identifies linear memory as the boundary regime of greatest interest and asks, in essentially the same words as your draft, whether polynomial-in-d query complexity is possible with Õ(d) memory in the super-polylogarithmic/subpolynomial dimension range. The refinement above folds in the Section 2 definitions needed to make that question stand alone. ([proceedings.mlr.press](https://proceedings.mlr.press/v99/woodworth19a/woodworth19a.pdf))",
+  "citations": [
+    {
+      "section": "2. Problem Formulation",
+      "label": "definition of A_{M,T}; Eq. (4) defining T_{L,B}(d, M, ε)",
+      "page": 2
+    },
+    {
+      "section": "3. Current Knowledge",
+      "label": "discussion of the unknown interior tradeoff region between the gradient-descent and center-of-mass extremes",
+      "page": 3
+    },
+    {
+      "section": "4. Challenges",
+      "label": "Question 1 and lead-in identifying linear memory as the important regime",
+      "page": 4
+    },
+    {
+      "section": "4. Challenges",
+      "label": "Question 2",
+      "page": 4
+    },
+    {
+      "section": "Appendix A",
+      "label": "Theorem 1 (memory-bounded gradient descent)",
+      "page": 5
+    },
+    {
+      "section": "Appendix B",
+      "label": "Theorem 3 (memory-bounded center of mass)",
+      "page": 7
+    },
+    {
+      "section": "Appendix C",
+      "label": "Theorem 5 (output-memory lower bound)",
+      "page": 9
+    }
+  ]
+}

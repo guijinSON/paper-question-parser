@@ -1,0 +1,45 @@
+{
+  "arxiv_id": "2405.17800",
+  "question_id": "q_029",
+  "original_question": "Fix an integer k >= 3 and a small epsilon_0 >= 0. Asymptotically evaluate the mean value integral from 0 to T of (sum_{m <= T^(2+epsilon_0)} d_k(m) / m^(1/2+it)) (sum_{n <= T^(2+epsilon_0)} d(n) / n^(1/2-it)) dt.",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 9796.68,
+  "target_in_paper": "Section 'Additive divisor sums/shifted convolution sums', Problem (29): asymptotically evaluate the mean value of two long Dirichlet polynomials of common length T^(2+epsilon_0), with coefficients d_k and d=d_2.",
+  "completeness_score": 9.0,
+  "correct_elements": "Your draft is already very close to the paper's exact formulation. It has the correct target problem, the correct restriction k >= 3, the correct common polynomial length T^(2+epsilon_0), the correct integration range [0,T], and the correct coefficient sequences d_k and d(n). It also keeps the problem narrowly at the level of the paper's actual statement rather than broadening it to a more general shifted-convolution or additive-divisor problem.",
+  "missing_details": [
+    "State explicitly that k is a fixed integer in N with k >= 3, independent of T.",
+    "Define d_k by zeta(s)^k = sum_{n>=1} d_k(n) n^{-s}.",
+    "Specify that d(n) means the ordinary divisor function d_2(n).",
+    "Say explicitly that epsilon_0 is a fixed small real number with epsilon_0 >= 0; the paper does not quantify how small.",
+    "State that the asymptotic is sought as T -> infinity, with t the real integration variable.",
+    "Make clear that the goal is an asymptotic formula for the integral itself, not merely an upper bound, lower bound, or conjectural order of magnitude.",
+    "Do not add smoothing, shifts, weight functions, or hypotheses such as the Riemann Hypothesis; none of these appear in Problem (29).",
+    "For paper-faithfulness, note the nearby context that analogous mean values are already understood only in the shorter-length regime N = T^(2-epsilon), conjecturally via additive-divisor input."
+  ],
+  "refined_question": "Let k be a fixed integer with k >= 3, let epsilon_0 >= 0 be a fixed small real number, let d_k be the k-th divisor function defined by zeta(s)^k = sum_{n>=1} d_k(n)n^{-s}, and write d=d_2. As T -> infinity, asymptotically evaluate\nI_{k,epsilon_0}(T) = integral from 0 to T of (sum_{m <= T^(2+epsilon_0)} d_k(m)/m^(1/2+it)) (sum_{n <= T^(2+epsilon_0)} d(n)/n^(1/2-it)) dt.",
+  "equivalent_formulation": null,
+  "justification": "The draft matches Problem (29) essentially verbatim. The relevant notation for d_k is supplied in the paper's Notation section, and the surrounding introduction explains that the intended context is the study of moments of zeta via long Dirichlet polynomials. The note attached to Problem (29) further clarifies the precise scope: analogous long-polynomial mean values are already understood only in the shorter regime N = T^(2-epsilon), conjecturally using the additive divisor conjecture. So the sharpest paper-faithful rewrite is simply the exact Problem (29), made self-contained by defining d_k, identifying d as d_2, and stating that the asymptotic is as T tends to infinity.",
+  "citations": [
+    {
+      "section": "Introduction",
+      "label": "discussion of long Dirichlet polynomials and rigorous results for such mean values",
+      "page": 3
+    },
+    {
+      "section": "Notation",
+      "label": "definition of d_k",
+      "page": 4
+    },
+    {
+      "section": "Additive divisor sums/shifted convolution sums",
+      "label": "Problem (29)",
+      "page": 12
+    },
+    {
+      "section": "References",
+      "label": "[38] Hamieh and Ng, Long mean value of Dirichlet polynomials with higher divisor coefficients",
+      "page": 14
+    }
+  ]
+}

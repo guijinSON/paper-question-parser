@@ -1,0 +1,53 @@
+{
+  "arxiv_id": "1709.01670",
+  "question_id": "q_004",
+  "original_question": "For single-machine makespan minimization with tau forbidden start and completion times, is the problem fixed-parameter tractable when parameterized by tau?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 5474.43,
+  "target_in_paper": "Section 3.4, Open Problem 4: Is makespan minimization on a single machine with τ forbidden start and end times fixed-parameter tractable parameterized by τ? ([arxiv.org](https://arxiv.org/pdf/1709.01670.pdf))",
+  "completeness_score": 8.5,
+  "correct_elements": "Your draft already matches the paper's intended target very closely: it has the correct machine environment (single machine), the correct objective (makespan minimization), the correct restriction (forbidden start/end times), and the correct parameter (τ). Also, your phrase \"completion times\" is faithful to the paper's \"end times\" in this scheduling context. ([arxiv.org](https://arxiv.org/pdf/1709.01670.pdf))",
+  "missing_details": [
+    "It should make explicit that τ is the number of forbidden time instants at which job starts and job completions are disallowed, rather than potentially being read as separate counts for forbidden starts and forbidden completions. ([arxiv.org](https://arxiv.org/pdf/1709.01670.pdf))",
+    "To be stand-alone, it should spell out the single-machine setting: there is one machine, each job j has a processing time p_j ∈ N, and at most one job can be processed at a time. ([arxiv.org](https://arxiv.org/pdf/1709.01670.pdf))",
+    "The paper's default convention is nonpreemptive scheduling, since preemption is only present when explicitly marked by the qualifier \"pmtn\". ([arxiv.org](https://arxiv.org/pdf/1709.01670.pdf))",
+    "It should define the objective precisely as C_max = max_{j∈J} C_j, where C_j is the completion time of job j. ([arxiv.org](https://arxiv.org/pdf/1709.01670.pdf))",
+    "It should unpack \"fixed-parameter tractable\" as the existence of an algorithm with running time f(τ)·poly(|I|) (equivalently f(τ)·poly(n) up to input-size notation). ([arxiv.org](https://arxiv.org/pdf/1709.01670.pdf))",
+    "To stay maximally paper-faithful, it should not accidentally drift into the separate high-multiplicity encoding discussed only as nearby context; the official open problem itself is stated without that qualifier. ([arxiv.org](https://arxiv.org/pdf/1709.01670.pdf))"
+  ],
+  "refined_question": "Does the nonpreemptive single-machine scheduling problem of minimizing the makespan C_max = max_{j∈J} C_j for a set J of jobs with processing times p_j ∈ N, in the presence of a set F of |F| = τ forbidden time instants such that no job may start or complete at any time in F, admit a fixed-parameter algorithm with running time f(τ)·poly(|I|) when parameterized solely by τ? ([arxiv.org](https://arxiv.org/pdf/1709.01670.pdf))",
+  "equivalent_formulation": null,
+  "justification": "The nearest official formulation is exactly Open Problem 4 in Section 3.4. The draft is already almost verbatim, so the refinement only makes explicit the survey's background conventions from Section 2: what the single-machine model entails, that jobs are nonpreemptive by default, what C_max means, and what fixed-parameter tractability means. It also sharpens the role of τ as the size of the forbidden-time set governing both starts and completions, while avoiding any unintended shift to the separate high-multiplicity discussion in the surrounding paragraph. ([arxiv.org](https://arxiv.org/pdf/1709.01670.pdf))",
+  "citations": [
+    {
+      "section": "3.4",
+      "label": "Forbidden start and end times",
+      "page": 4
+    },
+    {
+      "section": "3.4",
+      "label": "Open Problem 4",
+      "page": 4
+    },
+    {
+      "section": "2.1.1",
+      "label": "Single-machine environments",
+      "page": 2
+    },
+    {
+      "section": "2.1.2",
+      "label": "Preemption",
+      "page": 2
+    },
+    {
+      "section": "2.1.3",
+      "label": "Objective functions",
+      "page": 3
+    },
+    {
+      "section": "2.2",
+      "label": "Parameterized complexity",
+      "page": 3
+    }
+  ]
+}

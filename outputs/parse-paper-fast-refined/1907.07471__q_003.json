@@ -1,0 +1,53 @@
+{
+  "arxiv_id": "1907.07471",
+  "question_id": "q_003",
+  "original_question": "Even when the angle is fixed at alpha = pi/4 instead of tending to 0, can one prove a nontrivial lower bound for computing X_(pi/4) in the two-coordinate unitary-step model that is better than (1/(2 sqrt(2))) n log_2 n, which the paper states is the best bound obtainable from the vanilla entropy potential Phi?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 6773.56,
+  "target_in_paper": "Section 2.2, \"Stronger improvements?\", together with the immediately preceding result in Section 2.1 and footnote 1: the paper asks whether one can prove a stronger lower bound than Ω(α n log n) for computing X_α in the two-coordinate unitary model, and notes the author's conjectured target Ω((n log n)/log(1/α)).",
+  "completeness_score": 5,
+  "correct_elements": "Your draft correctly identifies the matrix family X_α, the relevant two-coordinate unitary-step computation model, and the fact that the standard entropy potential Φ is the baseline method whose lower bound the paper tries to surpass. It is therefore aimed at the right open-problem neighborhood.",
+  "missing_details": [
+    "The paper's official open problem is not stated only for the fixed value α = π/4; it asks more generally whether one can beat the Ω(α n log n) lower bound for X_α, especially for small α.",
+    "The draft does not define the matrices: F is the normalized n×n Fourier matrix over ℂ, G = [[0, F], [−F*, 0]] is a 2n×2n skew-Hermitian matrix, and X_α = (cos α) I_{2n} + (sin α) G.",
+    "The ambient space and group are omitted: X_α acts on ℂ^{2n}, and the computation takes place in the unitary group U(2n).",
+    "The computation model needs to be stated explicitly: one asks for the minimum m such that X_α = R_m ··· R_1 where each R_t is unitary and acts nontrivially on at most two coordinates (equivalently, is block-diagonal with one 2×2 unitary block and identity elsewhere).",
+    "The draft does not say that the lower bound concerns all sufficiently large n and absolute-constant asymptotics in n.",
+    "The paper's nearby quantitative benchmark is the Section 2.1 bound Ω(α n log n), not an officially stated optimization problem about the particular constant at α = π/4.",
+    "The author's more precise conjectural target, given in footnote 1, is Ω((n log n)/log(1/α)); your draft does not mention this.",
+    "The draft omits the failed 'squaring trick' motivation in Section 2.2: although X_α composed π/(2α) times gives G when α divides π/2, this does not directly yield a lower bound because the algorithm computes the action on vectors, not arbitrary matrix powers.",
+    "The draft does not mention the representation-theoretic framing proposed by the paper: looking for a unitary representation Ψ of U(n) (or here effectively U(2n)) so that Φ ∘ Ψ yields a stronger potential than the vanilla entropy Φ.",
+    "The phrase 'nontrivial lower bound' is too vague for the paper's intent; the paper is specifically after a lower bound asymptotically stronger than Ω(α n log n), ideally the conjectured Ω((n log n)/log(1/α)).",
+    "The specific constant '(1/(2√2)) n log_2 n' is not the paper's official formulation of the open problem; it is a fixed-angle consequence of the Section 2.1 method, not the paper's stated target."
+  ],
+  "refined_question": "Let F be the normalized n×n Fourier matrix over ℂ, define G = [[0, F], [−F*, 0]] ∈ U(2n), and for 0 < α ≤ π/4 let X_α = (cos α) I_{2n} + (sin α) G. In the computation model where one must factor X_α as X_α = R_m ··· R_1 with each R_t ∈ U(2n) acting nontrivially on at most two coordinates, can one prove, for all sufficiently large n, a lower bound on m that is asymptotically stronger than the one obtained from the standard entropy potential Φ(U) = −∑_{i,j} |U(i,j)|^2 log |U(i,j)|^2, namely stronger than Ω(α n log n), ideally of order Ω((n log n)/log(1/α))? In particular, this would improve the fixed-angle case α = π/4 beyond the constant-factor Ω(n log n) bound obtainable from Φ alone.",
+  "equivalent_formulation": null,
+  "justification": "The draft is aiming at the paper's open problem about improving the entropy-potential lower bound for the matrices X_α. The closest official formulation is not a special question about α = π/4 or about improving a particular constant, but the Section 2.2 question asking whether one can obtain a stronger lower bound than Ω(α n log n). That question is asked immediately after Section 2.1 proves the Ω(α n log n) bound by changing the start state, and footnote 1 records the author's conjectured target Ω((n log n)/log(1/α)). The fixed-angle α = π/4 question in your draft is therefore best understood as a special case of this official open problem, not as a separately stated problem in the paper.",
+  "citations": [
+    {
+      "section": "1",
+      "label": "computation model around eq. (3)",
+      "page": "PDF pp. 1-2"
+    },
+    {
+      "section": "2",
+      "label": "definition of G and X_α; eq. (4)",
+      "page": "PDF p. 3"
+    },
+    {
+      "section": "2.1",
+      "label": "A slight improvement: Lower bound of Ω(α n log n)",
+      "page": "PDF p. 3"
+    },
+    {
+      "section": "2.1",
+      "label": "footnote 1 (author's conjectured Ω((n log n)/log(1/α)) bound)",
+      "page": "PDF p. 3"
+    },
+    {
+      "section": "2.2",
+      "label": "Stronger improvements?",
+      "page": "PDF p. 4"
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "arxiv_id": "2505.15351",
+  "question_id": "q_024",
+  "original_question": "Fix a sufficiently regular window function for the short-time Fourier transform. Which spiral-like or more general sampling sets in the time-frequency plane are informative enough to determine a function, up to global phase, from sampled STFT magnitude measurements?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 10997.95,
+  "target_in_paper": "Section 8.3, Question 8.7 (the open problem on spiral-like sampling sets for sampled STFT phase retrieval).",
+  "completeness_score": 8,
+  "correct_elements": "Your draft correctly identifies the core object of the paper’s question: a fixed sufficiently nice/regular STFT window, magnitude-only sampled STFT data, spiral-like versus more general sampling sets in the time-frequency plane, and uniqueness only up to a global phase.",
+  "missing_details": [
+    "The ambient setting is the continuous one-dimensional STFT problem, not an abstract or discrete time-frequency sampling problem: f is a complex-valued function on R and the sampling set is Ω ⊂ R^2.",
+    "The paper’s operator is the STFT V_w f(x, ξ) = ∫_R f(t) w(t - x)e^(-itξ) dt = F[f · S_x w](ξ); your draft leaves this implicit.",
+    "The measurements are the sampled magnitudes |V_w f|^2_Ω := {|V_w f(x, ξ)|^2 : (x, ξ) ∈ Ω}.",
+    "'Up to global phase' is explicitly the equivalence relation f ~ g iff there exists α ∈ R such that f = e^(iα) g.",
+    "The nearby context is Section 8.3 on compactly supported functions; your draft omits this paper-faithful scope and so reads slightly broader than Question 8.7.",
+    "Because the paragraph immediately after Question 8.7 treats recovery of arbitrary f ∈ L2(R) as a separate question (Question 8.8), a stand-alone rewrite should not silently broaden Question 8.7 to all of L2(R).",
+    "The paper states only that the window is sufficiently 'nice'; replacing that by a materially stronger hypothesis would go beyond the paper.",
+    "The question is about uniqueness/injectivity, not stability bounds, algorithm design, blind recovery, or discrete WDD formulas."
+  ],
+  "refined_question": "Fix B > 0 and a sufficiently \"nice\" window function w in L2(R). In the one-dimensional sampled short-time Fourier transform phase retrieval problem for compactly supported complex-valued signals f in L2(R) with support(f) ⊂ [-B,B], where V_w f(x, ξ) = ∫_R f(t) w(t - x)e^(-itξ) dt, for which spiral-like—and, more generally, for which sampling sets Ω ⊂ R^2—do the sampled magnitude measurements {|V_w f(x, ξ)|^2 : (x, ξ) ∈ Ω} determine f uniquely up to a global phase, i.e. modulo the relation f ~ g iff there exists α ∈ R with f = e^(iα)g?",
+  "equivalent_formulation": null,
+  "justification": "The draft is clearly targeting Question 8.7 because the phrase 'spiral-like sampling sets' appears there verbatim. The surrounding text defines the exact STFT model, the sampled measurement notation, and the global-phase equivalence relation. It also shows that Question 8.7 sits inside the compactly supported/bandlimited discussion of Section 8.3, while the broader problem of recovering arbitrary L2(R) signals is explicitly separated out as Question 8.8. So the faithful refinement is to make the one-dimensional continuous STFT setup and injectivity-modulo-phase formulation explicit, without broadening the problem to all L2(R), to stability, or to algorithms.",
+  "citations": [
+    {
+      "section": "2.2",
+      "label": "Infinite-dimensional setup",
+      "page": 3
+    },
+    {
+      "section": "8",
+      "label": "Equation (22)",
+      "page": 27
+    },
+    {
+      "section": "8.2",
+      "label": "transition paragraph after Question 8.5 to the continuous problem",
+      "page": 30
+    },
+    {
+      "section": "8.3",
+      "label": "paragraph beginning 'Let B > 0 and suppose that f is supported in [-B,B]'",
+      "page": 31
+    },
+    {
+      "section": "8.3",
+      "label": "Question 8.7",
+      "page": 31
+    },
+    {
+      "section": "8.3",
+      "label": "paragraph following Question 8.7 and Question 8.8",
+      "page": "31-32"
+    }
+  ]
+}

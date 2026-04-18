@@ -1,0 +1,62 @@
+{
+  "arxiv_id": "1907.00762",
+  "question_id": "q_003",
+  "original_question": "Still in the regime d = Omega(log^c(1/epsilon)) and d = O(1/epsilon^c) for all c, is quadratic memory really necessary to obtain near-optimal query complexity for convex Lipschitz optimization? Concretely, can one have T(d, M = O(d^(2-delta)), epsilon) = O~(d polylog(1/epsilon)) for some delta > 0 while storing only subquadratic memory between first-order oracle calls?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 6726.26,
+  "target_in_paper": "Section 4, Question 3: the open problem introduced by the sentence \"At the other extreme, we might ask whether quadratic memory is necessary in order to achieve optimal query complexity,\" and then stated as asking whether one can have T(d, M = O(d^(2-delta)), epsilon) = O~(d polylog(1/epsilon)) in the paper’s intermediate d-versus-epsilon regime.",
+  "completeness_score": 8,
+  "correct_elements": "Your draft is already very close to the paper’s actual Question 3. It correctly targets the subquadratic-memory regime M = O(d^(2-delta)) for some delta > 0, the near-/query-optimal target O~(d polylog(1/epsilon)), and the same intermediate asymptotic regime relating d and epsilon. It also captures the paper’s motivating interpretation: whether quadratic memory is really necessary to get essentially optimal first-order query complexity.",
+  "missing_details": [
+    "The paper’s model is deterministic first-order optimization; randomized algorithms are only mentioned as an analogous variant, not as the stated target of Question 3.",
+    "T(d, M, epsilon) is shorthand for the minimax memory-bounded oracle complexity T_{1,1}(d, M, epsilon) after the paper normalizes L = B = 1.",
+    "The underlying optimization problem is min_{x in R^d : ||x||_2 <= B} F(x), where F : R^d -> R is convex and L-Lipschitz and has some minimizer x* with ||x*||_2 <= B.",
+    "The oracle is exact and first-order: each query returns both F(x) and a valid subgradient at x.",
+    "At nonsmooth points, the minimax definition takes the supremum not only over functions F but also over all valid subgradient choices used by the oracle.",
+    "Memory is measured in bits, and the key restriction is that the algorithm’s state must be compressed to M bits between oracle calls; the encoder/decoder computations themselves may use arbitrary transient resources and real-number computation.",
+    "The phrase \"quadratic memory\" is paper-specific: the high-memory benchmark is the center-of-mass side of the tradeoff, which the paper analyzes at O(d^2 log^2(LB/epsilon)) bits, whereas the low-memory benchmark is gradient descent at O(d log(LB/epsilon)) bits.",
+    "\"Near-optimal query complexity\" should be tied to the paper’s benchmark lower bound Omega(d log(1/epsilon)) and its willingness to ignore polylogarithmic factors.",
+    "To be fully stand-alone, the intermediate regime for d should be linked to the surrounding prose in Section 4: the intended setting is where d is larger than poly-logarithmic but smaller than polynomial in 1/epsilon.",
+    "If one wants literal stand-alone precision, the quantifier on c in the shorthand asymptotic condition involving d and epsilon should be spelled out rather than left implicit."
+  ],
+  "refined_question": "In the deterministic memory-bounded first-order oracle model of Sections 1-2, where one minimizes a convex L-Lipschitz function F : R^d -> R over the Euclidean ball {x in R^d : ||x||_2 <= B} using exact oracle queries that return both F(x) and a valid subgradient, and where the algorithm’s state must be compressed to M bits between oracle calls so that T(d, M, epsilon) := T_{1,1}(d, M, epsilon), is quadratic memory necessary to achieve optimal query complexity up to polylogarithmic factors? More concretely, in the intermediate regime highlighted in Section 4 (where d is larger than poly-logarithmic but smaller than polynomial in 1/epsilon), can there exist some delta > 0 such that T(d, M = O(d^(2-delta)), epsilon) = O~(d polylog(1/epsilon))?",
+  "equivalent_formulation": null,
+  "justification": "The draft is plainly aiming at Section 4, Question 3, not at the broader characterization problem in Question 1 or the linear-memory boundary problem in Question 2. The surrounding context in Sections 1-3 defines the exact optimization problem, oracle model, and minimax quantity T(d, M, epsilon), and explains why Question 3 is the precise \"quadratic memory versus optimal query complexity\" frontier: center-of-mass-type methods achieve the d log(1/epsilon) query benchmark using roughly quadratic memory, while a discretized gradient-descent-style method achieves near-linear memory but only 1/epsilon^2 queries. The refined version therefore keeps your asymptotic target essentially unchanged, while adding the paper-critical definitions that make the question mathematically stand-alone and faithful to the authors’ intent.",
+  "citations": [
+    {
+      "section": "1. Introduction",
+      "label": "Equation (1) and introductory discussion of optimal query complexity versus memory",
+      "page": 1
+    },
+    {
+      "section": "2. Problem Formulation",
+      "label": "Definition of A_{M,T} and T_{L,B}(d, M, epsilon), Equations (2)-(4)",
+      "page": 2
+    },
+    {
+      "section": "3. Current Knowledge",
+      "label": "Tradeoff picture, unknown square, and discussion of the two known extremes",
+      "page": 2
+    },
+    {
+      "section": "4. Challenges",
+      "label": "Question 3",
+      "page": 3
+    },
+    {
+      "section": "Appendix A",
+      "label": "Theorem 1",
+      "page": "4-5"
+    },
+    {
+      "section": "Appendix B",
+      "label": "Theorem 3",
+      "page": "6-7"
+    },
+    {
+      "section": "Appendix C",
+      "label": "Theorem 5",
+      "page": 8
+    }
+  ]
+}

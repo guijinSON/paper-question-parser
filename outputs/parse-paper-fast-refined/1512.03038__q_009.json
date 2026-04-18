@@ -1,0 +1,44 @@
+{
+  "arxiv_id": "1512.03038",
+  "question_id": "q_009",
+  "original_question": "For an abelian group G of order n, compare the minimum size of a 2-fold signed sumset with the minimum size of the ordinary 2-fold sumset. Is it true that the values rho_plusminus(G, m, 2) and rho(G, m, 2) differ for fewer than n/4 choices of m?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 4754.57,
+  "target_in_paper": "Section 0.4, Conjecture 0.4.5: the open problem asserting that for a finite abelian group G of order n, the two quantities ρ_{±}(G,m,2) and ρ(G,m,2) disagree for fewer than n/4 values of m.",
+  "completeness_score": 8.5,
+  "correct_elements": "Your draft correctly identifies the relevant objects (a finite abelian group G of order n, the comparison between the 2-fold signed sumset minimum and the ordinary 2-fold sumset minimum, and the threshold 'fewer than n/4 choices of m'). It also correctly focuses on the h=2 case and on counting those subset-sizes m for which the two extremal functions differ. That matches the paper’s signed-sumset open problem in Section 0.4.",
+  "missing_details": [
+    "The paper’s question is about finite abelian groups G with |G|=n and integers m ranging over all subset sizes 1 ≤ m ≤ n; 'choices of m' should be made explicit as integers m in {1,2,...,n}.",
+    "The functions should be defined explicitly: ρ(G,m,2)=min{|2A|: A⊆G, |A|=m} and ρ_{±}(G,m,2)=min{|2_{±}A|: A⊆G, |A|=m}.",
+    "The operator 2_{±}A should be defined, not just named: for A={a_1,...,a_m}, 2_{±}A={∑_{i=1}^m λ_i a_i : λ_i∈Z and ∑_{i=1}^m |λ_i|=2}.",
+    "The ordinary 2-fold sumset 2A should likewise be defined, e.g. 2A={a+b : a,b∈A}.",
+    "Because 2A⊆2_{±}A for every A, the inequality ρ(G,m,2) ≤ ρ_{±}(G,m,2) is implicit in the paper’s discussion; therefore 'differ' here means 'strictly differ,' i.e. ρ_{±}(G,m,2) > ρ(G,m,2).",
+    "In the paper, the h=2 specialization is supplied by the nearby context in Section 0.4 rather than repeated in Conjecture 0.4.5 itself; a stand-alone rewrite should include h=2 explicitly.",
+    "The motivation for the n/4 threshold is nearby context: just before Conjecture 0.4.5, the paper explains that in the completely analyzed elementary-abelian case there are exactly (p-1)^2/4 exceptional values of m. Including that this is the source of the conjectural bound makes the question more faithful to the paper’s intent."
+  ],
+  "refined_question": "Let G be a finite abelian group of order n. For each integer m with 1 ≤ m ≤ n, define ρ(G,m,2)=min{|2A|: A⊆G, |A|=m}, where 2A={a+b: a,b∈A}, and define ρ_{±}(G,m,2)=min{|2_{±}A|: A⊆G, |A|=m}, where for A={a_1,...,a_m} one sets 2_{±}A={∑_{i=1}^m λ_i a_i : λ_i∈Z, ∑_{i=1}^m |λ_i|=2}. Is it true that, for every such G, the set {m∈{1,...,n}: ρ_{±}(G,m,2)≠ρ(G,m,2)} has cardinality strictly less than n/4?",
+  "equivalent_formulation": "Equivalently, since ρ(G,m,2) ≤ ρ_{±}(G,m,2) for every G and m, is it true that for every finite abelian group G of order n there are fewer than n/4 integers m with 1 ≤ m ≤ n such that ρ_{±}(G,m,2) > ρ(G,m,2)?",
+  "justification": "The draft is targeting the signed-sumset open problem stated at the end of Section 0.4. The exact official formulation in the paper is Conjecture 0.4.5. The immediately preceding discussion shows that the comparison is specifically the h=2 comparison between ρ_{±}(G,m,2) and ρ(G,m,2), and it explains why the paper guesses the threshold n/4: in the analyzed elementary-abelian case, the authors obtained exactly (p-1)^2/4 exceptional values of m and then conjectured that no abelian group has a larger exceptional proportion. Your draft is therefore very close, but it leaves the extremal-function definitions, the meaning and range of m, and the precise signed-sumset operator implicit; those need to be supplied to make the question fully stand-alone and faithful to the paper.",
+  "citations": [
+    {
+      "section": "§0.1",
+      "label": "Introduction and notations",
+      "page": "chapter pp. 9-10"
+    },
+    {
+      "section": "§0.4",
+      "label": "Theorem 0.4.3",
+      "page": "chapter p. 16"
+    },
+    {
+      "section": "§0.4",
+      "label": "Conjecture 0.4.4 and the discussion immediately following it",
+      "page": "chapter pp. 16-17"
+    },
+    {
+      "section": "§0.4",
+      "label": "Conjecture 0.4.5",
+      "page": "chapter p. 17"
+    }
+  ]
+}

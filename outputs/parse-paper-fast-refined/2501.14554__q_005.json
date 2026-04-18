@@ -1,0 +1,48 @@
+{
+  "arxiv_id": "2501.14554",
+  "question_id": "q_005",
+  "original_question": "For every rational radius r>0, does there exist a polynomial-time approximation algorithm for the maximum r-independent set problem on continuous graphs whose approximation ratio is bounded below by an absolute constant independent of the input graph?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 10431.35,
+  "target_in_paper": "Section 3.1 (Maximum independent set), under the paragraph titled \"Approximability\": \"For any rational number r, is there a polynomial time approximation algorithm for the maximum r-independent set problem with performance guarantee bounded by a constant?\"",
+  "completeness_score": 7,
+  "correct_elements": "Your draft targets the correct open problem in Section 3.1: it correctly asks about the maximum r-independent set problem on continuous graphs, quantifies over rational r>0, asks for a polynomial-time approximation algorithm, and seeks a constant-factor guarantee rather than exact optimization.",
+  "missing_details": [
+    "The paper works with a finite continuous graph Γ built from a finite endpoint set and a finite set of unit-length rectifiable continuous edges, equipped with the induced shortest-path metric; this ambient definition is needed to make the question stand-alone (Section 2, Definitions 1-4).",
+    "An r-independent set is not the usual graph-theoretic independent set: it is a set S⊆Γ of points such that d(x,y)>2r for every distinct x,y∈S, and α_r(Γ) denotes the maximum possible cardinality of such a set (Section 3.1, Definition 9).",
+    "The open question is about general continuous graphs, not a restricted subclass (Section 3.1, Approximability paragraph).",
+    "The paper phrases the objective as having \"performance guarantee bounded by a constant\"; for a maximization problem this should be stated explicitly as a constant-factor guarantee, e.g. output size at least α_r(Γ)/c_r.",
+    "The paper explicitly notes that \"(in)approximability ... depends on the radius r\", so the faithful formulation should not require a single universal constant independent of r unless one intentionally strengthens the paper’s question (Section 3.1, Approximability paragraph).",
+    "The paper also explicitly gives an equivalent ball-packing interpretation: the maximum r-independent set problem can be viewed as a maximum-cardinality packing of radius-r balls in Γ (Section 3.1, paragraph immediately after Definition 9)."
+  ],
+  "refined_question": "Fix a rational number r>0. Let Γ=(V,E) be a finite continuous graph in the sense of the paper: V is a finite set of endpoints, each edge in E is a unit-length rectifiable interval, and Γ is equipped with the induced shortest-path metric d. If α_r(Γ) denotes the maximum cardinality of a set S⊆Γ such that d(x,y)>2r for all distinct x,y∈S, does there exist a polynomial-time algorithm that, for every such Γ, computes an r-independent set of size at least α_r(Γ)/c_r for some constant c_r depending only on r (equivalently, a constant-factor approximation for the maximum r-independent set problem on general continuous graphs)?",
+  "equivalent_formulation": "Equivalent ball-packing formulation from Section 3.1: for every rational r>0, is there a polynomial-time constant-factor approximation algorithm for the maximum-cardinality packing of radius-r balls in a continuous graph Γ?",
+  "justification": "The draft is aimed at the unnumbered open question in Section 3.1 under \"Approximability,\" not at a broader neighboring problem. The nearby definitions needed to state it faithfully are the paper’s definitions of continuous graphs and their metric structure (Section 2, Definitions 1-4 and 8) and the formal definition of an r-independent set and α_r(Γ) (Section 3.1, Definition 9). The paper also says explicitly that the approximability question depends on r, so the most faithful stand-alone rewrite is a constant-factor approximation question for each fixed rational r, with the factor allowed to depend on r but not on the input graph. The alternate ball-packing phrasing is justified because the paper explicitly says the maximum r-independent set problem on a continuous graph \"can also be seen as a ball packing problem\" in the paragraph immediately following Definition 9.",
+  "citations": [
+    {
+      "section": "2 Preliminaries",
+      "label": "Definition 1",
+      "page": "n/a (HTML view)"
+    },
+    {
+      "section": "2 Preliminaries",
+      "label": "Definitions 3-4 and 8",
+      "page": "n/a (HTML view)"
+    },
+    {
+      "section": "3.1 Maximum independent set",
+      "label": "Definition 9",
+      "page": "n/a (HTML view)"
+    },
+    {
+      "section": "3.1 Maximum independent set",
+      "label": "Paragraph immediately after Definition 9 (ball-packing equivalence)",
+      "page": "n/a (HTML view)"
+    },
+    {
+      "section": "3.1 Maximum independent set",
+      "label": "Approximability (unnumbered open question)",
+      "page": "n/a (HTML view)"
+    }
+  ]
+}

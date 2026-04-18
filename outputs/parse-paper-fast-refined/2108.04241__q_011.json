@@ -1,0 +1,51 @@
+{
+  "arxiv_id": "2108.04241",
+  "question_id": "q_011",
+  "original_question": "How can infinite-state-representation algorithms for numerically solving Caputo-type fractional differential equations be designed and analyzed rigorously rather than heuristically, including the construction of quadrature formulas, the interaction between the ODE solver for the infinite states and the quadrature rule, the effect of algorithmic parameters on the final accuracy, and error bounds whose dependence on the fractional order alpha is understood uniformly over alpha in (0,1)?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 7557.34,
+  "target_in_paper": "Section 3.1, 'Algorithms based on infinite state representations': the unnumbered open problem culminating in the statement that 'there exists a strong demand for a thorough investigation of the non-classical algorithms for the numerical solution of fractional differential equations,' together with the immediately preceding four bullets identifying the missing pieces of such an investigation.",
+  "completeness_score": 8.5,
+  "correct_elements": "The draft correctly targets Section 3.1 rather than the analytical open problems of Section 2 or the spectral/terminal-value topics of Sections 3.2–3.3. It also accurately captures the paper’s four specific concerns about infinite-state/diffusive-representation methods: the present justifications are largely heuristic; quadrature rules for the integral in the representation are constructed ad hoc; the interaction between the ODE solver for the infinite states and the quadrature rule is essentially unanalyzed; the role of algorithmic parameters in the final accuracy is unclear; and the dependence of error constants on the fractional order α, especially uniformity for α in (0,1), is poorly understood.",
+  "missing_details": [
+    "Specify the exact problem class from Section 3: initial value problems for Caputo-type fractional ordinary differential equations of the form ^{C}D_{a+}^α y(t)=f(t,y(t)) with initial conditions y^{(k)}(a)=y_0^{(k)} for k=0,1,...,⌈α⌉−1, not arbitrary fractional equations.",
+    "State the exact infinite-state representation under discussion: ^{C}D_{a+}^α y(t)=∫_0^∞ φ(w,t) dw, where φ(w,t) solves ∂_t φ(w,t)=h_1(w)φ(w,t)+h_2(w)y^{(⌈α⌉)}(t), φ(w,0)=0, with w∈(0,∞) and h_1,h_2:(0,∞)→R.",
+    "Make explicit that the numerical procedure has two coupled stages: first solve the ODE (56b) for φ at selected w-values, then approximate the integral in (56a) by quadrature.",
+    "Say explicitly that the selected w-values are essentially determined by the quadrature nodes, so the ODE solve and the quadrature design cannot be treated independently.",
+    "Preserve the paper’s scope: it asks for a rigorous investigation of these specific non-classical infinite-state algorithms, not a broader program for all fast methods for fractional differential equations.",
+    "Include the motivation emphasized in Section 3: these methods are attractive because they aim at O(N) computational cost and O(1) memory over N time steps.",
+    "Record the solver-side issue highlighted by the authors: the proposed quadrature nodes typically force an A-stable ODE method; if one uses linear multistep methods, Dahlquist’s second barrier limits the order to at most 2, and the literature often uses backward Euler.",
+    "State the α-uniformity issue exactly as in the paper: whether the constants in error bounds remain bounded for all α∈(0,1), or instead blow up as α→0 or α→1.",
+    "Do not add extra assumptions on f, scalar/vector structure, or a fixed choice of h_1 and h_2, because Section 3.1 does not impose such additional hypotheses."
+  ],
+  "refined_question": "For the non-classical O(N)-work, O(1)-memory algorithms of Section 3.1 for Caputo initial value problems ^{C}D_{a+}^α y(t)=f(t,y(t)), y^{(k)}(a)=y_0^{(k)} for k=0,1,...,⌈α⌉−1, that evaluate the operator through the infinite-state representation ^{C}D_{a+}^α y(t)=∫_0^∞ φ(w,t) dw with ∂_t φ(w,t)=h_1(w)φ(w,t)+h_2(w)y^{(⌈α⌉)}(t), φ(w,0)=0, h_1,h_2:(0,∞)→R, can one give a thorough non-heuristic numerical analysis by designing quadrature formulas for (56a) from the analytic properties of the integrand, analyzing the coupled effect of the quadrature nodes and the ODE solver used for (56b), determining how the number and location of nodes, the quadrature weights, the solver choice, and the ODE step size control the total error, and proving error bounds whose constants have explicit dependence on α and in particular remain uniform for α∈(0,1) rather than blowing up as α→0 or α→1?",
+  "equivalent_formulation": null,
+  "justification": "This draft is plainly aimed at the unnumbered open problem in Section 3.1 (pp. 3257–3259), not at any theorem or conjecture from another paper. The wording of the draft tracks almost item-by-item the four deficiencies listed there after the infinite-state representation (56a)–(56b): heuristic foundations, ad hoc quadrature design, missing analysis of ODE-solver/quadrature interaction, unknown parameter-to-error dependence, and unclear α-uniformity of error bounds. The nearest official formulation is therefore the final sentence of Section 3.1, read together with those four bullets. To make the question stand alone and fully faithful to the paper, one must also import the surrounding setup from Section 3 and Section 3.1: the initial value problem (54), the exact representation (56a)–(56b), and the two-stage numerical structure of the method.",
+  "citations": [
+    {
+      "section": "3",
+      "label": "Eq. (54) and the framing of the numerical-aspects questions",
+      "page": "3256"
+    },
+    {
+      "section": "3",
+      "label": "Introductory discussion that Sect. 3.1 aims at O(N) cost and O(1) memory",
+      "page": "3257"
+    },
+    {
+      "section": "3.1",
+      "label": "Eqs. (56a)–(56b) and the two-stage numerical task for infinite-state algorithms",
+      "page": "3257-3258"
+    },
+    {
+      "section": "3.1",
+      "label": "Unnumbered bullet list on heuristic arguments, quadrature design, ODE-solver/quadrature interaction, parameter dependence, and α-uniform error bounds",
+      "page": "3258"
+    },
+    {
+      "section": "3.1",
+      "label": "Concluding sentence calling for 'a thorough investigation' of the non-classical algorithms",
+      "page": "3259"
+    }
+  ]
+}

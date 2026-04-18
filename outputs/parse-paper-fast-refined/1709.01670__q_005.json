@@ -1,0 +1,48 @@
+{
+  "arxiv_id": "1709.01670",
+  "question_id": "q_005",
+  "original_question": "Consider P||C_max on parallel identical machines with high-multiplicity encoding, where there are p distinct processing times and both the processing-time values and the counts of jobs of each type are encoded in binary. Is this problem fixed-parameter tractable when parameterized by p?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 5503.04,
+  "target_in_paper": "Open Problem 5 in Section 4.1 (Makespan): whether the high-multiplicity version of P||C_max is fixed-parameter tractable with respect to p, the number of distinct processing times.",
+  "completeness_score": 9,
+  "correct_elements": "Your draft is already very close to the paper’s exact target. It correctly identifies the machine environment P (parallel identical machines), the objective C_max (makespan), the high-multiplicity setting, the parameter p as the number of distinct processing times, and the crucial binary-encoding regime for the processing-time values and the multiplicities of each job type.",
+  "missing_details": [
+    "In the paper’s notation, unsuffixed P means that the number m of identical machines is part of the input; in the high-multiplicity setting discussed immediately before Open Problem 5, m is also encoded in binary.",
+    "High-multiplicity here means that jobs are not listed one by one; instead, the input gives p job types, with a binary-encoded multiplicity n_i for each processing-time value.",
+    "To be fully stand-alone, the question should say explicitly that there are no extra constraints such as precedence constraints, release dates, machine eligibility restrictions, or preemption; it is exactly the plain makespan problem P||C_max.",
+    "The surrounding context makes clear that the unary-encoded-processing-time case is already fixed-parameter tractable; the open case is specifically when the processing-time values themselves are binary-encoded.",
+    "For full self-containment, fixed-parameter tractable should be spelled out as existence of an algorithm with running time f(p)·|I|^{O(1)} for some computable function f, where |I| is the binary length of the high-multiplicity input.",
+    "The nearby discussion notes a representation subtlety: an explicit optimal schedule may require Ω(mp) bits, so the challenge is to solve the optimization problem in FPT time despite the compressed input and potentially large natural output."
+  ],
+  "refined_question": "Does there exist a computable function f such that the following high-multiplicity identical-parallel-machine makespan problem can be solved in time f(p)·|I|^{O(1)}, parameterized only by p, the number of distinct processing times? Input: a binary-encoded integer m giving the number of identical parallel machines, binary-encoded processing-time values a_1, ..., a_p, and binary-encoded multiplicities n_1, ..., n_p, where n_i jobs have processing time a_i for each i. Task: schedule all jobs nonpreemptively on the m identical machines so as to minimize the makespan C_max.",
+  "equivalent_formulation": null,
+  "justification": "The draft is targeting the paper’s Open Problem 5, not a neighboring result. Section 4.1 states exactly the FPT question for P||C_max in the high-multiplicity regime parameterized by the number of distinct processing times. The notation needed to make that question stand alone comes from Section 2: Section 2.1.1 defines P as the parallel-identical-machine environment and explains that, without a machine-count subscript, the number of machines is part of the input; Section 2.1.3 defines C_max as the makespan objective; and Section 2.2 gives the meaning of fixed-parameter tractable. The context immediately surrounding Open Problem 5 specifies the precise encoding boundary: Goemans and Rothvoß give XP for constant p even in high multiplicity, a close inspection yields FPT when processing times are unary, and the remaining open case is the binary-encoded processing-time setting asked in your draft. The paper also explicitly flags the compressed-output obstacle for optimal schedules, which is part of the nearby intent but not part of the formal statement.",
+  "citations": [
+    {
+      "section": "2.1.1",
+      "label": "Machine models; P denotes parallel identical machines, and unsuffixed P means the number of machines is part of the input",
+      "page": "255"
+    },
+    {
+      "section": "2.1.3",
+      "label": "Objective functions; C_max is the makespan",
+      "page": "255"
+    },
+    {
+      "section": "2.2",
+      "label": "Definition of fixed-parameter tractability",
+      "page": "255"
+    },
+    {
+      "section": "4.1",
+      "label": "Open Problem 5",
+      "page": "257"
+    },
+    {
+      "section": "4.1",
+      "label": "Context immediately around Open Problem 5: high-multiplicity encoding, binary encoding details, unary-processing-time FPT boundary, and output-size issue",
+      "page": "257"
+    }
+  ]
+}

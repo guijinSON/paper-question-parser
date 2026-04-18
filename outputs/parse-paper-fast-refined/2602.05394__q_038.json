@@ -1,0 +1,47 @@
+{
+  "arxiv_id": "2602.05394",
+  "question_id": "q_038",
+  "original_question": "Randomized SVD: Let (A R^n x d ) be a matrix, fix $r > 0$, and let (Omega R^n x k ) be an oblivious subspace injection with dimension $r$ and injectivity (1-epsilon ). Let $~A = (AOmega)(AOmega)^+A$ denote the randomized SVD approximation to $A$, and let $A_r$ be the best rank-$r$ approximation to $A$ with respect to the Frobenius norm. Prove or disprove: Does it necessarily hold that [ |A - ~A |_ F <= (1+O(epsilon)) |A-A_r |_ F? ]",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 12627.62,
+  "target_in_paper": "Section 5.1, Problem 5.2 (Randomized SVD). This workshop paper frames the question as an open problem under the heading “Injections vs. embeddings,” with Definition 5.1 supplying the meaning of an oblivious subspace injection (OSI).",
+  "completeness_score": 8.5,
+  "correct_elements": "Your draft already captures the official target very closely: it has the right object (the randomized SVD approximation \\(\\widetilde A=(A\\Omega)(A\\Omega)^+A\\)), the right benchmark (the best rank-\\(r\\) Frobenius approximation \\(A_r\\)), the right hypothesis type (an oblivious subspace injection with dimension \\(r\\) and injectivity \\(1-\\varepsilon\\)), the correct ambient shapes \\(A\\in\\mathbb R^{n\\times d}\\) and \\(\\Omega\\in\\mathbb R^{n\\times k}\\), and the exact relative-error form \\(\\|A-\\widetilde A\\|_F\\le (1+O(\\varepsilon))\\|A-A_r\\|_F\\).",
+  "missing_details": [
+    "The paper’s official formulation is an open problem labeled Problem 5.2 in Section 5.1, not a theorem/conjecture elsewhere in the paper.",
+    "The draft should define OSI fully, not just mention it informally: Definition 5.1 includes both isotropy (for every vector \\(x\\), \\(\\mathbb E\\|\\Omega^\\top x\\|_2^2=\\|x\\|_2^2\\)) and injectivity on every fixed \\(r\\)-dimensional subspace.",
+    "The failure-probability part of OSI is implicit in the draft. In the paper, an oblivious subspace injection has a failure probability parameter \\(\\delta\\); if omitted, the paper says it may be taken to be an arbitrary small absolute constant, e.g. \\(0.1\\).",
+    "The universal quantifiers should be explicit: the question asks whether the inequality must hold for all matrices \\(A\\), all ranks \\(r\\), and all sketching distributions \\(\\Omega\\) satisfying the OSI hypotheses.",
+    "The Moore–Penrose pseudoinverse notation \\((\\cdot)^+\\) should be spelled out explicitly.",
+    "It is better to state that \\(A_r\\) is any minimizer of \\(\\min_{\\operatorname{rank}(B)\\le r}\\|A-B\\|_F\\), i.e. a best rank-\\(r\\) Frobenius approximation.",
+    "The paper uses standard norm notation \\(\\|\\cdot\\|_F\\), not \\(|\\cdot|_F\\).",
+    "The question is specifically about whether OSI alone suffices for a relative-error guarantee; the paper does not build in extra assumptions such as approximate matrix multiplication, OSE, or a reduced failure probability into Problem 5.2 itself.",
+    "Nearby context notes a least-squares result under smaller failure probability \\(\\delta=O(\\varepsilon)\\), but that is post-problem discussion and should not be silently imported into the statement of Problem 5.2.",
+    "Strictly speaking, \\(r\\) should be treated as a positive integer rank parameter, even though the paper writes 'fix \\(r>0\\)'."
+  ],
+  "refined_question": "Let \\(A\\in\\mathbb R^{n\\times d}\\), let \\(r\\in\\mathbb N\\), and let \\(\\Omega\\in\\mathbb R^{n\\times k}\\) be an oblivious subspace injection of dimension \\(r\\) and injectivity \\(1-\\varepsilon\\) in the sense of Definition 5.1: for every \\(x\\in\\mathbb R^n\\), \\(\\mathbb E\\|\\Omega^\\top x\\|_2^2=\\|x\\|_2^2\\), and for every fixed \\(r\\)-dimensional subspace \\(V\\subseteq\\mathbb R^n\\), with the OSI failure probability (which, if left unspecified as in the paper, may be taken to be a fixed small absolute constant), one has \\(\\|\\Omega^\\top x\\|_2^2\\ge (1-\\varepsilon)\\|x\\|_2^2\\) for all \\(x\\in V\\). Define the randomized SVD approximation by \\(\\widetilde A:=(A\\Omega)(A\\Omega)^+A\\), where \\((\\cdot)^+\\) denotes the Moore–Penrose pseudoinverse, and let \\(A_r\\) be a best rank-\\(r\\) approximation to \\(A\\) in Frobenius norm. Prove or disprove that OSI alone guarantees a relative-error bound of the form \\(\\|A-\\widetilde A\\|_F\\le (1+C\\varepsilon)\\|A-A_r\\|_F\\) for some absolute constant \\(C\\), uniformly over all such \\(A\\) and \\(\\Omega\\).",
+  "equivalent_formulation": null,
+  "justification": "The nearest official formulation is exactly Problem 5.2 in Section 5.1, which specializes the section’s meta-problem ('what is the weakest assumption on the sketching matrix that ensures a desired level of accuracy?') to randomized SVD. The surrounding text explains that prior work with OSIs yields only constant-factor low-rank approximation guarantees, and Problem 5.2 asks whether improving the injectivity from a constant to \\(1-\\varepsilon\\) is enough to upgrade this to a \\((1+O(\\varepsilon))\\) Frobenius relative-error guarantee. Definition 5.1 is needed to make the statement stand alone, because OSI includes isotropy, injectivity on every fixed \\(r\\)-dimensional subspace, and a failure-probability convention. The note immediately after Problem 5.2 discusses a least-squares analogue requiring smaller failure probability; that discussion motivates, but is not part of, the official randomized-SVD question.",
+  "citations": [
+    {
+      "section": "1",
+      "label": "Introduction",
+      "page": 3
+    },
+    {
+      "section": "5.1",
+      "label": "Definition 5.1 (Subspace embeddings and injections)",
+      "page": 35
+    },
+    {
+      "section": "5.1",
+      "label": "Problem 5.2 (Randomized SVD)",
+      "page": 35
+    },
+    {
+      "section": "5.1",
+      "label": "Discussion immediately after Problem 5.2",
+      "page": 35
+    }
+  ]
+}

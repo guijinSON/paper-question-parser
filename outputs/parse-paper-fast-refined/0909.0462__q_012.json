@@ -1,0 +1,36 @@
+{
+  "arxiv_id": "0909.0462",
+  "question_id": "q_012",
+  "original_question": "Consider an open polling system with two stations and two heterogeneous servers. Each station has Poisson input of rate 1. For i, j in {1, 2}, service times of server j at station i are i.i.d. exponential with rate mu_i^(j). Both servers use the exhaustive service policy, switch-over times are zero, and a server becomes passive if neither station has a free customer. In the positive four-dimensional parameter cube for {(mu_i^(j))}, does the subset of parameter values for which the system is null recurrent have positive Lebesgue measure?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 529.82,
+  "target_in_paper": "Section 5, 'Random fluid limits and positive Lebesgue measure of the area of null-recurrence' — specifically the unnumbered conjecture stated there.",
+  "completeness_score": 9.1,
+  "correct_elements": "Your draft already captures almost all of the paper's actual statement: the model is an open polling system with two stations and two heterogeneous servers; each station has Poisson input with rate 1; the service time of server j at station i is exponential with rate mu_i^(j); both servers use exhaustive service; switchover times are zero; a server becomes passive when there is no free customer at either station; and the question asks whether the null-recurrent parameter region has positive Lebesgue measure.",
+  "missing_details": [
+    "Make the parameter domain explicit as the open cube (0,1)^4 for (mu_1^(1), mu_1^(2), mu_2^(1), mu_2^(2)); Section 5 says all four service-rate parameters must be less than 1 even for stability to be possible, and then speaks of 'the positive 4-dimensional cube.'",
+    "Say explicitly that null recurrence refers to the stochastic state process of the polling system itself; Section 5 mentions an associated fluid model, but the conjecture is about the system, not about recurrence of the fluid limits.",
+    "If the question is to be fully stand-alone, note that the short 2009 note leaves some model detail under the phrase 'See [14] for more details'; so the refined question should remain exactly at the level of the Section 5 conjecture and should not try to broaden into a full characterization of the stability region.",
+    "Preserve the narrow scope: the paper asks only whether the null-recurrent set has positive 4-dimensional Lebesgue measure, not for an explicit description of that set."
+  ],
+  "refined_question": "Consider the open polling system with two stations and two heterogeneous servers described as follows. For each station i in {1,2}, arrivals form a Poisson input of rate lambda_i = 1. For i,j in {1,2}, service times of server j at station i are i.i.d. exponential with rate mu_i^(j). Both servers use the exhaustive service policy: after a service completion, a server immediately begins another service at its current station if a customer is available there; otherwise it moves instantaneously to the other station; and if there is no free customer at either station, the server becomes passive. Restrict the parameter vector (mu_1^(1), mu_1^(2), mu_2^(1), mu_2^(2)) to the open cube (0,1)^4. Is it true that the subset of parameter values for which the polling system's state process is null recurrent has positive 4-dimensional Lebesgue measure?",
+  "equivalent_formulation": null,
+  "justification": "The draft is already very close to the paper's exact intent because Section 5 states essentially this conjecture verbatim. The main refinement needed is to make the parameter region precise as (0,1)^4, since Section 5 first says that all four parameters must be less than 1 in order for stability even to be possible, and then asks whether the null-recurrent region inside the positive 4-dimensional cube has positive Lebesgue measure. The other useful clarification is that recurrence is being asked of the polling system's stochastic state process, whereas the nearby contextual sentence about fluid limits is explanatory background rather than the object of the conjecture. The note itself also says that the associated fluid limits are random and piecewise deterministic and sends the reader to reference [14] for further details.",
+  "citations": [
+    {
+      "section": "5",
+      "label": "Random fluid limits and positive Lebesgue measure of the area of null-recurrence",
+      "page": 5
+    },
+    {
+      "section": "5",
+      "label": "unnumbered conjecture on the null-recurrent parameter set",
+      "page": 5
+    },
+    {
+      "section": "References",
+      "label": "[14] Foss and Kovalevskii, A stability criterion via fluid limits and its application to a polling model",
+      "page": 6
+    }
+  ]
+}

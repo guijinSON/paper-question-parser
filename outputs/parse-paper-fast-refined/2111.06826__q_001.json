@@ -1,0 +1,54 @@
+{
+  "arxiv_id": "2111.06826",
+  "question_id": "q_001",
+  "original_question": "Let p(· | θ*) be a well-specified exponential-family distribution, let T(X) be its sufficient statistic, let μ* = E_{θ*}[T(X)] be the mean parameter, and let D_n = (X_1, …, X_n) be iid samples. The maximum-likelihood estimator uses the empirical mean (1/n) ∑_i T_i, while the conjugate maximum a posteriori estimator with prior hyperparameters (n_0, μ_0) uses (n_0μ_0 + ∑_i T_i)/(n_0 + n). Find non-asymptotic upper bounds, valid for finite sample size n and for a broad class of exponential families including small-sample regimes, for the frequentist risk measured by the expected Kullback-Leibler divergence from the true model to these estimators, equivalently the expected Bregman divergence BA*(μ*; (1/n) ∑_i T_i) for MLE and BA*(μ*; (n_0μ_0 + ∑_i T_i)/(n_0 + n)) for MAP, where the final upper bounds should not themselves leave an expectation over the dataset.",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 7818.36,
+  "target_in_paper": "Nearest official formulation: Section 3, Open Problem 1 (Upper-bounding MAP and MLE), together with the KL/Bregman identity in Eq. (12) and the conjugate-MAP update in Eq. (11).",
+  "completeness_score": 9,
+  "correct_elements": "Your draft already captures the paper's target very closely: it is in the well-specified iid exponential-family setting; it uses the exact mean-parameter formulas for the MLE and conjugate MAP; it measures frequentist risk by expected KL divergence from the true model to the estimator; it includes the equivalent Bregman form B_{A*}(mu*; ·); it asks for non-asymptotic finite-n upper bounds; and it correctly insists that the final bound should not leave an expectation over the dataset.",
+  "missing_details": [
+    "The paper works with steep, regular exponential families with minimal sufficient statistic, so A is a strictly convex Legendre-type log-partition function on an open convex natural-parameter domain Theta.",
+    "The conjugate prior should be stated explicitly as pi(theta | n0, mu0) proportional to exp(n0 <mu0, theta> - n0 A(theta)), with mu0 in the mean-parameter space M; the MLE is recovered formally by setting n0 = 0.",
+    "The estimator in parameter space is theta_hat = grad A*(mu_hat); the risk is about the induced distributions p_{theta_hat}, not only about the averaged sufficient statistics.",
+    "The KL/Bregman orientation should be fixed exactly: KL(p_{theta*} || p_{theta_hat}) = B_A(theta_hat; theta*) = B_{A*}(mu*; mu_hat).",
+    "A paper-faithful formulation should note that the MLE risk need not be finite in general; for some families or small sample sizes it can be +infinity, whereas the MAP risk is always finite in the paper's discussion.",
+    "The paper's scope is the exact MLE and the exact conjugate MAP only; it is not asking for bounds for broader regularized estimators or other priors.",
+    "The intended goal is a deterministic, dataset-free upper bound on the exact expectations in Eqs. (13)-(14), not merely a high-probability statement or a bound on a surrogate loss."
+  ],
+  "refined_question": "Let {p_theta(x) = exp(<theta, T(x)> - A(theta)) h(x) : theta in Theta} be a steep, regular exponential family with minimal sufficient statistic T, open convex natural-parameter space Theta, mean-parameter space M, and mean map mu = grad A(theta). Fix a well-specified parameter theta* in Theta, write mu* = grad A(theta*), and let D_n = (X_1, ..., X_n) be iid from p_{theta*}. Define the MLE in mean-parameter form by mu_hat_MLE(D_n) = (1/n) sum_{i=1}^n T(X_i), and for the conjugate prior pi(theta | n0, mu0) proportional to exp(n0 <mu0, theta> - n0 A(theta)) with n0 > 0 and mu0 in M, define the conjugate MAP by mu_hat_MAP(D_n) = (n0 mu0 + sum_{i=1}^n T(X_i)) / (n0 + n); equivalently theta_hat_MLE = grad A*(mu_hat_MLE) and theta_hat_MAP = grad A*(mu_hat_MAP). Can one derive explicit deterministic non-asymptotic upper bounds, valid for finite n and ideally for a broad class of exponential families including few-sample regimes, for the exact frequentist risks E_{D_n}[KL(p_{theta*} || p_{theta_hat_MLE})] = E_{D_n}[B_{A*}(mu*; mu_hat_MLE)] and E_{D_n}[KL(p_{theta*} || p_{theta_hat_MAP})] = E_{D_n}[B_{A*}(mu*; mu_hat_MAP)], with no expectation over D_n left in the final bound, while allowing for the possibility that in some families or sample-size regimes the MLE risk is necessarily infinite?",
+  "equivalent_formulation": "Equivalently, can one upper bound the expected log-likelihood suboptimality E_{D_n}[A(theta_hat) - A(theta*) - <theta_hat - theta*, mu*>] for theta_hat equal to the MLE or the conjugate MAP, since Eq. (4) and Eq. (12) identify this quantity with both KL(p_{theta*} || p_{theta_hat}) and B_{A*}(mu*; mu_hat)?",
+  "justification": "The draft is aimed at the paper's first main open problem, not at a neighboring asymptotic or local result. Section 3 formulates the exact task as upper-bounding the expected KL risks of the MLE and MAP, and it explicitly says the desired answer is an upper bound with no remaining expectation over the dataset. The draft also correctly uses the paper's equivalent Bregman-divergence formulation from Eq. (12) and the exact mean-parameter formulas for MLE and conjugate MAP from Section 2. The nearby results in Section 4 and Section 5 do not replace this target: Theorems 4.1 and 4.2 are special-case finite-n bounds, Proposition 1 gives only a local/large-sample quadratic control, and Theorem 5.1 gives a bias-variance decomposition that helps clarify structure but does not solve the open problem in general. The main correction needed for paper-faithfulness is to preserve the paper's caveat that the MLE risk can be infinite for some exponential families or small sample sizes, so a universally finite MLE upper bound is not part of the official statement.",
+  "citations": [
+    {
+      "section": "Section 1",
+      "label": "Introduction, displayed fundamental problem and finite-n / small-sample motivation",
+      "page": "1"
+    },
+    {
+      "section": "Section 2",
+      "label": "Eq. (11) (conjugate MAP formula)",
+      "page": "2"
+    },
+    {
+      "section": "Section 3",
+      "label": "Eq. (12) and Open Problem 1, Eqs. (13)-(14)",
+      "page": "2-3"
+    },
+    {
+      "section": "Section 4.1",
+      "label": "Theorems 4.1 and 4.2",
+      "page": "3-4"
+    },
+    {
+      "section": "Section 5.3",
+      "label": "Proposition 1",
+      "page": "5"
+    },
+    {
+      "section": "Section 5.4",
+      "label": "Theorem 5.1",
+      "page": "5-6"
+    }
+  ]
+}

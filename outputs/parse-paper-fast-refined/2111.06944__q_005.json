@@ -1,0 +1,63 @@
+{
+  "arxiv_id": "2111.06944",
+  "question_id": "q_005",
+  "original_question": "For a fixed pair of vertices in a graph G, compare interlacing for resolvent centrality RC(i, alpha) = [(I - alpha A)^(-1)]_ii, defined for alpha in (0, 1/rho(A)), and for exponential subgraph centrality SC(i, beta) = [e^(beta A)]_ii. Say that two vertices interlace when the corresponding centrality values are equal for some parameter value. Is it always true that the number of interlacing values for resolvent centrality is less than or equal to the number of interlacing values for subgraph centrality for that same vertex pair?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 7754.92,
+  "target_in_paper": "§3, Problem 4: for a fixed pair of vertices of a graph G, determine whether the number of interlacing values for resolvent centrality is always less than or equal to the number of interlacing values for subgraph centrality. This is the exact open problem your draft is aiming at. ([ricerca.sns.it](https://ricerca.sns.it/bitstream/11384/128462/1/soposc_rev.pdf))",
+  "completeness_score": 9,
+  "correct_elements": "Your draft already captures the paper’s target almost verbatim: it fixes one pair of vertices, uses the correct diagonal-entry definitions of resolvent centrality and exponential subgraph centrality, interprets interlacing as equality at some parameter value, and asks exactly whether the resolvent interlacing count is always bounded above by the subgraph-centrality interlacing count for that same pair. ([ricerca.sns.it](https://ricerca.sns.it/bitstream/11384/128462/1/soposc_rev.pdf))",
+  "missing_details": [
+    "The paper’s default ambient setting is a simple undirected graph G with adjacency matrix A; directed or weighted variants are discussed only when explicitly stated, and Problem 4 is not separately broadened beyond that default. ([ricerca.sns.it](https://ricerca.sns.it/bitstream/11384/128462/1/soposc_rev.pdf))",
+    "The subgraph-centrality parameter range should be stated explicitly as β > 0; this is how SC(i,β) is defined in the introduction and §2.1. ([ricerca.sns.it](https://ricerca.sns.it/bitstream/11384/128462/1/soposc_rev.pdf))",
+    "The resolvent-centrality parameter range should be stated explicitly as 0 < α < 1/ρ(A), where ρ(A) is the spectral radius of A. ([ricerca.sns.it](https://ricerca.sns.it/bitstream/11384/128462/1/soposc_rev.pdf))",
+    "To make the question fully stand-alone, it is best to name the two sets of interlacing values, for example I_SC(i,j) = {β > 0 : SC(i,β) = SC(j,β)} and I_RC(i,j) = {α in (0,1/ρ(A)) : RC(i,α) = RC(j,α)}, and then compare their cardinalities. The paper uses 'number of interlacing values' as the number of zeros of the relevant difference function. ([ricerca.sns.it](https://ricerca.sns.it/bitstream/11384/128462/1/soposc_rev.pdf))",
+    "The trivial cospectral case is implicit but worth stating: if i and j are cospectral, then they have equal subgraph centrality for all β > 0 and equal resolvent centrality for all admissible α, so both interlacing sets are the full parameter domains; the substantive case is therefore non-cospectral pairs. ([ricerca.sns.it](https://ricerca.sns.it/bitstream/11384/128462/1/soposc_rev.pdf))",
+    "The paper’s nearby context also motivates the question by noting existing upper bounds: for non-cospectral pairs, subgraph interlacing has at most d−1 values and resolvent interlacing has at most n−1 in general or d−1 in the simple-undirected case. This is not part of the problem statement itself, but it is part of the intended scope and motivation. ([ricerca.sns.it](https://ricerca.sns.it/bitstream/11384/128462/1/soposc_rev.pdf))"
+  ],
+  "refined_question": "Let G be a simple undirected graph with adjacency matrix A, and fix two vertices i and j. Define the exponential subgraph centrality and resolvent centrality by SC(v,β) := [e^(βA)]_{vv} for β > 0 and RC(v,α) := [(I − αA)^(-1)]_{vv} for 0 < α < 1/ρ(A), where ρ(A) is the spectral radius of A. Let I_SC(i,j) := {β > 0 : SC(i,β) = SC(j,β)} and I_RC(i,j) := {α in (0,1/ρ(A)) : RC(i,α) = RC(j,α)}. Is it always true that |I_RC(i,j)| ≤ |I_SC(i,j)|? ([ricerca.sns.it](https://ricerca.sns.it/bitstream/11384/128462/1/soposc_rev.pdf))",
+  "equivalent_formulation": null,
+  "justification": "The draft is targeting Problem 4 exactly, not a neighboring problem. The paper first defines subgraph centrality SC(i,β) = [e^(βA)]_{ii} and β-subgraph equivalence, then later defines resolvent centrality RC(i,α) = [(I−αA)^(-1)]_{ii} for 0 < α < 1/ρ(A). In the open-problems section, after reporting computational evidence that resolvent interlacing seems always accompanied by exponential-subgraph interlacing, the authors state precisely the inequality between the two numbers of interlacing values. The only real refinements needed are to make the default graph class, parameter domains, and the cardinality comparison fully explicit. ([ricerca.sns.it](https://ricerca.sns.it/bitstream/11384/128462/1/soposc_rev.pdf))",
+  "citations": [
+    {
+      "section": "§1",
+      "label": "Introduction",
+      "page": "2"
+    },
+    {
+      "section": "§2.1",
+      "label": "Definition 2.1",
+      "page": "4"
+    },
+    {
+      "section": "§2.2",
+      "label": "Definition 2.2 and Theorem 2.5",
+      "page": "5-6"
+    },
+    {
+      "section": "§2.3",
+      "label": "Theorem 2.9",
+      "page": "9"
+    },
+    {
+      "section": "§2.3",
+      "label": "Proposition 2.13",
+      "page": "10"
+    },
+    {
+      "section": "§2.4",
+      "label": "Resolvent centrality definition",
+      "page": "11"
+    },
+    {
+      "section": "§2.4",
+      "label": "Theorems 2.14-2.15",
+      "page": "12-13"
+    },
+    {
+      "section": "§3",
+      "label": "Problem 4",
+      "page": "18"
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "arxiv_id": "1204.6447",
+  "question_id": "q_019",
+  "original_question": "Fix 0 <= rho <= 1. Among all partitions of R^n into q parts of equal Gaussian measure, where 3 <= q <= n+1, is the maximum noise stability at rho achieved by a standard simplex partition, and for -1 <= rho <= 0 does the standard simplex partition minimize the noise stability?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 2368.38,
+  "target_in_paper": "The open problem labeled “Standard Simplex Conjecture” in arXiv:1204.6447, in the precise formal version given as Conjecture 1 in Heilman’s restatement of the Isaksson–Mossel conjecture.",
+  "completeness_score": 7.5,
+  "correct_elements": "Your draft captures the right conjecture and most of its mathematical core: the ambient space is R^n, the number of parts satisfies 3 ≤ q ≤ n+1, the positive-correlation side asks for maximal Gaussian noise stability under equal Gaussian measures, the candidate extremizer is the standard simplex partition, and the negative-correlation side asks for the opposite extremum.",
+  "missing_details": [
+    "The paper’s formal setup uses n ≥ 2 and q (written k in the paper) an integer with 3 ≤ q ≤ n+1.",
+    "The partition must be measurable and is understood modulo Gaussian-null overlaps: ⋃_{i=1}^q A_i = R^n and γ_n(A_i ∩ A_j) = 0 for i ≠ j.",
+    "The Gaussian measure must be specified explicitly as the standard Gaussian measure γ_n on R^n.",
+    "The noise stability functional must be defined, either as J(A_1,...,A_q) = Σ_i ∫ 1_{A_i} T_ρ(1_{A_i}) dγ_n or equivalently via ρ-correlated Gaussian vectors.",
+    "The Ornstein–Uhlenbeck/noise operator must be defined: T_ρ f(x) = ∫ f(ρx + √(1-ρ^2) y) dγ_n(y).",
+    "The standard simplex partition should be defined precisely as the Voronoi partition coming from the vertices of a centered regular simplex, equivalently from unit vectors with pairwise inner products -1/(q-1).",
+    "For the positive-correlation side, the official formulation is nontrivial for ρ ∈ (0,1]; ρ = 0 is a trivial case.",
+    "For the negative-correlation side, the precise formal version in the source does not impose equal Gaussian measure on the parts; your draft is too restrictive there.",
+    "The paper’s terminology is “regular simplicial conical partition,” which is the formal version of your “standard simplex partition.”",
+    "If one uses the probabilistic formulation, one must specify that X,Y are jointly standard Gaussian in R^n with E[X_i Y_j] = ρ·1_{i=j}."
+  ],
+  "refined_question": "Let n ≥ 2 and 3 ≤ q ≤ n+1. Let γ_n denote the standard Gaussian measure on R^n, and for ρ ∈ [-1,1] define the Ornstein–Uhlenbeck operator by T_ρ f(x) = ∫_{R^n} f(ρx + √(1-ρ^2)y) dγ_n(y). If A_1,...,A_q ⊂ R^n is a measurable partition of R^n, meaning ⋃_{i=1}^q A_i = R^n and γ_n(A_i ∩ A_j) = 0 for i ≠ j, and if S_1,...,S_q is the regular simplicial conical partition determined by the vertices z_1,...,z_q of a regular simplex centered at the origin in R^n, with S_i given by the Voronoi cell where ⟨x,z_i⟩ is maximal (up to Gaussian-null tie sets), is it true that: (i) for every ρ ∈ (0,1], among all such partitions satisfying γ_n(A_i) = 1/q for all i, the quantity J(A_1,...,A_q) = Σ_{i=1}^q ∫_{R^n} 1_{A_i}(x) T_ρ(1_{A_i})(x) dγ_n(x) is maximized by the regular simplicial conical partition; and (ii) for every ρ ∈ [-1,0), among all measurable partitions of R^n, the same quantity J is minimized by the regular simplicial conical partition?",
+  "equivalent_formulation": "Equivalently, if X,Y are jointly standard Gaussian vectors in R^n with E[X_iY_j] = ρ·1_{i=j}, is Σ_{i=1}^q P(X ∈ A_i and Y ∈ A_i) maximized in case (i) and minimized in case (ii) by the regular simplicial conical partition?",
+  "justification": "The draft is clearly targeting the Standard Simplex Conjecture. In arXiv:1204.6447 this appears only as a compressed open-problem entry, so the draft needs the formal definitions supplied by the cited source tradition and by Heilman’s precise restatement: measurable Gaussian partitions, the Ornstein–Uhlenbeck operator, the objective J, and the exact definition of the simplex partition. The most important substantive correction is on the ρ < 0 side: the precise formal conjecture removes the equal-measure restriction there. Heilman’s main theorem proves the q = 3, small-positive-ρ case, confirming that this is exactly the conjecture your draft is trying to isolate.",
+  "citations": [
+    {
+      "section": "Main matter",
+      "label": "Standard Simplex Conjecture",
+      "page": "HTML lines 343-351"
+    },
+    {
+      "section": "Section 1",
+      "label": "Definition 1.1",
+      "page": "PDF page P2"
+    },
+    {
+      "section": "Section 1",
+      "label": "Conjecture 1 (Standard Simplex Conjecture)",
+      "page": "PDF page P2"
+    },
+    {
+      "section": "Section 1",
+      "label": "equivalence of equation (3) with the probabilistic formulation using correlated Gaussians",
+      "page": "PDF pages P2-P3"
+    },
+    {
+      "section": "Section 1",
+      "label": "Theorem 1.2 (Main Theorem)",
+      "page": "PDF page P2"
+    }
+  ]
+}

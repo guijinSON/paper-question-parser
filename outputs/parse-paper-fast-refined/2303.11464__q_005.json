@@ -1,0 +1,47 @@
+{
+  "arxiv_id": "2303.11464",
+  "question_id": "q_005",
+  "original_question": "Fix integers m and k with k <= m. Let A be an n x m binary matrix whose columns are distinct nonzero vectors a_1, ..., a_m in {0,1}^n, let x and y be independent uniformly random n x t binary matrices, and for each i define m_i^A(x) = sum_j <a_i, x_j>_2, the number of columns x_j whose parity on the subset encoded by a_i is odd. When A consists of all binary vectors of Hamming weight at most k, can one compute exactly the probability that m_i^A(x) = m_i^A(y) for every i?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 8539.73,
+  "target_in_paper": "Section 2, Open Problem 2.1: the weight-at-most-k specialization of the paper's \"Computational Problem,\" namely to determine P((m_i(x)=m_i(y)) for all i) when A consists of all nonzero binary vectors of bounded Hamming weight. ([archive.intlpress.com](https://archive.intlpress.com/site/pub/files/_fulltext/journals/joc/2023/0014/0004/JOC-2023-0014-0004-a008.pdf))",
+  "completeness_score": 8,
+  "correct_elements": "Your draft already captures almost all of the Section 2 setup correctly: A is an n x m binary matrix with distinct nonzero columns; x and y are uniformly random n x t binary matrices; m_i^A(x) is the count of columns x_j on which the parity selected by a_i is odd, using the GF(2) inner product and then summing in the integers; and the target family is precisely the one where A contains all vectors of Hamming weight at most k. That is exactly the family singled out in Open Problem 2.1. ([archive.intlpress.com](https://archive.intlpress.com/site/pub/files/_fulltext/journals/joc/2023/0014/0004/JOC-2023-0014-0004-a008.pdf))",
+  "missing_details": [
+    "The ambient parameters should be stated explicitly as n,t in Z_{>0} and 1<=k<=n. In the paper's official wording, Open Problem 2.1 says \"Fix m and k<=m,\" but this conflicts with the surrounding Section 2 notation, where n is the vector length and m is the number of columns of A. A stand-alone version should resolve that inconsistency. ([archive.intlpress.com](https://archive.intlpress.com/site/pub/files/_fulltext/journals/joc/2023/0014/0004/JOC-2023-0014-0004-a008.pdf))",
+    "Once A is required to contain every nonzero vector in {0,1}^n of Hamming weight at most k, m is no longer a free parameter; by combining the Section 2 setup with this requirement, one infers m = sum_{r=1}^k binom(n,r). This dependence should be stated explicitly. ([archive.intlpress.com](https://archive.intlpress.com/site/pub/files/_fulltext/journals/joc/2023/0014/0004/JOC-2023-0014-0004-a008.pdf))",
+    "The probability is taken over x and y only, with x and y sampled independently and uniformly from {0,1}^{n x t}; A is fixed in advance. ([archive.intlpress.com](https://archive.intlpress.com/site/pub/files/_fulltext/journals/joc/2023/0014/0004/JOC-2023-0014-0004-a008.pdf))",
+    "The mixed arithmetic should be made explicit: <a_i,x_j>_2 is computed in GF(2), but m_i^A(x)=sum_j <a_i,x_j>_2 is an integer-valued sum. ([archive.intlpress.com](https://archive.intlpress.com/site/pub/files/_fulltext/journals/joc/2023/0014/0004/JOC-2023-0014-0004-a008.pdf))",
+    "To match the paper's scope, it helps to note the solved boundary cases recorded immediately after Open Problem 2.1: k=1 is handled by Lemma 2.5, and the maximal family of all 2^n-1 nonzero vectors is handled via the abelian-square result cited from [1]; the genuinely open part is the intermediate bounded-weight regime. ([archive.intlpress.com](https://archive.intlpress.com/site/pub/files/_fulltext/journals/joc/2023/0014/0004/JOC-2023-0014-0004-a008.pdf))"
+  ],
+  "refined_question": "Let n,t be positive integers and let 1<=k<=n. Let A be the n x m binary matrix whose columns are exactly all nonzero vectors a in {0,1}^n of Hamming weight at most k, listed in any fixed order, so that m = sum_{r=1}^k binom(n,r). For independently uniform x,y in {0,1}^{n x t}, write x=(x_1^T,...,x_t^T) and y=(y_1^T,...,y_t^T) with x_j,y_j in {0,1}^n, and for each column a_i of A define m_i^A(x):=sum_{j=1}^t <a_i,x_j>_2, where <.,.>_2 is the inner product in GF(2)^n and the outer sum is taken in Z. Determine exactly the probability that m_i^A(x)=m_i^A(y) for every column a_i of A. ([archive.intlpress.com](https://archive.intlpress.com/site/pub/files/_fulltext/journals/joc/2023/0014/0004/JOC-2023-0014-0004-a008.pdf))",
+  "equivalent_formulation": null,
+  "justification": "The draft is aiming at Section 2's \"Computational Problem\" specialized to the family A of all nonzero bounded-weight vectors. Definition 2.2 supplies the exact meaning of m_i^A(x), the displayed \"Computational Problem\" asks for the probability that all these indicators agree for random x and y, Example 2.6 shows the weight-at-most-2 instance as the first nontrivial case, and Open Problem 2.1 then asks for this same computation for all weight thresholds k. The only substantial repair needed is the notation: in a stand-alone formulation, n should denote the ambient binary-vector length, while m should be derived from n and k rather than fixed independently. ([archive.intlpress.com](https://archive.intlpress.com/site/pub/files/_fulltext/journals/joc/2023/0014/0004/JOC-2023-0014-0004-a008.pdf))",
+  "citations": [
+    {
+      "section": "2",
+      "label": "Definition 2.2",
+      "page": 570
+    },
+    {
+      "section": "2",
+      "label": "Computational Problem",
+      "page": 570
+    },
+    {
+      "section": "2",
+      "label": "Example 2.6",
+      "page": "572-573"
+    },
+    {
+      "section": "2",
+      "label": "Lemma 2.5",
+      "page": "571-572"
+    },
+    {
+      "section": "2",
+      "label": "Open Problem 2.1",
+      "page": 575
+    }
+  ]
+}

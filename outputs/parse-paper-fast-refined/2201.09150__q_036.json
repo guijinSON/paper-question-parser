@@ -1,0 +1,55 @@
+{
+  "arxiv_id": "2201.09150",
+  "question_id": "q_036",
+  "original_question": "Determine how to incorporate nonlocal perception into the starvation-driven learning model and characterize the differences in solution behavior between using learning alone, perception alone, and both mechanisms together.",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 7995.32,
+  "target_in_paper": "Open Problem 36 in Section 2.5 (Learning), immediately after the introduction of the starvation-driven advection model (2.38). It asks for a nonlocal-perception extension of that learning mechanism and a comparison between using one mechanism alone and using both together. ([math.ualberta.ca](https://www.math.ualberta.ca/~hwang/WangSalmaniwReview.pdf))",
+  "completeness_score": 7.5,
+  "correct_elements": "Your draft correctly captures the two central components of the paper’s official problem: (i) add nonlocal perception to the learning mechanism built around model (2.38), and (ii) compare the resulting solution behaviour with the cases where only learning or only perception is present. It also stays in the correct part of the paper, namely Section 2.5 on learning, rather than drifting into the neighboring pattern-formation question of Open Problem 37. ([math.ualberta.ca](https://www.math.ualberta.ca/~hwang/WangSalmaniwReview.pdf))",
+  "missing_details": [
+    "It does not identify the exact target as Open Problem 36 in Section 2.5. ([math.ualberta.ca](https://www.math.ualberta.ca/~hwang/WangSalmaniwReview.pdf))",
+    "It omits the base model being modified: the one-dimensional starvation-driven advection equation (2.38), introduced after the satisfaction ratio s(x,t)=m(x,t)/u(x,t) in (2.36) and the switch \\tilde{\\omega}(s) in (2.37), with 0<\\gamma<\\gamma^+. ([math.ualberta.ca](https://www.math.ualberta.ca/~hwang/WangSalmaniwReview.pdf))",
+    "It does not state the nearby meanings of the variables and parameters: u(x,t) is the forager density, m(x,t) the local resource density, x_0\\in\\Omega a central den site, d the diffusion coefficient, and \\gamma,\\gamma^+ the home-attraction and high-hunger foraging rates. ([math.ualberta.ca](https://www.math.ualberta.ca/~hwang/WangSalmaniwReview.pdf))",
+    "It omits the paper’s definition of nonlocal perception, namely the perception operator a_{g,R}(x,t)=\\int_{\\Omega} a(y,t)g(x-y)\\,dy, where g is the detection/perceptual kernel and R is the perceptual radius. ([math.ualberta.ca](https://www.math.ualberta.ca/~hwang/WangSalmaniwReview.pdf))",
+    "It does not include the paper-critical modeling constraint that, when the advection rate depends on x, t, or u, the correct perceived advection term is -\\nabla\\cdot\\big(u\\nabla(\\gamma(x,t,u)a_{g,R})\\big), not -\\gamma(x,t,u)\\nabla\\cdot\\big(u\\nabla a_{g,R}\\big). ([math.ualberta.ca](https://www.math.ualberta.ca/~hwang/WangSalmaniwReview.pdf))",
+    "It leaves implicit what should count as the comparison cases: the learning-only model (2.38), a perception model without the satisfaction-based learning mechanism, and the combined learning-plus-perception model. Open Problem 36 asks specifically for differences in solution behaviour across these regimes. ([math.ualberta.ca](https://www.math.ualberta.ca/~hwang/WangSalmaniwReview.pdf))",
+    "It omits the concrete route suggested immediately after Open Problem 36: use a satisfaction measure based on local versus expected resource density, s(x,t)=m(x,t)/\\bar m(t), where \\bar m(t)=|\\Omega|^{-1}\\int_{\\Omega} m(y,t)\\,dy, so that advection can increase, decrease, or even change sign according to that ratio. ([math.ualberta.ca](https://www.math.ualberta.ca/~hwang/WangSalmaniwReview.pdf))",
+    "It does not note that Table 1 later classifies model (2.38) as local-information only, which is why adding perception is exactly the missing extension singled out by Open Problem 36. ([math.ualberta.ca](https://www.math.ualberta.ca/~hwang/WangSalmaniwReview.pdf))"
+  ],
+  "refined_question": "For the one-dimensional starvation-driven learning model introduced in Section 2.5, namely\n\\partial_t u=\\partial_x\\!\\left(d\\,\\partial_x u-u\\,\\partial_x\\big[\\tilde{\\omega}(s)m+\\gamma\\|x-x_0\\|\\big]\\right),\nwith satisfaction measure s(x,t)=m(x,t)/u(x,t), switch \\tilde{\\omega}(s)=\\gamma^+ for 0\\le s<1 and 0 for 1\\le s<\\infty, and 0<\\gamma<\\gamma^+, how should one formulate a nonlocal-perception extension consistent with the paper’s perception operator a_{g,R}(x,t)=\\int_{\\Omega} a(y,t)g(x-y)\\,dy and with the requirement that any variable advection rate appear inside the gradient, i.e. in the form -\\nabla\\cdot\\big(u\\nabla(\\gamma(x,t,u)a_{g,R})\\big)? In particular, can one construct such a combined model, for example using the local-versus-expected resource ratio s(x,t)=m(x,t)/\\bar m(t) suggested immediately after Open Problem 36, and then characterize how its qualitative solution behaviour differs from that of the learning-only model and from that of a perception-only model without the satisfaction-based learning mechanism? ([math.ualberta.ca](https://www.math.ualberta.ca/~hwang/WangSalmaniwReview.pdf))",
+  "equivalent_formulation": null,
+  "justification": "The draft is closest to Open Problem 36, not Open Problem 37. Open Problem 36 asks for a meaningful incorporation of nonlocal perception into the learning mechanism around model (2.38) and for a comparison of behaviour under one mechanism versus both; Open Problem 37 instead moves on to the different question of whether the starvation-driven switch between foraging and home attraction can generate nontrivial spatiotemporal patterns and whether that switch benefits or impairs the species. The surrounding Section 2.5 context supplies the hidden assumptions needed to make the question stand alone: the learning mechanism is the satisfaction-based modification of advection via (2.36)-(2.38), the paper explicitly states the correct way to combine variable advection with perception, and the paragraph after Open Problem 36 proposes the expected-resource-density ratio as a concrete way to do so. Section 2.1 provides the exact paper-specific meaning of nonlocal perception through the spatial convolution (2.5), and Section 5.3 later confirms that model (2.38) is presently local-information only. ([math.ualberta.ca](https://www.math.ualberta.ca/~hwang/WangSalmaniwReview.pdf))",
+  "citations": [
+    {
+      "section": "2.5 Learning",
+      "label": "Open Problem 36",
+      "page": "32 of 69"
+    },
+    {
+      "section": "2.5 Learning",
+      "label": "Eqs. (2.36)-(2.38)",
+      "page": "31 of 69"
+    },
+    {
+      "section": "2.1 Perception",
+      "label": "Eq. (2.5) and detection kernels (2.3)",
+      "page": "8-9 of 69"
+    },
+    {
+      "section": "2.2.1 Static cognitive maps",
+      "label": "Eq. (2.7)",
+      "page": "11 of 69"
+    },
+    {
+      "section": "2.5 Learning",
+      "label": "Open Problem 37",
+      "page": "32 of 69"
+    },
+    {
+      "section": "5.3 Unification and equivalence of existing models",
+      "label": "Table 1 entry for model (2.38)",
+      "page": "61-62 of 69"
+    }
+  ]
+}

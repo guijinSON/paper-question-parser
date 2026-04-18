@@ -1,0 +1,61 @@
+{
+  "arxiv_id": "2512.19395",
+  "question_id": "q_017",
+  "original_question": "Fix k >= 2. Does there exist m_0 such that whenever m >= m_0 and G is F_{k,3}-free, then for each residue class l with 1 <= l <= k - 1 and m + k(k+1)/2 == l mod k, the graph G satisfies lambda(G) <= lambda(S^{1,l}_{(m-l)/k + (k+3)/2, k}), with equality only for that extremal graph?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 12275.41,
+  "target_in_paper": "Section 3, Conjecture 3.40: the residue-nonzero friendship-graph conjecture for F_{k,3}-free graphs with fixed size.",
+  "completeness_score": 8.3,
+  "correct_elements": "Your draft is already very close to the paper’s actual target. It correctly identifies the forbidden graph family F_{k,3}, fixes k>=2, uses the right 'for all sufficiently large m' format via an existence statement for m_0, imposes the correct nonzero residue condition 1<=l<=k-1 with m + k(k+1)/2 ≡ l (mod k), names the same candidate extremal graph S^{1,l}_{(m-l)/k + (k+3)/2, k}, and includes both the spectral-radius inequality and the uniqueness of the extremal graph. Those features match Conjecture 3.40, not the earlier congruence-0 statement.",
+  "missing_details": [
+    "The paper quantifies over G in 𝒢(m,F_{k,3}), i.e. finite, simple, undirected F_{k,3}-free graphs with exactly m edges and no isolated vertices; your draft only says 'G is F_{k,3}-free'.",
+    "You need to define the forbidden graph explicitly: F_{k,3}=K_1∨kK_2, the friendship graph consisting of k triangles sharing a common vertex.",
+    "You need to define λ(G) as the adjacency spectral radius of G.",
+    "You need to define the extremal graph notation S^{1,l}_{n,k}; in the paper, S^{1,l}_{n,k}:=K_l∨((K_{k-l}∨(n-k-1)K_1)∪K_1).",
+    "It should be explicit that m_0 depends on k, i.e. m_0=m_0(k).",
+    "The variable l should be quantified as an integer satisfying 1<=l<=k-1 and m + k(k+1)/2 ≡ l (mod k), not as a vague 'residue class'.",
+    "To be fully stand-alone, it helps to note that under the congruence condition the parameter n=(m-l)/k+(k+3)/2 is an integer, so the graph S^{1,l}_{n,k} is well defined.",
+    "The equality clause should use graph isomorphism notation explicitly: equality holds if and only if G ≅ S^{1,l}_{(m-l)/k + (k+3)/2, k}.",
+    "The paper’s ambient graph conventions from the introduction (finite, undirected, simple graphs) are implicit in your draft and should be made explicit if you want a stand-alone formulation."
+  ],
+  "refined_question": "Fix an integer k>=2. Let F_{k,3}:=K_1∨kK_2 be the friendship graph, let λ(G) denote the adjacency spectral radius of a finite simple graph G, and for integers n,k,l with 1<=l<k define S^{1,l}_{n,k}:=K_l∨((K_{k-l}∨(n-k-1)K_1)∪K_1). Does there exist m_0=m_0(k) such that for every integer m>=m_0, every integer l with 1<=l<=k-1 and m + k(k+1)/2 ≡ l (mod k), and every graph G in 𝒢(m,F_{k,3}) (that is, every F_{k,3}-free graph with m edges and no isolated vertices), one has λ(G)<=λ(S^{1,l}_{(m-l)/k + (k+3)/2, k}), with equality if and only if G ≅ S^{1,l}_{(m-l)/k + (k+3)/2, k}?",
+  "equivalent_formulation": null,
+  "justification": "The draft is targeting the paper’s later residue-nonzero refinement for friendship graphs, not the earlier basic friendship conjecture. In Section 3, the survey first defines F_{k,3}=K_1∨kK_2 and states Conjecture 3.28 for the congruence-0 extremal graph K_k∨((m/k)-(k-1)/2)K_1; Theorem 3.38 then confirms that zero-residue case. Immediately afterward, the paper notes that this zero-residue extremal graph is only attainable when m + k(k+1)/2 ≡ 0 (mod k), recalls the nonzero-residue model S^{1,l}_{n,k} from Problem 7/Theorem 3.23, and then explicitly poses Conjecture 3.40 for F_{k,3}-free graphs in the nonzero residue classes. Your draft matches that exact conjecture structure, but it omits the paper’s class notation 𝒢(m,F_{k,3}), the definitions of F_{k,3}, λ(G), and S^{1,l}_{n,k}, and the dependence m_0=m_0(k). Theorem 3.43 is also nearby context because it confirms Conjecture 3.40 for the special case k=2.",
+  "citations": [
+    {
+      "section": "Section 1",
+      "label": "definition of 𝒢(m,ℱ) and λ(G); Problem 2",
+      "page": "1"
+    },
+    {
+      "section": "Section 3",
+      "label": "Problem 7 and definition of S^{1,l}_{n,k}",
+      "page": "7"
+    },
+    {
+      "section": "Section 3",
+      "label": "Theorem 3.23",
+      "page": "8"
+    },
+    {
+      "section": "Section 3",
+      "label": "Conjecture 3.28",
+      "page": "8"
+    },
+    {
+      "section": "Section 3",
+      "label": "Theorem 3.38",
+      "page": "10"
+    },
+    {
+      "section": "Section 3",
+      "label": "Conjecture 3.40",
+      "page": "10"
+    },
+    {
+      "section": "Section 3",
+      "label": "Theorem 3.43",
+      "page": "10"
+    }
+  ]
+}

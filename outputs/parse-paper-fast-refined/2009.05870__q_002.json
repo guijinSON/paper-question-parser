@@ -1,0 +1,45 @@
+{
+  "arxiv_id": "2009.05870",
+  "question_id": "q_002",
+  "original_question": "Assuming the hypergraphic planted clique detection conjecture for fixed integer d ≥ 2, which states that when κ grows strictly slower than N no sequence of polynomial-time tests can distinguish the null model G_d(N, 1/2) from the planted-clique model G_d(N, 1/2, κ) with vanishing total error, can stronger evidence for this conjectured hardness be established for additional algorithmic frameworks beyond the Metropolis and low-degree polynomial methods already analyzed, specifically for classes such as statistical query, sum-of-squares, belief propagation, and approximate message passing?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 7188.72,
+  "target_in_paper": "Section 3, Challenge 2, read together with Section 2's definition of the HPC testing problem in Equation (1) and Conjecture 1 (HPC detection).",
+  "completeness_score": 6.5,
+  "correct_elements": "Your draft correctly identifies the paper's open-problem direction of giving additional hardness evidence for hypergraphic planted clique (HPC) detection beyond the Metropolis and low-degree polynomial evidence, and it names the same additional algorithmic frameworks explicitly listed in the paper: statistical query, sum-of-squares, belief propagation, and approximate message passing. It also correctly recognizes that the question is about the HPC detection conjecture rather than the separate reduction/equivalence issue with planted clique in Challenge 3.",
+  "missing_details": [
+    "The conjectured hard regime is below sqrt(N), not below N: the paper's discussion around Conjecture 1 and the sentence immediately after it use the regime kappa = O(N^(1/2 - tau)) for each fixed tau > 0.",
+    "Challenge 2 is not phrased as 'assuming' the conjecture; it asks for additional evidence for Conjecture 1.",
+    "The null and planted models need to be stated fully: H0 is G ~ G_d(N,1/2), the Erdős-Rényi d-uniform hypergraph on N vertices with each d-subset included independently with probability 1/2; H1 is G ~ G_d(N,1/2,kappa), obtained by choosing a uniformly random planted set K of size kappa and forcing every d-hyperedge entirely inside K to be present.",
+    "The problem is asymptotic in N -> infinity, with d fixed and at least 2.",
+    "The paper formalizes algorithms as a sequence of polynomial-time tests phi_N from d-uniform hypergraphs (or equivalently their adjacency tensors) to {0,1}.",
+    "To be fully paper-faithful, the success/failure criterion should be stated in terms of total error P_H0(phi_N=1) + P_H1(phi_N=0).",
+    "Conjecture 1 is stronger than merely 'no vanishing-error distinguisher': it asserts lim inf_{N->infinity} [P_H0(phi_N=1) + P_H1(phi_N=0)] > 1/2 in the conjectured hard regime.",
+    "The paper's objects are random d-uniform hypergraphs and their {0,1}-valued adjacency tensors; there are no ambient ring/field, homogeneity, degree, or nilpotency conditions relevant to this question."
+  ],
+  "refined_question": "For each fixed integer d >= 2 and each fixed tau > 0, consider the hypergraphic planted clique detection problem with H0: G ~ G_d(N,1/2) and H1: G ~ G_d(N,1/2,kappa), where G_d(N,1/2) is the Erdős-Rényi d-uniform hypergraph on [N] and G_d(N,1/2,kappa) is obtained by choosing a uniformly random planted set K subseteq [N] with |K| = kappa and forcing every d-hyperedge contained in K to be present. Can one provide further evidence for Conjecture 1 by proving that, throughout the regime kappa = O(N^(1/2 - tau)), every polynomial-time test phi_N from the statistical query, sum-of-squares, belief-propagation, or approximate-message-passing frameworks fails to solve HPC detection, ideally in the conjectured sense that lim inf_{N->infinity} [P_H0(phi_N=1) + P_H1(phi_N=0)] > 1/2?",
+  "equivalent_formulation": null,
+  "justification": "The draft is aiming at the paper's official open problem in Section 3, Challenge 2, because that challenge asks almost verbatim whether one can provide more evidence for the HPC detection conjecture under additional algorithmic classes such as SQ, SOS, BP, and AMP. To make that question stand alone, one must import the formal HPC hypothesis-testing setup from Section 2, Equation (1), and the hardness regime from Conjecture 1. The sentence immediately after Conjecture 1 supplies the currently known evidence base—Metropolis and low-degree polynomial methods—which your draft already references.",
+  "citations": [
+    {
+      "section": "2",
+      "label": "definition of G_d(N,1/2,kappa) and Equation (1)",
+      "page": 2
+    },
+    {
+      "section": "2",
+      "label": "Conjecture 1 (HPC detection)",
+      "page": 3
+    },
+    {
+      "section": "2",
+      "label": "paragraph immediately following Conjecture 1",
+      "page": 3
+    },
+    {
+      "section": "3",
+      "label": "Challenge 2",
+      "page": 3
+    }
+  ]
+}

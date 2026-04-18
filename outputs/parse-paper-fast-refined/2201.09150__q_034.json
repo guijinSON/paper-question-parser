@@ -1,0 +1,48 @@
+{
+  "arxiv_id": "2201.09150",
+  "question_id": "q_034",
+  "original_question": "Determine how prioritizing one information channel over another affects space-use patterns and persistence outcomes, including whether models can explain why avoiding predation may take priority over foraging and what changes when that priority is reversed.",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 7975.59,
+  "target_in_paper": "Section 2.4, Open Problem 34: \"How does the prioritization of information affect space-use patterns or persistence/extinction outcomes? For example, is a given model able to predict or explain mechanistically the importance of avoiding predation before seeking food? What does a model predict if the prioritization is reversed?\"",
+  "completeness_score": 8.5,
+  "correct_elements": "Your draft is very close to the paper’s exact target. It correctly identifies that the issue is the prioritization of one information source/channel over another, that the outputs of interest are space-use patterns and persistence/extinction outcomes, and that the motivating biological example is whether predator avoidance takes priority over food seeking and what happens when that ordering is reversed.",
+  "missing_details": [
+    "The paper places this question specifically in Section 2.4, within a multi-layer cognitive-map framework motivated by short- and long-term memory, rather than as a completely general question about any ecological model.",
+    "The nearby model context is the short/long-term memory system (2.33): ∂_t m_s = α_s a_s(x,t) - β_s m_s and ∂_t m_l = α_l a_l(x,t) - β_l m_l, with α_l < α_s and β_l < β_s so that short-term memory forms and decays faster than long-term memory.",
+    "The movement equation in this context is (2.34): ∂_t u = dΔu - ∇·(u∇a_{g,R}), where u is the population density and a_{g,R} is the perceived cognitive map.",
+    "The cognitive map is built as a(x,t) = c_1 m_s(x,t) + c_2 m_l(x,t); the coefficients c_1, c_2 may be positive or negative depending on application, so attraction/repulsion is model-dependent.",
+    "The perception operator must be defined: a_{g,R}(x,t) = ∫_Ω a(y,t) g(x-y) dy, where g is a detection function/perceptual kernel and R is the perceptual radius.",
+    "In the paper, 'prioritization' is motivated mathematically by an ordering of advection effects/rates attached to different information layers or covariates, not merely by a qualitative verbal preference.",
+    "Section 3.2 gives the first-principles interpretation of multiple information channels via weighted covariates A(x,t) = Σ_j β_j a_j(x,t), with the resulting drift depending on these weights; this is the nearby mathematical explanation of how priority can enter the PDE.",
+    "The paper does not specify a single spatial domain, boundary condition, or initial condition for Open Problem 34, so a stand-alone restatement should either leave these intentionally open or state that they are to be chosen within the knowledge-based movement framework.",
+    "The phrase 'persistence/extinction outcomes' is not made fully operational in the nearby text; the open problem itself leaves open which extension of the movement model makes persistence/extinction meaningful.",
+    "There is no equivalent theorem, proposition, or conjecture elsewhere in the paper that sharpens Open Problem 34 into a proved equivalent statement.",
+    "No ambient ring/field, homogeneity assumption, degree restriction, nilpotency condition, or asymptotic quantifier such as 'for all sufficiently large m' is relevant here; this paper is posing a PDE/movement-ecology open problem rather than an algebraic one."
+  ],
+  "refined_question": "Within the Section 2.4 multi-layer cognitive-map PDE framework, for example the short/long-term memory model in which m_s and m_l satisfy ∂_t m_s = α_s a_s(x,t) - β_s m_s and ∂_t m_l = α_l a_l(x,t) - β_l m_l with α_l < α_s and β_l < β_s, the cognitive map is a(x,t) = c_1 m_s(x,t) + c_2 m_l(x,t), and the population density u moves according to ∂_t u = dΔu - ∇·(u∇a_{g,R}) with perceived potential a_{g,R}(x,t) = ∫_Ω a(y,t)g(x-y)dy for a detection kernel g and perceptual radius R, how does the prioritization of information—implemented through the relative ordering/strength of the advection effects associated with distinct information layers or covariates—affect the resulting space-use patterns and, in settings where persistence/extinction is meaningful, the persistence/extinction outcomes? In particular, can such a model mechanistically explain why avoiding predation may take priority over seeking food, and what does it predict when that priority is reversed?",
+  "equivalent_formulation": null,
+  "justification": "The draft is essentially a paraphrase of Open Problem 34, and the paper’s own wording is the nearest official formulation. The surrounding context in Section 2.4 explains that the intended setting is a cognitive map built from multiple layers/channels, motivated concretely by short- and long-term memory variables in equations (2.33)-(2.34). The same nearby discussion says that this setup allows 'prioritization of information through an ordering of advection rates' and gives the exact motivating example of predator avoidance versus food seeking. Section 3.2 then supplies the first-principles mathematical interpretation of multiple covariates and their weights, which is the paper’s mechanism for encoding priority. Because the paper does not give a theorem equivalent to Open Problem 34, and does not fully fix boundary conditions or the exact persistence/extinction setting at that point, the refined question keeps that breadth but makes the PDE framework and notation explicit.",
+  "citations": [
+    {
+      "section": "2.1",
+      "label": "Equation (2.5)",
+      "page": "9-10"
+    },
+    {
+      "section": "2.4",
+      "label": "Equations (2.33)-(2.34)",
+      "page": 28
+    },
+    {
+      "section": "2.4",
+      "label": "Open Problem 34",
+      "page": 29
+    },
+    {
+      "section": "3.2",
+      "label": "Equations (3.16)-(3.17)",
+      "page": "35-36"
+    }
+  ]
+}

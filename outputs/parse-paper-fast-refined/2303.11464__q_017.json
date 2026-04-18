@@ -1,0 +1,60 @@
+{
+  "arxiv_id": "2303.11464",
+  "question_id": "q_017",
+  "original_question": "Among graphs that exhibit structural properties typical of power grids, what is the typical order of magnitude of the smallest (n-k)-contingent zero-forcing set as a function of the numbers of vertices and edges?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 8658.13,
+  "target_in_paper": "Section 7, Open Problem 7.3: the problem of estimating the typical size of a minimum (n-k)-contingent zero-forcing set in graphs exhibiting structural properties characteristic of power grids.",
+  "completeness_score": 8,
+  "correct_elements": "The draft correctly targets the power-grid zero-forcing section, asks about minimum-size (n-k)-contingent zero-forcing sets rather than ordinary zero forcing, restricts attention to graphs meant to resemble power-grid networks rather than arbitrary graphs, and asks for dependence on graph size through the numbers of vertices and edges.",
+  "missing_details": [
+    "The draft does not define ordinary zero forcing: starting from an initial blue set Z, one repeatedly applies the rule that a blue vertex with exactly one uncolored neighbor forces that neighbor blue, and Z is a zero-forcing set if this eventually colors all vertices.",
+    "The draft does not define an (n-k)-contingent zero-forcing set: for a graph G=(V,E), a set Z⊆V must remain a zero-forcing set of G'=(V,E\\E') for every edge subset E' with |E'|≤k.",
+    "The contingency parameter k is implicit in the draft but should be stated explicitly as a fixed or given nonnegative integer (the paper uses k as the number of edge failures tolerated).",
+    "The optimization variable should be explicit: the question concerns the cardinality of a minimum subset Z⊆V satisfying the contingent zero-forcing condition.",
+    "The paper's phrase 'graphs exhibiting structural properties characteristic of power grids' is not formally axiomatized in Open Problem 7.3; nearby context motivates it by power-grid-like sparse, large-diameter, low-average-degree, long-cycle structure, but the problem itself leaves the class/model open.",
+    "The draft says 'typical order of magnitude,' whereas the paper asks for the 'typical size, in terms of the number of vertices and edges,' i.e. a rough size estimate rather than a sharper asymptotic theorem with a specified probabilistic model.",
+    "The nearby context also proves an equivalent formulation via k-leaky zero forcing (Lemma 7.7), which is useful if one wants an alternate stand-alone version.",
+    "There is no ambient ring, field, homogeneity, degree-of-polynomial, or nilpotency condition here; the ambient objects that need specification are only the graph G=(V,E), the vertex subset Z, and the contingency level k."
+  ],
+  "refined_question": "For a given integer k≥1 and a graph G=(V,E), call Z⊆V an (n-k)-contingent zero-forcing set if, for every edge set E'⊆E with |E'|≤k, the set Z is a zero-forcing set of G'=(V,E\\E'), where 'zero forcing' means that, starting with Z colored blue, one may repeatedly color any vertex that is the unique uncolored neighbor of a blue vertex until no more such moves are possible. When G ranges over graphs exhibiting structural properties characteristic of power grids, what is the typical size, as a function of |V| and |E|, of a minimum (n-k)-contingent zero-forcing set?",
+  "equivalent_formulation": "Equivalently, by Lemma 7.7: for a given integer k≥1 and a graph G=(V,E), what is the typical size, as a function of |V| and |E|, of a minimum k-leaky zero-forcing set in graphs exhibiting structural properties characteristic of power grids, where Z⊆V is k-leaky if for every L⊆V with |L|≤k, Z is a zero-forcing set of the graph obtained from G by attaching a pendant vertex to each vertex of L?",
+  "justification": "The draft is aimed at Open Problem 7.3, not the neighboring Open Problems 7.1 or 7.2. The paper's Section 7 first motivates contingent zero forcing by power-grid observability/control under changing topology, then defines ordinary zero forcing (Definitions 7.1-7.2) and (n-k)-contingent zero forcing (Definition 7.3). It next shows that trees are completely understood in this setting (Lemma 7.5), which is relevant because the paper describes typical power-grid graphs as structurally tree-like. Finally, after distinguishing the structural-characterization question (Open Problem 7.1) and the algorithmic question (Open Problem 7.2), it asks the size-estimation question in Open Problem 7.3. Your draft matches that third problem almost verbatim, but it needs the formal contingent-zero-forcing definition and the role of k to be fully stand-alone and paper-faithful.",
+  "citations": [
+    {
+      "section": "Introduction",
+      "label": "Problem 7 summary",
+      "page": "560"
+    },
+    {
+      "section": "Section 7",
+      "label": "Definition 7.1",
+      "page": "594"
+    },
+    {
+      "section": "Section 7",
+      "label": "Definition 7.2",
+      "page": "594"
+    },
+    {
+      "section": "Section 7",
+      "label": "Definition 7.3",
+      "page": "595"
+    },
+    {
+      "section": "Section 7",
+      "label": "Lemma 7.5",
+      "page": "595-596"
+    },
+    {
+      "section": "Section 7",
+      "label": "Lemma 7.7",
+      "page": "596-597"
+    },
+    {
+      "section": "Section 7",
+      "label": "Open Problem 7.3",
+      "page": "597-598"
+    }
+  ]
+}

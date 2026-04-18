@@ -1,0 +1,71 @@
+{
+  "arxiv_id": "1204.1895",
+  "question_id": "q_008",
+  "original_question": "In the one-dimensional speed theorem that assumes i.i.d. cookie stacks, weak ellipticity, and a deterministic bound on the number of non-placebo cookies per site, can the boundedness assumption be replaced by the weaker positivity condition that every cookie has nonnegative drift in the +1 direction?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 2172.52,
+  "target_in_paper": "Problem 5.3 (Section 5.1): \"Can one replace in Theorem 5.2 the assumption (BD) by (POS1)?\"",
+  "completeness_score": 7.5,
+  "correct_elements": "Your draft correctly identifies the one-dimensional ballisticity/speed theorem in the i.i.d., weakly elliptic setting with a deterministic bound on non-placebo cookies, and it correctly asks about replacing that boundedness hypothesis by the positivity hypothesis that every cookie has nonnegative drift to the right. That is exactly the replacement asked in Problem 5.3.",
+  "missing_details": [
+    "It should identify the exact target as Problem 5.3 following Theorem 5.2, rather than referring only to a generic 'speed theorem'.",
+    "It should specify the model: a nearest-neighbor excited random walk X=(X_n) on Z in a cookie environment omega, started at 0, with transition rule given by equation (1.1).",
+    "It should state the weak ellipticity assumption explicitly in one dimension: P[forall i>=1, omega(0,1,i)>0] > 0 and P[forall i>=1, omega(0,-1,i)>0] > 0.",
+    "It should formalize the boundedness assumption as (BD): there exists a deterministic M in N such that the number M(z) of non-placebo cookies at each site satisfies M(z) <= M almost surely.",
+    "It should formalize the replacement assumption as (POS1): for every i>=1, each cookie has nonnegative drift to the right, i.e. sum_{e in {+1,-1}} omega(0,e,i)e >= 0 almost surely, equivalently omega(0,1,i) >= 1/2 almost surely for every i.",
+    "To be stand-alone, it must include the conclusion of Theorem 5.2 that is being asked to persist, namely the threshold-2 criterion for the sign of the speed.",
+    "It should define delta as the expected total drift per cookie stack: delta := E[sum_{e in {+1,-1}, i>=1} omega(0,e,i)e], the parameter introduced in Remark 3.8.",
+    "It should define the speed v as the almost sure limit lim_{n->infinity} X_n/n, and note that under (SE) plus (POS1) the existence of such a speed is already known from Theorem 4.1.",
+    "Because (POS1) forces nonnegative drift in one dimension, the negative-speed branch of Theorem 5.2 is irrelevant; the sharp stand-alone version should ask whether v=0 for delta in [0,2] and v>0 for delta>2."
+  ],
+  "refined_question": "For the nearest-neighbor one-dimensional excited random walk X=(X_n)_{n>=0} on Z started at 0 in a cookie environment omega, assume the cookie stacks (omega(z,.,.))_{z in Z} are i.i.d. and weakly elliptic, meaning P[forall i>=1: omega(0,1,i)>0] > 0 and P[forall i>=1: omega(0,-1,i)>0] > 0. Let delta := E[sum_{e in {+1,-1}, i>=1} omega(0,e,i)e] in [0,infinity] denote the expected total drift per stack, and let v := lim_{n->infinity} X_n/n be the almost sure speed (whose existence is known under (SE)+(POS1)). Theorem 5.2 proves under (BD), i.e. under a deterministic uniform bound on the number of non-placebo cookies per site, that v=0 for delta in [0,2] and v>0 for delta>2. Does this same ballisticity criterion remain valid if (BD) is replaced by (POS1), i.e. if every cookie has nonnegative drift to the +1 direction, equivalently omega(0,1,i) >= 1/2 almost surely for every i>=1?",
+  "equivalent_formulation": null,
+  "justification": "The draft is aiming at the paper's official open problem in Section 5.1, namely Problem 5.3, which is stated immediately after Theorem 5.2 and asks exactly whether the assumption (BD) in the one-dimensional ballisticity theorem can be replaced by (POS1). To make the question stand alone and faithful to the paper, one must import the earlier definitions of (WEL), (POS1), and (BD), the definition of the drift parameter delta from Remark 3.8, and the definition/existence of the speed v from Section 4, especially Theorem 4.1. The nearby context also matters negatively: Remark and Example 5.7 shows that the paper does not intend this as a broader question with (SE) in place of (IID), even under (POS1).",
+  "citations": [
+    {
+      "section": "1",
+      "label": "(WEL)",
+      "page": "PDF p. 3"
+    },
+    {
+      "section": "1.2",
+      "label": "(POSℓ), specialized here to (POS1)",
+      "page": "PDF p. 4"
+    },
+    {
+      "section": "1.3",
+      "label": "(BD)",
+      "page": "PDF p. 4"
+    },
+    {
+      "section": "3.1",
+      "label": "Remark 3.8",
+      "page": "PDF p. 12"
+    },
+    {
+      "section": "4",
+      "label": "Definition of strong law of large numbers / speed",
+      "page": "PDF p. 17"
+    },
+    {
+      "section": "4.1",
+      "label": "Theorem 4.1",
+      "page": "PDF p. 17"
+    },
+    {
+      "section": "5.1",
+      "label": "Theorem 5.2",
+      "page": "PDF p. 20"
+    },
+    {
+      "section": "5.1",
+      "label": "Problem 5.3",
+      "page": "PDF p. 20"
+    },
+    {
+      "section": "5.1",
+      "label": "Remark and Example 5.7",
+      "page": "PDF p. 23"
+    }
+  ]
+}

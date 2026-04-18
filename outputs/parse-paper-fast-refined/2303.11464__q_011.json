@@ -1,0 +1,50 @@
+{
+  "arxiv_id": "2303.11464",
+  "question_id": "q_011",
+  "original_question": "Given a directed acyclic graph G and an integer k >= 0, does there exist a complete sequence of front- and back-edge eliminations that transforms G into the required bipartite directed acyclic graph while incurring total elimination cost at most k?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 8607.61,
+  "target_in_paper": "Open Problem 4.1 (Edge Elimination) in Section 4, \"The edge and vertex elimination problems in directed acyclic graphs.\"",
+  "completeness_score": 7.5,
+  "correct_elements": "Your draft correctly targets the edge-elimination decision problem in Section 4 rather than the neighboring vertex-elimination or DAG-reversal problems. It correctly includes the input DAG G, the threshold k≥0, the use of front- and back-edge eliminations, completeness of the elimination sequence, and the total-cost bound. It is also directionally right that a complete sequence ends in a bipartite DAG.",
+  "missing_details": [
+    "The paper's exact target is the named decision problem Open Problem 4.1 (Edge Elimination), not a broader optimization question or the distinct Vertex Elimination problem.",
+    "The allowed moves need to be defined explicitly: a front-elimination of an edge (i,j) reroutes from i to every successor of j and costs the number of successors of j; a back-elimination reroutes from every predecessor of i to j and costs the number of predecessors of i.",
+    "The vertex-removal part of each move is implicit in your draft: in front-elimination, j is deleted when the eliminated edge is its only in-edge; in back-elimination, i is deleted when the eliminated edge is its only out-edge.",
+    "The eligibility conditions are missing: front-elimination is allowed only when the edge has a nonempty successor set, and back-elimination only when it has a nonempty predecessor set.",
+    "The draft says \"the required bipartite directed acyclic graph,\" but the paper is more specific: a complete edge-elimination sequence transforms G into a bipartite DAG representing the Jacobian matrix of the underlying numerical program.",
+    "The paper's surrounding context motivates G as the data-flow DAG of a numerical program used in algorithmic differentiation; that motivation is part of the intended scope, even though the formal open problem is stated for an arbitrary DAG.",
+    "To be fully paper-faithful, the question should make clear that this is the purely structural formulation. The paper contrasts it with Jacobian Accumulation under algebraic dependence assumptions and states that the complexity of the structural formulations is unknown.",
+    "No ambient ring, field, homogeneity, degree, nilpotency, or \"sufficiently large m\" conditions are involved here; this is a graph-theoretic decision problem."
+  ],
+  "refined_question": "Given a directed acyclic graph G=(V,E) and a nonnegative integer k, does there exist a complete edge-elimination sequence of total cost at most k, where each step chooses an edge (i,j) in E and either front-eliminates it by adding edges from i to every successor of j, deleting j if (i,j) is its only in-edge, at cost equal to the number of successors of j, or back-eliminates it by adding edges from every predecessor of i to j, deleting i if (i,j) is its only out-edge, at cost equal to the number of predecessors of i, with front-elimination allowed only when j has a nonempty successor set and back-elimination allowed only when i has a nonempty predecessor set, and where complete means that the process ends in the bipartite DAG representing the Jacobian matrix of the underlying numerical program?",
+  "equivalent_formulation": null,
+  "justification": "The draft is trying to capture Open Problem 4.1 in Section 4. The paper first introduces Section 4 as the part about edge and vertex elimination in DAGs, then motivates the setting by viewing G as the data-flow DAG of a numerical program in algorithmic differentiation. Immediately after that, Definition 4.1 gives the precise front- and back-edge elimination operations, their costs, and the eliminatability conditions, and Open Problem 4.1 asks exactly whether a complete edge elimination sequence of cost at most k exists. Your reference to a final bipartite DAG is close, but in the paper that is presented as the consequence of completeness rather than as the formal statement itself. The next-page discussion confirms that this is the intended open problem: Jacobian Accumulation is NP-complete only under assumptions about algebraic dependences among edge labels, whereas the paper explicitly says the complexity of the purely structural formulations in Definitions 4.1 and 4.2 is unknown.",
+  "citations": [
+    {
+      "section": "Section 4",
+      "label": "Section title: \"The edge and vertex elimination problems in directed acyclic graphs\"",
+      "page": "580"
+    },
+    {
+      "section": "Section 4",
+      "label": "Definition 4.1 (Edge Elimination)",
+      "page": "581"
+    },
+    {
+      "section": "Section 4",
+      "label": "Open Problem 4.1 (Edge Elimination)",
+      "page": "581"
+    },
+    {
+      "section": "Section 4",
+      "label": "Sentence immediately following Open Problem 4.1: \"The elimination of a vertex is equivalent to front-elimination of its in-edges. Similarly, it is equivalent to back-elimination of its out-edges.\"",
+      "page": "581-582"
+    },
+    {
+      "section": "Section 4",
+      "label": "Theorem 4.3 and the sentence stating that the purely structural formulations in Definitions 4.1 and 4.2 have unknown computational complexity",
+      "page": "582"
+    }
+  ]
+}

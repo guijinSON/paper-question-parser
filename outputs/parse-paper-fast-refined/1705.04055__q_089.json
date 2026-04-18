@@ -1,0 +1,47 @@
+{
+  "arxiv_id": "1705.04055",
+  "question_id": "q_089",
+  "original_question": "Given a Post Correspondence Problem instance (h, g), can one decide whether it satisfies the unique equality continuation property, namely that for every word u and every pair of distinct letters a and b, the comparabilities h(ua) ⊲⊳ g(ua) and h(ub) ⊲⊳ g(ub) imply h(u) = g(u)?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 5412.19,
+  "target_in_paper": "Section 3.5, Question 3.5.05.2: the decidability of whether a given PCP instance is a unique equality continuation instance.",
+  "completeness_score": 9,
+  "correct_elements": "Your draft correctly targets the second open problem in the paper, not the neighboring question about deciding PCP itself on that class. It also states the right property: for a fixed prefix u and two distinct next letters a,b, if both extensions ua and ub make h and g comparable, then one must already have h(u)=g(u). This is exactly the paper’s unique equality continuation condition (UC3), just written in stand-alone form.",
+  "missing_details": [
+    "The domain/codomain data should be explicit: a PCP instance is a pair of morphisms h,g:A*→B* between free monoids over finite alphabets A and B.",
+    "The quantifiers should specify that u ranges over A* and that a,b are distinct letters of the domain alphabet A.",
+    "The comparability relation should be defined explicitly: x and y are comparable iff one is a prefix of the other.",
+    "The paper’s name for the property should be stated: '(h,g) is a unique equality continuation instance' (property (UC3) in the original source).",
+    "'Decide' should be made algorithmic: is there an algorithm that, given h and g, determines whether the UC3 condition holds?"
+  ],
+  "refined_question": "Let A and B be finite alphabets, and let h,g:A*→B* be morphisms, viewed as an instance I=(h,g) of the Post Correspondence Problem. Call two words x,y∈B* comparable if one is a prefix of the other. Is there an algorithm that, given I, decides whether I is a unique equality continuation instance, meaning that for every u∈A* and every pair of distinct letters a,b∈A, the comparabilities h(ua) and g(ua), and h(ub) and g(ub), force h(u)=g(u)?",
+  "equivalent_formulation": "Is it decidable whether or not an instance of the PCP satisfies the property (UC3)?",
+  "justification": "The draft matches the survey’s Question 3.5.05.2 almost verbatim: it asks for recognition of the unique equality continuation property, not for decidability of PCP restricted to that class. The survey gives exactly this formulation in Section 3.5, and the original Halava–Harju–Karhumäki–Latteux paper defines the same property as UC3 and immediately leaves as open the question whether one can decide if a PCP instance satisfies UC3. The only substantive omissions in the draft are the finite alphabets, the morphism typing h,g:A*→B*, the quantifier domains u∈A* and a,b∈A, and the explicit definition of comparability as the prefix relation in either direction. It is also important not to confuse this with the different UC2 'unique continuation' property, for which decidability is actually proved in the original paper.",
+  "citations": [
+    {
+      "section": "3.5 The Post Correspondence Problem",
+      "label": "definition of unique equality continuation instance (survey)",
+      "page": 19
+    },
+    {
+      "section": "3.5 The Post Correspondence Problem",
+      "label": "Question 3.5.05.2",
+      "page": 19
+    },
+    {
+      "section": "Section 1 (Introduction)",
+      "label": "PCP instances as morphisms h,g:A*→B* over finite alphabets; comparability notation",
+      "page": "1-2"
+    },
+    {
+      "section": "Section 3",
+      "label": "Theorem 4 (decidability for UC2, the different 'unique continuation' property)",
+      "page": 7
+    },
+    {
+      "section": "Final open problems",
+      "label": "UC3 and the open question 'Is it decidable whether or not an instance of the PCP satisfies the property (UC3)?'",
+      "page": 11
+    }
+  ]
+}

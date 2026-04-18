@@ -1,0 +1,52 @@
+{
+  "arxiv_id": "2511.18217",
+  "question_id": "q_016",
+  "original_question": "Let Ω ⊂ Rd and consider a random N-point input in Ω. Does the length of a Steiner tree for that input have asymptotics βN^((d−1)/d), where β is a constant depending on Ω and the random model?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 11957.45,
+  "target_in_paper": "The Steiner-tree open question in the paper’s discussion of finite-point inputs, interpreted as the probabilistic asymptotics question for the length of a Steiner tree on random terminals in Euclidean space.",
+  "completeness_score": 4,
+  "correct_elements": "Your draft gets several core ingredients right: the ambient setting is Euclidean, the input is an N-point terminal set, the quantity of interest is the length of a Steiner tree, and the proposed growth scale N^((d-1)/d) is the natural Beardwood-Halton-Hammersley/Steele scale for Euclidean optimization problems.",
+  "missing_details": [
+    "The paper’s Steiner-tree setup uses the Euclidean Steiner problem for a finite set P={x_1,...,x_n}⊂R^d: one must minimize the one-dimensional Hausdorff measure among connected sets containing P; this definition should be stated explicitly.",
+    "‘Random N-point input’ is too vague: one must specify the sampling law, at least i.i.d. uniform points in a bounded region Ω, or another precise random model.",
+    "The domain Ω should be specified as a bounded measurable/Borel subset of R^d with positive Lebesgue measure.",
+    "The asymptotic regime N→∞ should be stated explicitly.",
+    "The phrase ‘has asymptotics’ should be replaced by a precise mode of convergence: almost surely, in probability, in expectation, or L^1.",
+    "It should be made explicit that the length is well defined even if the Steiner tree itself is not unique, because all minimizers have the same minimal length.",
+    "The dependence of the constant should be normalized precisely: in the uniform model one usually factors out |Ω|^(1/d), rather than leaving arbitrary Ω-dependence implicit.",
+    "If a non-uniform random model is intended, the model should be given exactly (for example by a density), rather than saying only ‘depending on the random model’.",
+    "The Euclidean metric and the restriction d≥2 should be stated explicitly.",
+    "To stay paper-faithful, the question should stay tied to finite terminal sets and Steiner-tree length, not to broader random-network variants."
+  ],
+  "refined_question": "Let d≥2, let Ω⊂R^d be a bounded Borel set with 0<|Ω|<∞, and let X_1,...,X_N be i.i.d. random points uniformly distributed in Ω. If St({X_1,...,X_N}) denotes a Steiner tree of minimum one-dimensional Hausdorff measure connecting the terminal set {X_1,...,X_N}, is there a deterministic constant β_ST(d) such that the minimal Steiner-tree length satisfies H^1(St({X_1,...,X_N}))/(|Ω|^(1/d)N^((d-1)/d))→β_ST(d) as N→∞ (for example almost surely, or at least in expectation)?",
+  "equivalent_formulation": null,
+  "justification": "The accessible extracts confirm that the paper’s Steiner-tree discussion is formulated for finite subsets P={x_1,...,x_n}⊂R^d and measures length by one-dimensional Hausdorff measure, so your draft is correctly aimed at a finite-terminal Euclidean Steiner-tree question rather than a graph-theoretic Steiner problem or a maximal-distance-minimizer variant. The nearby context also shows that the paper is careful about the finite-input setup and about uniqueness/nonuniqueness issues for Steiner trees, which makes it important to define the minimal length, not just ‘a Steiner tree’. I could verify this setup from the paper’s abstract and from Section 3 around Problem 3.1, Remark 3.2, Theorem 3.3, and Proposition 3.4. The specific random-input asymptotics target is therefore best read as an inference from your draft combined with the paper’s Steiner-tree setup; the refinement above keeps that scope as narrow as possible while making the question mathematically stand-alone and precise.",
+  "citations": [
+    {
+      "section": "Abstract",
+      "label": "paper abstract",
+      "page": 1
+    },
+    {
+      "section": "Section 3",
+      "label": "Problem 3.1",
+      "page": "4-5"
+    },
+    {
+      "section": "Section 3",
+      "label": "Remark 3.2",
+      "page": "4-5"
+    },
+    {
+      "section": "Section 3",
+      "label": "Theorem 3.3",
+      "page": "4-5"
+    },
+    {
+      "section": "Section 3",
+      "label": "Proposition 3.4",
+      "page": "4-5"
+    }
+  ]
+}

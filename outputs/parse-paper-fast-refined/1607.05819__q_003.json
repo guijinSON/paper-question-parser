@@ -1,0 +1,44 @@
+{
+  "arxiv_id": "1607.05819",
+  "question_id": "q_003",
+  "original_question": "Every polycyclic group can be embedded into GL(n, Z) for some n in N, and matrix representations can sometimes be computed from a polycyclic presentation. What is the computational complexity of finding a matrix representation of a polycyclic group?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 4808.07,
+  "target_in_paper": "Section 5 (Conclusion), open problem (6): \"What is the complexity of finding matrix representation of polycyclic groups?\"",
+  "completeness_score": 8,
+  "correct_elements": "Your draft is already very close to the paper's actual target. It correctly identifies that the issue is not the existence of linearity for polycyclic groups, but the algorithmic complexity of constructing a matrix representation. It also uses the right nearby context from Section 2.1.5: matrix representations are discussed there, polycyclic presentations are one natural input format, and the paper notes computability results in special cases.",
+  "missing_details": [
+    "The paper's exact target is an open problem in the conclusion, not a theorem or conjecture proved earlier: it asks specifically for the complexity of finding a matrix representation of polycyclic groups.",
+    "To make the question stand-alone, one should say that 'finding a matrix representation' means constructing an explicit faithful matrix representation/embedding of the given polycyclic group, rather than merely working inside a representation that is already provided.",
+    "The natural input model is only implicit in the paper: nearby context suggests a polycyclic presentation as the standard representation of the input group, while Section 2.1.5 also mentions multiplication-polynomial input in the torsion-free nilpotent setting.",
+    "The scope should remain all polycyclic groups, while acknowledging that the paper only cites constructive methods in the special torsion-free nilpotent subclass.",
+    "The paper does not itself specify the complexity parameters, so a self-contained formulation should indicate that complexity is to be measured in terms of the size of the given group description and, where relevant, the size/dimension of the resulting matrix representation.",
+    "The ambient coefficient domain is not fixed in the open problem itself; the nearby matrix-groups discussion invokes the standard integral linearity of polycyclic groups, while later attack sections discuss faithful linear embeddings more generally.",
+    "The question should distinguish the construction problem from the easier downstream fact noted in Section 2.1.5 that multiplication is polynomial once elements are already given in matrix form."
+  ],
+  "refined_question": "Given a polycyclic group G, naturally specified by a polycyclic presentation, what is the computational complexity of constructing an explicit faithful matrix representation of G (that is, a matrix embedding of G into some GL_m(Z))?",
+  "equivalent_formulation": null,
+  "justification": "The draft is targeting the paper's open problem about matrix representations almost verbatim. The closest official formulation is Section 5, open problem (6). Section 2.1.5 provides the precise local context: the paper recalls that polycyclic groups are linear and notes computability of matrix representations only in the torsion-free nilpotent case, via algorithms tied to polycyclic presentations or multiplication polynomials. Sections 4.2 and 4.3 explain why this matters cryptographically: several attacks require a faithful linear representation, and the paper explicitly points to platform groups whose matrix representations are 'not readily computable' as potentially resistant. So the sharp, paper-faithful stand-alone version is the complexity of constructing a faithful matrix representation of a polycyclic group from its natural description, without broadening to unrelated representation-theoretic or general linear-group questions.",
+  "citations": [
+    {
+      "section": "1",
+      "label": "Introduction",
+      "page": "p. 171"
+    },
+    {
+      "section": "2.1.5",
+      "label": "Matrix Groups",
+      "page": "around p. 173"
+    },
+    {
+      "section": "4.2-4.3",
+      "label": "Linear Decomposition Attack / Field-Based Attack",
+      "page": "around pp. 183-184"
+    },
+    {
+      "section": "5",
+      "label": "Open problem (6)",
+      "page": "around p. 185"
+    }
+  ]
+}

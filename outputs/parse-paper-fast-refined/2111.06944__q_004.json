@@ -1,0 +1,64 @@
+{
+  "arxiv_id": "2111.06944",
+  "question_id": "q_004",
+  "original_question": "Theorem 2.9 states that if G is a weighted undirected graph with adjacency matrix A and d distinct eigenvalues, then any two non-cospectral vertices, meaning vertices i and j with [A^r]_ii != [A^r]_jj for some integer r >= 0, have at most d - 1 interlacing values for subgraph centrality. Determine whether the same bound remains valid for directed graphs, allowing positive edge weights.",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 7762.47,
+  "target_in_paper": "Section 3, Problem 3: \"Does Theorem 2.9 hold in the case of directed graphs? (Here we allow the graph to be weighted with positive weights.)\" ([ricerca.sns.it](https://ricerca.sns.it/bitstream/11384/128462/1/soposc_rev.pdf))",
+  "completeness_score": 8.0,
+  "correct_elements": "Your draft correctly identifies the relevant bound from Theorem 2.9, correctly uses the paper’s notion of non-cospectrality as the negation of Definition 2.2, and correctly aims at the paper’s explicit open extension from the undirected weighted case to directed graphs with positive weights. ([ricerca.sns.it](https://ricerca.sns.it/bitstream/11384/128462/1/soposc_rev.pdf))",
+  "missing_details": [
+    "The draft should define subgraph centrality itself: SC(i, β) = [e^{βA}]_{ii}, with β restricted to positive real values. ([ricerca.sns.it](https://ricerca.sns.it/bitstream/11384/128462/1/soposc_rev.pdf))",
+    "It should define an interlacing value exactly as a positive real β for which SC(i, β) = SC(j, β), since the paper counts such β-values. ([ricerca.sns.it](https://ricerca.sns.it/bitstream/11384/128462/1/soposc_rev.pdf))",
+    "It should state that d denotes the number of distinct eigenvalues of A, counted without repetition. ([ricerca.sns.it](https://ricerca.sns.it/bitstream/11384/128462/1/soposc_rev.pdf))",
+    "It should make the quantifiers explicit: the question is whether the d - 1 bound holds for every directed positively weighted graph and every pair of non-cospectral vertices i, j in that graph. ([ricerca.sns.it](https://ricerca.sns.it/bitstream/11384/128462/1/soposc_rev.pdf))",
+    "To match the paper exactly, the task should be framed as an open prove-or-disprove question, not as though the extension were already expected to be true. ([ricerca.sns.it](https://ricerca.sns.it/bitstream/11384/128462/1/soposc_rev.pdf))",
+    "The nearby context matters: the paper already notes that the bound does hold for digraphs with diagonalizable adjacency matrix and real spectrum, so the unresolved case is the broader directed positive-weight setting beyond that subclass. ([ricerca.sns.it](https://ricerca.sns.it/bitstream/11384/128462/1/soposc_rev.pdf))",
+    "The positive-weight restriction should be retained explicitly, because the paragraph immediately before Problem 3 gives a signed-graph counterexample with infinitely many interlacing values, showing that arbitrary real weights are too broad. ([ricerca.sns.it](https://ricerca.sns.it/bitstream/11384/128462/1/soposc_rev.pdf))"
+  ],
+  "refined_question": "Prove or disprove the following extension of Theorem 2.9. Let G be a directed graph with positive real edge weights and adjacency matrix A ∈ R^{n×n}, and let d be the number of distinct eigenvalues of A. For vertices i and j, call them non-cospectral if there exists an integer r ≥ 0 such that [A^r]_{ii} ≠ [A^r]_{jj}. Is it always true that the set of positive real parameters β for which the subgraph centralities coincide, [e^{βA}]_{ii} = [e^{βA}]_{jj}, has cardinality at most d - 1? ([ricerca.sns.it](https://ricerca.sns.it/bitstream/11384/128462/1/soposc_rev.pdf))",
+  "equivalent_formulation": "Equivalent formulation: for every directed graph G with positive real edge weights, adjacency matrix A, and every non-cospectral pair of vertices i, j, does the function g(β) = [e^{βA}]_{ii} - [e^{βA}]_{jj} have at most d - 1 zeros on (0, ∞), where d is the number of distinct eigenvalues of A? This is equivalent because interlacing values are exactly the zeros of g on β > 0. ([ricerca.sns.it](https://ricerca.sns.it/bitstream/11384/128462/1/soposc_rev.pdf))",
+  "justification": "The draft is trying to capture not a new variant invented from Theorem 2.9, but the paper’s explicit open Problem 3 in Section 3. Theorem 2.9 proves the d - 1 bound for possibly weighted undirected graphs, the remark immediately after it says the same proof already works for digraphs with diagonalizable adjacency matrix and real spectrum, and Section 3 then isolates the unresolved case by asking whether Theorem 2.9 still holds for directed graphs when positive weights are allowed. Definitions 2.1, 2.2, and 2.6 provide the paper’s exact meanings of subgraph centrality, cospectral/non-cospectral vertices, and interlacing values, so a stand-alone rewrite should unpack those notions explicitly. The signed-graph example immediately before Problem 3 explains why the question should not be broadened to arbitrary real weights. ([ricerca.sns.it](https://ricerca.sns.it/bitstream/11384/128462/1/soposc_rev.pdf))",
+  "citations": [
+    {
+      "section": "Section 2.1",
+      "label": "Definition 2.1",
+      "page": "3"
+    },
+    {
+      "section": "Section 2.1",
+      "label": "Definition 2.2",
+      "page": "4"
+    },
+    {
+      "section": "Section 2.3",
+      "label": "Definition 2.6",
+      "page": "6"
+    },
+    {
+      "section": "Section 2.3",
+      "label": "Proposition 2.8",
+      "page": "7-8"
+    },
+    {
+      "section": "Section 2.3",
+      "label": "Theorem 2.9",
+      "page": "8"
+    },
+    {
+      "section": "Section 2.3",
+      "label": "Remark after Theorem 2.9",
+      "page": "9"
+    },
+    {
+      "section": "Section 3",
+      "label": "Context preceding Problem 3 (signed-graph counterexample)",
+      "page": "15"
+    },
+    {
+      "section": "Section 3",
+      "label": "Problem 3",
+      "page": "15"
+    }
+  ]
+}

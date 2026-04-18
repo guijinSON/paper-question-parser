@@ -1,0 +1,44 @@
+{
+  "arxiv_id": "0909.0462",
+  "question_id": "q_009",
+  "original_question": "A single server moves on a circle. Particles arrive according to a Poisson process of rate lambda and are placed uniformly on the circle. Serving a particle takes one unit of time, and after each service the server moves at positive finite constant speed to the nearest waiting particle, ignoring new arrivals while moving. Is this greedy-server model stable for every lambda < 1?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 585.17,
+  "target_in_paper": "Section 3.1, \"Stability of a greedy server\" — specifically the model description followed by the sentence \"The conjecture is: this model is stable for any λ < 1.\"",
+  "completeness_score": 9,
+  "correct_elements": "Your draft already tracks Section 3.1 very closely: it has a single server on a circle, Poisson arrivals of rate λ, uniform placement on the circle, deterministic service time 1, greedy motion to the nearest waiting particle, finite positive constant travel speed, and the threshold question whether stability holds when λ < 1.",
+  "missing_details": [
+    "The paper's conjecture is meant to hold for any fixed positive finite server speed; your draft mentions such a speed but does not make that universal quantifier explicit.",
+    "\"Nearest\" should be understood with respect to the circle's usual geodesic/arc-length distance.",
+    "To make the question fully stand-alone, the word \"stable\" should be formalized rather than left implicit.",
+    "The paper emphasizes that the target model is genuinely continuous-state (a true circle), not a finite lattice approximation; that continuity is part of the difficulty.",
+    "New arrivals are ignored only while the server is traveling, in the sense that they do not alter the already chosen destination; they remain waiting for future decisions.",
+    "A completely formal statement would specify a tie-breaking rule for two equally near particles, even though under continuous uniform arrivals this is a null-probability issue.",
+    "A self-contained formulation should identify the underlying circle explicitly, e.g. a fixed circle S or the unit circle S^1 = R/Z."
+  ],
+  "refined_question": "Consider the continuous greedy-server model on a fixed circle S with its usual arc-length distance. Particles arrive according to a Poisson process of rate λ, with independent uniform arrival locations on S. Each service time is deterministically equal to 1. After each service completion, the server chooses a currently waiting particle that minimizes the distance from its present location, travels to it at a fixed speed v ∈ (0,∞) without rerouting in response to arrivals during the trip, serves it, removes it, and repeats. Is this system stable, in the usual queueing sense of positive recurrence, for every arrival rate λ < 1 and every fixed speed v ∈ (0,∞)?",
+  "equivalent_formulation": null,
+  "justification": "The given draft is already very close to the official open problem in Section 3.1, so the right refinement is to sharpen it rather than broaden it. I therefore kept exactly the continuous-circle greedy-server model from Section 3.1 and did not drift to finite-state approximations, state-independent routing, or the different two-stream model in Section 3.2. I only made explicit the metric on the circle, the quantifier over all fixed positive finite speeds, and a formal stability meaning so the question is self-contained. The algebraic checklist items in your template (ambient ring/field, homogeneity, degree, nilpotency, 'for sufficiently large m') are not applicable to this queueing-theory paper.",
+  "citations": [
+    {
+      "section": "3",
+      "label": "Greedy service mechanism",
+      "page": 4
+    },
+    {
+      "section": "3.1",
+      "label": "Stability of a greedy server",
+      "page": 4
+    },
+    {
+      "section": "3.1",
+      "label": "Model statement and conjecture \"this model is stable for any λ < 1\"",
+      "page": 4
+    },
+    {
+      "section": "3.1",
+      "label": "Context: continuity of the state space; finite-lattice and state-independent variants are easier",
+      "page": 5
+    }
+  ]
+}

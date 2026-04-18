@@ -1,0 +1,52 @@
+{
+  "arxiv_id": "1709.01670",
+  "question_id": "q_002",
+  "original_question": "Does the single-machine precedence-constrained scheduling problem 1|prec|sum w_j C_j admit a kernel whose size is polynomial in the gap between the optimum objective value and the lower bound given by the natural LP relaxation?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 5526.05,
+  "target_in_paper": "Section 3.2, Open Problem 2: whether the single-machine precedence-constrained total weighted completion-time problem 1|prec|sum_j w_j C_j admits a problem kernel whose size is polynomial in the LP gap OPT(I)-LP(I). ([ar5iv.org](https://ar5iv.org/pdf/1709.01670))",
+  "completeness_score": 8.5,
+  "correct_elements": "Your draft already identifies the right scheduling problem class (single machine with precedence constraints and objective sum_j w_j C_j), the right parameterized-complexity notion (kernelization), and the right parameter idea (the difference between the optimum and the lower bound from the natural LP relaxation), which is exactly what Open Problem 2 asks about. ([ar5iv.org](https://ar5iv.org/pdf/1709.01670))",
+  "missing_details": [
+    "To be fully stand-alone, the input should be spelled out: a finite set of jobs on one machine, each job j having processing time p_j and weight w_j, with precedence constraints forming a partial order; in Graham notation, the absence of a pmtn qualifier means nonpreemptive scheduling. ([ar5iv.org](https://ar5iv.org/pdf/1709.01670))",
+    "The objective should be defined explicitly as minimizing sum_j w_j C_j, where C_j denotes the completion time of job j. ([ar5iv.org](https://ar5iv.org/pdf/1709.01670))",
+    "The parameter should be named explicitly as k := OPT(I) - LP(I), where OPT(I) is the optimum objective value of the scheduling instance I and LP(I) is the lower bound returned by the natural LP relaxation of the natural ILP formulation referred to in Section 3.2. ([ar5iv.org](https://ar5iv.org/pdf/1709.01670))",
+    "The word kernel should be formalized as problem kernel: a polynomial-time preprocessing algorithm that outputs an equivalent instance whose encoding size is bounded by a polynomial in k. ([ar5iv.org](https://ar5iv.org/pdf/1709.01670))",
+    "The paper's motivation is specifically the natural LP relaxation arising because the problem is viewed as a special case of Weighted Vertex Cover; the question is not about arbitrary lower bounds or broader scheduling variants. ([ar5iv.org](https://ar5iv.org/pdf/1709.01670))"
+  ],
+  "refined_question": "For an instance I of the nonpreemptive single-machine scheduling problem 1|prec|sum_j w_j C_j, consisting of jobs j with processing times p_j, weights w_j, and precedence constraints forming a partial order, let OPT(I) be the minimum value of sum_j w_j C_j and let LP(I) be the lower bound obtained from the natural LP relaxation of the natural ILP formulation considered in Section 3.2. If k := OPT(I) - LP(I), does there exist a polynomial-time kernelization that transforms I into an equivalent instance whose encoding size is bounded by a polynomial in k? ([ar5iv.org](https://ar5iv.org/pdf/1709.01670))",
+  "equivalent_formulation": null,
+  "justification": "The nearest official formulation is Open Problem 2 in Section 3.2. The paper first places the question in the single-machine total weighted completion-time setting, then explains that the problem is a special case of Weighted Vertex Cover, notes the LP-gap kernel result for Vertex Cover, and finally asks whether the analogous polynomial-size kernel exists for the scheduling problem. The preliminaries in Sections 2.1 and 2.2 supply the hidden notation needed to make the question stand alone: what 1 means, what prec means, what the objective sum_j w_j C_j is, and what a problem kernel is. ([ar5iv.org](https://ar5iv.org/pdf/1709.01670))",
+  "citations": [
+    {
+      "section": "1",
+      "label": "Organization of this work",
+      "page": "not shown in fetched ar5iv HTML; the journal article runs on pp. 254-261"
+    },
+    {
+      "section": "2.1.1",
+      "label": "Single-machine environments",
+      "page": "not shown in fetched ar5iv HTML; the journal article runs on pp. 254-261"
+    },
+    {
+      "section": "2.1.2",
+      "label": "Precedence constraints; Preemption",
+      "page": "not shown in fetched ar5iv HTML; the journal article runs on pp. 254-261"
+    },
+    {
+      "section": "2.1.3",
+      "label": "Objective functions",
+      "page": "not shown in fetched ar5iv HTML; the journal article runs on pp. 254-261"
+    },
+    {
+      "section": "2.2",
+      "label": "Problem kernelization",
+      "page": "not shown in fetched ar5iv HTML; the journal article runs on pp. 254-261"
+    },
+    {
+      "section": "3.2",
+      "label": "Open Problem 2",
+      "page": "not shown in fetched ar5iv HTML; the journal article runs on pp. 254-261"
+    }
+  ]
+}

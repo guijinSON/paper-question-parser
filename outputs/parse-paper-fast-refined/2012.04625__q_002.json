@@ -1,0 +1,41 @@
+{
+  "arxiv_id": "2012.04625",
+  "question_id": "q_002",
+  "original_question": "For the van der Corput sequence in base 2, where a_n is obtained by writing n in base 2, reversing the digits, and interpreting the result as a real number in [0,1], build the associated 4-regular graph from the first N distinct terms using adjacency in original order and in sorted order. Give a rigorous explanation of the highly nontrivial structure that these graphs exhibit, rather than only the empirical pictures reported in the paper.",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 7482.96,
+  "target_in_paper": "Section 2.8 on the van der Corput sequence: the nearest paper-faithful formulation is the open problem asking for a mathematical explanation of the structured object seen in the associated 4-regular graphs, i.e. the question of what the \"emerging manifold\" is and how it depends on the base b of the van der Corput sequence. ([drops.dagstuhl.de](https://drops.dagstuhl.de/storage/04dagstuhl-reports/volume13/issue08/23351/DagRep.13.8.106/DagRep.13.8.106.pdf))",
+  "completeness_score": 6,
+  "correct_elements": "Your draft correctly identifies the base-2 van der Corput sequence, the paper's graph construction based on original order versus sorted order, and the fact that the point is to explain a striking non-random geometric/topological pattern visible in the graphs rather than merely to reproduce empirical pictures. ([drops.dagstuhl.de](https://drops.dagstuhl.de/storage/04dagstuhl-reports/volume13/issue08/23351/DagRep.13.8.106/DagRep.13.8.106.pdf))",
+  "missing_details": [
+    "The paper's graph is on the index set {1,...,N}; the vertices are positions i, not the real numbers x_i themselves. ([drops.dagstuhl.de](https://drops.dagstuhl.de/storage/04dagstuhl-reports/volume13/issue08/23351/DagRep.13.8.106/DagRep.13.8.106.pdf))",
+    "One must define the ordering permutation π_N by x_{π_N(1)} < x_{π_N(2)} < ... < x_{π_N(N)}. ([drops.dagstuhl.de](https://drops.dagstuhl.de/storage/04dagstuhl-reports/volume13/issue08/23351/DagRep.13.8.106/DagRep.13.8.106.pdf))",
+    "The edges are cyclic in both orders: connect i to i+1 mod N and π_N(i) to π_N(i+1 mod N). Without the cyclic convention the graph is not paper-faithful. ([drops.dagstuhl.de](https://drops.dagstuhl.de/storage/04dagstuhl-reports/volume13/issue08/23351/DagRep.13.8.106/DagRep.13.8.106.pdf))",
+    "The problem concerns the whole family (G_N)_{N≥1} as N grows, not a single graph for one unspecified N. ([drops.dagstuhl.de](https://drops.dagstuhl.de/storage/04dagstuhl-reports/volume13/issue08/23351/DagRep.13.8.106/DagRep.13.8.106.pdf))",
+    "The visible van der Corput indexing used in the problem statement starts 1/2, 1/4, 3/4, 1/8, ... ; if one instead uses the radical-inverse convention beginning at n=0, the indexing shift should be stated explicitly. ([drops.dagstuhl.de](https://drops.dagstuhl.de/storage/04dagstuhl-reports/volume13/issue08/23351/DagRep.13.8.106/DagRep.13.8.106.pdf))",
+    "To be fully stand-alone, the sequence should be defined formally as the base-2 radical-inverse sequence (equivalently, by reversing the binary digits of n).",
+    "The paper's formulation is broader than base 2: it also asks how the phenomenon depends on the base b, so a paper-faithful rewrite should either include that clause or explicitly say that it is restricting the paper's question to b=2 only. ([drops.dagstuhl.de](https://drops.dagstuhl.de/storage/04dagstuhl-reports/volume13/issue08/23351/DagRep.13.8.106/DagRep.13.8.106.pdf))",
+    "The official target is an open descriptive/classificatory question about the structured object seen in the pictures; the paper does not already provide a theorem-level formalization of that structure. ([drops.dagstuhl.de](https://drops.dagstuhl.de/storage/04dagstuhl-reports/volume13/issue08/23351/DagRep.13.8.106/DagRep.13.8.106.pdf))",
+    "If one asks for a 'rigorous explanation', one should specify what counts as success: an exact recursive description of G_N, a limiting topological object as N→∞, or a classification of the graphs up to isomorphism/homeomorphism. The paper itself leaves this open-ended. ([drops.dagstuhl.de](https://drops.dagstuhl.de/storage/04dagstuhl-reports/volume13/issue08/23351/DagRep.13.8.106/DagRep.13.8.106.pdf))"
+  ],
+  "refined_question": "For each N≥1, let x_1, ..., x_N be the first N terms of the base-2 van der Corput sequence (so x_1=1/2, x_2=1/4, x_3=3/4, x_4=1/8, ...), let π_N be the permutation of {1,...,N} satisfying x_{π_N(1)}<x_{π_N(2)}<...<x_{π_N(N)}, and let G_N be the 4-regular graph on {1,...,N} obtained by adding the cyclic edges {i,i+1 mod N} and {π_N(i),π_N(i+1 mod N)}. What is the precise mathematical structure represented by the striking pattern visible in the family (G_N)_{N≥1}—that is, what is the rigorous description of the paper's \"emerging manifold\"—and how does the corresponding structure change for the base-b van der Corput sequence? ([drops.dagstuhl.de](https://drops.dagstuhl.de/storage/04dagstuhl-reports/volume13/issue08/23351/DagRep.13.8.106/DagRep.13.8.106.pdf))",
+  "equivalent_formulation": null,
+  "justification": "The draft clearly targets the van der Corput graph-visualization item rather than a neighboring OEIS-style subsequence conjecture. The paper as a whole studies graphs generated from ordered lists of distinct real numbers and explicitly says that its observations are mostly empirical open problems. Author-linked cross-references identify Section 2.8 as the van der Corput section, while Steinerberger's later restatement reproduces the graph definition and phrases the open problem exactly as asking what the emerging manifold is and how it depends on the base b. Hence the sharpest paper-faithful rewrite is the self-contained graph question above, not a broader request to explain 'the pictures' in general and not the narrower Catalan-denominator conjecture that was later extracted from Section 2.8. ([arxiv.org](https://arxiv.org/abs/2012.04625))",
+  "citations": [
+    {
+      "section": "1",
+      "label": "Introduction (graph construction from an ordered list of distinct real numbers)",
+      "page": "251"
+    },
+    {
+      "section": "2.8",
+      "label": "van der Corput sequence",
+      "page": "not available in accessible text"
+    },
+    {
+      "section": "2.8",
+      "label": "open problem on the emerging manifold",
+      "page": "not available in accessible text"
+    }
+  ]
+}

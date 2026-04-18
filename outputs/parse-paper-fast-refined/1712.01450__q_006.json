@@ -1,0 +1,44 @@
+{
+  "arxiv_id": "1712.01450",
+  "question_id": "q_006",
+  "original_question": "Suppose k runners start together on a circular track of circumference 1 and run with distinct constant speeds. Is it true that, for every chosen runner, there exists a time when that runner is lonely, meaning at arc distance at least 1/k from every other runner?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 5718.7,
+  "target_in_paper": "Conjecture 1.1 (Lonely runner conjecture) in Section 1 of Terence Tao's Some remarks on the lonely runner conjecture; the introduction first gives the geometric runner statement and then reformulates it via the gap of loneliness δ_n.",
+  "completeness_score": 8,
+  "correct_elements": "Your draft already captures the central geometric content: runners move on a unit circle, start together, have distinct constant speeds, and the claim is that each individual runner eventually becomes lonely relative to all the others.",
+  "missing_details": [
+    "The paper's formal parameter n counts the nonzero relative speeds after normalizing the chosen lonely runner to have speed 0; equivalently, the geometric formulation has n+1 total runners. Your draft uses k for the total number of runners, so the paper-faithful formal statement needs this n versus n+1 convention made explicit.",
+    "The official formulation is stated through the gap of loneliness δ_n, not directly in runner language: δ_n is the infimum, over all n-tuples of distinct nonzero integers, of the maximal achievable minimum distance-to-nearest-integer value.",
+    "The operator ||x||_{R/Z}, meaning the distance from x to the nearest integer, must be defined if one uses the paper's official formulation.",
+    "The equivalent integer-speed reformulation requires the remaining relative speeds to be distinct nonzero integers; the introduction also gives the one-set version using a set D of n positive integers.",
+    "The exact official conjecture is the sharpness statement δ_n = 1/(n+1), rather than only an informal existential claim in runner language.",
+    "If the geometric wording is kept, 'distance' should be specified as the shorter circular distance on the unit circle, and the normalization argument should make clear why it suffices to study one fixed runner made stationary.",
+    "No ambient ring/field, homogeneity, degree, nilpotency, or 'for all sufficiently large m' clause is relevant here; the hidden formal structure is instead the normalization to integer relative speeds and the definition of δ_n."
+  ],
+  "refined_question": "For each integer n >= 1, let δ_n be the infimum, over all n-tuples (v_1, ..., v_n) of distinct nonzero integers, of max_{t in R/Z} min_{1 <= i <= n} ||t v_i||_{R/Z}, where ||x||_{R/Z} denotes the distance from x to the nearest integer. Is it true that δ_n = 1/(n+1) for every n >= 1?",
+  "equivalent_formulation": "Equivalently: if n+1 runners with pairwise distinct constant speeds start together at a common point on a unit circle, must each runner at some time be at circular distance at least 1/(n+1) from every other runner?",
+  "justification": "The cited internal labels Conjecture 1.1, Proposition 1.2, and Theorem 1.3 match Tao's paper, and your draft is targeting its main lonely runner conjecture rather than the nearby quantitative lower-bound results. In Section 1 the paper first states the geometric runner version, then immediately normalizes one chosen runner to speed 0 and reformulates the problem via the gap of loneliness δ_n. Proposition 1.2 and Theorem 1.3 provide context about known lower bounds for δ_n, but they do not replace the main target. I therefore sharpened your draft to the paper's official δ_n-formulation while preserving the exact intent of the runner statement.",
+  "citations": [
+    {
+      "section": "Section 1",
+      "label": "Introduction (geometric runner formulation)",
+      "page": 1
+    },
+    {
+      "section": "Section 1",
+      "label": "Conjecture 1.1",
+      "page": 2
+    },
+    {
+      "section": "Section 1",
+      "label": "Proposition 1.2",
+      "page": 3
+    },
+    {
+      "section": "Section 1",
+      "label": "Theorem 1.3",
+      "page": 5
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "arxiv_id": "1412.8530",
+  "question_id": "q_010",
+  "original_question": "Let s be an invertible exponent over a finite field of odd characteristic, with s not equivalent to 1. Must 2 always occur as a differential multiplicity of s; equivalently, must there always exist some field element v for which the system x + y = 1 and x^s + y^s = v has exactly two solutions in L^2?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 4368.19,
+  "target_in_paper": "Conjecture 6.9 (\"optimist\") in Section 6, read together with the definition of differential multiplicity at the start of Section 5 and the exclusion of the trivial class s equivalent to 1 explained by Remark 6.4.",
+  "completeness_score": 8.5,
+  "correct_elements": "Your draft is already very close to the paper's actual target. It has the right ambient setting (finite field of odd characteristic), the right hypothesis (s invertible), the right nontriviality condition (s not equivalent to 1), and the right claim: that 2 should occur as a differential multiplicity. Your reformulation via the system x + y = 1 and x^s + y^s = v is faithful to the paper's Section 5 definition of differential multiplicity.",
+  "missing_details": [
+    "The paper treats s as an integer exponent modulo |L^\\times| = q-1, where L = F_q and q = p^n with p odd.",
+    "\"Invertible exponent\" should be stated explicitly as gcd(s,q-1)=1, so that x \\mapsto x^s is a permutation of L.",
+    "The phrase \"s not equivalent to 1\" needs the paper's exact equivalence relation from Section 3: s is equivalent to t if one can pass from s to t by Frobenius twisting and/or inversion; in particular, s is equivalent to 1 when either s or s^{-1} is congruent modulo q-1 to a p-power.",
+    "The quantifiers should be made explicit: the question is whether the conclusion holds for every finite field L of odd characteristic and every such exponent s.",
+    "\"Differential multiplicity\" should be defined explicitly as the cardinality of the solution set for a fixed right-hand side, not just mentioned informally.",
+    "To make the one-variable and two-variable formulations visibly equivalent, one should note that in odd characteristic an invertible exponent s is odd, so the system x+y=1, x^s+y^s=v is equivalent to (u+1)^s-u^s=v after the substitution x=u+1, y=-u.",
+    "The exclusion s not equivalent to 1 is not cosmetic: Remark 6.4 shows that exponents equivalent to 1 have only differential multiplicities 0 and 1, so they would be counterexamples without this restriction."
+  ],
+  "refined_question": "For every finite field L=F_q of odd characteristic p and every integer s with gcd(s,q-1)=1, viewed modulo q-1, assume that s is not equivalent to 1 in the sense of Section 3 (that is, neither s nor s^{-1} is congruent modulo q-1 to a p-power). Must 2 occur among the differential multiplicities of s; equivalently, must there exist b in L such that the equation (x+1)^s - x^s = b has exactly two solutions x in L?",
+  "equivalent_formulation": "Equivalently, for every such L and s, must there exist v in L such that the system x + y = 1 and x^s + y^s = v has exactly two solutions (x,y) in L^2?",
+  "justification": "This draft is targeting the end-of-paper conjecture on differential multiplicities, not the introductory Helleseth vanishing conjecture. More precisely, it matches Conjecture 6.9 rather than the preceding Conjecture 6.8, because your draft quantifies over all invertible exponents, not merely over nice exponents. The Section 5 opening paragraph defines the differential multiplicities by counting solutions of the two-variable system, and this is explicitly connected to the usual one-variable differential equation. The extra hypothesis s not equivalent to 1 is paper-faithful and necessary: Remark 6.4 singles out that trivial equivalence class as having only multiplicities 0 and 1, so the conclusion about multiplicity 2 cannot hold there.",
+  "citations": [
+    {
+      "section": "Section 3",
+      "label": "equivalence relation for exponents (unnumbered discussion near the start of the section)",
+      "page": "pp. 179-180"
+    },
+    {
+      "section": "Section 5",
+      "label": "opening paragraph of Section 5 (definition of differential multiplicities)",
+      "page": "pp. 183-184"
+    },
+    {
+      "section": "Section 6",
+      "label": "Remark 6.4",
+      "page": "p. 187"
+    },
+    {
+      "section": "Section 6",
+      "label": "Conjecture 6.8 (nice exponent)",
+      "page": "p. 188"
+    },
+    {
+      "section": "Section 6",
+      "label": "Conjecture 6.9 (optimist)",
+      "page": "p. 188"
+    }
+  ]
+}

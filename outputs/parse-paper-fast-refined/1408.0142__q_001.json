@@ -1,0 +1,43 @@
+{
+  "arxiv_id": "1408.0142",
+  "question_id": "q_001",
+  "original_question": "In a two-queue polling system with cyclic service, where arrivals to both queues are independent Poisson processes, service times and switch-over times are independent, and the first queue uses gated service while the second queue uses 1-limited service, determine the joint probability generating function of the steady-state queue-length vector at polling instants. Equivalently, determine the joint queue-length PGFs F1(z1, z2) and F2(z1, z2) for this G/1-L polling system.",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 4114.2,
+  "target_in_paper": "Section 3.2, Open problem 1: determine the joint queue-length PGF at polling instants in the two-queue G/1-L polling system. ([link.springer.com](https://link.springer.com/content/pdf/10.1007/s11134-011-9247-9.pdf))",
+  "completeness_score": 9.0,
+  "correct_elements": "Your draft is already very close to the paper's actual target. It correctly identifies the two-queue cyclic polling model, the independent Poisson arrivals, the gated discipline at Q1, the 1-limited discipline at Q2, and the objective of determining the steady-state joint queue-length PGFs F1(z1,z2) and F2(z1,z2). Section 3 first says that for N = 2 the goal is to determine F1(z1,z2) and F2(z1,z2), and Section 3.2 then states this as Open problem 1. ([link.springer.com](https://link.springer.com/content/pdf/10.1007/s11134-011-9247-9.pdf))",
+  "missing_details": [
+    "The paper's notation should be made explicit: Fi(z1,z2) is the PGF of the joint steady-state queue-length vector at the start of a visit to Qi, i = 1,2; thus 'polling instants' here means server-arrival epochs to Q1 and Q2. ([link.springer.com](https://link.springer.com/content/pdf/10.1007/s11134-011-9247-9.pdf))",
+    "The visit order should be stated explicitly as cyclic polling Q1,Q2,Q1,..., since that is part of the model setup in Section 2. ([link.springer.com](https://link.springer.com/content/pdf/10.1007/s11134-011-9247-9.pdf))",
+    "The primitive random inputs are queue-specific: arrivals to Qi occur as Poisson processes with rate λi; service times at Qi are i.i.d. copies of Bi with LST βi(·); and the switch-over time from Qi to Qi+1 is Si with LST σi(·). ([link.springer.com](https://link.springer.com/content/pdf/10.1007/s11134-011-9247-9.pdf))",
+    "The paper assumes mutual independence of all arrival, service, and switch-over processes, and only poses the question under parameters for which the stationary joint queue-length distributions at polling epochs exist. ([link.springer.com](https://link.springer.com/content/pdf/10.1007/s11134-011-9247-9.pdf))",
+    "To match the nearby analytical context exactly, one may note that in the G/1-L case the gated offspring PGF is h1(z1,z2) = β1(λ1(1-z1)+λ2(1-z2)), and the unknowns are the stationary start-of-visit PGFs appearing in functional equation (4). ([link.springer.com](https://link.springer.com/content/pdf/10.1007/s11134-011-9247-9.pdf))",
+    "No ambient ring/field, degree, homogeneity, nilpotency, operator-algebra condition, or quantifier such as 'for all sufficiently large m' is part of this problem; those categories are not applicable to this queueing-theoretic statement. ([link.springer.com](https://link.springer.com/content/pdf/10.1007/s11134-011-9247-9.pdf))"
+  ],
+  "refined_question": "Consider the standard two-queue cyclic polling system Q1,Q2,Q1,... of Section 2: customers arrive to Qi according to independent Poisson processes with rates λi; service times at Qi are i.i.d. copies of Bi with Laplace-Stieltjes transform βi(·); the switch-over time from Qi to Qi+1 is Si with Laplace-Stieltjes transform σi(·); all arrival, service, and switch-over processes are mutually independent; and the parameters are such that the stationary joint queue-length distributions at polling epochs exist. Suppose Q1 uses gated service (only customers present at the start of the visit are served) and Q2 uses 1-limited service (at most one customer is served per visit, if any is present). For i = 1,2, let Fi(z1,z2) denote the PGF of the joint steady-state queue-length vector at the start of a visit to Qi. Determine F1(z1,z2) and F2(z1,z2), equivalently the joint queue-length PGF at polling instants, for this two-queue G/1-L polling system. ([link.springer.com](https://link.springer.com/content/pdf/10.1007/s11134-011-9247-9.pdf))",
+  "equivalent_formulation": "Determine F1(z1,z2) and F2(z1,z2), where Fi is the PGF of the joint steady-state queue-length distribution at the start of a visit to Qi, in the two-queue cyclic polling system with Q1 gated and Q2 1-limited. ([link.springer.com](https://link.springer.com/content/pdf/10.1007/s11134-011-9247-9.pdf))",
+  "justification": "This draft targets the paper's first open problem and is not drifting to a broader neighboring topic. The official formulation appears in Section 3.2 as Open problem 1. The only refinements needed are to import the notation and hidden assumptions from Section 2 and the opening of Section 3: Fi refers to a start-of-visit PGF, the server visits the queues cyclically, and the model data are given by λi, Bi, and Si under mutual independence and existence of steady state. The nearby context also shows the exact G/1-L specialization used analytically, namely h1(z1,z2)=β1(λ1(1-z1)+λ2(1-z2)) in equation (4). The paper poses this as an open problem, not as a conjecture, proposition, or theorem. ([link.springer.com](https://link.springer.com/content/pdf/10.1007/s11134-011-9247-9.pdf))",
+  "citations": [
+    {
+      "section": "Section 2",
+      "label": "Model and notation; definitions of Fi and Gi; equations (1)-(2)",
+      "page": 367
+    },
+    {
+      "section": "Section 3",
+      "label": "Opening paragraph: N = 2 and the goal to determine F1(z1,z2) and F2(z1,z2)",
+      "page": 367
+    },
+    {
+      "section": "Section 3.1",
+      "label": "Equation (3) and functional equation (4) for the two-queue mixed-discipline case",
+      "page": 368
+    },
+    {
+      "section": "Section 3.2",
+      "label": "Open problem 1",
+      "page": 369
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "arxiv_id": "2602.05394",
+  "question_id": "q_022",
+  "original_question": "Deterministic Minami Perturbation: Minami showed that if $A$ is $n x n$ Hermitian tridiagonal and $E$ is a random diagonal matrix with independent absolutely continuous entries, then $gap(A+delta E) C(delta/n)^c$ for some constants $C,c$ depending on the distribution of the entries. Give an efficient deterministic algorithm for finding such a perturbation. Here, efficient means faster than the parent algorithm in which it is used, so $O(n^3 ^c(n/delta))$ for diagonalization and, ambitiously, $O(nnz(A) ^c(n/delta))$ or $O(nnz(A) ^c(n)/delta^c)$ for Krylov methods.",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 12585.89,
+  "target_in_paper": "Problem 3.2 (Deterministic Minami Perturbation) in Section 3.1, under the subsection on deterministic pseudospectral shattering / Minami bounds.",
+  "completeness_score": 7.5,
+  "correct_elements": "The draft correctly identifies the paper's Hermitian tridiagonal setting, the deterministic analogue of a Minami-type random diagonal perturbation result, the goal of forcing a polynomial lower bound on the perturbed eigenvalue gap of the form C(δ/n)^c, and the paper's intent that the construction should be efficient relative to the enclosing diagonalization algorithm.",
+  "missing_details": [
+    "The official problem is an input-output algorithmic question: the input includes both the Hermitian tridiagonal matrix A and a perturbation scale δ>0, and the output is a diagonal perturbation E.",
+    "The inequality sign is missing in the draft: the target is a lower bound gap(A+δE) >= C(δ/n)^c.",
+    "To be stand-alone, the question should define gap(A+δE) as the minimum spacing between consecutive eigenvalues of the Hermitian matrix A+δE.",
+    "The perturbation must be specified as diagonal; to preserve Hermitian structure, E should be understood as a diagonal Hermitian (equivalently real diagonal) matrix.",
+    "The constants C,c should be stated as independent of the instance parameters A,n,δ, rather than tied to the random-entry distribution from Minami's theorem.",
+    "The draft imports extra detail about Minami's original random theorem that is motivational but not part of the paper's official problem statement.",
+    "The paper's efficiency language is narrower than the draft's broadened ambitions: it asks for a construction faster than the parent algorithm, with O(n^3 log^k(n/δ))-type cost as the benchmark for diagonalization; the added O(nnz(A)...)/Krylov targets are not part of Problem 3.2 as stated.",
+    "The draft should avoid drifting toward the broader arbitrary-matrix perturbation problem (Problem 3.1); the paper's official target here is specifically the Hermitian tridiagonal case."
+  ],
+  "refined_question": "Given an n x n Hermitian tridiagonal matrix A and a perturbation size δ>0, design a deterministic algorithm that outputs a diagonal Hermitian perturbation E such that the minimum gap between consecutive eigenvalues of A+δE satisfies gap(A+δE) >= C(δ/n)^c for some constants C,c>0 independent of A, n, and δ. The algorithm should be efficient in the paper's sense: asymptotically faster than the parent eigenvalue algorithm in which the perturbation is used, with O(n^3 log^k(n/δ)) arithmetic operations as the benchmark scale for full diagonalization.",
+  "equivalent_formulation": null,
+  "justification": "The draft is clearly aiming at the paper's tridiagonal special case rather than the broader arbitrary-matrix perturbation question: it keeps the Hermitian tridiagonal hypothesis, asks for a deterministic replacement for Minami's random diagonal perturbation, and uses the same gap lower-bound template. In the paper, this is formulated officially as Problem 3.2, in the surrounding context of Section 3.1, which contrasts the general deterministic pseudospectral shattering problem (Problem 3.1) with the Hermitian tridiagonal Minami-type variant. The main edits needed are to make the problem fully stand-alone, restore the exact lower-bound inequality, define the spectral gap, keep the scope restricted to diagonal perturbations of Hermitian tridiagonal matrices, and remove the draft's extra sparse/Krylov runtime ambitions that go beyond the paper's stated problem.",
+  "citations": [
+    {
+      "section": "Section 3.1",
+      "label": "Problem 3.2 (Deterministic Minami Perturbation)",
+      "page": "page not available from accessible HTML source"
+    },
+    {
+      "section": "Section 3.1",
+      "label": "Problem 3.1 (Deterministic Pseudospectral Shattering), for the neighboring broader problem and efficiency context",
+      "page": "page not available from accessible HTML source"
+    },
+    {
+      "section": "Abstract",
+      "label": "paper overview and section organization placing eigenvalue problems among the main categories",
+      "page": "page not available from accessible HTML source"
+    }
+  ]
+}

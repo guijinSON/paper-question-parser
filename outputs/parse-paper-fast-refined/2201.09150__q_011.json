@@ -1,0 +1,68 @@
+{
+  "arxiv_id": "2201.09150",
+  "question_id": "q_011",
+  "original_question": "Determine in what sense time-dependent solutions exist for the conflict-zone memory model under zero-flux, homogeneous Neumann, or homogeneous Dirichlet boundary conditions in a bounded domain with a top-hat detection kernel.",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 7905.52,
+  "target_in_paper": "Open Problem 20 in Sect. 2.2.2: determine in what sense solutions exist for the time-dependent problem (2.16), i.e. the nonlocal-conflict-zone extension of the conflict-zone memory model, in a bounded domain with a top-hat detection function under zero-flux, homogeneous Neumann, or homogeneous Dirichlet boundary conditions. ([math.ualberta.ca](https://www.math.ualberta.ca/~hwang/WangSalmaniwReview.pdf))",
+  "completeness_score": 8,
+  "correct_elements": "Your draft already captures the correct target almost exactly: it asks about the time-dependent problem, the bounded-domain setting, the top-hat detection function, and the exact trio of boundary conditions named in Open Problem 20. ([math.ualberta.ca](https://www.math.ualberta.ca/~hwang/WangSalmaniwReview.pdf))",
+  "missing_details": [
+    "The paper’s exact target is model (2.16), not a generic conflict-zone model: this is the extension in which conflict formation itself is nonlocal, so the memory-growth term is (u_i)_{g,R} sum_{j=1}^n rho_{ij} u_j rather than the pointwise term from the earlier model (2.13). ([math.ualberta.ca](https://www.math.ualberta.ca/~hwang/WangSalmaniwReview.pdf))",
+    "The full unknowns and quantifiers should be stated: for i = 1, ..., n, u_i(x,t) is the density of population i and k_i(x,t) is its cognitive map / spatial memory of conflict zones. ([math.ualberta.ca](https://www.math.ualberta.ca/~hwang/WangSalmaniwReview.pdf))",
+    "The movement equation should be included explicitly: ∂_t u_i = d_i Δu_i + gamma_i ∇·(u_i ∇(k_i)_{g,R}). ([math.ualberta.ca](https://www.math.ualberta.ca/~hwang/WangSalmaniwReview.pdf))",
+    "The perception operator must be defined explicitly as the spatial convolution (f)_{g,R}(x,t) = ∫_Omega f(y,t) g(x-y) dy, since the notation k_{i,g,R} and u_{i,g,R} is part of the model definition. ([math.ualberta.ca](https://www.math.ualberta.ca/~hwang/WangSalmaniwReview.pdf))",
+    "The top-hat detection function should be given explicitly: in one dimension g(z) = 1/(2R) for |z| ≤ R and g(z) = 0 otherwise, with R > 0 the perceptual radius; the paper notes that this extends to higher dimensions by replacing |x-y| with the Euclidean norm. ([math.ualberta.ca](https://www.math.ualberta.ca/~hwang/WangSalmaniwReview.pdf))",
+    "The parameters and their sign restrictions should be stated: d_i > 0, gamma_i ≥ 0, rho_ij encounter rates, mu ≥ 0, beta ≥ 0, and the paper assumes the same perceptual kernel and perceptual radius for each population in model (2.16). ([math.ualberta.ca](https://www.math.ualberta.ca/~hwang/WangSalmaniwReview.pdf))",
+    "Suitable initial data for both u_i and k_i are implicit in the time-dependent problem and should be made explicit in a stand-alone formulation. ([math.ualberta.ca](https://www.math.ualberta.ca/~hwang/WangSalmaniwReview.pdf))",
+    "The boundary conditions apply to u_i, but the paper later explains that for nonlocal models on bounded domains one must also specify how the perception operator is defined near the boundary; this is a hidden assumption in any nonperiodic version of Open Problem 20. ([math.ualberta.ca](https://www.math.ualberta.ca/~hwang/WangSalmaniwReview.pdf))",
+    "Zero-flux and homogeneous Neumann should not be silently identified: Sect. 4.1.2 stresses that for nonlocal/advection-driven problems a homogeneous Neumann condition need not coincide with zero flux unless the potential/perception term is made boundary-compatible. ([math.ualberta.ca](https://www.math.ualberta.ca/~hwang/WangSalmaniwReview.pdf))",
+    "For full stand-alone sharpness, 'in what sense' should be unpacked as asking for the appropriate notion of solution and time interval of existence (for example, whether one can prove local or global existence in a classical, mild, or weak sense under stated assumptions). ([math.ualberta.ca](https://www.math.ualberta.ca/~hwang/WangSalmaniwReview.pdf))",
+    "No algebraic ambient ring/field, homogeneity, degree restriction, or nilpotency condition is relevant here; the missing details are analytic/PDE data: variables, operators, parameters, initial data, and boundary-compatible treatment of the nonlocal kernel. ([math.ualberta.ca](https://www.math.ualberta.ca/~hwang/WangSalmaniwReview.pdf))"
+  ],
+  "refined_question": "For a bounded domain Omega ⊂ R^d and i = 1, ..., n, consider the nonlocal conflict-zone memory system introduced in Sect. 2.2.2, ∂_t u_i = d_i Δu_i + gamma_i ∇·(u_i ∇(k_i)_{g,R}) and ∂_t k_i = (u_i)_{g,R} sum_{j=1}^n rho_ij u_j - (mu + beta u_i) k_i, where (f)_{g,R}(x,t) = ∫_Omega f(y,t) g(x-y) dy, the same perceptual kernel g and radius R are used for every population, and g is the top-hat detection function g(z) = 1/(2R) for |z| ≤ R and 0 otherwise (or its radial higher-dimensional analogue). After specifying a boundary-compatible definition of the nonlocal perception operator near ∂Omega, determine under what assumptions on the parameters and initial data the time-dependent problem admits solutions, and in what precise sense, when u_i satisfies, separately, (a) the zero-flux condition n·(d_i∇u_i + gamma_i u_i∇(k_i)_{g,R}) = 0 on ∂Omega, (b) the homogeneous Neumann condition ∂_n u_i = 0 on ∂Omega, or (c) the homogeneous Dirichlet condition u_i = 0 on ∂Omega. ([math.ualberta.ca](https://www.math.ualberta.ca/~hwang/WangSalmaniwReview.pdf))",
+  "equivalent_formulation": null,
+  "justification": "The draft is aiming at Open Problem 20 almost verbatim, not at the earlier boundary-value question for the pointwise conflict-zone model (Open Problem 11). The decisive paper-faithful sharpening is that the intended PDE is the newer model (2.16), obtained from (2.13) by replacing pointwise conflicts with nonlocal 'stand-off' conflicts through the term (u_i)_{g,R} sum_j rho_ij u_j. A second hidden assumption comes from Sect. 4.1.2: once one leaves the periodic setting and imposes zero-flux/Neumann/Dirichlet data on a bounded domain, one must say how the top-hat perception operator is defined near the boundary, and the paper explicitly notes that zero-flux and homogeneous Neumann are not automatically equivalent in this nonlocal context. ([math.ualberta.ca](https://www.math.ualberta.ca/~hwang/WangSalmaniwReview.pdf))",
+  "citations": [
+    {
+      "section": "2.1",
+      "label": "Eq. (2.3)",
+      "page": 8
+    },
+    {
+      "section": "2.1",
+      "label": "Eq. (2.5)",
+      "page": 9
+    },
+    {
+      "section": "2.2.2",
+      "label": "Eq. (2.13)",
+      "page": 16
+    },
+    {
+      "section": "2.2.2",
+      "label": "Eq. (2.16)",
+      "page": 18
+    },
+    {
+      "section": "2.2.2",
+      "label": "Open Problem 20",
+      "page": 19
+    },
+    {
+      "section": "4.1.2",
+      "label": "Eq. (4.1)",
+      "page": 39
+    },
+    {
+      "section": "4.1.2",
+      "label": "Eq. (4.3)",
+      "page": 40
+    },
+    {
+      "section": "4.1.2",
+      "label": "Open Problem 39",
+      "page": 41
+    }
+  ]
+}

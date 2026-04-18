@@ -1,0 +1,39 @@
+{
+  "arxiv_id": "1406.3558",
+  "question_id": "q_020",
+  "original_question": "Fix m >= 0 and let d = ceil(log_3 m). For n >= d, is the maximum number of affine lines contained in a set of m points in F_3^n always equal to the maximum number of lines achievable by m points already lying in F_3^d? Equivalently, when maximizing lines, is it always optimal to compress the configuration into the smallest possible ambient dimension?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 4067.31,
+  "target_in_paper": "Conjecture 2012.1 in §2012.3 (Problem Session III: Thursday, May 24th), with a later shorthand restatement in §2015.6.",
+  "completeness_score": 8.5,
+  "correct_elements": "Your draft already identifies the correct ambient setting F_3^n, the correct threshold d = ceil(log_3 m), the right quantifier n >= d, and the exact optimization issue in the paper: maximizing the number of lines contained in an m-point subset. It also captures the paper’s intended heuristic that, to maximize lines, one should be able to place the configuration inside the smallest-dimensional space that can hold m points.",
+  "missing_details": [
+    "The paper’s question is about subsets S of F_3^n of cardinality exactly m; this should be stated explicitly.",
+    "A 'line' should be defined explicitly as an affine 3-point line, equivalently a 3-term arithmetic progression {x, x+d, x+2d} with d != 0 in F_3^n.",
+    "The phrase 'already lying in F_3^d' should be made precise as 'contained in some d-dimensional affine subspace of F_3^n', or equivalently identified with an affine copy of F_3^d.",
+    "To make the dimension parameter stand alone, it helps to say that d = ceil(log_3 m) is the least integer such that 3^d >= m, i.e. the smallest possible affine-subspace dimension that can contain m points.",
+    "The paper states m >= 0, but then d = ceil(log_3 m) is undefined at m = 0; a self-contained formulation should either assume m >= 1 or separately declare a convention/trivial case for m = 0.",
+    "If one uses the later notation from the paper, the function f(n,m) must be defined as the maximum number of lines completely contained in any m-point subset of F_3^n.",
+    "The paper briefly notes that similar questions could be asked over F_q for other q, but that is not part of the conjecture itself and should not be folded into the refined question."
+  ],
+  "refined_question": "For an integer m >= 1, let d0 := ceil(log_3 m), equivalently the least integer d with 3^d >= m. For each integer n >= d0, let f(n,m) be the maximum number of affine lines {x, x+d, x+2d} with d != 0 that are completely contained in a subset S ⊂ F_3^n with |S| = m. Is it true that f(n,m) = f(d0,m) for every n >= d0?",
+  "equivalent_formulation": null,
+  "justification": "The draft is targeting Nathan Kaplan’s problem on line-rich subsets of F_3^n, not a broader cap-set or Hales-Jewett question. In this paper, the nearest official formulation is Conjecture 2012.1 in §2012.3: after explaining that lines in F_3^n are the same as 3-term arithmetic progressions and motivating the question via SET, the paper states exactly that for d = ceil(log_3 m) and all n >= d, the maximum number of lines among m points in F_3^n should equal the corresponding maximum in F_3^d. The same question is later restated in §2015.6 using the notation f(n,m) and the phrase 'filling in lower dimensional subspaces.' So your draft is very close, but it needs the precise definition of 'line,' the exact set-size quantifier, the affine-subspace interpretation of 'compress,' and a repair of the m = 0 edge case to be fully stand-alone and paper-faithful.",
+  "citations": [
+    {
+      "section": "2012.3. Problem Session III: Thursday, May 24th",
+      "label": "context: lines in F_3^n as 3-term arithmetic progressions; maximum number of lines among m points",
+      "page": "20-21"
+    },
+    {
+      "section": "2012.3. Problem Session III: Thursday, May 24th",
+      "label": "Conjecture 2012.1",
+      "page": "21"
+    },
+    {
+      "section": "2015.6",
+      "label": "restatement via f(n,m) and 'filling in lower dimensional subspaces'",
+      "page": "33"
+    }
+  ]
+}

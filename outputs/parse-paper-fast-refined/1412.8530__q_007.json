@@ -1,0 +1,51 @@
+{
+  "arxiv_id": "1412.8530",
+  "question_id": "q_007",
+  "original_question": "Let F(x) = mu(x^s) for an exponent s whose nonzero spectral values are A_1, ..., A_n. Determine for which exponents s the product of the nonzero spectral values, product_i A_i, is divisible by q = |L|.",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 4370.24,
+  "target_in_paper": "Section 3, Problem 3.7 (product), in the section \"Spectrum of a Power Mapping.\" This is the paper's exact open problem about when the product of the nonzero spectral values is divisible by q; it is distinct from Conjecture 1.1 and the three-valued problems in Section 1.",
+  "completeness_score": 5,
+  "correct_elements": "Your draft correctly identifies the right open problem: it asks about a power exponent s, the nonzero spectral values A_1, ..., A_n, and whether their product is divisible by q = |L|. That matches the focus of Problem 3.7 in Section 3.",
+  "missing_details": [
+    "The ambient object is a finite field L of characteristic p and order q, not an abstract set or ring.",
+    "The map should be the power mapping f(x) = x^s, not F(x) = mu(x^s). Here mu is the canonical additive character used to define Fourier coefficients, not the function whose spectrum is being studied.",
+    "The exponent s must be invertible over L, i.e. gcd(s, q - 1) = 1, so that x -> x^s is a power permutation of L.",
+    "The relevant spectral values are Fourier coefficients (Weil sums): for a in L, one considers f-hat(a) = sum_{x in L} mu(x^s - a x).",
+    "The paper's spectrum is spec(f) = {f-hat(a) : a in L}; the reduced spectrum is the set of values on L^x. For a power permutation, f-hat(0) = 0, so the nonzero spectral values are precisely the distinct nonzero values in the reduced spectrum.",
+    "The product is over distinct nonzero spectral values A_1, ..., A_n, not over all Fourier coefficients with multiplicity. That latter product is Helleseth's older quantity D(f), which is a different problem.",
+    "To be stand-alone, the question should say explicitly that q = |L|.",
+    "The draft does not state the quantifier correctly: the paper asks for which invertible exponents s over a given finite field L this divisibility holds.",
+    "Because the paper discusses Galois invariance and algebraic integrality of the spectrum, the question should be phrased in the paper's Fourier-spectrum setting rather than as an undefined 'spectral values' problem."
+  ],
+  "refined_question": "Let L be a finite field of characteristic p and order q, let mu be the canonical additive character of L, and let f(x) = x^s be a power permutation of L, i.e. gcd(s, q - 1) = 1. For each a in L, define the Fourier coefficient (Weil sum) f-hat(a) = sum_{x in L} mu(x^s - a x), and let A_1, ..., A_n be the distinct nonzero values in the spectrum spec(f) = {f-hat(a) : a in L} (equivalently, in the reduced spectrum on L^x, since f-hat(0) = 0). For which invertible exponents s is the product A_1 ... A_n divisible by q = |L|?",
+  "equivalent_formulation": "Equivalently, if P(f) denotes the product of the distinct nonzero spectral values of the power permutation f(x) = x^s over L, determine for which invertible exponents s one has q | P(f).",
+  "justification": "The draft is aiming at the exact open problem stated as Problem 3.7 in Section 3: the paper first defines the spectrum and reduced spectrum of a power mapping, discusses the Galois/algebraic structure of the spectral values, explains that the product of the nonzero spectral values arises naturally by Fourier analysis, and then asks exactly for which exponents s that product is divisible by q. The introduction supplies the missing ambient notation: finite field L, canonical additive character mu, power map x^s, invertible exponent, and the fact that f-hat(0) = 0 for power permutations. The nearby Section 3 discussion is the correct local context, not Conjecture 1.1.",
+  "citations": [
+    {
+      "section": "Section 1",
+      "label": "Introduction (definitions of Fourier coefficient, Weil sum, invertible exponent, and f-hat(0) = 0 for power permutations)",
+      "page": "not available in ar5iv HTML; journal article spans pp. 175-189"
+    },
+    {
+      "section": "Section 3",
+      "label": "Opening paragraph of Section 3 (definitions of spectrum and reduced spectrum)",
+      "page": "not available in ar5iv HTML; journal article spans pp. 175-189"
+    },
+    {
+      "section": "Section 3",
+      "label": "Lemma 3.2 (algebraic degree / Galois context for spectral values)",
+      "page": "not available in ar5iv HTML; journal article spans pp. 175-189"
+    },
+    {
+      "section": "Section 3",
+      "label": "Paragraph immediately preceding Problem 3.7 (the product of nonzero spectral values arises naturally by Fourier analysis)",
+      "page": "not available in ar5iv HTML; journal article spans pp. 175-189"
+    },
+    {
+      "section": "Section 3",
+      "label": "Problem 3.7 (product)",
+      "page": "not available in ar5iv HTML; journal article spans pp. 175-189"
+    }
+  ]
+}

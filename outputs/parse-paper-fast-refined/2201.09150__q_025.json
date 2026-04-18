@@ -1,0 +1,51 @@
+{
+  "arxiv_id": "2201.09150",
+  "question_id": "q_025",
+  "original_question": "Determine under what conditions there exists a unique solution to the delayed diffusion-advection model whose growth term includes a spatially nonlocal population average, under homogeneous Neumann boundary conditions and, more generally, in higher dimensions or with other boundary conditions.",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 7963.55,
+  "target_in_paper": "Section 2.3.1, Open Problem 25, concerning well-posedness of model (2.21): the discrete-delay scalar diffusion-advection equation whose reaction term depends on the spatial domain average of the population.",
+  "completeness_score": 8.5,
+  "correct_elements": "The draft correctly identifies the paper's well-posedness question for a delayed diffusion-advection model, correctly singles out the spatially nonlocal population-average term in the growth law, and correctly retains the paper's two extensions beyond the base setting: homogeneous Neumann boundary conditions in the primary problem, and the follow-up questions about higher spatial dimensions and other boundary conditions.",
+  "missing_details": [
+    "The exact target is Open Problem 25 for equation (2.21), not the neighboring delay models (2.22), (2.23), or later distributed-delay models.",
+    "The precise PDE is one-dimensional in the paper's base formulation: u_t = D1 u_xx + D2 d/dx(u d/dx u(x,t-tau)) + f(u(x,t), ubar(t)).",
+    "The delay is discrete and appears in the advective potential through u_tau(x,t) = u(x,t-tau); the draft does not state this explicitly.",
+    "The nonlocal quantity in the growth term is the whole-domain average ubar(t) = |Omega|^{-1} integral_Omega u(y,t) dy, which is time-dependent but spatially constant.",
+    "The primary setting in the paper is a scalar equation on a one-dimensional bounded domain; higher dimensions are only asked as an extension at the end of the open problem.",
+    "A stand-alone well-posedness question should specify the boundary operator explicitly: homogeneous Neumann means du/dn = 0 on the boundary (in one dimension, u_x(0,t) = u_x(L,t) = 0).",
+    "Initial/history data for the delay equation are implicit in the draft and should be stated, e.g. prescribing u(x,s) for s in [-tau,0] together with suitable compatibility and regularity assumptions.",
+    "The draft does not say what assumptions are allowed on the coefficients D1, D2, the delay tau, the domain, and the growth term f; these are exactly the hypotheses the open problem asks one to determine.",
+    "The draft does not specify whether the sought result is local or global in time; the paper frames this as a general existence/uniqueness question for the time-dependent problem."
+  ],
+  "refined_question": "For the one-dimensional discrete-delay scalar model from Section 2.3.1, namely\nu_t = D1 u_xx + D2 d/dx(u d/dx u(x,t-tau)) + f(u(x,t), ubar(t)) for x in Omega=(0,L), t>0,\nwhere tau>0, D1>0, D2 is real, and ubar(t) = |Omega|^{-1} integral_Omega u(y,t) dy is the spatial average of the population over the whole domain, under what assumptions on the coefficients, the growth law f, and the prescribed initial/history data on Omega x [-tau,0] does the problem with homogeneous Neumann boundary conditions u_x(0,t)=u_x(L,t)=0 admit a unique solution for t>0? In the same model, can analogous existence-and-uniqueness results be established on bounded domains in higher spatial dimensions or under other boundary conditions?",
+  "equivalent_formulation": null,
+  "justification": "The draft matches Open Problem 25 in Section 2.3.1 because the paper's first modification of the delayed advection model changes the growth term to depend on the spatial domain average, giving equation (2.21) with the averaged quantity ubar(t)=|Omega|^{-1} integral_Omega u(y,t) dy. The official open question attached to that model is exactly the existence/uniqueness problem under homogeneous Neumann boundary conditions, followed by the extensions to higher dimensions and other boundary conditions. Section 5.1.2 confirms that model (2.21) is the unresolved well-posedness case among the explicit-memory models and notes that its nonlocality is only in the reaction term, which helps pin down the intended scope. Section 4.1 supplies the paper's meaning of homogeneous Neumann boundary data as du/dn = 0 on the boundary.",
+  "citations": [
+    {
+      "section": "2.3.1",
+      "label": "Equation (2.20)",
+      "page": 21
+    },
+    {
+      "section": "2.3.1",
+      "label": "Equation (2.21)",
+      "page": 22
+    },
+    {
+      "section": "2.3.1",
+      "label": "Open Problem 25",
+      "page": 22
+    },
+    {
+      "section": "4.1",
+      "label": "homogeneous Neumann boundary condition",
+      "page": 39
+    },
+    {
+      "section": "5.1.2",
+      "label": "well-posedness summary for model (2.21)",
+      "page": 56
+    }
+  ]
+}

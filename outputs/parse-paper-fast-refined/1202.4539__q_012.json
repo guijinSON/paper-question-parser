@@ -1,0 +1,45 @@
+{
+  "arxiv_id": "1202.4539",
+  "question_id": "q_012",
+  "original_question": "Fix integers s and q with gcd(s,q) = 1, and a digit set D = {d_0, ..., d_k} with 0 = d_0 < d_1 < ... < d_k < s, 1 <= k <= s - 2, and gcd(d_0, ..., d_k) = 1. Let K_s^D(N) be the set of positive integers x < N whose base-s digits all lie in D. Is it true that for some sufficiently large sigma > 0, whenever N >= q^sigma, every residue class lambda modulo q is represented by some x in K_s^D(N)?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 2178.36,
+  "target_in_paper": "No exact match was verifiable in arXiv:1202.4539 itself; the nearest precise match to the draft is the open problem stated in Section 1 of N. G. Moshchevitin and I. D. Shkredov, \"On the Multiplicative Properties Modulo m of Numbers with Missing Digits\" (Math. Notes 81:3, 2007), where Konyagin's question is quoted: whether there exists a constant sigma = sigma(s) such that N > m^sigma forces K_s^D(N) to contain representatives of all residue classes modulo m.",
+  "completeness_score": 7.3,
+  "correct_elements": "The draft correctly identifies the base-s missing-digit set, the coprimality condition gcd(s,q)=1, the nontrivial/proper digit-set hypotheses 0=d_0<...<d_k<s with 1<=k<=s-2, the gcd condition on the allowed digits, the set K_s^D(N) of integers with all base-s digits in D, and the core residue-class question asking for a polynomial threshold in the modulus beyond which every congruence class modulo q is represented.",
+  "missing_details": [
+    "In the paper, K_s^D(N) is defined using nonnegative integers x in N_0 with x<N, so 0 is included; your draft changes this to positive integers.",
+    "The paper states the question with a fixed exponent sigma = sigma(s), i.e. a constant depending only on the base s (after D has been fixed in the standing assumptions), not merely 'for some sufficiently large sigma > 0' with unspecified dependence.",
+    "The modulus is an arbitrary natural number m (your q) satisfying gcd(m,s)=1; the question is not restricted to primes or prime powers.",
+    "The paper uses the explicit finite base-s expansion x = sum_{j=0}^h delta_j s^j with delta_j in D to define K_s^D(N); your draft paraphrases this correctly but does not state the formal definition.",
+    "The paper asks for the implication under the strict inequality N > m^sigma, not N >= q^sigma.",
+    "The original introduction states the gcd condition as gcd(d_1,...,d_k)=1; since d_0=0 this is equivalent to your gcd(d_0,...,d_k)=1, but the paper's formulation should be preserved if one wants maximal faithfulness.",
+    "This is posed in the introduction as an open problem attributed to Konyagin, not as a theorem or conjecture proved/formulated later in a numbered theorem environment.",
+    "The ambient residue structure is the full ring of residue classes modulo m; equivalently, the quantifier is over every residue lambda in Z/mZ (or every integer x modulo m)."
+  ],
+  "refined_question": "Fix an integer s>=2 and a digit set D={d_0,...,d_k} subset {0,1,...,s-1} with 0=d_0<d_1<...<d_k<s, 1<=k<=s-2, and gcd(d_1,...,d_k)=1. For N in N define K_s^D(N) = {x in N_0 : x<N and x = sum_{j=0}^h delta_j s^j for some h>=0 with each delta_j in D}. Is it true that there exists a constant sigma = sigma(s) > 0 such that, for every integer m>=1 with gcd(m,s)=1 and every N > m^sigma, the set K_s^D(N) contains an element from every residue class modulo m; equivalently, for every lambda in Z/mZ there exists x in K_s^D(N) with x congruent to lambda mod m?",
+  "equivalent_formulation": null,
+  "justification": "The draft matches Konyagin's open problem from the missing-digits literature almost point for point: the same standing assumptions on s and D, the same set K_s^D(N), the same coprimality condition with the modulus, and the same conclusion that every residue class modulo the modulus should be represented once N is at least a polynomial in that modulus. What needed sharpening was mainly fidelity to the paper's exact formulation: K_s^D(N) contains nonnegative integers, the threshold is stated as N > m^sigma, and the exponent is written as a fixed constant sigma(s). I could verify this precise formulation in the 2007 paper's introduction, together with the nearby context recalling Konyagin's earlier exponential-threshold equidistribution result and explaining that the paper itself studies multiplicative congruences over K_s^D(N). The supplied arXiv ID 1202.4539 points to a broad survey on open problems in Diophantine approximation, so the precise statement nearest to your draft is the Section 1 open problem in the 2007 paper rather than a numbered Conjecture 1.1 / Proposition 1.2 / Theorem 1.3 in arXiv:1202.4539.",
+  "citations": [
+    {
+      "section": "front matter",
+      "label": "Title and abstract of arXiv:1202.4539",
+      "page": "arXiv abs"
+    },
+    {
+      "section": "Section 1",
+      "label": "Definition of K_s^D(N) and standing assumptions on s and D",
+      "page": 385
+    },
+    {
+      "section": "Section 1",
+      "label": "Konyagin's open problem asking whether N > m^{sigma(s)} implies all residue classes occur in K_s^D(N) modulo m",
+      "page": 385
+    },
+    {
+      "section": "Section 1",
+      "label": "Nearby context: Konyagin's earlier equidistribution result for N > exp(gamma log m log log m) and the paper's focus on multiplicative congruences",
+      "page": 386
+    }
+  ]
+}

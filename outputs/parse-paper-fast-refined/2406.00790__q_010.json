@@ -1,0 +1,43 @@
+{
+  "arxiv_id": "2406.00790",
+  "question_id": "q_010",
+  "original_question": "Let Gamma be a numerical semigroup. Is the number of relations rho(Gamma) in a minimal presentation of Gamma always bounded above by binom(width(Gamma)+1, 2), where width(Gamma) is the difference between the largest and smallest minimal generators of Gamma?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 9947.62,
+  "target_in_paper": "Section 3 (\"Width\"), Problem 11.",
+  "completeness_score": 8.5,
+  "correct_elements": "Your draft already isolates the correct semigroup-level problem: it uses the right object (a numerical semigroup Gamma), the right invariant rho(Gamma) coming from a minimal presentation, the right width parameter, and the right proposed upper bound by the binomial coefficient. It also stays narrowly focused on the first-relation-count question, which matches the paper's Problem 11 rather than drifting to broader higher-Betti-number variants.",
+  "missing_details": [
+    "State the universal quantifier explicitly: the question is whether the inequality holds for every numerical semigroup Gamma.",
+    "Define numerical semigroup in stand-alone form, e.g. a cofinite additive submonoid of the nonnegative integers.",
+    "Define width using the ordered minimal generators: if Gamma = <n_1, ..., n_e> with n_1 < ... < n_e, then wd(Gamma) = n_e - n_1.",
+    "Clarify that rho(Gamma) means the cardinality of a minimal presentation of Gamma and that this cardinality is well defined, i.e. independent of the chosen minimal presentation.",
+    "Make clear that no extra hypotheses are assumed: there is no restriction on embedding dimension, symmetry, almost symmetry, complete intersection, or Cohen-Macaulayness of the tangent cone.",
+    "If one wants the ring-theoretic equivalent formulation, specify an arbitrary field k and use the first Betti number of the semigroup ring; otherwise no ambient field is needed in the semigroup formulation."
+  ],
+  "refined_question": "Let Gamma be a numerical semigroup, i.e. a cofinite additive submonoid of the nonnegative integers, with unique minimal system of generators n_1 < ... < n_e. Define its width by wd(Gamma) = n_e - n_1, and let rho(Gamma) denote the cardinality of a minimal presentation of Gamma (equivalently, the number of relations of Gamma, which is well defined). Is it true that for every numerical semigroup Gamma one has rho(Gamma) <= ((wd(Gamma)+1) choose 2)?",
+  "equivalent_formulation": "Equivalently, for any field k and any numerical semigroup Gamma, does the first Betti number of the local semigroup ring k[[t^Gamma]] satisfy beta_1(k[[t^Gamma]]) = rho(Gamma) <= ((wd(Gamma)+1) choose 2)?",
+  "justification": "The nearest official formulation in the paper is exactly Section 3, Problem 11, which asks the semigroup-theoretic width bound for the number of relations. Section 1 supplies the needed stand-alone notation: it defines numerical semigroups, minimal presentations, and rho(Gamma), and explains that studying minimal presentations is equivalent to studying generators of the toric ideal of the semigroup ring, yielding the first-Betti-number reformulation. The nearby context in Section 3 shows that this problem is intentionally narrower than the later higher-Betti-number questions, so your draft should be sharpened only by making the quantifiers and definitions explicit, not broadened.",
+  "citations": [
+    {
+      "section": "1",
+      "label": "Generalities (definitions of numerical semigroup, minimal presentation, and rho(Gamma))",
+      "page": "arXiv HTML lines 36-45"
+    },
+    {
+      "section": "3",
+      "label": "Width (definition and scope of the section)",
+      "page": "arXiv HTML lines 147-155"
+    },
+    {
+      "section": "3",
+      "label": "Problem 11",
+      "page": "arXiv HTML lines 168-175"
+    },
+    {
+      "section": "3",
+      "label": "Problem 13 (nearby higher-Betti-number generalization, showing Problem 11 is the narrower target)",
+      "page": "arXiv HTML lines 176-183"
+    }
+  ]
+}

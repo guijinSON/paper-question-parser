@@ -1,0 +1,50 @@
+{
+  "arxiv_id": "2201.09150",
+  "question_id": "q_001",
+  "original_question": "For a nonlocal multispecies advection-diffusion model in which each population diffuses and moves according to a detection-kernel-smoothed combination of all population densities, determine whether time-dependent solutions exist in a bounded domain with periodic boundary conditions, especially for top-hat detection kernels.",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 7889.55,
+  "target_in_paper": "Open Problem 1 for the multispecies dynamic-memory system (2.10) in Section 2.2.2: determine in what solution class the time-dependent problem admits solutions on a bounded domain with periodic boundary conditions, with the top-hat kernel singled out as the especially difficult case. ([math.ualberta.ca](https://www.math.ualberta.ca/~hwang/WangSalmaniwReview.pdf))",
+  "completeness_score": 7.5,
+  "correct_elements": "Your draft correctly identifies the intended model family: the n-species nonlocal advection-diffusion system (2.10), where each population ui diffuses and advects according to a detection-kernel-smoothed linear combination of all population densities; it also correctly keeps the question time-dependent, in a bounded domain, under periodic boundary conditions, and emphasizes the top-hat kernel as the especially unresolved case. ([math.ualberta.ca](https://www.math.ualberta.ca/~hwang/WangSalmaniwReview.pdf))",
+  "missing_details": [
+    "The PDE should be stated explicitly: for i = 1, ..., n, ∂t ui = diΔui − ∇·(ui∇(Σj=1n γij ujg,R)). ([math.ualberta.ca](https://www.math.ualberta.ca/~hwang/WangSalmaniwReview.pdf))",
+    "The perception term must be defined: ag,R(x,t) = ∫Ω a(y,t)g(x−y)dy, so ujg,R is the convolutional perception of population uj with detection kernel g and perceptual radius R. ([math.ualberta.ca](https://www.math.ualberta.ca/~hwang/WangSalmaniwReview.pdf))",
+    "The parameters and quantifiers should be named: n interacting populations, diffusion constants di > 0, interaction coefficients γij ∈ R, a bounded spatial domain Ω, and suitable periodic initial data. The paper asks in what context solutions exist, so the issue is the appropriate notion of solution and function space, not merely a yes/no existence claim. ([math.ualberta.ca](https://www.math.ualberta.ca/~hwang/WangSalmaniwReview.pdf))",
+    "To remain paper-faithful, the question should say that this is the self-contained dynamic-memory model without an extra equation for the cognitive map; otherwise it could be confused with the distinct mark-based system (2.11). ([math.ualberta.ca](https://www.math.ualberta.ca/~hwang/WangSalmaniwReview.pdf))",
+    "The top-hat kernel should be specified more concretely: in 1D the paper uses g(z) = 1/(2R) for |z| ≤ R and g(z) = 0 otherwise; smooth kernels such as Gaussian are the cases for which a partial answer is already known. ([math.ualberta.ca](https://www.math.ualberta.ca/~hwang/WangSalmaniwReview.pdf))",
+    "The current partial result mentioned by the paper should be recorded: weak-solution existence for systems of the form (2.10) can include top-hat kernels under a detailed-balance hypothesis, but in this context that hypothesis requires self-interaction γii ≠ 0 for every population, which the authors regard as a significant biological restriction. ([math.ualberta.ca](https://www.math.ualberta.ca/~hwang/WangSalmaniwReview.pdf))",
+    "If one wants the boundary condition fully stand-alone, periodicity can be stated explicitly: in 1D, ui(0,t) = ui(L,t) and ∂xui(0,t) = ∂xui(L,t); in higher dimensions the paper says this is equivalent to posing the problem on a torus. ([math.ualberta.ca](https://www.math.ualberta.ca/~hwang/WangSalmaniwReview.pdf))",
+    "No ambient ring or field, homogeneity condition, degree restriction, or nilpotency hypothesis is part of this PDE problem; those algebraic items are inapplicable here and should not be imported into the reformulation. ([math.ualberta.ca](https://www.math.ualberta.ca/~hwang/WangSalmaniwReview.pdf))"
+  ],
+  "refined_question": "Let Ω ⊂ R^d be a bounded domain with periodic boundary conditions, let n ≥ 1, di > 0, γij ∈ R, and define the nonlocal perception term by ujg,R(x,t) = ∫Ω uj(y,t)g(x−y)dy, where g is a detection kernel with perceptual radius R. For suitable nonnegative periodic initial data ui(x,0) = ui,0(x), in what function-space or solution sense do there exist time-dependent solutions to the multispecies system ∂t ui = diΔui − ∇·(ui∇(Σj=1n γij ujg,R)), i = 1, ..., n, on Ω, particularly when g is the top-hat kernel (in 1D, g(z) = 1/(2R) for |z| ≤ R and 0 otherwise), rather than a smoother kernel such as a Gaussian? ([math.ualberta.ca](https://www.math.ualberta.ca/~hwang/WangSalmaniwReview.pdf))",
+  "equivalent_formulation": "Equivalently, in higher dimensions one may ask the same existence question for (2.10) on the flat torus corresponding to the bounded periodic domain, since the paper explicitly identifies periodic boundary conditions with a torus formulation. ([math.ualberta.ca](https://www.math.ualberta.ca/~hwang/WangSalmaniwReview.pdf))",
+  "justification": "Your draft matches Open Problem 1 almost exactly. It points to the multispecies system (2.10), asks about time-dependent solutions, keeps periodic boundary conditions in a bounded domain, and singles out the top-hat detection kernel. It is therefore closer to Open Problem 1 than to Open Problem 5, which asks instead about changing the boundary condition, or to Open Problems 2 to 4, which concern steady states or the R → 0+ limit. Section 4.1.2 explains why the paper repeatedly focuses on periodic boundary conditions: for nonlocal models they avoid redefining the perceptual kernel near the boundary. ([math.ualberta.ca](https://www.math.ualberta.ca/~hwang/WangSalmaniwReview.pdf))",
+  "citations": [
+    {
+      "section": "2.1",
+      "label": "equations (2.3) and (2.5)",
+      "page": "8-10 of 69"
+    },
+    {
+      "section": "2.2.2",
+      "label": "equation (2.10)",
+      "page": "13 of 69"
+    },
+    {
+      "section": "2.2.2",
+      "label": "Open Problem 1",
+      "page": "13 of 69"
+    },
+    {
+      "section": "2.2.2",
+      "label": "Open Problem 5",
+      "page": "14 of 69"
+    },
+    {
+      "section": "4.1.2",
+      "label": "periodic boundary condition discussion",
+      "page": "40-41 of 69"
+    }
+  ]
+}

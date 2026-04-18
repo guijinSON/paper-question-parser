@@ -1,0 +1,55 @@
+{
+  "arxiv_id": "2512.19395",
+  "question_id": "q_010",
+  "original_question": "Fix k >= 3 and write m + k(k+1)/2 == l mod k with 1 <= l <= k - 1. Which graph in G(m, theta_{1,2,2k-1}) union G(m, theta_{1,2,2k}) has the largest spectral radius?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 12130.51,
+  "target_in_paper": "Problem 7 (Liu et al. [27], 2026): For k ≥ 3, when m + k(k+1)/2 ≡ l (mod k) with 1 ≤ l ≤ k − 1, which graphs in 𝒢(m, θ_{1,2,2k−1}) ∪ 𝒢(m, θ_{1,2,2k}) achieve the largest spectral radius?",
+  "completeness_score": 8.5,
+  "correct_elements": "Your draft already identifies the correct parameter range k ≥ 3, the correct residue-class condition m + k(k+1)/2 ≡ l (mod k) with 1 ≤ l ≤ k − 1, the correct forbidden-subgraph families 𝒢(m, θ_{1,2,2k−1}) and 𝒢(m, θ_{1,2,2k}), and the correct extremal objective of maximizing spectral radius. In substance, it is very close to Problem 7 in the paper and is not merely a restatement of the earlier Conjecture 3.11.",
+  "missing_details": [
+    "The paper works with finite, simple, undirected graphs; that ambient graph-theoretic setting is implicit in your draft.",
+    "The notation 𝒢(m, ℱ) is defined in Section 1 to mean the set of ℱ-free graphs with exactly m edges and no isolated vertices; your draft omits the no-isolated-vertices condition.",
+    "The spectral radius is the adjacency spectral radius λ(G), i.e. the largest eigenvalue in modulus of the adjacency matrix A(G); your draft says only 'spectral radius'.",
+    "The theta-graph notation should be defined: θ_{1,2,q} is the graph formed by joining two distinct vertices with three internally disjoint paths of lengths 1, 2, and q.",
+    "To be fully stand-alone, the residue parameter l should be explicitly quantified as an integer with 1 ≤ l ≤ k − 1.",
+    "The official problem asks for which graph(s) achieve the maximum, not necessarily a unique graph a priori; your draft uses the singular 'Which graph'.",
+    "The nearby context matters: Problem 7 is motivated by the fact that the extremal graph in Theorem 3.14, K_k ∨ ((m/k) − (k−1)/2)K_1, is defined only when m + k(k+1)/2 ≡ 0 (mod k).",
+    "Your draft does not indicate whether the question is meant for all m or only for sufficiently large m. The official Problem 7 is stated without a lower bound on m, while the subsequent Theorem 3.23 resolves it for m ≥ 144k^4."
+  ],
+  "refined_question": "For each fixed integer k ≥ 3 and each integer l with 1 ≤ l ≤ k − 1, if m is an integer satisfying m + k(k+1)/2 ≡ l (mod k), determine all finite simple undirected graphs G with exactly m edges and no isolated vertices that maximize the adjacency spectral radius λ(G) over the class 𝒢(m, θ_{1,2,2k−1}) ∪ 𝒢(m, θ_{1,2,2k}), where 𝒢(m, F) denotes the set of F-free graphs with m edges and no isolated vertices, and θ_{1,2,q} is the graph obtained by joining two distinct vertices by three internally disjoint paths of lengths 1, 2, and q.",
+  "equivalent_formulation": null,
+  "justification": "The draft is targeting Problem 7, not Conjecture 3.11 itself. The decisive clue is the residue-class hypothesis 1 ≤ l ≤ k − 1: the paper first states Conjecture 3.11 and then proves it in Theorem 3.14 for the congruence class where the extremal join graph K_k ∨ ((m/k) − (k−1)/2)K_1 is well defined. Immediately afterward, the survey observes that this construction only works when m + k(k+1)/2 ≡ 0 (mod k), and then raises Problem 7 for the remaining residue classes 1 ≤ l ≤ k − 1. Your draft matches that official problem almost verbatim, but it needs the paper’s background definitions of 𝒢(m, F), λ(G), and θ_{1,2,q}, and it should clarify whether it is asking the exact Problem 7 or the large-m regime later settled by Theorem 3.23.",
+  "citations": [
+    {
+      "section": "1",
+      "label": "introductory definitions of λ(G) and 𝒢(m, ℱ)",
+      "page": 1
+    },
+    {
+      "section": "3",
+      "label": "definition of θ_{1,p,q} preceding Conjecture 3.11",
+      "page": 6
+    },
+    {
+      "section": "3",
+      "label": "Conjecture 3.11",
+      "page": 6
+    },
+    {
+      "section": "3",
+      "label": "Theorem 3.14",
+      "page": 7
+    },
+    {
+      "section": "3",
+      "label": "Problem 7",
+      "page": 8
+    },
+    {
+      "section": "3",
+      "label": "Theorem 3.23",
+      "page": "8-9"
+    }
+  ]
+}

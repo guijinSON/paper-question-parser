@@ -1,0 +1,49 @@
+{
+  "arxiv_id": "math_9201271",
+  "question_id": "q_028",
+  "original_question": "Find a general property of a lifting family in the interval version of Thurston’s algorithm that guarantees convergence for all preperiodic or periodic kneading sequences.",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 14064.51,
+  "target_in_paper": "§3, Thurston's algorithm for real functions, Question 3 (page 9): Give a general property for the lifting family which will guarantee convergence of Thurston's algorithm for preperiodic or periodic kneading sequences.",
+  "completeness_score": 8.5,
+  "correct_elements": "Your draft already identifies the exact official target very closely: it asks for a general property of the lifting family, in the interval/real-function version of Thurston's algorithm, with the scope restricted to periodic or preperiodic kneading sequences. That is precisely the content of Question 3 in §3.",
+  "missing_details": [
+    "The ambient dynamical space is not stated: one works in P = P(n, mu), the space of piecewise monotone maps f of the interval I = [0,1] having n laps and sending the boundary {0,1} into itself according to a prescribed boundary map mu.",
+    "The phrase \"lifting family\" is left implicit. In context it means a family inside P used in place of the degree-n polynomial subfamily in the lifting step of the algorithm.",
+    "The iterative procedure itself is not specified. Starting from f_0 in P, one chooses a lift p_k with the same critical values as f_k, encountered in the same order, then takes the homeomorphism h_k:[0,1]->[0,1] carrying the critical points of f_k to those of p_k and satisfying p_k o h_k = f_k, and sets f_{k+1} = h_k o f_k o h_k^{-1}.",
+    "The quantifier should be attached to the initial map f_0 (or to the kneading sequence realized by f_0), not just to kneading sequences in the abstract.",
+    "The intended sense of \"convergence\" is implicit. In the immediately preceding discussion, convergence means convergence of the Thurston iteration in the polynomial case, where the lift maps p_k converge to a limit p_infinity with the same kneading sequence as f_0; your draft does not state this contextual benchmark.",
+    "The paper treats the broader case of arbitrary kneading sequences separately as Question 4, so the refined question should explicitly remain restricted to the periodic/preperiodic case and not drift into the arbitrary case.",
+    "There is no ambient ring/field, homogeneity, degree-of-polynomial algebraic restriction, or nilpotency condition here; the essential omitted data are dynamical and algorithmic, namely the space P(n, mu), the interval I = [0,1], the lift-selection rule, and the iteration scheme."
+  ],
+  "refined_question": "In the setting of §3, let P = P(n, mu) be the space of piecewise monotone maps f:I=[0,1]->I with n laps and prescribed boundary action mu on {0,1}. Starting from f_0 in P, modify Thurston's interval algorithm by replacing the polynomial lift with a lift chosen from a fixed family F subset P: at each stage choose p_k in F having the same critical values as f_k, encountered in the same order, let h_k:[0,1]->[0,1] be the homeomorphism carrying the critical points of f_k to those of p_k and satisfying p_k o h_k = f_k, and define f_{k+1} = h_k o f_k o h_k^{-1}. What general structural property of the lifting family F guarantees convergence of this modified Thurston algorithm whenever the initial map f_0 has a periodic or preperiodic kneading sequence?",
+  "equivalent_formulation": null,
+  "justification": "The draft points to the exact official item in this paper: §3 is titled \"Thurston's algorithm for real functions,\" and Question 3 on page 9 asks verbatim for a general property of the lifting family guaranteeing convergence for preperiodic or periodic kneading sequences. The nearby setup on pages 8-9 defines the ambient space P = P(n, mu), the interval I = [0,1], the polynomial lifting step via matching critical values in the same order, the conjugacies h_k, and the induced iteration f_{k+1} = h_k o f_k o h_k^{-1}. The paragraph immediately before Questions 2-4 explains the intended convergence benchmark in the polynomial case, and Question 2 gives the motivating nonpolynomial family x -> k - k|2x-1|^alpha. Question 4 then shows that extending from periodic/preperiodic kneading data to arbitrary kneading sequences is a distinct broader problem. Since this paper is a problem list rather than a theorem paper with Conjecture 1.1/Proposition 1.2/Theorem 1.3, the correct paper-faithful target is precisely Question 3 of §3.",
+  "citations": [
+    {
+      "section": "§3",
+      "label": "Thurston's algorithm for real functions (setup: P = P(n, mu), I = [0,1])",
+      "page": 8
+    },
+    {
+      "section": "§3",
+      "label": "Polynomial lifting step and convergence discussion before Question 1",
+      "page": 9
+    },
+    {
+      "section": "§3",
+      "label": "Question 2",
+      "page": 9
+    },
+    {
+      "section": "§3",
+      "label": "Question 3",
+      "page": 9
+    },
+    {
+      "section": "§3",
+      "label": "Question 4",
+      "page": 9
+    }
+  ]
+}

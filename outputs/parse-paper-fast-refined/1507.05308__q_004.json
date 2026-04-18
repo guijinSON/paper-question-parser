@@ -1,0 +1,61 @@
+{
+  "arxiv_id": "1507.05308",
+  "question_id": "q_004",
+  "original_question": "Consider the Kirchhoff-type problem on a smooth bounded domain Omega subset R^4 with Dirichlet boundary condition u = 0 on dOmega, given by -(a + b integral_Omega |grad u|^2 dx) Delta u = lambda|u|^(q-2)u + delta|u|^2u for 2 < q < 4. Theorem A assumes that bS^2 < delta < 2bS^2, that Omega is strictly star-shaped, and that one of the auxiliary parameter conditions (C1) - a > 0 with lambda > 0 sufficiently small, (C2) - lambda > 0 with a > 0 sufficiently large, or (C3) - a > 0, lambda > 0, and delta/b > S^2 sufficiently close to S^2 - holds. Are these assumptions necessary in order to guarantee the existence of a solution of Eq. (1.1)?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 4505.67,
+  "target_in_paper": "The draft is trying to capture the three unsolved sharpness questions stated at the end of Section 1.1, immediately after Theorems 1.3 and 1.6, about whether the extra hypotheses used in those theorems are really needed for existence.",
+  "completeness_score": 7,
+  "correct_elements": "The draft correctly identifies the relevant Kirchhoff-type Dirichlet problem on a smooth bounded domain in R^4, the critical interaction between the Kirchhoff term and the quartic nonlinearity, the parameter regime corresponding to the paper’s difficult case, and the fact that the issue is the necessity of the assumptions used to obtain existence. It also correctly focuses on the hypotheses corresponding to Theorem 1.3/1.6 (called 'Theorem A' in some later presentations), namely the range bS^2 < μ < 2bS^2, the auxiliary parameter restrictions, and the strict star-shapedness assumption.",
+  "missing_details": [
+    "The paper’s original notation is -(a + b∫Ω|∇u|^2 dx)Δu = λu^q + μu^3 with 1 < q < 3, not λ|u|^(q-2)u + δ|u|^2u with 2 < q < 4. Your formulation is equivalent after the reparametrization q_user = q_paper + 1 and δ = μ, but this should be stated explicitly to avoid ambiguity.",
+    "In the paper, the solutions sought are positive weak solutions u ∈ H_0^1(Ω), and Section 1.2 notes that such weak solutions are automatically C^2 and positive by elliptic regularity and the strong maximum principle.",
+    "The theorem the draft paraphrases is actually split in the paper: Theorem 1.3 gives solutions for the auxiliary problems (P_ν) for almost every ν ∈ (δ,1] and yields an alternative (blow-up or boundedness), while Theorem 1.6 uses strict star-shapedness of Ω to rule out the blow-up alternative and obtain a solution of the original problem (P).",
+    "The paper does not pose one broad yes/no open problem in exactly your wording; instead it asks three sharper open questions: whether one can take λ0 = ∞, a0 = 0, and b0 = μ/(2S^2); whether the extra condition μ < 2bS^2 is essential; and what happens for a general smooth bounded domain.",
+    "The symbol δ is already used in the paper for the auxiliary interval parameter with 1/2 < δ < 1 and bS^2/δ < μ. Using δ as the coefficient of |u|^2u obscures the structure of Theorem 1.3.",
+    "The Sobolev constant S should be identified as the usual best constant for H_0^1(Ω) ↪ L^4(Ω).",
+    "The auxiliary conditions (C1)–(C3) are not arbitrary: Remark 1.5 explains them through the requirement g(t) ≥ 0 for all t ≥ 0, where g is an explicit polynomial depending on a, b, q, λ, μ.",
+    "The role of strict star-shapedness should be stated precisely: in the proof of Theorem 1.6 it is used via Pohozaev’s nonexistence argument for the limiting problem arising in the blow-up analysis, not as part of the variational construction itself.",
+    "The open problem concerns existence only; it does not ask for uniqueness, multiplicity, or an 'if and only if' characterization in the difficult case 1 < q < 3."
+  ],
+  "refined_question": "Let Ω ⊂ R^4 be a smooth bounded domain, let a,b,λ,μ > 0, and consider the problem -(a + b∫Ω |∇u|^2 dx)Δu = λu^q + μu^3 in Ω, u > 0 in Ω, u = 0 on ∂Ω, with 1 < q < 3 (equivalently, in the reparametrization used in the draft, 2 < p = q+1 < 4 and the right-hand side is λ|u|^(p-2)u + μ|u|^2u). Writing S for the Sobolev constant of H_0^1(Ω) ↪ L^4(Ω), Theorems 1.3 and 1.6 prove existence under bS^2 < μ < 2bS^2, one of the auxiliary hypotheses λ < λ0(a,b,q,μ), or a > a0(b,q,λ,μ), or b0(a,q,λ,μ) < b < μ/S^2, and, to pass from the auxiliary problems (P_ν) to the original problem (P), the additional assumption that Ω is strictly star-shaped. Are these extra hypotheses genuinely necessary for existence, i.e. can one remove them by taking λ0 = ∞, a0 = 0, and b0 = μ/(2S^2), dropping the condition μ < 2bS^2, and obtaining the same existence conclusion for the original problem on a general smooth bounded domain Ω?",
+  "equivalent_formulation": null,
+  "justification": "The closest paper-faithful target is not a single theorem statement but the final paragraph of Section 1.1, where the author explicitly lists the remaining open problems after proving Theorems 1.3 and 1.6. Theorem 1.3 introduces the auxiliary family (P_ν) and proves existence only for almost every ν ∈ (δ,1], together with a boundedness/blow-up alternative. Remark 1.5 explains how the constants λ0, a0, and b0 arise. Theorem 1.6 then adds the strict star-shapedness of Ω to exclude the blow-up alternative and recover a solution of the original problem (P). Immediately after that, the paper asks whether one can choose λ0 = ∞, a0 = 0, and b0 = μ/(2S^2), whether the extra restriction μ < 2bS^2 is essential, and what happens on a general smooth bounded domain. So the mathematically sharp stand-alone reformulation of the draft is a single question about the necessity of exactly those extra assumptions, stated in the paper’s original notation and scope.",
+  "citations": [
+    {
+      "section": "1.1 Statement of results",
+      "label": "Theorem 1.3",
+      "page": "PDF p. 4"
+    },
+    {
+      "section": "1.1 Statement of results",
+      "label": "Remark 1.5",
+      "page": "PDF p. 4"
+    },
+    {
+      "section": "1.1 Statement of results",
+      "label": "Theorem 1.6",
+      "page": "PDF p. 4"
+    },
+    {
+      "section": "1.1 Statement of results",
+      "label": "Open questions after Theorem 1.6 ('These are the left problems for our future')",
+      "page": "PDF p. 5"
+    },
+    {
+      "section": "1.2 Setting",
+      "label": "Definition of weak solution; regularity and positivity",
+      "page": "PDF p. 5"
+    },
+    {
+      "section": "3",
+      "label": "Lemma 3.2",
+      "page": "PDF pp. 12-13"
+    },
+    {
+      "section": "3",
+      "label": "Proof of Theorem 1.6",
+      "page": "PDF p. 17"
+    }
+  ]
+}

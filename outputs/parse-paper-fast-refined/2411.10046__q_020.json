@@ -1,0 +1,55 @@
+{
+  "arxiv_id": "2411.10046",
+  "question_id": "q_020",
+  "original_question": "Under the same definitions of Type-A and Type-B vertex orders for a graph G, if G admits a Type-A order or a Type-B order, can such an order be found in polynomial time?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 10331.27,
+  "target_in_paper": "Section 7, Problem 7.2: \"If a Type-A or Type-B order exists, can it be found in polynomial time?\"",
+  "completeness_score": 8,
+  "correct_elements": "Your draft already captures the right algorithmic search problem, the right objects (Type-A and Type-B vertex orders of a graph G), the existential premise ('if such an order exists'), and the intended complexity requirement ('in polynomial time'). It is very close to the paper’s official wording in Problem 7.2.",
+  "missing_details": [
+    "The question is not stand-alone because it refers to 'the same definitions' without restating them.",
+    "The ambient class should be made explicit: G is a finite simple undirected graph.",
+    "One must specify that the sought object is a linear ordering of the vertex set V(G), say v1, ..., vn.",
+    "The paper defines d^-(vi) = |{j < i : vivj in E(G)}| and d^+(vi) = |{j > i : vivj in E(G)}| for a chosen linear order; these counts should be included.",
+    "Type-A must be stated exactly: for every vertex vi, d^-(vi) is odd or 0.",
+    "Type-B must be stated exactly: for every vertex vi, either d^-(vi) is odd or 0, or d^-(vi) is even and d^+(vi) = 0.",
+    "It should be explicit that the algorithmic task is to output a witnessing order, not merely to decide existence.",
+    "The workshop paper phrases the search question jointly, but the cited source paper separates the two analogous algorithmic problems for the corresponding notions called odd-majority orientations and odd-even orderings."
+  ],
+  "refined_question": "Let G = (V,E) be a finite simple undirected graph. For a linear ordering pi = (v1, ..., vn) of V, define d^-(vi) = |{j < i : vivj in E}| and d^+(vi) = |{j > i : vivj in E}|. Call pi a Type-A order if d^-(vi) is odd or 0 for every i, and call pi a Type-B order if for every i either d^-(vi) is odd or 0, or d^-(vi) is even and d^+(vi) = 0. Given G, is there a polynomial-time algorithm that, whenever G admits a Type-A order (respectively, a Type-B order), outputs such a witnessing linear order of V(G)?",
+  "equivalent_formulation": null,
+  "justification": "The nearest official formulation in arXiv:2411.10046 is exactly Problem 7.2 in Section 7, after the paper introduces Type-A and Type-B orders via the quantities d^- and d^+ attached to a linear vertex order. Your draft is therefore targeting the correct open problem. To make it fully stand-alone, however, the order-dependent definitions must be restated. The cited joint paper of Caro and Tuza is the underlying source of these notions: in Section 3.5 it defines the corresponding parity-constrained vertex-order concepts more formally, explains in Theorem 3.13 why they matter for the anti-Ramsey parameters studied there, and in Section 6.3 records the analogous algorithmic open problems. This confirms that the sharp, paper-faithful refinement is a witness-construction question for these exact order types, not a broader recognition or optimization variant.",
+  "citations": [
+    {
+      "section": "1.4",
+      "label": "Standard definitions and notation",
+      "page": 8
+    },
+    {
+      "section": "7",
+      "label": "definitions of Type-A and Type-B orders",
+      "page": 10
+    },
+    {
+      "section": "7",
+      "label": "Problem 7.2",
+      "page": 10
+    },
+    {
+      "section": "3.5",
+      "label": "Definitions 3.10 and 3.11",
+      "page": 23
+    },
+    {
+      "section": "3.5",
+      "label": "Theorem 3.13",
+      "page": "23-24"
+    },
+    {
+      "section": "6.3",
+      "label": "Problems 6.12 and 6.13",
+      "page": 52
+    }
+  ]
+}

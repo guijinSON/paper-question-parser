@@ -1,0 +1,43 @@
+{
+  "arxiv_id": "1607.05819",
+  "question_id": "q_002",
+  "original_question": "Let G be a polycyclic group. In the power conjugacy search problem, one is given elements a and b in G and an integer n in N such that a^n = b^g for some g in G, and the task is to find such an exponent n and conjugator g. What is the computational complexity of this problem for polycyclic groups?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 4788.78,
+  "target_in_paper": "Section 5 (Conclusion), open problem (3): \"What is the complexity of the power conjugacy problem in polycyclic groups?\", read together with the precise definition of the power conjugacy search problem in Section 2.4.4 and its cryptographic use in Section 3.3.2.",
+  "completeness_score": 7,
+  "correct_elements": "Your draft correctly identifies the relevant class of groups (polycyclic groups), the relevant algorithmic problem (the power conjugacy variant of conjugacy search), and the fact that the paper asks for its computational complexity.",
+  "missing_details": [
+    "The paper’s official open-problem wording is \"What is the complexity of the power conjugacy problem in polycyclic groups?\"; the nearby formal definition appears in Section 2.4.4 under the heading \"Power Conjugacy Search Problem.\"",
+    "The promise is existential: one assumes there exist n in N and g in G such that a^n = b^g. Your draft incorrectly says that n is given as part of the input while also asking to find n.",
+    "To be stand-alone, the question should define the conjugation notation b^g (for example, b^g = g^{-1}bg), or avoid the notation entirely.",
+    "The output should be specified as one admissible pair (n, g) satisfying the promised relation.",
+    "The paper motivates this exact problem via the non-commutative ElGamal variant in Section 3.3.2; including that context helps keep the question aligned with the paper’s actual intent.",
+    "The paper does not fix the input representation of the polycyclic group in the open problem, even though earlier discussion emphasizes that complexity may depend on whether the group is given by a polycyclic presentation, multiplication polynomials, or matrices."
+  ],
+  "refined_question": "Let G be a polycyclic group. Consider the power conjugacy search problem: given elements a,b in G with the promise that there exist n in N and g in G such that a^n = b^g (where b^g := g^{-1}bg), what is the computational complexity of finding one such pair (n,g)?",
+  "equivalent_formulation": null,
+  "justification": "The nearest official target is the third open problem in the Conclusion, which asks for the complexity of the power conjugacy problem in polycyclic groups. The exact nearby definition appears in Section 2.4.4, where the paper describes the power conjugacy search problem and states that it is solvable by enumeration but that no efficient algorithm is known. Section 3.3.2 shows why this specific problem is singled out: it is the security assumption behind the paper’s non-commutative ElGamal variant. I therefore kept the scope narrow, corrected the draft’s input/output inconsistency about n, and reformulated the question as the precise promise-search problem the paper actually discusses.",
+  "citations": [
+    {
+      "section": "2.4.4",
+      "label": "Power Conjugacy Search Problem",
+      "page": 6
+    },
+    {
+      "section": "2.6",
+      "label": "Quantum Algorithms",
+      "page": 7
+    },
+    {
+      "section": "3.3.2",
+      "label": "Non-Commutative Key Exchange Using Power Conjugacy Search",
+      "page": 9
+    },
+    {
+      "section": "5",
+      "label": "Conclusion, open problem (3)",
+      "page": 17
+    }
+  ]
+}

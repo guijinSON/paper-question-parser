@@ -1,0 +1,56 @@
+{
+  "arxiv_id": "2201.09150",
+  "question_id": "q_033",
+  "original_question": "Determine whether a movement model that includes both short-term and long-term memory can be meaningfully connected to the time-since-last-visit concept and whether it predicts movement more accurately than comparable models with only one memory compartment.",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 7961.8,
+  "target_in_paper": "Section 2.4 (Short and long term memory), specifically Open Problem 33, in the context of the newly proposed bi-component diffusion-advection memory model given by equations (2.33)-(2.34).",
+  "completeness_score": 9,
+  "correct_elements": "Your draft already captures the two defining features of the paper’s exact target: (i) connecting a model with both short-term and long-term memory to the time-since-last-visit (TSLV) concept, and (ii) asking whether the two-memory-compartment model has better predictive power than models with only one memory compartment. Those are precisely the two clauses of Open Problem 33.",
+  "missing_details": [
+    "The paper is not asking about an arbitrary movement model; it is asking about the specific continuous-time deterministic diffusion-advection framework introduced immediately before Open Problem 33 in Section 2.4.",
+    "The relevant state variables are u(x,t) for population density and m_s(x,t), m_l(x,t) for short- and long-term memory, respectively.",
+    "The memory layers are proposed to satisfy ∂_t m_s = α_s a_s(x,t) - β_s m_s and ∂_t m_l = α_l a_l(x,t) - β_l m_l, i.e. equation (2.33).",
+    "The intended short-vs-long memory asymmetry is encoded by α_l < α_s and β_l < β_s, so long-term memory forms more slowly and decays more slowly, while short-term memory responds quickly and fades quickly.",
+    "The cognitive map entering movement is a(x,t) = c_1 m_s(x,t) + c_2 m_l(x,t).",
+    "The movement equation is the perception-based diffusion-advection PDE ∂_t u = dΔu - ∇·(u∇a_{g,R}), i.e. equation (2.34).",
+    "The perception operator is a_{g,R}(x,t) = ∫_Ω a(y,t) g(x-y) dy, with detection kernel g and perceptual radius R, inherited from equation (2.5).",
+    "The signs of c_1 and c_2 are application-dependent; the nearby context explicitly notes that one biologically relevant case is short-term repulsion and long-term attraction, c_1 < 0 < c_2, to model revisitation after resource replenishment.",
+    "The paper’s intended TSLV connection is specifically to discrete-time probabilistic models such as Schlagel et al. (2017), whereas the PDE model here is continuous-time and deterministic.",
+    "The phrase one memory compartment should be made explicit as comparison against otherwise comparable reductions using only m_s or only m_l.",
+    "The phrase better predictive power is not formalized in Open Problem 33; Section 4.2 says comparison must be made within a chosen class of comparable models and using a context-dependent measure of success or validation criterion.",
+    "The paper does not fix the spatial domain Ω, spatial dimension, boundary conditions, kernel choice, or environmental covariates for Open Problem 33, so a stand-alone question should not silently impose them unless one is intentionally specializing the problem.",
+    "A nearby example takes a_s(x,t) = a_l(x,t) = u(x,t)m(x,t), where m(x,t) is a resource density, but this is only an example, not a mandatory assumption of Open Problem 33.",
+    "No ambient ring or field, no homogeneity or degree restriction, no nilpotency condition, and no asymptotic quantifier such as for all sufficiently large m occur in this problem; those notions are not part of the paper’s formulation here."
+  ],
+  "refined_question": "For the newly proposed continuous-time deterministic diffusion-advection model in Section 2.4, where short- and long-term memory layers m_s and m_l satisfy ∂_t m_s = α_s a_s(x,t) - β_s m_s and ∂_t m_l = α_l a_l(x,t) - β_l m_l with α_l < α_s and β_l < β_s, the cognitive map is a(x,t) = c_1 m_s(x,t) + c_2 m_l(x,t), and movement is governed by ∂_t u = dΔu - ∇·(u∇a_{g,R}) with a_{g,R}(x,t) = ∫_Ω a(y,t)g(x-y)dy for a detection kernel g and perceptual radius R, can one give a mathematically and biologically meaningful correspondence between this two-compartment short/long-memory mechanism and a time-since-last-visit (TSLV) rule, and, under a precisely stated predictive-performance or model-comparison criterion for comparable models, does the full two-compartment model outperform the one-compartment reductions that retain only short-term memory or only long-term memory, thereby linking the paper’s continuous-time deterministic PDE framework to the discrete-time probabilistic TSLV models of Schlagel et al. (2017)?",
+  "equivalent_formulation": null,
+  "justification": "The draft is targeting Open Problem 33, not the broader neighboring Open Problem 32, because it mentions both ingredients that appear verbatim in the paper’s official formulation: the connection to TSLV and the comparison of predictive power between a two-compartment memory model and one-compartment alternatives. The nearby context in Section 2.4 defines the exact modeling framework that the draft leaves implicit: equations (2.33)-(2.34), the variables u, m_s, m_l, the parameter inequalities α_l < α_s and β_l < β_s, the combined cognitive map a = c_1 m_s + c_2 m_l, and the perception-smoothed potential a_{g,R}. The same context explains why TSLV is relevant: short-term memory can encode recent avoidance while long-term memory can encode attraction to profitable locations, creating a possible continuous-time deterministic analogue of revisit-timing rules. I did not add domain, boundary conditions, or a single fixed performance metric, because Open Problem 33 does not specify them, and Section 4.2 explicitly says that model comparison and prediction must be framed through context-dependent measures of success for comparable models.",
+  "citations": [
+    {
+      "section": "2.1",
+      "label": "Equation (2.5)",
+      "page": "10"
+    },
+    {
+      "section": "2.4",
+      "label": "Section heading and setup for short and long term memory",
+      "page": "27-28"
+    },
+    {
+      "section": "2.4",
+      "label": "Equations (2.33)-(2.34)",
+      "page": "28"
+    },
+    {
+      "section": "2.4",
+      "label": "Open Problem 33",
+      "page": "29"
+    },
+    {
+      "section": "4.2",
+      "label": "Measures of success in movement models",
+      "page": "43-44"
+    }
+  ]
+}

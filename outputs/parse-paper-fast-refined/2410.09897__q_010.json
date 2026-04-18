@@ -1,0 +1,44 @@
+{
+  "arxiv_id": "2410.09897",
+  "question_id": "q_010",
+  "original_question": "For a graph G, let tau(G; x) be the polynomial defined by tau(G; x) = sum_{pi in Pi(V)} a(G[pi]) x^{|pi|}. Does tau(G; x) have only real roots for every graph G?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 10139.58,
+  "target_in_paper": "Problem 2.6 in §2 (Unimodality): Does τ(G; x) have only real roots for all graphs G?",
+  "completeness_score": 8,
+  "correct_elements": "Your draft is very close to the paper’s actual target. It asks exactly the real-rootedness question of Problem 2.6, and the formula you use for τ(G; x) is the combinatorial interpretation stated in Theorem 2.5.",
+  "missing_details": [
+    "The paper works with finite simple loopless graphs G = (V, E), with p = |V| vertices.",
+    "The official definition in the paper first introduces τ(G; x) from the chromatic polynomial: χ(G; x) = Σ_{i=0}^p (-1)^(p-i) c_i ⟨x⟩_i, where ⟨x⟩_i = x(x+1)···(x+i-1) for i ≥ 1 and ⟨x⟩_0 = 1, and then sets τ(G; x) = Σ_{i=0}^p c_i x^i.",
+    "If one uses the partition formula, Π(V) must be defined as the set of all set partitions π = {B1, ..., Bk} of V.",
+    "The notation G[B] must be defined as the induced subgraph on B, and G[π] must be defined as the disjoint union ⨆_{i=1}^k G[Bi].",
+    "The function a(H) must be defined as the number of acyclic orientations of the graph H.",
+    "It should be stated that τ(G; x) lies in Z[x] and that has only real roots means all zeros of τ(G; x) in C are real.",
+    "The quantifier should match the paper exactly: the question is for every finite simple loopless graph G."
+  ],
+  "refined_question": "Let G = (V, E) be a finite simple loopless graph on p = |V| vertices, and write its chromatic polynomial in the form χ(G; x) = Σ_{i=0}^p (-1)^(p-i) c_i ⟨x⟩_i, where ⟨x⟩_0 = 1 and ⟨x⟩_i = x(x+1)···(x+i-1) for i ≥ 1. Define the τ-polynomial of G by τ(G; x) = Σ_{i=0}^p c_i x^i ∈ Z[x]. Must τ(G; x) have only real zeros for every finite simple loopless graph G?",
+  "equivalent_formulation": "Equivalently, by Theorem 2.5, if Π(V) denotes the set of all set partitions π of V, G[π] := ⨆_{B∈π} G[B], and a(H) denotes the number of acyclic orientations of a graph H, then τ(G; x) = Σ_{π∈Π(V)} a(G[π]) x^|π|; does this polynomial have only real zeros for every finite simple loopless graph G?",
+  "justification": "Although the paper begins with Coxeter-group problems in §1, your draft clearly targets the graph-theoretic τ-polynomial discussion in §2. The nearest official formulation is Problem 2.6, which asks exactly whether τ(G; x) has only real roots for all graphs G. Your draft uses the equivalent partition/acyclic-orientation formula that the paper states immediately beforehand in Theorem 2.5. To make the question fully stand-alone and faithful to the paper, one should add the graph assumptions, the paper’s primary chromatic-polynomial definition of τ(G; x), and the definitions of Π(V), G[π], and a(H).",
+  "citations": [
+    {
+      "section": "§2",
+      "label": "unnumbered definition of the τ-polynomial via the chromatic polynomial",
+      "page": "8"
+    },
+    {
+      "section": "§2",
+      "label": "unnumbered definitions preceding Theorem 2.5",
+      "page": "8-9"
+    },
+    {
+      "section": "§2",
+      "label": "Theorem 2.5",
+      "page": "9"
+    },
+    {
+      "section": "§2",
+      "label": "Problem 2.6",
+      "page": "9"
+    }
+  ]
+}

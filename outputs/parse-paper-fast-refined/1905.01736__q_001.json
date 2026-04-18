@@ -1,0 +1,63 @@
+{
+  "arxiv_id": "1905.01736",
+  "question_id": "q_001",
+  "original_question": "For an irreducible Markov modulated Poisson process (MMPP), is the squared coefficient of variation of the event-stationary inter-event time always at least 1? Equivalently, if T_1^alpha denotes the first inter-event time in the event-stationary version of the process, must c^2 = Var(T_1^alpha) / E[T_1^alpha]^2 satisfy c^2 >= 1 for every irreducible MMPP?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 6581.27,
+  "target_in_paper": "Conjecture 4.1 in the arXiv version of 1905.01736 (renumbered as Conjecture 3.8 in the published version): for an irreducible MMPP, c^2 >= 1.",
+  "completeness_score": 8.5,
+  "correct_elements": "Your draft targets the right open problem: property (III) in the paper, namely whether the squared coefficient of variation of the event-stationary interarrival time of an irreducible MMPP is at least 1. It also uses the correct random variable T_1^alpha and the correct SCV formula c^2 = Var(T_1^alpha)/E[T_1^alpha)^2, and it quantifies over all irreducible MMPPs, which is exactly the unresolved scope beyond the order-2 case.",
+  "missing_details": [
+    "The paper's MMPP is a finite-state MAP: Q = C + D is the generator of an irreducible CTMC on {1, ..., p}, D = diag(lambda_1, ..., lambda_p) with lambda_i >= 0, and C = Q - D.",
+    "The symbol alpha is not arbitrary: it is the stationary distribution of the embedded Markov chain P = (-C)^(-1) D; event-stationarity means the initial phase distribution eta equals alpha.",
+    "The paper also uses pi, the stationary distribution of Q, and this is needed for the paper-faithful equivalent matrix formulation.",
+    "The paper's terminology is 'interarrival time' rather than just 'inter-event time', and T_1^alpha specifically means the first interarrival time in the event-stationary version.",
+    "To make the question fully paper-faithful, the scope should be stated as all irreducible finite-state MMPPs of arbitrary order p; Proposition 3.7 already settles the order-2 case.",
+    "If an alternate formulation is given, the paper-explicit equivalent one is the matrix inequality (pi C 1)(pi C^(-1) 1) >= 1; the stochastic-order statement T_1^pi >=_st T_1^alpha is a separate, stronger conjecture, not an equivalence proved for MMPPs."
+  ],
+  "refined_question": "Let (N(t), X(t)) be an irreducible finite-state Markov-modulated Poisson process (MMPP) of order p, viewed as a Markovian arrival process with Q = C + D the generator of an irreducible CTMC on {1, ..., p}, D = diag(lambda_1, ..., lambda_p) with lambda_i >= 0, and C = Q - D. Let pi be the stationary distribution of Q, let alpha be the stationary distribution of the embedded chain P = (-C)^(-1)D, and let T_1^alpha denote the first interarrival time when the process is started in the event-stationary regime eta = alpha. Must the squared coefficient of variation satisfy c^2 := Var(T_1^alpha) / (E[T_1^alpha])^2 >= 1 for every irreducible MMPP?",
+  "equivalent_formulation": "Equivalently, since for an event-stationary MAP the paper proves c^2 + 1 = 2 (pi C 1)(pi C^(-1) 1), is it true for every irreducible MMPP that (pi C 1)(pi C^(-1) 1) >= 1, where 1 is the all-ones column vector?",
+  "justification": "The draft is aiming at the paper's property (III), introduced in Section 1 as c^2 >= 1 for the event-stationary interarrival time T_1^alpha and stated as the official open conjecture in Conjecture 3.8 of the published version (the same statement is Conjecture 4.1 in the arXiv version). Proposition 2.2 supplies the hidden notation needed to make the question stand-alone: T_1^alpha is the first interarrival time when the initial phase law is eta = alpha, where alpha is the stationary law of P = (-C)^(-1)D, and pi is the stationary law of Q = C + D. Equation (2.2) gives the exact equivalent matrix form c^2 + 1 = 2 (pi C 1)(pi C^(-1) 1), which the paper restates as property (III) in equation (2.8). Proposition 3.7 proves the statement for MMPP2, so the open problem is the arbitrary irreducible finite-state case. The stronger stochastic-order statement T_1^pi >=_st T_1^alpha is Conjecture 3.9, not an equivalent restatement of Conjecture 3.8; the paper only uses it as a sufficient route toward (III), while Lemma 2.1 gives a different equivalence, namely c^2 >= 1 iff E[T_1^pi] >= E[T_1^alpha].",
+  "citations": [
+    {
+      "section": "1",
+      "label": "Definition (1.1) and properties (III) and (IV) in the Introduction",
+      "page": "56-57"
+    },
+    {
+      "section": "2",
+      "label": "Lemma 2.1",
+      "page": "57-58"
+    },
+    {
+      "section": "2",
+      "label": "Proposition 2.2",
+      "page": "58-59"
+    },
+    {
+      "section": "2",
+      "label": "Equation (2.2)",
+      "page": "59"
+    },
+    {
+      "section": "2",
+      "label": "Equation (2.8)",
+      "page": "60"
+    },
+    {
+      "section": "3",
+      "label": "Proposition 3.7",
+      "page": "63-64"
+    },
+    {
+      "section": "3.1",
+      "label": "Conjecture 3.8",
+      "page": "65"
+    },
+    {
+      "section": "4",
+      "label": "Conclusion: open for general MMPPs of order greater than 2",
+      "page": "66"
+    }
+  ]
+}

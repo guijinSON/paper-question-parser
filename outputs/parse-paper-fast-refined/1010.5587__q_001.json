@@ -1,0 +1,54 @@
+{
+  "arxiv_id": "1010.5587",
+  "question_id": "q_001",
+  "original_question": "For the disordered copolymer model whose critical curve satisfies h_c(λ) ~ m_α λ in the weak-coupling regime when α ∈ (0,1), determine the universal slope m_α as an explicit function of α. Equivalently, identify the weak-coupling asymptotic of the critical curve beyond the currently known bounds, using only the model data supported in the paper: α is the tail exponent in the renewal law K(n) ~ C_K / n^(1+α), h_c(λ) is the localization-delocalization critical curve, and m_α depends only on α and not on the detailed law of the disorder sequence or on the full renewal distribution.",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 981.73,
+  "target_in_paper": "The nearest paper-faithful target is the open problem stated at the end of §1.4: the authors say that “capturing the value of m_α, for α ∈ (0,1), is an important open problem,” after introducing m_α via the weak-coupling asymptotic h_c(λ) ~ m_α λ and listing the currently known bounds. Read together with §4, Theorem 2, this identifies the problem as determining the universal constant m_α that governs the weak-coupling critical slope for all discrete α-copolymer models. ([fcaraven.github.io](https://fcaraven.github.io/download/papers/cgt.pdf))",
+  "completeness_score": 7.5,
+  "correct_elements": "Your draft already gets the main mathematical target right: it is about the weak-coupling slope of the copolymer critical curve, it restricts to α ∈ (0,1), it uses the correct tail parameter K(n) ~ C_K / n^(1+α), it correctly treats h_c(λ) as the localization-delocalization critical curve, and it correctly states the universality claim that the limiting slope depends only on α and not on the detailed disorder law or the full renewal law. Those are exactly the features emphasized in §1.4 and justified by §4, Theorem 2. ([fcaraven.github.io](https://fcaraven.github.io/download/papers/cgt.pdf))",
+  "missing_details": [
+    "The paper does not formulate this as “find an explicit function of α”; its nearest official formulation is the weaker but precise open problem “capture the value of m_α” for α ∈ (0,1). Asking for a closed-form formula is broader than the paper’s stated target. ([fcaraven.github.io](https://fcaraven.github.io/download/papers/cgt.pdf))",
+    "The question should specify the full discrete model hypotheses: τ is a persistent renewal with IID positive integer gaps and K(n) ~ C_K / n^(1+α); ξ is an IID Bernoulli(1/2) sign sequence independent of τ; and the disorder ω is IID with finite exponential moments M(t)=E[e^{tω_1}] for all t, mean 0, and variance 1. ([fcaraven.github.io](https://fcaraven.github.io/download/papers/cgt.pdf))",
+    "To be stand-alone, the question should define the polymer measure/partition function and the free energy F(λ,h)=lim_{N→∞}(1/N)E[log Z_{N,ω,λ,h}], because h_c(λ) is defined from F by h_c(λ)=sup{h : F(λ,h)>0}. ([fcaraven.github.io](https://fcaraven.github.io/download/papers/cgt.pdf))",
+    "It should make the quantifier explicit: fix α ∈ (0,1), and determine the same constant m_α for every discrete α-copolymer model satisfying the above assumptions. This matters because the paper only guarantees the existence of the weak-coupling limit in this form for α ∈ (0,1); for α ≥ 1 it explicitly warns that one should speak of liminf/limsup instead. ([fcaraven.github.io](https://fcaraven.github.io/download/papers/cgt.pdf))",
+    "The theorem-level equivalent formulation proved in the paper is via the continuum model: the continuum critical curve is linear, ẗh_c^α(λ)=m_α λ, and Theorem 2 proves lim_{λ↓0} h_c(λ)/λ = m_α. Without this, the meaning of m_α is incomplete. ([fcaraven.github.io](https://fcaraven.github.io/download/papers/cgt.pdf))",
+    "If the question is to be paper-faithful about the current state of knowledge, it should mention the established bounds 1/(1+α) ≤ m_α ≤ 1 and the sharpened bounds max{1/2, g(α)/sqrt(1+α), 1/(1+α)} ≤ m_α < 1. ([fcaraven.github.io](https://fcaraven.github.io/download/papers/cgt.pdf))",
+    "The draft omits the nearby official subproblems that the paper singles out as especially relevant: show m_{1/2} > 2/3, and decide whether m_α = 1/(1+α) for some α > 0. These are not required in the final rewrite, but they show the exact scope the authors had in mind. ([fcaraven.github.io](https://fcaraven.github.io/download/papers/cgt.pdf))"
+  ],
+  "refined_question": "Fix α ∈ (0,1). Consider the discrete α-copolymer model defined from a persistent renewal process τ with IID gaps satisfying K(n)=P(τ_1=n) ~ C_K / n^(1+α), an IID Bernoulli(1/2) sign sequence ξ independent of τ, and an IID disorder sequence ω with M(t)=E[e^{tω_1}]<∞ for all t, E[ω_1]=0, and E[ω_1^2]=1. Let F(λ,h)=lim_{N→∞}(1/N)E[log Z_{N,ω,λ,h}] be the quenched free energy and h_c(λ)=sup{h : F(λ,h)>0} the critical curve. Determine the universal constant m_α characterized by lim_{λ↓0} h_c(λ)/λ = m_α, equivalently the exact weak-coupling slope of the critical curve for this class of models, beyond the currently known bounds max{1/2, g(α)/sqrt(1+α), 1/(1+α)} ≤ m_α < 1. ([fcaraven.github.io](https://fcaraven.github.io/download/papers/cgt.pdf))",
+  "equivalent_formulation": "Equivalently, determine the slope m_α of the continuum α-stable-regenerative copolymer critical curve ẗh_c^α(λ)=m_α λ, since §4, Theorem 2 proves that for every discrete α-copolymer model in this class one has lim_{λ↓0} h_c(λ)/λ = m_α. ([fcaraven.github.io](https://fcaraven.github.io/download/papers/cgt.pdf))",
+  "justification": "I did not keep the draft’s demand for an “explicit function of α” because the paper itself does not state that as the official problem. The closest official statement is the open problem in §1.4 of capturing the value of m_α for α ∈ (0,1). The refined version makes the question stand-alone by adding the exact model assumptions and the definition of h_c, and it stays narrow by using only the equivalence explicitly proved in §4, Theorem 2 between the discrete weak-coupling limit and the slope of the continuum critical curve. Theorem 1 and Proposition 1 supply the current bounds and show why the problem is specifically about sharpening those bounds rather than about existence or universality, which the paper already establishes. ([fcaraven.github.io](https://fcaraven.github.io/download/papers/cgt.pdf))",
+  "citations": [
+    {
+      "section": "§1.2",
+      "label": "Equations (3)-(5): renewal tail, disorder assumptions, polymer measure and partition function",
+      "page": "PDF pp. 4-5"
+    },
+    {
+      "section": "§1.3-§1.4",
+      "label": "Equation (6) for the free energy and equation (14) for the critical curve h_c",
+      "page": "PDF pp. 5-6"
+    },
+    {
+      "section": "§1.4",
+      "label": "Theorem 1 and equations (17)-(19): explicit bounds on h_c and m_α",
+      "page": "PDF pp. 7-8"
+    },
+    {
+      "section": "§1.4",
+      "label": "Open problem on m_α and the two listed sub-problems",
+      "page": "PDF p. 9"
+    },
+    {
+      "section": "§3.2",
+      "label": "Proposition 1: strict improvement over the annealed upper bound for α ∈ (0,1)",
+      "page": "PDF p. 15"
+    },
+    {
+      "section": "§4",
+      "label": "Theorem 2 and equations (34)-(35): continuum limit and lim_{λ↓0} h_c(λ)/λ = m_α",
+      "page": "PDF pp. 16-17"
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "arxiv_id": "2201.09150",
+  "question_id": "q_027",
+  "original_question": "Determine under what conditions a unique solution exists for the consumer-resource system in which consumers move according to the resource gradient from tau time units in the past, under homogeneous Neumann boundary data and in higher spatial dimensions.",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 8004.47,
+  "target_in_paper": "Open Problem 27 in Section 2.3.1, concerning the time-dependent delayed consumer-resource system (2.24) with homogeneous Neumann boundary data and its extension to higher spatial dimensions.",
+  "completeness_score": 8,
+  "correct_elements": "Your draft already captures the core content of the paper's target problem: it is about existence and uniqueness for the delayed consumer-resource PDE system in which the consumer moves along the gradient of the resource from tau time units in the past, under homogeneous Neumann boundary conditions, with an explicit follow-up about higher spatial dimensions.",
+  "missing_details": [
+    "The exact PDE system (2.24) is omitted. In the paper's notation, the one-dimensional model is u_t = d22 u_xx - d21 d/dx(u d/dx v_tau) + f(u,v), v_t = d11 v_xx + g(u,v), with v_tau(x,t) = v(x,t-tau).",
+    "The paper's notation that u is the consumer density and v is the resource density is left implicit; the review also notes that this reverses the roles of u and v from the cited original reference.",
+    "The parameter restrictions are missing: tau > 0, d11 > 0, d22 > 0, and d21 >= 0.",
+    "The paper first states the model in one spatial dimension; the higher-dimensional case is posed as the natural extension obtained by replacing second x-derivatives with Laplacians and d/dx(u d/dx v_tau) with div(u grad v_tau).",
+    "The bounded-domain setting is implicit. To make the question stand-alone, one should specify a bounded interval in the one-dimensional case and a bounded smooth domain Omega subset of R^n for the higher-dimensional extension.",
+    "Homogeneous Neumann boundary data should be written explicitly for both unknowns, namely partial_nu u = partial_nu v = 0 on the boundary.",
+    "Because this is a time-dependent delay problem, one needs suitably regular compatible initial/history data consistent with the delayed term; your draft does not mention these data at all.",
+    "The review keeps the reaction terms general as growth/decay functions f(u,v) and g(u,v); the question should therefore not be narrowed to a particular Holling functional response unless explicitly stated.",
+    "The question is specifically about time-dependent well-posedness, not about steady states, bifurcation, or pattern formation.",
+    "Ambient setting: real-valued population densities on a bounded spatial domain over R; algebraic items such as degree restrictions or nilpotency conditions are not relevant to this PDE problem."
+  ],
+  "refined_question": "For the delayed consumer-resource system (2.24) in the paper, where u(x,t) denotes the consumer density and v(x,t) denotes the resource density, tau > 0, d11 > 0, d22 > 0, d21 >= 0, and in one spatial dimension on a bounded interval I one has u_t = d22 u_xx - d21 d/dx(u d/dx v(x,t-tau)) + f(u,v) and v_t = d11 v_xx + g(u,v), determine assumptions on the reaction terms f and g and on suitably regular compatible initial/history data under which the time-dependent problem with homogeneous Neumann boundary conditions u_x = v_x = 0 on partial I admits a unique solution. Moreover, does an analogous existence-uniqueness theory hold for the natural higher-dimensional version on a bounded smooth domain Omega subset of R^n, obtained by replacing u_xx and v_xx with Delta u and Delta v and replacing d/dx(u d/dx v(x,t-tau)) with div(u grad v(x,t-tau))?",
+  "equivalent_formulation": null,
+  "justification": "The draft is a near-paraphrase of Open Problem 27. The surrounding paragraph in Section 2.3.1 introduces the exact delayed consumer-resource model (2.24), specifies that the displayed system is the one-dimensional version, defines the roles of u and v and the signs of the coefficients, and then asks exactly for conditions ensuring a unique solution under homogeneous Neumann boundary data, followed by the higher-dimensional extension. Section 5.1.2 later reiterates that the existence problem for (2.24) is open. The refined question therefore restores the displayed PDE, the coefficient/sign assumptions, the bounded-domain and boundary setting, and the intended higher-dimensional analogue, without broadening to other delay or perception models.",
+  "citations": [
+    {
+      "section": "2.3.1 Discrete time delays — Systems of equations",
+      "label": "Equation (2.24)",
+      "page": "tool PDF p. 22"
+    },
+    {
+      "section": "2.3.1 Discrete time delays — Systems of equations",
+      "label": "surrounding paragraph after (2.24) defining u, v, d11, d21, d22, and tau",
+      "page": "tool PDF p. 22"
+    },
+    {
+      "section": "2.3.1 Discrete time delays — Systems of equations",
+      "label": "footnote 1 after (2.24) on the reversal of u and v relative to the cited source",
+      "page": "tool PDF p. 22"
+    },
+    {
+      "section": "2.3.1 Discrete time delays — Systems of equations",
+      "label": "Open Problem 27",
+      "page": "tool PDF p. 22"
+    },
+    {
+      "section": "5.1.2 Explicit memory models",
+      "label": "bullet stating that the existence problem for (2.24) is open",
+      "page": "tool PDF p. 55"
+    }
+  ]
+}

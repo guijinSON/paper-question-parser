@@ -1,0 +1,50 @@
+{
+  "arxiv_id": "1607.06196",
+  "question_id": "q_004",
+  "original_question": "Given a hypergeometric orthogonal polynomial family P_n(x; a) with parameter set a, ordinary linearization coefficients alpha_{k,m,n}(a) defined by P_m(x; a) P_n(x; a) = sum_k alpha_{k,m,n}(a) P_k(x; a), and connection coefficients beta_{k,n}(a,b) defined by P_n(x; a) = sum_k beta_{k,n}(a,b) P_k(x; b), can one obtain closed-form expressions for the generalized linearization coefficients gamma_{k,m,n}(a,b) in the expansion P_m(x; a) P_n(x; a) = sum_k gamma_{k,m,n}(a,b) P_k(x; b), especially for classical hypergeometric and basic-hypergeometric families such as Laguerre, Gegenbauer, continuous q-ultraspherical/Rogers, Jacobi, and continuous q-Jacobi polynomials?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 4852.82,
+  "target_in_paper": "Section 3, \"Generalized linearization formulas for hypergeometric orthogonal polynomials\": the opening open problem asking for closed-form expressions for the generalized linearization coefficients γ_{k,m,n}(a,b), defined from the ordinary linearization formula (3.1) and the connection relation (3.2). ([sigma-journal.com](https://sigma-journal.com/2016/071/sigma16-071.pdf))",
+  "completeness_score": 8.5,
+  "correct_elements": "Your draft already captures the paper's core setup very accurately: it uses the same three coefficient systems α_{k,m,n}(a), β_{k,n}(a,b), and γ_{k,m,n}(a,b); it states the same generalized expansion P_m(x; a) P_n(x; a) = sum_k γ_{k,m,n}(a,b) P_k(x; b); and it names exactly the concrete families discussed in Section 3 (Laguerre, Gegenbauer, continuous q-ultraspherical/Rogers, Jacobi, and continuous q-Jacobi). ([sigma-journal.com](https://sigma-journal.com/2016/071/sigma16-071.pdf))",
+  "missing_details": [
+    "The paper works with n,m in N0 and, for the displayed family-specific formulas, assumes without loss of generality that n >= m; your draft leaves this degree convention implicit. ([sigma-journal.com](https://sigma-journal.com/2016/071/sigma16-071.pdf))",
+    "The paper frames the question for admissible parameter sets a,b rather than unrestricted abstract parameters; it explicitly records parameter restrictions at least for the Jacobi connection relation (γ,δ > -1, and if γ,δ are both in (-1,0), then γ+δ+1 != 0) and for the stated Gegenbauer generalized formula (λ,μ in (-1/2, infinity), excluding 0). ([sigma-journal.com](https://sigma-journal.com/2016/071/sigma16-071.pdf))",
+    "In Section 3, \"closed form\" is meant in a hypergeometric/basic-hypergeometric sense: the surrounding discussion describes coefficients in terms of products of (q-)Pochhammer symbols, generalized hypergeometric functions with fixed arguments, or multiple hypergeometric functions with fixed arguments. ([sigma-journal.com](https://sigma-journal.com/2016/071/sigma16-071.pdf))",
+    "The paper defines generalized linearization coefficients operationally by inserting the connection relation (3.2) into the ordinary linearization formula (3.1) and then justifying the rearrangement needed to identify γ_{k,m,n}(a,b); your draft states the two endpoint formulas but omits this exact setup. ([sigma-journal.com](https://sigma-journal.com/2016/071/sigma16-071.pdf))",
+    "The family-specific ordinary linearization formulas are often reindexed by parity or degree shift (for example m+n-2k for Gegenbauer and continuous q-ultraspherical/Rogers, and k+n-m for Jacobi and continuous q-Jacobi), so the generic sum over k should be understood as schematic rather than as the exact indexing used in every example. ([sigma-journal.com](https://sigma-journal.com/2016/071/sigma16-071.pdf))",
+    "The paper itself sharpens the emphasis among the examples: it says the best prospects for hypergeometric generalized linearization coefficients are the Gegenbauer and continuous q-ultraspherical/Rogers cases, because their ordinary linearization coefficients are products of Pochhammer symbols. ([sigma-journal.com](https://sigma-journal.com/2016/071/sigma16-071.pdf))",
+    "Section 3 also notes that the author had already computed the Gegenbauer generalized coefficients f_{k,m,n}^{λ,μ} explicitly and planned to publish them elsewhere, so treating the Gegenbauer case as equally unresolved with all the others is slightly less faithful to the paper's exact stance. ([sigma-journal.com](https://sigma-journal.com/2016/071/sigma16-071.pdf))",
+    "If one writes explicit coefficient formulas, the paper adopts product conventions for (q-)Pochhammer symbols and shorthand notations such as ±a; those notation conventions are implicit in your draft. ([sigma-journal.com](https://sigma-journal.com/2016/071/sigma16-071.pdf))"
+  ],
+  "refined_question": "Let {P_n(x; a)} be one of the hypergeometric or basic-hypergeometric orthogonal polynomial families explicitly discussed in Section 3 of the paper—Laguerre, Gegenbauer, continuous q-ultraspherical/Rogers, Jacobi, or continuous q-Jacobi—and let a and b be admissible parameter sets for which both an ordinary linearization formula P_m(x; a) P_n(x; a) = sum_{r=0}^{m+n} α_{r,m,n}(a) P_r(x; a) and a connection relation P_n(x; a) = sum_{k=0}^{n} β_{k,n}(a,b) P_k(x; b) are valid. For m,n in N0 (assume n >= m), determine explicit closed-form generalized linearization coefficients γ_{k,m,n}(a,b) such that P_m(x; a) P_n(x; a) = sum_{k=0}^{m+n} γ_{k,m,n}(a,b) P_k(x; b), where \"closed form\" is understood in the paper's sense of formulas built from products of (q-)Pochhammer symbols and fixed-argument hypergeometric or basic-hypergeometric series. ([sigma-journal.com](https://sigma-journal.com/2016/071/sigma16-071.pdf))",
+  "equivalent_formulation": null,
+  "justification": "The draft is clearly targeting the opening problem statement of Section 3: its α/β/γ notation and the two defining expansions mirror the paper almost verbatim. The main refinements needed to make it fully stand-alone and paper-faithful are to add the paper's degree convention m,n in N0 with n >= m, to restrict attention to admissible parameter values rather than arbitrary algebraic settings, and to encode the paper's intended meaning of \"closed form\" as hypergeometric/basic-hypergeometric expressions. I did not broaden the question to the whole (q-)Askey scheme, because Section 3 names only five concrete families; and I kept the formulation generic rather than isolating a single family, because that is how the paper poses the problem, even though it later remarks that Gegenbauer and continuous q-ultraspherical/Rogers are the most promising hypergeometric cases and that an explicit Gegenbauer formula had already been computed. ([sigma-journal.com](https://sigma-journal.com/2016/071/sigma16-071.pdf))",
+  "citations": [
+    {
+      "section": "3",
+      "label": "opening problem statement; formulas (3.1) and (3.2)",
+      "page": 3
+    },
+    {
+      "section": "3",
+      "label": "notation conventions and the Laguerre/Gegenbauer/continuous q-ultraspherical examples",
+      "page": "3-4"
+    },
+    {
+      "section": "3",
+      "label": "Jacobi connection relation and ordinary linearization formula (3.3)",
+      "page": "4-5"
+    },
+    {
+      "section": "3",
+      "label": "remark that the best prospects are Gegenbauer and continuous q-ultraspherical/Rogers",
+      "page": 5
+    },
+    {
+      "section": "3",
+      "label": "Chebyshev degeneration (3.4) and remark that the Gegenbauer coefficients f_{k,m,n}^{λ,μ} were already computed",
+      "page": 6
+    }
+  ]
+}

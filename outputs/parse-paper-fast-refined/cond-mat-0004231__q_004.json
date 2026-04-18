@@ -1,0 +1,40 @@
+{
+  "arxiv_id": "cond-mat-0004231",
+  "question_id": "q_004",
+  "original_question": "For the hard-core lattice-gas partition function Z(w) on graphs of maximum degree Delta, what is the largest complex domain containing w=0 such that Z(w) is zero-free for all such graphs? This should account for both the equal-fugacity case and the unequal-fugacity case (where one asks for domains D such that Z(w) != 0 whenever every vertex fugacity w_x belongs to D).",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 12951.39,
+  "target_in_paper": "Section 1's hard-core lattice-gas zero problem: Conjecture 1.1, together with its multivariate reformulation in Proposition 1.2 and the nearby best-known bound in Theorem 1.3.",
+  "completeness_score": 7.5,
+  "correct_elements": "Your draft correctly identifies the model (the hard-core lattice gas / independence polynomial), the bounded-degree hypothesis, the zero-free-domain viewpoint in the complex fugacity plane, and the fact that the paper discusses both the equal-fugacity and unequal-fugacity versions.",
+  "missing_details": [
+    "The paper's official target is not phrased as 'the largest complex domain containing 0'; it asks whether, for each fixed integer Δ≥3, there exists a complex neighborhood of the specific real interval [0, ((Δ-1)^(Δ-1))/((Δ-2)^Δ)) on which the partition function is nonvanishing for all finite graphs of maximum degree at most Δ.",
+    "The graph quantifier should be explicit: finite graphs G with maximum degree at most Δ.",
+    "The equal-fugacity partition function should be stated explicitly as Z_G(w)=sum over independent sets I of w^|I|.",
+    "The unequal-fugacity partition function should be stated explicitly as Z_G((w_x)_{x in V})=sum over independent sets I of product_{x in I} w_x.",
+    "The multivariate version uses one and the same one-variable domain D_Δ coordinatewise, i.e. the condition is w_x in D_Δ for every vertex x, not an arbitrary graph-dependent or vertex-dependent family of domains.",
+    "The endpoint ((Δ-1)^(Δ-1))/((Δ-2)^Δ) and the half-open interval notation [0, ... ) are essential to the paper's formulation.",
+    "The paper's nearby theorem-level context is the then-best proved zero-free region coming from a Dobrushin/Shearer-type bound, which is smaller than the conjectured interval-neighborhood target and helps explain the conjecture's scope.",
+    "If one wants the stand-alone question to mirror the paper faithfully, it should be framed as an existence question for such a domain D_Δ, not as an optimization problem over all possible domains."
+  ],
+  "refined_question": "For each integer Δ≥3, let Z_G(w)=sum_{I independent in G} w^{|I|} be the hard-core lattice-gas partition function (independence polynomial) of a finite graph G with maximum degree at most Δ. Does there exist a complex domain D_Δ⊂C containing the real interval [0, ((Δ-1)^(Δ-1))/((Δ-2)^Δ)) such that Z_G(w)≠0 for every such graph G and every w∈D_Δ?",
+  "equivalent_formulation": "Equivalently (as reformulated in Proposition 1.2), for each integer Δ≥3 does there exist a complex domain D_Δ⊂C containing [0, ((Δ-1)^(Δ-1))/((Δ-2)^Δ)) such that, for every finite graph G of maximum degree at most Δ, the multivariate hard-core partition function Z_G((w_x)_{x∈V(G)})=sum_{I independent in G} product_{x∈I} w_x is nonzero whenever w_x∈D_Δ for every vertex x?",
+  "justification": "This is the nearest official target because Sokal's Section 1 asks for zero-freeness of the hard-core/independence polynomial on bounded-degree graphs not in the sense of determining an absolute 'largest domain', but specifically whether for each Δ≥3 one can find a complex neighborhood of the real interval [0,((Δ-1)^(Δ-1))/((Δ-2)^Δ)) that works uniformly for all such graphs; the same nearby discussion supplies the coordinatewise multivariate reformulation and contrasts it with the then-best proved Dobrushin/Shearer-type bound. ([arxiv.org](https://arxiv.org/abs/1701.08049?utm_source=openai))",
+  "citations": [
+    {
+      "section": "1",
+      "label": "Conjecture 1.1",
+      "page": "24"
+    },
+    {
+      "section": "1",
+      "label": "Proposition 1.2",
+      "page": "24"
+    },
+    {
+      "section": "1",
+      "label": "Theorem 1.3",
+      "page": "24-25"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "arxiv_id": "1212.0220",
+  "question_id": "q_005",
+  "original_question": "How can one prove that the use of memory can significantly increase the search efficiency of a metaheuristic algorithm, and under what conditions does such an efficiency gain hold?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 2683.01,
+  "target_in_paper": "Section 4 (Open Problems), page 30: \"How to prove that the use of memory can significantly increase the search efficiency of an algorithm? Under what conditions?\"",
+  "completeness_score": 6.5,
+  "correct_elements": "The draft already captures the exact open-problem theme stated in the paper: a mathematical proof that memory can significantly improve search efficiency, together with a characterization of the conditions under which the gain occurs. It also correctly places the issue in the efficiency-analysis side of metaheuristics rather than in unrelated application-specific or purely convergence-only questions.",
+  "missing_details": [
+    "The paper poses this as an open problem, not as a theorem, conjecture, or proved equivalence; that status should be made explicit.",
+    "The surrounding scope is heuristic/metaheuristic optimization algorithms in general, with the paper framed around metaheuristics; the draft should indicate that this is asked in that optimization-algorithm setting.",
+    "The paper does not define \"memory\" formally. A stand-alone question should say whether memory means dependence on search history, stored elite solutions, tabu information, adaptive parameter history, or some other history-based mechanism.",
+    "The comparison baseline is implicit. To make the question sharp, one should specify that the claimed improvement is relative to a comparable memoryless algorithm or a version of the same algorithm without memory.",
+    "The phrase \"search efficiency\" is not formally defined in the paper. Nearby context notes that there is no agreed performance measure, although absolute objective value and number of function evaluations are widely used; a stand-alone version should therefore require a specified efficiency criterion.",
+    "The paper does not specify the conditions under which the gain should hold. A refined question should acknowledge that these conditions must be stated explicitly, e.g. assumptions on the search space/domain, objective class, stochastic update rule, deterministic component, and whether the algorithm is single-agent or population-based.",
+    "Nearby context links this memory question to the broader issue of how different algorithmic components interact coherently, especially the balance between randomization and deterministic structure; that contextual dependence is implicit in the draft.",
+    "No paper-specific notation is introduced for this question. In particular, the algebraic items listed in the instruction template—ambient ring/field, variables, operator definitions, homogeneity, degree restrictions, nilpotency, and phrases such as 'for all sufficiently large m'—are not applicable to this paper and should be marked as such rather than invented."
+  ],
+  "refined_question": "Within the theory of heuristic/metaheuristic optimization algorithms, can one give a rigorous mathematical proof—under explicitly stated assumptions and with respect to a specified measure of search efficiency—that incorporating memory or search-history information significantly improves search efficiency relative to a comparable memoryless algorithm, and can one characterize precisely the conditions under which such an improvement holds?",
+  "equivalent_formulation": null,
+  "justification": "The draft is aiming at the explicit open problem stated in Section 4, not at a broader neighboring issue. The paper first frames its scope as the analysis of convergence and efficiency of metaheuristics together with open questions (Section 1, pp. 21-22). It then develops the efficiency/randomization context in Section 3, where search efficiency is discussed and efficiency claims are made for particular search mechanisms such as Lévy flights (Section 3, especially p. 29). The draft's wording most closely matches the exact question in Section 4, page 30, where Yang asks how to prove that memory significantly increases search efficiency and under what conditions. The refined question therefore stays narrow: it preserves the paper's exact memory/efficiency issue, while making explicit the otherwise implicit need to specify what counts as memory, what efficiency measure is being used, what comparator is intended, and what assumptions define the relevant conditions.",
+  "citations": [
+    {
+      "section": "1",
+      "label": "Introduction",
+      "page": 21
+    },
+    {
+      "section": "3",
+      "label": "Search Efficiency and Randomization",
+      "page": 27
+    },
+    {
+      "section": "3.2",
+      "label": "Randomization via Lévy Flights",
+      "page": 29
+    },
+    {
+      "section": "4",
+      "label": "Open Problems",
+      "page": 30
+    }
+  ]
+}

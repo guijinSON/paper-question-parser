@@ -1,0 +1,43 @@
+{
+  "arxiv_id": "2206.06472",
+  "question_id": "q_008",
+  "original_question": "Let T(n) = T112(3n, 3n), where T112(a,b) counts tilings of the (a,b)-benzel when both stone orientations are allowed and exactly two of the three bone orientations are allowed. Is it true that for every n >= 1 the second quotient T(n) T(n+2) / T(n+1)^2 equals 256(2n+3)^2(4n+1)(4n+3)^2(4n+5) / (27(3n+1)(3n+2)^2(3n+4)^2(3n+5))?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 8331.19,
+  "target_in_paper": "Section 7, Problem 8 (\"Both stones, two kinds of bones\"): the conjectured second-quotient formula for T_{112}(3n,3n).",
+  "completeness_score": 9,
+  "correct_elements": "Your draft already captures the paper’s intended target almost exactly. It uses the correct counting function T_{112}, the correct diagonal specialization (3n,3n), the correct regime of allowed tiles (both stones and exactly two bone orientations), the correct second quotient T(n)T(n+2)/T(n+1)^2, the correct rational expression, and the correct quantifier n >= 1. This is essentially a near-verbatim restatement of Problem 8.",
+  "missing_details": [
+    "The draft is not fully stand-alone because it does not define the (a,b)-benzel geometrically; in the paper this is a specific finite region in the hexagonal-cell tiling.",
+    "It does not explicitly name the prototiles used in the definition of T_{112}: the right stone, the left stone, and the three bone prototiles (vertical, rising, falling).",
+    "It leaves implicit that T_{112}(a,b) is the paper’s type-112 tiling count: right stone allowed, left stone allowed, and exactly two of the three bone orientations allowed.",
+    "It leaves implicit that, by the paper’s 120-degree rotational symmetry, the count depends only on the fact that two bone orientations are allowed, not on which particular bone orientation is forbidden.",
+    "It does not mention the immediate local context in the paper: Table 7 lists the first values of T_{112}(3n,3n), and Problem 8 notes that the identity was verified for 1 <= n <= 7.",
+    "No ambient ring/field, homogeneity, degree, or nilpotency hypotheses are relevant here; the hidden assumptions are combinatorial and geometric rather than algebraic."
+  ],
+  "refined_question": "Let ω = e^{2πi/3}. For integers a,b with 2 <= a <= 2b and 2 <= b <= 2a, let B_{a,b} be the (a,b)-benzel, i.e. the union of unit hexagonal cells lying fully inside the hexagon with vertices aω+b, -aω^2-b, aω^2+bω, -a-bω, a+bω^2, and -aω-bω^2. Let T_{112}(a,b) denote the number of tilings of B_{a,b} by translates of the right stone, the left stone, and exactly two of the three bone prototiles (vertical, rising, and falling); equivalently, this is the paper’s type-112 tiling count, and by 120-degree rotational symmetry it is independent of which bone orientation is forbidden. Define T(n) = T_{112}(3n,3n) for n >= 1. Is it true that for every integer n >= 1, T(n)T(n+2)/T(n+1)^2 = 256(2n+3)^2(4n+1)(4n+3)^2(4n+5) / (27(3n+1)(3n+2)^2(3n+4)^2(3n+5))?",
+  "equivalent_formulation": null,
+  "justification": "The draft matches the paper’s exact target in Section 7, Problem 8: the same sequence T(n) = T_{112}(3n,3n), the same second quotient, and the same closed-form rational expression. The only substantive omissions are the paper’s geometric definition of the benzel, the explicit prototile set underlying T_{112}, and the symmetry-based fact that for type 112 the omitted bone orientation does not matter. Since the paper presents this as a narrowly scoped conjectural identity attached to Table 7, the refined version should keep precisely that scope and notation rather than broadening to neighboring problems such as Problems 9–13.",
+  "citations": [
+    {
+      "section": "1 Introduction",
+      "label": "definition of the (a,b)-benzel",
+      "page": "1-2"
+    },
+    {
+      "section": "1 Introduction",
+      "label": "definition of the five prototiles",
+      "page": "2-4"
+    },
+    {
+      "section": "1 Introduction",
+      "label": "definition of T_{ijk}(a,b) and type ijk tiling",
+      "page": 4
+    },
+    {
+      "section": "7 Both stones, two kinds of bones",
+      "label": "Table 7 and Problem 8",
+      "page": "8-9"
+    }
+  ]
+}

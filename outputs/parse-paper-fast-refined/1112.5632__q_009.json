@@ -1,0 +1,49 @@
+{
+  "arxiv_id": "1112.5632",
+  "question_id": "q_009",
+  "original_question": "What is the correct analog of the asymptotic lower matching conjecture for infinite cubic connected graphs with no bridges? Equivalently, what lower-entropy statement should replace the bipartite ALMC in the bridgeless infinite 3-regular setting?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 1942.83,
+  "target_in_paper": "Section 7, final unnumbered open problem: 'Second, what is the analog of the ALMC for infinite cubic connected graphs with no bridges?'",
+  "completeness_score": 8.5,
+  "correct_elements": "Your draft is already very close to the paper's actual target. It correctly identifies that the issue is an asymptotic lower matching question for infinite graphs, not a finite counting problem; it keeps the paper's key hypotheses 'infinite', 'cubic', 'connected', and 'no bridges'; and it correctly interprets the target as a lower-entropy replacement for the bipartite ALMC.",
+  "missing_details": [
+    "The paper's standing graph convention is: undirected graphs with no loops, while multiple edges are allowed unless excluded; for the infinite setting, the graph has a countable vertex set.",
+    "The entropy object must be named explicitly: for a countable infinite graph G, the p-matching (monomer-dimer) entropy h_G(p) is defined via a sequence of finite graphs G_k converging to G and integers m_k with 2m_k/|V_k| -> p, by h_G(p)=limsup_{k->infinity} |V_k|^{-1} log phi(m_k,G_k), where phi(m_k,G_k) is the number of m_k-matchings.",
+    "The bipartite benchmark being replaced should be stated explicitly: ALMC says that for any r-regular bipartite infinite graph G, h_G(p) >= f(p,r) for all p in [0,1], where f(p,r)=1/2*(p log r - p log p - 2(1-p) log(1-p) + (r-p) log(1-p/r)).",
+    "The paper does not itself propose the non-bipartite cubic lower-bound function or a precise conjectural inequality; it leaves that as an open problem.",
+    "The final Section 7 question does not fix an exact p-range for the cubic bridgeless analogue; the introduction only says that a similar inequality for infinite non-bipartite r-regular graphs should exist at least in a certain range, so a stand-alone rewrite should not overstate a range the paper does not formally specify for this cubic bridgeless case.",
+    "The notion of convergence G_k -> G is not redefined in full in this paper; Section 1 refers the reader to [22] for the precise setup.",
+    "It helps to distinguish this from Conjecture 1.1: Conjecture 1.1 is the finite bridgeless-cubic perfect-matching growth problem, whereas your target is the infinite-graph entropy analogue posed later in Section 7."
+  ],
+  "refined_question": "Let G be a countably infinite connected bridgeless 3-regular graph, under the paper's standing convention that graphs are undirected, loopless, and may have multiple edges. For p-monomer entropy defined by h_G(p)=limsup_{k->infinity} |V_k|^{-1} log phi(m_k,G_k) over finite graphs G_k converging to G with 2m_k/|V_k| -> p, the bipartite asymptotic lower matching conjecture asserts h_G(p) >= f(p,3), where f(p,3)=1/2*(p log 3 - p log p - 2(1-p) log(1-p) + (3-p) log(1-p/3)). What is the correct analogue of this lower-bound inequality for such non-bipartite bridgeless cubic graphs; equivalently, what explicit lower-entropy statement should replace the bipartite ALMC in the infinite connected bridgeless 3-regular setting?",
+  "equivalent_formulation": null,
+  "justification": "The draft is targeting the paper's last open problem in Section 7, not Conjecture 1.1 itself. Section 1 introduces the p-monomer entropy h_G(p), states the bipartite ALMC as the inequality h_G(p) >= f(p,r), and immediately notes that a similar inequality should exist for infinite non-bipartite r-regular graphs although the precise version is not known. Section 7 then specializes that missing analogue to the exact cubic bridgeless connected case by asking, verbatim, for the analog of ALMC there. So the sharpest paper-faithful rewrite is to ask for the explicit lower entropy inequality that should replace the bipartite bound h_G(p) >= f(p,3) for infinite connected bridgeless cubic graphs.",
+  "citations": [
+    {
+      "section": "1",
+      "label": "introductory graph conventions",
+      "page": 18
+    },
+    {
+      "section": "1",
+      "label": "Conjecture 1.1",
+      "page": "20-21"
+    },
+    {
+      "section": "1",
+      "label": "definition of p-matching entropy",
+      "page": 21
+    },
+    {
+      "section": "1",
+      "label": "equations (1.15)-(1.16) (ALMC)",
+      "page": 21
+    },
+    {
+      "section": "7",
+      "label": "final open problem (unnumbered)",
+      "page": 32
+    }
+  ]
+}

@@ -1,0 +1,54 @@
+{
+  "arxiv_id": "2303.11464",
+  "question_id": "q_012",
+  "original_question": "Given a directed acyclic graph G and an integer k >= 0, does there exist a complete sequence of vertex eliminations, where eliminating a vertex j adds all edges from each predecessor of j to each successor of j and costs |P_j| times |S_j|, whose total cost is at most k?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 8609.21,
+  "target_in_paper": "Section 4, Open Problem 4.2 (Vertex Elimination).",
+  "completeness_score": 9,
+  "correct_elements": "Your draft is already very close to the paper’s exact target. It correctly identifies the input as a directed acyclic graph and a budget k, uses vertex eliminations rather than edge eliminations, matches the paper’s vertex-elimination update by connecting every predecessor of j to every successor of j, uses the correct step cost |P_j|·|S_j|, and asks the right decision question: whether there exists a complete elimination sequence of total cost at most k. It also stays with the paper’s purely structural formulation, rather than drifting into the algebraic Jacobian-accumulation setting with edge labels and dependence assumptions.",
+  "missing_details": [
+    "The paper’s formal definition removes the eliminated vertex j from the vertex set: if the current graph is H = (W, F), then eliminating j produces H - j = (W \\ {j}, F ∪ {(i, l) : i ∈ P_H(j), l ∈ S_H(j)}).",
+    "P_j and S_j should be made explicit as the predecessor and successor sets of j in the current DAG at the moment of elimination, not just in the original graph.",
+    "A vertex is eliminatable only if it has both a nonempty predecessor set and a nonempty successor set.",
+    "The total cost of a sequence is the sum of the individual vertex-elimination costs.",
+    "To be fully stand-alone, the phrase \"complete vertex elimination sequence\" should be clarified using the nearby context: the paper says complete sequences transform the DAG into a bipartite DAG representing the Jacobian matrix of the underlying numerical program.",
+    "The paper phrases k as a \"positive integer k ≥ 0\"; operationally, this is a nonnegative integer.",
+    "The paper’s open problem is specifically the purely structural formulation of vertex elimination; no local derivative labels or algebraic dependence assumptions are part of the input."
+  ],
+  "refined_question": "In the purely structural vertex-elimination formulation arising from Jacobian accumulation, given a directed acyclic graph G = (V, E) and a nonnegative integer k, does there exist a complete vertex-elimination sequence of total cost at most k, where total cost is the sum of step costs, and where at each step in the current DAG H = (W, F) one may eliminate a vertex j only if it has nonempty predecessor and successor sets P_H(j) = {i ∈ W : (i, j) ∈ F} and S_H(j) = {l ∈ W : (j, l) ∈ F}, replacing H by H - j = (W \\ {j}, F ∪ {(i, l) : i ∈ P_H(j), l ∈ S_H(j)}) and paying cost |P_H(j)|·|S_H(j)|?",
+  "equivalent_formulation": "Equivalent stepwise formulation stated in the paper: eliminating a vertex j is the same as front-eliminating all of its in-edges, and equivalently the same as back-eliminating all of its out-edges.",
+  "justification": "The draft is targeting Open Problem 4.2, not Open Problem 4.1, because it asks about eliminating vertices rather than edges and uses exactly the vertex-elimination cost |P_j|·|S_j| from Definition 4.2. The surrounding Section 4 context supplies the missing formal details: the eliminated vertex is removed, only vertices with nonempty predecessor and successor sets are allowed, complete sequences are the ones considered in the Jacobian-accumulation setting that yield a bipartite DAG, and the problem is the purely structural version. Theorem 4.3 and the paragraph immediately after it explain why this distinction matters: Jacobian Accumulation is NP-complete under algebraic-dependence assumptions, whereas the computational complexity of the purely structural formulations in Definitions 4.1 and 4.2 is stated to be unknown.",
+  "citations": [
+    {
+      "section": "4",
+      "label": "Section title: The edge and vertex elimination problems in directed acyclic graphs",
+      "page": 581
+    },
+    {
+      "section": "4",
+      "label": "Definition 4.1 (Edge Elimination)",
+      "page": 581
+    },
+    {
+      "section": "4",
+      "label": "Sentence between Open Problem 4.1 and Definition 4.2: The elimination of a vertex is equivalent to front-elimination of its in-edges; similarly, to back-elimination of its out-edges",
+      "page": "581-582"
+    },
+    {
+      "section": "4",
+      "label": "Definition 4.2 (Vertex Elimination)",
+      "page": 582
+    },
+    {
+      "section": "4",
+      "label": "Open Problem 4.2 (Vertex Elimination)",
+      "page": 582
+    },
+    {
+      "section": "4",
+      "label": "Theorem 4.3 and the following discussion stating that the computational complexity of the purely structural formulations in Definitions 4.1 and 4.2 is unknown",
+      "page": 582
+    }
+  ]
+}

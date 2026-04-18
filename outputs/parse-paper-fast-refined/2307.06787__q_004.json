@@ -1,0 +1,57 @@
+{
+  "arxiv_id": "2307.06787",
+  "question_id": "q_004",
+  "original_question": "For one-dimensional numerical integration, two universal randomized strategies are highlighted: a randomly shifted midpoint rule with a random number n in {m,m+1,...,2m} for periodic functions, and, for non-periodic functions, a method that first interpolates f at Chebyshev points by a polynomial f_m and then applies separation of the main part together with Monte Carlo to f-f_m. How do these two approaches compare in detail, both theoretically and practically, in dimension d=1?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 9031.23,
+  "target_in_paper": "Section 3 (Universality), Open Problem: \"Study and compare these algorithms (for d = 1) in more detail.\"",
+  "completeness_score": 7.5,
+  "correct_elements": "Your draft correctly identifies that the paper is asking for a univariate (d = 1) comparison of the universal randomized strategies discussed in Section 3, and it correctly names the two concrete constructions singled out immediately before the open problem: the randomized shifted midpoint rule with a random n in {m, m+1, ..., 2m} for periodic functions, and the Chebyshev-interpolation plus separation-of-the-main-part / Monte Carlo scheme for non-periodic functions. It also correctly frames the comparison as both theoretical and practical, which matches the nearby discussion of asymptotic behavior versus small or moderate n and implementability.",
+  "missing_details": [
+    "The draft does not state the exact official target in the paper: this is an open problem in Section 3, not a theorem, proposition, or conjecture.",
+    "It omits the integration operator: S_1(f) = integral from 0 to 1 of f(x) dx.",
+    "It omits the function class notation and hypotheses from Section 2: F_d^k = {f : [0,1]^d -> R | ||D^alpha f||_infty <= 1 for |alpha| <= k}; in d = 1 this means ||f^(j)||_infty <= 1 for every 0 <= j <= k.",
+    "It does not quantify over the smoothness parameter k in N; the paper's universality discussion is for every class F_1^k, not for one fixed k.",
+    "It does not specify the two error notions introduced in Section 2 that matter here: deterministic worst-case error e(n, F_d) and randomized worst-case error e_ran(n, F_d).",
+    "For the non-periodic scheme, it should specify that n = 2m, that f_m is obtained by interpolation at Chebyshev points, and that f_m has degree strictly smaller than m.",
+    "It does not make explicit that the Monte Carlo part is the standard control-variate / separation-of-the-main-part estimator applied to f - f_m, with iid uniform samples on [0,1].",
+    "It omits the nearby contextual benchmark that periodization is also mentioned for non-periodic functions: periodization preserves the optimal order but may worsen constants.",
+    "It does not state the asymptotic issue emphasized by the paper: the Chebyshev/control-variate method is only almost optimal and incurs a logarithmic loss asymptotically, while it may be better for small or moderate n.",
+    "It does not explicitly mention the practical axis of comparison highlighted nearby: implementation difficulty/ease, not just asymptotic rate."
+  ],
+  "refined_question": "Let S_1(f) = integral from 0 to 1 of f(x) dx, and for k in N let F_1^k = {f : [0,1] -> R | ||f^(j)||_infty <= 1 for all 0 <= j <= k}. In the univariate setting d = 1, study the paper's open problem of comparing in detail the universal randomized schemes discussed in Section 3: (i) for periodic functions on [0,1], choose n randomly from {m, m+1, ..., 2m} and apply a randomly shifted midpoint rule with n equally weighted function values; and (ii) for non-periodic functions on [0,1], with n = 2m, interpolate f at Chebyshev points by a polynomial f_m of degree < m and then use separation of the main part (control variates), i.e. exact integration of f_m plus plain Monte Carlo on f - f_m. For every k, determine as sharply as possible how these schemes compare with respect to deterministic worst-case error e(n, F_1^k) and randomized worst-case error e_ran(n, F_1^k), including asymptotic orders and constants, the logarithmic loss of the second method, and their preasymptotic behavior for small or moderate n and practical ease of implementation.",
+  "equivalent_formulation": null,
+  "justification": "The draft clearly targets Section 3 rather than Section 1. The exact official formulation is the Section 3 open problem \"Study and compare these algorithms (for d = 1) in more detail.\" The immediately preceding sentences identify which algorithms are meant: the periodic randomized shifted midpoint construction and, for non-periodic functions, the Chebyshev interpolation plus control-variate / Monte Carlo construction. Section 2 supplies the precise class F_d^k, the integration functional S_d, the randomized error e_ran, and the generic separation-of-the-main-part estimator that the Section 3 description specializes in d = 1. The nearby Section 3 discussion also shows what comparison the author has in mind: asymptotic optimality versus logarithmic loss, together with possible superiority for small or moderate n and practical implementability. Page numbers below are from the published proceedings version of the same text, which exposes pagination; the arXiv HTML view confirms the same wording.",
+  "citations": [
+    {
+      "section": "2",
+      "label": "Definition of F_d^k",
+      "page": "107 (published proceedings version)"
+    },
+    {
+      "section": "2",
+      "label": "Eq. (9): e_ran(n, F_d^k) ≈ n^(-k/d - 1/2)",
+      "page": "109 (published proceedings version)"
+    },
+    {
+      "section": "2",
+      "label": "Remark 5",
+      "page": "109-110 (published proceedings version)"
+    },
+    {
+      "section": "3",
+      "label": "Midpoint rule discussion before the open problem",
+      "page": "112-113 (published proceedings version)"
+    },
+    {
+      "section": "3",
+      "label": "Open Problem",
+      "page": "113 (published proceedings version)"
+    },
+    {
+      "section": "3",
+      "label": "Remark 6(a)",
+      "page": "114 (published proceedings version)"
+    }
+  ]
+}

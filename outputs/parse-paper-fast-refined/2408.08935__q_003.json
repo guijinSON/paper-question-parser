@@ -1,0 +1,78 @@
+{
+  "arxiv_id": "2408.08935",
+  "question_id": "q_003",
+  "original_question": "In a quasi-Banach space, does the equivalence between almost-greedy bases and semi-greedy bases remain true for general Markushevich bases, without assuming that the basis is Schauder? Here, almost-greedy means that greedy projections approximate as well as the best coordinate projections up to a uniform constant, while semi-greedy means that for each greedy set A, the best approximation inside span{x_n : n in A} is bounded by a constant times the best |A|-term approximation error.",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 9957.13,
+  "target_in_paper": "Section 4, the open problem stated immediately after Theorem 4.17 (Question 3 in the PDF): whether the Schauder assumption can be removed from the quasi-Banach characterization of semi-greediness, i.e. from the almost-greedy <=> semi-greedy equivalence for Markushevich bases.",
+  "completeness_score": 8,
+  "correct_elements": "Your draft correctly identifies the paper's actual target: the quasi-Banach-space extension of the Banach-space equivalence between almost-greedy and semi-greedy Markushevich bases, specifically asking whether one can drop the Schauder-basis hypothesis. It also correctly captures the two relevant notions at an informal level: almost-greedy compares greedy coordinate projections with the best coordinate projections, and semi-greedy compares best approximants on greedy supports with the best m-term error.",
+  "missing_details": [
+    "The paper poses this as an open problem, not as a proved theorem: it is Question 3 in Section 4, immediately after Theorem 4.17.",
+    "The ambient scalar field is F = R or C.",
+    "The basis should be stated as a semi-normalized Markushevich basis B = (x_n) with biorthogonal functionals B* = (x_n^*); semi-normalization is a standing assumption in the paper.",
+    "A finite greedy set A of x must be defined explicitly by min_{n in A} |x_n^*(x)| >= max_{n notin A} |x_n^*(x)|.",
+    "The coordinate projection notation should be made explicit: P_A(x) = sum_{n in A} x_n^*(x) x_n.",
+    "The paper's almost-greedy definition uses inf_{|E| <= |A|} ||x - P_E(x)||, i.e. best coordinate projections of cardinality at most |A|, not an unrestricted best projection.",
+    "The semi-greedy definition uses the best approximation inside span{x_n : n in A}, namely min{||x - sum_{n in A} a_n x_n|| : a_n in F}, and this should be written explicitly.",
+    "The best m-term approximation error must be specified as sigma_m(x) = inf{||x - sum_{n in E} b_n x_n|| : b_n in F, E finite, |E| <= m}.",
+    "The quantifiers should be explicit: the relevant constants are uniform over all x in X and all finite greedy sets A of x.",
+    "To stay paper-faithful, the question should be tied to the exact comparison between Theorem 4.16 (Banach, Markushevich) and Theorem 4.17 (quasi-Banach, Schauder).",
+    "The nearby remark explains that the Banach-space proof for general Markushevich bases uses an argument involving X** that is only valid in the Banach setting; this is part of the motivation for the open problem."
+  ],
+  "refined_question": "Let X be a quasi-Banach space over F = R or C, and let B = (x_n)_{n=1}^infty be a semi-normalized Markushevich basis of X with biorthogonal functionals B* = (x_n^*)_{n=1}^infty. For x in X and a finite set A subset N, write P_A(x) = sum_{n in A} x_n^*(x)x_n, and call A a finite greedy set of x if min_{n in A} |x_n^*(x)| >= max_{n notin A} |x_n^*(x)|. Also define sigma_m(x) = inf{||x - sum_{n in E} b_n x_n|| : b_n in F, E subset N finite, |E| <= m}. Is it true that B is almost-greedy if and only if B is semi-greedy, where almost-greedy means that there exists C_ag > 0 such that ||x - P_A(x)|| <= C_ag inf_{|E| <= |A|} ||x - P_E(x)|| for every x in X and every finite greedy set A of x, and semi-greedy means that there exists C_sg > 0 such that min{||x - sum_{n in A} a_n x_n|| : a_n in F for all n in A} <= C_sg sigma_{|A|}(x) for every x in X and every finite greedy set A of x? Equivalently, can the Schauder assumption in Theorem 4.17 be removed for quasi-Banach spaces?",
+  "equivalent_formulation": null,
+  "justification": "This is the exact paper-level target because Section 4 first states the Banach-space Markushevich equivalence (Theorem 4.16), then the quasi-Banach Schauder equivalence (Theorem 4.17), and immediately asks whether the Schauder hypothesis can be removed (Question 3). The surrounding definitions give the precise meanings of greedy set, projection P_A, almost-greedy, and semi-greedy that your draft was aiming at. Your draft is therefore substantively correct, but it was not fully stand-alone because it omitted the standing semi-normalization assumption, the scalar field, the exact greedy-set/projection/error notation, and the uniform quantifiers. The remark after Question 3 also confirms that the obstruction is not merely cosmetic: the Banach-space proof for Markushevich bases uses a bidual argument specific to Banach spaces.",
+  "citations": [
+    {
+      "section": "2",
+      "label": "Definition of quasi-Banach space over F = R or C",
+      "page": 2
+    },
+    {
+      "section": "2",
+      "label": "Markushevich basis definition and standing semi-normalization assumption",
+      "page": 4
+    },
+    {
+      "section": "4",
+      "label": "TGA / greedy set / projection notation",
+      "page": 9
+    },
+    {
+      "section": "4",
+      "label": "Definition 4.8",
+      "page": 13
+    },
+    {
+      "section": "4",
+      "label": "Theorem 4.13",
+      "page": "16-17"
+    },
+    {
+      "section": "4",
+      "label": "Definition 4.14",
+      "page": 17
+    },
+    {
+      "section": "4",
+      "label": "Theorem 4.16",
+      "page": 17
+    },
+    {
+      "section": "4",
+      "label": "Theorem 4.17",
+      "page": "17-18"
+    },
+    {
+      "section": "4",
+      "label": "Question 3",
+      "page": 18
+    },
+    {
+      "section": "4",
+      "label": "Remark following Question 3 (Banach proof uses X**)",
+      "page": 18
+    }
+  ]
+}

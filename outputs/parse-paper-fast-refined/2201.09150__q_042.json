@@ -1,0 +1,59 @@
+{
+  "arxiv_id": "2201.09150",
+  "question_id": "q_042",
+  "original_question": "Formulate useful eigenvalue problems for movement models that include memory and nonlocal perception together with population dynamics, and determine how the key eigenvalues depend on perceptual radius, advection speed, diffusion rates, and memory uptake or decay rates.",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 8061.67,
+  "target_in_paper": "Open Problem 42 in §4.2.1 (“Measures with population dynamics”): formulate useful eigenvalue problems for models with memory and nonlocal perception once population dynamics are included, with careful treatment of the nonlocal perceptual kernel—especially the top-hat detection function—and determine dependence on perceptual radius, advection speed, diffusion rates, and memory uptake/decay rates.",
+  "completeness_score": 9,
+  "correct_elements": "Your draft is very close to the paper’s official formulation. It already captures the right mathematical task (formulating eigenvalue problems), the right modeling ingredients (memory, nonlocal perception, and population dynamics), and the same parameter dependence singled out in Open Problem 42: perceptual radius, advection speed, diffusion rates, and memory uptake/decay rates.",
+  "missing_details": [
+    "The paper frames this as a “measure of success” question for models with population dynamics, so the spectral problem is meant to quantify persistence/fitness rather than to be an abstract eigenvalue problem.",
+    "The nearby context identifies the intended threshold quantity as a principal eigenvalue or, when appropriate, a basic reproduction number, typically obtained from linearization about the trivial steady state.",
+    "The nonlocal term should be described through a perceptual kernel g and perceptual radius R via a perception operator such as a_{g,R}(x,t)=∫_Ω a(y,t)g(x-y)dy; the paper explicitly asks for special attention to the top-hat detection function.",
+    "The scope is the paper’s cognitive-movement PDE models with birth/death processes—described in §4.2.1 as the models appearing at the end of §2.2 and all those in §2.3—not arbitrary movement models.",
+    "The motivation for differentiating the eigenvalue with respect to parameters is to decide which parameter changes improve persistence/survival and whether optimal, possibly non-monotone, parameter windows occur.",
+    "Open Problem 42 does not fix a single domain or boundary condition, so a stand-alone rewrite should not impose one unless it is stated as a chosen special case.",
+    "Ambient ring/field, homogeneity, degree restrictions, nilpotency conditions, and quantifiers such as “for all sufficiently large m” are not part of this PDE question and do not arise in the paper’s formulation."
+  ],
+  "refined_question": "For the paper’s PDE movement models that combine cognitive memory and nonlocal perception with population dynamics—i.e. models whose advective bias is driven by a nonlocal perception operator a_{g,R}(x,t)=∫_Ω a(y,t)g(x-y)dy, with particular attention to the top-hat detection function—can one formulate a useful principal-eigenvalue problem, or analogous threshold problem such as a basic reproduction number when that is the natural object, for the linearization about the trivial steady state, and determine how that threshold quantity depends on the perceptual radius R, the advection strength, the diffusion coefficients, and the memory uptake and decay parameters?",
+  "equivalent_formulation": null,
+  "justification": "This is the nearest official target because Open Problem 42 asks almost exactly for “useful eigenvalue problems” for models with memory and nonlocal perception when population dynamics are included, and then asks whether one can determine dependence on perceptual radius, advection speed, diffusion rates, and memory uptake/decay rates. The surrounding discussion in §4.2.1 explains that the intended spectral object is tied to persistence and fitness through a principal eigenvalue or basic reproduction number, and that linearization about the trivial steady state is the natural route. Earlier sections provide the hidden notation and scope: §2.1 defines the perceptual kernels and the operator a_{g,R}, §2.2.2 introduces dynamic-memory models with explicit uptake/decay parameters, §2.3 collects the population-dynamic memory models, and §2.4 adds short/long-term memory uptake and decay rates. So your draft is already highly faithful; it mainly needed the threshold/linearization context and the explicit nonlocal-kernel language to be fully stand-alone and paper-faithful.",
+  "citations": [
+    {
+      "section": "§4.2.1",
+      "label": "Open Problem 42",
+      "page": 45
+    },
+    {
+      "section": "§4.2.1",
+      "label": "discussion immediately before and after Open Problem 42",
+      "page": "44-45"
+    },
+    {
+      "section": "§2.1",
+      "label": "eqs. (2.3) and (2.5)",
+      "page": "8-10"
+    },
+    {
+      "section": "§2.2.2",
+      "label": "eqs. (2.11), (2.13), (2.15), and (2.16)",
+      "page": "14-18"
+    },
+    {
+      "section": "§2.3",
+      "label": "population-dynamic explicit-memory models, including eqs. (2.20)–(2.30)",
+      "page": "20-26"
+    },
+    {
+      "section": "§2.4",
+      "label": "eqs. (2.33) and (2.34)",
+      "page": "27-28"
+    },
+    {
+      "section": "§4.3",
+      "label": "discussion of nonlocal eigenvalue problems in a variational setting",
+      "page": 49
+    }
+  ]
+}

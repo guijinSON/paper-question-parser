@@ -1,0 +1,53 @@
+{
+  "arxiv_id": "2006.08535",
+  "question_id": "q_003",
+  "original_question": "Assume the boundedness statement in problem (b): there is an integer N >= 0 such that v^{-N} h_{x,y,z} is in Z[v^{-1}] for all x, y, z in W, where the Kazhdan-Lusztig basis elements satisfy c_x c_y = sum_{z in W} h_{x,y,z} c_z. For each z in W, let a(z) be the unique integer such that every h_{x,y,z} lies in v^{a(z)} Z[v^{-1}] and for some x, y the coefficient h_{x,y,z} does not lie in v^{a(z)-1} Z[v^{-1}]. Then define integers gamma_{x,y,z^{-1}} by h_{x,y,z} = gamma_{x,y,z^{-1}} v^{a(z)} mod v^{a(z)-1} Z[v^{-1}], let J be the free abelian group with basis {t_w ; w in W}, and define multiplication by t_x t_y = sum_{z in W} gamma_{x,y,z^{-1}} t_z. Does this multiplication always define an associative ring structure on J, even when J has no unit in general?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 7047.25,
+  "target_in_paper": "Open problem 235*: under the standing assumption of open problem 234*, prove that the multiplication on J defined by t_x t_y = sum_{z in W} gamma_{x,y,z^{-1}} t_z gives J an associative ring structure, generally without identity. This is the paper’s “third” open problem about the asymptotic Hecke algebra. ([arxiv.org](https://arxiv.org/abs/2006.08535))",
+  "completeness_score": 8,
+  "correct_elements": "Your draft correctly identifies the actual target as the associativity/well-definedness question for the asymptotic Hecke algebra J, includes the paper’s definitions of a(z), gamma_{x,y,z^{-1}}, and the basis {t_w}, and correctly notes that J need not have a unit in general. ([ems-ph.org](https://www.ems-ph.org/journals/newsletter/pdf/2020-09-117.pdf))",
+  "missing_details": [
+    "The official preceding hypothesis in the paper is open problem 234*, namely the existence of N >= 0 such that v^{-N} f_{x,y,z} lies in Z[v^{-1}] for all x,y,z in W, where T_x T_y = sum_z f_{x,y,z} T_z. The boundedness of h_{x,y,z} is stated only afterward as a consequence of 234*. ([ems-ph.org](https://www.ems-ph.org/journals/newsletter/pdf/2020-09-117.pdf))",
+    "To be fully stand-alone, the ambient setup should specify that W is a Coxeter group with length |.| and a weight function L: W -> N satisfying L(w) > 0 for w != 1 and L(ww') = L(w) + L(w') whenever |ww'| = |w| + |w'|, and that H is the associated Iwahori-Hecke algebra over A = Z[v,v^{-1}]. ([ems-ph.org](https://www.ems-ph.org/journals/newsletter/pdf/2020-09-117.pdf))",
+    "The Kazhdan-Lusztig basis {c_w} should be defined explicitly: H^{<=0} = sum_w Z[v^{-1}] T_w, and c_w is the unique element of H^{<=0} fixed by the bar involution and congruent to T_w modulo v^{-1} H^{<=0}. ([ems-ph.org](https://www.ems-ph.org/journals/newsletter/pdf/2020-09-117.pdf))",
+    "The paper states a(z) >= 0, not merely that a(z) is an integer. ([ems-ph.org](https://www.ems-ph.org/journals/newsletter/pdf/2020-09-117.pdf))",
+    "The multiplication t_x t_y = sum_z gamma_{x,y,z^{-1}} t_z is noted in the paper to be a finite sum before the associativity question is asked. ([ems-ph.org](https://www.ems-ph.org/journals/newsletter/pdf/2020-09-117.pdf))",
+    "The paper’s scope is all Coxeter groups with weight function L under the assumption 234*; the known positive cases W a Weyl group or an affine Weyl group with L = |.| are contextual remarks, not part of the statement being asked. ([ems-ph.org](https://www.ems-ph.org/journals/newsletter/pdf/2020-09-117.pdf))"
+  ],
+  "refined_question": "Let (W,S) be a Coxeter group with length function |.| and a weight function L: W -> N such that L(w) > 0 for every w != 1 and L(ww') = L(w) + L(w') whenever |ww'| = |w| + |w'|. Let A = Z[v,v^{-1}], let H be the associated Iwahori-Hecke algebra with standard basis {T_w ; w in W}, let H^{<=0} = sum_{w in W} Z[v^{-1}] T_w, and let {c_w ; w in W} be the Kazhdan-Lusztig basis characterized by bar(c_w) = c_w and c_w - T_w in v^{-1} H^{<=0}. Write T_x T_y = sum_{z in W} f_{x,y,z} T_z and c_x c_y = sum_{z in W} h_{x,y,z} c_z. Assume open problem 234*: there exists N >= 0 such that v^{-N} f_{x,y,z} belongs to Z[v^{-1}] for all x,y,z in W. Then, as in the paper, for each z in W define a(z) >= 0 by requiring h_{x,y,z} in v^{a(z)} Z[v^{-1}] for all x,y in W and h_{x,y,z} not in v^{a(z)-1} Z[v^{-1}] for some x,y, and define integers gamma_{x,y,z^{-1}} by h_{x,y,z} = gamma_{x,y,z^{-1}} v^{a(z)} mod v^{a(z)-1} Z[v^{-1}]. Let J be the free abelian group with basis {t_w ; w in W}, with Z-bilinear multiplication given on basis elements by t_x t_y = sum_{z in W} gamma_{x,y,z^{-1}} t_z, where this sum is finite. Must this multiplication always define an associative ring structure on J, generally without identity? ([ems-ph.org](https://www.ems-ph.org/journals/newsletter/pdf/2020-09-117.pdf))",
+  "equivalent_formulation": null,
+  "justification": "The draft is aimed squarely at open problem 235*: it repeats exactly the definitions introduced immediately before 235* and asks whether the resulting multiplication on J is associative. The main paper-faithfulness issue is that your draft replaces the official assumption 234* (boundedness of the T-basis structure constants f_{x,y,z}) by the derived boundedness of h_{x,y,z}; Lusztig first assumes 234*, then deduces the h-boundedness, then defines a(z), gamma, and J, and only then states 235*. The nearby remarks that 235* is known when W is a Weyl group or affine Weyl group with L = |.|, and that J then has a unit, are context rather than part of the formal question. ([arxiv.org](https://arxiv.org/abs/2006.08535))",
+  "citations": [
+    {
+      "section": "Abstract",
+      "label": "description of the third open problem as the well-definedness of an asymptotic Hecke algebra",
+      "page": "arXiv abstract"
+    },
+    {
+      "section": "1",
+      "label": "definition of the Coxeter group, weight function, and Iwahori-Hecke algebra H",
+      "page": "56"
+    },
+    {
+      "section": "2",
+      "label": "definitions of H^{<=0}, the Kazhdan-Lusztig basis c_w, and the structure constants f_{x,y,z} and h_{x,y,z}",
+      "page": "57"
+    },
+    {
+      "section": "2",
+      "label": "open problem 234*",
+      "page": "57"
+    },
+    {
+      "section": "2",
+      "label": "definitions of a(z), gamma_{x,y,z^{-1}}, and J",
+      "page": "57"
+    },
+    {
+      "section": "2",
+      "label": "open problem 235*",
+      "page": "57"
+    }
+  ]
+}

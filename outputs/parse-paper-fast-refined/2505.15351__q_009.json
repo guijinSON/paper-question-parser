@@ -1,0 +1,82 @@
+{
+  "arxiv_id": "2505.15351",
+  "question_id": "q_009",
+  "original_question": "In the discretized affine phase-retrieval formulation derived from the sparse crystallographic model, how many probe shifts are needed to guarantee unique recovery of the unknown feature weights a_j and locations t_j from the resulting phaseless measurements?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 10984.36,
+  "target_in_paper": "Question 4.6 in Section 4.2 (Sparse Crystallography), read together with Problem 4.4, Remark 4.5, and equations (7)–(10).",
+  "completeness_score": 8.0,
+  "correct_elements": "The draft correctly identifies the discrete sparse-crystallography reduction, the affine phase-retrieval reinterpretation, the unknown parameters a_j and t_j, the phaseless measurement setting, and the exact uniqueness issue: determining how large the probe-shift set R must be for unique recovery.",
+  "missing_details": [
+    "The ambient setting is finite-dimensional and complex-valued: f ∈ ℂ^n, w ∈ ℂ^n, a_j ∈ ℂ, and the Fourier matrix F is the unitary n×n DFT.",
+    "The signal model must be stated explicitly as f = 1 + Σ_{j=1}^N a_j e_{t_j} ∈ ℂ^n, where N is fixed, 1 is the discretized background term, and t_j are discrete locations.",
+    "The location variables should be quantified as t_j ∈ {0,1,...,n-1}; the paper’s notation uses rns = {0,1,...,n-1} and zero-based indexing.",
+    "The measurement formula should be written explicitly: A(f)(r,k) = |(Fw)_k + Σ_{j=1}^N (a_j/√n)(S_r w)_{t_j} exp(-2π i k(t_j-r)/n)|^2 for k ∈ {0,...,n-1} and r ∈ R.",
+    "The operators need to be named: S_r is the cyclic shift operator and F is the unitary discrete Fourier transform.",
+    "The question is about the size/cardinality of the probe-shift set R, not about the total number of arbitrary measurements in some broader phase-retrieval model.",
+    "Uniqueness should mean injectivity of the parameter-to-data map on the model class, i.e. recovery of the full tuple {(a_j,t_j)}_{j=1}^N from the complete data family {A(f)(r,k)}_{r∈R, k∈{0,...,n-1}}.",
+    "The affine phase-retrieval interpretation comes from the fact that the background term (Fw)_k is independent of the shift r; this explanatory link is implicit in the draft.",
+    "The paper does not add extra assumptions such as separation of the t_j, bounds on |a_j|, or lattice structure in Question 4.6 itself; those are only mentioned afterward as possible prior information and should not be silently built into the refined question.",
+    "No homogeneity condition, polynomial degree restriction, nilpotency condition, or 'for all sufficiently large m' quantifier appears in the relevant paper statement; adding any such condition would move away from the paper."
+  ],
+  "refined_question": "In the finite-dimensional discretization of the sparse-crystallography model from Section 4.2, let f = 1 + Σ_{j=1}^N a_j e_{t_j} ∈ ℂ^n, where N is fixed, 1 is the constant background, e_{t_j} denotes the coordinate vector at location t_j ∈ {0,...,n-1}, and a_j ∈ ℂ are unknown weights. For a fixed probe w ∈ ℂ^n, unitary DFT matrix F, and cyclic shift operator S_r, the phaseless measurements are A(f)(r,k) = |(Fw)_k + Σ_{j=1}^N (a_j/√n)(S_r w)_{t_j} exp(-2π i k(t_j-r)/n)|^2 for all Fourier indices k ∈ {0,...,n-1} and probe shifts r ∈ R. How large must the probe-shift set R be to ensure unique reconstruction of the full parameter tuple {(a_j,t_j)}_{j=1}^N from these measurements?",
+  "equivalent_formulation": "Equivalently, because the background term (Fw)_k does not depend on the probe shift r, determine the size of R for which the affine phaseless measurement map induced by equation (10) is injective on the model class {1 + Σ_{j=1}^N a_j e_{t_j} : a_j ∈ ℂ, t_j ∈ {0,...,n-1}}.",
+  "justification": "The draft is aiming at the paper’s official open problem Question 4.6 almost verbatim. Section 4.1 first raises the broader uniqueness/stability issue for the simplified crystallographic model in Question 4.3. Section 4.2 then specializes to sparse crystallography, states the continuous recovery task in Problem 4.4, discretizes the model to f = 1 + Σ_j a_j e_{t_j}, derives the exact finite-dimensional phaseless data in equation (10), and immediately notes that this is a special case of affine phase retrieval because the background term (Fw)_k is independent of the probe shift. The next sentence asks exactly how large the probe-shift set R must be for unique reconstruction of a_j and t_j. That is the nearest official formulation. Question 4.7 is the adjacent algorithmic/stability question and should remain separate.",
+  "citations": [
+    {
+      "section": "2",
+      "label": "Finite-dimensional setup",
+      "page": 3
+    },
+    {
+      "section": "4.1",
+      "label": "equation (5)",
+      "page": 11
+    },
+    {
+      "section": "4.1",
+      "label": "equation (6)",
+      "page": 12
+    },
+    {
+      "section": "4.1",
+      "label": "Question 4.3",
+      "page": 12
+    },
+    {
+      "section": "4.2",
+      "label": "equation (7)",
+      "page": 13
+    },
+    {
+      "section": "4.2",
+      "label": "Problem 4.4",
+      "page": 13
+    },
+    {
+      "section": "4.2",
+      "label": "Remark 4.5",
+      "page": 13
+    },
+    {
+      "section": "4.2",
+      "label": "equation (9)",
+      "page": 13
+    },
+    {
+      "section": "4.2",
+      "label": "equation (10)",
+      "page": 13
+    },
+    {
+      "section": "4.2",
+      "label": "Question 4.6",
+      "page": 14
+    },
+    {
+      "section": "4.2",
+      "label": "Question 4.7",
+      "page": 14
+    }
+  ]
+}

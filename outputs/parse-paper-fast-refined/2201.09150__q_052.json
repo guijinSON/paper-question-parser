@@ -1,0 +1,49 @@
+{
+  "arxiv_id": "2201.09150",
+  "question_id": "q_052",
+  "original_question": "Determine whether travelling-wave solutions exist for the nonlocal multispecies advection-diffusion system driven by detection kernels, and if they do, compute or estimate how wave speed depends on kernel choice, perceptual radius, and advection or diffusion parameters.",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 8059.96,
+  "target_in_paper": "Section 4.5, Open Problem 52, which asks about travelling-wave solutions for the multispecies nonlocal system (2.10) when the detection function is any of the forms in (2.3), and about how the wave speed depends on the detection function, perceptual radius, and advection/diffusion rates. ([math.ualberta.ca](https://www.math.ualberta.ca/~hwang/WangSalmaniwReview.pdf))",
+  "completeness_score": 8.5,
+  "correct_elements": "Your draft already captures the core content of the paper’s nearest official formulation: it is about a nonlocal multispecies advection-diffusion system, the existence of travelling-wave solutions, and—if such waves exist—the dependence of wave speed on kernel choice, perceptual radius, and advection/diffusion parameters. That is very close to Open Problem 52 verbatim. ([math.ualberta.ca](https://www.math.ualberta.ca/~hwang/WangSalmaniwReview.pdf))",
+  "missing_details": [
+    "The paper’s target is the specific n-species system (2.10), not a generic multispecies advection-diffusion model: ∂_t u_i = d_i Δu_i − ∇·(u_i ∇(∑_{j=1}^n γ_{ij} u_{j,g,R})) for i = 1, …, n. ([math.ualberta.ca](https://www.math.ualberta.ca/~hwang/WangSalmaniwReview.pdf))",
+    "The nonlocal term should be made explicit through the perception/detection convolution a_{g,R}(x,t) = ∫_Ω a(y,t) g(x−y) dy, so here u_{j,g,R} means the jth density convolved with the detection kernel inside the gradient. ([math.ualberta.ca](https://www.math.ualberta.ca/~hwang/WangSalmaniwReview.pdf))",
+    "The kernel family is not arbitrary: Open Problem 52 points specifically to the kernels in (2.3), namely the top-hat, Gaussian, and exponential detection functions, each parametrized by the perceptual radius R. ([math.ualberta.ca](https://www.math.ualberta.ca/~hwang/WangSalmaniwReview.pdf))",
+    "The travelling-wave setting in Section 4.5 is the unbounded-domain setting, with the basic ansatz u(x,t) = w(x−ct); for the system this should be stated as u_i(x,t) = W_i(x−ct) with a common wave speed c. ([math.ualberta.ca](https://www.math.ualberta.ca/~hwang/WangSalmaniwReview.pdf))",
+    "The parameters should be named more sharply as the diffusivities d_i and the advection/interaction coefficients γ_{ij}, rather than only ‘advection or diffusion parameters.’ ([math.ualberta.ca](https://www.math.ualberta.ca/~hwang/WangSalmaniwReview.pdf))",
+    "The closest official formulation is Open Problem 52, not Open Problem 53: Open Problem 53 concerns the single-species version of the different system (2.11) with an explicit dynamic cognitive map. ([math.ualberta.ca](https://www.math.ualberta.ca/~hwang/WangSalmaniwReview.pdf))",
+    "No algebraic data such as ambient ring/field, homogeneity, degree restrictions, nilpotency, or ‘for all sufficiently large m’ quantifiers belong here; those would be foreign to the PDE formulation actually used in this paper. ([math.ualberta.ca](https://www.math.ualberta.ca/~hwang/WangSalmaniwReview.pdf))"
+  ],
+  "refined_question": "Consider the n-species nonlocal system on an unbounded one-dimensional spatial domain, given by ∂_t u_i = d_i Δu_i − ∇·(u_i ∇(∑_{j=1}^n γ_{ij}(u_j)_{g,R})) for i = 1, …, n, where (u_j)_{g,R}(x,t) = ∫_ℝ u_j(y,t) g(x−y) dy and g is chosen from the detection kernels in (2.3): the top-hat kernel g(z) = 1/(2R) for |z| ≤ R and 0 otherwise, the Gaussian kernel g(z) = (1/(√(2π)R))e^(−z^2/(2R^2)), or the exponential kernel g(z) = (1/(2R))e^(−|z|/R). Do there exist travelling-wave solutions of the form u_i(x,t) = W_i(x−ct) for this system? If so, can the common wave speed c be computed or estimated as a function of the detection-kernel choice, the perceptual radius R, and the advection/diffusion parameters γ_{ij} and d_i?",
+  "equivalent_formulation": null,
+  "justification": "The draft is nearest to Open Problem 52 in Section 4.5. That problem asks, essentially verbatim, whether travelling-wave solutions exist for system (2.10) when the detection function is any of the forms in (2.3), and whether the wave speed can then be computed or estimated in terms of the detection function, perceptual radius, and advection/diffusion rates. Section 2.2.2 supplies the exact multispecies model (2.10), Section 2.1 supplies the admissible kernel family (2.3) and the meaning of the perceptual radius R, and Section 4.5 supplies the travelling-wave context and ansatz in the unbounded-domain setting. The draft should therefore be sharpened to that exact system and kernel class, rather than broadened to other nonlocal systems or to the distinct single-species cognitive-map model (2.11) from Open Problem 53. ([math.ualberta.ca](https://www.math.ualberta.ca/~hwang/WangSalmaniwReview.pdf))",
+  "citations": [
+    {
+      "section": "2.1",
+      "label": "Eq. (2.3)",
+      "page": "7-8"
+    },
+    {
+      "section": "2.2.2",
+      "label": "Eq. (2.10)",
+      "page": "12"
+    },
+    {
+      "section": "4.5",
+      "label": "Travelling-wave discussion",
+      "page": "50-51"
+    },
+    {
+      "section": "4.5",
+      "label": "Open Problem 52",
+      "page": "51-52"
+    },
+    {
+      "section": "4.5",
+      "label": "Open Problem 53",
+      "page": "52"
+    }
+  ]
+}

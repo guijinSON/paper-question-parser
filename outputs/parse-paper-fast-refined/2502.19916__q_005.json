@@ -1,0 +1,50 @@
+{
+  "arxiv_id": "2502.19916",
+  "question_id": "q_005",
+  "original_question": "Using the closed-form formula for the boundary of the cycling region of a given cycle length K, the paper plots additional intermediate regions obtained by substituting fractional values of K into that formula, and these regions appear to fill the previously blank parameter region without overlapping the Lyapunov region. Since a notion of cycles of fractional length has not been defined, what mathematical object or dynamical behavior do these intermediate regions represent, and what do they imply about the blank regions?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 157.98,
+  "target_in_paper": "Section 3, \"An interesting, unexplained observation\" after Figure 8: \"Since we did not define the notion of cycles of fractional length, what do those intermediate regions actually represent? What does it say about those blank regions?\"",
+  "completeness_score": 8,
+  "correct_elements": "Your draft correctly identifies the paper's final Figure 8 question inside Open Problem 2: it focuses on the formal substitution of fractional values of the cycle length K into the closed-form border formula for integer-length cycle regions, on the apparent filling of the previously unfilled tuning region, and on the request for an interpretation of those intermediate regions and of the blank area itself. It also correctly keeps the question tied to the separation between the cycle region and the Lyapunov region rather than broadening it to the whole paper.",
+  "missing_details": [
+    "The underlying algorithm should be stated explicitly: Polyak's Heavy-Ball method HB_{gamma,beta}, x_{t+1} = x_t - gamma nabla f(x_t) + beta (x_t - x_{t-1}).",
+    "The ambient function class should be made explicit: f belongs to F_{mu,L}, the class of L-smooth, mu-strongly-convex functions f : R^d -> R (with dimension not fixed in the notation of the paper).",
+    "The relevant variables are the HB tuning parameters (gamma, beta); the \"blank regions\" are subsets of this parameter plane.",
+    "A genuine cycle of length K should be defined exactly as in Section 3: a K-tuple (x_0, ..., x_{K-1}) such that there exists f in F_{mu,L} whose HB_{gamma,beta} trajectory is exactly periodic, namely (x_{t mod K})_{t >= 0}. In the paper, K is an integer with K >= 3.",
+    "The \"Lyapunov region\" should be described in the paper's restricted sense: it is the region where the authors found a Lyapunov sequence V_t = l(f(x_t)-f^*, f(x_{t-1})-f^*) + q(x_{t-1}-x^*, nabla f(x_{t-1}), x_t-x^*, nabla f(x_t)), with l linear and q homogeneously quadratic, satisfying f(x_{t+1})-f^* <= V_{t+1} <= rho V_t for all HB iterates; Figure 2 uses rho = 1, while interior points admit some rho < 1.",
+    "Accordingly, the \"blank\" or \"unfilled\" region should not be described as a proved region with no Lyapunov function or no cycle in any sense; it is only the region where the authors found neither a Lyapunov sequence of the searched form nor a genuine cycle.",
+    "The closed-form border formula itself comes from the earlier paper [Goujaud et al., 2023b, Theorem 3.5], and the present paper uses it only empirically to draw Figure 8; it does not claim that fractional K corresponds to an already defined dynamical notion.",
+    "The observation should remain explicitly empirical: the paper says the continuum of such intermediate regions \"seems\" to recover the blank region and \"seems\" not to overlap the green region, so the refined question should ask for explanation rather than assume an exact theorem."
+  ],
+  "refined_question": "Fix 0 < mu <= L and consider Polyak's Heavy-Ball method HB_{gamma,beta}, x_{t+1} = x_t - gamma nabla f(x_t) + beta (x_t - x_{t-1}), on the class F_{mu,L} of L-smooth, mu-strongly-convex functions f : R^d -> R. In Figure 2, the green region consists of tunings (gamma, beta) for which the authors numerically found a Lyapunov sequence of the form V_t = l(f(x_t)-f^*, f(x_{t-1})-f^*) + q(x_{t-1}-x^*, nabla f(x_{t-1}), x_t-x^*, nabla f(x_t)), with l linear and q homogeneously quadratic, satisfying f(x_{t+1})-f^* <= V_{t+1} <= rho V_t, while the purple region consists of tunings for which there exists a genuine integer-length cycle, i.e. some K >= 3, some K-tuple (x_0, ..., x_{K-1}), and some f in F_{mu,L} whose HB_{gamma,beta} trajectory is exactly (x_{t mod K})_{t >= 0}. Using the closed-form formula for the border of each integer-K cycle region recalled from [Goujaud et al., 2023b, Theorem 3.5], Figure 8 formally substitutes fractional values of K and produces intermediate regions whose continuum appears to fill the unfilled part of the (gamma, beta)-plane without entering the green region. What, if anything, is the precise mathematical object or dynamical behavior encoded by this fractional-K continuation, and what does it imply about the unfilled tunings in Figure 2 where the authors found neither the above Lyapunov sequence nor a genuine cycle?",
+  "equivalent_formulation": null,
+  "justification": "The draft is already very close to the paper's actual intent, but the nearest official target is not the broad introductory wording of Open Problem 2 alone; it is the sharper final question posed after Figure 8 in Section 3. That paragraph explicitly asks what the fractional-K intermediate regions represent and what they say about the blank regions. The refined version keeps exactly that narrow focus, while making explicit the HB dynamics, the function class F_{mu,L}, the paper's definition of an actual cycle, and the restricted meaning of the green Lyapunov region. Those clarifications are necessary so that \"blank region\" is interpreted paper-faithfully as \"no searched Lyapunov certificate and no known/proved cycle,\" rather than as a fully characterized dynamical class.",
+  "citations": [
+    {
+      "section": "1",
+      "label": "Open problem 2",
+      "page": 1
+    },
+    {
+      "section": "1",
+      "label": "Figure 2 and accompanying discussion of unfilled areas",
+      "page": 2
+    },
+    {
+      "section": "3",
+      "label": "More details on the Lyapunov functions we looked for",
+      "page": 5
+    },
+    {
+      "section": "3",
+      "label": "How did we find cycles? (definition of a cycle of length K)",
+      "page": 5
+    },
+    {
+      "section": "3",
+      "label": "Figure 8 / An interesting, unexplained observation",
+      "page": "5-6"
+    }
+  ]
+}

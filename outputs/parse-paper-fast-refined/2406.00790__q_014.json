@@ -1,0 +1,51 @@
+{
+  "arxiv_id": "2406.00790",
+  "question_id": "q_014",
+  "original_question": "Let Gamma be a numerical semigroup. For every homological degree i, is the i-th Betti number of the associated graded ring G_Gamma always bounded above by binom(width(Gamma)+1, i+1)?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 9997.24,
+  "target_in_paper": "Section 3, Problem 15, which is the associated graded ring analogue of Problem 13 in the width section.",
+  "completeness_score": 4,
+  "correct_elements": "Your draft correctly identifies the right ambient object class (numerical semigroups), the right ring object (the associated graded ring/tangent cone), the fact that the question is about all homological degrees, and that the desired bound depends only on the width.",
+  "missing_details": [
+    "The main numerical bound is not paper-faithful: the paper's width bound carries an extra factor i. The intended inequality is beta_i(G_Gamma) <= i * binom(wd(Gamma)+1, i+1), not just binom(wd(Gamma)+1, i+1).",
+    "The paper fixes a ground field K; this should be stated because Betti numbers are taken over a polynomial ring over K.",
+    "Gamma should be written with its minimal generators, e.g. Gamma = <n_1 < ... < n_e>, and the width should be defined explicitly as wd(Gamma) = n_e - n_1.",
+    "The associated graded ring should be defined explicitly as G_Gamma = gr_m(K[[Gamma]]) where K[[Gamma]] = K[[t^{n_1},...,t^{n_e}]] and m is its maximal ideal.",
+    "The Betti numbers should be identified as total Betti numbers over a minimal graded polynomial presentation S = K[x_1,...,x_e] -> G_Gamma.",
+    "The quantifier on i should be made explicit as i >= 1; including i = 0 would make the stated bound nonsensical.",
+    "The question in the paper is posed in the width section as a specific open problem for associated graded rings, not as a free-floating general question.",
+    "The nearby context explains that this is the associated graded analogue of the semigroup-ring bound in Problem 13; that relationship is implicit in your draft and should be made explicit if you want the question to be paper-faithful.",
+    "If you want the formulation to be fully stand-alone, you should avoid the undefined shorthand G_Gamma and width(Gamma) unless you define both on the spot."
+  ],
+  "refined_question": "Fix a field K, let Gamma = <n_1 < ... < n_e> be a numerical semigroup, let R = K[[Gamma]] = K[[t^{n_1},...,t^{n_e}]] with maximal ideal m, and let G_Gamma = gr_m(R) be its associated graded ring. Writing wd(Gamma) = n_e - n_1 for the width of Gamma, and beta_i(G_Gamma) for the i-th total Betti number of G_Gamma over a minimal graded polynomial presentation K[x_1,...,x_e] -> G_Gamma, is it true that beta_i(G_Gamma) <= i * binom(wd(Gamma)+1, i+1) for every i >= 1?",
+  "equivalent_formulation": null,
+  "justification": "The draft is clearly targeting the width section's associated-graded open problem, namely Problem 15, not the earlier embedding-dimension or multiplicity problems. Section 1 supplies the ambient notation for numerical semigroups, associated graded rings, and Betti numbers; Section 3 defines width and then states the associated graded version of the higher-Betti width bound. The decisive correction is the missing factor i: the paper's higher-Betti formulation is the associated graded analogue of Problem 13, whose sharp model case is the interval/arithmetic-sequence semigroups discussed immediately afterward, and that sharp model forces the coefficient i in front of the binomial term.",
+  "citations": [
+    {
+      "section": "1. Generalities",
+      "label": "notation paragraph defining associated graded rings and Betti numbers",
+      "page": "366-367"
+    },
+    {
+      "section": "3. Width",
+      "label": "opening paragraph defining width",
+      "page": "369"
+    },
+    {
+      "section": "3. Width",
+      "label": "Problem 13",
+      "page": "370"
+    },
+    {
+      "section": "3. Width",
+      "label": "Problem 15",
+      "page": "370-371"
+    },
+    {
+      "section": "3. Width",
+      "label": "paragraph after Problem 15 discussing interval completion/arithmetic-sequence semigroups and sharpness",
+      "page": "371"
+    }
+  ]
+}

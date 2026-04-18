@@ -1,0 +1,56 @@
+{
+  "arxiv_id": "2505.15351",
+  "question_id": "q_023",
+  "original_question": "For sampled short-time Fourier transform phase retrieval of compactly supported or otherwise structured functions, which window functions other than the already analyzed Gaussian or specially constructed simple windows allow recovery up to a global phase from magnitude samples taken on a lattice?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 11072.2,
+  "target_in_paper": "Question 8.6 in Section 8.3 of arXiv:2505.15351 (\"Sampled STFT phase retrieval with compactly supported functions\"), with a sharper formal counterpart in the cited related work [103], Problem 1.2.",
+  "completeness_score": 7,
+  "correct_elements": "Your draft correctly identifies the right topic: sampled short-time Fourier transform phase retrieval, uniqueness only up to a global phase, lattice sampling of STFT magnitudes, compact support as the operative signal restriction, and the specific interest in windows beyond the Gaussian or the special simple windows discussed immediately before Question 8.6.",
+  "missing_details": [
+    "The paper's Question 8.6 is posed in the one-dimensional continuous setting: f,w in L^2(R) and Omega subset R^2. Your draft does not fix the ambient space or dimension.",
+    "The nearby setup is specifically about compactly supported signals, concretely supp(f) subset [-B,B] for some B>0. The phrase \"or otherwise structured functions\" is broader than the paper's target here.",
+    "To be stand-alone, the STFT should be defined, e.g. V_w f(x,xi) = integral over R of f(t) times the shifted window times the modulation factor, up to the paper's normalization.",
+    "The sampling set should be specified as a lattice Omega = {k v_1 + l v_2 : k,l in Z} subset R^2, not just an unspecified lattice.",
+    "Recovery is only modulo the global-phase equivalence relation f ~ g iff f = e^(i alpha) g for some alpha in R.",
+    "The exact issue is injectivity/uniqueness of the sampled magnitude map f -> (|V_w f(x,xi)|^2)_{(x,xi) in Omega}, not algorithm design, stability, or approximate finite-sample reconstruction.",
+    "The quantifiers should be explicit: for a given support size B>0 and window w, does there exist a lattice Omega such that every f supported in [-B,B] is recoverable up to global phase from those samples?",
+    "The paper immediately distinguishes this compact-support problem from the impossible larger problem of recovering all f in L^2(R) from lattice samples, so the support restriction is essential and should not be omitted.",
+    "If one uses the sharper language from the cited related paper [103], the question is naturally phrased in terms of whether a lattice is a uniqueness set for phase retrieval in L^2(K) with window w, for compact K."
+  ],
+  "refined_question": "Fix B>0. Characterize those window functions w in L^2(R) for which there exists a lattice Omega subset R^2 such that the sampled spectrogram map f -> (|V_w f(x,xi)|^2)_{(x,xi) in Omega} is injective on {f in L^2(R) : supp(f) subset [-B,B]}/~, where f ~ g iff f = e^(i alpha) g for some alpha in R.",
+  "equivalent_formulation": "Equivalently, for which w in L^2(R) and B>0 does there exist a lattice Omega subset R^2 that is a uniqueness set for phase retrieval in L^2([-B,B]) with window w?",
+  "justification": "The draft is aiming at Question 8.6 in Section 8.3 of the survey, not the neighboring questions about spiral sampling sets, removal of compact support, or practical finite-sample algorithms. The surrounding text fixes the one-dimensional STFT setting, defines lattice sampling in R^2, and states that recovery is only meaningful modulo the global-phase relation. It also shows that the compact-support assumption is part of the intended scope by immediately contrasting it with the impossible problem of recovering every f in L^2(R) from lattice samples. For a sharper stand-alone formulation, the survey itself cross-references [103], where the same issue is formalized in uniqueness-set language as Problem 1.2 after Definition 1.1.",
+  "citations": [
+    {
+      "section": "8.3",
+      "label": "Sampled STFT phase retrieval with compactly supported functions (setup)",
+      "page": "30-31"
+    },
+    {
+      "section": "8.3",
+      "label": "Question 8.6",
+      "page": 31
+    },
+    {
+      "section": "8.3",
+      "label": "paragraph preceding Question 8.6",
+      "page": 31
+    },
+    {
+      "section": "8.3",
+      "label": "paragraph after Question 8.7 / preamble to Question 8.8",
+      "page": 31
+    },
+    {
+      "section": "Ref. [103], Section 1",
+      "label": "Definition 1.1",
+      "page": 2
+    },
+    {
+      "section": "Ref. [103], Section 1",
+      "label": "Problem 1.2",
+      "page": 3
+    }
+  ]
+}

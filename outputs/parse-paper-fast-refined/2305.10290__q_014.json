@@ -1,0 +1,45 @@
+{
+  "arxiv_id": "2305.10290",
+  "question_id": "q_014",
+  "original_question": "Fix an integer Delta >= 3 and let G be a connected nonregular graph on n vertices with maximum spectral radius among all connected nonregular graphs with maximum degree Delta. Does the limit of n^2(Delta - lambda(G))/(Delta - 1) always exist when Delta is odd and equal pi^2/4, and when Delta is even does the limit of n^2(Delta - lambda(G))/(Delta - 2) always exist and equal pi^2/2?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 8820.02,
+  "target_in_paper": "Conjecture 10 (Liu [103]) in the survey’s topic on the extremal spectral radius of connected nonregular graphs with prescribed maximum degree.",
+  "completeness_score": 8,
+  "correct_elements": "Your draft is very close to the paper-faithful target. It correctly fixes an integer Δ ≥ 3, considers connected nonregular graphs on n vertices with maximum degree Δ that maximize spectral radius, and captures the parity split and the exact constants π^2/4 and π^2/2 with the normalizing factors Δ-1 and Δ-2. That matches the content of Conjecture 10 in the paper.",
+  "missing_details": [
+    "The paper’s notation should be made explicit: λ(G) means the adjacency spectral radius, i.e. the largest eigenvalue λ1(A(G)) of the adjacency matrix of a simple, undirected graph G.",
+    "Because n tends to infinity, one should not speak of a single fixed graph G; formally one needs a sequence G_n in the extremal family, or equivalently the scalar extremal value λ(n,Δ).",
+    "The extremal class should be specified as all connected, nonregular graphs on exactly n vertices with maximum degree exactly Δ, not merely graphs with maximum degree bounded by Δ.",
+    "The paper introduces 𝒢(n,Δ) for the set of extremal graphs and λ(n,Δ) for their common maximum spectral radius; using this notation removes ambiguity when the extremal graph is not unique.",
+    "The official formulation first asks whether the limit of n^2(Δ-λ(G)) exists at all, and then states the predicted parity-dependent normalized values; your draft only states the normalized limits.",
+    "It should be explicit that Δ is fixed while n → ∞.",
+    "If one phrases the question using G rather than λ(n,Δ), one should note that the limit is well defined because every G in 𝒢(n,Δ) has the same spectral radius by definition.",
+    "The relevant parity in this conjecture is the parity of Δ; this should be kept distinct from the parity condition nΔ odd/even that appears in a different conjecture about the degree sequence of extremal graphs."
+  ],
+  "refined_question": "For a fixed integer Δ ≥ 3, let 𝒢(n,Δ) be the set of all connected, simple, undirected, nonregular graphs on n vertices with maximum degree exactly Δ that attain the maximum adjacency spectral radius among all such graphs, and let λ(G)=λ1(A(G)) denote the spectral radius of G. If G_n ∈ 𝒢(n,Δ) for each n, does the limit of n^2(Δ-λ(G_n)) exist as n → ∞? More precisely, is it true that\n(1) if Δ is odd, then lim_{n→∞} n^2(Δ-λ(G_n))/(Δ-1)=π^2/4; and\n(2) if Δ is even, then lim_{n→∞} n^2(Δ-λ(G_n))/(Δ-2)=π^2/2?",
+  "equivalent_formulation": "Equivalently, writing λ(n,Δ):=max{λ(H): H is a connected, simple, undirected, nonregular graph on n vertices with maximum degree Δ}, is it true that for every fixed integer Δ ≥ 3 the limit of n^2(Δ-λ(n,Δ)) exists, and moreover equals (Δ-1)π^2/4 when Δ is odd and (Δ-2)π^2/2 when Δ is even?",
+  "justification": "The draft is not aiming at the earlier Liu-Shen-Wang conjecture with limit π^2 and denominator Δ-1 for every fixed Δ. Rather, it matches the later replacement conjecture stated in this survey after the paper explains that the earlier conjecture was disproved by Liu [103]. The parity-dependent normalizations and constants in your draft agree exactly with Conjecture 10. The nearby context on the same page introduces the extremal notation 𝒢(n,Δ) and λ(n,Δ), explains that Liu [103] gave a negative answer to the older conjecture, and then presents this sharper parity-sensitive conjecture. The introduction of the survey supplies the ambient graph model and the meaning of λ(G).",
+  "citations": [
+    {
+      "section": "Introduction",
+      "label": "global notation for simple undirected graphs, adjacency matrix A(G), and eigenvalue notation λ(G)=λ1(G)",
+      "page": 1
+    },
+    {
+      "section": "Topic on nonregular graphs with prescribed maximum degree",
+      "label": "definitions of 𝒢(n,Δ) and λ(n,Δ) in the discussion immediately preceding Conjecture 10",
+      "page": 10
+    },
+    {
+      "section": "Topic on nonregular graphs with prescribed maximum degree",
+      "label": "Conjecture 10",
+      "page": 10
+    },
+    {
+      "section": "Topic on nonregular graphs with prescribed maximum degree",
+      "label": "post-Conjecture 10 discussion noting confirmation for Δ=3 and Δ=4 in [103]",
+      "page": 10
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "arxiv_id": "1112.5632",
+  "question_id": "q_007",
+  "original_question": "Let mu_{n,n} be the minimum of the haffnian over Psi_{2n}, and let mu := lim_{n->infty} log(mu_{n,n}) / n, whose existence follows from subadditivity. Is mu finite from below; equivalently, does one have mu > -infinity?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 2005.46,
+  "target_in_paper": "Section 6, immediately after equation (6.8): the paper's weak residual open problem in the haffnian discussion, namely whether the asymptotic exponent mu for mu_{n,n}=min_{B in Psi_{2n}} haf_n(B) satisfies mu > -infinity after the stronger conjecture (6.3) is shown to fail for k=n and large n.",
+  "completeness_score": 8,
+  "correct_elements": "Your draft has the right target, notational core, and asymptotic question. It correctly isolates the k=n specialization of the Section 6 haffnian problem, uses the subadditivity argument behind the existence of mu, and asks exactly the weak question that survives after the paper notes that the stronger equality conjecture fails for k=n and sufficiently large n.",
+  "missing_details": [
+    "Psi_{2n} is not defined in the draft. In the paper it is the Edmonds matching polytope of K_{2n}: the set of real 2n x 2n symmetric doubly stochastic matrices with zero diagonal satisfying the odd-set inequalities sum_{i,j in S} b_{ij} <= |S|-1 for every odd S subset of {1,...,2n} with 3 <= |S| <= 2n-3.",
+    "The minimized quantity should be specified as haf_n(B), the n-haffnian, i.e. the sum over all perfect matchings of K_{2n} of the corresponding edge-weight products; saying only 'the haffnian' leaves the order implicit.",
+    "The ambient setting is real symmetric matrices B=[b_ij] with b_ij >= 0, b_ii = 0, b_ij = b_ji, and each row sum equal to 1.",
+    "The paper first defines mu_{k,n} = min_{B in Psi_{2n}} haf_k(B) for k=2,...,n; the open problem you want is specifically the k=n case.",
+    "The paper's official context is missing: it first states the stronger conjecture (6.3), mu_{k,n} = haf_k((1/(2n-1))A(K_{2n})), then explains that this is false for k=n and n large enough, and only afterward formulates the weaker asymptotic claim mu > -infinity.",
+    "The range of the parameter n should be stated explicitly (n >= 2 in the Section 6 setup).",
+    "The paper phrases the open problem directly as mu > -infinity; your wording 'finite from below' is accurate but one step less faithful to the paper's own formulation."
+  ],
+  "refined_question": "For each integer n >= 2, let Psi_{2n} be the set of all real 2n x 2n symmetric doubly stochastic matrices B=[b_ij] with zero diagonal such that sum_{i,j in S} b_ij <= |S|-1 for every odd subset S of {1,...,2n} with 3 <= |S| <= 2n-3. For B in Psi_{2n}, let haf_n(B) := sum_M product_{(i,j) in M} b_ij, where the sum runs over all perfect matchings M of K_{2n}, and define mu_{n,n} := min_{B in Psi_{2n}} haf_n(B). Since mu_{n+m,n+m} <= mu_{n,n} mu_{m,m}, the limit mu := lim_{n->infty} (1/n) log mu_{n,n} exists. Is mu > -infinity?",
+  "equivalent_formulation": null,
+  "justification": "This draft clearly targets the Section 6 haffnian discussion, not Conjecture 1.1 of the survey. In Section 6 the paper defines Psi_{2n} and mu_{k,n} in (6.1)-(6.2), states the stronger conjecture (6.3), explains that (6.3) is false for k=n and large n, then proves the subadditivity relation for mu_{n,n} and introduces the limit mu in (6.8). The nearest official formulation of the surviving open problem is the unlabelled sentence immediately after (6.8): a weak analog of the van der Waerden conjecture is the claim that mu > -infinity. The refined question therefore needs to make Psi_{2n}, haf_n, and the k=n specialization explicit, but should not broaden beyond that exact asymptotic claim.",
+  "citations": [
+    {
+      "section": "Section 2",
+      "label": "(2.3) and (2.4)",
+      "page": 22
+    },
+    {
+      "section": "Section 6",
+      "label": "(6.1), (6.2), and (6.3)",
+      "page": 27
+    },
+    {
+      "section": "Section 6",
+      "label": "(6.8) and the sentence immediately following it",
+      "page": 28
+    }
+  ]
+}

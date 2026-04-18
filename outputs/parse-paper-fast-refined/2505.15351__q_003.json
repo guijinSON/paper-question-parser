@@ -1,0 +1,59 @@
+{
+  "arxiv_id": "2505.15351",
+  "question_id": "q_003",
+  "original_question": "How does the intrinsic complexity of an object manifest itself during phase-retrieval reconstruction, and what quantitative effect does that complexity have on the convergence rate of reconstruction algorithms such as gradient-descent methods?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 10964.49,
+  "target_in_paper": "Section 3, Question 3.1(3), sharpened by the open-direction discussion in Section 3.3 after equation (4).",
+  "completeness_score": 8.0,
+  "correct_elements": "The draft correctly identifies the paper's target theme: the role of object complexity in the reconstruction process and its effect on convergence speed. It also correctly points to gradient-descent-type reconstruction as the concrete algorithmic setting used by the paper to frame this question.",
+  "missing_details": [
+    "The paper frames this as an open problem inside Section 3, 'Problem: Intrinsic Difficulty of Phase Retrieval,' and the nearest official formulation is Question 3.1(3), not a general paper-wide research program.",
+    "The surrounding problem setup is the continuous/discrete phase-retrieval model I = A(f) = |Af|^2, with the section focusing mainly on coherent diffraction imaging (A = F) and ptychography (A given by a subsampled short-time Fourier transform matrix).",
+    "The ambient spaces are implicit in the paper but absent from the draft: in the finite-dimensional setup, f is in C^n, A is in C^(m x n), and the measurements are indexed by j = 1,...,m; in the continuous setup, f : R^d -> C.",
+    "The paper's concern is specifically the complexity of the ground-truth object f; it motivates this by empirical hard cases such as objects with smooth edges or strongly inhomogeneous phase fields.",
+    "In Section 3.3, the concrete algorithm is the gradient-descent iteration f^(t+1) = f^t - mu grad L(f^t).",
+    "The objective used there is the 'square-root' loss L(f) = sum_{j=1}^m ( |(Af)_j|^(1/2) - y_j^(1/2) )^2, described as an approximation to the Poisson log-likelihood.",
+    "The convergence notion is not recovery of the global minimizer: the paper only states convergence to a critical point, grad L(f) = 0, in the nonrandom-A setting.",
+    "The explicit bound given is max_{1 <= t <= T} ||grad L(f^t)|| <= ((L(f^0) - inf_f L(f))^(1/2)) / (||A|| sqrt(T)), for arbitrary initialization f^0, where T is the iteration count and ||A|| is the spectral norm.",
+    "The paper's actual open direction is to make the dependence on object complexity explicit, because complexity is currently hidden inside the term L(f^0) - inf_f L(f).",
+    "The paper suggests two specific ways to sharpen the question: relate the rate explicitly to the object's smoothness class, or study whether useful complexity statistics can be based on the Hessian grad^2 L and its conditioning.",
+    "A paper-faithful standalone version should also mention the contrast cases noted in Section 3.3: possible linear convergence for ptychography with sufficiently good initialization, versus the impossibility of a linearly convergent algorithm for one-dimensional Fourier phase retrieval unless P = NP.",
+    "The draft phrase 'such as gradient-descent methods' is slightly broader than the paper's concrete formulation, which uses gradient descent for this specific loss and only briefly remarks on the blind-ptychography multi-unknown variant where the exponent 1/2 is replaced by p/2."
+  ],
+  "refined_question": "In the phase-retrieval model I = A(f) = |Af|^2, considered in both the continuous and finite-dimensional settings and motivated mainly by coherent diffraction imaging (A = F) and ptychography (A given by a subsampled short-time Fourier transform matrix), can one make the dependence of reconstruction speed on the complexity of the ground-truth object f explicit? More precisely, in the finite-dimensional setting with f in C^n, A in C^(m x n), and measured data y = (y_j)_(j=1)^m, for the gradient-descent iteration f^(t+1) = f^t - mu grad L(f^t) applied to the square-root objective L(f) = sum_{j=1}^m ( |(Af)_j|^(1/2) - y_j^(1/2) )^2, whose current global guarantee for arbitrary initialization f^0 is grad L(f^t) -> 0 and max_{1 <= t <= T} ||grad L(f^t)|| <= ((L(f^0) - inf_f L(f))^(1/2)) / (||A|| sqrt(T)), can one identify object-complexity descriptors - for example a smoothness class of f, or statistics derived from the Hessian grad^2 L and its conditioning - that explain how complexity manifests during reconstruction and yield an explicit quantitative dependence of the convergence rate on that complexity, rather than leaving it implicit in the term L(f^0) - inf_f L(f)?",
+  "equivalent_formulation": null,
+  "justification": "The paper is a survey of open problems and does not contain Conjecture 1.1, Proposition 1.2, or Theorem 1.3. The draft matches Question 3.1(3) almost verbatim, and Section 3.3 gives the exact nearby mathematical sharpening: the authors instantiate the issue using gradient descent for a specific square-root objective, record the available nonconvex global bound (4), and then explicitly say that an important research direction is to uncover a more explicit dependence of the convergence rate on the object's complexity, for instance through smoothness class or Hessian conditioning. The refined version therefore keeps the target narrow and paper-faithful while adding the notation, algorithm, loss, and convergence statement needed to make the question stand alone.",
+  "citations": [
+    {
+      "section": "1.2",
+      "label": "Organization of the Paper",
+      "page": 2
+    },
+    {
+      "section": "2",
+      "label": "Notation (finite-dimensional and infinite-dimensional setups)",
+      "page": "3-4"
+    },
+    {
+      "section": "3",
+      "label": "Problem: Intrinsic Difficulty of Phase Retrieval",
+      "page": 4
+    },
+    {
+      "section": "3",
+      "label": "Question 3.1(3)",
+      "page": 5
+    },
+    {
+      "section": "3.3",
+      "label": "Gradient descent and square-root objective",
+      "page": "8-9"
+    },
+    {
+      "section": "3.3",
+      "label": "Equation (4) and the open direction linking convergence rate to smoothness/Hessian conditioning",
+      "page": 9
+    }
+  ]
+}

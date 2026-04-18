@@ -1,0 +1,49 @@
+{
+  "arxiv_id": "1010.5587",
+  "question_id": "q_002",
+  "original_question": "In the same weak-coupling copolymer setting, prove the strict lower bound m_1/2 > 2/3 for the universal slope m_α of the critical curve h_c(λ) ~ m_α λ when α = 1/2.",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 1015.09,
+  "target_in_paper": "Section 1.4, the first explicit open sub-problem listed immediately after the discussion of the weak-coupling slope m_α and bounds (18)-(19): \"show that m_{1/2} > 2/3\".",
+  "completeness_score": 8,
+  "correct_elements": "Your draft correctly identifies the weak-coupling regime, the universal slope m_α of the critical curve h_c(λ), the special case α = 1/2, and the fact that the problem is to improve the known lower bound 2/3 = 1/(1+α) to a strict inequality.",
+  "missing_details": [
+    "The paper works in the general discrete α-copolymer model, not an unspecified 'same setting': τ is a persistent renewal on N∪{0} with K(n)=P(τ_1=n) ~ C_K / n^(1+α), ξ_j are i.i.d. Bernoulli(1/2) excursion signs independent of τ, and Δ_n = Σ_{j≥1} ξ_j 1_{(τ_{j-1},τ_j]}(n).",
+    "The disorder must be specified: ω = {ω_n} is i.i.d., independent of τ and ξ, with E[ω_1]=0, Var(ω_1)=1, and finite exponential moments M(t)=E[e^{tω_1}]<∞ for every t∈R.",
+    "To be stand-alone, the question should define the partition function Z_{N,ω,λ,h}=E[exp(-2λ Σ_{n=1}^N (ω_n+h)Δ_n)], the free energy F(λ,h)=lim_{N→∞} N^{-1} E[log Z_{N,ω,λ,h}], and the critical curve h_c(λ)=sup{h : F(λ,h)>0}.",
+    "The draft should say that for α∈(0,1) the limit m_α = lim_{λ↓0} h_c(λ)/λ is already known to exist and is universal by Theorem 2; the open problem is only the strict inequality at α=1/2, not existence of the limit.",
+    "It should make explicit that 2/3 is the previously known lower bound coming from equations (17)-(18), i.e. 1/(1+α) with α=1/2.",
+    "It helps to note that α=1/2 includes the original simple-symmetric-random-walk copolymer, but the universal statement is for the whole class of discrete 1/2-copolymer models.",
+    "No ambient ring/field, homogeneity, degree, or nilpotency assumptions are relevant here; the hidden assumptions are probabilistic independence, the renewal-tail exponent, the disorder moment conditions, and the weak-coupling limit λ↓0."
+  ],
+  "refined_question": "Consider the discrete α-copolymer model of Sections 1.2–1.4: τ is a persistent renewal on N∪{0} with K(n)=P(τ_1=n) ~ C_K / n^(1+α), ξ_j are i.i.d. Bernoulli(1/2) signs independent of τ, Δ_n = Σ_{j≥1} ξ_j 1_{(τ_{j-1},τ_j]}(n), and ω = {ω_n} is an i.i.d. disorder sequence independent of (τ,ξ) with E[ω_1]=0, Var(ω_1)=1, and M(t)=E[e^{tω_1}]<∞ for every t∈R. For λ≥0 and h≥0, let Z_{N,ω,λ,h}=E[exp(-2λ Σ_{n=1}^N (ω_n+h)Δ_n)], let F(λ,h)=lim_{N→∞} N^{-1} E[log Z_{N,ω,λ,h}], and define the critical curve by h_c(λ)=sup{h : F(λ,h)>0}. In the weak-coupling regime, Theorem 2 gives the universal limit m_α:=lim_{λ↓0} h_c(λ)/λ for every α∈(0,1). Show that for α=1/2 one has the strict inequality m_{1/2}>2/3.",
+  "equivalent_formulation": "Equivalently, in the continuum copolymer model of Section 4 with α=1/2, whose critical curve is a straight line of slope m_{1/2}, prove that this continuum critical slope is strictly larger than 2/3.",
+  "justification": "The draft is targeting the first of the two open sub-problems explicitly stated in Section 1.4, after the discussion of the weak-coupling slope and the bounds (18)-(19): the paper literally asks to \"show that m_{1/2} > 2/3\". To make that question fully stand-alone and faithful to the paper, one must import the model definition from Section 1.2, the free-energy and critical-curve definition from Section 1.3, the known lower bound 1/(1+α) from Theorem 1 and equations (17)-(19) in Section 1.4, and the fact from Section 4/Theorem 2 that m_α is the universal weak-coupling limit lim_{λ↓0} h_c(λ)/λ for α∈(0,1). The refined question therefore stays exactly on the paper’s intended narrow target: proving that the known lower bound is strict in the α=1/2 case, rather than asking for a broader determination of m_{1/2} or for a different variant of the model.",
+  "citations": [
+    {
+      "section": "1.2",
+      "label": "equations (3)-(5)",
+      "page": "4"
+    },
+    {
+      "section": "1.3",
+      "label": "equations (6), (11), and (14)",
+      "page": "5-6"
+    },
+    {
+      "section": "1.4",
+      "label": "Theorem 1 and equations (17)-(19)",
+      "page": "7-8"
+    },
+    {
+      "section": "1.4",
+      "label": "open sub-problems listed after equation (19)",
+      "page": "9"
+    },
+    {
+      "section": "4",
+      "label": "equations (32)-(35) and Theorem 2",
+      "page": "16-17"
+    }
+  ]
+}

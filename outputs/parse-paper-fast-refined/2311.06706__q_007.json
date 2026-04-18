@@ -1,0 +1,60 @@
+{
+  "arxiv_id": "2311.06706",
+  "question_id": "q_007",
+  "original_question": "Can one find a family of finite groups G with presentations G ≅ <S|R> that are simultaneously short and efficiently stable in permutations, in the sense that the numbers of generators and relations and the lengths of the relations are all polylogarithmic in |G|, while the homomorphism stability rate satisfies ρ(ε) = polyloglog(|G|) · ε^c for some universal exponent c > 0?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 9309.2,
+  "target_in_paper": "Problem 6.9 (Efficient stability in permutations) in §6.4, not Conjecture 6.7 on Steinberg/GKKL presentations and not the more specific code-based Problem 6.11.",
+  "completeness_score": 9,
+  "correct_elements": "Your draft is already very close to the paper’s exact target. It correctly asks for an existence result for a family of finite groups with presentations G ≅ <S|R> that are simultaneously short in the sense of polylogarithmically many generators and relations, with each relation having polylogarithmic length in |G|, and that also enjoy a good permutation homomorphism-stability rate of the form ρ(ε) = polyloglog(|G|) · ε^c for some universal c > 0. This is essentially the wording of Problem 6.9 in §6.4.",
+  "missing_details": [
+    "The paper’s exact target is an open problem labeled Problem 6.9 in §6.4; the draft should identify it as that specific problem rather than as a broader general question about short stable presentations.",
+    "In the paper, “ρ-stable” for a presentation means ρ-homomorphism stable in permutations via the associated presentation complex X_{<S|R>}: equivalently, X_{<S|R>} is ρ-cocycle stable in dimension 1 with permutation coefficients.",
+    "The coefficient objects are the symmetric groups Sym(n) for all n ≥ 2, equipped with the normalized Hamming distance with errors d_h; this metric is part of the definition and should be made explicit in a stand-alone formulation.",
+    "The paper defines stability relative to probability distributions μ_S on generators and μ_R on relations; Remark 2.1 notes that the stability rate depends on these measures, so a fully stand-alone question should mention that the presentation is considered with the paper’s measure convention.",
+    "The asymptotics are uniform over a family {G_i}: the exponent c > 0 must be independent of the group size, i.e. independent of i and of |G_i|.",
+    "The formal “shortness” requirement in Problem 6.9 is exactly |S|, |R| = polylog(|G|) and, for every relation r in R, |r| = polylog(|G|); although the surrounding discussion mentions other complexity measures such as encoding length, those are contextual motivation and are not part of the formal statement.",
+    "Remark 6.10 says that a stronger and more natural goal would be a universal bound ρ(ε) ≤ C ε^c with universal C, c > 0, but Problem 6.9 intentionally asks only for the weaker polyloglog(|G|) overhead; a refined question should not silently strengthen it.",
+    "The question is posed for arbitrary finite groups; the paper does not build into Problem 6.9 any restriction to abelian groups, simple groups, groups of Lie type, or code-based presentations, even though those are discussed nearby as motivation or candidate examples."
+  ],
+  "refined_question": "Problem 6.9 (§6.4): Does there exist a family of finite groups {G_i} with finite presentations G_i ≅ <S_i|R_i>, considered with the paper’s presentation-complex formalism and generator/relation measures, such that |S_i| and |R_i| are polylogarithmic in |G_i|, every relation r ∈ R_i has word length |r| = polylog(|G_i|), and the presentation <S_i|R_i> is ρ_i-homomorphism stable in permutations—equivalently, its associated presentation complex X_{<S_i|R_i>} is ρ_i-cocycle stable in dimension 1 with permutation coefficients Sym(n) equipped with normalized Hamming distance—with stability rate ρ_i(ε) = polyloglog(|G_i|) · ε^c for some exponent c > 0 independent of i (equivalently, independent of |G_i|)?",
+  "equivalent_formulation": null,
+  "justification": "The draft matches Problem 6.9 almost verbatim: the shortness conditions and the target rate ρ(ε) = polyloglog(|G|) · ε^c are exactly those stated there (§6.4, Problem 6.9, p. 24). The nearby context in §6.4 explains that this is meant as a concrete version of a tradeoff between presentation complexity and stability, after discussing examples such as F_2^k and the Steinberg versus GKKL presentations (pp. 23–24). To make the question fully stand-alone, one must import the paper’s definitions from §2: a rate function ρ is decreasing and tends to 0; ρ-cocycle stability is defined by d(α, Z^i) ≤ ρ(||δα||); and a finite presentation is ρ-homomorphism stable in permutations precisely when its presentation complex is ρ-cocycle stable in dimension 1 with permutation coefficients and the normalized Hamming metric (pp. 5–6). Remark 2.1 is relevant because the rate depends on the chosen measures on generators and relations. Remark 6.10 clarifies that the polyloglog(|G|) factor is deliberate and that replacing it by universal constants would be a stronger variant, so the refined question should not overshoot the paper’s formulation (p. 24). Finally, Claim 3.11 explains why the problem must ask simultaneously for shortness and a good rate: every finitely presented group also admits presentations whose permutation cocycle Cheeger constant is arbitrarily small (pp. 10–11).",
+  "citations": [
+    {
+      "section": "§6.4",
+      "label": "Problem 6.9 (Efficient stability in permutations)",
+      "page": 24
+    },
+    {
+      "section": "§6.4",
+      "label": "Remark 6.10",
+      "page": 24
+    },
+    {
+      "section": "§6.4",
+      "label": "introductory context on complexity/stability tradeoff",
+      "page": "23-24"
+    },
+    {
+      "section": "§2",
+      "label": "Eq. (2.6), definition of ρ-cocycle stability",
+      "page": 5
+    },
+    {
+      "section": "§2",
+      "label": "Remark 2.1",
+      "page": 5
+    },
+    {
+      "section": "§2",
+      "label": "definition of ρ-homomorphism stability for presentations (following Eq. (2.9))",
+      "page": 6
+    },
+    {
+      "section": "§3.3",
+      "label": "Claim 3.11",
+      "page": "10-11"
+    }
+  ]
+}

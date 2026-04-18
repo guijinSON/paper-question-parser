@@ -1,0 +1,44 @@
+{
+  "arxiv_id": "2404.02236",
+  "question_id": "q_012",
+  "original_question": "For a graph whose average mixing matrix Mc is completely positive, determine exactly when the completely positive rank of Mc is equal to n, the number of vertices. Here the completely positive rank of a completely positive matrix M is the smallest dimension d for which M is a Gram matrix of non-negative vectors in R^d.",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 9496.82,
+  "target_in_paper": "Section 4.1, Open Problem 4.5: \"When is the cp-rank of widehat{M} equal to n?\", with the necessary setup from Section 4 (definition of the average mixing matrix) and the nearby Lemma 4.1 (simple eigenvalues imply widehat{M} is completely positive).",
+  "completeness_score": 8.5,
+  "correct_elements": "Your draft correctly targets the paper’s cp-rank question for the average mixing matrix, identifies the extremal value n as the number of vertices, and uses the same definition of completely positive rank as the paper: the least d such that the matrix is a Gram matrix of non-negative vectors in R^d.",
+  "missing_details": [
+    "The paper’s notation is widehat{M}, the average mixing matrix of a continuous-time quantum walk on a graph G; the symbol Mc does not appear.",
+    "To make the question stand-alone, one should define the continuous-time quantum walk and average mixing matrix: U(t)=exp(itA), M(t)=U(t)∘U(-t), and widehat{M}=lim_{T→∞}(1/T)∫_0^T M(t)dt.",
+    "The paper also gives the spectral formula widehat{M}=sum_r E_r∘E_r when A(G)=sum_r theta_r E_r; this is the nearby precise reformulation of the object under study.",
+    "The relevant ambient object is a graph G on n=|V(G)| vertices with adjacency matrix A(G); n should be explicitly tied to |V(G)|.",
+    "The paper places this problem specifically in the context where widehat{M} is completely positive; Lemma 4.1 supplies a key sufficient hypothesis, namely that G has simple eigenvalues.",
+    "The nearby motivation is that if G has simple eigenvalues and at least three vertices, then rank(widehat{M})≤n-1, so asking for cp-rank(widehat{M})=n is an extremal cone-rank question distinct from ordinary rank.",
+    "The official formulation is an open problem phrased as \"When is ...?\" rather than a claim that an exact classification is already available."
+  ],
+  "refined_question": "Let G be a graph on n vertices with adjacency matrix A(G), continuous-time quantum walk U(t)=exp(itA(G)), mixing matrix M(t)=U(t)∘U(-t), and average mixing matrix widehat{M}=lim_{T→∞}(1/T)∫_0^T M(t)dt=∑_r E_r∘E_r, where A(G)=∑_r theta_r E_r is the spectral decomposition. Assume widehat{M} is completely positive (in particular, by Lemma 4.1 this holds whenever G has simple eigenvalues). For which graphs G is the completely positive rank of widehat{M}—that is, the least d such that widehat{M} is a Gram matrix of non-negative vectors in R^d—equal to n=|V(G)|?",
+  "equivalent_formulation": null,
+  "justification": "The draft is aiming at Open Problem 4.5 in Section 4.1, not the neighboring non-negative-rank problem (Open Problem 4.3) or cpsd-rank problem (Open Problem 4.4). Section 4 defines the average mixing matrix widehat{M}, and Section 4.1 introduces the relevant cone-rank notions. Immediately before Open Problem 4.5, Lemma 4.1 shows that widehat{M} is completely positive whenever G has simple eigenvalues, and the authors then ask when cp-rank(widehat{M}) equals n. This paper does not contain a Conjecture 1.1, Proposition 1.2, or Theorem 1.3, so the nearest official target is Section 4.1, Open Problem 4.5.",
+  "citations": [
+    {
+      "section": "1",
+      "label": "Introduction",
+      "page": "1-2"
+    },
+    {
+      "section": "4",
+      "label": "Definition of the average mixing matrix widehat{M}",
+      "page": 9
+    },
+    {
+      "section": "4.1",
+      "label": "Lemma 4.1",
+      "page": "9-10"
+    },
+    {
+      "section": "4.1",
+      "label": "Open Problem 4.5",
+      "page": 10
+    }
+  ]
+}

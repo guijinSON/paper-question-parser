@@ -1,0 +1,43 @@
+{
+  "arxiv_id": "1304.6552",
+  "question_id": "q_035",
+  "original_question": "Determine whether the tame degree function t(s) of a numerical semigroup is eventually periodic.",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 3011.98,
+  "target_in_paper": "Section 7, \"Non-unique factorization invariants\": the unnumbered open problem immediately after the definition of the local tame degree t(s), where the authors say that F. Halter-Koch proposed studying the eventual periodicity of the tame-degree sequence. ([cim.pt](https://www.cim.pt/magazines/bulletin/7/article/65/pdf))",
+  "completeness_score": 8.0,
+  "correct_elements": "Your draft correctly identifies the right invariant from the right part of the paper: the local tame-degree function s -> t(s) on elements of a numerical semigroup, and it asks about the same qualitative behavior emphasized there, namely eventual periodicity. ([cim.pt](https://www.cim.pt/magazines/bulletin/7/article/65/pdf))",
+  "missing_details": [
+    "The ambient object should be fixed explicitly as a numerical semigroup S = <n1,...,n_e> with minimal generators n1,...,n_e; the paper sets up all factorization notation relative to such a chosen minimal generating system. ([cim.pt](https://www.cim.pt/magazines/bulletin/7/article/65/pdf))",
+    "The domain of the function should be stated: t(s) is defined for s in S. This must be distinguished from the global tame degree t(S) = sup{t(s) : s in S}, which the paper defines separately. ([cim.pt](https://www.cim.pt/magazines/bulletin/7/article/65/pdf))",
+    "To make the question stand-alone, one should define the factorization map phi: N^e -> S by phi(a1,...,a_e) = a1 n1 + ... + a_e n_e and Z(s) = phi^{-1}(s), since t(s) is defined in terms of factorizations of s. ([cim.pt](https://www.cim.pt/magazines/bulletin/7/article/65/pdf))",
+    "The distance used in the tame-degree definition is implicit in your draft and should be included: for x,y in N^e, gcd(x,y) is the componentwise minimum and d(x,y) = max(|x - gcd(x,y)|, |y - gcd(x,y)|), with |(a1,...,a_e)| = a1 + ... + a_e. ([cim.pt](https://www.cim.pt/magazines/bulletin/7/article/65/pdf))",
+    "The quantifiers in the tame-degree definition should be spelled out: t(s) is the least N such that for every i in {1,...,e} with s - n_i in S and every factorization x in Z(s), there exists y = (y1,...,y_e) in Z(s) with y_i not equal to 0 and d(x,y) <= N. ([cim.pt](https://www.cim.pt/magazines/bulletin/7/article/65/pdf))",
+    "The phrase \"eventually periodic\" is not unpacked in the tame-degree sentence itself; to be fully stand-alone, one should state the intended meaning. The nearest paper-faithful template is the one given one sentence earlier for catenary degree: there should exist n in S, n > 0, and M in N such that t(s+n) = t(s) for all s in S with s >= M. This last clause is an inference from the immediately preceding periodicity formulation for c(s). ([cim.pt](https://www.cim.pt/magazines/bulletin/7/article/65/pdf))"
+  ],
+  "refined_question": "Let S = <n1,...,n_e> be a numerical semigroup with minimal generators n1,...,n_e, let phi: N^e -> S be given by phi(a1,...,a_e) = a1 n1 + ... + a_e n_e, and let Z(s) = phi^{-1}(s). For x,y in N^e, write gcd(x,y) = (min(x1,y1),...,min(x_e,y_e)) and d(x,y) = max(|x - gcd(x,y)|, |y - gcd(x,y)|), where |(a1,...,a_e)| = a1 + ... + a_e. For s in S, define t(s) to be the least integer N such that for every i in {1,...,e} with s - n_i in S and every x in Z(s), there exists y = (y1,...,y_e) in Z(s) with y_i not equal to 0 and d(x,y) <= N. Is the sequence {t(s)}_{s in S} eventually periodic, in the sense that there exist n in S, n > 0, and M in N such that t(s+n) = t(s) for all s in S with s >= M? ([cim.pt](https://www.cim.pt/magazines/bulletin/7/article/65/pdf))",
+  "equivalent_formulation": null,
+  "justification": "This is the closest stand-alone sharpening of your draft to the paper's actual intent. Section 7 first fixes the factorization framework for a minimally generated numerical semigroup, then defines the local tame degree t(s), then distinguishes the global invariant t(S), and immediately after records Halter-Koch's problem about eventual periodicity of the tame degree. The paper does not restate the quantifiers for \"eventual periodicity\" in the tame-degree sentence, so the refined version uses the exact analogous template that the same paragraph explicitly gives for periodicity of the catenary degree. No ambient ring/field, homogeneity, degree, or nilpotency hypotheses are part of this problem. ([cim.pt](https://www.cim.pt/magazines/bulletin/7/article/65/pdf))",
+  "citations": [
+    {
+      "section": "7. Non-unique factorization invariants",
+      "label": "factorization map and factorization sets Z(s)",
+      "page": 24
+    },
+    {
+      "section": "7. Non-unique factorization invariants",
+      "label": "distance between factorizations",
+      "page": 25
+    },
+    {
+      "section": "7. Non-unique factorization invariants",
+      "label": "periodicity of catenary degree spelled out as c(s+n) = c(s) for s big enough",
+      "page": 25
+    },
+    {
+      "section": "7. Non-unique factorization invariants",
+      "label": "definition of tame degree t(s), definition of t(S), and Halter-Koch's eventual-periodicity problem",
+      "page": 25
+    }
+  ]
+}

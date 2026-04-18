@@ -1,0 +1,40 @@
+{
+  "arxiv_id": "0909.0462",
+  "question_id": "q_003",
+  "original_question": "In the two-server queue case m = 2 with stationary waiting time D, when the load satisfies rho = 1 and the service-time distribution is subexponential (for example regularly varying), what is the asymptotic behavior of P(D > x) as x becomes large?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 561.84,
+  "target_in_paper": "Section 1, Conjecture 1.1: the open problem on the exact tail asymptotics of the stationary waiting time in the critical-load GI/GI/2 FCFS queue with heavy-tailed service times, read together with the nearby clarifying statements Proposition 1.2 and Theorem 1.3.",
+  "completeness_score": 7,
+  "correct_elements": "Your draft correctly isolates the paper's main critical-case ingredients: the two-server setting (m = 2), the stationary waiting time D, the critical load rho = 1, the subexponential/heavy-tail regime for service times, and the request for large-x asymptotics of P(D > x).",
+  "missing_details": [
+    "The paper's model is specifically a GI/GI/2 first-come first-served queue, not just an unspecified two-server queue.",
+    "The primitives should be stated explicitly: i.i.d. interarrival times with mean a and i.i.d. service times with distribution B and mean b.",
+    "The load is defined by rho = b/a; thus rho = 1 means the critical case b = a inside the still-stable two-server regime.",
+    "D should be identified as the stationary waiting time of an arriving customer under the FCFS discipline.",
+    "The paper treats this as the unresolved boundary case between the already understood regimes rho < 1 and 1 < rho < 2; that contextual role is implicit in your draft but not stated.",
+    "The official formulation asks for the exact tail asymptotics/equivalent, not merely a rough order estimate.",
+    "The nearby context distinguishes general subexponential assumptions from the regularly varying special case handled more explicitly in Theorem 1.3; your draft mentions regular variation only as an example, but not its role in the paper.",
+    "The paper's notation uses the service-time law B (and nearby results also use the residual service-time law), which should be named to make the question fully stand-alone."
+  ],
+  "refined_question": "Let D be the stationary waiting time in a stable GI/GI/2 first-come first-served queue with i.i.d. interarrival times of mean a and i.i.d. service times with distribution B and mean b, and let rho = b/a. In the critical-load case rho = 1 (so b = a), assuming that the service-time distribution B is subexponential, determine the exact asymptotic behavior of P(D > x) as x -> infinity; in particular, what is the corresponding exact tail asymptotic in the regularly varying case singled out in the paper?",
+  "equivalent_formulation": null,
+  "justification": "The draft is aimed at the paper's first open problem on rare events in multi-server queues: the unresolved critical-load (rho = 1) tail asymptotics for the stationary waiting time in the two-server FCFS queue. Conjecture 1.1 is the nearest official formulation, while Proposition 1.2 and Theorem 1.3 provide the nearby sharpening and the regularly varying special-case context that make the notation and scope precise. I therefore kept the question narrowly on the GI/GI/2 FCFS critical case, without broadening it to m-server systems, moment questions, or the already treated rho < 1 and 1 < rho < 2 regimes.",
+  "citations": [
+    {
+      "section": "1",
+      "label": "Conjecture 1.1",
+      "page": 1
+    },
+    {
+      "section": "1",
+      "label": "Proposition 1.2",
+      "page": 2
+    },
+    {
+      "section": "1",
+      "label": "Theorem 1.3",
+      "page": 2
+    }
+  ]
+}

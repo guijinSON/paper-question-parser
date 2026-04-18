@@ -1,0 +1,50 @@
+{
+  "arxiv_id": "2511.02892",
+  "question_id": "q_003",
+  "original_question": "Let G be a random 4-regular graph, and let P_G = product over all edges uv in E(G) of (u - v), where the variables correspond to the vertices of G. In this 4-regular setting, the only relevant monomial for the Alon-Tarsi method is the product over all vertices v in V(G) of v^2. Is it true that the coefficient of P_G at that monomial is a.a.s. non-zero?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 11606.26,
+  "target_in_paper": "Section 2, Problem 2.1 (\"Alon-Tarsi number of random 4-regular graphs\"): Let G be a random 4-regular graph. Is it true that the coefficient of P_G at prod_{v in V(G)} v^2 is a.a.s. non-zero?",
+  "completeness_score": 8.5,
+  "correct_elements": "Your draft already matches the paper's actual target very closely. It correctly identifies the graph polynomial P_G = prod_{uv in E(G)} (u - v), the 4-regular / k = 3 situation in which the monomial prod_v v^2 is the only degree-compatible one for the Alon-Tarsi criterion, and the exact asymptotic non-vanishing question. In substance, it is essentially Problem 2.1 from Section 2.",
+  "missing_details": [
+    "The paper's random-model convention is specific: G is obtained as the union of two uniformly random cycles (i.e. Hamilton cycles) on the same vertex set, not an unspecified random 4-regular graph.",
+    "The asymptotic quantifier should be made explicit: if G = G_n is on n vertices, then 'a.a.s.' means that the relevant probability tends to 1 as n -> infinity.",
+    "Strictly speaking, the two-cycle model can produce a multigraph; the paper notes this in footnote 1. If one uses that exact model, then repeated edges should contribute repeated factors to P_G.",
+    "The coefficient lives in an ordinary commutative polynomial ring with one indeterminate for each vertex; the paper leaves the base ring implicit, but Z is the natural ambient ring since the coefficients are integers.",
+    "It helps to define explicitly that 'the coefficient of P_G at a monomial M' means the coefficient of M in the expanded polynomial P_G.",
+    "The reason prod_v v^2 is the only relevant monomial should be stated explicitly: Theorem 2.1 is applied with k = 3, and P_G is homogeneous of total degree |E(G)| = 2|V(G)| in the 4-regular case.",
+    "The draft omits the paper's motivating scope: this coefficient question is posed as a natural route toward asking whether random 4-regular graphs are a.a.s. 3-choosable.",
+    "No nilpotency, quotient ring, or truncated-polynomial condition is involved here; the paper is working in an ordinary polynomial expansion."
+  ],
+  "refined_question": "For each n, let G_n be the random 4-regular graph model used in Section 2 of the paper: the union of two independent uniformly random Hamilton cycles on the labeled vertex set [n] (so, formally, a multigraph; if a double edge occurs, count it with multiplicity in the product below). In the commutative polynomial ring Z[x_1, ..., x_n], define the graph polynomial P_{G_n} = prod_{uv in E(G_n)} (x_u - x_v), where x_i is the variable corresponding to vertex i. Since G_n is 4-regular, P_{G_n} is homogeneous of total degree |E(G_n)| = 2n, so in the Alon-Tarsi criterion for k = 3 the only degree-compatible monomial is x_1^2 x_2^2 ... x_n^2. Is it true that Pr(the coefficient of x_1^2 x_2^2 ... x_n^2 in P_{G_n} is nonzero) tends to 1 as n -> infinity?",
+  "equivalent_formulation": null,
+  "justification": "The draft clearly targets Section 2 rather than the Section 1 problems. Section 2 first defines the random 4-regular graph model and motivates the problem by noting that such graphs are a.a.s. 3-colorable but may or may not be a.a.s. 3-choosable. Theorem 2.1 states the Alon-Tarsi criterion. The paragraph immediately after Theorem 2.1 explains that the graph polynomial is homogeneous of degree |E(G)|, so in the 4-regular setting the only relevant monomial for k = 3 is prod_v v^2. Problem 2.1 then asks exactly whether that coefficient is a.a.s. non-zero. Footnote 1 supplies the multigraph caveat and notes alternative asymptotically equivalent random models.",
+  "citations": [
+    {
+      "section": "2",
+      "label": "opening paragraph of Section 2",
+      "page": 3
+    },
+    {
+      "section": "2",
+      "label": "Theorem 2.1",
+      "page": 3
+    },
+    {
+      "section": "2",
+      "label": "paragraph after Theorem 2.1",
+      "page": 3
+    },
+    {
+      "section": "2",
+      "label": "Problem 2.1",
+      "page": 3
+    },
+    {
+      "section": "2",
+      "label": "footnote 1",
+      "page": 3
+    }
+  ]
+}

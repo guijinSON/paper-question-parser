@@ -1,0 +1,42 @@
+{
+  "arxiv_id": "1203.2670",
+  "question_id": "q_004",
+  "original_question": "Let T(n) be the set of partitions of n in which all nonzero multiplicities are distinct, and let sigma_n be the involution on T(n) obtained by interchanging the list of parts with the list of multiplicities and then reordering so that the multiplicities are increasing. Determine the asymptotic number of fixed points of sigma_n.",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 2030.75,
+  "target_in_paper": "Section 5.1, \"An involution\": the exact target is the open problem stated there, namely, \"It is an open problem to find (asymptotics for) the number of fixed points of σ_n.\"",
+  "completeness_score": 8,
+  "correct_elements": "The draft correctly identifies the underlying objects as Wilf partitions, i.e. partitions of n whose nonzero multiplicities are all distinct; it also correctly recognizes that the paper studies the involution obtained by interchanging parts and multiplicities, and it focuses on the specific fixed-point-counting problem raised in the paper rather than on the main asymptotic for f(n).",
+  "missing_details": [
+    "The paper uses a canonical encoding of a Wilf partition as a pair (m, p) = ((m_1, ..., m_r), (p_1, ..., p_r)) with r >= 1, the multiplicities m_i distinct positive integers, the part sizes p_i distinct positive integers satisfying p_1 < ... < p_r, and sum_{i=1}^r m_i p_i = n.",
+    "The involution is defined precisely by σ_n((m, p)) = (p_π, m_π), where π is the permutation such that m_{π(1)} < ... < m_{π(r)}. So, after swapping, the reordering is done to put the new part-size list in increasing order; the draft's wording says instead that the multiplicities are reordered to be increasing, which is not the paper's canonical formulation.",
+    "The asymptotic variable should be stated explicitly: the problem asks for the behavior of the fixed-point count as n -> infinity.",
+    "The fixed points should be defined explicitly as those (m, p) in T(n) for which σ_n((m, p)) = (m, p).",
+    "To stay maximally faithful to the paper, the question should ask for asymptotics for the number of fixed points of σ_n, since that is the exact open problem stated in Section 5.1."
+  ],
+  "refined_question": "For each positive integer n, let T(n) be the set of Wilf partitions of n, written canonically as pairs (m, p) = ((m_1, ..., m_r), (p_1, ..., p_r)) with r >= 1, m_1, ..., m_r distinct positive integers, 1 <= p_1 < ... < p_r distinct part sizes, and sum_{i=1}^r m_i p_i = n. Define the involution σ_n : T(n) -> T(n) by σ_n((m, p)) = (p_π, m_π), where π is the permutation of {1, ..., r} such that m_{π(1)} < ... < m_{π(r)}. As n -> infinity, find asymptotics for the number of fixed points of σ_n, that is, for |{(m, p) in T(n) : σ_n((m, p)) = (m, p)}|.|",
+  "equivalent_formulation": null,
+  "justification": "Your draft is aiming at the auxiliary open problem in Section 5.1, not at the paper's main theorem on ln f(n). Section 1 introduces T(n) and mentions the parts-multiplicities involution informally; Section 2 supplies the precise pair notation for elements of T(n); and Section 5.1 defines σ_n exactly as σ_n((m, p)) = (p_π, m_π), with π chosen so that the reordered second list m_π is increasing. The final sentence of Section 5.1 states the open problem verbatim: finding the number, or asymptotics, of the fixed points of σ_n. The draft is therefore very close in intent, but it needs the paper's canonical pair notation, the exact definition of the permutation π, and the correction that the reordering is to make the part-size list increasing after the swap.",
+  "citations": [
+    {
+      "section": "1",
+      "label": "The Problem / Distinct multiplicities",
+      "page": 1
+    },
+    {
+      "section": "2",
+      "label": "Definitions",
+      "page": 1
+    },
+    {
+      "section": "5.1",
+      "label": "An involution (definition of σ_n)",
+      "page": "4-5"
+    },
+    {
+      "section": "5.1",
+      "label": "An involution (open problem on fixed points)",
+      "page": 5
+    }
+  ]
+}

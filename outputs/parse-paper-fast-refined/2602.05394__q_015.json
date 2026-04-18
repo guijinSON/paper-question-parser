@@ -1,0 +1,45 @@
+{
+  "arxiv_id": "2602.05394",
+  "question_id": "q_015",
+  "original_question": "Taking the above recurrences to represent the CG or steepest descent algorithm, determine conditions on $A$ that will insure that the norms of the vectors $r_k$ drop below the machine precision in finite precision arithmetic or show some examples where they do not.",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 12520.68,
+  "target_in_paper": "Section 2.6, Problem 2.15 (\"Symmetric Krylov methods in finite precision arithmetic\").",
+  "completeness_score": 9.3,
+  "correct_elements": "Your draft is already extremely close to the paper's exact target. It uses the same short recurrences, names the same algorithms (CG or steepest descent), asks for conditions on A under which the recursively updated vectors r_k fall below machine precision in finite precision arithmetic, and includes the paper's alternative of constructing examples where this does not happen.",
+  "missing_details": [
+    "The question is about solving a linear system Ax = b from an initial guess x_0; the recurrences are the finite-precision updates of CG or steepest descent for that system.",
+    "The nearby scope is symmetric short-recurrence Krylov methods, and the surrounding discussion specifically mentions symmetric positive definite linear systems; allowing arbitrary nonsymmetric A would broaden the paper.",
+    "The symbols a_{k-1} and p_{k-1} should be understood as the method-generated step length and search direction in a standard implementation of CG or steepest descent.",
+    "A crucial hidden assumption in the nearby text is that the recursively updated vectors r_k are generally not the true residuals b - A x_k in finite precision arithmetic.",
+    "A stand-alone formulation should say explicitly that the question concerns the recursively updated residual surrogates r_k, not directly the true residuals.",
+    "The paper does not fix a special norm beyond writing ||r_k||, so a faithful rewrite should not impose a new norm unless one is explicitly chosen.",
+    "If one wants a symbol for 'machine precision,' it should be introduced as the floating-point precision threshold used by the arithmetic model; the paper itself keeps the phrase informal.",
+    "The intended task is narrowly either to identify matrix conditions guaranteeing eventual drop below machine precision, or to exhibit counterexamples; it is not the neighboring question about whether CG and Lanczos behave similarly (Problem 2.16) or how many bits of precision CG needs (Problem 2.17)."
+  ],
+  "refined_question": "Let A be the coefficient matrix of a symmetric positive definite linear system Ax = b, and let CG or steepest descent be implemented in floating-point arithmetic from an initial guess x_0 via the standard short recurrences x_k = x_{k-1} + a_{k-1} p_{k-1} and r_k = r_{k-1} - a_{k-1} A p_{k-1}, where a_{k-1} and p_{k-1} are the computed step length and search direction. Since these recursively updated vectors r_k need not equal the true residuals b - A x_k in finite precision arithmetic, determine conditions on A that guarantee that the norms ||r_k|| eventually drop below machine precision, or else construct examples of matrices A for which these recursively updated residual vectors do not drop below machine precision.",
+  "equivalent_formulation": null,
+  "justification": "This draft is essentially the paper's Problem 2.15 verbatim. The surrounding discussion in Section 2.6 on page 17 explains that the recurrences arise from finite-precision implementations of linear-system methods, starting from Ax = b and an initial guess x_0, and it explicitly notes that the updated r_k are not the true residuals b - A x_k in finite precision. The same section frames the topic around symmetric short-recurrence Krylov methods and mentions symmetric positive definite linear systems. The adjacent Problems 2.16 and 2.17 on page 18 concern different questions—CG versus Lanczos behavior, and bit precision requirements—so the faithful refinement should stay tightly on Problem 2.15 rather than drifting to those neighboring issues.",
+  "citations": [
+    {
+      "section": "Section 2.6",
+      "label": "paragraphs preceding Problem 2.15",
+      "page": 17
+    },
+    {
+      "section": "Section 2.6",
+      "label": "Problem 2.15",
+      "page": 17
+    },
+    {
+      "section": "Section 2.6",
+      "label": "Problem 2.16",
+      "page": 18
+    },
+    {
+      "section": "Section 2.6",
+      "label": "Problem 2.17",
+      "page": 18
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "arxiv_id": "2602.05394",
+  "question_id": "q_001",
+  "original_question": "Develop software to generate benchmark parameterized linear systems that are generally accepted as relevant in practice and suitable for theoretical analysis.",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 12467.73,
+  "target_in_paper": "Section 2.1, Problem 2.1 (\"Scalable iterative solvers for a set of parameterized benchmark problems\"): \"Develop software to generate benchmark parameterized linear systems that are generally accepted as relevant in practice and suitable for theoretical analysis.\"",
+  "completeness_score": 9,
+  "correct_elements": "Your draft already matches the official formulation of Problem 2.1 essentially verbatim: it asks for software, for benchmark parameterized linear systems, and preserves the paper's two criteria that the systems be relevant in practice and suitable for theoretical analysis.",
+  "missing_details": [
+    "The paper places this question inside Section 2.1 on scalable iterative solvers, so the intended role of the software is to support a common benchmark basis for solver research, not generic software tooling.",
+    "The surrounding paragraph narrows the intended source of the systems to discretizations of partial differential equations, rather than arbitrary parameterized linear systems.",
+    "The benchmark is meant to be a generator or pipeline for parameterized discretizations of model problems, not just a repository of fixed sample matrices.",
+    "The motivation for parameterization is to generate many related instances that expose the range of characteristics and behaviors a solver may encounter within a problem class.",
+    "A stand-alone version should not absorb the distinct follow-up Problem 2.2, which separately asks for theoretically and practically fast algorithms for each benchmark class.",
+    "No ambient ring/field, homogeneity, degree, or nilpotency conditions belong to this problem; the omitted stand-alone structure comes instead from the PDE-discretization and benchmark-generation context."
+  ],
+  "refined_question": "Can one develop software that generates benchmark families of parameterized linear systems, coming from parameterized discretizations of model partial differential equation problems rather than isolated one-off matrices, such that the resulting instances are broadly accepted as practically relevant and also suitable for rigorous theoretical analysis of linear-system solvers?",
+  "equivalent_formulation": null,
+  "justification": "The draft is the paper's official Problem 2.1, so it should be targeted directly rather than replaced by a broader neighboring question. The only refinements needed to make it stand alone are the immediate contextual restrictions supplied in Section 2.1: the authors want parameterized benchmark families arising from model PDE discretizations, motivated by the fact that matrix collections such as SuiteSparse provide fixed matrices rather than generators of whole parameterized classes. The paper then states a separate Problem 2.2 about fast algorithms for each benchmark class, so the refined question should not drift into algorithm design.",
+  "citations": [
+    {
+      "section": "2.1",
+      "label": "Scalable iterative solvers for a set of parameterized benchmark problems",
+      "page": 4
+    },
+    {
+      "section": "2.1",
+      "label": "paragraph immediately preceding Problems 2.1 and 2.2",
+      "page": 4
+    },
+    {
+      "section": "2.1",
+      "label": "Problem 2.1",
+      "page": 4
+    },
+    {
+      "section": "2.1",
+      "label": "Problem 2.2",
+      "page": 4
+    }
+  ]
+}

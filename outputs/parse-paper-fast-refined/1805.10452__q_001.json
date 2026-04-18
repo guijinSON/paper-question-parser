@@ -1,0 +1,52 @@
+{
+  "arxiv_id": "1805.10452",
+  "question_id": "q_001",
+  "original_question": "Let F be a finite field of characteristic 2 such that the extension degree [F : F_2] is even, and let d be an invertible exponent over F (that is, gcd(d, |F^*|) = 1). Must there always exist a nonzero element a in F such that the Weil sum W_{F,d}(a) has magnitude at least 2*sqrt(|F|)? Equivalently, must there always exist a in F^* such that |W_{F,d}(a) - 1| >= -1 + 2*sqrt(|F|)?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 5902.06,
+  "target_in_paper": "Conjecture 8.11 (Sarwate-Pursley, 1980) in Section 8, \"Archimedean Bounds\".",
+  "completeness_score": 8.5,
+  "correct_elements": "Your draft identifies the correct field regime (finite fields F of characteristic 2 with [F:F_2] even), the correct class of exponents d (invertible exponents, i.e. gcd(d,|F^*|)=1), the correct existential quantifier over a in F^*, and the correct lower bound 2 sqrt(|F|). It also captures the paper's explicitly stated equivalent reformulation involving |W_{F,d}(a)-1|.",
+  "missing_details": [
+    "The Weil sum W_{F,d}(a) should be defined explicitly: W_{F,d}(a)=sum_{x in F} psi(x^d-ax), where psi is the canonical additive character of F (Definition 1.3).",
+    "The universal quantifiers should be made explicit: for every finite field F of characteristic 2 with even [F:F_2], and for every invertible exponent d over F, there exists a in F^* satisfying the bound.",
+    "To be fully stand-alone, F^* should be identified as the multiplicative group of nonzero elements of F.",
+    "The paper's official formulation uses |W_{F,d}(a)-1| >= -1 + 2 sqrt(|F|) as the primary statement; the |W_{F,d}(a)| >= 2 sqrt(|F|) version is presented only as an equivalent restatement.",
+    "That equivalence is paper-specific, not automatic from the draft alone: it uses the fact that when F is a non-prime field of characteristic 2, every W_{F,d}(a) is a multiple of 4, via the discussion immediately after Conjecture 8.11 and Corollary 9.6."
+  ],
+  "refined_question": "Let F be a finite field of characteristic 2 with even extension degree [F:F_2], let psi:F->C be the canonical additive character of F (equivalently, psi(x)=(-1)^{Tr_{F/F_2}(x)}), and for an invertible exponent d over F (that is, gcd(d,|F^*|)=1) define W_{F,d}(a)=sum_{x in F} psi(x^d-ax) for a in F. Is it true that for every such pair (F,d), there exists a in F^* such that |W_{F,d}(a)-1| >= -1 + 2 sqrt(|F|)?",
+  "equivalent_formulation": "Equivalently, for every such F and d, does there exist a in F^* such that |W_{F,d}(a)| >= 2 sqrt(|F|)?",
+  "justification": "This is the exact open problem your draft is aiming at. In Section 8, after Theorem 8.9 and Corollary 8.10 treat the odd-degree characteristic-2 case, the paper says that when [F:F_2] is even, Sarwate and Pursley conjecture a stronger lower bound modeled on the d=|F|-2 benchmark from Theorem 8.6, and it then states Conjecture 8.11 in precisely this form. Section 1 supplies the missing definitions of \"invertible exponent\" and W_{F,d}(a). The paper itself immediately gives the alternate formulation with |W_{F,d}(a)|, and explains that this equivalence comes from 4-divisibility of Weil sums in non-prime characteristic-2 fields, pointing to Corollary 9.6.",
+  "citations": [
+    {
+      "section": "Section 1",
+      "label": "Definition 1.1 (Invertible Exponent)",
+      "page": 1
+    },
+    {
+      "section": "Section 1",
+      "label": "Definition 1.3 (W_{F,d})",
+      "page": 1
+    },
+    {
+      "section": "Section 8",
+      "label": "Theorem 8.6",
+      "page": 11
+    },
+    {
+      "section": "Section 8",
+      "label": "Theorem 8.9 and Corollary 8.10",
+      "page": 11
+    },
+    {
+      "section": "Section 8",
+      "label": "Conjecture 8.11 (Sarwate-Pursley, 1980)",
+      "page": 12
+    },
+    {
+      "section": "Section 9",
+      "label": "Corollary 9.6",
+      "page": 14
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "arxiv_id": "1810.02698",
+  "question_id": "q_001",
+  "original_question": "Consider the Korteweg-de Vries initial-boundary value problem on a finite interval (0<x<L): u_t+u_x+u_{xxx}+u u_x=0 for t>0, with initial data u(x,0)=phi(x), and boundary data imposed through one of the four operator families B_k u=~h. In the notation used in the paper these families are built from B_1=(u(0,t),u(L,t),u_x(L,t)), B_2=(u(0,t),u_x(L,t),u_{xx}(L,t)), B_3=(u_{xx}(0,t),u(L,t),u_x(L,t)), and B_4=(u_{xx}(0,t),u_x(L,t),u_{xx}(L,t)), together with the lower-order boundary terms explicitly listed for B_{k,1} in the review. Is this problem globally well-posed in H^s(0,L) for some s>=0? Equivalently, can a solution blow up in finite time in some H^s(0,L) norm, or can one prove the global a priori bound sup_{0<=t<infty}||u(.,t)||_{L^2(0,L)}<infty that would yield global well-posedness?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 6417.3,
+  "target_in_paper": "The draft is trying to capture the first open problem in Section 4 (\"Open problems\") of the review: for the finite-interval KdV IBVP u_t+u_x+u_{xxx}+uu_x=0 on (0,L) with u(x,0)=\\phi(x) and boundary condition B_k u=\\vec h, is the problem globally well-posed in H^s(0,L) for some s\\ge 0? The paper states this equivalently as asking whether a solution can blow up in some H^s(0,L) in finite time. ([ar5iv.org](https://ar5iv.org/pdf/1810.02698))",
+  "completeness_score": 8.6,
+  "correct_elements": "Your draft correctly identifies the right PDE, domain, initial datum, the fact that the paper is asking an open global-well-posedness question rather than reproving a local theorem, the role of the four boundary-operator families B_k, and the nearby blow-up criterion involving the L^2 norm. It also correctly tracks that the paper is concerned with Sobolev spaces H^s(0,L) for s\\ge 0 and that the issue is unresolved even in the homogeneous-boundary case \\vec h\\equiv 0. ([sites.ufpe.br](https://sites.ufpe.br/capistranofilho/wp-content/uploads/sites/132/2022/03/Capistrano-Filho2019_BVP_KdV.pdf?utm_source=openai))",
+  "missing_details": [
+    "The paper’s target is not a numbered conjecture/theorem in Section 1; it is the first open problem in Section 4 (\"Open problems\"). ([ar5iv.org](https://ar5iv.org/pdf/1810.02698))",
+    "The notation B_k in this paper means the full boundary operator B_k=B_{k,0}+B_{k,1} introduced in Section 3, not just the leading triples; your draft gives the leading parts B_{1,0},...,B_{4,0} but should explicitly state that the lower-order boundary corrections B_{k,1} are included as part of the problem. ([ar5iv.org](https://ar5iv.org/pdf/1810.02698))",
+    "The quantifier on k should be made explicit: the question concerns the IBVP with one admissible boundary operator B_k from the four families considered in Section 3/Section 4, i.e. k\\in\\{1,2,3,4\\}. ([ar5iv.org](https://ar5iv.org/pdf/1810.02698))",
+    "To be paper-faithful, the data should be described as satisfying the same regularity and compatibility assumptions under which the earlier local well-posedness theorem applies; otherwise the phrase \"globally well-posed\" is underspecified. ([ar5iv.org](https://ar5iv.org/pdf/1810.02698))",
+    "The paper explicitly says that the equivalence is between global well-posedness and finite-time blow-up in some H^s(0,L); by contrast, the global a priori L^2 bound is presented as a sufficient route to global well-posedness via the blow-up alternative, not as an equivalent reformulation. ([ar5iv.org](https://ar5iv.org/pdf/1810.02698))",
+    "The nearby context should note the precise blow-up alternative used: by the earlier theorem, finite-time breakdown in some H^s occurs if and only if the L^2 norm tends to +\\infty at the maximal existence time. ([ar5iv.org](https://ar5iv.org/pdf/1810.02698))",
+    "The paper emphasizes that the problem is open even when the boundary forcing is homogeneous, \\vec h\\equiv 0; that sharpened scope is worth retaining because it shows the open question is not caused merely by nonhomogeneous forcing. ([sites.ufpe.br](https://sites.ufpe.br/capistranofilho/wp-content/uploads/sites/132/2022/03/Capistrano-Filho2019_BVP_KdV.pdf?utm_source=openai))",
+    "The paper also adds the contextual remark that the needed global L^2 estimate is known only in one special boundary-condition case, so the refined question should avoid suggesting that such an estimate is already available for the full B_k class. ([sites.ufpe.br](https://sites.ufpe.br/capistranofilho/wp-content/uploads/sites/132/2022/03/Capistrano-Filho2019_BVP_KdV.pdf?utm_source=openai))"
+  ],
+  "refined_question": "Let L>0, let k\\in\\{1,2,3,4\\}, and consider the Korteweg-de Vries initial-boundary value problem on (0,L): u_t+u_x+u_{xxx}+u u_x=0 for x\\in(0,L), t>0, with initial condition u(x,0)=\\phi(x), and boundary condition B_k u=\\vec h(t), where B_k=B_{k,0}+B_{k,1} is one of the four boundary operators introduced in Section 3, with leading part B_{1,0}u=(u(0,t),u(L,t),u_x(L,t)), B_{2,0}u=(u(0,t),u_x(L,t),u_{xx}(L,t)), B_{3,0}u=(u_{xx}(0,t),u(L,t),u_x(L,t)), or B_{4,0}u=(u_{xx}(0,t),u_x(L,t),u_{xx}(L,t)), and with the corresponding lower-order boundary terms B_{k,1}; assuming (\\phi,\\vec h) satisfy the same regularity and compatibility hypotheses as in the local well-posedness theorem cited earlier in the paper, is this IBVP globally well-posed in H^s(0,L) for some s\\ge 0?",
+  "equivalent_formulation": "Equivalently, for such data and some s\\ge 0, can a solution of the same IBVP blow up in H^s(0,L) in finite time?",
+  "justification": "The draft is aimed at the first open problem in Section 4, not at a broader neighboring issue. Section 3 supplies the notation B_k=B_{k,0}+B_{k,1} and the four admissible boundary-operator families, while the earlier local well-posedness theorem gives the background needed to state the global question precisely. Section 4 then asks whether the IBVP is globally well-posed in H^s(0,L) for some s\\ge 0, and states the equivalent blow-up formulation. The same paragraph further explains that, by the earlier theorem, finite-time blow-up in some H^s can occur only when the L^2 norm diverges, so a uniform global L^2 bound would suffice for global well-posedness; that sufficiency is nearby context, not itself the official equivalent reformulation. ([ar5iv.org](https://ar5iv.org/pdf/1810.02698))",
+  "citations": [
+    {
+      "section": "Section 2",
+      "label": "local well-posedness theorem for the general finite-interval KdV IBVP with boundary operators later recast as B_k",
+      "page": "n/a (ar5iv HTML; theorem stated just before Section 3)"
+    },
+    {
+      "section": "Section 3",
+      "label": "definition/reformulation of the boundary operators B_k=B_{k,0}+B_{k,1} and the four operator families",
+      "page": "n/a (ar5iv HTML)"
+    },
+    {
+      "section": "Section 4",
+      "label": "first open problem for the IBVP (4.18)/(4.1): global well-posedness in H^s(0,L) for some s\\ge 0",
+      "page": "n/a (ar5iv HTML; journal article overall pp. 402-417)"
+    },
+    {
+      "section": "Section 4",
+      "label": "nearby blow-up alternative and the sufficient global a priori L^2 estimate",
+      "page": "n/a (ar5iv HTML; journal article overall pp. 402-417)"
+    }
+  ]
+}

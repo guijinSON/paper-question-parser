@@ -1,0 +1,54 @@
+{
+  "arxiv_id": "2201.09150",
+  "question_id": "q_054",
+  "original_question": "For the bounded one-dimensional nonlocal movement problem with homogeneous Dirichlet boundary conditions and a truncated top-hat detection kernel, determine whether there is a critical domain length below which only the trivial steady state exists and above which a positive steady state appears, and determine how that threshold depends on perception and movement parameters.",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 8130.68,
+  "target_in_paper": "Section 4.6, Open Problem 54, read together with the single-species model (2.9) from Section 2.2.2 and the boundary-truncated top-hat kernel defined in the style of Equation (4.3) in Section 4.1.2.",
+  "completeness_score": 8.5,
+  "correct_elements": "The draft already captures the core of Open Problem 54: a bounded one-dimensional setting, homogeneous Dirichlet boundary conditions, a top-hat kernel cut off near the boundary, the existence of a critical domain length L*, the dichotomy that only the trivial steady state exists below threshold while a positive steady state appears above threshold, and the dependence of L* on perception and movement parameters.",
+  "missing_details": [
+    "The draft does not identify the exact PDE as the single-species dynamic-memory/self-perception model (2.9): u_t = d Delta u - gamma div(u grad u_{g,R}).",
+    "It should define the perceived field u_{g,R} explicitly as the top-hat kernel from Equation (2.3) modified near the boundary by the cut-off and renormalized rule in Equation (4.3), rather than only saying truncated top-hat detection kernel.",
+    "It should specify the exact setting and parameters used in the paper: a real-valued population density u on the interval (0,L), diffusion coefficient d>0, advection strength gamma real, perceptual radius 0<R<L, and homogeneous Dirichlet conditions u(0,t)=u(L,t)=0.",
+    "It should say explicitly that the question concerns the stationary boundary-value problem associated with model (2.9), with positivity meaning u(x)>0 for x in (0,L) and u(0)=u(L)=0.",
+    "The paper asks whether such an L* exists; the threshold should not be presupposed.",
+    "The official formulation also appends a further clause asking whether the same kind of critical-threshold result can be generalized to the n-species model (2.10).",
+    "The draft does not make explicit that Section 4.6 motivates the threshold through boundary loss: conserved-population models do not exhibit critical domain size in this sense, whereas homogeneous Dirichlet data can."
+  ],
+  "refined_question": "For the single-species dynamic-memory model (2.9), u_t = d u_xx - gamma d/dx( u d/dx u_{g,R} ) on x in (0,L), t>0, with d>0, gamma real, 0<R<L, homogeneous Dirichlet boundary conditions u(0,t)=u(L,t)=0, and boundary-truncated top-hat perception operator u_{g,R}(x) = (1/(R+x)) int_0^{x+R} u(y)dy for 0<x<R, u_{g,R}(x) = (1/(2R)) int_{x-R}^{x+R} u(y)dy for R<x<L-R, and u_{g,R}(x) = (1/(R+L-x)) int_{x-R}^L u(y)dy for L-R<x<L, does there exist a critical domain length L* = L*(R,gamma,d) such that the associated steady-state problem has only the trivial solution u identically 0 when 0<L<L* and admits at least one positive steady state u(x)>0 on (0,L) when L>L*; if so, how does L* depend on the perceptual radius R and the advection and diffusion parameters gamma and d, and can an analogous critical-threshold statement be extended to the n-species model (2.10)?",
+  "equivalent_formulation": null,
+  "justification": "This paper is organized around numbered open problems, and the draft clearly matches Open Problem 54 in Section 4.6 rather than any theorem or conjecture elsewhere. The match is very close: the paper asks exactly about problem (2.9) on (0,L), with homogeneous Dirichlet data and a top-hat detection function defined in the style of (4.3), whether there is a critical threshold L* separating only-trivial from positive steady states, how L* depends on perceptual radius and advection/diffusion parameters, and whether such a result extends to the n-species model (2.10). To make the draft fully stand-alone, one must import the exact PDE and the precise boundary-truncated top-hat operator from the nearby defining sections.",
+  "citations": [
+    {
+      "section": "2.1 Perception",
+      "label": "Equation (2.3)",
+      "page": "Page 9 of 69"
+    },
+    {
+      "section": "2.2.2 Dynamic memory",
+      "label": "Equation (2.9)",
+      "page": "Page 12 of 69"
+    },
+    {
+      "section": "4.1.2 Boundary conditions",
+      "label": "Equation (4.3)",
+      "page": "Page 40 of 69"
+    },
+    {
+      "section": "4.1.2 Boundary conditions",
+      "label": "Open Problem 39",
+      "page": "Page 41 of 69"
+    },
+    {
+      "section": "4.6 Critical domain sizes",
+      "label": "critical-domain-size discussion",
+      "page": "Page 53 of 69"
+    },
+    {
+      "section": "4.6 Critical domain sizes",
+      "label": "Open Problem 54",
+      "page": "Pages 53-54 of 69"
+    }
+  ]
+}

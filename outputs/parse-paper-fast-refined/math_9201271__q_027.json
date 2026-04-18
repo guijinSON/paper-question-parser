@@ -1,0 +1,39 @@
+{
+  "arxiv_id": "math_9201271",
+  "question_id": "q_027",
+  "original_question": "Instead of lifting by polynomials in Thurston’s algorithm for interval maps, consider the family p(x) = -|x|^alpha + c with alpha > 1, equivalently after affine rescaling the family x maps to k - k|2x - 1|^alpha from the unit interval to itself with 0 < k <= 1. Given an initial map f0 with preperiodic or periodic kneading sequence, does Thurston’s algorithm converge for this specific nonpolynomial lifting family?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 14043.01,
+  "target_in_paper": "§3, Question 2: \"Given f0 with a preperiodic or periodic kneading sequence does Thurston's algorithm converge for the specific family above.\"",
+  "completeness_score": 8.5,
+  "correct_elements": "Your draft is very close to the paper’s exact target. It correctly identifies that the relevant problem is in the section on Thurston’s algorithm for real interval maps, that one replaces polynomial lifts by the family p(x) = -|x|^α + c with α > 1, that the paper gives the affine-equivalent normalized family x ↦ k - k|2x - 1|^α on the unit interval with 0 < k ≤ 1, and that the question concerns convergence of Thurston’s algorithm when the initial map f0 has a preperiodic or periodic kneading sequence.",
+  "missing_details": [
+    "The ambient space is defined in §3 as P = P(n, μ), the space of piecewise monotone maps f : I = [0,1] → I with n laps and prescribed boundary action μ on {0,1}; for the displayed normalized family, one is effectively in the unimodal case with both endpoints mapped to 0 after affine normalization.",
+    "The algorithm itself is defined just before the question: starting from f0 ∈ P, one chooses a lift p0 in the chosen family with the same critical values, encountered in the same order, as f0; then one takes the unique homeomorphism h0 of [0,1] sending the critical points of f0 to those of p0 and satisfying p0 ∘ h0 = f0; inductively, one defines fk+1 = hk ∘ fk ∘ hk^-1.",
+    "The parameter c (or, after normalization, k) is not fixed once and for all; at each stage one chooses pk from the specified family as the lift used in the iteration.",
+    "The paper’s equivalent interval formulation is obtained only after an affine change of coordinates; this equivalence is stated explicitly and should be mentioned if the normalized family is used in the final question.",
+    "The hypothesis is specifically that the kneading sequence of f0 is preperiodic or periodic; the paper does not broaden Question 2 to arbitrary kneading sequences—that broader version is Question 4.",
+    "The paper asks only whether the modified Thurston algorithm converges; it does not build a more precise convergence target or mode directly into Question 2, so a faithful reformulation should not add one unless clearly labeled as contextual background.",
+    "The nearby contextual remark that there is a proof only when α is an even integer, i.e. in the polynomial case, is part of the intended scope and motivation."
+  ],
+  "refined_question": "In the setting of §3, let P = P(n, μ) be the space of piecewise monotone maps f : I = [0,1] → I with prescribed boundary map μ, and run Thurston’s interval-map algorithm starting from f0 ∈ P by replacing the polynomial lift at each step with a lift pk chosen from the family p(x) = -|x|^α + c, where α > 1. If f0 has a preperiodic or periodic kneading sequence, does this modified Thurston algorithm converge?",
+  "equivalent_formulation": "Equivalently, after the affine normalization described in §3, for the family of unimodal maps x ↦ k - k|2x - 1|^α from [0,1] to itself with 0 < k ≤ 1 and α > 1, does Thurston’s algorithm converge for every initial map f0 whose kneading sequence is preperiodic or periodic?",
+  "justification": "The draft clearly targets the official problem stated in §3, Question 2. The surrounding text on pp. 8–9 defines the ambient interval-map space P = P(n, μ), the iterative construction of the lifts pk and conjugacies hk, and then specializes from polynomial lifts to the family p(x) = -|x|^α + c with α > 1, giving the affine-equivalent normalized family x ↦ k - k|2x - 1|^α. A paper-faithful rewrite should therefore remain exactly at the level of that specific family and the preperiodic/periodic kneading-sequence hypothesis, without broadening to general lifting families or arbitrary kneading sequences.",
+  "citations": [
+    {
+      "section": "§3",
+      "label": "Section heading and setup of Thurston’s algorithm for real functions",
+      "page": 8
+    },
+    {
+      "section": "§3",
+      "label": "Question 2",
+      "page": 9
+    },
+    {
+      "section": "§3",
+      "label": "Affine-normalized reformulation of the family and remark on the even-integer polynomial case",
+      "page": 9
+    }
+  ]
+}

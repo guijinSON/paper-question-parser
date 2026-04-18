@@ -1,0 +1,45 @@
+{
+  "arxiv_id": "1404.2655",
+  "question_id": "q_002",
+  "original_question": "Let d > 1, n > 2, and m >= d + 1. Let A in R^(d x m) be a point cloud whose m columns are random points in R^d with i.i.d. uniform coordinates in [0,1]^d, and let O_1, ..., O_n be orthogonal transformations in R^d. Suppose the observed data are matrices A_i = O_i A + sigma eta_i in R^(d x m), where each eta_i has i.i.d. standard Gaussian entries. Form the generalized orthogonal Procrustes quasi-maximum-likelihood problem of maximizing Tr(CX) over block matrices X with X >= 0, X_ii = I_(d x d), and rank(X) <= d, and its semidefinite relaxation obtained by dropping the rank constraint. Does there exist a threshold sigma* > 0 such that whenever sigma < sigma*, with high probability the SDP relaxation has rank d and therefore exactly matches the quasi-maximum-likelihood solution?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 3761.07,
+  "target_in_paper": "Section 2, Conjecture 1: the generalized orthogonal Procrustes rank-recovery conjecture for the SDP relaxation (3), asserting that below a positive noise threshold the solution of the relaxed SDP has rank d and therefore matches the quasi-MLE given by the rank-constrained problem (2).",
+  "completeness_score": 8.5,
+  "correct_elements": "Your draft already matches the paper's target very closely: it has the right parameter range d>1, n>2, m>=d+1; the same random model for A (columns i.i.d. uniform in [0,1]^d); arbitrary orthogonal transformations O_1,...,O_n; the same noisy observations A_i=O_iA+sigma eta_i with eta_i having i.i.d. standard Gaussian entries; the same rank-constrained formulation max Tr(CX) with X positive semidefinite, X_ii=I_d, rank(X)<=d; the same SDP relaxation obtained by dropping rank(X)<=d; and the same conclusion that, for sigma below some sigma*>0, the SDP solution should have rank d and hence match the quasi-MLE.",
+  "missing_details": [
+    "In the paper, the term quasi-MLE is justified only after an extra mild assumption: ||A||_F is fixed, so the full MLE over A and {O_i} reduces to an optimization over the orthogonal matrices alone (§1, footnote 1).",
+    "The matrix C is defined explicitly in §1: C is in R^{dn x dn} with d x d blocks C_{ij}=A_i A_j^T (equivalently, C_{ij}^T=A_j A_i^T).",
+    "The paper states that {O_i}_{i=1}^n is any sequence of orthogonal transformations, so they are not part of the randomness of the conjecture.",
+    "A fully stand-alone statement should say what randomness the probability refers to; from the paper, this is at least the random point cloud A and the Gaussian noise matrices eta_i, but the note leaves this implicit.",
+    "The paper leaves the phrase 'with high probability' informal: it does not specify an asymptotic regime or how sigma* may depend on d, n, or m, so a faithful restatement should not silently sharpen that.",
+    "The conjecture concerns rank recovery/tightness of the SDP relaxation, not exact recovery of the ground-truth A or the O_i; the introduction explicitly separates these issues for d>1.",
+    "For complete self-containment, one should define O_d={O in R^{d x d}: OO^T=I_d} and state that X is a real dn x dn block matrix with d x d diagonal blocks X_{ii}=I_d.",
+    "The paper speaks of 'the solution of (3)' without discussing uniqueness, so a careful rewrite should avoid adding an unintended uniqueness claim."
+  ],
+  "refined_question": "Let d>1, n>2, and m>=d+1. Let A in R^{d x m} be a random point cloud whose m columns are i.i.d. uniform on [0,1]^d, and let O_1,...,O_n belong to O_d, where O_d={O in R^{d x d}: OO^T=I_d}, be any orthogonal matrices. For observations A_i=O_iA+sigma eta_i in R^{d x m}, where each eta_i has i.i.d. N(0,1) entries, define C in R^{dn x dn} by its d x d blocks C_{ij}=A_iA_j^T. After fixing ||A||_F, the generalized orthogonal Procrustes quasi-MLE is the rank-constrained semidefinite program maximize Tr(CX) subject to X positive semidefinite, X_{ii}=I_d for i=1,...,n, and rank(X)<=d; its SDP relaxation is obtained by dropping the rank constraint. Is it true that there exists sigma*>0 such that, whenever sigma<sigma*, with high probability over the random A and Gaussian noise, the solution of the relaxed SDP has rank d, and hence matches the quasi-MLE, i.e. the solution of the rank-constrained problem?",
+  "equivalent_formulation": "Equivalently: under the same generalized Procrustes model, does there exist a positive noise threshold below which the SDP relaxation (3) is tight, in the sense that its optimal matrix has rank d and therefore is also optimal for the rank-constrained program (2)?",
+  "justification": "The draft is plainly targeting the paper's generalized-Procrustes open problem, and the nearest official formulation is Section 2, Conjecture 1. I kept the scope exactly there rather than broadening to a general question about SDP tightness. The draft was already close to verbatim, so the main refinements were only the paper-specific contextual details imported from Section 1: the fixed-||A||_F reduction from the full MLE to the quasi-MLE, the precise block definition of C, the fact that the orthogonal transforms are arbitrary rather than random, and the paper's intentionally informal use of 'with high probability.'",
+  "citations": [
+    {
+      "section": "1. Introduction",
+      "label": "model definition for generalized orthogonal Procrustes and original MLE",
+      "page": 1
+    },
+    {
+      "section": "1. Introduction",
+      "label": "equations (1), (2), (3) and footnote 1",
+      "page": 2
+    },
+    {
+      "section": "1. Introduction",
+      "label": "discussion that exact recovery is impossible for d>1 but rank recovery is observed",
+      "page": 2
+    },
+    {
+      "section": "2. An open problem",
+      "label": "Conjecture 1",
+      "page": 2
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "arxiv_id": "2201.09150",
+  "question_id": "q_030",
+  "original_question": "Determine under what conditions a unique solution exists for the distributed-delay movement model with a general spatiotemporal kernel that includes the heat-equation Green function as a special case, under homogeneous Neumann boundary data.",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 7963.05,
+  "target_in_paper": "Open Problem 30 in §2.3.2 (“Distributed time delays”): the well-posedness/existence-uniqueness question for model (2.30), together with its suggested extension to a more general spatiotemporal kernel containing the Neumann heat Green function as a special case. ([math.ualberta.ca](https://www.math.ualberta.ca/~hwang/WangSalmaniwReview.pdf))",
+  "completeness_score": 7,
+  "correct_elements": "Your draft correctly identifies the core issue as an existence/uniqueness problem for the distributed-delay model (2.30), under homogeneous Neumann boundary data, and it also correctly captures that the paper explicitly asks for a generalization from the specific Green-function kernel to a broader spatiotemporal kernel class. ([math.ualberta.ca](https://www.math.ualberta.ca/~hwang/WangSalmaniwReview.pdf))",
+  "missing_details": [
+    "The draft does not name the exact target in the paper: Open Problem 30 for equation (2.30). ([math.ualberta.ca](https://www.math.ualberta.ca/~hwang/WangSalmaniwReview.pdf))",
+    "It omits the actual PDE whose solution is sought: ∂u/∂t = d1Δu + d2∇·(u∇v1) + f(u,v2), with d1 > 0 and d2 ∈ R. ([math.ualberta.ca](https://www.math.ualberta.ca/~hwang/WangSalmaniwReview.pdf))",
+    "It does not define the delayed potentials v1 and v2, which are given by the double convolutions vi(x,t)=∫_{-∞}^t∫_Ω G(d3,x,y,t-s)Gi(t-s;τi)u(y,s)dyds for i=1,2. ([math.ualberta.ca](https://www.math.ualberta.ca/~hwang/WangSalmaniwReview.pdf))",
+    "It omits the two distinct delay parameters τ1 and τ2 and their meanings: τ1 is the memory/learning delay and τ2 is the maturation delay. ([math.ualberta.ca](https://www.math.ualberta.ca/~hwang/WangSalmaniwReview.pdf))",
+    "It omits the fact that each temporal kernel Gi is taken to be either the weak or strong Gamma kernel, Gw(t;τ)=τ^{-1}e^{-t/τ} or Gs(t;τ)=tτ^{-2}e^{-t/τ}, producing four weak/strong combinations. ([math.ualberta.ca](https://www.math.ualberta.ca/~hwang/WangSalmaniwReview.pdf))",
+    "It does not mention that the spatial kernel is specifically the Green’s function for the heat equation with homogeneous Neumann boundary conditions, and that in the paper its diffusion coefficient is taken to coincide with d1. ([math.ualberta.ca](https://www.math.ualberta.ca/~hwang/WangSalmaniwReview.pdf))",
+    "It leaves implicit the domain/history data needed to make a well-posedness question stand-alone. Open Problem 30 itself does not spell these out, but the closely related distributed-delay problem written explicitly in Appendix A is posed on a smooth bounded domain Ω with homogeneous Neumann condition and past history u(x,t)=η(x,t) for t≤0, indicating the natural hidden assumptions here. This is an inference from the analogous formulation, not a verbatim part of Open Problem 30. ([math.ualberta.ca](https://www.math.ualberta.ca/~hwang/WangSalmaniwReview.pdf))",
+    "It does not formalize what “general spatiotemporal kernel” means. In §5.3 the paper gives the relevant general framework as a kernel K(x,y,t,s) in the space-time convolution (5.1), of which the Green-function product kernel used for (2.28) and (2.30) is a special case. ([math.ualberta.ca](https://www.math.ualberta.ca/~hwang/WangSalmaniwReview.pdf))",
+    "No ambient ring/field, homogeneity degree, or nilpotency condition is relevant here; the missing structure is analytic/PDE data (domain, boundary condition, history, kernel regularity, and hypotheses on f), not algebraic structure. ([math.ualberta.ca](https://www.math.ualberta.ca/~hwang/WangSalmaniwReview.pdf))"
+  ],
+  "refined_question": "Let Ω ⊂ R^n be a smooth bounded domain, and consider the distributed-delay movement model\n∂u/∂t = d1Δu + d2∇·(u∇v1) + f(u,v2) in Ω × (0,∞),\nwith homogeneous Neumann boundary condition ∂_n u = 0 on ∂Ω × (0,∞), where d1 > 0, d2 ∈ R, and for i = 1,2,\nvi(x,t) = ∫_{-∞}^t ∫_Ω G_N(d1;x,y,t-s) Gi(t-s;τi) u(y,s) dy ds,\nwith τ1 > 0 the memory/learning delay, τ2 > 0 the maturation delay, and each Gi chosen from the weak/strong Gamma kernels Gw(t;τ)=τ^{-1}e^{-t/τ} and Gs(t;τ)=tτ^{-2}e^{-t/τ} (hence covering all four weak/strong combinations). Under what assumptions on the reaction term f, the past history u(·,s) for s≤0, and—more generally—on a space-time kernel K(x,y,t,s) that specializes to the Neumann heat-kernel product above, does problem (2.30) admit a unique solution? ([math.ualberta.ca](https://www.math.ualberta.ca/~hwang/WangSalmaniwReview.pdf))",
+  "equivalent_formulation": null,
+  "justification": "The draft is targeting Open Problem 30 almost verbatim. Section 2.3.2 introduces the distributed-delay kernels (2.26)–(2.29), the extended model (2.30), and then states the precise question about unique solvability under homogeneous Neumann boundary data, including the follow-up about a general spatiotemporal kernel containing Green’s function as a special case. Section 5.1.2 confirms that Song et al. (2021) did not establish existence for model (2.30), so the intended issue is specifically well-posedness/existence-uniqueness, not bifurcation or pattern formation. Section 5.3 supplies the paper’s own general kernel notation K(x,y,t,s), which sharpens the otherwise vague phrase “general spatiotemporal kernel.” Appendix A gives the analogous full history-and-boundary formulation for the closely related model (2.28), which is why the refined question makes those hidden PDE assumptions explicit while staying close to the paper’s intent. ([math.ualberta.ca](https://www.math.ualberta.ca/~hwang/WangSalmaniwReview.pdf))",
+  "citations": [
+    {
+      "section": "§2.3.2 Distributed time delays",
+      "label": "equations (2.29)–(2.30) and Open Problem 30",
+      "page": 25
+    },
+    {
+      "section": "§5.1.2 Explicit memory models",
+      "label": "bullet point on model (2.30)",
+      "page": 55
+    },
+    {
+      "section": "§5.3 Unification and equivalence of existing models",
+      "label": "equation (5.1) and discussion of general space-time kernel K",
+      "page": 59
+    },
+    {
+      "section": "Appendix A",
+      "label": "equations (A.1)–(A.3) for the analogous distributed-delay formulation with Neumann data and history",
+      "page": "63-64"
+    },
+    {
+      "section": "§4.1 Boundary conditions",
+      "label": "definition/discussion of homogeneous Neumann boundary condition",
+      "page": 38
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "arxiv_id": "2303.02529",
+  "question_id": "q_008",
+  "original_question": "Let a(n, m) be the occupation probability that the harmonic descent chain started from n ever visits state m, and let a(m) = lim_{n->infinity} a(n, m). Find explicit bounds for |a(n, m) - a(m)|. In particular, prove the following ansatz for every nonnegative sequence f(j) with polynomial growth: if sum_{i>=2} a(i) f(i) converges, then sum_{i=2}^n a(n, i) f(i) converges to sum_{i>=2} a(i) f(i); if sum_{i>=2} a(i) f(i) diverges, then sum_{i=2}^n a(n, i) f(i) is asymptotic to sum_{i=2}^n a(i) f(i).",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 8595.84,
+  "target_in_paper": "Open Problem 5 in Section 4.6 of arXiv:2303.02529 (July 2024 v2): find explicit bounds for |a(n,i)-a(i)|, where a(n,i) is the occupation probability for the harmonic descent chain and a(i)=lim_{n->infinity}a(n,i) is the explicit limit from Theorem 5. The weighted-sum ansatz in the draft is not an official conjecture or open problem stated in the paper.",
+  "completeness_score": 6,
+  "correct_elements": "The draft correctly identifies the main object a(n,m) as the occupation probability that the harmonic descent chain started from n ever visits m, introduces the limit a(m)=lim_{n->infinity}a(n,m), and asks for explicit bounds on the convergence. That matches the paper's explicit open problem almost verbatim. It also points in the right direction for applications to finite-n versus limiting fringe statistics.",
+  "missing_details": [
+    "The chain itself must be defined: it is the continuous-time harmonic descent chain on states {1,2,3,...} with transition rates lambda_{m,i}=1/(m-i) for 1<=i<=m-1, m>=2, and absorbing state 1.",
+    "The index range should be stated explicitly: n>=2 and 1<=i<=n; the nontrivial regime for the bound problem is 2<=i<=n.",
+    "The paper already proves the limit formula a(i)=6 h_{i-1}/(pi^2 (i-1)) for i>=2, with h_{i-1}=sum_{r=1}^{i-1} 1/r, and a(1)=1; a stand-alone question should include this rather than treating a(i) as unknown.",
+    "The draft omits the tree-theoretic motivation: these bounds are wanted because they quantify how well the finite-n fringe distribution of DTCS(n) is approximated by the asymptotic fringe distribution.",
+    "The paper uses i as the state variable, not m; that is minor, but a paper-faithful stand-alone statement should fix one notation consistently.",
+    "The paper does not state a general transfer principle for sums sum_i a(n,i)f(i) over all nonnegative polynomial-growth f. That part of the draft is a substantial strengthening beyond the official open problem.",
+    "Likewise, the divergence/convergence dichotomy for weighted sums is not formulated as a conjecture in the paper; at most it is an extrapolation from later heuristic substitutions involving sums weighted by a(n,m).",
+    "The official problem asks only for explicit bounds on the approximation error, not for a universal asymptotic theorem strong enough to justify every weighted replacement a(n,i) by a(i)."
+  ],
+  "refined_question": "Let X be the continuous-time harmonic descent chain on {1,2,3,...}, started at X_0=n, with absorbing state 1 and transition rates lambda_{m,i}=1/(m-i) for 1<=i<=m-1. For 1<=i<=n define a(n,i):=P_n(X_t=i for some t>=0). By Theorem 5, for each i>=2 the limit a(i):=lim_{n->infinity}a(n,i) exists and is given by a(i)=6 h_{i-1}/(pi^2 (i-1)), where h_{i-1}=sum_{r=1}^{i-1}1/r (and a(1)=1). Obtain explicit quantitative bounds for the error |a(n,i)-a(i)|, for 2<=i<=n, strong enough to measure how accurately the asymptotic fringe distribution approximates the fringe of DTCS(n).",
+  "equivalent_formulation": null,
+  "justification": "The first sentence of the draft is essentially the exact open problem stated in the paper: Open Problem 5 asks for explicit bounds on |a(n,i)-a(i)|. To make that question fully stand-alone and faithful to the paper, one must add the definition of the harmonic descent chain, the exact meaning of a(n,i), and the explicit formula for a(i) already proved in Theorem 5. The draft's second sentence, however, goes beyond the paper: the authors do use sums weighted by a(n,m) in later heuristics, but they do not formulate the proposed universal weighted-sum convergence/divergence principle as an official conjecture. So the refined question should be narrowed back to the precise convergence-rate problem that the paper actually states, while preserving the fringe-distribution motivation.",
+  "citations": [
+    {
+      "section": "3.1",
+      "label": "equation (3)",
+      "page": 5
+    },
+    {
+      "section": "4.1",
+      "label": "equations (14)-(16), Theorem 5",
+      "page": "9-10"
+    },
+    {
+      "section": "4.2",
+      "label": "fringe-process discussion and equation (17)",
+      "page": "10-11"
+    },
+    {
+      "section": "4.6",
+      "label": "Open Problem 5",
+      "page": 19
+    },
+    {
+      "section": "7.1",
+      "label": "heuristic weighted sum in formula (117)",
+      "page": 58
+    }
+  ]
+}

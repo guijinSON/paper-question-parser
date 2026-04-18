@@ -1,0 +1,37 @@
+{
+  "arxiv_id": "2501.17725",
+  "question_id": "q_013",
+  "original_question": "What is the maximum integer N for which there exists a packing array PA(N,14,9), meaning an N x 14 array with entries from {0,1,...,8} such that every 2-column subarray contains each ordered pair of symbols at most once?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 10751.03,
+  "target_in_paper": "The Packing Array open instance in Section 1 and Table 1: whether the known upper bound for parameters (k,v)=(14,9) is attainable, i.e. whether a packing array PA(21,14,9) exists.",
+  "completeness_score": 7,
+  "correct_elements": "Your draft correctly identifies the design family (packing arrays), the relevant parameter pair (k,v)=(14,9), the alphabet {0,1,...,8}, the 14-column format, and the strength-2 packing condition that in every pair of columns each ordered pair of symbols occurs at most once.",
+  "missing_details": [
+    "The paper’s actual target is the specific extremal existence question PA(21,14,9), not an unconstrained optimization problem over arbitrary N.",
+    "To make the maximum-N wording paper-faithful, one must include the paper’s contextual fact that 21 is the cited upper bound for (k,v)=(14,9); the open issue is whether that upper bound is achievable.",
+    "The quantifiers should be explicit: for every pair of distinct columns, each ordered pair from {0,1,...,8}^2 occurs at most once in the induced 21x2 subarray.",
+    "The paper treats this as a constructive existence problem: resolving the instance means exhibiting an explicit 21x14 array, not merely proving a bound abstractly.",
+    "The draft omits the nearby literature context given in the introduction, namely that prior work had improved the lower bound but still left the top case N=21 open."
+  ],
+  "refined_question": "Does there exist a packing array PA(21,14,9), that is, a 21x14 array with entries in {0,1,...,8} such that for every pair of distinct columns, each ordered pair of symbols from {0,1,...,8}^2 appears at most once in the corresponding 21x2 subarray?",
+  "equivalent_formulation": "Equivalently, since the paper states that 21 is the upper bound for parameters (k,v)=(14,9), is the maximum N for which a packing array PA(N,14,9) exists equal to 21?",
+  "justification": "Section 1 first defines PA(N,k,v) and frames Packing Arrays as a maximum-N problem for fixed (k,v). It then isolates the (14,9) case as open specifically because the remaining question is whether the upper bound 21 can be attained. The paper reports that CPro1 constructs such an array, so the closest paper-faithful stand-alone formulation is the specific existence question for PA(21,14,9). Table 1 records this as a solved Packing Array instance, and Appendix B, Figure 13 gives the explicit construction.",
+  "citations": [
+    {
+      "section": "1 Introduction",
+      "label": "Packing Array definition and framing as a maximum-N problem",
+      "page": "1"
+    },
+    {
+      "section": "1 Introduction",
+      "label": "Table 1 (Open Instance Results, Packing Array row)",
+      "page": "opening pages; exact page not visible in HTML extraction"
+    },
+    {
+      "section": "Appendix B",
+      "label": "Figure 13 (Packing Array with N=21, k=14, v=9)",
+      "page": "Appendix B; exact page not visible in HTML extraction"
+    }
+  ]
+}

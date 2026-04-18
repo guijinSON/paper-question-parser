@@ -1,0 +1,43 @@
+{
+  "arxiv_id": "2003.11441",
+  "question_id": "q_010",
+  "original_question": "Let Omega be a bounded connected open subset of R^2, let T > 0, and consider the parabolic initial-boundary value problem u_t - div(a grad u) = f in Omega x (0, T) with u = 0 on ∂Omega x (0, T) and on Omega x {0}, where a = a(x) is a time-independent scalar coefficient satisfying K^(-1) <= a(x) <= K. If f is known on all of Omega x (0, T) and u(x, t) is known for all x in Omega at one or more fixed times t > 0, is the coefficient a uniquely determined?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 7002.58,
+  "target_in_paper": "Section 8, Problem 8.1 (\"Parabolic inverse problem\"), stated immediately after equation (11) in the section \"The final problem\"; the draft matches this item rather than the neighboring Problem 8.2.",
+  "completeness_score": 9.5,
+  "correct_elements": "Your draft is already very close to the paper’s official formulation in Section 8, Problem 8.1: it has the correct dimension n=2, the correct forward problem u_t - div(a∇u) = f in Ω × (0, T) with homogeneous boundary and initial data, the correct assumption that a=a(x) is a time-independent scalar coefficient, the correct ellipticity bound K^(-1) <= a(x) <= K, the correct source information f known on all of Ω × (0, T), and the correct overdetermining data consisting of the full interior state u(x,t) on all of Ω at one or more fixed positive times.",
+  "missing_details": [
+    "State explicitly that the ellipticity bound is pointwise for all x in Ω, for some fixed constant K > 0.",
+    "Make explicit that uniqueness is being asked within the class of time-independent scalar coefficients a=a(x) satisfying the same ellipticity bound.",
+    "Clarify the observation data as full spatial snapshots u(·, t_j) on all of Ω for one or more fixed positive times t_j; this is stronger and more precise than a generic statement about knowing u at 'times t > 0'.",
+    "Keep the boundary/initial condition exactly as in equation (11): u = 0 on the union ∂Ω × (0, T) ∪ Ω × {0}.",
+    "Do not add assumptions not stated in Problem 8.1: the paper does not impose extra smoothness of ∂Ω or extra regularity of a beyond being a scalar coefficient with the stated ellipticity bound.",
+    "It helps to note explicitly that this is the source-driven inverse problem of Problem 8.1, not the distinct final-data variant Problem 8.2."
+  ],
+  "refined_question": "Let Ω ⊂ R^2 be a bounded connected open set, let T > 0, and let a=a(x) be a time-independent scalar coefficient such that K^(-1) <= a(x) <= K for all x in Ω, for some K > 0. Consider the initial-boundary value problem u_t - div(a∇u) = f in Ω × (0, T), with u = 0 on ∂Ω × (0, T) ∪ Ω × {0}. Assume that the source term f is known on all of Ω × (0, T). If, for one or more fixed positive times t_1, ..., t_m in (0, T], the full spatial snapshots u(·, t_j) are known on all of Ω, is the coefficient a uniquely determined within the class of time-independent scalar coefficients satisfying the same ellipticity bound?",
+  "equivalent_formulation": null,
+  "justification": "The draft is targeting the paper’s official open problem in Section 8, Problem 8.1. The surrounding setup is given by equation (11), which specifies the forward parabolic problem with source term f and homogeneous boundary and initial data, and the paragraph introducing Problem 8.1 states exactly the inverse question in dimension n=2: whether knowledge of f on all of Ω × (0, T), together with u(x,t) for all x in Ω and for one or more fixed positive times, uniquely determines the scalar coefficient a. This shows the draft aligns with Problem 8.1 rather than Problem 8.2, which changes the data to nonzero boundary/initial inputs g,h and asks about final-time data u(·,T). The refinements above only make the coefficient class, pointwise ellipticity, and full-snapshot interpretation fully explicit while staying faithful to the paper and avoiding extra assumptions absent from the statement.",
+  "citations": [
+    {
+      "section": "Section 8",
+      "label": "equation (11)",
+      "page": 597
+    },
+    {
+      "section": "Section 8",
+      "label": "Problem 8.1 (Parabolic inverse problem)",
+      "page": 597
+    },
+    {
+      "section": "Section 8",
+      "label": "paragraph immediately after Problem 8.1",
+      "page": "597-598"
+    },
+    {
+      "section": "Section 8",
+      "label": "Problem 8.2 (Parabolic inverse problem with final data)",
+      "page": 598
+    }
+  ]
+}

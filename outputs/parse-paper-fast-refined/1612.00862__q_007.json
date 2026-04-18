@@ -1,0 +1,44 @@
+{
+  "arxiv_id": "1612.00862",
+  "question_id": "q_007",
+  "original_question": "Let K be a non-polar compact subset of R that is regular with respect to the Dirichlet problem, and let μ be a measure with essential support ess supp(μ)=K whose isolated support points {x_n} satisfy Σ_n g_{C\\K}(x_n)<∞. Suppose the logarithmic integrability condition ∫_K log(dμ/dμ_K) dμ_K(x) > -∞ holds, where μ_K is the equilibrium measure on K. Must μ then satisfy either the Widom condition limsup_{n→∞} W_n^2(μ)>0 or the Widom condition 2 liminf_{n→∞} W_n^2(μ)>0? Conversely, if μ satisfies a Widom condition, must the logarithmic integrability condition hold?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 126.38,
+  "target_in_paper": "Section 3, Problem 7: the open problem asking whether condition (3) implies the Widom condition or Widom condition 2 for arbitrary regular non-polar compact sets K ⊂ R, and whether the Widom condition implies (3).",
+  "completeness_score": 8.5,
+  "correct_elements": "Your draft is already very close to the paper’s actual target. It correctly identifies the ambient setting K ⊂ R, assumes K is non-polar and regular for the Dirichlet problem, imposes ess supp(mu) = K, includes the isolated-point summability condition sum_n g_{C\\K}(x_n) < infinity, uses the logarithmic condition (3) involving the equilibrium measure mu_K, and asks exactly the two directions posed in the paper: whether (3) forces a Widom-type condition, and whether a Widom condition forces (3).",
+  "missing_details": [
+    "The paper’s standing convention in Section 1.1 is that mu is a probability Borel measure; Problem 7 inherits that ambient measure-theoretic setup.",
+    "To make the question stand-alone, W_n^2(mu) should be defined explicitly as the n-th Widom-Hilbert factor: W_n^2(mu) := ||P_n(·;mu)||_{L^2(mu)} / Cap(supp(mu))^n, where P_n(·;mu) is the n-th monic orthogonal polynomial for mu.",
+    "The Green function g_{C\\K} should be identified as the Green function of C \\ K with pole at infinity.",
+    "The points {x_n} should be described exactly as the isolated points of supp(mu), not merely 'isolated support points' in a potentially ambiguous sense.",
+    "The converse in Problem 7 is stated only for the Widom condition limsup_{n→∞} W_n^2(mu) > 0, not separately for Widom condition 2; your phrase 'if mu satisfies a Widom condition' is slightly broader than the paper.",
+    "The paper’s intent is specifically to ask this beyond the Parreau-Widom setting; that non-assumption should be made explicit, since the preceding paragraph explains that the equivalence is already known on Parreau-Widom sets.",
+    "Condition (3) is introduced immediately before Problem 7 as an alternative form of the Szego condition under Parreau-Widom hypotheses; that contextual role is implicit in your draft but should be stated if the question is to be fully paper-faithful."
+  ],
+  "refined_question": "Let K ⊂ R be a non-polar compact set that is regular for the Dirichlet problem, let g_{C\\K} denote the Green function of C \\ K with pole at infinity, let mu_K be the equilibrium measure of K, and let mu be a probability Borel measure with ess supp(mu) = K such that the isolated points {x_n} of supp(mu) satisfy sum_n g_{C\\K}(x_n) < infinity. If condition (3) holds, namely\nintegral_K log(dmu/dmu_K) dmu_K > -infinity,\nmust at least one of the paper’s two Widom conditions hold for the monic orthogonal polynomials P_n(·;mu), where W_n^2(mu) := ||P_n(·;mu)||_{L^2(mu)} / Cap(supp(mu))^n, namely\nlimsup_{n→∞} W_n^2(mu) > 0\nor\nliminf_{n→∞} W_n^2(mu) > 0?\nConversely, does the Widom condition limsup_{n→∞} W_n^2(mu) > 0 imply condition (3)?",
+  "equivalent_formulation": null,
+  "justification": "The draft is targeting Problem 7, not a broader neighboring problem. The match is essentially exact: Section 3 states the same hypotheses on K, mu, and the isolated points of supp(mu), then asks whether condition (3) implies the Widom condition or Widom condition 2, and conversely whether the Widom condition implies (3). The paragraph immediately preceding Problem 7 supplies the precise meaning of condition (3) and explains its known equivalence with the Szego and Widom conditions on Parreau-Widom sets, while Section 1.1 defines W_n^2(mu), 'Widom condition', and 'Widom condition 2'. The refined version only makes those implicit definitions explicit and narrows the converse to exactly what the paper asks.",
+  "citations": [
+    {
+      "section": "1.1",
+      "label": "Definition of the n-th Widom-Hilbert factor W_n^2(mu)",
+      "page": 13
+    },
+    {
+      "section": "1.1",
+      "label": "Definition of Sz(K), the isolated-point condition, Widom condition, and Widom condition 2",
+      "page": 14
+    },
+    {
+      "section": "3",
+      "label": "Equation (3) and the paragraph explaining its Parreau-Widom context",
+      "page": 16
+    },
+    {
+      "section": "3",
+      "label": "Problem 7",
+      "page": 16
+    }
+  ]
+}

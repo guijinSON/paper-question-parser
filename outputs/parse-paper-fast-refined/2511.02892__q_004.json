@@ -1,0 +1,48 @@
+{
+  "arxiv_id": "2511.02892",
+  "question_id": "q_004",
+  "original_question": "Let G be a disjoint union of cycles, and let H be a disjoint union of copies of K_4. Is the graph G union H 4-colorable?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 11765.59,
+  "target_in_paper": "Problem 3 in arXiv:2511.02892, \"Strong colouring for maximum degree 2\" (Penny Haxell); in formal source language, this is the \"cycles plus K_4's\" problem, i.e. the 2-regular specialization of Conjecture 1.3 in Dalal–McDonald–Shan.",
+  "completeness_score": 5,
+  "correct_elements": "Your draft captures the right combinatorial objects and the right conclusion: a 2-regular graph (equivalently, a disjoint union of cycles), a disjoint union of copies of K_4, and the question of whether the resulting graph is 4-colorable. It is therefore pointed at the correct open problem family.",
+  "missing_details": [
+    "The problem is not about a disjoint union of two unrelated graphs; the cycle graph and the K_4-factor must be on the same vertex set, and the operation is union of edge sets.",
+    "To make the question nontrivial and paper-faithful, the copies of K_4 should form a spanning disjoint union of K_4's on that common vertex set (equivalently, a partition of the vertex set into 4-sets, with all clique edges added inside each 4-set).",
+    "The quantifier should be explicit: for every such 2-regular graph and every such spanning K_4-factor, is the union 4-colorable?",
+    "The ambient graph class should be specified as simple graphs.",
+    "The paper's nearby formal context is strong colouring / strong chromatic number; without that context, the phrase \"G union H\" is easy to misread in a way that makes the problem trivial.",
+    "If one wants the exact equivalent strong-colouring formulation, one must also mention the standard padding by isolated vertices when the order is not divisible by 4."
+  ],
+  "refined_question": "For every integer m >= 1, every simple 2-regular graph C on 4m vertices, and every spanning graph K on V(C) whose connected components are m vertex-disjoint copies of K_4, must the graph C ∪ K satisfy χ(C ∪ K) <= 4?",
+  "equivalent_formulation": "Equivalent formulation: Does every simple graph F with maximum degree at most 2 have strong chromatic number at most 4? Explicitly, after adding 4⌈|V(F)|/4⌉ - |V(F)| isolated vertices to F, does the union with any spanning disjoint union of copies of K_4 on the enlarged vertex set always admit a proper 4-coloring?",
+  "justification": "The workshop note's third problem is the cycles-plus-K_4 question in informal language. The nearest formal paper-faithful formulation is Conjecture 1.3 of Dalal–McDonald–Shan, which asks for 4-colorability after gluing vertex-disjoint K_4's onto a graph of maximum degree at most 2; they immediately note that it suffices to prove this for 2-regular base graphs, yielding exactly the cycles-only version. They also state that this is precisely the Δ=2 case of the Strong Colouring Conjecture. So the draft is aimed at the right problem, but it needs the common-vertex-set / spanning-K_4-factor interpretation made explicit; otherwise the literal reading is just a trivial disjoint union problem. I therefore kept the refined question in the narrow cycles-only form and gave the strong-colouring statement only as the single explicit equivalent formulation.",
+  "citations": [
+    {
+      "section": "Problem 3",
+      "label": "Strong colouring for maximum degree 2",
+      "page": "problem list in arXiv:2511.02892 (exact PDF page not exposed in accessible HTML)"
+    },
+    {
+      "section": "1. Introduction",
+      "label": "Conjecture 1.3",
+      "page": "first page of article preview"
+    },
+    {
+      "section": "1. Introduction",
+      "label": "text immediately after Conjecture 1.3 (\"it suffices to prove Conjecture 1.3 for 2-regular H\")",
+      "page": "first page of article preview"
+    },
+    {
+      "section": "1. Introduction",
+      "label": "text after Theorem 1.4 / strong-colouring context (\"the Δ=2 case of the Strong Colouring Conjecture is precisely Conjecture 1.3\")",
+      "page": "first page of article preview"
+    },
+    {
+      "section": "Abstract",
+      "label": "definition of the strong chromatic number",
+      "page": 768
+    }
+  ]
+}

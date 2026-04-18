@@ -1,0 +1,62 @@
+{
+  "arxiv_id": "2303.11464",
+  "question_id": "q_006",
+  "original_question": "For the same Computational Problem in which one must evaluate the probability that m_i^A(x) = m_i^A(y) for all i, which families of binary-column sets A admit an exact solution, and which families of A admit an efficient algorithm for computing that probability?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 8537.28,
+  "target_in_paper": "Section 2, Open Problem 2.2 in \"An application of probabilistic combinatorics to quantum circuit expressiveness\"; the paper immediately rephrases the efficiency half as Open Problem 2.3.",
+  "completeness_score": 7,
+  "correct_elements": "Your draft correctly identifies the paper's central combinatorial task as the Computational Problem of evaluating the probability that m_i^A(x) = m_i^A(y) for all i, and it correctly matches the two-part scope of Open Problem 2.2: characterizing which choices of A allow exact evaluation and which choices allow efficient computation.",
+  "missing_details": [
+    "The draft is not stand-alone because it does not define the ambient objects n, t, and m, where n,t are positive integers and 1 <= m <= 2^n - 1.",
+    "It does not specify that A is an n x m binary matrix A = (a_1^T, ..., a_m^T), not just an informal family of columns.",
+    "It omits the paper's restrictions that the columns a_i lie in {0,1}^n and are pairwise distinct and nonzero.",
+    "It does not define x and y as n x t binary matrices x = (x_1^T, ..., x_t^T) and y = (y_1^T, ..., y_t^T) with columns x_j, y_j in {0,1}^n.",
+    "It does not state that x and y are sampled uniformly at random.",
+    "It does not define the expressiveness indicators m_i^A(x) := sum_{j=1}^t <a_i, x_j>_2.",
+    "It omits the mixed-arithmetic convention that <a_i, x_j>_2 is the GF(2) inner product, while the outer sum is taken in the integers.",
+    "It leaves implicit that the event is quantified over all i = 1, ..., m.",
+    "It does not say that the paper asks the question for varying choices of A, motivated by computing the expressiveness of commutative quantum circuits.",
+    "It uses the phrase \"efficient algorithm\" without noting the paper's nearby complexity-theoretic reformulation: the second half of Open Problem 2.2 is rephrased as Open Problem 2.3, asking whether the Computational Problem is NP-complete for arbitrary A."
+  ],
+  "refined_question": "Let n,t be positive integers, let 1 <= m <= 2^n - 1, and let A = (a_1^T, ..., a_m^T) be an n x m binary matrix whose columns are pairwise distinct and nonzero. For x = (x_1^T, ..., x_t^T), y = (y_1^T, ..., y_t^T) in {0,1}^{n x t}, define m_i^A(x) := sum_{j=1}^t <a_i, x_j>_2, where <.,.>_2 is the inner product in GF(2) and the outer sum is taken in Z. If x and y are sampled uniformly at random from {0,1}^{n x t}, for which choices of A can one compute exactly the probability P[(m_i^A(x) = m_i^A(y)) for all i = 1,...,m], and for which choices of A can this probability be computed efficiently?",
+  "equivalent_formulation": "Equivalent reformulation of the efficiency half, stated explicitly in the paper as Open Problem 2.3: for arbitrary A, is the Computational Problem NP-complete?",
+  "justification": "The draft is aiming at Open Problem 2.2, not the narrower Open Problem 2.1 and not the approximation question in Open Problem 2.4. In Section 2 the paper first defines the expressiveness indicators m_i^A and the Computational Problem, then gives exact answers for special choices of A, and finally asks the general two-part classification question: which A permit exact answers and which A permit efficient computation. The paper also explicitly says that the second half of Open Problem 2.2 can be rephrased as Open Problem 2.3.",
+  "citations": [
+    {
+      "section": "Section 2",
+      "label": "Introduction and Definition 2.1",
+      "page": "568-569"
+    },
+    {
+      "section": "Section 2",
+      "label": "Definition 2.2 (Expressiveness Indicator)",
+      "page": "570"
+    },
+    {
+      "section": "Section 2",
+      "label": "Computational Problem",
+      "page": "570"
+    },
+    {
+      "section": "Section 2",
+      "label": "Example 2.4 and Lemma 2.5",
+      "page": "571-572"
+    },
+    {
+      "section": "Section 2",
+      "label": "Example 2.6 and Lemma 2.7",
+      "page": "572-574"
+    },
+    {
+      "section": "Section 2",
+      "label": "Open Problem 2.2",
+      "page": "574"
+    },
+    {
+      "section": "Section 2",
+      "label": "Open Problem 2.3",
+      "page": "574"
+    }
+  ]
+}

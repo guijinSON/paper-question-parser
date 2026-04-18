@@ -1,0 +1,41 @@
+{
+  "arxiv_id": "1406.3558",
+  "question_id": "q_003",
+  "original_question": "Let A be a subset of Z_n. The order of A is the least h such that hA = Z_n but (h-1)A != Z_n. Which integers can occur as orders of bases in Z_n, especially in the regime where the order grows linearly with n?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 4009.67,
+  "target_in_paper": "2009.1.4 (Peter Hegarty II) in the CANT problem sessions notes: the question about possible orders of bases for Z_n, sharpened to the conjecture that if a basis has order Θ(n), then that order must be very close to n/k for some k; more precisely, for fixed k and n ≫ 0, if the order is greater than n/(k+1)+O(k), then it is within O(k) of n/ℓ for some ℓ ≤ k.",
+  "completeness_score": 7,
+  "correct_elements": "The draft correctly identifies the ambient group Z_n, uses the right notion of basis order as the least h with hA = Z_n and (h-1)A ≠ Z_n, and focuses on the paper’s main theme: which basis orders can occur when the order is linear in n rather than logarithmic or very small.",
+  "missing_details": [
+    "The paper’s target is not a complete classification of all possible basis orders in Z_n; it isolates the large-order regime, i.e. orders of size Θ(n).",
+    "The operation hA should be defined as the h-fold sumset {a_1+⋯+a_h : a_i ∈ A}, with repeated summands allowed.",
+    "The question is about subsets A that are actually bases of Z_n, i.e. for which hA = Z_n for some h.",
+    "The paper sharpens the vague phrase 'order grows linearly with n' to a fixed-k statement: fix k, then study bases whose order exceeds n/(k+1) up to an additive error depending only on k.",
+    "The phrase 'very close to n/k' must be quantified: the distance is bounded by a constant depending only on k, not on n or on A.",
+    "The paper’s precise formulation uses an existential integer ℓ with 1 ≤ ℓ ≤ k.",
+    "The asymptotic qualifier must be stated explicitly: 'for all sufficiently large n' (the paper writes n ≫ 0).",
+    "If one wants the question to be fully stand-alone, one should name the order function, e.g. ρ_n(A) := min{h ≥ 1 : hA = Z_n}.",
+    "The draft does not indicate that the intended conclusion is a gap phenomenon: large basis orders should cluster near n, n/2, n/3, ..., rather than filling long intervals continuously."
+  ],
+  "refined_question": "For each fixed integer k ≥ 1, do there exist constants C_k,D_k > 0 such that, for all sufficiently large n, whenever A ⊆ Z_n is a basis and its order ρ_n(A) := min{h ≥ 1 : hA = Z_n}, where hA = {a_1 + ··· + a_h : a_i ∈ A}, satisfies ρ_n(A) > n/(k+1) + C_k, there is an integer ℓ with 1 ≤ ℓ ≤ k for which |ρ_n(A) - n/ℓ| < D_k?",
+  "equivalent_formulation": null,
+  "justification": "Your draft is aiming at the 2009.1.4 Hegarty problem in the notes, not at a full classification of all basis orders. The notes first pose the broad question 'What are the possible orders of a basis for Z_n?' and then immediately sharpen it to the large-order conjecture: if the order is Θ(n), then it must lie very near n/k for some k, with a fixed-k asymptotic formulation spelled out explicitly. That fixed-k gap statement is the narrow, paper-faithful target; asking simply 'which integers can occur?' is broader than what is actually isolated in the paper.",
+  "citations": [
+    {
+      "section": "2009.1.4",
+      "label": "Question: What are the possible orders of a basis for Z_n?",
+      "page": "4"
+    },
+    {
+      "section": "2009.1.4",
+      "label": "Definition of a basis of order h",
+      "page": "4"
+    },
+    {
+      "section": "2009.1.4",
+      "label": "Conjecture / precise fixed-k phrasing",
+      "page": "4"
+    }
+  ]
+}

@@ -1,0 +1,57 @@
+{
+  "arxiv_id": "2505.15351",
+  "question_id": "q_005",
+  "original_question": "Suppose an object is modeled as a sum of translated feature measures drawn from an application-dependent admissible feature set E, together with a background term. When the admissible feature set E is not known in advance, how can one efficiently determine or learn that set in a reliable and interpretable way?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 10946.99,
+  "target_in_paper": "Section 4.1, Question 4.1: \"The set E strongly depends on the application and may not be known in advance. What is an efficient strategy to establish it?\" ([ir.cwi.nl](https://ir.cwi.nl/pub/35739/35739.pdf))",
+  "completeness_score": 8.5,
+  "correct_elements": "Your draft is already very close to the paper’s intended target. It correctly identifies the Section 4.1 object-parameterization model as a background term plus translated feature measures drawn from an application-dependent admissible set E, and it correctly focuses on the specific open issue of how to determine E when E is unknown beforehand. Your emphasis on reliability and interpretability is also faithful to the nearby context, because immediately after Question 4.1 the paper suggests patch-based priors as a possible way to learn E but warns that the resulting learned dictionary may have reliability and interpretability problems. ([ir.cwi.nl](https://ir.cwi.nl/pub/35739/35739.pdf))",
+  "missing_details": [
+    "The draft does not state the exact model from Eq. (5): f = a_0 λ + Σ_{j=1}^N a_j S_{t_j} μ_j(σ). ([ir.cwi.nl](https://ir.cwi.nl/pub/35739/35739.pdf))",
+    "It does not specify that λ is the Lebesgue measure and represents the general object background, i.e. the absence of features. ([ir.cwi.nl](https://ir.cwi.nl/pub/35739/35739.pdf))",
+    "It does not specify that the μ_j are normalized, localized complex measures representing object features. ([ir.cwi.nl](https://ir.cwi.nl/pub/35739/35739.pdf))",
+    "It does not include the paper’s small-dictionary assumption μ_j ∈ E with |E| ≪ N. ([ir.cwi.nl](https://ir.cwi.nl/pub/35739/35739.pdf))",
+    "It does not mention the experimental parameter σ, which may influence the measures μ_j in the model. ([ir.cwi.nl](https://ir.cwi.nl/pub/35739/35739.pdf))",
+    "It does not define the translation operator S_{t_j}; in the paper’s general notation, the shift operator is the translation map, given in the infinite-dimensional setup by S_k f(x) = f(x - k). ([ir.cwi.nl](https://ir.cwi.nl/pub/35739/35739.pdf))",
+    "It does not situate the question in the intended application scope of Section 4: physics-informed parameterization motivated by crystallography, lithography, and patterned imaging objects such as circuit boards. ([ir.cwi.nl](https://ir.cwi.nl/pub/35739/35739.pdf))",
+    "It slightly blends the formal target with neighboring issues: the official Question 4.1 is only about establishing E; choosing N and the individual features μ_j is a separate Question 4.2, and uniqueness/stability is a separate Question 4.3. ([ir.cwi.nl](https://ir.cwi.nl/pub/35739/35739.pdf))",
+    "The draft does not distinguish the official question from the nearby heuristic: patch-based priors are presented only as a potential approach to learn E, not as the formal statement itself. ([ir.cwi.nl](https://ir.cwi.nl/pub/35739/35739.pdf))",
+    "No homogeneity condition, polynomial degree restriction, nilpotency hypothesis, or asymptotic quantifier such as \"for all sufficiently large m\" appears in this problem, so a faithful rewrite should not introduce any such extra structure. ([ir.cwi.nl](https://ir.cwi.nl/pub/35739/35739.pdf))"
+  ],
+  "refined_question": "In the physics-informed object-parameterization model of Section 4.1, where an object is written as f = a_0 λ + Σ_{j=1}^N a_j S_{t_j} μ_j(σ), with λ the Lebesgue-measure background, each μ_j a normalized localized complex measure representing a feature, μ_j drawn from an application-specific admissible feature set E satisfying |E| ≪ N, and S_{t_j} the translation placing μ_j at position t_j, what efficient strategy can establish the set E when it is not known a priori, ideally in a way that avoids the reliability and interpretability difficulties of patch-based learned dictionaries? ([ir.cwi.nl](https://ir.cwi.nl/pub/35739/35739.pdf))",
+  "equivalent_formulation": null,
+  "justification": "The draft is not aiming at the sparse-crystallography reconstruction problems in Section 4.2, nor at feature-number selection (Question 4.2) or uniqueness/stability (Question 4.3). Its language about a background term, translated feature measures, and an admissible set E matches Eq. (5) in Section 4.1, and its main ask—how to determine E when E is unknown in advance—matches Question 4.1 almost exactly. The extra words about reliability and interpretability come from the sentence immediately after Question 4.1, where patch-based priors are proposed as a possible way to learn E but are said to suffer from reliability and interpretability issues. ([ir.cwi.nl](https://ir.cwi.nl/pub/35739/35739.pdf))",
+  "citations": [
+    {
+      "section": "1.2",
+      "label": "Organization of the paper",
+      "page": 2
+    },
+    {
+      "section": "2.2",
+      "label": "Infinite-dimensional setup (shift operator S_k)",
+      "page": 3
+    },
+    {
+      "section": "4",
+      "label": "Problem: physics-informed modeling of object and probe",
+      "page": 9
+    },
+    {
+      "section": "4.1",
+      "label": "Equation (5)",
+      "page": "9-10"
+    },
+    {
+      "section": "4.1",
+      "label": "Question 4.1",
+      "page": 10
+    },
+    {
+      "section": "4.1",
+      "label": "Sentence after Question 4.1 on patch-based priors and reliability/interpretability",
+      "page": 10
+    }
+  ]
+}

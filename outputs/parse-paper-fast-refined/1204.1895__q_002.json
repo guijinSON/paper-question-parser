@@ -1,0 +1,61 @@
+{
+  "arxiv_id": "1204.1895",
+  "question_id": "q_002",
+  "original_question": "Consider the one-dimensional recurrence/transience criterion for excited random walks under the assumptions that the family of cookie stacks is i.i.d., that there is a deterministic bound M with M(z) <= M almost surely for every site z (so each site has only boundedly many non-placebo cookies), and that every direction remains possible at every site and visit in the weak-ellipticity sense. Can the i.i.d. assumption on the cookie stacks be weakened to the stationary-and-ergodic assumption while keeping the same recurrence/transience conclusion?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 2128.68,
+  "target_in_paper": "Problem 3.11 in Section 3.1: \"Can one replace in (3.10) the assumption (IID) by (SE)?\" This refers specifically to the one-dimensional recurrence/transience criterion in Theorem 3.10 under hypothesis set (3.10).",
+  "completeness_score": 7.5,
+  "correct_elements": "Your draft correctly identifies the one-dimensional bounded-cookie regime of Section 1.3, the hypothesis package (IID) + (BD) + (WEL), and the exact structural change being asked about: whether the i.i.d. assumption on cookie stacks can be weakened to stationarity and ergodicity while preserving the recurrence/transience theorem.",
+  "missing_details": [
+    "The draft does not explicitly define the model: a nearest-neighbor excited random walk on Z started at 0, with transition rule P_{0,ω}[X_{n+1}=X_n+e | X_0,...,X_n] = ω(X_n,e,#\\{0≤k≤n : X_k=X_n\\}) for e in {-1,+1}.",
+    "It does not state that the question is about the law P of the cookie environment on Ω, and that recurrence/transience is interpreted under the averaged law P0.",
+    "It does not define M(z), the number of non-placebo cookies at site z, namely M(z) := inf{j in N_0 : ω(z,e,i)=1/2 for all e in {-1,+1} and all i>j}.",
+    "It does not spell out the exact formal meaning of (SE): the stack process (ω(z,·,·))_{z in Z} is stationary and ergodic with respect to shifts on Z.",
+    "Its paraphrase of weak ellipticity is looser than the paper's exact condition. The paper's (WEL) is: for every z in Z and e in {-1,+1}, P[forall i in N : ω(z,e,i) > 0] > 0.",
+    "It does not state the exact criterion whose conclusion is to be preserved: in Theorem 3.10 under (3.10), the walk is recurrent if δ is in [-1,1], transient to the right if δ>1, and transient to the left if δ<-1.",
+    "It omits the definition of the drift parameter δ. In d=1 under (BD), δ = E[sum_{i≥1}(2ω(0,1,i)-1)] = E[sum_{e in {-1,+1}, i≥1} ω(0,e,i)e].",
+    "It does not define the terms recurrent, transient to the right, and transient to the left in the paper's sense: recurrent means every site is visited infinitely often P0-a.s.; transience to the right/left means X_n tends to +∞/-∞ P0-a.s.",
+    "It does not indicate that this is the bounded positive-or-negative cookie case (3.10), not the separate positive-cookie case (3.9); so no extra positivity assumption or exceptional deterministic-stack exclusion should be added."
+  ],
+  "refined_question": "Let X=(X_n)_{n≥0} be the nearest-neighbor excited random walk on Z started at 0, with quenched transition rule P_{0,ω}[X_{n+1}=X_n+e | X_0,...,X_n] = ω(X_n,e,#\\{0≤k≤n : X_k=X_n\\}) for e in {-1,+1}, and let P be the law of the cookie environment. Assume that the stack process (ω(z,·,·))_{z in Z} is stationary and ergodic under spatial shifts ((SE)); that there exists a deterministic M in N such that P-a.s. M(z)≤M for every z in Z, where M(z):=inf{j in N_0 : ω(z,e,i)=1/2 for all e in {-1,+1} and all i>j} ((BD)); and that for each z in Z and e in {-1,+1}, P[forall i in N : ω(z,e,i)>0]>0 ((WEL)). Writing δ:=E[sum_{i≥1}(2ω(0,1,i)-1)] (equivalently δ=E[sum_{e in {-1,+1}, i≥1}ω(0,e,i)e]), is the analogue of Theorem 3.10(3.10) still true with (SE) in place of (IID): namely, must X be recurrent (every site visited infinitely often P0-a.s.) when δ is in [-1,1], transient to the right (X_n→+∞ P0-a.s.) when δ>1, and transient to the left (X_n→-∞ P0-a.s.) when δ<-1?",
+  "equivalent_formulation": null,
+  "justification": "The nearest official match is Problem 3.11, posed immediately after Theorem 3.10. Section 1 sets up the environment, the assumptions (IID), (SE), (WEL), the definition of M(z), and the bounded-cookie regime (BD) in dimension 1. Definition 3.1 supplies the paper's meanings of recurrence and directional transience. Theorem 3.10 then states the exact δ-threshold recurrence/transience classification under either hypothesis set (3.9) or (3.10), and Problem 3.11 asks precisely whether, in the bounded positive-or-negative cookie case (3.10), one can replace (IID) by (SE). Proposition 3.6 is nearby contextual evidence: it proves recurrence under (SE) in the special case M(0)≤1.",
+  "citations": [
+    {
+      "section": "1",
+      "label": "(1.1), (IID), (SE), (WEL)",
+      "page": "2-3"
+    },
+    {
+      "section": "1",
+      "label": "(1.2)",
+      "page": 3
+    },
+    {
+      "section": "1.3",
+      "label": "(BD)",
+      "page": 4
+    },
+    {
+      "section": "3",
+      "label": "Definition 3.1",
+      "page": "9-10"
+    },
+    {
+      "section": "3.1",
+      "label": "Proposition 3.6",
+      "page": 11
+    },
+    {
+      "section": "3.1",
+      "label": "Theorem 3.10",
+      "page": "12-13"
+    },
+    {
+      "section": "3.1",
+      "label": "Problem 3.11",
+      "page": 13
+    }
+  ]
+}

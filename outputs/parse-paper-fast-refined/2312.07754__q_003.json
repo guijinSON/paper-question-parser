@@ -1,0 +1,39 @@
+{
+  "arxiv_id": "2312.07754",
+  "question_id": "q_003",
+  "original_question": "Given a finite numerical sequence {f_k}_{k=0}^n, define the polynomial P_n(z) by P_n(z) = sum_{k=0}^n f_k f_{n-k} binom(n,k) [(z)_k (z)_{n-k} - (z+1)_k (z-1)_{n-k}], where (z)_k is the Pochhammer symbol. If the generating polynomial sum_{k=0}^n f_k z^k has only real negative zeros, must the polynomial P_n(z) also have only real negative zeros?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 9495.35,
+  "target_in_paper": "Dmitrii Karp, §1 \"Toeplitz determinants of Pochhammers.\", Conjecture 1.",
+  "completeness_score": 8.5,
+  "correct_elements": "Your draft is already very close to the paper's actual target: it reproduces the same polynomial expression, uses the same hypothesis that the generating polynomial sum_{k=0}^n f_k z^k has only real negative zeros, and asks exactly whether the associated Toeplitz-determinant polynomial must also have only real negative zeros. It also correctly identifies the Pochhammer-symbol setting.",
+  "missing_details": [
+    "The coefficients should be specified as real numbers, i.e. a finite real sequence (f_0,...,f_n), so the problem is unambiguously posed in R[z] with zeros considered in C.",
+    "The quantifier over n should be made explicit: one fixes an integer n and a sequence of length n+1; stating n >= 2 avoids trivial low-degree degeneracies.",
+    "The Pochhammer convention should be stated fully: (z)_0 = 1 and (z)_m = z(z+1)...(z+m-1) for m >= 1.",
+    "The generating polynomial should be named separately, for example F(x) = sum_{k=0}^n f_k x^k, to make the hypothesis and conclusion stand alone cleanly.",
+    "The conclusion should explicitly mean that every zero of P_n lies on the negative real axis, i.e. all zeros are real and belong to (-infinity,0).",
+    "The paper's immediate local context also records the known partial result that this polynomial has degree n-2 and positive coefficients; that is not part of the conjecture itself, but it is part of the paper-faithful framing.",
+    "To stay exactly with the paper's scope, the question should not be broadened to the higher-order Toeplitz determinant variants (Conjecture 2) or the Hurwitz-stability/PF_r variant (Conjecture 3)."
+  ],
+  "refined_question": "Fix an integer n >= 2 and real numbers f_0,...,f_n. Define\nP_n(z) = sum_{k=0}^n f_k f_{n-k} binom(n,k) [(z)_k (z)_{n-k} - (z+1)_k (z-1)_{n-k}],\nwhere (z)_0 = 1 and (z)_m = z(z+1)...(z+m-1) for m >= 1. Assume that the generating polynomial F(x) = sum_{k=0}^n f_k x^k has only real strictly negative zeros. Must every zero of P_n(z) also be real and strictly negative?",
+  "equivalent_formulation": null,
+  "justification": "The draft is trying to capture the first open problem in Dmitrii Karp's subsection on Toeplitz determinants of Pochhammers, and it does so quite closely. The exact nearby official statement is Conjecture 1 in that subsection. The paper's local framing immediately after the conjecture adds only one relevant piece of context: the polynomial already is known to have degree n-2 and positive coefficients. The next two conjectures in the same subsection concern broader neighboring problems (higher-order Toeplitz determinants and Hurwitz stability for PF_r sequences), so the refined version should stay with the 2x2 Toeplitz-determinant polynomial and the real-negative-zero preservation question only.",
+  "citations": [
+    {
+      "section": "Dmitrii Karp, §1 \"Toeplitz determinants of Pochhammers.\"",
+      "label": "Conjecture 1",
+      "page": "page number unavailable in fetched HTML view"
+    },
+    {
+      "section": "Dmitrii Karp, §1 \"Toeplitz determinants of Pochhammers.\"",
+      "label": "Known: the polynomial has degree n-2 and positive coefficients [1, Theorem 1]",
+      "page": "page number unavailable in fetched HTML view"
+    },
+    {
+      "section": "Dmitrii Karp, §1 \"Toeplitz determinants of Pochhammers.\"",
+      "label": "Conjecture 2 and Conjecture 3",
+      "page": "page number unavailable in fetched HTML view"
+    }
+  ]
+}

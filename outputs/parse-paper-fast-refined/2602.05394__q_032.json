@@ -1,0 +1,41 @@
+{
+  "arxiv_id": "2602.05394",
+  "question_id": "q_032",
+  "original_question": "Does the QRCP algorithm typically used in practice satisfy the above, or a similar, bound.",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 12626.26,
+  "target_in_paper": "Section 4.1.2 (Orthogonal rows), Problem 4.3: whether the practical QRCP algorithm, applied to Q^T for Q ∈ R^{n×k} with orthonormal columns, satisfies the preceding bound ||(Q(I,:))^{-1}||_2 ≤ √(k(n-k+1)) or a comparable bound.",
+  "completeness_score": 2.5,
+  "correct_elements": "Your draft correctly identifies the specific algorithm under discussion—QR with column pivoting (QRCP) as used in practice—and that the issue is whether it satisfies a theoretical bound stated immediately beforehand.",
+  "missing_details": [
+    "The matrix class is missing: the subsection fixes Q ∈ R^{n×k} with k < n and orthonormal columns.",
+    "The algorithm is applied to Q^T, not to an arbitrary matrix.",
+    "The selected object is an index set I ⊂ {1,…,n} of size k, corresponding to the first k pivot columns of Q^T, equivalently k selected rows of Q.",
+    "The exact bound referred to by 'the above' is ||(Q(I,:))^{-1}||_2 ≤ √(k(n-k+1)).",
+    "The notation Q(I,:) and the fact that this is a k×k submatrix whose inverse is being bounded are implicit in the draft and need to be spelled out.",
+    "The paper's question is in the orthogonal-rows / RRQR setting, not the broader CSSP or general low-rank approximation setting.",
+    "The relevant quantifier is not average-case over inputs: the phrase 'typically used in practice' modifies the algorithm, not the input distribution.",
+    "The intended comparison for 'a similar bound' is a comparably strong non-exponential bound; the nearby context notes that existing upper bounds for QRCP grow exponentially in k.",
+    "The ambient field is real in the subsection's setup."
+  ],
+  "refined_question": "Let Q ∈ R^{n×k} with k < n and Q^TQ = I_k. Apply the standard QR factorization with column pivoting (QRCP) to Q^T, and let I ⊂ {1,…,n}, |I| = k, be the indices corresponding to the first k pivot columns of Q^T (equivalently, the k selected rows of Q). It is known that there exists an index set I for which ||(Q(I,:))^{-1}||_2 ≤ √(k(n-k+1)). Does the QRCP algorithm used in practice itself always return an index set I satisfying this bound, or at least a comparably strong non-exponential bound on ||(Q(I,:))^{-1}||_2, for every such Q?",
+  "equivalent_formulation": null,
+  "justification": "The draft is essentially a shorthand for Problem 4.3 itself: the paper asks, almost verbatim, whether the practical QRCP algorithm satisfies 'the above, or a similar, bound.' The phrase 'the above' points to the immediately preceding statement in Section 4.1.2, which gives the existence bound ||(Q(I,:))^{-1}||_2 ≤ √(k(n-k+1)) for some row index set I when Q has orthonormal columns. The same subsection frames the problem as computing an RRQR of Q^T in the orthogonal-rows setting, so a faithful rewrite must unpack Q, I, the role of Q^T, and the exact norm bound, while not broadening the question beyond Problem 4.3.",
+  "citations": [
+    {
+      "section": "4.1",
+      "label": "When do greedy/randomized column selection algorithms work?",
+      "page": 28
+    },
+    {
+      "section": "4.1.2",
+      "label": "Orthogonal rows",
+      "page": 30
+    },
+    {
+      "section": "4.1.2",
+      "label": "Problem 4.3",
+      "page": 30
+    }
+  ]
+}

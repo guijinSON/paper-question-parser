@@ -1,0 +1,45 @@
+{
+  "arxiv_id": "2406.00790",
+  "question_id": "q_012",
+  "original_question": "Let Gamma be a numerical semigroup. For each homological degree i > 1, is the i-th Betti number of the local semigroup ring R_Gamma always bounded above by binom(width(Gamma)+1, i+1)?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 9974.03,
+  "target_in_paper": "Section 3 (Width), Problem 13 of arXiv:2406.00790, which explicitly points to [CMS23, Conjecture 1.3]: the width-based upper bound for all Betti numbers of the semigroup ring of a numerical semigroup.",
+  "completeness_score": 5,
+  "correct_elements": "The draft correctly identifies the main objects and theme: a numerical semigroup Γ, its local semigroup ring, higher Betti numbers, and a conjectural upper bound depending only on the width of Γ.",
+  "missing_details": [
+    "The paper-faithful bound has an extra multiplicative factor i: the conjectured inequality is β_i(R_Γ) ≤ i·binom(wd(Γ)+1, i+1), not just binom(wd(Γ)+1, i+1).",
+    "The official formulation is for all homological degrees i ≥ 1 (equivalently, for all i), not only for i > 1.",
+    "The width must be defined explicitly from the minimal generators: if Γ = ⟨n_1 < ··· < n_e⟩, then wd(Γ) = n_e - n_1.",
+    "The ambient field should be fixed: the paper works over a field k, and the semigroup ring is R_Γ = k[[t^{n_1}, …, t^{n_e}]].",
+    "The Betti numbers should be specified as total Betti numbers with respect to the minimal regular presentation k[[x_1, …, x_e]] → R_Γ, x_j ↦ t^{n_j}.",
+    "The paper’s notation treats the local and graded semigroup rings as equivalent for Betti numbers, so the local formulation can be replaced by the graded one only because β_i(k[Γ]) = β_i(R_Γ).",
+    "The draft does not indicate that this is the higher-Betti extension of the Herzog–Stamate width conjecture for the first Betti number.",
+    "If the question is meant to be fully stand-alone, it should state that Γ is a numerical semigroup, i.e. a cofinite additive submonoid of N."
+  ],
+  "refined_question": "Fix a field k, and let Γ = ⟨n_1 < ··· < n_e⟩ ⊆ N be a numerical semigroup with width wd(Γ) := n_e - n_1. Let R_Γ := k[[t^{n_1}, …, t^{n_e}]] be its local semigroup ring, and let β_i(R_Γ) denote its i-th total Betti number with respect to the minimal regular presentation k[[x_1, …, x_e]] → R_Γ sending x_j to t^{n_j}. Is it true that for every i ≥ 1 one has β_i(R_Γ) ≤ i·binom(wd(Γ)+1, i+1)?",
+  "equivalent_formulation": "Equivalently, with k[Γ] = k[t^{n_1}, …, t^{n_e}], is it true that β_i(k[Γ]) ≤ i·binom(wd(Γ)+1, i+1) for every i ≥ 1? This is equivalent because the paper records that β_i(k[Γ]) = β_i(R_Γ) for all i.",
+  "justification": "Your draft is aiming at the explicit width-bound problem from the paper’s Width section, not the weaker comparison problem with the interval completion. The nearest official formulation in arXiv:2406.00790 is Problem 13, which cites [CMS23, Conjecture 1.3]. To make the question fully faithful and stand-alone, one must import the notation fixed earlier in the paper: the field k, the local semigroup ring R_Γ = k[[Γ]], the definition of Betti numbers via a minimal regular presentation, and the definition of width from the ordered minimal generators. The most important correction is that the official conjectured upper bound includes the factor i. The paper also explicitly states that the graded and local semigroup rings have the same Betti numbers, which gives the one legitimate alternate formulation.",
+  "citations": [
+    {
+      "section": "§1 Generalities",
+      "label": "definitions of the local semigroup ring, Betti numbers, and the fact that β_i(k[Γ]) = β_i(R_Γ)",
+      "page": "HTML lines 39-49 (page unavailable in ar5iv HTML)"
+    },
+    {
+      "section": "§3 Width",
+      "label": "Problem 13 ([CMS23], Conjecture 1.3)",
+      "page": "HTML lines 176-185 (page unavailable in ar5iv HTML)"
+    },
+    {
+      "section": "§1 Introduction of Bounds for syzygies of monomial curves",
+      "label": "Conjecture 1.3",
+      "page": "3665-3666"
+    },
+    {
+      "section": "§2 Preliminaries of Bounds for syzygies of monomial curves",
+      "label": "definitions of semigroup ring and Betti numbers; equality of local and graded Betti numbers",
+      "page": "3666-3667"
+    }
+  ]
+}

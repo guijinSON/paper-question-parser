@@ -1,0 +1,43 @@
+{
+  "arxiv_id": "1912.04625",
+  "question_id": "q_006",
+  "original_question": "Let phi be a nonnegative integrable convolution kernel on R^d with integral 1, let phi_t(x) = t^{-d} phi(x/t), and define the convolution-type maximal operator by M_phi f(x) = sup_{t>0} (phi_t * |f|)(x). For a one-dimensional function f of bounded variation, does there always exist a finite constant C(phi) such that Var(M_phi f) <= C(phi) Var(f)? For which kernels phi can one prove the sharp constant C(phi) = 1?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 6920.8,
+  "target_in_paper": "Section 4, Question 6, the open problem on variation bounds for maximal operators of convolution type, with Theorem 4.1 giving the model positive cases (Poisson and Gauss kernels).",
+  "completeness_score": 7.5,
+  "correct_elements": "The draft correctly identifies the Section 4 problem about maximal operators of convolution type: it assumes a nonnegative integrable kernel of mass 1, uses the standard dilates phi_t(x)=t^{-d}phi(x/t), defines the associated maximal operator x -> sup_{t>0} (phi_t * |f|)(x), and asks whether the total variation of the maximal function is bounded by the variation of f, with special attention to the contractive case C=1.",
+  "missing_details": [
+    "The paper’s official formulation is not written only in one dimension: it is posed after defining the kernel on R^d, and the constant is explicitly allowed to depend on both phi and d, i.e. C(phi,d), not just C(phi).",
+    "To be stand-alone and faithful to the paper, one should specify that f belongs to BV(R^d) and that V(f) denotes the total variation of f.",
+    "The quantifiers should be explicit: for each admissible kernel phi, does there exist a finite constant C(phi,d) such that the inequality holds for every f in BV(R^d)?",
+    "The paper asks whether one can take C(phi,d)=1; calling 1 the 'sharp constant' is slightly stronger than the paper’s wording and should be softened unless separately justified.",
+    "The nearby context matters: Theorem 4.1 records known positive cases for the Poisson and Gauss kernels, and the paragraph immediately after it says that Question 6 is the general version of that result.",
+    "If one wants full paper-faithfulness, one should note that the paper assumes real-valued functions throughout."
+  ],
+  "refined_question": "Let d >= 1, let phi in L^1(R^d) be nonnegative with integral 1, define phi_t(x)=t^{-d}phi(x/t) for t>0, and define the convolution-type maximal operator M_phi by M_phi f(x)=sup_{t>0} (|f| * phi_t)(x). If f is a real-valued function in BV(R^d) and V(f) denotes its total variation, does there exist a finite constant C(phi,d) such that V(M_phi f) <= C(phi,d) V(f) for every f in BV(R^d)? For which kernels phi can one actually prove the contractive estimate V(M_phi f) <= V(f), i.e. C(phi,d)=1?",
+  "equivalent_formulation": null,
+  "justification": "The draft is clearly targeting Section 4 rather than the Hardy-Littlewood questions from Section 3, because it introduces a general convolution kernel phi, its dilates phi_t, and the convolution maximal operator M_phi. That matches exactly the setup at the start of Section 4. The specific two-part question in the draft—existence of a variation bound and the special case C=1—matches Question 6 verbatim in substance. The immediate context also confirms the intended scope: Theorem 4.1 states the positive examples for the Poisson and Gauss kernels, and the next paragraph says that Question 6 is the general version of that theorem. The main ways the draft is incomplete relative to the paper are that it narrows to one dimension, suppresses the d-dependence in the constant, leaves the total-variation notation implicit, and upgrades the paper’s 'can we show C=1?' to 'sharp constant C=1'.",
+  "citations": [
+    {
+      "section": "Section 1",
+      "label": "Introduction (all functions are real-valued)",
+      "page": "chapter pp. 69-92; exact page not available in HTML view"
+    },
+    {
+      "section": "Section 4",
+      "label": "Definitions preceding Theorem 4.1",
+      "page": "chapter pp. 69-92; exact page not available in HTML view"
+    },
+    {
+      "section": "Section 4",
+      "label": "Theorem 4.1",
+      "page": "chapter pp. 69-92; exact page not available in HTML view"
+    },
+    {
+      "section": "Section 4",
+      "label": "Question 6",
+      "page": "chapter pp. 69-92; exact page not available in HTML view"
+    }
+  ]
+}

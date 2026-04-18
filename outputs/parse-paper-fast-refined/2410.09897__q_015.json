@@ -1,0 +1,38 @@
+{
+  "arxiv_id": "2410.09897",
+  "question_id": "q_015",
+  "original_question": "For all i,j,r in N, consider the square submatrix of the Eulerian matrix A = (A(n+1,k))_{n,k in N} cut out by rows i, i+1, ..., i+r and columns j, j+1, ..., j+r. Is its determinant always a monotonically increasing function of i?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 10182.59,
+  "target_in_paper": "Section 2 (Unimodality), Conjecture 2.13: \"For all i, j, r in N the determinant of the submatrix determined by the rows indexed by i, i+1, ..., i+r and columns indexed by j, j+1, ..., j+r is a monotonically increasing function of i in N.\"",
+  "completeness_score": 9,
+  "correct_elements": "Your draft is already very close to the paper's exact target. It identifies the correct matrix A = (A(n+1,k))_{n,k in N}, the correct contiguous square minor cut out by rows i, i+1, ..., i+r and columns j, j+1, ..., j+r, and the correct monotonicity question with respect to the row-start index i. This is exactly the problem stated as Conjecture 2.13 in Section 2.",
+  "missing_details": [
+    "The paper explicitly defines A(n,k) as the Eulerian number, i.e. the number of permutations in S_n having exactly k descents.",
+    "The indexing convention behind A = (A(n+1,k))_{n,k in N} should be made explicit; to match the paper faithfully, one should take N = {0,1,2,...}, so the matrix is 0-indexed.",
+    "The monotonicity should be phrased with j and r fixed and i as the varying argument; the draft quantifies i both as a fixed parameter and as the variable of the function.",
+    "To remove ambiguity, the phrase \"monotonically increasing\" should be clarified as nondecreasing unless one intends a stronger strict monotonicity statement, which the paper does not state.",
+    "The determinant is the ordinary determinant of an integer matrix (equivalently viewed over Z or R); there are no additional ambient-ring, homogeneity, degree, or nilpotency conditions in this problem.",
+    "The paper presents this as a stronger property than Conjecture 2.12, which asks only for total positivity of the Eulerian matrix."
+  ],
+  "refined_question": "Let N = {0,1,2,...}, and let A = (A(n+1,k))_{n,k in N}, where A(n,k) denotes the Eulerian number, i.e. the number of permutations in S_n with exactly k descents. For fixed j,r in N, define D_{j,r}(i) = det(A(i+p+1, j+q))_{0<=p,q<=r}. Is D_{j,r}(i) a monotonically increasing (equivalently, nondecreasing) function of i in N?",
+  "equivalent_formulation": null,
+  "justification": "The draft clearly targets Section 2 rather than the Coxeter-group problems in Section 1. In Section 2, after recalling total positivity and then stating Conjecture 2.12 that the Eulerian matrix A = (A(n+1,k))_{n,k in N} is totally positive, the paper immediately states Conjecture 2.13 on the monotonicity in i of these consecutive (r+1)x(r+1) Eulerian minors (Section 2, Conjectures 2.12 and 2.13, p. 10). The nearby context also supplies the meaning of A(n,k): it is the Eulerian number counting permutations in S_n with k descents (Section 2, p. 10). No alternate equivalent formulation is proved in the paper here; the only nearby relation is that Conjecture 2.13 implies Conjecture 2.12, not that it is equivalent to it (Section 2, p. 10).",
+  "citations": [
+    {
+      "section": "2",
+      "label": "Theorem 2.1 context",
+      "page": 7
+    },
+    {
+      "section": "2",
+      "label": "Conjecture 2.12",
+      "page": 10
+    },
+    {
+      "section": "2",
+      "label": "Conjecture 2.13",
+      "page": 10
+    }
+  ]
+}

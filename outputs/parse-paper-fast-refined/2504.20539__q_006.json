@@ -1,0 +1,42 @@
+{
+  "arxiv_id": "2504.20539",
+  "question_id": "q_006",
+  "original_question": "Let x1, ..., xn be independent Gaussian vectors in R^d with distribution N(0, Id/d). An origin-centered ellipsoid fit means there exists a positive semidefinite matrix S such that x_i^T S x_i = 1 for all i (equivalently, all points lie on the boundary of {x in R^d : x^T S x = 1}). Is there a sharp threshold at n/d^2 = 1/4 in the sense that for every epsilon > 0 one has P[ellipsoid fit exists] -> 1 when n/d^2 <= (1 - epsilon)/4 and P[ellipsoid fit exists] -> 0 when n/d^2 >= (1 + epsilon)/4 as d -> infinity?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 10817.25,
+  "target_in_paper": "Entry 3, Conjecture 6 (Ellipsoid fitting)",
+  "completeness_score": 9,
+  "correct_elements": "Your draft already captures the core content of the paper-faithful question: the ambient space is ℝ^d; the samples are i.i.d. Gaussian with law N(0, I_d/d); the feasibility event is existence of an origin-centered ellipsoid through all sampled points; the equivalent semidefinite formulation x_i^T S x_i = 1 with S ⪰ 0 is exactly the paper’s SDP reformulation; and the conjectured sharp threshold is at n/d^2 = 1/4 with probability tending to 1 below and to 0 above.",
+  "missing_details": [
+    "The paper states the asymptotic in terms of a sequence n = n(d) as d → ∞, using limsup_{d→∞} n(d)/d^2 and liminf_{d→∞} n(d)/d^2, not the pointwise inequalities n/d^2 ≤ (1−ε)/4 or n/d^2 ≥ (1+ε)/4 for each d.",
+    "The primary formulation in the paper is 'there exists an ellipsoid fit to (x_i)_{i=1}^n'; the PSD-matrix condition is an equivalent reformulation given separately as equation (4).",
+    "To be fully stand-alone and paper-faithful, the question should specify that n,d are integers with n,d ≥ 1 and that x_1,…,x_n are i.i.d. random points in ℝ^d.",
+    "The quantified statement is 'for any ε > 0' together with the corresponding probability limit as d → ∞ along the chosen sequence n(d).",
+    "If the SDP formulation is used, the matrix should be identified as a real symmetric positive semidefinite matrix S ∈ ℝ^{d×d}, since the ellipsoid is origin-centered in ℝ^d."
+  ],
+  "refined_question": "Let d → ∞ and let n = n(d) be a sequence of integers with n,d ≥ 1. Let x_1, …, x_n be i.i.d. random vectors in ℝ^d with law N(0, I_d/d). Say that (x_i)_{i=1}^n admits an origin-centered ellipsoid fit if there exists an ellipsoid E ⊂ ℝ^d centered at the origin whose boundary contains every x_i. Is it true that, for every ε > 0, one has\n\n(1) if limsup_{d→∞} n(d)/d^2 ≤ (1−ε)/4, then lim_{d→∞} P[there exists an origin-centered ellipsoid fit to (x_i)_{i=1}^n] = 1;\n\nand\n\n(2) if liminf_{d→∞} n(d)/d^2 ≥ (1+ε)/4, then lim_{d→∞} P[there exists an origin-centered ellipsoid fit to (x_i)_{i=1}^n] = 0?\n\nIn other words, does exact centered ellipsoid fitting for i.i.d. N(0, I_d/d) points undergo a sharp satisfiability threshold at n/d^2 = 1/4?",
+  "equivalent_formulation": "Equivalently, by the paper’s SDP reformulation, is it true that for every ε > 0: if limsup_{d→∞} n(d)/d^2 ≤ (1−ε)/4 then lim_{d→∞} P[∃ S ∈ ℝ^{d×d} symmetric with S ⪰ 0 and x_i^T S x_i = 1 for all i ∈ [n]] = 1, while if liminf_{d→∞} n(d)/d^2 ≥ (1+ε)/4 then this probability tends to 0?",
+  "justification": "The draft is targeting Conjecture 6 in Entry 3, not the nearby approximate-fitting results. Conjecture 6 states exactly the sharp-threshold question for centered ellipsoid fitting of i.i.d. N(0, I_d/d) points, with threshold 1/4 and asymptotic hypotheses expressed through limsup/liminf of n(d)/d^2. Equation (4) gives the explicit equivalent SDP formulation in terms of a positive semidefinite matrix S. The nearby Theorem 3.1 is only a constant-factor lower-bound result, and Theorem 3.2 concerns the modified approximate-fitting event EFP_{ε,M} with bounded spectral norm, so the refined question should remain the exact-feasibility conjecture rather than broaden to approximate fitting.",
+  "citations": [
+    {
+      "section": "Entry 3",
+      "label": "Conjecture 6 (Ellipsoid fitting), equations (2) and (3)",
+      "page": 3
+    },
+    {
+      "section": "Entry 3",
+      "label": "Equation (4)",
+      "page": 3
+    },
+    {
+      "section": "Entry 3",
+      "label": "Theorem 3.1",
+      "page": 4
+    },
+    {
+      "section": "Entry 3",
+      "label": "Theorem 3.2",
+      "page": 4
+    }
+  ]
+}

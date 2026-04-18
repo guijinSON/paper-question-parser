@@ -1,0 +1,48 @@
+{
+  "arxiv_id": "2602.05394",
+  "question_id": "q_018",
+  "original_question": "Analyze the Lanczos algorithm under general models of inexact matrix-vector multiplication and/or the use of a preconditioner. Progress is made if these bounds generalize Paige's analysis and/or provide new, easier to understand, insight into the behavior of the algorithm.",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 12519.45,
+  "target_in_paper": "Problem 2.18 in §2.6, \"Symmetric Krylov methods in finite precision arithmetic,\" not the neighboring block-Lanczos Problem 2.19. ([znakschoola.ru](https://www.znakschoola.ru/?_=%2Fpdf%2F2602.05394%23UE7DkG0PaBHZOakR54g1Wl8%3D&utm_source=openai))",
+  "completeness_score": 9,
+  "correct_elements": "Your draft is already extremely close to the paper’s official formulation: it keeps the focus on the Lanczos algorithm itself, general models of inexact matrix-vector multiplication, preconditioner use/application, Paige’s analysis as the benchmark, and the goal of obtaining bounds or insight that are easier to interpret. In fact, it is nearly verbatim Problem 2.18. ([znakschoola.ru](https://www.znakschoola.ru/?_=%2Fpdf%2F2602.05394%23UE7DkG0PaBHZOakR54g1Wl8%3D&utm_source=openai))",
+  "missing_details": [
+    "Specify that the intended setting is the standard non-block symmetric Lanczos context of §2.6; the paper treats block Lanczos separately in Problem 2.19, so the question should not drift to that variant. ([znakschoola.ru](https://www.znakschoola.ru/?_=%2Fpdf%2F2602.05394%23UE7DkG0PaBHZOakR54g1Wl8%3D&utm_source=openai))",
+    "Make explicit that the motivation is to move beyond Paige’s standard floating-point-arithmetic model to more general inexact-operator models. The paper’s nearby context gives example models fl(Ax)=(A+ΔA)x and approximate preconditioner application via computed z satisfying (M+ΔM)z=r. ([znakschoola.ru](https://www.znakschoola.ru/?_=%2Fpdf%2F2602.05394%23UE7DkG0PaBHZOakR54g1Wl8%3D&utm_source=openai))",
+    "Clarify that “use of a preconditioner” here really means possibly implicit and inexact preconditioner application, not merely selecting an exact fixed preconditioner stored explicitly. ([znakschoola.ru](https://www.znakschoola.ru/?_=%2Fpdf%2F2602.05394%23UE7DkG0PaBHZOakR54g1Wl8%3D&utm_source=openai))",
+    "State that the desired output is a Paige-style analysis of the computed Lanczos process under these general inexact models, rather than a broader convergence theory for arbitrary Krylov methods or arbitrary perturbation models. ([znakschoola.ru](https://www.znakschoola.ru/?_=%2Fpdf%2F2602.05394%23UE7DkG0PaBHZOakR54g1Wl8%3D&utm_source=openai))",
+    "If the question is to be stand-alone, introduce the operators A and M and the notion of computed matrix-vector product / computed preconditioner application; the paper itself leaves these implicit in the official problem statement and supplies them only in the surrounding paragraph. ([znakschoola.ru](https://www.znakschoola.ru/?_=%2Fpdf%2F2602.05394%23UE7DkG0PaBHZOakR54g1Wl8%3D&utm_source=openai))",
+    "The orthogonal-polynomial / Stieltjes-procedure viewpoint mentioned immediately afterward is only presented as a possible route to insight, not as the primary statement itself, so it should remain secondary if included at all. ([znakschoola.ru](https://www.znakschoola.ru/?_=%2Fpdf%2F2602.05394%23UE7DkG0PaBHZOakR54g1Wl8%3D&utm_source=openai))"
+  ],
+  "refined_question": "For the standard non-block symmetric Lanczos algorithm applied to a symmetric matrix A, possibly with a preconditioner M, suppose that matrix-vector products and/or preconditioner applications are available only through a general inexact model—for example, computed products satisfy fl(Ax)=(A+ΔA)x and computed preconditioned vectors z for residuals r satisfy (M+ΔM)z=r, without requiring an explicit formula for ΔA or ΔM. Develop a Paige-style analysis of the resulting computed Lanczos process under such general inexact-operator models, obtaining bounds or structural descriptions that either genuinely extend Paige’s finite-precision analysis or provide a simpler, more interpretable account of the algorithm’s behavior. ([znakschoola.ru](https://www.znakschoola.ru/?_=%2Fpdf%2F2602.05394%23UE7DkG0PaBHZOakR54g1Wl8%3D&utm_source=openai))",
+  "equivalent_formulation": null,
+  "justification": "The draft is targeting Problem 2.18 exactly: the official statement on p. 18 asks to analyze Lanczos under general models of inexact matrix-vector multiplication and/or preconditioner use, with progress measured by generalizing Paige’s analysis and/or yielding easier-to-understand insight. The surrounding paragraph on the same page supplies the hidden scope that makes the problem stand-alone: Paige’s original setting is the standard floating-point model; the paper wants a more general inexact-operator model and explicitly gives representative forms for inexact matvecs and inexact preconditioner application. The immediately following text mentions the Stieltjes procedure only as one possible avenue for insight, and Problem 2.19 separately asks about block Lanczos, so the refined question should stay with standard Lanczos and should not be broadened. ([znakschoola.ru](https://www.znakschoola.ru/?_=%2Fpdf%2F2602.05394%23UE7DkG0PaBHZOakR54g1Wl8%3D&utm_source=openai))",
+  "citations": [
+    {
+      "section": "2.6",
+      "label": "Symmetric Krylov methods in finite precision arithmetic",
+      "page": 17
+    },
+    {
+      "section": "2.6",
+      "label": "background paragraph preceding Problem 2.18",
+      "page": 18
+    },
+    {
+      "section": "2.6",
+      "label": "Problem 2.18",
+      "page": 18
+    },
+    {
+      "section": "2.6",
+      "label": "paragraph following Problem 2.18 (Stieltjes procedure / orthogonal polynomials)",
+      "page": "18-19"
+    },
+    {
+      "section": "2.6",
+      "label": "Problem 2.19",
+      "page": 18
+    }
+  ]
+}

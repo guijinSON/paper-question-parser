@@ -1,0 +1,41 @@
+{
+  "arxiv_id": "2310.18163",
+  "question_id": "q_025",
+  "original_question": "For each k in N, determine whether there exists K in N with the following property. Whenever a_1,...,a_k are elements of Z/(2^r Z), and d<=r is the largest nonnegative integer such that 2^d divides the sum of a_i over some nonempty index set, there is a K-colouring of Z/(2^r Z) such that every monochromatic solution x=(x_1,...,x_k) to a_1 x_1 + ... + a_k x_k = 0 satisfies 2^{r-d} dividing x_i for every i.",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 9115.86,
+  "target_in_paper": "Section 11, Conjecture 11.1, \"A modular version of Rado's boundedness conjecture\".",
+  "completeness_score": 9,
+  "correct_elements": "Your draft already captures the core mathematical content of the paper's target statement very closely: it has the correct ambient ring Z/2^rZ, the correct universal parameter k, the existence of a bound K depending only on k, the correct definition of d via the largest 2-adic divisibility of a nonempty subset-sum of the coefficients, the correct monochromatic equation a_1 x_1 + ... + a_k x_k = 0, and the correct conclusion that every monochromatic solution must have each coordinate divisible by 2^(r-d). In substance, it is essentially a paraphrase of Conjecture 11.1.",
+  "missing_details": [
+    "The quantifier over r is missing: the conjecture is universal in every positive integer r.",
+    "It should be explicit that K = K(k) depends only on k, not on r or on the coefficients a_1, ..., a_k.",
+    "The nonempty index set should be specified as a subset I of {1, ..., k}.",
+    "The equation a_1 x_1 + ... + a_k x_k = 0 is to be interpreted in the ring Z/2^rZ.",
+    "The variables x_1, ..., x_k should be stated to lie in (Z/2^rZ)^k.",
+    "Because divisibility inside Z/2^rZ can be implicit, the condition 2^(r-d) divides x_i should be clarified as x_i belonging to 2^(r-d)(Z/2^rZ), equivalently x_i ≡ 0 mod 2^(r-d).",
+    "Likewise, the definition of d should ideally be phrased in ring-theoretic terms: sum_{i in I} a_i lies in 2^d(Z/2^rZ).",
+    "To stay paper-faithful, the question should be posed as the truth of a single conjectural existence statement, not broadened into a more general boundedness or partition-regularity problem.",
+    "The nearby context in Section 11 explains that this is a modular analogue of Rado's boundedness conjecture and that, unlike the Fox-Kleitman modular variant mentioned there, this formulation does not restrict to units in Z/2^rZ."
+  ],
+  "refined_question": "For every positive integer k, is there a positive integer K = K(k) such that the following holds? For every positive integer r and every choice of coefficients a_1, ..., a_k in Z/2^rZ, let d be the largest integer with 0 <= d <= r for which there exists a nonempty subset I of {1, ..., k} such that sum_{i in I} a_i belongs to 2^d(Z/2^rZ). Does there exist a colouring c: Z/2^rZ -> {1, ..., K} such that every monochromatic solution (x_1, ..., x_k) in (Z/2^rZ)^k to the equation a_1 x_1 + ... + a_k x_k = 0 in Z/2^rZ satisfies x_i in 2^(r-d)(Z/2^rZ) for every i?",
+  "equivalent_formulation": null,
+  "justification": "The draft is aiming at Section 11, not at Section 1: the exact match in the paper is Conjecture 11.1, introduced as a modular analogue of Rado's boundedness conjecture. The surrounding text first recalls k-regularity and Rado's boundedness conjecture, then explains the motivation from passing to Z/2^rZ in the Fox-Kleitman proof, and finally states Conjecture 11.1 with exactly the parameters k, K, r, a_1, ..., a_k, and d that appear in your draft. The only refinements needed are to restore the missing universal quantifier over r, specify that the subset is I subseteq {1, ..., k}, make explicit that the equation is solved in Z/2^rZ by tuples in (Z/2^rZ)^k, and spell out the meaning of divisibility in the quotient ring. The paper does not give an equivalent reformulation of Conjecture 11.1; it only states that a standard compactness argument shows this conjecture implies Rado's boundedness conjecture for a single equation, so no alternate equivalent version should be substituted.",
+  "citations": [
+    {
+      "section": "11",
+      "label": "introductory paragraphs before Conjecture 11.1",
+      "page": "not available in ar5iv HTML; see lines 357-360"
+    },
+    {
+      "section": "11",
+      "label": "Conjecture 11.1",
+      "page": "not available in ar5iv HTML; see lines 361-363"
+    },
+    {
+      "section": "11",
+      "label": "paragraph immediately after Conjecture 11.1",
+      "page": "not available in ar5iv HTML; see line 365"
+    }
+  ]
+}

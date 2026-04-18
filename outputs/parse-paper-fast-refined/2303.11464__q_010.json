@@ -1,0 +1,42 @@
+{
+  "arxiv_id": "2303.11464",
+  "question_id": "q_010",
+  "original_question": "In a 4-uniform hypergraph with distinguished nodes s and t, suppose one must separate s from t while minimizing the number of 1-vs-3 hyperedge splits and forbidding every 2-vs-2 split; equivalently, consider the No-Even-Split 4-uniform s-t cut problem obtained as the limit w_2 -> infinity with w_1 = 1. What is the computational complexity of this problem?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 8568.68,
+  "target_in_paper": "Open Problem 3.2 in Section 3: \"What is the complexity of the No-Even-Split 4-uniform s-t cut problem?\"",
+  "completeness_score": 9,
+  "correct_elements": "Your draft already matches the paper’s intended target very closely. It correctly identifies the 4-uniform hypergraph setting with distinguished source/sink vertices s and t, the objective of minimizing the number of 1-vs-3 hyperedge splits, the prohibition of all 2-vs-2 splits, and the fact that this is the w1 = 1, w2 -> infinity special case of the broader cardinality-based 4-uniform hypergraph s-t cut problem.",
+  "missing_details": [
+    "State formally that the optimization is over all bipartitions {S, V \\ S} with s in S and t in V \\ S.",
+    "Define the cut-type notation used in the paper: ∂i(S) = {e in E : min(|e ∩ S|, |e ∩ (V \\ S)|) = i}.",
+    "Specify explicitly that H = (V, E) is a finite 4-uniform hypergraph, i.e. every hyperedge has exactly four vertices.",
+    "Make clear that this is the cardinality-based cut model with w0 = 0, unit penalty on every 1-vs-3 split, and 2-vs-2 splits excluded via the no-even-split constraint (equivalently, infinite penalty in the limiting discussion).",
+    "Sharpen the phrase \"computational complexity\" to the paper’s intended unresolved dichotomy: whether the optimization problem is NP-hard or instead admits a polynomial-time algorithm."
+  ],
+  "refined_question": "Let H = (V, E) be a finite 4-uniform hypergraph with source vertex s and sink vertex t. For a bipartition {S, V \\ S} with s in S and t in V \\ S, define ∂i(S) = {e in E : min(|e ∩ S|, |e ∩ (V \\ S)|) = i}. What is the computational complexity of solving the optimization problem min{|∂1(S)| : S ⊆ V, s in S, t in V \\ S, and ∂2(S) = empty set}? In other words, is the No-Even-Split 4-uniform s-t cut problem polynomial-time solvable, or is it NP-hard?",
+  "equivalent_formulation": null,
+  "justification": "The nearest official target is Open Problem 3.2, not the broader Open Problem 3.1. Section 3 first defines the cardinality-based hypergraph s-t cut objective in equation (1), then states Open Problem 3.1 for 4-uniform hypergraphs with w1 = 1 and w2 > 2. Immediately afterward, the paper isolates the special case obtained by taking w2 to infinity with w1 fixed at 1, names it the No-Even-Split 4-uniform s-t cut problem, and describes it exactly as minimizing the number of 1-vs-3 hyperedge splits while making no 2-vs-2 splits. Open Problem 3.2 then asks precisely for the computational complexity of that problem. The surrounding discussion also clarifies that the intended question is whether the problem is NP-hard or instead has a polynomial-time algorithm.",
+  "citations": [
+    {
+      "section": "Section 3",
+      "label": "Equation (1)",
+      "page": 19
+    },
+    {
+      "section": "Section 3",
+      "label": "Open Problem 3.1",
+      "page": 20
+    },
+    {
+      "section": "Section 3",
+      "label": "Open Problem 3.2",
+      "page": 20
+    },
+    {
+      "section": "Section 3",
+      "label": "Discussion immediately before and after Open Problem 3.2",
+      "page": "20-21"
+    }
+  ]
+}

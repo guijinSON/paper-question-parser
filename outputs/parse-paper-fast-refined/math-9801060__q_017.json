@@ -1,0 +1,51 @@
+{
+  "arxiv_id": "math-9801060",
+  "question_id": "q_017",
+  "original_question": "In weighted graph enumeration of perfect matchings, characterize the local graph substitutions that change the weighted sum of matchings by a predictable factor or preserve it exactly.",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 13858.53,
+  "target_in_paper": "Section 4 (\"Miscellaneous\"), Problem 17 (pp. 277-278): \"Characterize those local substitutions that have a predictable effect on the weighted sum of matchings of a graph.\"",
+  "completeness_score": 9,
+  "correct_elements": "Your draft is already very close to the paper-faithful target. It correctly identifies the weighted enumeration setting, the focus on perfect matchings, the fact that the transformations are local substitutions, and the two behaviors highlighted in the surrounding discussion: exact preservation of the weighted matching sum and change by a predictable multiplicative factor.",
+  "missing_details": [
+    "The paper's standing convention is that \"matching\" means \"perfect matching\"; this should be stated explicitly in a stand-alone question.",
+    "The \"weighted sum of matchings\" should be defined as the matching generating function Z(G)=sum over perfect matchings M of wt(M), where wt(M) is the product of the weights of the edges in M.",
+    "The transformation is a local replacement of a weighted subgraph inside a larger graph, with the rest of the graph held fixed; the draft says \"graph substitutions\" but not explicitly \"subgraph substitutions within a graph.\"",
+    "In the nearby explanatory paragraph, a \"predictable effect\" means a multiplicative relation Z(G')=c Z(G), where the correction factor c is determined from the local substitution data; exact preservation is the special case c=1.",
+    "The motivating examples in the paper impose attachment constraints on the replaced patch: certain circled interior vertices are not allowed to have neighbors outside the displayed local configuration.",
+    "The paper leaves the coefficient setting for weights implicit, but its example formulas involve division (for instance by ad+bc and by bc+eg), so a fully formal stand-alone version should at least assume a commutative weight setting in which those local expressions are defined.",
+    "The problem is a characterization problem for all such local substitutions, not merely a request to verify or reprove the urban-renewal move or one other named substitution.",
+    "The nearby context says this problem arises from the subgraph-substitution method used for Problems 15 and 16 on periodic planar graphs; that motivation is omitted from the draft, though it is not part of the formal statement itself.",
+    "The paper is concerned with finite graphs, since it frames the subject as exact enumeration of matchings of finite graphs."
+  ],
+  "refined_question": "Let Z(G)=\\sum_M \\prod_{e\\in M} w(e), where M ranges over the perfect matchings of a finite edge-weighted graph G. Characterize the local replacements of a weighted subgraph of G by another weighted subgraph, with the rest of the graph unchanged, for which the resulting graph G' satisfies Z(G')=c\\,Z(G) for a correction factor c determined explicitly from the local replacement data alone, including the special case c=1.",
+  "equivalent_formulation": null,
+  "justification": "This is the exact target because the paragraph immediately before Problem 17 introduces weighted enumeration of matchings, defines the local-substitution viewpoint, and explains that the relevant effect is either preservation of the weighted sum or multiplication by a predictable factor; Problem 17 then states the characterization question itself in essentially the same words as your draft (Section 4, p. 277). The next two paragraphs unpack the intended meaning via the urban-renewal substitution, which changes the weighted matching sum by a factor 1/(ad+bc), and Rick Kenyon's substitution, which preserves the weighted matching sum exactly (Section 4, pp. 277-278). Section 1 supplies the paper-wide convention that \"matching\" means \"perfect matching,\" which is why your draft is aimed at perfect matchings even though Problem 17 itself says only \"matchings.\"",
+  "citations": [
+    {
+      "section": "1. Introduction",
+      "label": "paper-wide convention: \"matching\" means \"perfect matching\"",
+      "page": "P1"
+    },
+    {
+      "section": "4. Miscellaneous",
+      "label": "context paragraph defining weighted enumeration and local substitutions",
+      "page": 277
+    },
+    {
+      "section": "4. Miscellaneous",
+      "label": "Problem 17",
+      "page": 277
+    },
+    {
+      "section": "4. Miscellaneous",
+      "label": "Figure 7 and accompanying urban-renewal discussion",
+      "page": 277
+    },
+    {
+      "section": "4. Miscellaneous",
+      "label": "Figure 8 and accompanying Rick Kenyon substitution discussion",
+      "page": 278
+    }
+  ]
+}

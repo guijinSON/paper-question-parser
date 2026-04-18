@@ -1,0 +1,49 @@
+{
+  "arxiv_id": "math_0109030",
+  "question_id": "q_004",
+  "original_question": "For each of the following matrix classes C: (i) the matrices A_{n,k,t} for positive integers n and k and t in (0, 1), (ii) GKK tau-matrices, (iii) GKK matrices, and (iv) tau-matrices, let C_n denote the subclass consisting of matrices in C of order at most n. What is the largest n for which every matrix in C_n satisfies the spectral-angle inequality |arg(lambda - l(A))| <= pi/2 - pi/n for every eigenvalue lambda in sigma(A), where l(A) is the minimum real eigenvalue of A when one exists and infinity otherwise?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 13867.32,
+  "target_in_paper": "Section 3, Problem 3b (\"Classes of stable matrices\"), together with equation (2) and the four specific classes listed in items (i)-(iv).",
+  "completeness_score": 8.5,
+  "correct_elements": "Your draft is very close to the paper's official formulation. It correctly targets the question in Section 3 asking for the maximal order bound for which all matrices in a subclass C_n satisfy the spectral-angle inequality (2), and it lists exactly the four matrix classes named in the paper: the family A_{n,k,t}, GKK tau-matrices, GKK matrices, and tau-matrices. It also correctly includes the paper's definition of l(A) as the minimum real eigenvalue when one exists and infinity otherwise.",
+  "missing_details": [
+    "The paper works with complex square matrices A in C^{m x m}; that ambient field is implicit in your draft and should be stated.",
+    "There is a crucial notation clash in your draft: in equation (2), the denominator n refers to the order of the individual matrix A, not the outer cutoff defining the subclass C_n. To make the question stand-alone and unambiguous, those two roles should be separated, e.g. by using N for the cutoff and m = order(A) inside the inequality.",
+    "The paper's class names are not self-defining: a P-matrix means all principal minors are positive.",
+    "A GKK matrix is a weakly sign-symmetric P-matrix; weak sign symmetry means A[alpha,beta]A[beta,alpha] >= 0 for every almost principal minor, equivalently every minor of dispersal 1.",
+    "A tau-matrix is a P-matrix with eigenvalue monotonicity l(A(alpha,alpha)) <= l(A(beta,beta)) < infinity whenever emptyset != beta subseteq alpha, together with l(A) >= 0.",
+    "The family A_{n,k,t} is only referred to in this paper as having been defined in [11]; your draft assumes that definition is already known. To be fully stand-alone, one must either import that definition or explicitly identify the family as the one constructed in Holtz [11].",
+    "The spectrum notation sigma(A) is standard but still implicit; likewise arg should be understood as the principal argument."
+  ],
+  "refined_question": "For each positive integer N and each of the following classes C of complex square matrices: (i) the family A_{n,k,t} introduced in Holtz [11], with n,k in N and 0 < t < 1; (ii) GKK tau-matrices; (iii) GKK matrices; and (iv) tau-matrices, let C_{<=N} denote the subclass of matrices in C whose order is at most N. Here a P-matrix is one with all principal minors positive; a GKK matrix is a weakly sign-symmetric P-matrix, meaning A[alpha,beta]A[beta,alpha] >= 0 for every almost principal minor A[alpha,beta]; and a tau-matrix is a P-matrix A such that l(A(alpha,alpha)) <= l(A(beta,beta)) < infinity whenever emptyset != beta subseteq alpha, and l(A) >= 0, where l(A) := min(sigma(A) intersect R) and min(emptyset) := infinity. Determine the largest positive integer N such that every matrix A in C_{<=N}, of order m, satisfies abs(arg(lambda - l(A))) <= pi/2 - pi/m for every eigenvalue lambda in sigma(A).",
+  "equivalent_formulation": null,
+  "justification": "The draft is aimed at the paper's official Problem 3b in Section 3, not at the neighboring stability question 3a or the conditional version 3c. The match is exact in substance: Section 3 first recalls Mehrmann's spectral-angle inequality (2), then introduces for a class C the subclass C_n of matrices of order at most n, asks in Problem 3b for the maximum n such that all matrices in C_n satisfy (2), and immediately lists the same four classes that appear in your draft. Section 2 provides the hidden definitions needed to make the question stand-alone: complex matrix setting, GKK, tau, and l(A). The main correction needed is notational: the paper uses n both for matrix order in (2) and for the order cutoff in C_n; a refined stand-alone version should separate these roles to avoid changing the meaning.",
+  "citations": [
+    {
+      "section": "2",
+      "label": "Basic notions: A in C^{n x n}; definitions of P-matrix, weakly sign-symmetric/GKK, l(A), omega-matrix, and tau-matrix",
+      "page": "PDF p. 2"
+    },
+    {
+      "section": "3",
+      "label": "Problem 3 preamble: Mehrmann's inequality (2)",
+      "page": "PDF p. 2"
+    },
+    {
+      "section": "3",
+      "label": "Problem 3 preamble: unstable A_{2k+2,k,t} examples and definition of C_n",
+      "page": "PDF p. 3"
+    },
+    {
+      "section": "3",
+      "label": "Problem 3b",
+      "page": "PDF p. 3"
+    },
+    {
+      "section": "3",
+      "label": "Specific classes C of interest, items (i)-(iv)",
+      "page": "PDF p. 3"
+    }
+  ]
+}

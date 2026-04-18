@@ -1,0 +1,57 @@
+{
+  "arxiv_id": "2411.06468",
+  "question_id": "q_004",
+  "original_question": "For each i in {0, ..., k-n}, let Λ_i := {α_s + α_t | 0 ≤ s, t ≤ n+i} ⊆ I_{n+1,2d} ⊆ N_0^{n+1}. Determine how the dual cone C_i^∨ is related to the Λ_i-truncated moment problem, where one asks whether a truncated multisequence indexed by Λ_i admits a non-negative Borel representing measure.",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 10323.32,
+  "target_in_paper": "Section 3.2, Open Problem 4: for each i = 0, ..., k − n, relate the dual cone C_i^∨ to the 𝒜_i-truncated moment problem, where 𝒜_i := {α_s + α_t | 0 ≤ s, t ≤ n + i}. This is presented as a refinement of Open Problem 3 on interpreting C_i^∨ in the homogeneous truncated moment setting.",
+  "completeness_score": 8.5,
+  "correct_elements": "Your draft already identifies the right target almost exactly: it uses the same index range i ∈ {0, ..., k−n}, the same finite set of exponents {α_s + α_t | 0 ≤ s, t ≤ n+i}, and the same task of relating the dual cone C_i^∨ to a truncated moment problem with non-negative Borel representing measures. That matches the paper’s Open Problem 4, up to notation (the paper writes 𝒜_i rather than Λ_i).",
+  "missing_details": [
+    "The paper works with n, d ∈ ℕ and k = k(n,d) := dim(ℱ_{n+1,d}) − 1 = binom(n+d,n) − 1.",
+    "The exponents α_0, ..., α_k are not arbitrary: they come from the lexicographic ordering of I_{n+1,d} := {α ∈ ℕ_0^{n+1} | |α| = d}.",
+    "The monomials m_j(X) are defined by m_j(X) := X^{α_j}; this is needed to understand the subspace 𝔖_{n+i} and the construction of C_i.",
+    "C_i itself should be defined: H_i := {[z] ∈ ℙ^k | ∃ x ∈ ℂ^{n+1} : (z_0, ..., z_{n+i}) = (m_0(x), ..., m_{n+i}(x))}, V_i is the Zariski closure of H_i in ℙ^k, and C_i := C_{V_i} ⊆ ℱ_{n+1,2d}.",
+    "The ambient cone duality is in the real vector space ℱ_{n+1,2d} of real homogeneous polynomials of degree 2d in n+1 variables, so C_i^∨ ⊆ (ℱ_{n+1,2d})*.",
+    "The paper motivates Open Problem 4 via the subspace 𝔖_{n+i} := span_ℝ{m_s m_t | 0 ≤ s,t ≤ n+i} and the identity C_i ∩ 𝔖_{n+i} = 𝒫_{n+1,2d} ∩ 𝔖_{n+i}.",
+    "The representing measure in the 𝒜_i-truncated moment problem should be made explicit as a non-negative Borel measure on the ambient real space for the variables, i.e. on ℝ^{n+1}, with moments y_β = ∫ x^β dμ(x) for β ∈ 𝒜_i.",
+    "Your draft says 'determine how'; the paper’s official wording is weaker and narrower: 'relate C_i^∨ to the 𝒜_i-truncated moment problem.'",
+    "The paper first frames the issue through Open Problem 3 in the homogeneous truncated moment setting, then specializes to the 𝒜_i-truncated moment problem in Open Problem 4; that nearby context is part of the paper-faithful formulation.",
+    "The paper’s notation is 𝒜_i, not Λ_i."
+  ],
+  "refined_question": "Fix n, d ∈ ℕ, let k := binom(n+d,n) − 1, order I_{n+1,d} := {α ∈ ℕ_0^{n+1} : |α| = d} lexicographically as α_0, ..., α_k, and set m_j(X) := X^{α_j}. For each i ∈ {0, ..., k−n}, define H_i := {[z] ∈ ℙ^k | there exists x ∈ ℂ^{n+1} with (z_0, ..., z_{n+i}) = (m_0(x), ..., m_{n+i}(x))}, let V_i be the Zariski closure of H_i in ℙ^k, and let C_i := C_{V_i} ⊆ ℱ_{n+1,2d}. Also set 𝔖_{n+i} := span_ℝ{m_s m_t | 0 ≤ s,t ≤ n+i} and 𝒜_i := {α_s + α_t | 0 ≤ s,t ≤ n+i} ⊆ I_{n+1,2d}. In light of the identity C_i ∩ 𝔖_{n+i} = 𝒫_{n+1,2d} ∩ 𝔖_{n+i}, how can the dual cone C_i^∨ ⊆ (ℱ_{n+1,2d})* be related to the 𝒜_i-truncated moment problem, i.e. to the question whether a truncated multisequence y = (y_β)_{β∈𝒜_i} admits a non-negative Borel representing measure μ on ℝ^{n+1} satisfying y_β = ∫ x^β dμ(x) for every β ∈ 𝒜_i?",
+  "equivalent_formulation": null,
+  "justification": "The draft is not aiming at Conjecture 1.1, Proposition 1.2, or Theorem 1.3. It directly matches the paper’s Section 3.2 discussion of dual cones and moment problems, and in fact its formula for the truncated index set is exactly the one appearing in Open Problem 4. The nearby context shows that Open Problem 4 is introduced after: (i) the dual-cone filtration for the closed cones C_i, (ii) the interpretation of 𝒫_{n+1,2d}^∨ via the homogeneous truncated moment problem, and (iii) the identity C_i ∩ 𝔖_{n+i} = 𝒫_{n+1,2d} ∩ 𝔖_{n+i}. So the paper-faithful sharpening is to state Open Problem 4 with all of that notation and motivation made explicit, while keeping the wording narrow ('relate') rather than enlarging it into a broader characterization problem.",
+  "citations": [
+    {
+      "section": "1",
+      "label": "equations (1) and (5), plus the notation for I_{n+1,d}, α_j, m_j, H_i, V_i, C_i",
+      "page": "2-3"
+    },
+    {
+      "section": "1",
+      "label": "discussion that Section 3 concerns open problems about membership tests and dual cones",
+      "page": "3"
+    },
+    {
+      "section": "3.2",
+      "label": "Truncated Moment Problem and Homogeneous Truncated Moment Problem",
+      "page": "10-11"
+    },
+    {
+      "section": "3.2",
+      "label": "Open Problem 2 and Open Problem 3",
+      "page": "11"
+    },
+    {
+      "section": "3.2",
+      "label": "equation (7): C_i ∩ 𝔖_{n+i} = 𝒫_{n+1,2d} ∩ 𝔖_{n+i}",
+      "page": "11"
+    },
+    {
+      "section": "3.2",
+      "label": "Open Problem 4",
+      "page": "11"
+    }
+  ]
+}

@@ -1,0 +1,64 @@
+{
+  "arxiv_id": "2303.11464",
+  "question_id": "q_016",
+  "original_question": "For graphs with few cycles or for sparse graphs with large diameter, is there an efficient algorithm for computing a minimum-cardinality (n-k)-contingent zero-forcing set?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 8593.58,
+  "target_in_paper": "Section 7, Open Problem 7.2 in the section “(n − k)-contingent zero-forcing for power grids.”",
+  "completeness_score": 8.5,
+  "correct_elements": "The draft correctly targets the algorithmic open problem in Section 7 rather than the neighboring structural one, and it preserves the paper’s two intended graph classes—graphs with few cycles, and sparse graphs with large diameter—as well as the optimization goal of finding a minimum-cardinality (n − k)-contingent zero-forcing set.",
+  "missing_details": [
+    "The paper’s definition of an (n − k)-contingent zero-forcing set must be made explicit: for a graph G = (V,E), a set Z ⊆ V has this property if for every edge set E' ⊆ E with |E'| ≤ k, Z is a zero-forcing set of G' = (V, E\\E').",
+    "The zero-forcing rule itself is implicit in the draft: starting from Z colored blue, a blue vertex with exactly one nonblue neighbor can force that neighbor blue, and Z is zero forcing if repeated such moves color all vertices.",
+    "The integer parameter k is missing from the draft as part of the problem input; the paper leaves the open problem general in k, while the nearby tree characterization is stated for k ≥ 1.",
+    "It should be stated that “minimum-cardinality” means minimum over all subsets Z ⊆ V satisfying the contingency requirement, not merely an inclusion-minimal set.",
+    "The notation “(n − k)-contingent” is terminology from contingency analysis, not a statement that the desired set has size n − k; the draft leaves this potentially ambiguous.",
+    "The paper does not quantify “few cycles,” “sparse,” “large diameter,” or “efficient”; a paper-faithful rewrite should preserve those descriptors rather than replace them with stronger unproved thresholds or a specific complexity class such as polynomial time.",
+    "No ambient ring, field, homogeneity, degree restriction, or nilpotency condition is relevant here; this is a purely graph-theoretic question."
+  ],
+  "refined_question": "Given a graph G = (V,E) from one of the two classes named in the paper—either a graph with few cycles or a sparse graph with large diameter—and a nonnegative integer k, is there an efficient algorithm to determine a minimum-cardinality subset Z ⊆ V such that, for every edge set E' ⊆ E with |E'| ≤ k, starting from Z colored blue and repeatedly applying the zero-forcing rule that a blue vertex with exactly one nonblue neighbor forces that neighbor blue, all vertices of G' = (V, E\\E') become blue?",
+  "equivalent_formulation": "Equivalently, by Lemma 7.7, for those same graph classes and the same parameter k, is there an efficient algorithm to determine a minimum-cardinality k-leaky zero-forcing set, i.e. a minimum subset Z ⊆ V that remains zero forcing when any set of at most k vertices is declared unable to perform forcing moves (formally implemented in the paper by adding a pendant vertex to each leaked vertex)?",
+  "justification": "This draft is already very close to the paper’s exact algorithmic open problem. Section 7 introduces zero-forcing moves and zero-forcing sets, then defines the contingency notion in Definition 7.3. The nearby tree result, Lemma 7.5, gives a complete characterization on trees—exactly the vertices of degree at most k—which is why the authors then ask for efficient algorithms on the broader power-grid-motivated classes “graphs with few cycles” and “sparse graphs with large diameter.” The only explicit equivalent reformulation in the immediate context is Lemma 7.7, which identifies (n − k)-contingent zero forcing with k-leaky zero forcing. Because the paper intentionally leaves the structural phrases and the word “efficient” informal, the refined question keeps that scope and does not sharpen it beyond the paper.",
+  "citations": [
+    {
+      "section": "7",
+      "label": "Section introduction",
+      "page": 34
+    },
+    {
+      "section": "7",
+      "label": "Definition 7.1",
+      "page": 35
+    },
+    {
+      "section": "7",
+      "label": "Definition 7.2",
+      "page": 35
+    },
+    {
+      "section": "7",
+      "label": "Definition 7.3",
+      "page": 36
+    },
+    {
+      "section": "7",
+      "label": "Lemma 7.5",
+      "page": 36
+    },
+    {
+      "section": "7",
+      "label": "Lemma 7.7",
+      "page": 37
+    },
+    {
+      "section": "7",
+      "label": "Open Problem 7.1",
+      "page": 38
+    },
+    {
+      "section": "7",
+      "label": "Open Problem 7.2",
+      "page": 38
+    }
+  ]
+}

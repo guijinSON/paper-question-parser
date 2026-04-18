@@ -1,0 +1,54 @@
+{
+  "arxiv_id": "2201.09150",
+  "question_id": "q_032",
+  "original_question": "Determine what distinct roles short-term and long-term memory play in movement models, including their effects on well-posedness and steady-state structure, and whether using both memory layers can produce space-use phenomena that cannot arise with only one memory compartment.",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 7965.28,
+  "target_in_paper": "Open Problem 32 in Section 2.4 (\"Short and long term memory\"), centered on how short- and long-term memory affect well-posedness and steady-state profiles, and on whether a two-layer memory model can generate space-use effects unavailable to one-compartment memory models.",
+  "completeness_score": 8.5,
+  "correct_elements": "Your draft correctly captures the exact open problem’s three main components: distinguishing the roles of short- versus long-term memory, asking about consequences for well-posedness, and asking about consequences for steady-state or space-use structure, including whether combining both memory layers creates genuinely new phenomena relative to a single memory compartment.",
+  "missing_details": [
+    "The paper’s target is specifically the Section 2.4 bi-component memory question, not a broad question about memory in arbitrary movement models.",
+    "The intended PDE context is the new short/long-memory diffusion-advection system (2.33)-(2.34), with unknowns u(x,t), m_s(x,t), and m_l(x,t), rather than an unspecified class of models.",
+    "Short-term versus long-term memory is encoded by parameter inequalities alpha_l < alpha_s and beta_l < beta_s: short-term memory has faster uptake and faster decay, while long-term memory forms more slowly and decays more slowly.",
+    "The advective potential is assembled from the two memory layers as a(x,t)=c_1 m_s(x,t)+c_2 m_l(x,t).",
+    "The movement equation uses the nonlocal perception operator a_{g,R}(x,t)=int_Omega a(y,t) g(x-y) dy, where g is a detection kernel and R is the perceptual radius.",
+    "The source terms a_s(x,t) and a_l(x,t) are not fixed universally; the paper only gives an example such as a_s=a_l=u m.",
+    "The coefficients c_1 and c_2 are application-dependent and may have either sign; the paper explicitly allows attractive or repulsive influence from either memory layer, including c_1 < 0 < c_2.",
+    "The paper’s wording asks whether both layers are necessary and/or sufficient for certain space-use phenomena, not merely whether they can sometimes matter.",
+    "Open Problem 32 itself does not impose a specific domain, boundary condition, or regularity class, so adding such hypotheses would make the question narrower than the paper’s formulation.",
+    "The surrounding discussion emphasizes that even a reasonable PDE formulation with both short- and long-term memory is new, so the problem is intentionally broad within this very specific model class.",
+    "The motivation for multiple memory layers comes from the Section 3.2 derivation of space-use coefficients, where the cognitive map can combine multiple covariates; that structural motivation is absent from the draft.",
+    "This is a PDE modeling problem, so algebraic items such as ambient ring/field, homogeneity, degree restrictions, nilpotency, and phrases like 'for all sufficiently large m' are not applicable here; the relevant hidden assumptions are instead the variables, operator definitions, and parameter inequalities above."
+  ],
+  "refined_question": "For the Section 2.4 bi-component memory diffusion-advection model on a spatial domain Omega, given by partial_t m_s = alpha_s a_s(x,t) - beta_s m_s, partial_t m_l = alpha_l a_l(x,t) - beta_l m_l with alpha_l < alpha_s and beta_l < beta_s, a(x,t)=c_1 m_s(x,t)+c_2 m_l(x,t) (with application-dependent signs of c_1,c_2), and partial_t u = d Delta u - div(u grad a_{g,R}), where a_{g,R}(x,t)=int_Omega a(y,t) g(x-y) dy for a detection kernel g and perceptual radius R, determine the distinct mathematical roles of the short-term layer m_s and the long-term layer m_l in the well-posedness of the model and in the existence and qualitative form of steady-state space-use profiles, and decide whether the simultaneous inclusion of both memory layers is necessary and/or sufficient for any space-use phenomena that cannot occur in otherwise comparable models with only one memory compartment.",
+  "equivalent_formulation": null,
+  "justification": "The draft is a close paraphrase of Open Problem 32 rather than any neighboring problem. It tracks the same three issues named there: short- versus long-term memory, well-posedness, and steady-state/space-use consequences, plus the possibility of genuinely new effects when both memory layers are present. The nearby Section 2.4 discussion provides the precise PDE framework that the draft omits: the two memory ODE/PDE components, the inequalities distinguishing short- from long-term memory, the combined potential a=c_1 m_s+c_2 m_l, the possibility of attractive or repulsive signs, and the fact that this is presented as a new diffusion-advection incorporation of two memory layers. Section 2.1 supplies the definition of the perception operator a_{g,R}, and Section 3.2 explains why a multi-layer cognitive map is natural through the derivation of space-use coefficients from multiple covariates. No explicit equivalence is proved for Open Problem 32, so no alternate formulation should be added.",
+  "citations": [
+    {
+      "section": "2.4 Short and long term memory",
+      "label": "surrounding discussion introducing the two-layer memory model",
+      "page": "28-29"
+    },
+    {
+      "section": "2.4 Short and long term memory",
+      "label": "equations (2.33)-(2.34)",
+      "page": "28"
+    },
+    {
+      "section": "2.4 Short and long term memory",
+      "label": "Open Problem 32",
+      "page": "29"
+    },
+    {
+      "section": "2.1 Perception",
+      "label": "equation (2.5)",
+      "page": "10"
+    },
+    {
+      "section": "3.2 Derivation of space use coefficients from utilization distribution function",
+      "label": "equations (3.8)-(3.16)",
+      "page": "34-36"
+    }
+  ]
+}

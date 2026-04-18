@@ -1,0 +1,40 @@
+{
+  "arxiv_id": "2602.05394",
+  "question_id": "q_004",
+  "original_question": "Polynomially decaying eigenvalues: Fix constants $epsilon > 0$ and $p > 0$. Let $A_n C^n x n$, $n>= 1$, be a sequence of random positive definite matrices constructed via A_n = U Lambda_n U*, where U C^n x n is Haar unitary, Lambda_n = diag 1^-p, 2^-p, ..., n^-p . Let $b_n = A_n z_n$ be a sequence of random vectors where $z_n C^n$ is distributed uniformly on the sphere. What is the asymptotic behavior of $T_ CG(A_n,b_n,epsilon)$ compared with $T_ RCD(A_n,b_n,epsilon)$ as $n -> infinity$?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 12502.75,
+  "target_in_paper": "Section 2.3, Problem 2.4 (Polynomially decaying eigenvalues) in the subsection \"Conjugate gradient versus sketch-and-project\".",
+  "completeness_score": 8.5,
+  "correct_elements": "Your draft is already very close to the paper's exact Problem 2.4. It correctly captures the title/theme (polynomially decaying eigenvalues), the parameters ε>0 and p>0, the random matrix model A_n=UΛ_nU* with Haar unitary eigenvectors and eigenvalues j^{-p}, the choice b_n=A_n z_n with z_n uniform on the sphere, and the asymptotic comparison of T_CG(A_n,b_n,ε) versus T_RCD(A_n,b_n,ε) as n→∞.",
+  "missing_details": [
+    "The paper places the question specifically in the subsection comparing unpreconditioned conjugate gradient (CG) with sketch-and-project methods; it is not a broad comparison with arbitrary coordinate-descent variants.",
+    "The paper's nearby Definition 2.3 fixes the exact RCD algorithm: starting from x_0 with residual r_0=b-Ax_0, choose i_t with probability A(i,i)/tr(A), then update the i_t-th coordinate so that the i_t-th equation is satisfied exactly.",
+    "The stopping times T_CG and T_RCD must be defined explicitly, rather than left implicit.",
+    "The error criterion is in the A-weighted norm, with x*=A^{-1}b and ||v||_A=<Av,v>^{1/2}.",
+    "A stand-alone version should specify that both methods are measured against the same initial iterate x_0 appearing in the stopping-time definitions.",
+    "The ambient field is complex: A_n∈C^{n×n}, z_n∈C^n, and U_n^* denotes conjugate transpose.",
+    "The sphere should be identified as the unit sphere in C^n.",
+    "To stay faithful to the paper's intent, the question should remain a stylized convergence comparison, not a broader arithmetic-cost or preconditioning question."
+  ],
+  "refined_question": "Fix ε>0 and p>0. For each n≥1, let A_n∈C^{n×n} be a random positive definite matrix of the form A_n=U_nΛ_nU_n^*, where U_n is Haar unitary and Λ_n=diag(1^{-p},2^{-p},...,n^{-p}); let z_n∈C^n be uniformly distributed on the unit sphere and set b_n=A_n z_n. For a strictly positive definite system Ax=b with exact solution x*=A^{-1}b and A-weighted norm ||v||_A=<Av,v>^{1/2}, define T_CG(A,b,ε)=min{t≥0: ||x_t^{CG}-x*||_A^2≤ε||x_0-x*||_A^2} and T_RCD(A,b,ε)=min{t≥0: ||x_t^{RCD}-x*||_A^2≤ε||x_0-x*||_A^2}, where RCD is the method from Definition 2.3: at each step choose i_t∈{1,...,n} with probability A(i_t,i_t)/tr(A) and update the i_t-th coordinate so that the i_t-th equation is satisfied exactly. What is the asymptotic behavior, as n→∞, of T_CG(A_n,b_n,ε) relative to T_RCD(A_n,b_n,ε)?",
+  "equivalent_formulation": null,
+  "justification": "The draft is essentially an informal transcription of the paper's exact open problem. The paper's stated motivation in Section 2.3 is to understand, in the simplest unpreconditioned setting, when a sketch-and-project method can beat a traditional Krylov solver; the specific baseline sketch-and-project method is the RCD algorithm defined in Definition 2.3. Problem 2.4 then asks almost exactly your question, with the same random matrix model and right-hand side. What your draft omits are the paper's hidden local definitions: the precise RCD variant, the stopping times T_CG and T_RCD, and the A-weighted error criterion. Adding exactly those ingredients makes the question mathematically self-contained while staying maximally faithful to the paper.",
+  "citations": [
+    {
+      "section": "2.3",
+      "label": "Motivation and Scope (Conjugate gradient versus sketch-and-project)",
+      "page": 10
+    },
+    {
+      "section": "2.3",
+      "label": "Definition 2.3 (Randomized coordinate descent)",
+      "page": 10
+    },
+    {
+      "section": "2.3",
+      "label": "Problem 2.4 (Polynomially decaying eigenvalues)",
+      "page": 11
+    }
+  ]
+}

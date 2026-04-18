@@ -1,0 +1,37 @@
+{
+  "arxiv_id": "2411.10046",
+  "question_id": "q_014",
+  "original_question": "Fix an integer k >= 1 and let n = 4k + 1. Choose a set S subseteq {1, 2, ..., 2k} of size k, let the complementary set {1, ..., 2k} \\ S be used on the second layer, and define the extended Petersen graph XP(2n, S) on vertex set Z_n x {1, 2} with layer edges determined by circular distance d(x, y) = min{|x - y|, n - |x - y|} and matching edges x1x2 for x in Z_n. Is every extended Petersen graph, except the Petersen graph itself, Class 1, meaning that its chromatic index equals its maximum degree?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 10338.46,
+  "target_in_paper": "Section 3, Conjecture 3.1 (Horak, Rosa [1]): \"Every extended Petersen graph, except Petersen graph itself, is of Class 1.\" ([researchgate.net](https://www.researchgate.net/publication/385898986_Open_problems_of_the_32nd_Workshop_on_Cycles_and_Colourings))",
+  "completeness_score": 9.0,
+  "correct_elements": "Your draft already matches the paper very closely: it fixes n = 4k + 1 with k >= 1, takes S as a k-element subset of {1,2,...,2k}, uses the complementary connection set on the second layer, defines XP(2n,S) on Z_n x {1,2} via the circular distance d(x,y), includes the matching edges between layers, and asks exactly whether every extended Petersen graph except the Petersen graph is Class 1. ([researchgate.net](https://www.researchgate.net/publication/385898986_Open_problems_of_the_32nd_Workshop_on_Cycles_and_Colourings))",
+  "missing_details": [
+    "The modulo-n setting should be made explicit: x and y are elements of Z_n, so d(x,y) = min{|x-y|, n - |x-y|} is circular distance on residues modulo n. ([researchgate.net](https://www.researchgate.net/publication/385898986_Open_problems_of_the_32nd_Workshop_on_Cycles_and_Colourings))",
+    "It is cleaner to name the second-layer connection set as Sbar = {1,2,...,2k} setminus S and state directly that (x,2) is adjacent to (y,2) exactly when d(x,y) lies in Sbar. ([researchgate.net](https://www.researchgate.net/publication/385898986_Open_problems_of_the_32nd_Workshop_on_Cycles_and_Colourings))",
+    "To be fully stand-alone, the vertices should be written as ordered pairs (x,i) in Z_n x {1,2}, rather than only informally as x1 and x2. ([researchgate.net](https://www.researchgate.net/publication/385898986_Open_problems_of_the_32nd_Workshop_on_Cycles_and_Colourings))",
+    "The workshop paper does not define Class 1 inside Section 3, so a self-contained version should also say that Class 1 means chi'(G) = Delta(G). ([researchgate.net](https://www.researchgate.net/publication/385898986_Open_problems_of_the_32nd_Workshop_on_Cycles_and_Colourings))",
+    "If one wants the exception completely pinned down, the excluded case is the Petersen graph itself, i.e. the smallest extended Petersen graph. ([researchgate.net](https://www.researchgate.net/publication/385898986_Open_problems_of_the_32nd_Workshop_on_Cycles_and_Colourings))"
+  ],
+  "refined_question": "For every integer k >= 1, let n = 4k + 1, let S be a k-element subset of {1,2,...,2k}, and let Sbar = {1,2,...,2k} setminus S. Define the extended Petersen graph XP(2n,S) to be the graph on vertex set Z_n x {1,2} in which, for x,y in Z_n, (x,1) is adjacent to (y,1) exactly when d(x,y) := min{|x-y|, n - |x-y|} lies in S, (x,2) is adjacent to (y,2) exactly when d(x,y) lies in Sbar, and (x,1) is adjacent to (x,2) for every x in Z_n. Is every such graph other than the Petersen graph a Class 1 graph, i.e. does every non-Petersen extended Petersen graph satisfy chi'(XP(2n,S)) = Delta(XP(2n,S))? ([researchgate.net](https://www.researchgate.net/publication/385898986_Open_problems_of_the_32nd_Workshop_on_Cycles_and_Colourings))",
+  "equivalent_formulation": null,
+  "justification": "This paper is an open-problems collection, and your draft unmistakably targets Section 3 rather than any neighboring problem: it reproduces the defining data for XP(2n,S) and asks the same edge-coloring question stated there as Conjecture 3.1. I therefore kept the scope exactly at the Horak-Rosa Class-1 conjecture and did not broaden it to other properties of extended Petersen graphs; the rewrite only tightens the notation so the question stands on its own without the surrounding paragraph. ([ar5iv.org](https://ar5iv.org/html/2411.10046v1))",
+  "citations": [
+    {
+      "section": "3 Chromatic index of extended Petersen graphs",
+      "label": "definition of XP(2n,S) immediately before Conjecture 3.1",
+      "page": 6
+    },
+    {
+      "section": "3 Chromatic index of extended Petersen graphs",
+      "label": "Conjecture 3.1",
+      "page": 6
+    },
+    {
+      "section": "5 Edge-colorability and perfect matchings of 5-edge-connected 5-regular graphs",
+      "label": "opening definition of Class 1",
+      "page": 8
+    }
+  ]
+}

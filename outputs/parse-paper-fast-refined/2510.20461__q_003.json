@@ -1,0 +1,60 @@
+{
+  "arxiv_id": "2510.20461",
+  "question_id": "q_003",
+  "original_question": "Let a kinetically constrained model have bootstrap-percolation stable configurations E, and for each beta in E let pi_beta denote the product Bernoulli equilibrium measure pi conditioned on the event that the bootstrap percolation limit BP(eta) equals beta. Must every stationary measure mu of the kinetically constrained model admit a decomposition mu = integral_E pi_beta dmu_star(beta) for some probability measure mu_star on E?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 11610.53,
+  "target_in_paper": "Section 2, Conjecture 3: the general conjecture that every stationary measure of a KCM is a mixture of the conditioned product measures π_β over bootstrap-percolation stable configurations β ∈ E, proposed immediately after Theorem 2.13 (the proved East-model case).",
+  "completeness_score": 9,
+  "correct_elements": "Your draft already captures the right target very closely: it uses the correct objects E, BP(η), π_β, and the mixture formula μ = ∫_E π_β dμ_*(β), and it asks exactly the stationary-measure classification question that the paper formulates as a conjecture.",
+  "missing_details": [
+    "The paper’s Section 2 works for a general KCM on Ω = {0,1}^{Z^d}, not just an unspecified state space; this ambient configuration space should be stated explicitly.",
+    "The KCM class under discussion is finite-range: the constraint c_x depends only on occupations within distance at most r from x, and not on η_x itself.",
+    "The equilibrium measure π should be identified as the Bernoulli product measure with healthy-spin density p = 1 - q (equivalently infected density q).",
+    "BP is not just notation for a limit; it is the associated bootstrap-percolation dynamics obtained by repeatedly emptying every site whose KCM constraint is satisfied, and BP(η) is its monotone limiting configuration.",
+    "E should be defined explicitly as the set of bootstrap-percolation stable configurations, E = {β ∈ Ω : BP(β) = β}.",
+    "It should be stated that μ is stationary for the KCM dynamics/semigroup on Ω.",
+    "To be fully paper-faithful, the question should be framed as the general conjecture motivated by the proved d-dimensional East-model decomposition in Theorem 2.13, not as a theorem already known for all KCMs.",
+    "For complete stand-alone clarity, π_β should be defined exactly as π conditioned on the event {BP(η) = β} for the same associated bootstrap percolation."
+  ],
+  "refined_question": "Let (η_t) be a kinetically constrained model on Ω = {0,1}^{Z^d} whose update constraint c_x is local of finite range and does not depend on η_x, and let π be its Bernoulli product reversible measure (with infected density q ∈ (0,1), equivalently healthy density p = 1 - q). Let BP denote the associated bootstrap-percolation map obtained by iteratively emptying every site whose KCM constraint is satisfied, and let E := {β ∈ Ω : BP(β) = β} be the set of BP-stable configurations. For each β ∈ E, write π_β := π(· | BP(η) = β). If μ is a stationary measure of the KCM, must there exist a probability measure μ_* on E such that μ = ∫_E π_β dμ_*(β)?",
+  "equivalent_formulation": null,
+  "justification": "The draft is not aiming at the FA-1f convergence conjectures in Section 1.1; it is aiming at the stationary-measure conjecture stated in Section 2. The exact match is Conjecture 3, which asks whether every stationary KCM measure is a mixture of the conditioned product measures π_β over BP-stable configurations. The nearby context needed to make this stand-alone comes from Definition 2.1 (definition of BP and E), Theorem 2.2 (ergodic components are indexed by BP(η)), the Section 1.1 discussion that stationary measures are the first natural question, Corollary 2.9 (the 1D FA-1f/BABP/δ-West instance), and Theorem 2.13 (the exact East-model version in d dimensions).",
+  "citations": [
+    {
+      "section": "1.1",
+      "label": "introductory discussion on stationary measures preceding Conjecture 1",
+      "page": "1-2"
+    },
+    {
+      "section": "1.2",
+      "label": "Notation (Ω = {0,1}^{Z^d}, π as Bernoulli product measure, p = 1 - q)",
+      "page": 3
+    },
+    {
+      "section": "2",
+      "label": "Definition 2.1",
+      "page": 6
+    },
+    {
+      "section": "2",
+      "label": "Theorem 2.2",
+      "page": 6
+    },
+    {
+      "section": "2",
+      "label": "Corollary 2.9",
+      "page": 7
+    },
+    {
+      "section": "2",
+      "label": "Theorem 2.13",
+      "page": 8
+    },
+    {
+      "section": "2",
+      "label": "Conjecture 3",
+      "page": 8
+    }
+  ]
+}

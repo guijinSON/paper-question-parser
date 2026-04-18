@@ -1,0 +1,44 @@
+{
+  "arxiv_id": "2512.19395",
+  "question_id": "q_020",
+  "original_question": "Fix k >= 2 and assume m is sufficiently large. If G avoids every wheel W_t of order t >= 2k + 1, must lambda(G) be at most (k - 1 + sqrt(4m - k^2 + 1)) / 2, with equality only for K_k joined with an independent set of size m/k - (k - 1)/2?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 12333.68,
+  "target_in_paper": "The draft is trying to capture the fan-graph conjecture stated exactly as Conjecture 1.1 in the cited forbidden-fan paper and only summarized more loosely in arXiv:2512.19395. It is not paper-faithful as a wheel statement: the official formulation concerns F_{2k+1}-free or F_{2k+2}-free graphs, where F_t=K_1∨P_{t-1}, not graphs avoiding wheels W_t.",
+  "completeness_score": 4,
+  "correct_elements": "The draft correctly captures the fixed-k asymptotic regime, the exact spectral upper bound (k-1+sqrt(4m-k^2+1))/2 divided by 2, the candidate extremal join graph K_k∨((m/k)-(k-1)/2)K_1, and the intended uniqueness-of-equality conclusion.",
+  "missing_details": [
+    "The forbidden family is wrong: the official conjecture is about fan graphs F_{2k+1}=K_1∨P_{2k} or F_{2k+2}=K_1∨P_{2k+1}, not wheel graphs W_t.",
+    "The paper states the claim separately for F_{2k+1}-free graphs and for F_{2k+2}-free graphs; it does not use the stronger hypothesis that G avoids every wheel W_t of order t>=2k+1.",
+    "The question should define lambda(G) as the adjacency spectral radius, i.e. the largest eigenvalue of the adjacency matrix of a finite simple graph G.",
+    "The quantifier order should be explicit: for each fixed integer k>=2, there exists m_0(k) such that the statement holds for all m>=m_0(k).",
+    "The equality case only makes literal sense when s=(m-k(k-1)/2)/k=m/k-(k-1)/2 is a nonnegative integer; equivalently, m-k(k-1)/2 must be divisible by k.",
+    "To make the question stand-alone, the join notation ∨ and the fan notation F_t should be defined.",
+    "The draft does not say whether isolated vertices are allowed; in this literature isolated vertices are usually irrelevant for the spectral maximum, but the stand-alone formulation should make the graph model clear."
+  ],
+  "refined_question": "For each fixed integer k>=2, does there exist m_0(k) such that, for each j in {2k+1,2k+2}, every finite simple F_j-free graph G with m>=m_0(k) edges satisfies lambda(G)<= (k-1+sqrt(4m-k^2+1))/2, where lambda(G) is the adjacency spectral radius and F_j:=K_1∨P_{j-1} is the fan graph on j vertices; and, moreover, does equality hold if and only if G is isomorphic to K_k∨sK_1 with s=(m-k(k-1)/2)/k?",
+  "equivalent_formulation": null,
+  "justification": "Your draft gets the numerical part right but attaches it to the wrong forbidden subgraphs. In the survey arXiv:2512.19395, the nearby wheel entry is a different conjectural topic (Conjecture 3.44), whereas the exact bound and extremal graph you wrote are the ones attached to the fan-graph pattern summarized in the survey's Section 3 and stated explicitly as Conjecture 1.1 in the forbidden-fan paper. The follow-up F_6 paper quotes that conjecture verbatim and proves the last remaining k=2 case, which confirms that the intended official formulation is fan-free, not wheel-free.",
+  "citations": [
+    {
+      "section": "1",
+      "label": "Conjecture 1.1",
+      "page": 1
+    },
+    {
+      "section": "1",
+      "label": "Theorem 1.2",
+      "page": 2
+    },
+    {
+      "section": "3",
+      "label": "friendship/fan graphs subsection (Conjecture 3.28; related Conjectures 3.39-3.41)",
+      "page": "page not available in accessible summary"
+    },
+    {
+      "section": "3",
+      "label": "wheel graphs subsection (Conjecture 3.44)",
+      "page": "page not available in accessible summary"
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "arxiv_id": "2504.20539",
+  "question_id": "q_003",
+  "original_question": "For a uniformly random 3-regular graph on n vertices, let E(theta) = (1/2) sum_{i,j=1}^n Aij(1 - cos(theta_i - theta_j)) where A is the adjacency matrix, and call the graph globally synchronizing when all local minima of E are global minima corresponding to constant phase vectors theta_i = c. Is it true that a uniform random 3-regular graph is globally synchronizing with high probability as n -> infinity?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 10768.31,
+  "target_in_paper": "Entry 2, Conjecture 3 (Globally Synchronizing Regular Graphs).",
+  "completeness_score": 9.2,
+  "correct_elements": "Your draft already captures the paper's intended target almost exactly: it is about uniform random 3-regular graphs, uses the Kuramoto energy E(theta) = (1/2) sum_{i,j=1}^n A_ij (1 - cos(theta_i - theta_j)), defines global synchronization by requiring that the only local minima are the constant-phase global minima, and asks whether this holds with high probability as n -> infinity. This is the substance of Entry 2, Definition 2.1 and Conjecture 3 on page 2.",
+  "missing_details": [
+    "The paper first defines the property for an n x n matrix A, and then declares a graph globally synchronizing when its adjacency matrix has that property; making this matrix-to-graph step explicit matches Definition 2.1 exactly.",
+    "The phase variables are taken as theta in [0, 2pi)^n (i.e. phases on the n-dimensional torus, modulo 2pi in each coordinate); this is the hidden domain on which 'local minimum' is meant.",
+    "Because 3-regular graphs exist only for admissible n (in particular, n must be even), the asymptotic statement should be understood along such n.",
+    "For a fully stand-alone probabilistic statement, it helps to say explicitly that G_n is sampled uniformly from the set of 3-regular graphs on n vertices.",
+    "To match the paper's wording exactly, the conclusion should be stated as P(G_n is globally synchronizing) -> 1 as n -> infinity, i.e. 'probability going to 1 as n -> infinity.'"
+  ],
+  "refined_question": "For each even n, let G_n be a uniformly random 3-regular graph on n vertices, let A be its adjacency matrix, and define the Kuramoto energy on phase vectors theta in [0, 2pi)^n by E(theta) = (1/2) sum_{i,j=1}^n A_ij (1 - cos(theta_i - theta_j)). Say that G_n is globally synchronizing if the only local minima of E are the global minima corresponding to constant phases, i.e. theta_i = c for all i. Is it true that P(G_n is globally synchronizing) -> 1 as n -> infinity?",
+  "equivalent_formulation": null,
+  "justification": "The draft is targeting the exact open problem stated in Entry 2 as Conjecture 3, not a neighboring broader question. Definition 2.1 on page 2 supplies the precise meaning of 'globally synchronizing' through the Kuramoto energy and the constant-phase global minima, while the sentence immediately preceding Conjecture 3 explains that the open case singled out by the paper is degree 3, after citing that [ABKS23] already proves the same high-probability conclusion for uniform d-regular graphs when d >= 600 (Entry 2, page 2). So the sharp paper-faithful refinement is simply the Conjecture 3 statement rewritten in fully stand-alone form, with only the implicit admissibility condition on n and the phase-space domain made explicit.",
+  "citations": [
+    {
+      "section": "Entry 2 Global Synchronization",
+      "label": "Definition 2.1",
+      "page": 2
+    },
+    {
+      "section": "Entry 2 Global Synchronization",
+      "label": "Conjecture 3 (Globally Synchronizing Regular Graphs)",
+      "page": 2
+    },
+    {
+      "section": "Entry 2 Global Synchronization",
+      "label": "Context sentence before Conjecture 3 ('uniform d-regular graph ... for d >= 600')",
+      "page": 2
+    }
+  ]
+}

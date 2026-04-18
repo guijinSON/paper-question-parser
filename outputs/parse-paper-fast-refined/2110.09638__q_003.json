@@ -1,0 +1,51 @@
+{
+  "arxiv_id": "2110.09638",
+  "question_id": "q_003",
+  "original_question": "Extend the model to n users and m orthogonal channels, where on each slot a user may choose any subset of channels on which to transmit and the receiver reports the per-channel transmitter counts. Is it optimal to run the single-channel capture policy separately and independently on each channel, or can coupling a user's transmission decisions across channels produce strictly better expected time to the first success? More generally, for which combinations of user count and channel count is per-channel independence optimal, and when is cross-channel correlation necessary for optimality?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 7726.26,
+  "target_in_paper": "The draft is targeting the paper’s separate open multi-channel extension of the channel-capture problem: the author’s concluding open-problems statement flags a “Multi-channel case,” and the accompanying slide deck for arXiv:2110.09638 adds that the arXiv version explores the multi-channel 2-user and 3-user cases. This is a different target from the paper’s main single-channel conjecture/proof thread.",
+  "completeness_score": 5,
+  "correct_elements": "Your draft correctly captures the core thematic issue of the paper’s multi-channel extension: decentralized slotted multiple access over orthogonal channels; exact feedback on how many users transmitted; the objective of minimizing expected time to the first success/capture; and the key structural question of whether channelwise-independent randomization is optimal or whether a user must correlate its simultaneous channel choices across channels.",
+  "missing_details": [
+    "The paper’s base symmetry assumptions need to be carried over explicitly: slotted time; all users know the total user count (and, in the extension, the channel count); users are unlabeled/indistinguishable; and every user independently runs the same randomized algorithm.",
+    "The objective should be stated precisely as minimizing the expected time until the first success (equivalently, first capture event), not a throughput, regret, or fairness criterion.",
+    "The feedback model should be specified as common end-of-slot feedback giving the exact transmitter-count vector across channels, mirroring the single-channel feedback F[t] = number of transmitters.",
+    "The notion of “success” in the multi-channel model must be defined explicitly: e.g. the first slot on which some channel has exactly one transmitter, and the process stops at that first singleton event.",
+    "The information structure should be stated: each user’s decision at a slot may depend on the common feedback history and its own private transmission history.",
+    "If users may transmit on multiple channels in a slot, the admissible action set should be stated explicitly as choosing any subset of the m orthogonal channels.",
+    "The independence-vs-correlation comparison should be defined formally: product-form channel decisions for a user versus allowing arbitrary within-user cross-channel correlation on a slot.",
+    "Your draft broadens substantially beyond the paper-faithful target by asking for arbitrary n and m and a full characterization of all (user count, channel count) pairs; the recoverable official formulation only flags the multi-channel case and, in the author’s summary slides for this arXiv paper, specifically says the arXiv version explores the 2-user and 3-user multi-channel cases.",
+    "Algebraic items such as ambient ring/field, polynomial degree, homogeneity, nilpotency, and phrases like “for all sufficiently large m” are not part of this paper and are inapplicable here."
+  ],
+  "refined_question": "Under the paper’s decentralized channel-capture model—slotted time; a known number of unlabeled/indistinguishable users; every user independently running the same randomized algorithm; and common end-of-slot feedback that reports, for each orthogonal channel, the exact number of transmitters—what is the optimal policy in the multi-channel cases treated in the arXiv version (notably the 2-user and 3-user cases) for minimizing the expected time until the first singleton transmission on any channel? In particular, if on each slot a user may transmit on any subset of the m channels, is it optimal to choose channels independently channel-by-channel by applying the single-channel capture rule separately on each channel, or can a user strictly reduce the expected first-success time by correlating its simultaneous channel choices across channels?",
+  "equivalent_formulation": null,
+  "justification": "The recoverable official evidence shows that your draft is not aiming at the paper’s main single-channel conjecture/proposition/theorem thread, but at a later open problem: the paper’s setup is the expected-time-to-first-success capture problem for indistinguishable users under exact count feedback, while the conclusion/open-problems summary explicitly lists a “Multi-channel case,” and the author’s slide deck for the same arXiv work says that the arXiv version explores the multi-channel 2-user and 3-user cases. Your draft gets the right conceptual issue—independence across channels versus cross-channel correlation—but it goes beyond the paper by asking for a full all-(n,m) classification. A paper-faithful rewrite should therefore keep the exact decentralized information structure and capture objective from the single-channel model, while narrowing the multi-channel question to the cases the arXiv version actually indicates it studies.",
+  "citations": [
+    {
+      "section": "Abstract",
+      "label": "problem motivation and exact-count-feedback capture objective",
+      "page": 1
+    },
+    {
+      "section": "I. Introduction",
+      "label": "single-channel setup and open-question framing",
+      "page": 1
+    },
+    {
+      "section": "Part 2: Expected time to capture channel",
+      "label": "setup: n known users, indistinguishable users, same algorithm independently used by each user",
+      "page": 18
+    },
+    {
+      "section": "Collision feedback F[t]",
+      "label": "exact transmitter-count feedback model",
+      "page": 21
+    },
+    {
+      "section": "Conclusions / Open problems",
+      "label": "Multi-channel case; arXiv paper explores multi-channel 2-user and 3-user",
+      "page": "32-33"
+    }
+  ]
+}

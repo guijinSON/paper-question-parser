@@ -1,0 +1,45 @@
+{
+  "arxiv_id": "1304.2590",
+  "question_id": "q_014",
+  "original_question": "For each n, let mu(n) be the smallest integer m such that an m-times traversed plane convex curve admits arbitrarily small perturbations that become nondegenerate closed curves in R^n, where nondegeneracy means that the velocity, curvature, torsion, and higher Frenet data never degenerate. What is mu(n) for dimensions n > 3?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 2833.97,
+  "target_in_paper": "Section VI, \"Closed curves with a nondegenerate Frenet frame\": the definition of μ(n) and the sentence \"An important open problem is to find μ(n) for n > 3\" (the first half of the paper’s two-part open problem in that section).",
+  "completeness_score": 7.8,
+  "correct_elements": "Your draft correctly isolates the paper’s μ(n)-problem: it asks for the minimal traversal number m for a convex plane curve so that a small perturbation in R^n can become a closed curve with fully nondegenerate Frenet data, and it focuses on the open range n > 3. It also captures the intended geometric meaning of nondegeneracy through the nonvanishing of velocity/curvature/torsion/higher Frenet invariants.",
+  "missing_details": [
+    "The paper defines nondegeneracy exactly by the condition γ̇(t) ∧ γ''(t) ∧ ··· ∧ γ^(n)(t) ≠ 0 for every t ∈ S^1, for a smooth closed curve γ:S^1→R^n.",
+    "The convex curve is a smooth closed plane curve γ:S^1→R^2, then regarded inside R^n via the inclusion R^2 ⊂ R^n; an m-times run curve is concretely t ↦ γ(mt).",
+    "The paper’s wording is universal in flavor (\"m times run convex plane curves\"), so the definition should not read as existence for just one specially chosen convex plane curve unless that reduction is explicitly invoked.",
+    "The nearby context records the known base cases μ(2)=1 and μ(3)=2.",
+    "The paper pairs this with a second question: whether every regular curve in R^n has Frenet-frame length at least μ(n) times the length of the closed geodesic SO(2) ⊂ O(n). Your draft omits this companion inequality, which is acceptable if the goal is to isolate only the μ(n) part.",
+    "The immediate paper-faithful reformulation is via the Frenet control system; on the next page the author reduces the problem to the m-times run circle and says that μ(n) is minimal among m for which small positive perturbations of the control parameters keep the perturbed trajectory periodic.",
+    "The paper says \"small perturbations\" / \"small positive perturbations\" and does not specify a precise topology there, so \"arbitrarily small perturbations\" is a reasonable strengthening but not the exact wording of the text.",
+    "All ambient spaces are over the real numbers: curves lie in R^n and Frenet frames in O(n)."
+  ],
+  "refined_question": "For each integer n ≥ 4, let μ(n) be the least positive integer m with the following property: for every smooth closed convex plane curve γ:S^1→R^2, the m-fold traversal t↦γ(mt), viewed as a curve in R^n via R^2⊂R^n, admits a sufficiently small smooth perturbation γ̃:S^1→R^n such that γ̃ is nondegenerate at every t, i.e. γ̃̇(t) ∧ γ̃''(t) ∧ ··· ∧ γ̃^(n)(t) ≠ 0 for all t∈S^1. Given that μ(2)=1 and μ(3)=2, determine μ(n) for n>3.",
+  "equivalent_formulation": "Equivalently, as Section VI reformulates the problem, μ(n) is the least m for which the m-times run circle—corresponding in the Frenet system γ̇=e1, ė_i=u_i(t)e_{i+1}-u_{i-1}(t)e_{i-1}, u_0=u_n=0, with u_1(t)=1 and u_2(t)=···=u_{n-1}(t)=0 on [0,2πm]—admits sufficiently small positive perturbations of the controls that keep the perturbed trajectory periodic.",
+  "justification": "The draft is clearly targeting Section VI rather than any other problem in the paper. That section first defines degenerate/nondegenerate closed curves in R^n, then explains the n=3 phenomenon for a twice-run convex plane curve, and immediately introduces μ(n) with the explicit open problem \"to find μ(n) for n > 3.\" The paper’s surrounding discussion also supplies the key hidden assumptions your draft leaves implicit: the domain S^1, the exact wedge-product criterion for nondegeneracy, the embedding R^2⊂R^n, the known values μ(2)=1 and μ(3)=2, and the control-theoretic reduction to the m-times run circle on the next page. I have therefore kept the refined question narrowly focused on the first half of the stated open problem, without broadening it to the companion Frenet-frame length inequality.",
+  "citations": [
+    {
+      "section": "VI. Closed curves with a nondegenerate Frenet frame",
+      "label": "definition of degeneracy/nondegeneracy for γ:S^1→R^n",
+      "page": 6
+    },
+    {
+      "section": "VI. Closed curves with a nondegenerate Frenet frame",
+      "label": "n=3 example of a twice-run convex plane curve admitting a nondegenerate perturbation",
+      "page": 6
+    },
+    {
+      "section": "VI. Closed curves with a nondegenerate Frenet frame",
+      "label": "definition of μ(n), known values μ(2)=1 and μ(3)=2, and the open problem \"find μ(n) for n>3\"",
+      "page": 6
+    },
+    {
+      "section": "VI. Closed curves with a nondegenerate Frenet frame",
+      "label": "control-theoretic reformulation and reduction to the m-times run circle",
+      "page": 7
+    }
+  ]
+}

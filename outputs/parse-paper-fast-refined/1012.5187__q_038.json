@@ -1,0 +1,37 @@
+{
+  "arxiv_id": "1012.5187",
+  "question_id": "q_038",
+  "original_question": "Given the adjacency matrix of a visibility graph G, compute a maximum clique of G.",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 1104.77,
+  "target_in_paper": "Open Problem 38 in Section 4.7 (\"Maximum Clique in Visibility Graphs\"), in the polygon-visibility portion of the paper.",
+  "completeness_score": 9.0,
+  "correct_elements": "Your draft is already almost verbatim the paper's official formulation of Open Problem 38. It correctly gives the input model (an adjacency-matrix description of a visibility graph G) and the objective (compute a maximum clique of G).",
+  "missing_details": [
+    "In this paper, the relevant meaning of \"visibility graph\" is the vertex visibility graph of a simple polygon, not a point-visibility graph, segment-visibility graph, or another visibility model treated elsewhere in the survey.",
+    "To make the question stand alone, one should define the polygon visibility graph: vertices of G correspond to vertices of a simple polygon P, and two vertices are adjacent exactly when the straight-line segment joining the corresponding polygon vertices lies entirely inside P; the paper's visibility notion allows the segment to pass through a reflex vertex or graze along a polygon edge.",
+    "The graph G is assumed already to be such a visibility graph; recognizing whether an arbitrary graph is a visibility graph is a separate open problem in Section 4.1.",
+    "The sharper Section 4.7 context is the harder input model in which only the adjacency matrix is given; if the Hamiltonian cycle corresponding to the polygon boundary is supplied as additional input, the paper cites an O(n^2 e) algorithm for maximum clique.",
+    "The output should be understood as a clique of maximum cardinality, not merely a maximal clique."
+  ],
+  "refined_question": "Given only the adjacency matrix of a graph G that is known a priori to be the vertex visibility graph of some simple polygon P - meaning that V(G) corresponds to the vertices of P and two vertices of G are adjacent exactly when the straight-line segment joining the corresponding polygon vertices lies entirely inside P, with visibility allowed to pass through a reflex vertex or graze along a polygon edge - and with no Hamiltonian cycle corresponding to the boundary of P provided as part of the input, compute a maximum-cardinality clique of G.",
+  "equivalent_formulation": null,
+  "justification": "The draft is targeting the polygonal maximum-clique problem in Section 4.7, because it asks for an adjacency-matrix input and an algorithmic maximum-clique output; that matches Open Problem 38 directly. The main refinements needed are only the implicit scope conditions that the surrounding text supplies: here \"visibility graph\" means a polygon vertex-visibility graph, and the harder version in Open Problem 38 does not assume that the boundary Hamiltonian cycle is also given. Section 4.7 explicitly contrasts this with the easier boundary-cycle-supplied variant, for which the paper cites an O(n^2 e) algorithm. I leave the alternate formulation null because the paper merely notes the correspondence with largest empty convex polygons, rather than presenting a separately proved equivalent reformulation.",
+  "citations": [
+    {
+      "section": "1",
+      "label": "Definition of the vertex visibility graph for polygons",
+      "page": "page unavailable in ar5iv HTML; lines 20-21"
+    },
+    {
+      "section": "4.1",
+      "label": "Visibility Graph Recognition / Open Problem 28",
+      "page": "page unavailable in ar5iv HTML; lines 312-322"
+    },
+    {
+      "section": "4.7",
+      "label": "Open Problem 38 and nearby context",
+      "page": "page unavailable in ar5iv HTML; lines 391-401"
+    }
+  ]
+}

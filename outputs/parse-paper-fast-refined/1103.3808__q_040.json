@@ -1,0 +1,39 @@
+{
+  "arxiv_id": "1103.3808",
+  "question_id": "q_040",
+  "original_question": "A system with multiplicative structure is a quadruple (X, X, µ, T_n) where T_0 = T_1 = id and T_m ◦ T_n = T_{mn}. In every such system and for every measurable set A of positive measure, do there exist integers m > n ≥ 1 such that µ(T_{2mn} A ∩ T_{(m-n)(m+n)} A) > 0?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 1575.42,
+  "target_in_paper": "Section 8, Problem 34: the multiple-recurrence question for systems with multiplicative structure that the paper identifies as sufficient for proving partition regularity of Pythagorean pairs.",
+  "completeness_score": 8,
+  "correct_elements": "Your draft has the right target, the right recurrence pattern, and the right main quantifiers: it asks about every system with multiplicative structure, every measurable set A of positive measure, and the existence of integers m>n>=1 such that the two multiplicative iterates 2mn and (m-n)(m+n)=m^2-n^2 return A with positive intersection. This is exactly the narrow Pythagorean-pairs problem discussed in Section 8.",
+  "missing_details": [
+    "The underlying object should be a probability space (X, 𝓧, μ), not just a bare quadruple with the sigma-algebra omitted or duplicated.",
+    "The family should be written as (T_n)_{n∈N}, where the acting semigroup is (N, ×), i.e. positive integers under multiplication.",
+    "Each T_n must be an invertible measure-preserving transformation; your draft states only the multiplicative composition law.",
+    "The official definition in Section 8 uses T_1 = id; a condition on T_0 is not part of the paper's formulation.",
+    "A should be specified as A ∈ 𝓧 with μ(A) > 0.",
+    "The paper's nearby context says that a positive answer would suffice to prove partition regularity of Pythagorean pairs, so that motivation should be made explicit if the question is to be fully stand-alone and paper-faithful.",
+    "No ergodicity, commutativity beyond T_m∘T_n=T_{mn}, or extra structural hypotheses are assumed; a fully stand-alone version should make clear that none are required."
+  ],
+  "refined_question": "Let (X, 𝓧, μ, (T_n)_{n∈N}) be a measure preserving system with multiplicative structure, meaning that (X, 𝓧, μ) is a probability space, each T_n is an invertible measure-preserving transformation, T_1 = id, and T_m ∘ T_n = T_{mn} for all m, n ∈ N. If A ∈ 𝓧 satisfies μ(A) > 0, must there exist integers m, n ∈ N with m > n such that μ(T_{2mn}A ∩ T_{(m-n)(m+n)}A) > 0? Equivalently, does every measure preserving system with multiplicative structure exhibit this recurrence pattern associated with Pythagorean pairs?",
+  "equivalent_formulation": null,
+  "justification": "The draft is aiming at Section 8, Problem 34, not at the earlier problems about additive or polynomial recurrence. Section 8 first defines a measure preserving system with multiplicative structure and then states Problem 34 immediately after explaining that a positive answer would imply partition regularity of Pythagorean pairs. Your draft already preserves the essential recurrence pattern 2mn and (m-n)(m+n), which is the paper-specific content here, but it omits the probability-space notation and the invertible measure-preserving hypotheses on the transformations, and it adds a T_0 condition that the paper does not use. The refined version restores exactly those hidden assumptions while keeping the scope as narrow as the original problem.",
+  "citations": [
+    {
+      "section": "1.2",
+      "label": "The general framework",
+      "page": "ar5iv HTML lines 45-49"
+    },
+    {
+      "section": "8",
+      "label": "definition of a measure preserving system with multiplicative structure",
+      "page": "ar5iv HTML lines 1044-1046"
+    },
+    {
+      "section": "8",
+      "label": "Problem 34",
+      "page": "ar5iv HTML lines 1053-1059"
+    }
+  ]
+}

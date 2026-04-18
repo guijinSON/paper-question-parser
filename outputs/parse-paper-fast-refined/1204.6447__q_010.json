@@ -1,0 +1,39 @@
+{
+  "arxiv_id": "1204.6447",
+  "question_id": "q_010",
+  "original_question": "If f : {-1,1}^n -> {-1,1} is a linear threshold function on an odd number n of variables, must it satisfy Stab_rho[f] >= Stab_rho[Maj_n] for every rho in [0,1]?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 2200.48,
+  "target_in_paper": "Unnumbered open problem entry \"Majority Is Least Stable Conjecture\".",
+  "completeness_score": 9,
+  "correct_elements": "Your draft already matches the paper's target statement almost verbatim: it has the correct domain and codomain {-1,1}^n -> {-1,1}, the correct function class (linear threshold functions), the required hypothesis that n is odd, the correct comparison function Maj_n on the same number of variables, the full quantifier over every rho in [0,1], and the correct inequality direction Stab_rho[f] >= Stab_rho[Maj_n].",
+  "missing_details": [
+    "To make the question fully stand-alone, define a linear threshold function explicitly, e.g. f(x)=sgn(a_0 + sum_{i=1}^n a_i x_i) for some real coefficients a_0,...,a_n.",
+    "Define Maj_n explicitly as Maj_n(x)=sgn(x_1+...+x_n); the oddness of n ensures there is no tie.",
+    "Define Stab_rho[f] explicitly, for example as E[f(x)f(y)] when x,y are uniform rho-correlated points in {-1,1}^n, equivalently when y is a rho-noisy copy of x.",
+    "State that n is an odd positive integer and that both f and Maj_n are functions on the same n coordinates.",
+    "Clarify that no unbiasedness assumption E[f]=0 belongs to the main conjecture; that appears only in a separate consequence obtained by taking rho -> 0.",
+    "Clarify that the nearby NS_delta bound is presented only as a weaker variant in the remarks, not as an equivalent reformulation.",
+    "No extra polynomial degree, homogeneity, field, or nilpotency hypotheses are part of this problem; the ambient setting is the Boolean cube with real threshold coefficients."
+  ],
+  "refined_question": "Let n be an odd positive integer, and let f:{-1,1}^n -> {-1,1} be a linear threshold function, i.e. f(x)=sgn(a_0 + sum_{i=1}^n a_i x_i) for some real coefficients a_0,...,a_n. For rho in [0,1], define Stab_rho[f]=E[f(x)f(y)], where x and y are uniform rho-correlated points of {-1,1}^n. Let Maj_n(x)=sgn(x_1+...+x_n). Is it true that for every rho in [0,1], one has Stab_rho[f] >= Stab_rho[Maj_n]?",
+  "equivalent_formulation": null,
+  "justification": "The draft is targeting the paper's unnumbered \"Majority Is Least Stable Conjecture\" entry, whose official statement on P4 is essentially identical to your draft. The paper explicitly defers notation and definitions to external sources, so the only substantive gaps are the standard definitions needed to make the question self-contained: linear threshold function, Maj_n, and Stab_rho. The remarks immediately following the statement give only a weaker noise-sensitivity version and a separate rho -> 0 consequence, so the refined question should keep the full noise-stability comparison as the main target rather than replacing it with either related statement.",
+  "citations": [
+    {
+      "section": "Front matter",
+      "label": "Notation and definitions note",
+      "page": "P0"
+    },
+    {
+      "section": "Unnumbered problem list",
+      "label": "Majority Is Least Stable Conjecture",
+      "page": "P4"
+    },
+    {
+      "section": "Unnumbered problem list",
+      "label": "Remarks under Majority Is Least Stable Conjecture",
+      "page": "P4-P5"
+    }
+  ]
+}

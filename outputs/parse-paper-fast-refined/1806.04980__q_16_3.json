@@ -1,0 +1,59 @@
+{
+  "arxiv_id": "1806.04980",
+  "question_id": "q_16_3",
+  "original_question": "Let N ≥ 1, D ≥ 1, and d ≥ 2. There are positive constants c1 (D, N, d) and c2 (D, N, d) such that for all number fields K/Q with [K : Q] ≤ D, all degree d morphisms f : PN → PN defined over K, and all points P ∈ PN (K) whose orbit Of (P ) is Zariski dense in PN , we have ĥf (P ) ≥ c1 (D, N, d)hM (f ) + c2 (D, N, d). See [35, 34] for numerical evidence supporting Conjecture 16.3 in the case N = D = 1 and d ∈ {2, 3}, including conjectural values for the constants. We also note that the Zariski density assumption in Conjecture 16.3 is necessary. For ex- ample, the map f = [X 2 , Y 2 , γZ 2 ] has height roughly h(γ), while the f -orbit of the point P = [α, 1, 0] has canonical height ĥf (P ) = h(α), so we can make hM (f ) arbitrarily large while ĥf (P ) remains bounded. Ingram [116] and Looper [155] have proven weak versions of Conjecture 16.3 for polynomial maps f of P1 , where the constants depend also on the number of primes of bad reduction of f.",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 6363.98,
+  "target_in_paper": "Section 16, Conjecture 16.3 (Dynamical Lang Height Conjecture)",
+  "completeness_score": 8.5,
+  "correct_elements": "Your draft correctly identifies the paper’s target statement: Section 16, Conjecture 16.3. It captures the right parameters N ≥ 1, D ≥ 1, and d ≥ 2; the existence of constants c1(D, N, d) and c2(D, N, d); the quantification over number fields K/Q with [K:Q] ≤ D; degree-d morphisms f : P^N → P^N defined over K; points P ∈ P^N(K) with Zariski-dense forward orbit; and the exact lower-bound shape hat h_f(P) ≥ c1(D, N, d) h_M(f) + c2(D, N, d) (Section 16, Conjecture 16.3, p. 40). It also accurately quotes the nearby contextual remark that the Zariski-density hypothesis is necessary, although that remark is not part of the formal conjecture (Section 16, p. 40).",
+  "missing_details": [
+    "The draft does not define the canonical height hat h_f(P). In the paper this is given in Section 16, Definition 16.1, by hat h_f(P) := lim_{n→∞} d^{-n} h(f^n(P)) for a degree-d morphism f : P^N → P^N (p. 39).",
+    "The draft uses h_M(f) without defining the moduli space M_d^N. In the paper, M_d^N is the quotient End_d^N / PGL_{N+1}, where End_d^N is the space of degree-d endomorphisms of P^N up to change of coordinates (Section 10, Definition 10.2, p. 20; Theorem 10.3, p. 20).",
+    "The draft does not say how h_M(f) is constructed. In the paper, one fixes an embedding iota : M_d^N → P^L and defines h_M(f) := h(iota([f])); the paper also notes that heights from different embeddings are only commensurable, not literally identical (Section 16, pp. 39-40).",
+    "The draft does not define the forward orbit notation O_f(P). The paper defines O_f(P) = {f^n(P) : n ≥ 0} in Section 2, before Definition 2.1 (pp. 3-4).",
+    "The draft implicitly relies on the absolute logarithmic Weil height h on projective space but does not name it. The paper introduces h in Section 15, Definition 15.1, and then uses it in the canonical-height definition (p. 36; Section 16, Definition 16.1, p. 39).",
+    "If the question is meant to be fully stand-alone, it should indicate that [f] denotes the PGL_{N+1}-conjugacy class of f, since h_M is intended to measure the arithmetic complexity of the dynamical system up to change of coordinates (Section 10, equation (10.1) and Definition 10.2, p. 20).",
+    "The quoted sentences about numerical evidence, the example f = [X^2, Y^2, γZ^2], and the weak results of Ingram and Looper are nearby discussion after the conjecture, but they are not part of the formal statement and should be omitted from a single sharp research question (Section 16, p. 40)."
+  ],
+  "refined_question": "Fix integers N ≥ 1 and d ≥ 2. Let End_d^N denote the space of degree-d morphisms f : P^N → P^N, let M_d^N := End_d^N / PGL_{N+1} be the corresponding moduli space up to change of coordinates, and fix a projective embedding iota : M_d^N → P^L. Write h_M(f) := h(iota([f])) for the resulting moduli height, where h is the absolute logarithmic Weil height, and for each degree-d morphism f define the canonical height by hat h_f(P) := lim_{n→∞} d^{-n} h(f^n(P)). Is it true that for every D ≥ 1 there exist positive constants c1(D, N, d) and c2(D, N, d) such that for every number field K/Q with [K:Q] ≤ D, every degree-d morphism f : P^N → P^N defined over K, and every point P ∈ P^N(K) whose forward orbit O_f(P) = {f^n(P) : n ≥ 0} is Zariski dense in P^N, one has hat h_f(P) ≥ c1(D, N, d) h_M(f) + c2(D, N, d)?",
+  "equivalent_formulation": null,
+  "justification": "This is exactly Conjecture 16.3, not the neighboring Dynamical Lehmer Conjecture (Conjecture 16.2) and not the critical-height comparison theorem (Theorem 16.6), because your draft is specifically about a lower bound for hat h_f(P) in terms of the moduli height h_M(f), uniformly in bounded-degree number fields, under the hypothesis that O_f(P) is Zariski dense in P^N (Section 16, Conjecture 16.3, p. 40). To make that statement stand alone, one must import the paper’s definitions of the forward orbit O_f(P) (Section 2, Definition 2.1, pp. 3-4), the Weil height h (Section 15, Definition 15.1, p. 36), the canonical height hat h_f (Section 16, Definition 16.1, p. 39), and the moduli space M_d^N together with the moduli height h_M(f) built from an embedding of M_d^N into projective space (Section 10, Definition 10.2 and Theorem 10.3, p. 20; Section 16, pp. 39-40). The paper’s remarks about numerical evidence, the necessity of the Zariski-density hypothesis, and partial results are all immediately after Conjecture 16.3, so they confirm that your draft came from this exact spot, but they are ancillary context rather than part of the formal question (Section 16, p. 40).",
+  "citations": [
+    {
+      "section": "Section 2",
+      "label": "Definition 2.1",
+      "page": "3-4"
+    },
+    {
+      "section": "Section 10",
+      "label": "Theorem 10.1",
+      "page": "20"
+    },
+    {
+      "section": "Section 10",
+      "label": "Definition 10.2 and Theorem 10.3",
+      "page": "20"
+    },
+    {
+      "section": "Section 15",
+      "label": "Definition 15.1",
+      "page": "36"
+    },
+    {
+      "section": "Section 16",
+      "label": "Definition 16.1",
+      "page": "39"
+    },
+    {
+      "section": "Section 16",
+      "label": "definition of moduli height h_M(f) and commensurability discussion just before Conjecture 16.3",
+      "page": "39-40"
+    },
+    {
+      "section": "Section 16",
+      "label": "Conjecture 16.3 and the discussion immediately following it",
+      "page": "40"
+    }
+  ]
+}

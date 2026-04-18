@@ -1,0 +1,62 @@
+{
+  "arxiv_id": "1703.04931",
+  "question_id": "q_013",
+  "original_question": "For the Toda algorithm applied to random Hermitian matrices, where the stopping time T^(1)(H) is used to compute the largest eigenvalue, can one prove universality for the centered and scaled stopping-time variable in the cases of beta = 1 invariant ensembles and beta = 1 or 2 Wigner ensembles?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 5430.42,
+  "target_in_paper": "Problem 4 (numerical computation with random data), specifically the open problem stated after Theorem 1: prove universality for the centered and scaled variable (T^(1)-⟨T^(1)⟩)/σ_{T^(1)}; this is said to remain open for β=1 invariant ensembles and for β=1 or 2 Wigner ensembles.",
+  "completeness_score": 6,
+  "correct_elements": "The draft correctly identifies the Toda algorithm, the 1-deflation/halting time T^(1)(H), its use in computing the largest eigenvalue, that the issue is centered-and-scaled universality rather than the already-proved raw scaling limit, and the exact unresolved ensemble classes singled out in Problem 4: β=1 invariant ensembles and β=1 or 2 Wigner ensembles.",
+  "missing_details": [
+    "It should say explicitly that the target is the open upgrade from the proved uncentered law for T^(1) to universality for the centered/scaled variable (T^(1)-⟨T^(1)⟩)/σ_{T^(1)}.",
+    "T^(1) must be defined precisely: if X(t) solves the Toda flow dX/dt = [X, X_- - X_-^*] with X(0)=H, then T^(1)_{ε,n,Toda,E}(H) := inf{ t : sum_{j=2}^n |X_{1j}(t)|^2 = sum_{i=2}^n |X_{i1}(t)|^2 < ε^2 }.",
+    "The matrix size and field should be stated: n x n real symmetric matrices when β=1 and n x n complex Hermitian matrices when β=2.",
+    "The scaling regime is missing: fix 0 < τ < 1 and assume log(ε^{-1})/log n >= 5/3 + τ/2.",
+    "The paper's centering/scaling uses the Problem 4 normalization, where ⟨T^(1)⟩ and σ_{T^(1)} are the sample mean and sample standard deviation over the ensemble.",
+    "The precise ensemble classes are omitted: generalized Wigner ensembles have independent upper-triangular entries with mean 0, variance profile satisfying row-sum normalization and C1/n <= σ_ij^2 <= C2/n, subexponential tails, and in the β=2 case a nondegeneracy condition on real/imaginary parts; invariant ensembles have density proportional to exp(-(nβ/2) tr V(H)) dH with V in C^4(R), inf V'' > 0, and sufficient growth at infinity.",
+    "The draft should note that β=2 invariant ensembles are the case for which the needed centered/scaled analysis can be done; the open cases are the remaining ones named above.",
+    "The nearby context introduces λ1 <= ... <= λn as the eigenvalues of H and βk as the absolute values of the first components of the corresponding normalized eigenvectors; those symbols are part of the paper's intended formulation.",
+    "The paper explains that centered/scaled universality requires joint edge control of the eigenvalues and eigenvectors as n -> infinity, specifically the quantities in (8) and (9): n^{-1/2}(|β_n|,|β_{n-1}|,|β_{n-2}|) and 2^{-2/3} n^{2/3}(b_V-λ_n, b_V-λ_{n-1}, b_V-λ_{n-2}).",
+    "To make 'universality' paper-faithful, the question should indicate that the limiting law is intended to depend only on β, not on the particular ensemble."
+  ],
+  "refined_question": "Let H be an n x n random matrix, real symmetric when β=1 and complex Hermitian when β=2, drawn either from (i) a β=1 invariant ensemble with density proportional to exp(-(nβ/2) tr V(H)) dH, where V is C^4, uniformly convex, and has the growth assumptions of Definition 1.2, or from (ii) a β=1 or β=2 generalized Wigner ensemble in the sense of Definition 1.1. Let X(t) solve the Toda flow dX/dt = [X, X_- - X_-^*], X(0)=H, and for fixed 0<τ<1 and log(ε^{-1})/log n >= 5/3 + τ/2 define the 1-deflation time by T^(1)_{ε,n,Toda,E}(H) := inf{ t : sum_{j=2}^n |X_{1j}(t)|^2 = sum_{i=2}^n |X_{i1}(t)|^2 < ε^2 }. Can one prove, for the open cases singled out in Problem 4—namely β=1 invariant ensembles and β=1 or β=2 generalized Wigner ensembles—that the centered and scaled halting-time variable (T^(1)_{ε,n,Toda,E}(H) - ⟨T^(1)_{ε,n,Toda,E}⟩)/σ_{T^(1)_{ε,n,Toda,E}} has an n -> infinity universal limiting distribution depending only on β and not on the specific ensemble, by establishing the required joint edge statistics of the top eigenvalues λ_n, λ_{n-1}, λ_{n-2} and the first eigenvector components β_n, β_{n-1}, β_{n-2}?",
+  "equivalent_formulation": null,
+  "justification": "The draft is aiming at the final open problem sentence in Problem 4, not at the already-proved theorem for the uncentered variable. In arXiv:1703.04931, Deift first recalls the proved universality theorem for the raw T^(1) scaling law and the fact that T^(1) computes the top eigenvalue with high probability. He then explains that to obtain universality for the centered/scaled variable one needs joint asymptotic control of the edge eigenvalues and first eigenvector components as in (8) and (9), and he states explicitly that this remains open for β=1 invariant ensembles and for β=1 or 2 Wigner ensembles. The cited paper [42] supplies the precise definitions of T^(1), the scaling region, the IE/WE hypotheses, and the λ_j, β_k notation needed to make the question stand alone.",
+  "citations": [
+    {
+      "section": "Problem 4 (numerical computation with random data)",
+      "label": "definition of τ_{ε,n,A,E} and empirical centering/scaling",
+      "page": "7-8"
+    },
+    {
+      "section": "Problem 4 (numerical computation with random data)",
+      "label": "Theorem 1 (universality for the Toda algorithm)",
+      "page": "8-9"
+    },
+    {
+      "section": "Problem 4 (numerical computation with random data)",
+      "label": "Condition 1, Condition 2, equations (8) and (9)",
+      "page": "9-10"
+    },
+    {
+      "section": "Problem 4 (numerical computation with random data)",
+      "label": "open problem on centered/scaled T^(1) for β=1 IEs and β=1,2 WEs",
+      "page": 10
+    },
+    {
+      "section": "§1.1 Main result of [42]",
+      "label": "Theorem 1.1 and Proposition 1.1",
+      "page": 5
+    },
+    {
+      "section": "§1.2 and Remark 1.3 of [42]",
+      "label": "equations (1.8)-(1.13), footnote 5, and open discrete-WE issue",
+      "page": "7-8"
+    },
+    {
+      "section": "§1.3 Estimates from random matrix theory of [42]",
+      "label": "Definitions 1.1-1.4, Definition 1.3, and Theorem 1.3",
+      "page": "9-11"
+    }
+  ]
+}

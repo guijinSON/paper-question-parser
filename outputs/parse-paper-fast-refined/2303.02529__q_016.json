@@ -1,0 +1,59 @@
+{
+  "arxiv_id": "2303.02529",
+  "question_id": "q_016",
+  "original_question": "For DTCS(n), let SS_n^(alpha) be the sum over all clades of the alpha-th power of the clade size. Develop a detailed analysis of SS_n^(alpha) as a function of alpha, including asymptotics and phase changes across the ranges of alpha discussed in the paper.",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 8582.53,
+  "target_in_paper": "Open Problem 13 in §7.2 (“Powers of subtree sizes”): “Give a detailed analysis of SS_n^(α) in our model.” ([storage.googleapis.com](https://storage.googleapis.com/arxiv-dataset/arxiv/arxiv/pdf/2303/2303.02529v2.pdf))",
+  "completeness_score": 8.0,
+  "correct_elements": "The draft correctly identifies the discrete-time critical beta-splitting tree DTCS(n), the statistic SS_n^(α), and the fact that the nearby discussion is organized by α-regimes with different asymptotic behavior. It is therefore aimed at the paper’s Open Problem 13. ([storage.googleapis.com](https://storage.googleapis.com/arxiv-dataset/arxiv/arxiv/pdf/2303/2303.02529v2.pdf))",
+  "missing_details": [
+    "DTCS(n) should be defined explicitly: starting from [n], every clade of size m≥2 splits into subclades of sizes i and m−i with probability q(m,i)=m/(2h_{m-1}i(m-i)), where h_{m-1}=∑_{r=1}^{m-1}1/r. ([storage.googleapis.com](https://storage.googleapis.com/arxiv-dataset/arxiv/arxiv/pdf/2303/2303.02529v2.pdf))",
+    "SS_n^(α) in the paper is not just an informal sum over “all clades”; it is SS_n^(α)=∑_{j=2}^n N_n(j)j^α, where N_n(j) is the number of size-j clades that ever arise in the recursive construction. Thus leaves of size 1 are excluded, while the root clade of size n is included. ([storage.googleapis.com](https://storage.googleapis.com/arxiv-dataset/arxiv/arxiv/pdf/2303/2303.02529v2.pdf))",
+    "The nearby context is discrete-time DTCS(n), not CTCS(n). This is reflected in the use of N_n(j) and in the identity SS_n^(1)=n·E[L_n|T_n], where L_n is the height of a uniformly random leaf in DTCS(n). ([storage.googleapis.com](https://storage.googleapis.com/arxiv-dataset/arxiv/arxiv/pdf/2303/2303.02529v2.pdf))",
+    "To make the question stand-alone, one should state the occupation probabilities a(n,j)=P(the harmonic-descent chain started at n ever visits j) and their limit a(j)=6h_{j-1}/(π^2(j-1)), because the paper uses E[N_n(j)]=na(n,j)/j∼na(j)/j as the main input for SS_n^(α). ([storage.googleapis.com](https://storage.googleapis.com/arxiv-dataset/arxiv/arxiv/pdf/2303/2303.02529v2.pdf))",
+    "The specific asymptotic regimes actually discussed nearby should be named explicitly: for α<1, n^{-1}E[SS_n^(α)]→∑_{j≥2}a(j)j^{α-1}; for α=1, E[SS_n^(1)]∼n/(2ζ(2))log^2 n; and for α=2, the paper gives the heuristic E[SS_n^(2)]≈n^2 log n. ([storage.googleapis.com](https://storage.googleapis.com/arxiv-dataset/arxiv/arxiv/pdf/2303/2303.02529v2.pdf))",
+    "If one wants to mirror the paper literally, one should note that the last sentence of §7.2 mentions complex powers α as well, even though the displayed heuristics are written for real α-regimes. ([storage.googleapis.com](https://storage.googleapis.com/arxiv-dataset/arxiv/arxiv/pdf/2303/2303.02529v2.pdf))",
+    "“Phase changes” is your interpretive wording, not the paper’s official phrasing; the paper itself singles out only the thresholds α=1 and α=2 through the neighboring heuristics and then states Open Problem 13. ([storage.googleapis.com](https://storage.googleapis.com/arxiv-dataset/arxiv/arxiv/pdf/2303/2303.02529v2.pdf))"
+  ],
+  "refined_question": "For the discrete-time critical beta-splitting random tree DTCS(n), in which each clade of size m≥2 splits into clades of sizes i and m−i with probability q(m,i)=m/(2h_{m-1}i(m-i)) (1≤i≤m−1, h_{m-1}=∑_{r=1}^{m-1}1/r), let N_n(j) be the number of size-j clades that ever arise and define SS_n^(α):=∑_{j=2}^n N_n(j)j^α. Determine, as n→∞, a detailed asymptotic description of SS_n^(α) as a function of α, by proving and sharpening the regime-dependent behaviors indicated in the paper: for α<1, show that n^{-1}E[SS_n^(α)]→∑_{j≥2}a(j)j^{α-1} with a(j)=6h_{j-1}/(π^2(j−1)); for α=1, recover E[SS_n^(1)]∼n/(2ζ(2))log^2 n; for α=2, prove or refine the heuristic E[SS_n^(2)]≈n^2 log n; and identify precisely how the asymptotics change at the thresholds α=1 and α=2. ([storage.googleapis.com](https://storage.googleapis.com/arxiv-dataset/arxiv/arxiv/pdf/2303/2303.02529v2.pdf))",
+  "equivalent_formulation": null,
+  "justification": "The draft is targeting the paper’s exact official formulation, namely Open Problem 13 in §7.2. The surrounding text there defines SS_n^(α) through the clade counts N_n(j), states the key expectation identity E[N_n(j)]=na(n,j)/j, invokes Theorem 5 for the explicit limit a(j), and records the three displayed heuristics (118)–(120) that distinguish the cases α<1, α=1, and α=2. Equation (11) supplies the α=1 constant through the random-leaf height L_n. Because the paper itself does not formulate a broader “phase diagram” theorem, the refined question stays narrowly focused on proving these explicit regime-dependent asymptotics for the paper’s own statistic. ([storage.googleapis.com](https://storage.googleapis.com/arxiv-dataset/arxiv/arxiv/pdf/2303/2303.02529v2.pdf))",
+  "citations": [
+    {
+      "section": "§2",
+      "label": "Eq. (1)",
+      "page": 1
+    },
+    {
+      "section": "§4.1",
+      "label": "Eqs. (14)–(15)",
+      "page": 9
+    },
+    {
+      "section": "§4.1",
+      "label": "Theorem 5",
+      "page": 10
+    },
+    {
+      "section": "§3.3",
+      "label": "Eq. (11)",
+      "page": 8
+    },
+    {
+      "section": "§6.1",
+      "label": "Eq. (30)",
+      "page": 25
+    },
+    {
+      "section": "§7.2",
+      "label": "Eqs. (118)–(120)",
+      "page": 59
+    },
+    {
+      "section": "§7.2",
+      "label": "Open Problem 13",
+      "page": 59
+    }
+  ]
+}

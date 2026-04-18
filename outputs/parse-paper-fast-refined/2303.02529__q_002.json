@@ -1,0 +1,60 @@
+{
+  "arxiv_id": "2303.02529",
+  "question_id": "q_002",
+  "original_question": "In the original interval-splitting version of the critical beta-splitting model, where leaves keep their deterministic left-to-right labels instead of being randomly relabeled, analyze the distribution of the height of a designated leaf i(n) in both the discrete-time tree DTCS(n) and the continuous-time tree CTCS(n).",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 8551.43,
+  "target_in_paper": "The nearest paper-faithful target is not a general one-leaf distribution problem for an arbitrary designated label i(n), but the label-sensitive dependence issue raised in Section 6.5 while discussing Open Problem 1 for the maximum height in CTCS(n): after noting that heights of two typical leaves are asymptotically uncorrelated, the authors say that in the original interval-splitting representation one would need to bound the association between the tail distributions of the heights of leaf i and leaf i+n^0.73. Section 6.6 then gives the discrete-time analog through Open Problem 7. ([storage.googleapis.com](https://storage.googleapis.com/arxiv-dataset/arxiv/arxiv/pdf/2303/2303.02529v2.pdf))",
+  "completeness_score": 4,
+  "correct_elements": "Your draft correctly identifies the latent issue that appears once one does not randomize the left-to-right labels: leaf heights may depend on deterministic label location, and this matters for both the discrete model DTCS(n) and the continuous model CTCS(n). It also correctly focuses on height observables, which are central in Sections 3, 5.1, 6.5, and 6.6. ([storage.googleapis.com](https://storage.googleapis.com/arxiv-dataset/arxiv/arxiv/pdf/2303/2303.02529v2.pdf))",
+  "missing_details": [
+    "The paper does not formulate a broad problem about the full distribution of the height of an arbitrary designated leaf i(n). The specific unresolved issue it raises is stronger and narrower: control of label-sensitive dependence, especially the association between tail events for two deterministically labeled leaves, in service of the tree-height conjecture. ([storage.googleapis.com](https://storage.googleapis.com/arxiv-dataset/arxiv/arxiv/pdf/2303/2303.02529v2.pdf))",
+    "You need to define the model explicitly: in DTCS(n), a size-m interval splits into sizes i and m-i with probability q(m,i)=m/[2 h_{m-1} i(m-i)], where h_{m-1}=sum_{k=1}^{m-1}1/k; in CTCS(n), a size-m interval splits at rate h_{m-1}. ([storage.googleapis.com](https://storage.googleapis.com/arxiv-dataset/arxiv/arxiv/pdf/2303/2303.02529v2.pdf))",
+    "You need to distinguish the two height notions precisely: CTCS height is the sum of edge lengths (continuous time), whereas DTCS height is hop-count / number of edges on the root-to-leaf path. The paper denotes the height of a uniform random leaf by D_n in CTCS(n) and by L_n in DTCS(n). ([storage.googleapis.com](https://storage.googleapis.com/arxiv-dataset/arxiv/arxiv/pdf/2303/2303.02529v2.pdf))",
+    "You need to specify the label regime for i(n): fixed i, i/n→x in (0,1), boundary labels, or the particular separation i and i+⌊n^0.73⌋ that appears in Section 6.5. Without this, the question is not stand-alone. ([storage.googleapis.com](https://storage.googleapis.com/arxiv-dataset/arxiv/arxiv/pdf/2303/2303.02529v2.pdf))",
+    "You need to say what asymptotic output is sought: law of large numbers, mean/variance asymptotics, centered-and-scaled limit law, tail asymptotics, or joint tail bounds. The paper's actual need is joint tail/association control, not merely a marginal distribution. ([storage.googleapis.com](https://storage.googleapis.com/arxiv-dataset/arxiv/arxiv/pdf/2303/2303.02529v2.pdf))",
+    "You need to relate the question to the paper's existing relabeling convention in Section 5.1: after applying a uniform random permutation to leaf labels, the path to a uniform random leaf is equivalent in distribution to the path to leaf 1. That explains why Theorem 2 and Theorem 3 concern a uniform random leaf rather than a deterministic label in the original interval order. ([storage.googleapis.com](https://storage.googleapis.com/arxiv-dataset/arxiv/arxiv/pdf/2303/2303.02529v2.pdf))",
+    "For DTCS(n), the paper itself only states that results parallel to Theorem 3 exist elsewhere and explicitly records E[L_n]~(2ζ(2))^{-1}(log n)^2, while its official discrete open problem in this vicinity is Open Problem 7 about the maximum height L_n^*. So a fully paper-faithful reformulation should treat DTCS as an analog, not as an independently posed designated-leaf problem in this paper. ([storage.googleapis.com](https://storage.googleapis.com/arxiv-dataset/arxiv/arxiv/pdf/2303/2303.02529v2.pdf))",
+    "There is no ambient ring, field, homogeneity, degree, or nilpotency hypothesis here; the missing structure is probabilistic and asymptotic instead: model definitions, label regime, mode of convergence, and quantifiers such as whether the desired bound should hold uniformly over all admissible i and all sufficiently large n."
+  ],
+  "refined_question": "In the original interval-splitting construction of the critical beta-splitting model on [n]={1,2,...,n}, where a size-m interval splits into subintervals of sizes i and m-i with probability q(m,i)=m/[2 h_{m-1} i(m-i)] and, in continuous time, a size-m interval splits at rate h_{m-1}, do not apply the uniform random permutation of leaf labels used in Section 5.1. Let H_n(j) be the continuous-time height of the deterministically labeled leaf j in CTCS(n), and let h_n(j) be its hop-height in DTCS(n). Determine the label-sensitive tail behavior and, in particular, obtain asymptotic bounds on the association between the tail events {H_n(i)>t} and {H_n(i+⌊n^0.73⌋)>t}, uniformly for admissible i and for the relevant range of t, strong enough to justify the heuristic behind Open Problem 1 that D_n^*~c log n for the maximum height in CTCS(n); formulate the analogous label-sensitive dependence problem for h_n(j) in DTCS(n) in relation to Open Problem 7. ([storage.googleapis.com](https://storage.googleapis.com/arxiv-dataset/arxiv/arxiv/pdf/2303/2303.02529v2.pdf))",
+  "equivalent_formulation": null,
+  "justification": "I am inferring from Sections 5.1 and 6.5 that your draft is pointing at the deterministic-label obstruction behind the maximum-height heuristics, not at a new broad problem of independent interest. Section 5.1 says the paper deliberately randomizes leaf labels so that a path to a uniform random leaf becomes equivalent in distribution to the path to leaf 1, and the leaf-height theory in Sections 3.1-3.4 is then stated for a uniform random leaf (Theorem 2, Theorem 3, and equation (11) for the DTCS analog). When the authors return in Section 6.5 to the conjectured maximum height D_n^*, they explicitly say that, in the original interval-splitting representation, one would need to bound the association between the tail distributions of heights of leaf i and leaf i+n^0.73. Section 6.6 presents Open Problem 7 as the discrete-time analog for DTCS(n). So the sharpest stand-alone reformulation is the label-sensitive dependence problem tied to Open Problem 1, with DTCS included only as the analogous discrete version. ([storage.googleapis.com](https://storage.googleapis.com/arxiv-dataset/arxiv/arxiv/pdf/2303/2303.02529v2.pdf))",
+  "citations": [
+    {
+      "section": "2",
+      "label": "Definition of DTCS(n), CTCS(n), and splitting law q(m,i), equation (1)",
+      "page": "1-2"
+    },
+    {
+      "section": "3.1",
+      "label": "Theorem 2",
+      "page": 6
+    },
+    {
+      "section": "3.3",
+      "label": "Theorem 3 and equation (11)",
+      "page": 8
+    },
+    {
+      "section": "3.4",
+      "label": "Open Problem 1",
+      "page": "8-9"
+    },
+    {
+      "section": "5.1",
+      "label": "Random permutation of leaf labels; path to a uniform random leaf is equivalent in distribution to path to leaf 1",
+      "page": 19
+    },
+    {
+      "section": "6.5",
+      "label": "Discussion after Open Problem 1; need to bound association between tail distributions of heights of leaf i and leaf i+n^0.73",
+      "page": "35-37"
+    },
+    {
+      "section": "6.6",
+      "label": "Open Problem 7",
+      "page": 37
+    }
+  ]
+}

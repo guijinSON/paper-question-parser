@@ -1,0 +1,48 @@
+{
+  "arxiv_id": "2303.02529",
+  "question_id": "q_005",
+  "original_question": "For a fixed finite clade shape chi, let N_n(chi) be the number of copies of chi that appear as fringe clades in DTCS(n). Prove that n^(-1) Var(N_n(chi)) converges to a limit sigma^2(chi), and prove the corresponding central limit theorem for N_n(chi).",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 8578.98,
+  "target_in_paper": "Section 4.4, Open Problem 2: for a fixed size-i clade chi in DTCS(n), prove that n^(-1) var(N_n(chi)) converges to a limit sigma^2(chi) and that the corresponding central limit theorem holds.",
+  "completeness_score": 8.5,
+  "correct_elements": "Your draft is very close to the paper's actual target. It matches Open Problem 2 almost verbatim in its main asymptotic claim: the statistic is N_n(chi), the count of copies of a fixed finite clade chi in DTCS(n), and the paper asks for a linear-order variance asymptotic n^(-1) Var(N_n(chi)) -> sigma^2(chi) together with the corresponding CLT. You also correctly restrict attention to a fixed finite pattern chi rather than broadening to more global tree statistics.",
+  "missing_details": [
+    "The paper phrases chi as a fixed size-i clade; to make the question stand-alone, you should specify that chi is a finite rooted binary clade with i leaves. If you mean 'shape' in the biological sense used near Figure 9, you should explicitly say that left and right branches are not distinguished.",
+    "DTCS(n) should be defined: recursively split every m-leaf clade into j and m-j leaves with probability q(m,j) = m / (2 h_{m-1} j (m-j)) for 1 <= j <= m-1, where h_{m-1} is the harmonic sum.",
+    "N_n(chi) should be defined precisely as the number of fringe clades/subtrees in DTCS(n) whose induced subtree is isomorphic to chi.",
+    "The nearby context introduces the first-order asymptotic n^(-1) E[N_n(chi)] -> p(chi)/i, where p(chi) is the limit fringe probability that a uniform leaf belongs to a clade chi. Including this makes the problem paper-faithful and self-contained.",
+    "The CLT normalization should be stated explicitly: (N_n(chi) - E[N_n(chi)]) / sqrt(n) converges in distribution to Normal(0, sigma^2(chi)); if sigma^2(chi)=0 this is a degenerate Gaussian limit.",
+    "The paper states this open problem for DTCS(n). The surrounding discussion says analogous local statistics can be studied for DTCS(n) or CTCS(n), so the question should explicitly keep DTCS(n) as the model unless you intend a separate variant."
+  ],
+  "refined_question": "Fix a finite rooted binary clade chi with i leaves; if chi is interpreted only up to shape, use the Figure 9 convention that left and right branches are not distinguished. In the discrete-time critical splitting tree DTCS(n), defined by recursively splitting each m-leaf clade into j and m-j leaves with probability q(m,j)=m/(2 h_{m-1} j (m-j)) for 1 <= j <= m-1, let N_n(chi) be the number of fringe clades whose induced subtree is isomorphic to chi. Let p(chi) denote the corresponding limit fringe probability, so that n^(-1) E[N_n(chi)] -> p(chi)/i. Prove that there exists a finite constant sigma^2(chi) such that n^(-1) Var(N_n(chi)) -> sigma^2(chi), and prove the corresponding central limit theorem, namely that (N_n(chi)-E[N_n(chi)])/sqrt(n) converges in distribution to Normal(0, sigma^2(chi)).",
+  "equivalent_formulation": null,
+  "justification": "The closest official target is Open Problem 2 in Section 4.4, not the later combinatorial questions in Open Problem 4. The paper first defines the limit fringe probabilities a(i), explains that a clade of size i has the DTCS(i) distribution, and then introduces p(chi) for a specific finite clade chi. Immediately after that, it states that N_n(chi) satisfies n^(-1) E[N_n(chi)] -> p(chi)/i and asks to prove exactly the variance limit and CLT that appear in your draft. Your draft therefore captures the right open problem, but it leaves implicit the definition of DTCS(n), the size parameter i, the precise meaning of chi, the role of p(chi), and the exact normalization of the CLT. The later Open Problem 4 also mentions N_n(chi), but only to motivate different statistics such as the number of different shapes, the largest repeated clade, and the smallest missing clade; it is therefore a neighboring but less precise match than Open Problem 2.",
+  "citations": [
+    {
+      "section": "4.1",
+      "label": "equations (14) and (15)",
+      "page": 9
+    },
+    {
+      "section": "4.1",
+      "label": "Theorem 5",
+      "page": 10
+    },
+    {
+      "section": "4.4",
+      "label": "Figure 9 / surrounding paragraph",
+      "page": "16-17"
+    },
+    {
+      "section": "4.4",
+      "label": "Open Problem 2",
+      "page": 17
+    },
+    {
+      "section": "4.6",
+      "label": "Open Problem 4",
+      "page": "18-19"
+    }
+  ]
+}

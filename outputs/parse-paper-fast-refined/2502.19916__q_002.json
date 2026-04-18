@@ -1,0 +1,46 @@
+{
+  "arxiv_id": "2502.19916",
+  "question_id": "q_002",
+  "original_question": "For Polyak's heavy-ball method on the class F_{mu,L} of L-smooth, mu-strongly convex functions, do there exist tunings (gamma, beta) for which the method provably has neither a Lyapunov function of the searched form nor a cycle on any function in F_{mu,L}? If such tunings exist, does the method converge without a Lyapunov certificate, diverge without cycling, or exhibit some other behavior in those blank parameter regions?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 10572.11,
+  "target_in_paper": "Section 1, Open problem 2, restated and expanded in Section 3 (\"Open problem 2: Lyapunov functions, cycles, and third type of behavior\"): \"Do there exist parameters for which HB provably neither admits a Lyapunov function, nor a cycle? If so, what happens then?\"",
+  "completeness_score": 7.5,
+  "correct_elements": "Your draft correctly identifies the relevant algorithm (Polyak’s heavy-ball method), the function class F_{μ,L} of L-smooth, μ-strongly convex objectives, the tuning parameters (γ,β), the contrast between Lyapunov-certified convergence and cycle-based nonconvergence, and the paper’s main question about the behavior in the blank parameter regions where neither mechanism has been established.",
+  "missing_details": [
+    "The paper’s target is the official Open problem 2, not a broader question about all possible certificates or all possible pathologies.",
+    "The heavy-ball update should be stated explicitly: x_{t+1} = x_t - γ∇f(x_t) + β(x_t - x_{t-1}).",
+    "The ambient setting is over real Euclidean spaces: f : R^d -> R, with d arbitrary; no extra algebraic conditions such as nilpotency or non-real ambient fields are involved here.",
+    "In the paper, \"Lyapunov\" means a searched Lyapunov sequence of a very specific form, not an arbitrary Lyapunov function: V_t = l(f(x_t)-f_*, f(x_{t-1})-f_*) + q(x_{t-1}-x_*, ∇f(x_{t-1}), x_t-x_*, ∇f(x_t)), where l is linear and q is homogeneous quadratic.",
+    "The associated quantifier is global: for a fixed tuning (and tested rate ρ), the inequality V_{t+1} <= ρ V_t must hold for every HB trajectory generated on every f in F_{μ,L}. The green region in Figure 2 is drawn using ρ = 1; interior points even admit some ρ < 1.",
+    "In the paper, a \"cycle\" is existential, not universal: it means there exist some length K, some dimension d, some function f in F_{μ,L}, and some initialization for which the HB iterates are K-periodic. Your phrase \"nor a cycle on any function in F_{μ,L}\" is close in intent but leaves the quantifiers ambiguous.",
+    "To be fully stand-alone, the question should make clear that the issue is whether one can prove both the absence of such a Lyapunov certificate and the absence of any cycle counterexample for the same tuning (γ,β).",
+    "The nearby Section 3 context also raises the possibility of a \"third type of behavior\" in those blank regions; your draft hints at this, but does not state that this wording comes directly from the paper’s framing.",
+    "The paper additionally records an unexplained observation about plugging fractional values of the cycle length K into the closed-form cycle-boundary formula; while this is not the official open problem itself, it is part of the immediate context for what the blank regions might represent."
+  ],
+  "refined_question": "Let HB_{γ,β} denote Polyak’s heavy-ball method x_{t+1} = x_t - γ∇f(x_t) + β(x_t - x_{t-1}) applied to functions f in F_{μ,L}, where F_{μ,L} is the class of differentiable functions f : R^d -> R, for arbitrary d, that are L-smooth and μ-strongly convex. Do there exist tunings (γ,β) for which one can prove both that HB_{γ,β} admits no Lyapunov sequence of the specific type searched in the paper—namely V_t = l(f(x_t)-f_*, f(x_{t-1})-f_*) + q(x_{t-1}-x_*, ∇f(x_{t-1}), x_t-x_*, ∇f(x_t)), with l linear and q homogeneous quadratic, decreasing along every HB trajectory on every f in F_{μ,L}—and that HB_{γ,β} admits no cycle counterexample on F_{μ,L}, i.e. there is no K-periodic HB orbit arising from any initialization on any f in F_{μ,L}? If such tunings exist, what is the actual behavior of HB in those blank regions of the (γ,β)-plane: convergence without such a Lyapunov certificate, divergence without periodic cycling, or some third type of dynamics?",
+  "equivalent_formulation": null,
+  "justification": "Your draft is targeting the paper’s second open problem almost verbatim. The nearest official formulation is the sentence labeled Open problem 2 in the introduction, and Section 3 is exactly the nearby context that disambiguates the hidden meanings of \"Lyapunov\" and \"cycle.\" In particular, Section 3 specifies the searched Lyapunov family and explains that cycles are used as existential counterexamples to convergence, so the main repair needed is quantifier precision and explicit statement of the certificate class. This paper does not contain items labeled Conjecture 1.1, Proposition 1.2, or Theorem 1.3; the faithful target is Open problem 2 in Section 1 together with its Section 3 elaboration.",
+  "citations": [
+    {
+      "section": "1 Introduction, background, and open problems",
+      "label": "Open problem 2",
+      "page": "not available in HTML view"
+    },
+    {
+      "section": "3 Open problem 2: Lyapunov functions, cycles, and third type of behavior",
+      "label": "More details on the Lyapunov functions we looked for",
+      "page": "not available in HTML view"
+    },
+    {
+      "section": "3 Open problem 2: Lyapunov functions, cycles, and third type of behavior",
+      "label": "How did we find cycles?",
+      "page": "not available in HTML view"
+    },
+    {
+      "section": "3 Open problem 2: Lyapunov functions, cycles, and third type of behavior",
+      "label": "An interesting, unexplained observation",
+      "page": "not available in HTML view"
+    }
+  ]
+}

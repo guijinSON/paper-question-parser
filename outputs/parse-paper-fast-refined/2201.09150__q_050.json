@@ -1,0 +1,46 @@
+{
+  "arxiv_id": "2201.09150",
+  "question_id": "q_050",
+  "original_question": "Determine whether travelling-wave solutions exist for the scalar movement model whose advection depends on the population density tau time units in the past, with or without a birth-death term, and if they do, compute or estimate the dependence of wave speed on tau, advection, and diffusion.",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 7989.73,
+  "target_in_paper": "Open Problem 50 in Section 4.5 (Travelling wave solutions), for the scalar discrete-delay equation (2.20) introduced in Section 2.3.1.",
+  "completeness_score": 8.5,
+  "correct_elements": "The draft correctly identifies the right open problem: a scalar movement model in which the advective bias depends on the population density τ time units in the past, asks about existence of travelling-wave solutions, allows either no birth-death term or inclusion of one, and asks how the wave speed depends on τ and the advection/diffusion parameters. This matches the substance of Open Problem 50 rather than the neighboring questions on nonlocal perception, distributed delay, or systems.",
+  "missing_details": [
+    "The exact model should be stated: the paper’s discrete-delay scalar equation is ∂_t u = d1 Δu − γ ∇·(u∇u_τ) + f(u), with u_τ(x,t) = u(x,t−τ).",
+    "The delay is fixed and positive: τ > 0.",
+    "The parameter restrictions should be included: d1 > 0 and γ ∈ ℝ.",
+    "The travelling-wave setting in Section 4.5 is on an unbounded domain, with the ansatz u(x,t) = w(x−ct), so the stand-alone question should make clear that one is considering the one-dimensional wave variable on ℝ.",
+    "The two cases in the paper should be stated explicitly: either f(u) ≡ 0 or a birth/death term f(u) is included.",
+    "When the model (2.20) is introduced, the paper specifies that f ∈ C^1(ℝ_+) and is roughly logistic, with f(0) = f(1) = 0 and f(u) < 0 for u > 1; if one wants the question to be fully paper-faithful, this nearby context should be acknowledged even though Open Problem 50 itself phrases the second case as a general birth/death process.",
+    "The draft should say that the goal is to calculate or estimate the wave speed c itself, not only its qualitative dependence on parameters.",
+    "A paper-faithful formulation should note the technical feature emphasized by the authors: the delay appears underneath the gradient, i.e. at higher order, which is the main distinction from more standard delayed reaction-diffusion wave problems.",
+    "No ambient ring/field, homogeneity, degree restriction, or nilpotency condition is relevant here; this is an analytic PDE question, not an algebraic one."
+  ],
+  "refined_question": "For the scalar discrete-delay explicit-memory model on the unbounded line, given by\nu_t(x,t) = d1 u_xx(x,t) − γ ∂_x(u(x,t) ∂_x u(x,t−τ)) + f(u(x,t)),\nwith fixed delay τ > 0, diffusion coefficient d1 > 0, advection coefficient γ ∈ ℝ, and either (i) f ≡ 0 or (ii) a birth/death term f(u) (as in the discussion of (2.20), e.g. logistic-type), do there exist travelling-wave solutions of the form u(x,t) = w(x−ct)? If such waves exist, can one calculate or estimate the wave speed c, and determine how c depends on the delay τ and on the advection and diffusion parameters?",
+  "equivalent_formulation": null,
+  "justification": "The draft is aiming at Open Problem 50, not at the neighboring travelling-wave problems. Section 2.3.1 introduces the relevant scalar explicit-memory discrete-delay equation (2.20), where the advective potential is the delayed density uτ = u(x,t−τ). Section 4.5 then asks exactly whether travelling-wave solutions exist for the discrete-delay problem (2.20) for fixed τ > 0, either with f ≡ 0 or with a birth/death term, and if so whether the wave speed can be calculated or estimated and how it depends on τ and the advection/diffusion rates. The nearby context in Section 4.5 supplies the travelling-wave ansatz u(x,t) = w(x−ct) and the unbounded-domain viewpoint, while the sentence immediately after Open Problem 50 explains the key technical obstacle: the delay appears underneath the gradient. This makes Open Problem 50 the nearest official formulation and sharper than the adjacent Open Problems 49, 51, 52, and 53, which concern different models.",
+  "citations": [
+    {
+      "section": "2.3.1 Discrete time delays",
+      "label": "equation (2.20) and accompanying discussion",
+      "page": 21
+    },
+    {
+      "section": "4.5 Travelling wave solutions",
+      "label": "travelling-wave ansatz u(x,t)=w(x−ct) and unbounded-domain context",
+      "page": 51
+    },
+    {
+      "section": "4.5 Travelling wave solutions",
+      "label": "Open Problem 50",
+      "page": 52
+    },
+    {
+      "section": "4.5 Travelling wave solutions",
+      "label": "remark after Open Problem 50 on the delay appearing underneath the gradient",
+      "page": 52
+    }
+  ]
+}

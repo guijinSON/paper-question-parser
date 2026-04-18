@@ -1,0 +1,57 @@
+{
+  "arxiv_id": "2201.09150",
+  "question_id": "q_002",
+  "original_question": "For the same nonlocal multispecies advection-diffusion model, determine when spatially non-constant steady states exist under zero-flux, homogeneous Neumann, or periodic boundary conditions.",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 7923.92,
+  "target_in_paper": "Open Problem 2 in Section 2.2.2 (Dynamic memory), concerning spatially nonconstant steady states for the multispecies nonlocal advection–diffusion model (2.10). ([math.ualberta.ca](https://www.math.ualberta.ca/~hwang/WangSalmaniwReview.pdf))",
+  "completeness_score": 8,
+  "correct_elements": "Your draft correctly targets the implicit-memory multispecies nonlocal advection–diffusion system in the paper, asks about existence of spatially nonconstant steady states rather than time-dependent well-posedness or qualitative pattern properties, and preserves exactly the three boundary-condition types named in the paper: zero-flux, homogeneous Neumann, and periodic. ([math.ualberta.ca](https://www.math.ualberta.ca/~hwang/WangSalmaniwReview.pdf))",
+  "missing_details": [
+    "The model itself is not written out. The paper’s target is equation (2.10): for i = 1, …, n, ∂tu_i = d_iΔu_i − ∇·(u_i∇(∑j=1n γiju_j^{g,R})). ([math.ualberta.ca](https://www.math.ualberta.ca/~hwang/WangSalmaniwReview.pdf))",
+    "The unknowns and ambient setting are implicit. Here u_i are real-valued population densities for n interacting populations on a spatial domain Ω, with x ∈ Ω and t ≥ 0; this is an analytic PDE setting, not an algebraic one, so there are no homogeneity/degree/nilpotency restrictions to specify. ([math.ualberta.ca](https://www.math.ualberta.ca/~hwang/WangSalmaniwReview.pdf))",
+    "The nonlocal operator must be defined. In the paper, a^{g,R}(x,t) is the perception convolution from (2.5), and u_j^{g,R} is the same construction applied to u_j: spatial averaging against a perceptual kernel g with perceptual range R. ([math.ualberta.ca](https://www.math.ualberta.ca/~hwang/WangSalmaniwReview.pdf))",
+    "The kernel assumptions are missing. Section 2.1 assumes g is symmetric, has unit mass, approaches a Dirac delta as R → 0+, and is non-increasing away from the origin. ([math.ualberta.ca](https://www.math.ualberta.ca/~hwang/WangSalmaniwReview.pdf))",
+    "The parameters should be named: d_i > 0 are diffusion rates and γ_ij ∈ ℝ are interaction/advection coefficients, with the sign of γ_ij determining attraction versus repulsion. ([math.ualberta.ca](https://www.math.ualberta.ca/~hwang/WangSalmaniwReview.pdf))",
+    "The stationary problem should be stated explicitly: 0 = d_iΔu_i − ∇·(u_i∇(∑j=1n γiju_j^{g,R})), and 'spatially non-constant' should mean that at least one component u_i is not constant in x. ([math.ualberta.ca](https://www.math.ualberta.ca/~hwang/WangSalmaniwReview.pdf))",
+    "The bounded-domain formulation is incomplete unless the boundary conditions are written mathematically. Section 4.1.2 distinguishes zero-flux from homogeneous Neumann in general nonlocal problems, and periodic means working with a periodic extension / on a torus. ([math.ualberta.ca](https://www.math.ualberta.ca/~hwang/WangSalmaniwReview.pdf))",
+    "For nonperiodic bounded domains, the paper treats the definition of the detection kernel near ∂Ω as a genuine extra issue; without specifying that boundary-adjusted kernel construction, the problem is not fully stand-alone. ([math.ualberta.ca](https://www.math.ualberta.ca/~hwang/WangSalmaniwReview.pdf))",
+    "The phrase 'determine when' is sharper than the paper’s wording 'in what context'; to stay faithful, the question should leave open the relevant solution framework (weak/strong/classical) and regularity assumptions on g and Ω. ([math.ualberta.ca](https://www.math.ualberta.ca/~hwang/WangSalmaniwReview.pdf))",
+    "Because these movement-only models are mass-preserving under appropriate boundary conditions, the relevant conserved total populations (or normalizations) are implicit data in the steady-state problem, especially in the zero-flux and periodic cases. ([math.ualberta.ca](https://www.math.ualberta.ca/~hwang/WangSalmaniwReview.pdf))"
+  ],
+  "refined_question": "Let Ω ⊂ ℝd be a bounded spatial domain, let n ≥ 1, and consider the multispecies implicit-memory nonlocal advection–diffusion system from equation (2.10): ∂tu_i = d_iΔu_i − ∇·(u_i∇(∑j=1n γiju_j^{g,R})) for i = 1, …, n, where d_i > 0, γ_ij ∈ ℝ, and u_j^{g,R} denotes the perception operator from (2.5), i.e. convolution with a perceptual kernel g of range R satisfying the Section 2.1 hypotheses (with whatever bounded-domain modification near ∂Ω is needed to make the nonlocal term well defined). For the associated stationary problem 0 = d_iΔu_i − ∇·(u_i∇(∑j=1n γiju_j^{g,R})), in what solution framework and under what assumptions can one prove the existence of spatially nonconstant steady states—meaning steady states for which at least one u_i is nonconstant in x—when the system is posed under zero-flux boundary conditions ((d_i∇u_i − u_i∇(∑jγiju_j^{g,R}))·n = 0 on ∂Ω), under homogeneous Neumann boundary conditions (∂nu_i = 0 on ∂Ω), or under periodic boundary conditions? ([math.ualberta.ca](https://www.math.ualberta.ca/~hwang/WangSalmaniwReview.pdf))",
+  "equivalent_formulation": null,
+  "justification": "This is Open Problem 2, not the neighboring open problems, because your draft asks only for the existence of spatially nonconstant steady states for model (2.10) and keeps exactly the boundary-condition list appearing there. Open Problem 3 moves on to qualitative properties of those steady states, while Open Problem 5 instead asks about time-dependent solutions under different boundary conditions. The rewrite therefore restores only the notation and hidden assumptions needed to make Open Problem 2 stand alone: the PDE (2.10), the perception operator from Section 2.1, the bounded-domain issue for nonlocal kernels near the boundary, and the paper’s distinction between zero-flux and homogeneous Neumann conditions in the nonlocal setting. ([math.ualberta.ca](https://www.math.ualberta.ca/~hwang/WangSalmaniwReview.pdf))",
+  "citations": [
+    {
+      "section": "Section 2.1 (Perception) ([math.ualberta.ca](https://www.math.ualberta.ca/~hwang/WangSalmaniwReview.pdf))",
+      "label": "equations (2.3) and (2.5)",
+      "page": "8-10"
+    },
+    {
+      "section": "Section 2.2.2 (Dynamic memory) ([math.ualberta.ca](https://www.math.ualberta.ca/~hwang/WangSalmaniwReview.pdf))",
+      "label": "equation (2.10)",
+      "page": "12-13"
+    },
+    {
+      "section": "Section 2.2.2 (Dynamic memory) ([math.ualberta.ca](https://www.math.ualberta.ca/~hwang/WangSalmaniwReview.pdf))",
+      "label": "Open Problem 2",
+      "page": 13
+    },
+    {
+      "section": "Section 2.2.2 (Dynamic memory) ([math.ualberta.ca](https://www.math.ualberta.ca/~hwang/WangSalmaniwReview.pdf))",
+      "label": "Open Problem 5",
+      "page": 14
+    },
+    {
+      "section": "Section 4.1.2 (Considerations) ([math.ualberta.ca](https://www.math.ualberta.ca/~hwang/WangSalmaniwReview.pdf))",
+      "label": "equation (4.1) and discussion of zero-flux, homogeneous Neumann, and periodic boundary conditions",
+      "page": "38-40"
+    },
+    {
+      "section": "Section 5.1.1 (Implicit memory models) ([math.ualberta.ca](https://www.math.ualberta.ca/~hwang/WangSalmaniwReview.pdf))",
+      "label": "discussion of solution context and regularity for model (2.10)",
+      "page": 54
+    }
+  ]
+}

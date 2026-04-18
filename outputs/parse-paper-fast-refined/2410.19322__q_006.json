@@ -1,0 +1,54 @@
+{
+  "arxiv_id": "2410.19322",
+  "question_id": "q_006",
+  "original_question": "A fullerene is a convex, 3-regular polytope consisting only of pentagonal and hexagonal facets. Let C_n denote the set of all fullerenes with exactly n vertices, and let T_n be a random dual graph of a fullerene in C_n. For any dual fullerene graph G with adjacency matrix A and degree matrix D, define its (1/2, 1/4)-character by ch_{1/2,1/4}(G) := tr(exp((1/2)A + (1/4)D)). Does the normalized quantity [ch_{1/2,1/4}(T_n) - min_H ch_{1/2,1/4}(H)] / [max_H ch_{1/2,1/4}(H) - min_H ch_{1/2,1/4}(H)] converge as n tends to infinity, where the minimum and maximum are taken over dual graphs H of fullerenes in C_n? If the limit exists, what is its explicit form or limiting distribution?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 10310.0,
+  "target_in_paper": "Section 5.2, Open Problem 5 (expression (4)): the asymptotic behavior/distribution of the centered-and-normalized (1/2,1/4)-character of a random dual fullerene graph in C_n. This depends on Definition 5 and the parameter choice alpha = 2 beta = 1/2 explained in Section 5.1, and is restated in Section 6, item 5.",
+  "completeness_score": 8.5,
+  "correct_elements": "Your draft is very close to the paper's actual target. It correctly works with fullerenes C_n, passes to dual fullerene graphs, uses the same special character ch_{1/2,1/4} singled out in Section 5.1, and asks about exactly the min-max normalized quantity whose asymptotic behavior is posed in Open Problem 5 of Section 5.2. It also correctly asks for a limiting object as n tends to infinity and for an explicit description of that limit.",
+  "missing_details": [
+    "The paper restricts n to feasible values: n must be even, n >= 20, and n != 22.",
+    "The graphs in question are dual fullerene graphs associated with fullerenes in C_n; for an n-vertex fullerene, the dual graph has m = n/2 + 2 vertices, so A and D are m x m matrices.",
+    "Definition 5 explicitly defines the matrix exponential by exp(M) = sum_{k=0}^infinity M^k / k! for every complex-valued square matrix M; this should be included in a stand-alone formulation.",
+    "The notation ch without parameters only becomes the (1/2,1/4)-character after the parameter choice alpha = 2 beta = 1/2 is motivated in Section 5.1; a stand-alone question should say this explicitly.",
+    "The normalization in expression (4) is over all dual fullerene graphs G coming from fullerenes in C_n; the paper writes this as min_G and max_G in the class C_n context.",
+    "Open Problem 5 itself does not specify the sampling law of the random graph T_n. Section 3 motivates uniform sampling on C_n, so a stand-alone question should either specify that law or explicitly say that the law must be fixed.",
+    "Because the quantity is random, the sharp stand-alone formulation should state the mode of convergence as convergence in distribution (or convergence of laws) on [0,1], which matches the summary's wording about the distribution of normalized characters."
+  ],
+  "refined_question": "For each feasible n (that is, even n >= 20 with n != 22), let C_n be the set of fullerene isomers with n vertices, and let T_n be a random dual fullerene graph associated with an element of C_n (with a specified sampling law on C_n; the surrounding discussion in Section 3 motivates the uniform law). For any dual fullerene graph G associated with a fullerene in C_n, let A_G and D_G denote its adjacency and degree matrices, and define its (1/2,1/4)-character by ch_{1/2,1/4}(G) := tr(exp((1/2)A_G + (1/4)D_G)), where exp(M) = sum_{k=0}^infinity M^k/k!. Consider the normalized random variable X_n := [ch_{1/2,1/4}(T_n) - min_G ch_{1/2,1/4}(G)] / [max_G ch_{1/2,1/4}(G) - min_G ch_{1/2,1/4}(G)], where the minimum and maximum are taken over all dual fullerene graphs G associated with fullerenes in C_n. As n -> infinity through feasible values, do the laws of X_n converge on [0,1]? If so, determine the limiting distribution explicitly.",
+  "equivalent_formulation": "Determine, if existent, the distribution of centered and normalized characters (4) of random fullerenes as n -> infinity.",
+  "justification": "The draft is not aiming at the random-generation problem of Section 3 or at the uniqueness conjecture of Section 5.1; it is aiming at Open Problem 5 in Section 5.2. That is the only place where the paper asks for the asymptotic behavior of a min-max normalized character of a random fullerene. Definition 5 supplies the exact character, Section 5.1 explains why the paper then specializes to the (1/2,1/4)-character, and Section 5.2 introduces the exact normalization and asks for convergence as n -> infinity. Section 6 then restates the same target as a question about the distribution of centered and normalized characters. The main incompleteness in the draft is not mathematical content but missing paper-specific context: feasibility of n, the precise exp definition, the fact that omitted parameters mean (1/2,1/4), and the paper's failure to restate the law of the random fullerene T_n even though Section 3 motivates uniform sampling.",
+  "citations": [
+    {
+      "section": "Section 2",
+      "label": "Preliminaries",
+      "page": "2912-2913"
+    },
+    {
+      "section": "Section 3",
+      "label": "Open Problem 1",
+      "page": "2913-2914"
+    },
+    {
+      "section": "Section 5.1",
+      "label": "Definition 5",
+      "page": "2919"
+    },
+    {
+      "section": "Section 5.1",
+      "label": "Conjecture 3",
+      "page": "2919-2920"
+    },
+    {
+      "section": "Section 5.2",
+      "label": "Open Problem 5, expression (4)",
+      "page": "2920-2921"
+    },
+    {
+      "section": "Section 6",
+      "label": "Summary, item 5",
+      "page": "2922"
+    }
+  ]
+}

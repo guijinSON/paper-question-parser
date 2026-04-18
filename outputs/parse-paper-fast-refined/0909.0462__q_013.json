@@ -1,0 +1,39 @@
+{
+  "arxiv_id": "0909.0462",
+  "question_id": "q_013",
+  "original_question": "Consider a slotted multi-access channel in which packets have unit service time, arrivals during each slot are Poisson with parameter lambda, W_n is the number of packets in the system at the beginning of slot n, and each packet attempts transmission in slot n with probability p_n. A transmission succeeds if exactly one packet transmits, collides if two or more transmit, and is empty if none transmits. Suppose p_{n+1} may depend only on p_n and on the binary information of whether slot n contained a successful transmission. Does there exist a protocol of this form for which the Markov chain (W_n, p_n) is positive recurrent for some lambda > 0?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 425.81,
+  "target_in_paper": "Section 6, \"Multi-access channel with protocols based on partial information\": the open question asking whether one-bit success/no-success feedback is enough to design a protocol that makes the backlog/transmission-probability chain positive recurrent for some positive arrival rate.",
+  "completeness_score": 9,
+  "correct_elements": "Your draft already matches the paper very closely. It has the right model class (slotted single-channel random access with unit-length packets and Poisson arrivals), the right state variable W_n, the right common attempt probability p_n, the right slot outcomes (success/collision/empty), the right feedback restriction (only whether slot n was successful), and the right existential question: whether there is some protocol in this class for which (W_n,p_n) is positive recurrent for some λ>0.",
+  "missing_details": [
+    "The paper explicitly says this is a single shared channel carrying packets/messages of one common length.",
+    "It is implicit in the paper that, in slot n, every packet present uses the same transmission probability p_n and attempts independently of everything else; your draft states the common probability but not the full independence clause.",
+    "The paper phrases the protocol assumption as an inductive definition of the probabilities p_n, with p_{n+1} allowed to depend only on p_n and on the one-bit information of whether slot n had a successful transmission.",
+    "The paper explicitly notes that under this feedback restriction the pair (W_n,p_n) forms a time-homogeneous Markov chain.",
+    "The quantifiers are existential twice over: the question is whether there exists at least one protocol of this restricted form and at least one positive arrival rate λ for which positive recurrence holds; it is not asking for all λ or for a full stability region.",
+    "The nearby context records a contrast result: if the one-bit feedback is instead emptiness/nonemptiness or collision/noncollision, then λ<e^{-1} is necessary and sufficient for existence of an ergodic protocol. That comparison is not part of the target question, but it is part of the paper-faithful scope around it.",
+    "Not applicable here: there is no ambient ring/field, operator, homogeneity, degree restriction, nilpotency condition, or 'for all sufficiently large m' clause in this queueing problem."
+  ],
+  "refined_question": "Consider the single-channel slotted multi-access system in which all packets have the same unit transmission time, the number of packet arrivals during each slot is Poisson with parameter λ>0, and W_n denotes the number of packets in the system at the beginning of slot n. In slot n, every packet currently present attempts transmission independently, all with the same probability p_n. A slot is called successful if exactly one packet transmits, a collision if two or more packets transmit, and empty if none transmit; after a collision, the transmitting packets remain in the system and retry later, while after a successful transmission the transmitted packet departs. Suppose the access probabilities are defined inductively so that p_{n+1} may depend only on p_n and on the one-bit indicator of whether slot n contained a successful transmission. Then (W_n,p_n) is a time-homogeneous Markov chain. Does there exist any protocol of this restricted success/no-success-feedback form for which the Markov chain (W_n,p_n) is positive recurrent (ergodic, in the paper's wording) for some λ>0?",
+  "equivalent_formulation": null,
+  "justification": "This is the exact open problem stated in Section 6 of the paper, with only the paper's own hidden assumptions made explicit. The draft already captured the right feedback restriction and the right positive-recurrence existence question. The only substantive refinements needed to make it fully stand-alone and paper-faithful are the common packet length, the independence/commonality of the per-packet attempts at probability p_n, the inductive nature of the protocol, and the paper's explicit observation that these assumptions make (W_n,p_n) a time-homogeneous Markov chain. The nearby statement about the alternative one-bit feedbacks (empty/nonempty or collision/noncollision) is contextual only, not an equivalent reformulation of the target problem.",
+  "citations": [
+    {
+      "section": "6",
+      "label": "Multi-access channel with protocols based on partial information",
+      "page": 6
+    },
+    {
+      "section": "6",
+      "label": "definition of the model, the feedback restriction, and the statement that (W_n,p_n) is a time homogeneous Markov chain",
+      "page": 6
+    },
+    {
+      "section": "6",
+      "label": "open question on existence of a positive recurrent (ergodic) protocol and nearby comparison with the other two binary-feedback models",
+      "page": 6
+    }
+  ]
+}

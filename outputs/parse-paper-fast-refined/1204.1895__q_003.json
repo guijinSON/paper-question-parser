@@ -1,0 +1,60 @@
+{
+  "arxiv_id": "1204.1895",
+  "question_id": "q_003",
+  "original_question": "In the transient one-dimensional case, compute the probability that an excited random walk started at 0 never returns to its starting point, namely P_0[for all n >= 1, X_n != 0].",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 2109.27,
+  "target_in_paper": "Section 3.1, Problem 3.12: compute, in the one-dimensional transient regime, the annealed probability P_0[forall n >= 1 : X_n != 0] that the excited random walk never returns to its starting point.",
+  "completeness_score": 8.5,
+  "correct_elements": "Your draft already captures the correct location and substance of the paper's open problem: it is about a one-dimensional excited random walk, started at 0, in the transient case, and it asks for the exact probability of never returning to 0, namely P_0[forall n >= 1, X_n != 0]. This is essentially the same event and nearly the same wording as Problem 3.12.",
+  "missing_details": [
+    "The ambient state space should be specified: X is a one-dimensional nearest-neighbor excited random walk on Z, not an arbitrary transient process.",
+    "The law P_0 should be identified as the averaged/annealed law introduced from the cookie-environment measure P, not the quenched law P_{0,omega}.",
+    "The intended scope is the one-dimensional setting discussed immediately around Theorem 3.10, so the hypotheses should be stated: either (3.9) namely (SE) and (POS1) with P[omega(0,1,.) = (1,1/2,1/2,...)] < 1, or (3.10) namely (IID), (BD), and (WEL).",
+    "The phrase 'transient case' should be tied to the paper's criterion in Theorem 3.10: transient to the right if delta > 1 and transient to the left if delta < -1.",
+    "The drift parameter delta should be defined in the one-dimensional form delta = E[sum_{i >= 1} (2 omega(0,1,i) - 1)] (equivalently via the general expected total drift in a cookie stack).",
+    "The process notation X = (X_n)_{n >= 0} with X_0 = 0 should be made explicit so the event 'never returns to its starting point' is unambiguous.",
+    "If the question is meant to be fully stand-alone, the cookie environment notation omega(z,e,i) and the ERW transition rule from equation (1.1) should be referenced or summarized.",
+    "The paper treats this as an exact-computation problem, not merely a question of positivity, asymptotics, or a recurrence/transience criterion; that should remain explicit."
+  ],
+  "refined_question": "Let X = (X_n)_{n >= 0} be the one-dimensional nearest-neighbor excited random walk on Z started at X_0 = 0, under the annealed law P_0, in a random cookie environment omega as defined in equation (1.1). Assume the hypotheses of Theorem 3.10, namely either (i) (SE) and (POS1) with P[omega(0,1,.) = (1,1/2,1/2,...)] < 1, or (ii) (IID), (BD), and (WEL), and assume that the walk is transient in the sense of Theorem 3.10 (equivalently, in d = 1, delta > 1 or delta < -1, where delta = E[sum_{i >= 1}(2 omega(0,1,i) - 1)] is the expected total drift in a cookie stack). Determine the annealed probability P_0[forall n >= 1 : X_n != 0], i.e. the probability that the excited random walk never returns to its starting point.",
+  "equivalent_formulation": null,
+  "justification": "The draft is targeting Problem 3.12 in Section 3.1 almost verbatim. To make it fully stand-alone and faithful to the paper, one must import the model and probability notation from Section 1, the meaning of transience from Definition 3.1, the drift parameter delta from the discussion immediately before Theorem 3.10, and the exact one-dimensional hypotheses and transient regime from Theorem 3.10. The paper itself points to [Zer05, Th. 18] only as a special computed example, so the proper refinement is still the same narrow open problem rather than a broader recurrence, speed, or branching-process question.",
+  "citations": [
+    {
+      "section": "1",
+      "label": "equation (1.1), definition of ERW and annealed law P_x",
+      "page": 2
+    },
+    {
+      "section": "1",
+      "label": "(IID), (SE), (WEL)",
+      "page": "2-3"
+    },
+    {
+      "section": "1.2-1.3",
+      "label": "(POSℓ) and (BD)",
+      "page": 4
+    },
+    {
+      "section": "3",
+      "label": "Definition 3.1",
+      "page": 9
+    },
+    {
+      "section": "3.1",
+      "label": "Remark 3.8 and Remark 3.9",
+      "page": 12
+    },
+    {
+      "section": "3.1",
+      "label": "Theorem 3.10",
+      "page": "12-13"
+    },
+    {
+      "section": "3.1",
+      "label": "Problem 3.12",
+      "page": 13
+    }
+  ]
+}

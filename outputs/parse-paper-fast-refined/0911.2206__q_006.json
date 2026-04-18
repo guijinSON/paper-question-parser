@@ -1,0 +1,53 @@
+{
+  "arxiv_id": "0911.2206",
+  "question_id": "q_006",
+  "original_question": "For the same incompressible Jeffreys-type viscoelastic fluid model, do there exist any generalized global-in-time solutions of the evolutionary initial-boundary value problem without restrictions on the coefficients, external force, or initial data?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 599.85,
+  "target_in_paper": "The draft is trying to capture the review’s discussion of weak/global solvability for the evolutionary initial-boundary value problem for the incompressible Jeffreys model—i.e. the existence of a weak (generalized) solution for arbitrary data size, as summarized from the authors’ underlying weak-solvability result [72], rather than a broader or completely assumption-free open problem.",
+  "completeness_score": 4,
+  "correct_elements": "The draft correctly identifies the model class (incompressible Jeffreys-type viscoelastic fluid), the evolutionary initial-boundary value setting, the global-in-time nature of the question, and the fact that the relevant notion is a generalized/weak solution rather than a strong solution. It also correctly points toward the unrestricted-size regime, i.e. no smallness assumptions on the force or initial data.",
+  "missing_details": [
+    "The spatial setting: a sufficiently regular bounded domain Ω ⊂ R^n with n = 2 or 3, and an arbitrary but fixed time horizon T > 0.",
+    "The unknowns: velocity u, pressure p, and deviatoric stress tensor σ.",
+    "The exact PDE system: ∂t u + (u·∇)u − div σ + ∇p = f, the Jeffreys constitutive law for σ, and div u = 0.",
+    "The boundary and initial conditions: u = 0 on (0,T) × ∂Ω, u(0) = a, and σ(0) = σ0.",
+    "The operator definition E(u) = (∇u + (∇u)^T)/2.",
+    "The coefficient assumptions appearing in the theorem-level formulation: viscosity μ > 0 and relaxation/retardation times λ1, λ2 satisfying 0 < λ2 < λ1.",
+    "The exact data spaces: f ∈ L^2(0,T; V*), a ∈ H, and σ0 ∈ H^{-1}(Ω; R_sym^{n×n}) together with the compatibility condition σ0 − (2μλ2/λ1)E(a) ∈ L^2(Ω; R_sym^{n×n}).",
+    "The definitions of the solenoidal spaces H and V (with V = H0^1(Ω)^n ∩ {div-free fields}, and H the corresponding L^2 divergence-free space).",
+    "The precise weak-solution regularity class: u ∈ L^2(0,T; V) ∩ Cw([0,T]; H), ∂t u ∈ L^1(0,T; V*), and σ ∈ L^2(0,T; L^2(Ω; R_sym^{n×n})) ∩ Cw([0,T]; H^{-1}(Ω; R_sym^{n×n})).",
+    "The fact that the theorem is for every T > 0; that is the precise meaning of global-in-time here.",
+    "The phrase “without restrictions” needs sharpening: in the paper-faithful formulation it means without smallness assumptions on the size of the data, not without the structural sign conditions on coefficients or the functional-space hypotheses on f, a, and σ0."
+  ],
+  "refined_question": "Let Ω ⊂ R^n, n ∈ {2,3}, be a sufficiently regular bounded domain, let T > 0, let E(u) = (∇u + (∇u)^T)/2, and consider the incompressible Jeffreys system on (0,T) × Ω: ∂t u + (u·∇)u − div σ + ∇p = f, σ + λ1(∂t σ + (u·∇)σ) = 2μ(E(u) + λ2(∂t E(u) + (u·∇)E(u))), div u = 0, with no-slip boundary condition u = 0 on ∂Ω and initial data u(0)=a, σ(0)=σ0. For coefficients μ > 0 and 0 < λ2 < λ1, and for data f ∈ L^2(0,T; V*), a ∈ H, and σ0 ∈ H^{-1}(Ω; R_sym^{n×n}) satisfying σ0 − (2μλ2/λ1)E(a) ∈ L^2(Ω; R_sym^{n×n}), does there exist a weak solution (u,σ) with u ∈ L^2(0,T; V) ∩ Cw([0,T]; H), ∂t u ∈ L^1(0,T; V*), and σ ∈ L^2(0,T; L^2(Ω; R_sym^{n×n})) ∩ Cw([0,T]; H^{-1}(Ω; R_sym^{n×n})) for every T > 0?",
+  "equivalent_formulation": null,
+  "justification": "Your draft is closest not to a broad unsolved coefficient-free existence problem, but to the weak-solvability result that the review discusses when contrasting it with the open unrestricted strong-solvability problem. In the authors’ surrounding exposition, the unrestricted-data case is open for strong solutions, and the proposed way around that is to pass to generalized/weak solutions. The exact theorem-level formulation then includes the bounded-domain setting, the divergence-free spaces H and V, the coefficient inequalities μ > 0 and 0 < λ2 < λ1, the data spaces for f, a, σ0, and the compatibility condition σ0 − (2μλ2/λ1)E(a) ∈ L^2. So the paper-faithful sharpening is the precise weak-existence question above, not the broader phrase “without restrictions on the coefficients, external force, or initial data.” Because the review PDF itself was not directly retrievable through the browser, I anchored the refinement to the underlying theorem that the review summarizes and cites, namely the authors’ weak-solvability result [72] and the corresponding formulation in their monograph.",
+  "citations": [
+    {
+      "section": "Abstract",
+      "label": "paper scope and intent",
+      "page": "arXiv abstract page"
+    },
+    {
+      "section": "Preface",
+      "label": "contrast between open unrestricted strong solvability and weak-solution approach",
+      "page": "6-7"
+    },
+    {
+      "section": "Section 6.1.1",
+      "label": "motivation for generalized/weak solutions in the unrestricted-data regime",
+      "page": 153
+    },
+    {
+      "section": "Section 6.2.1-6.2.3",
+      "label": "statement of the Jeffreys initial-boundary value problem, weak formulation, and Theorem 6.2.1",
+      "page": "161-163"
+    },
+    {
+      "section": "Publications list / underlying source [72]",
+      "label": "On the existence of weak solutions for the initial-boundary value problem in the Jeffreys model of motion of a viscoelastic medium",
+      "page": "publication entry"
+    }
+  ]
+}

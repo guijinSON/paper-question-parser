@@ -1,0 +1,39 @@
+{
+  "arxiv_id": "1102.5727",
+  "question_id": "q_003",
+  "original_question": "Define the degrees of freedom of a Costas array of order n as the smallest k <= n for which there exist indices i1 < i2 < ... < ik in [n] such that, for any prescribed values f1, ..., fk in [n], there is at most one Costas permutation f:[n]->[n] with f(ij)=fj for all j. Determine this quantity for Costas arrays of order n, and if possible improve the definition so it captures the phenomenon more effectively.",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 1313.22,
+  "target_in_paper": "Section 4.2, Problem 3 (Bound on the number of Costas arrays), together with the immediately preceding definition of the degrees-of-freedom parameter.",
+  "completeness_score": 8.5,
+  "correct_elements": "Your draft is already very close to the paper's intended target. It correctly identifies the second degrees-of-freedom notion introduced in Section 4.2, uses the right minimization over k<=n, quantifies over preselected indices i1<...<ik in [n], requires uniqueness under arbitrarily prescribed values at those indices, and keeps the paper's final request to improve the definition if possible.",
+  "missing_details": [
+    "The paper's ambient object is a Costas permutation of order n, namely a bijection f:[n]->[n] with the distinct-differences property; formally, f(i+k)-f(i)=f(j+k)-f(j) implies i=j whenever i,j,i+k,j+k belong to [n].",
+    "The notation [n]={1,2,...,n} should be stated explicitly to make the question stand-alone.",
+    "The existentially chosen indices i1<...<ik are fixed in advance (depending only on n), before the values f1,...,fk are prescribed.",
+    "The values f1,...,fk range over all of [n]; the paper does not assume they are distinct or compatible with permutation data.",
+    "Formally, the uniqueness condition is about the set {f:[n]->[n] : f(ij)=fj for j in [k]}: among all such functions, there is at most one Costas permutation.",
+    "The paper places this question inside the enumeration problem for Costas arrays: if k=k(n) is this parameter, then C(n)<=(n-k+1)! and hence C(n)/n!<=1/(n-k)!, so the definition is motivated by upper bounds on the number C(n) of Costas arrays of order n.",
+    "The nearby context also records the author's conjectural motivation from the cited paper [23]: the parameter might be bounded independently of n for all sufficiently large n, more precisely by 4; your draft does not mention this surrounding conjectural backdrop."
+  ],
+  "refined_question": "For a positive integer n, let [n]={1,2,...,n}, and let C_n be the set of Costas permutations f:[n]->[n], i.e. bijections such that f(i+k)-f(i)=f(j+k)-f(j) implies i=j whenever i,j,i+k,j+k are all in [n]. Define d(n) to be the least integer k<=n for which there exist indices 1<=i1<...<ik<=n such that, for every choice of values f1,...,fk in [n], the set {f:[n]->[n] : f(ij)=fj for all j in [k]} contains at most one Costas permutation. Determine d(n) for Costas permutations of order n. If possible, improve this notion of degrees of freedom while staying within the same order-n Costas-permutation setting.",
+  "equivalent_formulation": null,
+  "justification": "The draft is targeting the right place: Section 4.2's Problem 3, not the neighboring Problem 4 or a broader structural question. The sentence immediately before Problem 3 gives the exact definition your draft is trying to capture, and Problem 3 then asks to determine that parameter and, if possible, refine the definition. To make the question fully stand-alone and paper-faithful, the main additions needed are the formal definition of a Costas permutation from Section 3.1, the paper's [n] notation, and the exact quantifier structure of the uniqueness condition. I therefore kept the question narrow, formal, and as close as possible to the paper's wording and intent.",
+  "citations": [
+    {
+      "section": "3.1",
+      "label": "Definition 1",
+      "page": 4
+    },
+    {
+      "section": "4.2",
+      "label": "discussion preceding Problem 3 (definition of the degrees-of-freedom parameter and equation (11))",
+      "page": "8-9"
+    },
+    {
+      "section": "4.2",
+      "label": "Problem 3",
+      "page": 9
+    }
+  ]
+}

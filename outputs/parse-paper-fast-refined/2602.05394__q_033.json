@@ -1,0 +1,46 @@
+{
+  "arxiv_id": "2602.05394",
+  "question_id": "q_033",
+  "original_question": "Consider selecting $r = O(k)$ uniformly random row indices $I$ and then choosing column indices $~J$ so that $A(I,:) A(I,~J) ~T$. What are sufficient conditions on $r$ and on the kernel $f$ which guarantee that | _~J A - A |_F <= c(n, m, k) | _J A - A |_F with high probability, where $c(n, m, k)$ grows at most logarithmically in its arguments? In other words, when does column selection on a random subset of the rows perform similarly to column selection on the full matrix?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 12619.69,
+  "target_in_paper": "Problem 4.4 in Section 4.1.3 (“Incoherence and random row subsampling”): the row-subsampled kernel-matrix column-selection question.",
+  "completeness_score": 7,
+  "correct_elements": "Your draft already captures the core of the paper’s target problem: sample r = O(k) rows uniformly at random, choose column indices \\u007eJ from the sampled matrix A(I,:), and ask for a high-probability Frobenius-norm guarantee comparing the full-matrix error of the sampled-row column selection against the full-matrix error from a k-column selection on A itself. The final sentence of your draft also matches the paper’s own informal restatement very closely: it asks when column selection on a random subset of rows performs similarly to column selection on the full matrix.",
+  "missing_details": [
+    "The ambient matrix class: A \\in \\mathbb{C}^{n\\times m} with n \\gg m.",
+    "A is specifically a kernel matrix with entries A_{ij} = f(x_i, \\omega_j), where f is generally non-symmetric.",
+    "The benchmark set J consists of k column indices for which A is assumed to be accurately approximated by those columns, written in the paper as A \\approx A(:,J)T.",
+    "The paper compares projection errors \\|\\Pi_{\\u007eJ}A - A\\|_F and \\|\\Pi_J A - A\\|_F; \\Pi_J must be defined as the projection onto the column space of A(:,J).",
+    "The sampled-row column set \\u007eJ is obtained by finding a good column approximation of the sampled submatrix, written as A(I,:) \\approx A(I,\\u007eJ)\\u007eT.",
+    "The probability is over the uniformly random choice of the row index set I with |I| = r.",
+    "The desired growth condition is that c(n,m,k) be at most logarithmic in n, m, and k.",
+    "The paper asks for sufficient conditions on r and on the kernel f that are direct and efficiently verifiable from f itself, not merely abstract incoherence/sparsity assumptions on an unknown factorization of A.",
+    "The scope is narrow: this is not the full CSSP/RRQR problem of Problem 4.1, but the kernel-matrix row-subsampling specialization in Problem 4.4."
+  ],
+  "refined_question": "Let A \\in \\mathbb{C}^{n\\times m} with n \\gg m be a (generally non-symmetric) kernel matrix with entries A_{ij}=f(x_i,\\omega_j). Assume that A admits an accurate k-column approximation, i.e. there is a set J of k column indices such that A \\approx A(:,J)T, equivalently \\Pi_J A is a good column-subset approximation, where \\Pi_J denotes the projection onto \\operatorname{col}(A(:,J)). If I \\subseteq \\{1,\\dots,n\\} is a uniformly random set of r=O(k) row indices and one chooses a set \\u007eJ of column indices from the sampled matrix A(I,:) so that A(I,:) \\approx A(I,\\u007eJ)\\u007eT, what direct, efficiently verifiable sufficient conditions on r and on the kernel f guarantee, with high probability over I, that \\|\\Pi_{\\u007eJ}A-A\\|_F \\le c(n,m,k)\\,\\|\\Pi_JA-A\\|_F, where c(n,m,k) grows at most logarithmically in n, m, and k? In other words, when does column selection on a uniformly row-subsampled kernel matrix perform comparably to column selection on the full matrix?",
+  "equivalent_formulation": null,
+  "justification": "The nearest official formulation is Problem 4.4, not the broader Problem 4.1. Section 4 first defines the CSSP setting and the projection notation \\Pi_J, together with the quasi-optimal comparison standard. Section 4.1 then frames the general question of when greedy/randomized column-selection methods work. Section 4.1.3 specializes this to kernel matrices A_{ij}=f(x_i,\\omega_j), uniformly random row subsampling, and the exact inequality your draft is aiming at. Your draft’s garbled middle expression corresponds to the paper’s sampled-submatrix approximation A(I,:) \\approx A(I,\\u007eJ)\\u007eT. The refined version restores the paper’s notation, adds the missing kernel-matrix hypotheses and projection notation, and preserves the paper’s emphasis on direct, efficiently verifiable conditions on f.",
+  "citations": [
+    {
+      "section": "4",
+      "label": "CSSP definition and bounds (7)–(9)",
+      "page": 27
+    },
+    {
+      "section": "4.1",
+      "label": "Problem 4.1",
+      "page": 28
+    },
+    {
+      "section": "4.1.3",
+      "label": "Problem 4.4",
+      "page": 31
+    },
+    {
+      "section": "4.1.3",
+      "label": "Motivation following Problem 4.4",
+      "page": 31
+    }
+  ]
+}

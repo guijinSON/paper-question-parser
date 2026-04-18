@@ -1,0 +1,47 @@
+{
+  "arxiv_id": "2404.02236",
+  "question_id": "q_002",
+  "original_question": "Find an infinite family of graphs that admit perfect state transfer and whose size grows only polynomially with the diameter. Here perfect state transfer means that for some time t and some vertices u and v, the continuous-time quantum walk transition matrix U(t) = exp(itA) maps the characteristic vector of u to a unit-modulus scalar multiple of the characteristic vector of v.",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 9543.9,
+  "target_in_paper": "Section 2.2, Open Problem 2.2: \"Find an infinite family of graphs for which there is perfect state transfer, and the size of the graph is bounded by a polynomial in the diameter.\" ([pure.uva.nl](https://pure.uva.nl/ws/files/234177391/Selected_open_problems_in_continuous-time_quantum_walks.pdf))",
+  "completeness_score": 8.5,
+  "correct_elements": "Your draft is already very close to the paper’s intended question: it correctly targets the Section 2.2 existence/upper-bound problem, and it gives the paper’s adjacency-matrix definition of perfect state transfer via U(t)=exp(itA) and U(t)e_u=γe_v for some time t and unit-modulus phase γ. ([pure.uva.nl](https://pure.uva.nl/ws/files/234177391/Selected_open_problems_in_continuous-time_quantum_walks.pdf))",
+  "missing_details": [
+    "The paper’s official statement says \"size of the graph\" but does not formalize the size parameter inside Open Problem 2.2; to make the question stand-alone, one should specify the intended size measure explicitly. In Section 2, the motivation is explicitly economical implementation via minimizing edges, although the surrounding discussion in Section 2.2 also compares both vertex and edge counts. ([pure.uva.nl](https://pure.uva.nl/ws/files/234177391/Selected_open_problems_in_continuous-time_quantum_walks.pdf))",
+    "\"Bounded by a polynomial in the diameter\" should be unpacked as: there exists a fixed polynomial p such that size(G_n) ≤ p(diam(G_n)) for every graph in the family. ([pure.uva.nl](https://pure.uva.nl/ws/files/234177391/Selected_open_problems_in_continuous-time_quantum_walks.pdf))",
+    "The family should be understood as an infinite family of finite graphs with diameters tending to infinity (or at least infinitely many non-isomorphic graphs), since the surrounding discussion is about perfect state transfer at arbitrarily large distances and compares families indexed by diameter D. ([pure.uva.nl](https://pure.uva.nl/ws/files/234177391/Selected_open_problems_in_continuous-time_quantum_walks.pdf))",
+    "The quantifiers for perfect state transfer should be attached to each graph in the family: for every G_n there should exist vertices u_n,v_n, a time t_n in R, and a phase γ_n in C with |γ_n|=1 such that exp(i t_n A(G_n))e_{u_n}=γ_n e_{v_n}. ([pure.uva.nl](https://pure.uva.nl/ws/files/234177391/Selected_open_problems_in_continuous-time_quantum_walks.pdf))",
+    "If one wants the question to stay fully aligned with the paper’s main graph setting, one should say whether weighted graphs are allowed. Theorem 2.1 uses weighted quotient graphs as a construction tool, but Open Problem 2.2 itself is posed simply for graphs. ([pure.uva.nl](https://pure.uva.nl/ws/files/234177391/Selected_open_problems_in_continuous-time_quantum_walks.pdf))"
+  ],
+  "refined_question": "Find an infinite family {G_n} of finite graphs with unbounded diameter and a fixed polynomial p such that, for every n, there exist vertices u_n,v_n in V(G_n), a time t_n in R, and a phase γ_n in C with |γ_n|=1 for which exp(i t_n A(G_n))e_{u_n}=γ_n e_{v_n}, and such that the edge count satisfies |E(G_n)| ≤ p(diam(G_n)). ([pure.uva.nl](https://pure.uva.nl/ws/files/234177391/Selected_open_problems_in_continuous-time_quantum_walks.pdf))",
+  "equivalent_formulation": null,
+  "justification": "The draft is not aiming at the lower-bound question of Open Problem 2.1; it is aiming at the upper-bound/existence question that follows the discussion of hypercubes and Cartesian powers of P3, whose sizes are exponential in the diameter. Theorem 2.1 is then presented as a compression mechanism that preserves perfect state transfer, and the authors immediately say that this procedure has not yet produced an infinite family polynomially bounded in the diameter before stating Open Problem 2.2. I therefore matched your draft to Open Problem 2.2 and sharpened it only by making explicit the hidden quantifiers and the polynomial-bound meaning. I resolved the paper’s otherwise implicit word \"size\" as edge count because Section 2 is explicitly motivated by minimizing edges in \"economic perfect state transfer\"; however, since the paper does not formally define \"size\" inside Open Problem 2.2, that interpretive choice is recorded above as a missing detail rather than claimed as an equivalence. ([pure.uva.nl](https://pure.uva.nl/ws/files/234177391/Selected_open_problems_in_continuous-time_quantum_walks.pdf))",
+  "citations": [
+    {
+      "section": "1 Introduction",
+      "label": "Definition of the transition matrix U(t)=exp(itA)",
+      "page": 1
+    },
+    {
+      "section": "2 Economic perfect state transfer",
+      "label": "Edge-minimization motivation",
+      "page": 2
+    },
+    {
+      "section": "2.1 Lower bound",
+      "label": "Definition of perfect state transfer",
+      "page": 2
+    },
+    {
+      "section": "2.2 Upper bound",
+      "label": "Theorem 2.1",
+      "page": 4
+    },
+    {
+      "section": "2.2 Upper bound",
+      "label": "Open Problem 2.2",
+      "page": 5
+    }
+  ]
+}

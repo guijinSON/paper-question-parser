@@ -1,0 +1,56 @@
+{
+  "arxiv_id": "2303.02529",
+  "question_id": "q_011",
+  "original_question": "Repeat the empirical data studies comparing the critical beta-splitting model with real phylogenetic trees on a substantially larger dataset, and extend those comparisons to additional tree-shape indices beyond the small-scale studies reported in the paper.",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 8604.16,
+  "target_in_paper": "Section 9.2, Comparing with cladogram data, of the current arXiv version; in the July 2024 version of the same paper this appeared explicitly as Open Problem 10: Repeat these data studies on a larger scale and for other indices.",
+  "completeness_score": 8.0,
+  "correct_elements": "Your draft correctly identifies that the target is an empirical follow-up rather than a new theorem: it is about comparing the critical beta-splitting model with real phylogenetic/cladogram data, doing so on a much larger dataset than the paper's initial small studies, and extending the comparison beyond the originally examined summaries to additional imbalance-related statistics.",
+  "missing_details": [
+    "The relevant model is the discrete-time critical beta-splitting tree DTCS(n), not the continuous-time model CTCS(n).",
+    "Critical here means beta = -1, with split law q(m,i) = [m/(2 h_{m-1})] * 1/[i(m-i)] for 1 <= i <= m-1, where h_{m-1} = Σ_{j=1}^{m-1} 1/j.",
+    "The paper's existing small-scale empirical comparisons are specifically the split-balance study behind the observation that, among clades of size m, the median size of the smaller daughter clade scales roughly as m^(1/2), and the fringe-distribution study shown in Figure 9.",
+    "For the fringe study, the observable is the proportion of leaves lying in clades of a given unlabelled shape, with left/right orientation ignored; Figure 9 reports shapes with 2 through 6 leaves.",
+    "The extension to other indices should be kept tied to additional tree-balance/imbalance indices in the paper's sense, not broadened to arbitrary tree statistics.",
+    "The comparison should be done at matched leaf counts n by direct simulation of DTCS(n); the paper explicitly says asymptotics are irrelevant for this task.",
+    "The data objects are phylogenetic cladograms/rooted binary tree shapes, not an abstract distributional family divorced from the empirical tree setting.",
+    "The paper treats DTCS(n) as a zero-parameter benchmark; that benchmarking role is implicit in the empirical question.",
+    "The paper does not specify a numerical threshold for larger scale, so a faithful stand-alone formulation should not invent one."
+  ],
+  "refined_question": "For the discrete-time critical beta-splitting model DTCS(n) (beta = -1), in which each clade of size m >= 2 splits into daughter clades of sizes i and m-i with probability q(m,i) = [m/(2 h_{m-1})] * 1/[i(m-i)] and h_{m-1} = Σ_{j=1}^{m-1} 1/j, carry out, by direct simulation at matched leaf counts n, a much larger empirical comparison with rooted phylogenetic cladograms than the paper's initial small-scale studies: specifically, repeat the comparison of (i) split statistics underlying the observation that, among clades of size m, the median size of the smaller daughter clade scales roughly as m^(1/2), and (ii) fringe-distribution statistics given by the proportions of leaves lying in unlabelled clades of each shape (with left/right orientation ignored), as in Figure 9 for clade sizes 2 through 6; then extend the same empirical comparison to additional tree-balance/imbalance indices, in order to test how well this zero-parameter DTCS(n) model matches real phylogenetic tree data.",
+  "equivalent_formulation": null,
+  "justification": "The draft is aimed at the paper's empirical-comparison discussion, not at its height, consistency, or scaling-limit problems. The nearby context fixes the stochastic model as DTCS(n) with beta = -1 and q(m,i) proportional to 1/[i(m-i)], identifies the original motivating split statistic (median smaller-subclade size about m^(1/2)), records the second small-scale data study through Figure 9's fringe-shape frequencies, and then asks for a larger-scale repeat for other indices. To make the question stand alone and paper-faithful, one therefore has to name DTCS(n), define the beta = -1 split law, specify the two empirical studies being repeated, note that fringe shapes are unlabelled up to left/right symmetry, and keep the extension tied to additional imbalance indices and direct simulation rather than to asymptotic analysis.",
+  "citations": [
+    {
+      "section": "2",
+      "label": "equation (1), definition of DTCS(n)",
+      "page": 1
+    },
+    {
+      "section": "1.2",
+      "label": "motivation from real phylogenetic trees and the m^(1/2) smaller-subclade statistic",
+      "page": "12 (v2) / HTML line 64 (v3)"
+    },
+    {
+      "section": "4.4",
+      "label": "Figure 9, small-scale fringe-distribution comparison",
+      "page": "16-17 (v2)"
+    },
+    {
+      "section": "9.2",
+      "label": "Comparing with cladogram data",
+      "page": "HTML lines 832-833 (v3)"
+    },
+    {
+      "section": "7",
+      "label": "Open Problem 9",
+      "page": "56 (v2)"
+    },
+    {
+      "section": "7",
+      "label": "Open Problem 10",
+      "page": "56 (v2)"
+    }
+  ]
+}

@@ -1,0 +1,57 @@
+{
+  "arxiv_id": "2201.09150",
+  "question_id": "q_028",
+  "original_question": "Determine in what sense solutions exist for discrete-delay movement models of the forms (2.20) and (2.24) when top-hat-kernel nonlocal perception is added on top of the explicit time delay, especially under periodic boundary conditions.",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 7995.95,
+  "target_in_paper": "Open Problem 28 in Section 2.3.1: the existence theory for the top-hat-perception extensions of the discrete-delay models (2.20) and (2.24), with periodic boundary conditions singled out as the likely easier setting.",
+  "completeness_score": 9,
+  "correct_elements": "Your draft already captures the paper's exact target very closely: it asks about existence of solutions, names the two correct discrete-delay models ((2.20) and (2.24)), specifies that nonlocal perception is added on top of the explicit delay, identifies the top-hat kernel, and notes periodic boundary conditions as the preferred analytic setting.",
+  "missing_details": [
+    "The exact paper target is Open Problem 28 in Section 2.3.1, rather than the nearby Open Problem 24 (which is only about model (2.20) and emphasizes dynamical outcomes) or Open Problem 27 (which is only about model (2.24) with homogeneous Neumann data and no added perception).",
+    "The perception operator should be stated explicitly: for a potential a(x,t), the paper defines a^{g,R}(x,t) = integral over Omega of a(y,t) g(x-y) dy, where g is the detection function and R is the perceptual radius.",
+    "The question should make clear that the added nonlocality acts on the delayed advective potential itself: a_tau = u(x,t-tau) in (2.20) and a_tau = v(x,t-tau) in (2.24), replaced by the perceived quantity a_tau^{g,R}.",
+    "The top-hat detection function should be identified as the uniform kernel on a fixed perceptual interval/ball of radius R and zero outside; the draft names the kernel type but does not define the operator mathematically.",
+    "The bounded-domain setting should be stated explicitly, with periodic boundary conditions preferred because they avoid separate boundary modifications of the nonlocal kernel.",
+    "For model (2.20), the paper's nearby context includes the assumptions d1 > 0, gamma in R, tau > 0, and a logistic-type growth term f in C^1(R+) satisfying f(0)=f(1)=0 and f(u)<0 for u>1.",
+    "For model (2.24), the nearby context specifies that it is a one-dimensional consumer-resource system with d11,d22 > 0, d21 >= 0, u the consumer density, v the resource density, and reaction terms f(u,v), g(u,v).",
+    "A stand-alone formulation should mention delayed initial history data on the interval t in [-tau,0], since this is an explicit discrete-delay PDE problem.",
+    "The paper asks in what sense solutions exist, so a sharpened version should clarify the intended solution notion, such as whether one seeks local or global weak/classical solutions, and whether uniqueness is also part of the goal.",
+    "The draft should distinguish this existence problem from the neighboring R -> 0+ limit question in Open Problem 29 and from qualitative-dynamics questions; Open Problem 28 is specifically about existence for the time-dependent problems."
+  ],
+  "refined_question": "Let a_tau denote the delayed advective potential in the discrete-delay models (2.20) and (2.24), so that a_tau = u(x,t-tau) in the scalar equation (2.20) and a_tau = v(x,t-tau) in the one-dimensional consumer-resource system (2.24). For the corresponding top-hat-perception extensions obtained by replacing a_tau with its perception convolution a_tau^{g,R}(x,t) = integral over Omega of a_tau(y,t) g(x-y) dy, where g is the top-hat detection function with perceptual radius R, determine on a bounded spatial domain with periodic boundary conditions in what precise sense the resulting time-dependent problems admit solutions. In particular, under what assumptions on the delayed initial histories and on the reaction terms can one establish an existence theory for the top-hat-perception version of (2.20) with d1>0, gamma in R, and logistic-type f in C^1(R+), and for the top-hat-perception version of the one-dimensional system (2.24) with d11,d22>0, d21>=0, and reaction terms f(u,v), g(u,v)?",
+  "equivalent_formulation": null,
+  "justification": "The draft is essentially a paraphrase of Open Problem 28. That is the only place in the paper where models (2.20) and (2.24) are explicitly grouped together and the added ingredient is exactly nonlocal perception through a top-hat detection function on top of an explicit discrete time delay. The nearby context needed to make the question stand alone comes from Section 2.1, which defines the perception operator and the top-hat kernel, from Section 2.3.1, which introduces the two base delayed models and their parameter roles, and from Section 4.1.2, which explains why periodic boundary conditions are analytically preferred for nonlocal kernels in bounded domains. Section 5.1.2 further clarifies the well-posedness background: model (2.20) already has a unique global solution in the local-delay case, while model (2.24) has no existence theory established in the cited literature, which is exactly why the paper isolates the combined top-hat-plus-delay existence problem as open. The algebraic checklist items mentioned in your instructions (ambient ring/field, homogeneity, degree, nilpotency, sufficiently large m) are not applicable to this PDE problem.",
+  "citations": [
+    {
+      "section": "2.1",
+      "label": "Equations (2.3) and (2.5)",
+      "page": "P7-P8"
+    },
+    {
+      "section": "2.3.1",
+      "label": "Equation (2.20) and Open Problem 24",
+      "page": "P20-P21"
+    },
+    {
+      "section": "2.3.1",
+      "label": "Equation (2.24) and Open Problem 27",
+      "page": "P22"
+    },
+    {
+      "section": "2.3.1",
+      "label": "Open Problem 28",
+      "page": "P23"
+    },
+    {
+      "section": "4.1.2",
+      "label": "Periodic boundary condition discussion",
+      "page": "P39-P40"
+    },
+    {
+      "section": "5.1.2",
+      "label": "Well-posedness remarks for models (2.20) and (2.24)",
+      "page": "P54-P55"
+    }
+  ]
+}

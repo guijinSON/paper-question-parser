@@ -1,0 +1,41 @@
+{
+  "arxiv_id": "2012.04625",
+  "question_id": "q_011",
+  "original_question": "For Leroy Quet's sequence defined by a_1=1, a_2=2, and for n≥3 choosing a_n as the smallest unused positive integer such that gcd(a_n,a_{n-1}) differs from gcd(a_{n-1},a_{n-2}), explain why the associated 4-regular graph has the observed nontrivial structure and decide whether that structural behavior continues for arbitrarily large initial segments.",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 7452.05,
+  "target_in_paper": "Section 2.5 on Leroy Quet's sequence (A127202): the open problem about the graph attached to the first N terms of the sequence, asking for an explanation of the striking visible structure in that graph and whether the same kind of nonrandom behavior persists for larger initial segments.",
+  "completeness_score": 6.5,
+  "correct_elements": "The draft correctly identifies the right sequence, gives its defining greedy gcd rule essentially correctly, and focuses on the paper's graph-theoretic viewpoint rather than on unrelated arithmetic questions. It also captures the two main components of the paper's Quet problem: explain the visible/nontrivial structure in the graph, and ask whether that behavior persists at large scales.",
+  "missing_details": [
+    "The graph itself is not defined precisely. The paper's construction uses the first N distinct terms a_1,...,a_N and forms a graph on vertex set {1,...,N} by combining adjacency in index order with adjacency in value order.",
+    "The question should specify that one first orders the values a_1,...,a_N increasingly via a permutation pi_N, and then adds the cycle through pi_N(1),...,pi_N(N), in addition to the cycle (1,2,...,N,1).",
+    "Without that definition, 'associated 4-regular graph' is ambiguous; the paper's graph is the union of two Hamiltonian cycles (counting multiplicity), not an arbitrary graph attached to the sequence.",
+    "The draft does not say that the sequence terms in the initial segment are distinct, which is needed for the value-order cycle to be well defined in the paper's setup.",
+    "The phrase 'observed nontrivial structure' is too vague. In the paper it refers to the specific visible, highly nonrandom structure of the graphs drawn from initial segments of Leroy Quet's sequence, in contrast with the expander-like appearance expected from a random permutation.",
+    "The large-N quantifier should be made explicit: 'continues for arbitrarily large initial segments' should be stated as 'for arbitrarily large N' (or, if one wants a stronger version, 'for all sufficiently large N'); the draft does not distinguish these.",
+    "The draft does not specify that the question concerns initial segments of the infinite sequence, i.e. the family of graphs G_N as N varies.",
+    "The draft should avoid suggesting a request to 'decide' an already formalized theorem; in the paper this is posed as an open problem asking for explanation and persistence of the phenomenon, not as a settled criterion.",
+    "The draft should not drift into the separate question of whether A127202 is a permutation of the positive integers; that is related background, but it is not the graph-structure question targeted in the paper."
+  ],
+  "refined_question": "Let (a_n)_{n>=1} be Leroy Quet's sequence, defined by a_1=1, a_2=2, and for n>=3 by taking a_n to be the smallest positive integer not already among a_1,...,a_{n-1} such that gcd(a_n,a_{n-1}) != gcd(a_{n-1},a_{n-2}). For each N, let pi_N be the permutation of {1,...,N} satisfying a_{pi_N(1)} < a_{pi_N(2)} < ... < a_{pi_N(N)}, and let G_N be the graph on vertex set {1,...,N} obtained by taking the union of the two cycles (1,2,...,N,1) and (pi_N(1),pi_N(2),...,pi_N(N),pi_N(1)). Why do the graphs G_N associated with initial segments of Leroy Quet's sequence exhibit the striking nonrandom structure observed in the paper, and does this same structural phenomenon persist for arbitrarily large N?",
+  "equivalent_formulation": null,
+  "justification": "The draft is clearly aiming at the Leroy Quet subsection of the paper, not at a broader question about greedy gcd permutations. The introduction supplies the exact graph construction attached to a finite initial segment of a sequence, while Section 2.5 specializes that construction to Leroy Quet's sequence and asks about the visible structure of the resulting graphs and its persistence as N grows. The refined question makes the graph construction explicit and keeps the scope at exactly that open problem, without broadening it to unrelated arithmetic or permutation questions.",
+  "citations": [
+    {
+      "section": "Section 1",
+      "label": "Introduction / definition of the graph associated with a sequence",
+      "page": "251-253"
+    },
+    {
+      "section": "Section 2.5",
+      "label": "Leroy Quet's sequence",
+      "page": "261-262"
+    },
+    {
+      "section": "Section 2.5",
+      "label": "Figure and discussion of the graph for Leroy Quet's sequence",
+      "page": "261"
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "arxiv_id": "0909.0462",
+  "question_id": "q_001",
+  "original_question": "Consider the multi-server first-come-first-served queue G/G/m with interarrival times {(t_n)} and service times {(sigma_n)} such that the two-dimensional sequence {(sigma_n, t_n)} is stationary ergodic, the stability condition E sigma_1 < m E t_1 holds, and the Kiefer-Wolfowitz workload vector starts from the zero initial value. Is it true that, under these assumptions alone and without any further mixing or regenerative condition, the distribution of the workload vector converges in total variation to a stationary distribution as n tends to infinity?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 485.13,
+  "target_in_paper": "Subsection 1.1, \"Convergence in the total variation to the stationarity\": the paper’s unlabeled conjecture that for the stable G/G/m FCFS queue with stationary ergodic input and zero initial state, no additional restriction is needed to obtain total-variation convergence of the Kiefer-Wolfowitz vector; the nearby context identifies the relevant limit law as the minimal stationary distribution. ([paperzz.com](https://paperzz.com/doc/7045455/some-open-problems-related-to-stability-1-multi))",
+  "completeness_score": 8.5,
+  "correct_elements": "Your draft already captures the right model, the right hypotheses on the input sequence ((t_n, sigma_n) stationary ergodic), the right stability condition E sigma_1 < m E t_1, the zero initial Kiefer-Wolfowitz state, and the exact qualitative issue in the paper: whether total-variation convergence holds without extra mixing/regenerative assumptions. ([paperzz.com](https://paperzz.com/doc/7045455/some-open-problems-related-to-stability-1-multi))",
+  "missing_details": [
+    "The paper formulates the state recursion explicitly: W_1 = 0 and W_{n+1} = R(W_n + e_1 sigma_n - 1 t_n)^+, where e_1 = (1,0,...,0), 1 = (1,...,1), R rearranges coordinates in weak ascending order, and (.)^+ is taken componentwise. ([paperzz.com](https://paperzz.com/doc/7045455/some-open-problems-related-to-stability-1-multi))",
+    "W_n is the Kiefer-Wolfowitz vector of virtual waiting times, not just an unspecified workload vector; in particular, W_{n,1} is the waiting time of customer n. ([paperzz.com](https://paperzz.com/doc/7045455/some-open-problems-related-to-stability-1-multi))",
+    "Under merely stationary ergodic input, the paper emphasizes that a multiserver queue may have many stationary regimes, so the target limit should not be phrased as just 'a stationary distribution'. From zero initial state, the known monotone construction converges to the limit with minimal stationary distribution pi_min. ([paperzz.com](https://paperzz.com/doc/7045455/some-open-problems-related-to-stability-1-multi))",
+    "The total-variation claim should therefore be stated explicitly as sup over Borel A subset of R_+^m of |P(W_n in A) - pi_min(A)| tending to 0. ([paperzz.com](https://paperzz.com/doc/7045455/some-open-problems-related-to-stability-1-multi))",
+    "The paper does not, under these minimal assumptions, ask for uniqueness of the stationary regime or for convergence from every initial state x; those stronger conclusions are mentioned only under extra 'good mixing' assumptions such as i.i.d. or regenerative input. ([paperzz.com](https://paperzz.com/doc/7045455/some-open-problems-related-to-stability-1-multi))",
+    "The paper’s phrasing is broader than 'without any further mixing or regenerative condition': it says 'no need for any further restriction', with i.i.d. and regenerative assumptions given only as examples of stronger hypotheses already known to work. ([paperzz.com](https://paperzz.com/doc/7045455/some-open-problems-related-to-stability-1-multi))"
+  ],
+  "refined_question": "Let m > 1, and let {(t_n, sigma_n)}_{n>=1} be a stationary ergodic sequence with E sigma_1 < m E t_1. For the G/G/m queue with FCFS discipline, define the Kiefer-Wolfowitz vector of virtual waiting times by W_1 = 0 and W_{n+1} = R(W_n + e_1 sigma_n - 1 t_n)^+, where e_1 = (1,0,...,0), 1 = (1,...,1), R orders coordinates in weakly increasing order, and positive part is taken coordinatewise. It is already known that, from zero initial state, W_n converges almost surely coordinatewise to a limit with minimal stationary distribution pi_min, and hence converges weakly to pi_min. Is it true that, under these assumptions alone and without any further restriction on the driving sequence, one in fact has total-variation convergence to pi_min, namely sup_{A in B(R_+^m)} |P(W_n in A) - pi_min(A)| -> 0 as n -> infinity?",
+  "equivalent_formulation": null,
+  "justification": "This is the exact open problem in subsection 1.1. Foss first recalls the single-server G/G/1 case, where Loynes’s scheme gives total-variation convergence from any initial delay, and then turns to the multiserver G/G/m case. There he notes three points that determine the sharp formulation: multiple stationary regimes may exist in general; from x = 0 the monotone construction already yields a limit with minimal stationary distribution pi_min and therefore only weak convergence is known; and the conjecture is precisely that no additional restriction is needed to upgrade that weak convergence to total variation. Your draft is therefore very close, but it should make the Kiefer-Wolfowitz recursion explicit and identify the limiting law as pi_min rather than an arbitrary stationary distribution. ([paperzz.com](https://paperzz.com/doc/7045455/some-open-problems-related-to-stability-1-multi))",
+  "citations": [
+    {
+      "section": "1.1",
+      "label": "Convergence in the total variation to the stationarity (subsection heading and setup)",
+      "page": "1-2"
+    },
+    {
+      "section": "1.1",
+      "label": "Kiefer-Wolfowitz recursion for the G/G/m FCFS queue",
+      "page": "2"
+    },
+    {
+      "section": "1.1",
+      "label": "Discussion of multiple stationary regimes and the zero-start limit with minimal stationary distribution pi_min",
+      "page": "2"
+    },
+    {
+      "section": "1.1",
+      "label": "Unlabeled conjecture: no further restriction is needed for total-variation convergence",
+      "page": "2"
+    }
+  ]
+}

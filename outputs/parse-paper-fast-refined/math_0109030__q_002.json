@@ -1,0 +1,45 @@
+{
+  "arxiv_id": "math_0109030",
+  "question_id": "q_002",
+  "original_question": "Fix n and let A be a P-matrix such that the inequalities A[alpha, beta]A[beta, alpha] >= 0 hold for every minor A[alpha, beta] whose dispersal is at most d, where the dispersal of A[alpha, beta] is #alpha - #(alpha intersect beta). What is the smallest value of d that guarantees positive stability of A, and does this minimal sufficient value depend on n?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 13781.17,
+  "target_in_paper": "Section 3, Problem 2: \"Dispersal condition sufficient for stability.\"",
+  "completeness_score": 8.8,
+  "correct_elements": "Your draft is very close to the paper’s exact open problem. It correctly identifies that the hypothesis is only that A is a P-matrix, uses the same sign-symmetry inequalities A[alpha,beta]A[beta,alpha] >= 0 restricted by dispersal, uses the same dispersal quantity |alpha|-|alpha∩beta|, and asks exactly for the smallest sufficient dispersal threshold d guaranteeing positive stability, together with whether that threshold depends on n.",
+  "missing_details": [
+    "The paper works with complex matrices A in C^{n x n}, not only real matrices.",
+    "The notation A[alpha,beta] must be defined as det A(alpha,beta) for index sets/sequences alpha,beta with |alpha|=|beta|.",
+    "The index objects alpha,beta are taken from the paper’s indexing set ⟨n⟩ (equivalently, subsets/index sets of {1,...,n}); this should be made explicit.",
+    "The P-matrix condition should be spelled out: A[gamma] > 0 for every principal minor A[gamma] = A[gamma,gamma].",
+    "The paper’s stability notion is positive stability: every eigenvalue of A lies in the open right half-plane.",
+    "The official formulation asks for the least sufficient d as an open problem, and then separately asks whether this least sufficient value depends on n; phrasing this as a function d(n) makes the dependence question explicit.",
+    "The nearby context records the benchmark cases: dispersal bound d=1 is not sufficient because of the counterexample from [11], while d=n is sufficient by Carlson’s theorem on sign-symmetric P-matrices.",
+    "The paper does not impose the stronger GKK or tau hypotheses in Problem 2; only the P-matrix assumption plus the restricted sign-symmetry inequalities are part of the question."
+  ],
+  "refined_question": "For each n in N, determine the least integer d=d(n) such that the following implication holds: if A in C^{n x n} is a P-matrix (that is, every principal minor A[gamma]:=det A(gamma,gamma) is positive) and, for every pair of index sets alpha,beta subseteq {1,...,n} with |alpha|=|beta| and dispersal |alpha|-|alpha∩beta| <= d, the minors satisfy A[alpha,beta]A[beta,alpha] >= 0, then A is positive stable (equivalently, every eigenvalue of A has positive real part). Is this least sufficient threshold d(n) independent of n?",
+  "equivalent_formulation": null,
+  "justification": "The draft is targeting Section 3, Problem 2 almost verbatim. Section 2 supplies the needed notation and hidden assumptions: A[alpha,beta] means the minor det A(alpha,beta), dispersal is defined as #alpha-#(alpha∩beta), a P-matrix is one with all principal minors positive, and positive stability means spectrum in the open right half-plane. Problem 2 then asks exactly whether requiring A[alpha,beta]A[beta,alpha] >= 0 only for minors of dispersal <= d is enough to force stability, and what the minimal such d is, including whether it depends on n. The motivation section explains why the two comparison values are d=1 and d=n: Holtz’s counterexample shows d=1 is insufficient, while Carlson’s theorem shows full sign-symmetry (the endpoint d=n) is sufficient.",
+  "citations": [
+    {
+      "section": "Section 1",
+      "label": "Motivation",
+      "page": 1
+    },
+    {
+      "section": "Section 2",
+      "label": "Basic notions; definition of A[alpha,beta], dispersal, P-matrix, sign-symmetry, and positive stability",
+      "page": 2
+    },
+    {
+      "section": "Section 3",
+      "label": "Problem 2: Dispersal condition sufficient for stability",
+      "page": 2
+    },
+    {
+      "section": "Section 3",
+      "label": "Problem 2 sentence citing the d=1 counterexample and Carlson’s d=n sufficiency",
+      "page": 2
+    }
+  ]
+}

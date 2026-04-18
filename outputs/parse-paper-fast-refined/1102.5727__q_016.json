@@ -1,0 +1,43 @@
+{
+  "arxiv_id": "1102.5727",
+  "question_id": "q_016",
+  "original_question": "Suppose a Costas array has the property that after adding one blank row at the top and one blank column at the side, every cyclic shift of rows and columns still yields a square non-permutation array with the Costas property. Must the original Costas array be a G2 array?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 1327.78,
+  "target_in_paper": "Section 6.2, Problem 16: the inverse problem asking whether the blank-row-plus-blank-column cyclic-shift property characterizes Golomb G2 Costas arrays.",
+  "completeness_score": 8.5,
+  "correct_elements": "Your draft identifies the correct open problem almost exactly. It has the right augmentation operation (add one blank row and one blank column), the right universal condition (every cyclic shift of rows and columns), the right kind of resulting object (square but not a permutation array), the right retained property (the Costas property), and the right candidate family in the conclusion (the Golomb G2 family). This matches Section 6.2, Problem 16 rather than the neighboring Problem 15, which concerns only one blank row.",
+  "missing_details": [
+    "The original array should be quantified as an arbitrary n×n Costas array, and after augmentation the array has size (n+1)×(n+1).",
+    "The blank row is added at the top and the blank column at one side before any shifts are taken.",
+    "The cyclic shifts of rows and columns are independent, so the condition is: for every pair of shift amounts r,c in {0,1,...,n}, the resulting array still has the Costas property.",
+    "Because the shifted arrays are not permutation arrays, the phrase 'has the Costas property' must be interpreted in the geometric/distinct-differences sense: all vectors between pairs of dots are distinct.",
+    "The family name 'G2' should be expanded to the standard Golomb G2 construction: arrays of order q-2 arising from primitive elements α,β of F_q via α^i + β^{f(i)} = 1 for 1 ≤ i,j ≤ q-2.",
+    "No extra hypotheses such as symmetry, parity of the order, or primality of the order are part of the problem; the question is purely whether this property forces membership in the G2 family."
+  ],
+  "refined_question": "Let A be an n×n Costas array, meaning a permutation array whose pairwise dot-difference vectors are all distinct. Form an (n+1)×(n+1) binary array B by adjoining one all-zero row above A and one all-zero column to one side of A. Assume that for every r,c ∈ {0,1,…,n}, the array obtained from B by cyclically shifting its rows by r positions and its columns by c positions still has the Costas property in the distinct-differences sense, even though it need not be a permutation array. Must A belong to the Golomb G2 family; that is, must there exist a prime power q = n + 2 and primitive elements α,β ∈ F_q such that A is the order-(q-2) Costas array defined by α^i + β^{f(i)} = 1 for 1 ≤ i ≤ q-2?",
+  "equivalent_formulation": null,
+  "justification": "The draft is aiming at Problem 16 in Section 6.2. The key identifying phrases are exactly those that distinguish Problem 16 from the neighboring inverse problems: adding both a blank row and a blank column, then requiring that every cyclic row-shift and column-shift produce a square but non-permutation array that still has the Costas property. The nearby context in Section 6 states that this property is known in the forward direction from the Rickard/Golomb construction, and Heuristic 5 in Section 3.2.2 gives the corresponding transformation starting from a G2 array. Definition 1 and the geometric reformulation of the Costas property provide the hidden meaning of 'Costas property' once the shifted arrays are no longer permutations.",
+  "citations": [
+    {
+      "section": "3.1",
+      "label": "Definition 1",
+      "page": "ar5iv HTML lines 55-64; PDF page not available from the consulted source"
+    },
+    {
+      "section": "3.1",
+      "label": "Geometric reformulation following Definition 1",
+      "page": "ar5iv HTML lines 74-82; PDF page not available from the consulted source"
+    },
+    {
+      "section": "3.2.2",
+      "label": "Heuristic 5",
+      "page": "ar5iv HTML lines 156-159; PDF page not available from the consulted source"
+    },
+    {
+      "section": "6.2",
+      "label": "Problem 16",
+      "page": "ar5iv HTML lines 380-388; PDF page not available from the consulted source"
+    }
+  ]
+}

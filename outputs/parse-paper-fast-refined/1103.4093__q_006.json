@@ -1,0 +1,44 @@
+{
+  "arxiv_id": "1103.4093",
+  "question_id": "q_006",
+  "original_question": "What notion of security should be used for noncommutative group-based cryptography: practicality, worst-case complexity, average-case complexity, generic complexity, or some other measure?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 1522.16,
+  "target_in_paper": "Section 11, \"Open Problems in Nonabelian Group Based Cryptography,\" General item 6: \"what should be the measure of the security? (practicality, complexity, average case complexity, generic complexity?)\"",
+  "completeness_score": 8,
+  "correct_elements": "The draft is aimed at the correct open problem in the paper and already preserves the paper's main candidate security measures: practicality, complexity, average-case complexity, and generic complexity. Recasting \"complexity\" as worst-case complexity is faithful to the nearby discussion in Section 9, where worst-case, average-case, and generic complexity are explicitly distinguished.",
+  "missing_details": [
+    "The paper is asking this question in the specific setting of the non-commutative group-based schemes surveyed in the article, especially public key exchange, digital signature, and authentication protocols, not cryptography in full generality.",
+    "The intended notion of \"complexity\" needs to be unpacked using Section 9: worst-case complexity, average-case complexity, and generic-case complexity are distinct notions, and the point of the open problem is to decide which of them should govern security evaluation.",
+    "The security notion is tied to cryptanalysis of underlying group-theoretic search/decision problems used by the protocols, such as conjugacy/conjugator-search-type problems, rather than to an abstract information-theoretic notion of secrecy.",
+    "The paper's motivation includes the fact that some problems may be hard on some inputs but easy on most inputs; thus any stand-alone formulation should make explicit that the choice of security measure may depend on typical/random inputs or asymptotically generic inputs, not only worst-case instances.",
+    "The role of \"practicality\" should be made explicit: earlier platform-group discussion treats efficient normal forms, a solvable and practically computable word problem, and implementability as relevant criteria alongside hardness of the attack problem.",
+    "The paper does not supply a formal adversary model, a reduction-based security definition, a fixed probability distribution on inputs, or a single designated platform group, so a paper-faithful rewrite should not silently add any of those.",
+    "No ambient ring/field, variables, operator definitions, homogeneity assumptions, degree restrictions, nilpotency conditions, or quantifiers such as \"for all sufficiently large m\" are relevant here; the missing details are conceptual and cryptographic rather than algebraic."
+  ],
+  "refined_question": "For the non-commutative group-based cryptographic schemes surveyed in this paper—particularly public key exchange, digital-signature, and authentication protocols based on group-theoretic search or decision problems—what should be taken as the primary measure of security: practical resistance to attacks, worst-case computational complexity of the underlying problem, average-case complexity with respect to the protocol's input generation, or generic-case complexity on asymptotically most inputs?",
+  "equivalent_formulation": null,
+  "justification": "The draft is targeting Section 11, General open problem 6 almost verbatim. The nearby context that sharpens it is Section 9, where the paper explicitly distinguishes worst-case, average-case, and generic complexity and explains why this distinction matters for cryptanalysis; Section 1 also announces asymptotic-density methods as tools for evaluating cryptosystems. Earlier platform-group discussion explains why \"practicality\" appears in the list at all: a useful platform must admit efficient normal forms and a feasible word problem, while the associated attack problem should remain hard. So the paper-faithful sharpening is not to broaden the question, but to state explicitly that the issue is which security metric should govern evaluation of the surveyed non-commutative group-based schemes built from group-theoretic problems.",
+  "citations": [
+    {
+      "section": "1",
+      "label": "Introduction and Nonabelian Group Based Cryptography",
+      "page": "journal article pp. 1-40; exact page not available in the consulted HTML rendering"
+    },
+    {
+      "section": "7",
+      "label": "Platform-group requirements discussion",
+      "page": "journal article pp. 1-40; exact page not available in the consulted HTML rendering"
+    },
+    {
+      "section": "9",
+      "label": "Generic Complexity and Asymptotic Density",
+      "page": "journal article pp. 1-40; exact page not available in the consulted HTML rendering"
+    },
+    {
+      "section": "11",
+      "label": "Open Problems, General item 6",
+      "page": "journal article pp. 1-40; exact page not available in the consulted HTML rendering"
+    }
+  ]
+}

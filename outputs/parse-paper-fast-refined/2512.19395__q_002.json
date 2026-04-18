@@ -1,0 +1,50 @@
+{
+  "arxiv_id": "2512.19395",
+  "question_id": "q_002",
+  "original_question": "For an even integer m, which non-bipartite graph with m edges, containing neither C_3 nor C_5 as a subgraph, has the maximum spectral radius?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 12272.3,
+  "target_in_paper": "The draft is aiming at the paper’s even-size odd-girth extremal problem specialized to odd girth 7: in the introduction, the general even-m question is posed for graphs of odd girth at least k and then specialized in the body to the {C_3,C_5}-free non-bipartite case. Equivalently, it matches the k=2 case of the introduction’s odd-cycle-free extremal formulation, read together with the later section that discusses {C_3,C_5}-free graphs.",
+  "completeness_score": 6.5,
+  "correct_elements": "Your draft already gets the core extremal setup right: it fixes the number of edges m, restricts to non-bipartite graphs, forbids C_3 and C_5, and asks for the graph with maximum spectral radius. That is very close to the paper’s intended problem class.",
+  "missing_details": [
+    "The paper works with the adjacency spectral radius λ(G) of a simple undirected graph, i.e. the largest eigenvalue of the real symmetric adjacency matrix A(G); your draft says 'spectral radius' but does not specify the operator.",
+    "The paper’s formulation is naturally expressed in terms of odd girth: for a non-bipartite graph, forbidding both C_3 and C_5 is equivalent to requiring odd girth at least 7. That equivalence is part of the nearby context you should surface.",
+    "The paper’s target is the even-m large-size regime, not literally every even integer m with no lower bound. Your draft omits the paper’s asymptotic/large-m scope.",
+    "The official result/conjectural formulation identifies extremal graphs by residue classes of m modulo 3; your draft asks only 'which graph' and does not indicate that the answer is piecewise by congruence class.",
+    "The paper treats the extremal graph as unique up to isomorphism in the solved formulation; that uniqueness is implicit in your draft but not stated.",
+    "The survey uses the standard edge-spectral-Turán notation G(m,F) (F-free graphs with m edges, typically with isolated vertices suppressed as irrelevant to λ); your draft does not import that ambient notation/context.",
+    "If one wants the question to be fully stand-alone and paper-faithful, one should state explicitly that the forbidden-subgraph condition is 'contains no subgraph isomorphic to C_3 or C_5', not merely no induced copy.",
+    "The draft does not signal that the paper’s actual answer is a refinement of the odd-girth extremal problem rather than an isolated question just about C_3 and C_5."
+  ],
+  "refined_question": "For all sufficiently large even integers m, determine the unique simple non-bipartite graph G with m edges and no subgraph isomorphic to C_3 or C_5 — equivalently, with odd girth at least 7 — that maximizes the adjacency spectral radius λ(G), identifying the extremal graph in each relevant congruence class of m modulo 3 exactly as in the paper.",
+  "equivalent_formulation": "Equivalently: for all sufficiently large even integers m, among all simple m-edge graphs of odd girth at least 7, which graph has the maximum adjacency spectral radius?",
+  "justification": "The draft is not a general question about arbitrary forbidden families; it is the odd-girth-7 specialization of the paper’s even-m extremal problem. The nearby context matters because the paper frames the problem via odd girth, not only via explicit exclusion of C_3 and C_5, and the solved formulation is piecewise in m modulo 3. The draft is therefore close, but incomplete because it suppresses the operator definition, the odd-girth reformulation, the large-m scope, and the modulo-3 structure of the extremal answer.",
+  "citations": [
+    {
+      "section": "Introduction",
+      "label": "definition of the edge-spectral-Turán problem and notation G(m,F)",
+      "page": "1"
+    },
+    {
+      "section": "Introduction",
+      "label": "Conjecture 1.1",
+      "page": "2"
+    },
+    {
+      "section": "Introduction",
+      "label": "Proposition 1.2",
+      "page": "2"
+    },
+    {
+      "section": "Introduction",
+      "label": "Theorem 1.3",
+      "page": "3"
+    },
+    {
+      "section": "Section 2",
+      "label": "discussion of the {C_3,C_5}-free case",
+      "page": "around 4-5"
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "arxiv_id": "math-0010143",
+  "question_id": "q_014",
+  "original_question": "Fix positive integers k and n with k < n. Define a decreasing sequence by n0 = n and n_{i+1} = max{p : p <= n_i - k and p is prime}. Determine the length of this sequence, that is, the number of terms before it terminates.",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 13049.9,
+  "target_in_paper": "Unsolved Problem 14",
+  "completeness_score": 9.5,
+  "correct_elements": "Your draft is already very close to the paper's exact target. It correctly takes k and n to be positive integers with k < n, starts the sequence at n_0 = n, defines each next term as the largest prime not exceeding n_i - k, and asks for the length/number of terms of the resulting decreasing sequence.",
+  "missing_details": [
+    "State explicitly that the recurrence is applied for each i >= 0 for which the set {p prime : p <= n_i - k} is nonempty.",
+    "Make the stopping rule explicit: the process terminates at the first index i for which there is no prime <= n_i - k; equivalently, when n_i - k < 2.",
+    "Specify that the length counts all defined terms, including the initial term n_0 = n.",
+    "Preserve the paper's exact scope by asking for the exact length for the given pair (k,n), rather than a bound, asymptotic, or probabilistic estimate.",
+    "There are no additional ambient algebraic hypotheses in the paper for this problem; the setting is simply integers and prime numbers."
+  ],
+  "refined_question": "Let k,n belong to N* with k < n. Define a decreasing sequence of integers by n_0 = n, and for each i >= 0 such that the set {p prime : p <= n_i - k} is nonempty, define n_{i+1} = max{p prime : p <= n_i - k}. Determine, for the given pair (k,n), the exact length of this sequence, i.e. the total number of defined terms n_0,n_1,n_2,... before the construction stops.",
+  "equivalent_formulation": null,
+  "justification": "The draft is essentially a restatement of the paper's Unsolved Problem 14. The only needed sharpening is to make explicit the index range in the recurrence and the implicit stopping condition under which the maximum over primes exists. The paper treats this as a standalone number-theoretic problem about integers and primes; no extra structure such as rings, fields, homogeneity, degree conditions, or nilpotency hypotheses is involved.",
+  "citations": [
+    {
+      "section": "Abstract",
+      "label": "paper description as a collection of unsolved problems in number theory",
+      "page": "PDF p. 1 (tool page 0)"
+    },
+    {
+      "section": "Unsolved Problems",
+      "label": "Unsolved Problem 14",
+      "page": "PDF p. 13 (tool page 12)"
+    },
+    {
+      "section": "Unsolved Problems",
+      "label": "Unsolved Problem 14, continuation",
+      "page": "PDF p. 14 (tool page 13)"
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "arxiv_id": "2602.05394",
+  "question_id": "q_009",
+  "original_question": "What is the bit complexity of solving $(n,k,l,kappa)$ linear systems? In particular, does the $~ O(k^omega + n^2kappa)$ running time for $(n,k,0,kappa)$ systems extend to the Word-RAM model?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 12459.5,
+  "target_in_paper": "Problem 2.9 (\"Bit complexity of $(n,k,l,\\kappa)$ systems\") in Section 2.4, \"The effect of outlying singular values (or eigenvalues).\"",
+  "completeness_score": 8.2,
+  "correct_elements": "Your draft is already very close to the paper’s official formulation. It correctly targets the bit-complexity question for $(n,k,l,\\kappa)$ linear systems, and it correctly singles out the paper’s highlighted special case asking whether the known \\u007etilde-O$(k^\\omega+n^2\\kappa)$ exact-arithmetic runtime for $(n,k,0,\\kappa)$ systems extends to the Word-RAM model.",
+  "missing_details": [
+    "The paper’s notation must be defined: if $A$ has singular values $\\sigma_1\\ge \\sigma_2\\ge \\cdots \\ge \\sigma_n>0$ and $k,l\\in\\{0,\\dots,n\\}$ with $k+l<n$, then $A$ is an $(n,k,l,\\kappa)$ matrix when $\\sigma_{k+1}/\\sigma_{n-l}\\le \\kappa$ (Definition 2.4).",
+    "It should be explicit that the system is a square nonsingular linear system $Ax=b$ with $A\\in\\mathbb{R}^{n\\times n}$ or $\\mathbb{C}^{n\\times n}$; the paper phrases this via singular values rather than fixing the field separately.",
+    "The \\u007etilde-O$(k^\\omega+n^2\\kappa)$ bound is not a Word-RAM bound in the paper; it is the previously discussed exact-arithmetic/direct-access (Real-RAM) runtime whose finite-precision analogue is being asked for.",
+    "The direct-access model versus matrix-vector product model distinction from the nearby context is implicit in your draft; for this particular special-case runtime, the relevant antecedent is the direct-access model discussion in Section 2.4.",
+    "$\\omega$ should be identified as the matrix multiplication exponent.",
+    "The nearby motivation on page 14 is about finite-precision instability/backward-stability issues for Krylov and sketching methods; that is why the paper asks for bit complexity in the Word-RAM model rather than just arithmetic complexity.",
+    "If you want the question to be fully stand-alone, it helps to say that $l=0$ corresponds to the case of large outlying singular values, which is the special case emphasized just before Problem 2.9."
+  ],
+  "refined_question": "Let $A\\in\\mathbb{R}^{n\\times n}$ (or $\\mathbb{C}^{n\\times n}$) have singular values $\\sigma_1\\ge\\sigma_2\\ge\\cdots\\ge\\sigma_n>0$, and let $k,l\\in\\{0,\\dots,n\\}$ satisfy $k+l<n$. Following Definition 2.4, call $A$ an $(n,k,l,\\kappa)$ matrix if $\\sigma_{k+1}/\\sigma_{n-l}\\le\\kappa$. What is the bit complexity, in the Word-RAM / finite-precision model, of solving linear systems $Ax=b$ when $A$ is an $(n,k,l,\\kappa)$ matrix? In particular, when $l=0$, can the exact-arithmetic direct-access bound \\u007etilde-O$(k^\\omega+n^2\\kappa)$ (where $\\omega$ is the matrix multiplication exponent) for solving $(n,k,0,\\kappa)$ systems be extended to the Word-RAM model?",
+  "equivalent_formulation": null,
+  "justification": "The draft is essentially a paraphrase of the paper’s official Problem 2.9. Definition 2.4 gives the paper’s exact meaning of an $(n,k,l,\\kappa)$ matrix, and the nearby discussion of large outlying singular values plus Problem 2.5 supplies the antecedent exact-arithmetic/direct-access runtime for the special case $(n,k,0,\\kappa)$. The discussion immediately preceding Problem 2.9 explains that the issue is specifically finite-precision/Word-RAM bit complexity, motivated by instability concerns for Krylov and sketching methods. So the sharp paper-faithful refinement is to state Problem 2.9 with Definition 2.4 inserted and with the special-case Real-RAM runtime identified explicitly.",
+  "citations": [
+    {
+      "section": "2.4",
+      "label": "Definition 2.4",
+      "page": 11
+    },
+    {
+      "section": "2.4",
+      "label": "Problem 2.5",
+      "page": 12
+    },
+    {
+      "section": "2.4",
+      "label": "Stability and finite-precision arithmetic (near Problem 2.9)",
+      "page": 14
+    },
+    {
+      "section": "2.4",
+      "label": "Problem 2.9",
+      "page": 14
+    }
+  ]
+}

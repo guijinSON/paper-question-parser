@@ -1,0 +1,60 @@
+{
+  "arxiv_id": "2505.15351",
+  "question_id": "q_014",
+  "original_question": "When phase retrieval is posed with a random sensing matrix A and the unknown object is uniformly distributed on the complex unit sphere, how do the statistical properties of A determine the smallest oversampling ratio alpha at which reconstruction becomes better than a random guess, and the smallest oversampling ratio at which the Bayes-optimal mean-squared error reaches the best value achievable for that sensing model?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 11013.62,
+  "target_in_paper": "Section 6, Question 6.2 (formalized by equations (16)-(19)) in the paper's 'Problem: structured random phase retrieval' section.",
+  "completeness_score": 8,
+  "correct_elements": "Your draft already captures the core content of the paper's official question: a noiseless phase-retrieval model with a random sensing matrix A, a ground-truth object drawn uniformly from the complex unit sphere, dependence on the statistical law of A, the oversampling ratio α, a 'better than random guess' threshold, and a second threshold defined through the Bayes-optimal mean-squared error. It is very close in spirit and scope to Question 6.2.",
+  "missing_details": [
+    "The paper works in the complex finite-dimensional setting with f0 ∈ C^n and A ∈ C^{m×n}.",
+    "The measurement model is specifically noiseless phaseless quadratic sensing: y = A(f0) = |Af0|^2, with the absolute value taken coordinatewise.",
+    "The prior is stated as f0 ~ Unif(S^{n-1}), where S^{n-1} = {f ∈ C^n : ||f||_2 = 1}.",
+    "The asymptotic regime is essential: m,n → ∞ while the oversampling ratio α = m/n stays constant.",
+    "The paper formalizes the question through the Bayes-optimal estimator f-tilde of f0 for a fixed α.",
+    "The relevant error functional is MMSE(α) = lim_{n→∞} E ||f-tilde - f0||_2^2.",
+    "The paper explicitly says that the expectation in MMSE(α) is taken with respect to the distribution of the random sensing matrix A.",
+    "The 'best achievable' asymptotic error is MMSE_0 = inf_{α>0} MMSE(α).",
+    "'Better than a random guess' is not left informal: the weak-recovery threshold is α_WR = inf{α > 0 : MMSE(α) < E||f0||_2^2}. Since f0 lies on the unit sphere, E||f0||_2^2 = 1.",
+    "The second threshold is the full-recovery threshold α_FR = inf{α > 0 : MMSE(α) = MMSE_0}.",
+    "The paper emphasizes that full recovery need not mean perfect recovery: it can be perfect if MMSE_0 = 0 or imperfect if MMSE_0 > 0, depending on the rank properties of A.",
+    "The nearby Remark 6.3 clarifies that this notion of full recovery is weaker than injectivity up to global phase; the question is about MMSE thresholds, not about injectivity or exact identifiability for every deterministic signal.",
+    "The question is posed for different classes of random sensing matrices A, rather than for one fixed ensemble only."
+  ],
+  "refined_question": "In the high-dimensional noiseless complex phase-retrieval model y = |Af0|^2 with A ∈ C^{m×n} a random sensing matrix, f0 ~ Unif(S^{n-1}) ⊂ C^n, and m,n → ∞ with fixed oversampling ratio α = m/n, determine, as a function of the statistical law of A, the weak-recovery and full-recovery thresholds α_WR and α_FR defined by MMSE(α) = lim_{n→∞} E||f-tilde - f0||_2^2, where f-tilde is the Bayes-optimal estimator of f0 for the given α, α_WR = inf{α > 0 : MMSE(α) < E||f0||_2^2}, and α_FR = inf{α > 0 : MMSE(α) = MMSE_0} with MMSE_0 = inf_{α>0} MMSE(α).",
+  "equivalent_formulation": null,
+  "justification": "The draft is aiming at the paper's official Question 6.2 almost verbatim. The surrounding text in Section 6 supplies the hidden assumptions that make the question stand alone: complex-valued unknown f0 on the unit sphere, random matrix A, noiseless measurements y = |Af0|^2, and the asymptotic regime m,n → ∞ with α = m/n fixed. The next page then gives the exact mathematical formalization through MMSE(α), MMSE_0, α_WR, and α_FR. Remark 6.3 is part of the immediate local context because it prevents an incorrect sharpening of the question into an injectivity statement: the paper's threshold notion is MMSE-based and can be imperfect. Section 6.1 then confirms the intended interpretation by giving benchmark values for Gaussian A (α_WR = 1 and α_FR = 2), showing that the question is precisely about these two threshold values for classes of random sensing matrices.",
+  "citations": [
+    {
+      "section": "2.1",
+      "label": "Notation (finite-dimensional setup)",
+      "page": "3"
+    },
+    {
+      "section": "6",
+      "label": "Equation (15) and Remark 6.1",
+      "page": "21"
+    },
+    {
+      "section": "6",
+      "label": "Question 6.2",
+      "page": "21"
+    },
+    {
+      "section": "6",
+      "label": "Equations (16)-(19)",
+      "page": "22"
+    },
+    {
+      "section": "6",
+      "label": "Remark 6.3",
+      "page": "22"
+    },
+    {
+      "section": "6.1",
+      "label": "Results for a random measurement matrix",
+      "page": "23"
+    }
+  ]
+}

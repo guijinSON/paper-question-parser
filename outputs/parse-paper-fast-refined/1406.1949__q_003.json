@@ -1,0 +1,45 @@
+{
+  "arxiv_id": "1406.1949",
+  "question_id": "q_003",
+  "original_question": "Prove or disprove that, for some sufficiently small epsilon > 0, every near-optimal planar n-point set contains at least Omega(n^epsilon) points on a single line.",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 3850.04,
+  "target_in_paper": "Section 2, Problem 3 (Erdős [21]): \"Prove or disprove: For a sufficiently small ε > 0, every near-optimal point set contains Ω(n^ε) points on a common line.\"",
+  "completeness_score": 8.5,
+  "correct_elements": "Your draft identifies the correct target almost exactly: it is the Section 2 open problem about near-optimal planar point sets, the existence of a small positive exponent ε, and the conclusion that one line should contain on the order of n^ε points. It also correctly stays with the weaker 'one rich line' formulation rather than drifting to the broader lattice-structure question.",
+  "missing_details": [
+    "The paper defines D(P) as the number of distinct Euclidean distances determined by pairs of points of P; this should be stated explicitly.",
+    "The ambient space should be explicit: P is a finite set of n points in R^2.",
+    "The paper's term 'near-optimal' is not informal; in Section 2 it means D(P) = O(n/sqrt(log n)).",
+    "To make the big-O definition stand alone, one should specify the hidden constant in the near-optimality condition, e.g. quantify over C > 0 with D(P) <= C n/sqrt(log n).",
+    "The asymptotic quantifier is implicit in the draft; a precise formulation should say 'for all sufficiently large n' (or an equivalent explicit large-n formulation).",
+    "The phrase Ω(n^ε) hides a constant; a fully explicit version should say that there exists c > 0 such that |P ∩ l| >= c n^ε for some line l.",
+    "The phrase 'for some sufficiently small epsilon > 0' should be formalized as the existence of an absolute ε > 0 independent of n and P.",
+    "The line itself should be quantified explicitly as a line l subset of R^2."
+  ],
+  "refined_question": "Let P ⊂ R^2 be a set of n points, and let D(P) denote the number of distinct Euclidean distances determined by pairs of points of P. Is there an absolute constant ε > 0 such that for every C > 0 there exist c = c(C) > 0 and n0 = n0(C) with the following property: whenever n >= n0 and D(P) <= C n/sqrt(log n), there is a line l ⊂ R^2 for which |P ∩ l| >= c n^ε?",
+  "equivalent_formulation": null,
+  "justification": "The draft is targeting Section 2, Problem 3, whose wording matches it almost verbatim. The only missing ingredients needed to make it stand-alone come from the Introduction and the opening of Section 2: D(P) counts distinct Euclidean distances, D(n) is the minimum of D(P) over n-point planar sets, and 'near-optimal' means D(P) = O(n/sqrt(log n)). The surrounding paragraph in Section 2 shows that this is the weakened line-richness question Erdős asked after an even stronger Ω(sqrt(n)) collinearity version, and the sentence immediately after Problem 3 records the weaker known bound |l ∩ P| = Ω(sqrt(log n)). So the sharp paper-faithful rewrite should remain exactly the Ω(n^ε)-on-a-line problem and should only unpack the hidden asymptotic quantifiers and constants.",
+  "citations": [
+    {
+      "section": "1",
+      "label": "Introduction (definition of D(P) and D(n))",
+      "page": 1
+    },
+    {
+      "section": "2",
+      "label": "Opening paragraph of Section 2 (definition of 'near-optimal'; all point sets in the section are planar)",
+      "page": 2
+    },
+    {
+      "section": "2",
+      "label": "Problem 3 (Erdős [21])",
+      "page": 3
+    },
+    {
+      "section": "2",
+      "label": "Paragraph immediately surrounding Problem 3 (stronger motivating Ω(sqrt(n)) version and the known Ω(sqrt(log n)) lower bound)",
+      "page": 3
+    }
+  ]
+}

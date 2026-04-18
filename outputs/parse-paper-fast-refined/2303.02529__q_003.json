@@ -1,0 +1,54 @@
+{
+  "arxiv_id": "2303.02529",
+  "question_id": "q_003",
+  "original_question": "Let D*_n be the height of the random tree CTCS(n), meaning the maximum leaf height in the continuous-time critical beta-splitting tree on n leaves. Show that D*_n / log n converges in probability to a constant c, and determine the value of c.",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 8609.79,
+  "target_in_paper": "§5.5 \"A conjecture for maximum leaf height\" in the current arXiv v3: Open Problem 5 together with the immediately following Conjecture 11 (the same content appears in the paginated PDF snapshot as §3.4, Open Problem 1 and equation (13)).",
+  "completeness_score": 8,
+  "correct_elements": "Your draft correctly identifies the continuous-time model CTCS(n), the statistic D_n^* as the maximum leaf height of the tree, the logarithmic scale log n, and the intended asymptotic form of the problem: convergence in probability to a constant that should be identified.",
+  "missing_details": [
+    "The paper treats this as an open problem/conjecture, not as a proved theorem; the refined question should preserve that status.",
+    "To be fully stand-alone, the CTCS(n) model should be defined: a clade of size m >= 2 waits an Exponential(h_{m-1}) time and then splits into sizes i and m-i with probability q(m,i)=m/(2 h_{m-1} i (m-i)), where h_{m-1}=sum_{j=1}^{m-1} 1/j.",
+    "The asymptotic regime n -> infinity should be stated explicitly.",
+    "The paper’s exact wording is D_n^* ~ c log n in probability; your ratio formulation is mathematically equivalent, but the paper states it in the asymptotic-product form.",
+    "The exact conjectured constant is missing: c = 1 + μ + μ^3σ^2/2 = 1 + 6/pi^2 + 216 zeta(3)/pi^6 ≈ 1.878.",
+    "The constants μ and σ^2 must be defined from the leaf-height CLT: μ = 1/zeta(2) = 6/pi^2 and σ^2 = 2 zeta(3).",
+    "To stay paper-faithful, the question should remain restricted to the continuous-time tree height D_n^* for CTCS(n), and not drift to the discrete-time height L_n^* or other nearby open problems."
+  ],
+  "refined_question": "In the continuous-time critical beta-splitting random tree CTCS(n), each clade of size m >= 2 waits an Exponential(h_{m-1}) time and then splits into subclades of sizes i and m-i with probability q(m,i)=m/(2 h_{m-1} i (m-i)), where h_{m-1}=sum_{j=1}^{m-1} 1/j. Let D_n^* denote the height of CTCS(n), i.e. the maximum height over its n leaves. Prove the paper’s conjecture that, as n -> infinity, D_n^* ~ c log n in probability, and determine the constant c; namely c = 1 + μ + μ^3σ^2/2 = 1 + 6/pi^2 + 216 zeta(3)/pi^6 ≈ 1.878, where μ = 1/zeta(2) = 6/pi^2 and σ^2 = 2 zeta(3) are the constants from the CLT for the height D_n of a uniform random leaf in CTCS(n).",
+  "equivalent_formulation": null,
+  "justification": "The draft is targeting the paper’s maximum-height problem, not a neighboring statement: in the current arXiv v3 it appears in §5.5 as Open Problem 5, and the same statement is paginated in the PDF snapshot as §3.4, Open Problem 1, followed by the conjectured value of c in equation (13). To make the question stand-alone and faithful, one must include the CTCS(n) splitting law, the fact that this is still open/conjectural, and the definitions of μ and σ^2 from the leaf-height CLT that feed into the conjectured constant. The nearby proven result is only the upper bound P(D_n^* > (2+ε) log n) -> 0 for every ε > 0, together with E[D_n^*] <= 1 + 2 log n, so the refined version should not present the statement as already established. ([ar5iv.org](https://ar5iv.org/pdf/2303.02529))",
+  "citations": [
+    {
+      "section": "§2",
+      "label": "eq. (1) and definition of CTCS(n)",
+      "page": "pp. 1-2 (paginated PDF snapshot)"
+    },
+    {
+      "section": "§4 (current v3) / §3.1 (paginated PDF snapshot)",
+      "label": "eq. (11) and definition of D_n via the size-bias/harmonic descent chain",
+      "page": "HTML lines 207-214; p. 5"
+    },
+    {
+      "section": "§4.1 (current v3) / Theorem 2 in the paginated PDF snapshot",
+      "label": "Theorem 3 / Theorem 2 (leaf-height asymptotics and CLT constants μ, σ^2)",
+      "page": "HTML lines 223-230; p. 6"
+    },
+    {
+      "section": "§5.4 (current v3) / §6.4 (paginated PDF snapshot)",
+      "label": "Corollary 10 / Proposition 4 (known upper bound for D_n^*)",
+      "page": "HTML lines 505-512; p. 34"
+    },
+    {
+      "section": "§5.5 (current v3) / §3.4 (paginated PDF snapshot)",
+      "label": "Open Problem 5 / Open Problem 1",
+      "page": "HTML lines 514-519; pp. 8-9"
+    },
+    {
+      "section": "§5.5 (current v3) / §6.5 (paginated PDF snapshot)",
+      "label": "Conjecture 11 and the heuristic value c = 1 + μ + μ^3σ^2/2",
+      "page": "HTML lines 520-545; pp. 35-36"
+    }
+  ]
+}

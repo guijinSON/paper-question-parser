@@ -1,0 +1,38 @@
+{
+  "arxiv_id": "2602.05394",
+  "question_id": "q_028",
+  "original_question": "Let $B$ be an $n x n$ (upper) bidiagonal matrix. Is there an algorithm that, in $O(kn)$ operations, can produce $k$ triples $(sigma_i,v_i,u_i)$ such that $sigma_i >= 0$, $v_i, u_i C^n$ are unit vectors, and, for machine precision $epsilon$, $ |Bv_i-sigma_iu_i |_2 = O(epsilon n |B |_2)$; $|v_i^Hv_j|$, $|u_i^Hu_j| = O(epsilon n)$ if $i != j$.",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 351.25,
+  "target_in_paper": "Section 3.4, Problem 3.8 (\"Revisiting MR3\"): the open problem asking for an O(kn)-operation algorithm for the bidiagonal SVD that outputs k approximate singular triplets with MR3-style residual and mutual orthogonality guarantees.",
+  "completeness_score": 9,
+  "correct_elements": "Your draft is already very close to the paper's official formulation. It correctly identifies the target object as an n×n (upper) bidiagonal matrix B, asks for an O(kn)-operation algorithm, asks for k triples (σ_i, v_i, u_i), includes the nonnegativity condition σ_i ≥ 0, places the vectors in a complex inner-product setting via conjugate transpose H, and captures the two key guarantees from the paper: a normwise residual bound of order O(ε n ||B||_2) and pairwise near-orthogonality of both the right and left vectors of order O(ε n).",
+  "missing_details": [
+    "State the ambient field explicitly: the paper writes v_i, u_i in C^n and uses conjugate transpose H, so the stand-alone version should make clear that the vectors are complex and B is compatible with that setting.",
+    "Use the exact norm notation from the paper: ||B v_i - σ_i u_i||_2 and ||B||_2, rather than absolute-value bars.",
+    "Quantify the index ranges explicitly: for each i = 1, ..., k, and for all distinct i, j in {1, ..., k}.",
+    "Say explicitly that the output triples are approximate singular triplets of B.",
+    "For a fully stand-alone formulation, it is helpful to state the natural constraint 1 ≤ k ≤ n, even though the paper leaves this implicit.",
+    "The surrounding Section 3.4 context is that this is the bidiagonal-SVD analogue of MR3 for symmetric tridiagonal eigenproblems; the discussion immediately after Problem 3.8 explains that naive reductions to B^H B or B B^H can spoil the residual bound, while using the Golub-Kahan matrix can spoil orthogonality."
+  ],
+  "refined_question": "Let B ∈ C^{n×n} be an n×n (upper) bidiagonal matrix, let 1 ≤ k ≤ n, and let ε denote machine precision. Does there exist an algorithm that uses O(kn) operations and outputs k approximate singular triplets (σ_i, v_i, u_i) for B, with σ_i ≥ 0 and unit vectors v_i, u_i ∈ C^n, such that for every i = 1, ..., k one has ||B v_i - σ_i u_i||_2 = O(ε n ||B||_2), and for every i ≠ j one has |v_i^H v_j| = O(ε n) and |u_i^H u_j| = O(ε n)?",
+  "equivalent_formulation": null,
+  "justification": "The draft is essentially a near-verbatim restatement of Problem 3.8. Section 3.4 introduces MR3 as the optimal O(kn) method for computing k eigenpairs of a symmetric tridiagonal matrix, then immediately asks for the analogous bidiagonal-SVD result with exactly the residual and orthogonality bounds you quoted. The nearby discussion shows why the question should remain narrowly about bidiagonal SVD, rather than being broadened to a general SVD or eigenvalue problem: applying MR3 separately to B^H B and B B^H can make the residual ||B v_i - σ_i u_i||_2 large, while using the Golub-Kahan matrix can lead to insufficient orthogonality. So the refined question should stay exactly at Problem 3.8's scope.",
+  "citations": [
+    {
+      "section": "1",
+      "label": "Introduction",
+      "page": 3
+    },
+    {
+      "section": "3.4",
+      "label": "Problem 3.8",
+      "page": 24
+    },
+    {
+      "section": "3.4",
+      "label": "Discussion immediately after Problem 3.8",
+      "page": "24-25"
+    }
+  ]
+}

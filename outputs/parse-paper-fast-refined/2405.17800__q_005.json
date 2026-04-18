@@ -1,0 +1,52 @@
+{
+  "arxiv_id": "2405.17800",
+  "question_id": "q_005",
+  "original_question": "For the shifted moment Mk(T, alpha) = integral from 0 to T of the product over i of |zeta(1/2 + t + alpha_i)|^(2k_i) dt, Chandee proved an upper bound of the shape Mk(T, alpha) <<_{k,epsilon} T (log T)^(k_1^2 + ... + k_m^2 + epsilon) times the product over i < j of min{1/|alpha_i - alpha_j|, log T}^{2 k_i k_j}, under the stated hypotheses on the shifts alpha_i(T). Use Harper’s method to remove the epsilon from this bound.",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 200.84,
+  "target_in_paper": "Problem (5) in the section Problems → Moments of the Riemann zeta function: improve Chandee’s [14, Theorem 1.2] by using Harper’s method to remove the ε from the quoted upper bound for the general shifted moment M_k(T, α). ([personal.math.ubc.ca](https://personal.math.ubc.ca/~gerg/papers/downloads/MLPL.pdf))",
+  "completeness_score": 7.5,
+  "correct_elements": "Your draft has the right target, the right quantity M_k(T, α), the right bound-shape, and the right methodological goal: it is indeed the Problem (5) entry asking for Chandee’s shifted-moment upper bound to be sharpened by removing the ε via Harper’s method. ([personal.math.ubc.ca](https://personal.math.ubc.ca/~gerg/papers/downloads/MLPL.pdf))",
+  "missing_details": [
+    "The paper’s formula uses ζ(1/2 + i(t + α_i)), so the factor i in the zeta argument is essential; your draft writes 1/2 + t + α_i instead. ([personal.math.ubc.ca](https://personal.math.ubc.ca/~gerg/papers/downloads/MLPL.pdf))",
+    "The paper makes m implicit but arbitrary: one should quantify that m ≥ 1 is fixed and that k = (k_1, …, k_m) with each k_i > 0. ([personal.math.ubc.ca](https://personal.math.ubc.ca/~gerg/papers/downloads/MLPL.pdf))",
+    "The shift hypotheses must be spelled out explicitly: α_i = α_i(T) are real-valued functions of T with α_i = o(T). ([personal.math.ubc.ca](https://personal.math.ubc.ca/~gerg/papers/downloads/MLPL.pdf))",
+    "For each i, the limit lim_{T→∞} α_i log T must exist or equal ±∞. ([personal.math.ubc.ca](https://personal.math.ubc.ca/~gerg/papers/downloads/MLPL.pdf))",
+    "For each i ≠ j, the limit lim_{T→∞} (α_i − α_j) log T must exist or equal ±∞. ([personal.math.ubc.ca](https://personal.math.ubc.ca/~gerg/papers/downloads/MLPL.pdf))",
+    "The shifts are required to be pairwise distinct: α_i ≠ α_j for i ≠ j. ([personal.math.ubc.ca](https://personal.math.ubc.ca/~gerg/papers/downloads/MLPL.pdf))",
+    "The paper also assumes bounded pairwise gaps α_i − α_j = O(1) for i ≠ j; your draft only says 'under the stated hypotheses' and so is not stand-alone. ([personal.math.ubc.ca](https://personal.math.ubc.ca/~gerg/papers/downloads/MLPL.pdf))",
+    "The estimate is RH-conditional and only asserted for sufficiently large T; both quantifiers should be stated. ([personal.math.ubc.ca](https://personal.math.ubc.ca/~gerg/papers/downloads/MLPL.pdf))",
+    "To make the sharpened claim precise, the post-improvement bound should be written with an implied constant depending only on k, i.e. ≪_k rather than ≪_{k,ε}. ([personal.math.ubc.ca](https://personal.math.ubc.ca/~gerg/papers/downloads/MLPL.pdf))",
+    "For fidelity to the paper’s local context, it is worth noting that the paper frames this as the general-m problem beyond the already-treated special case m = 2 and k_1 = k_2. ([personal.math.ubc.ca](https://personal.math.ubc.ca/~gerg/papers/downloads/MLPL.pdf))"
+  ],
+  "refined_question": "Assuming the Riemann Hypothesis, let m ≥ 1 be fixed, let k = (k_1, …, k_m) with k_i > 0, and let α = (α_1, …, α_m) where each α_i = α_i(T) is a real-valued function satisfying α_i = o(T), such that each limit lim_{T→∞} α_i log T and each limit lim_{T→∞}(α_i − α_j) log T exists in ℝ ∪ {±∞}, and for i ≠ j one has α_i ≠ α_j and α_i − α_j = O(1). Define\nM_k(T, α) = ∫_0^T ∏_{i=1}^m |ζ(1/2 + i(t + α_i))|^(2k_i) dt.\nUse Harper’s method to prove that, for all sufficiently large T,\nM_k(T, α) ≪_k T (log T)^(k_1^2 + ··· + k_m^2) ∏_{1≤i<j≤m} (min{1/|α_i − α_j|, log T})^(2k_i k_j),\nthereby removing the ε from Chandee’s quoted bound while keeping the same hypotheses on the shifts. ([personal.math.ubc.ca](https://personal.math.ubc.ca/~gerg/papers/downloads/MLPL.pdf))",
+  "equivalent_formulation": null,
+  "justification": "The draft is not aiming at a conjecture or theorem numbered in the introductory literature cited by the paper; it is aiming directly at Problem (5) of arXiv:2405.17800. That problem reproduces the relevant Chandee theorem, defines the shifted moment M_k(T, α), and then asks: 'Use Harper’s method [40] to remove the ε,' with the added scope note that the two-shift equal-exponent case had already been treated in [60]. The same problem entry also records that Michael Curran [25] solved it, so within the paper this is a historically open problem rather than a presently open one. ([personal.math.ubc.ca](https://personal.math.ubc.ca/~gerg/papers/downloads/MLPL.pdf))",
+  "citations": [
+    {
+      "section": "Problems — Moments of the Riemann zeta function",
+      "label": "Problem (5) / quoted Theorem 1",
+      "page": "P5"
+    },
+    {
+      "section": "References",
+      "label": "[14] V. Chandee, On the correlation of shifted values of the Riemann zeta function",
+      "page": "P13"
+    },
+    {
+      "section": "References",
+      "label": "[25] M.J. Curran, Correlations of the Riemann zeta function",
+      "page": "P13"
+    },
+    {
+      "section": "References",
+      "label": "[40] A. Harper, Sharp conditional bounds for moments of the Riemann zeta function",
+      "page": "P14"
+    },
+    {
+      "section": "References",
+      "label": "[60] N. Ng, Q. Shen, and P.-J. Wong, Shifted moments of the Riemann zeta function",
+      "page": "P15"
+    }
+  ]
+}

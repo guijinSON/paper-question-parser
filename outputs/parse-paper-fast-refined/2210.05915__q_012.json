@@ -1,0 +1,47 @@
+{
+  "arxiv_id": "2210.05915",
+  "question_id": "q_012",
+  "original_question": "Does there exist a constant C such that every planar graph G of girth g > 5 and maximum degree Delta satisfies chi_s(G) <= ceil(2 g (Delta - 1) / (g - 1)) + C?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 8372.73,
+  "target_in_paper": "Conjecture 36 in Section 4.3 (repeated as Open Problem 12 in Section 6): the planar strong edge-coloring conjecture of Hudák, Lužar, Soták, and Škrekovski.",
+  "completeness_score": 7.5,
+  "correct_elements": "Your draft correctly targets the planar strong edge-coloring conjecture with the same additive-constant form and essentially the same bound, namely ceil(2g(Δ-1)/(g-1)) + C, for planar graphs in terms of girth and maximum degree.",
+  "missing_details": [
+    "The paper's parameter is χ_s(G), the strong edge-chromatic number; this must be defined, since χ_s is otherwise ambiguous. In the paper, a strong edge-coloring is an edge-coloring in which edges at distance at most 2 receive distinct colors, equivalently a proper coloring of L(G)^2.",
+    "The girth condition in the paper is g = g(G) >= 5, not g > 5; girth-5 planar graphs are included.",
+    "The symbols should be tied explicitly to the graph: g = g(G) is the girth of G and Δ = Δ(G) is the maximum degree of G.",
+    "The constant C is intended to be universal (independent of the particular graph G and of the values of g and Δ).",
+    "The nearby context explains that the ceiling term comes from the construction H_{g,Δ} obtained from C_g by attaching Δ-2 pendant edges to each cycle vertex; for odd g this yields the lower bound ceil(2g(Δ-1)/(g-1)), and the conjecture asks whether this construction is extremal up to an additive constant."
+  ],
+  "refined_question": "Does there exist a universal constant C such that every planar graph G with girth g = g(G) >= 5 and maximum degree Δ = Δ(G) satisfies χ_s(G) <= ceil(2g(Δ - 1)/(g - 1)) + C, where χ_s(G) denotes the strong edge-chromatic number of G (the minimum number of colors in an edge-coloring in which any two edges at distance at most 2 receive distinct colors)?",
+  "equivalent_formulation": null,
+  "justification": "The draft is aiming at Conjecture 36, not at the preceding large-girth bound Theorem 35, because the exact ceiling term ceil(2g(Δ-1)/(g-1)) + C appears only in Conjecture 36 and in the corresponding open-problems summary. The paragraph immediately before Conjecture 36 introduces the lower-bound construction H_{g,Δ} and says that the conjecture is that this construction is extremal up to an additive constant. The main fixes needed are to include girth 5, define χ_s(G) as the strong edge-chromatic number, and state that C is universal.",
+  "citations": [
+    {
+      "section": "1 Introduction",
+      "label": "notation paragraph for χ_s(G), Δ(G), and g(G)",
+      "page": "2-3"
+    },
+    {
+      "section": "4.1 The Erdős–Nešetřil Conjecture",
+      "label": "opening paragraph defining strong edge-coloring and χ_s(G)",
+      "page": "17-18"
+    },
+    {
+      "section": "4.3 Planar Graphs and Bounded Maximum Average Degree",
+      "label": "paragraph preceding Conjecture 36 (construction H_{g,Δ})",
+      "page": "23"
+    },
+    {
+      "section": "4.3 Planar Graphs and Bounded Maximum Average Degree",
+      "label": "Conjecture 36",
+      "page": "23-24"
+    },
+    {
+      "section": "6 Open Problems and Conjectures",
+      "label": "Open Problem 12",
+      "page": "31"
+    }
+  ]
+}

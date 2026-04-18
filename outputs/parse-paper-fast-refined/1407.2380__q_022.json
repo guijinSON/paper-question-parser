@@ -1,0 +1,48 @@
+{
+  "arxiv_id": "1407.2380",
+  "question_id": "q_022",
+  "original_question": "Can one show that every two-dimensional digital sequence in base 2 satisfies the lower discrepancy bound D_N >= c (log N)^2 / N for infinitely many N, or at least prove this for a substantial class such as NUT sequences or finite-row sequences?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 4249.18,
+  "target_in_paper": "Section 4, Open Problem 17: \"Show that for all 2-dimensional digital sequences in base 2 we have D_N >= c (log N)^2 / N for infinitely many N. Or, show this estimate at least for a certain class of such (low-discrepancy) sequences (e.g. for NUT sequences or finite-row sequences).\"",
+  "completeness_score": 8.5,
+  "correct_elements": "Your draft is already very close to the paper's official formulation. It correctly identifies the target object (2-dimensional digital sequences in base 2), the claimed lower-bound order ((log N)^2 / N), the correct recurrence of the bound (for infinitely many N), and the paper's fallback to substantial subclasses such as NUT or finite-row sequences.",
+  "missing_details": [
+    "The paper's object is a 2-dimensional digital sequence in base 2 in the sense of Niederreiter; to be fully stand-alone, this should be stated explicitly, including that the construction is over the finite field F_2 and uses two generating matrices.",
+    "D_N should be defined explicitly as the discrepancy of the first N points x_0, ..., x_{N-1} in [0,1)^2, with the supremum taken over all axis-parallel subintervals; otherwise it could be confused with the star discrepancy D_N^*.",
+    "The quantifier on the constant c should be made explicit: the intended reading is that there exists a positive constant c such that every sequence in the class under discussion satisfies the lower bound for infinitely many positive integers N.",
+    "The ambient space [0,1)^2 and the indexing convention N in the positive integers should be stated.",
+    "If the fallback subclass is retained, finite-row should be defined: each row of each generating matrix has only finitely many nonzero entries.",
+    "If the fallback subclass 'NUT sequences' is retained, its meaning must be supplied externally, because the paper mentions NUT sequences in Open Problem 17 but does not define the acronym locally."
+  ],
+  "refined_question": "Let (x_n)_{n>=0} be a 2-dimensional digital sequence in base 2 in the sense of Niederreiter: there exist generating matrices C_1, C_2 over F_2 such that, writing n = n_0 + n_1 2 + ... and y_{n,j} = C_j (n_0, n_1, ...)^T over F_2, one has x_n^(j) = sum_{r>=1} y_{n,j,r} 2^{-r}, so x_n = (x_n^(1), x_n^(2)) belongs to [0,1)^2. If D_N denotes the discrepancy of the first N points x_0, ..., x_{N-1}, namely the supremum over all axis-parallel subintervals J of [0,1)^2 of |A_N(J)/N - lambda(J)|, does there exist a constant c > 0 such that every such sequence satisfies D_N >= c (log N)^2 / N for infinitely many positive integers N? If the full statement is out of reach, can one at least prove the same lower bound for a paper-mentioned low-discrepancy subclass such as finite-row digital sequences?",
+  "equivalent_formulation": null,
+  "justification": "The draft is targeting Section 4, Open Problem 17, almost verbatim. The nearby context in Section 4 first restates the general conjectural lower bound for discrepancy in dimension 2, then notes that Faure proved this order for one particular digital low-discrepancy sequence, and only after that asks for the corresponding statement for all 2-dimensional digital sequences in base 2, or at least for subclasses such as NUT or finite-row sequences. Section 1 provides the underlying definitions of discrepancy and of digital sequences in the sense of Niederreiter, while Section 2 gives the local definition of finite-row sequences. So the main refinement needed is not to change the mathematics, but to make the construction, the meaning of D_N, and the quantifiers fully explicit.",
+  "citations": [
+    {
+      "section": "1 Introduction",
+      "label": "unnumbered definition of discrepancy D_N",
+      "page": "171-172"
+    },
+    {
+      "section": "1 Introduction",
+      "label": "unnumbered definition of digital sequences in the sense of Niederreiter",
+      "page": "172-173"
+    },
+    {
+      "section": "2 Metrical and average type discrepancy estimates for digital point sets and sequences and for good-lattice point sets",
+      "label": "paragraph defining finite-row matrices (immediately before Open Problem 6)",
+      "page": "180"
+    },
+    {
+      "section": "4 Miscellaneous problems",
+      "label": "context preceding Open Problem 17 (general lower-bound conjecture and Faure example)",
+      "page": "186-187"
+    },
+    {
+      "section": "4 Miscellaneous problems",
+      "label": "Open Problem 17",
+      "page": "187"
+    }
+  ]
+}

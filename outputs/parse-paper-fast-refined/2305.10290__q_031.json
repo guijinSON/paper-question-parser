@@ -1,0 +1,43 @@
+{
+  "arxiv_id": "2305.10290",
+  "question_id": "q_031",
+  "original_question": "If G is a graph of order n, must the third and fourth largest adjacency eigenvalues satisfy lambda_i(G) <= floor(n/i) for i = 3 and i = 4?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 8804.98,
+  "target_in_paper": "Section 19.1, Problem 10 (Powers [139]) in \"The third and fourth eigenvalues of graphs\": the question whether Powers's bound λ_i(G) ≤ ⌊n/i⌋ holds for i = 3 and i = 4.",
+  "completeness_score": 8.5,
+  "correct_elements": "Your draft already captures the right target very closely: it is about an n-vertex graph G, the third and fourth largest adjacency eigenvalues, and the specific bound λ_i(G) ≤ ⌊n/i⌋ for i = 3, 4. That matches the official statement of Problem 10 essentially verbatim once the paper's notation is unpacked.",
+  "missing_details": [
+    "The paper's global convention is that graphs are simple, undirected, and unweighted; your draft just says \"graph.\"",
+    "The notation λ_i(G) should be defined explicitly as the i-th largest eigenvalue of the adjacency matrix A(G), with ordering λ_1(G) ≥ λ_2(G) ≥ ··· ≥ λ_n(G).",
+    "The parameter n should be identified as the order of G, i.e. n = |V(G)|.",
+    "The quantifier should be made explicit: the question asks whether the inequality holds for every graph G of order n, for each i in {3,4}.",
+    "To stay paper-faithful, it helps to note that this appears in Section 19.1 as Powers's proposed extension of his more general bound λ_i(G) ≤ ⌊n/i⌋, which the survey says is clear for i ≤ 2 and false for i ≥ 5.",
+    "The nearby context also records that the survey itself mentions a counterexample for i = 4 due to Linz; your draft does not indicate that caveat."
+  ],
+  "refined_question": "Let G be a simple undirected unweighted graph with n = |V(G)|, and let λ_1(G) ≥ λ_2(G) ≥ ··· ≥ λ_n(G) be the eigenvalues of its adjacency matrix A(G). Is it true that λ_i(G) ≤ ⌊n/i⌋ for each i ∈ {3,4}?",
+  "equivalent_formulation": null,
+  "justification": "The draft is already very close to the paper's exact target, namely Problem 10 in Section 19.1. I kept the question narrowly focused on the same inequality and the same indices i = 3,4, and only added the paper's standing conventions and eigenvalue notation so that the question is fully self-contained. I did not replace it with Hong's broader Problem 11, because the paper presents that as a neighboring, more general problem rather than as an equivalent reformulation. The nearby context in the survey is that Powers had an upper bound λ_i(G) ≤ ⌊n/i⌋, that the bound is straightforward for i ≤ 2, fails for i ≥ 5, and that the survey also notes a counterexample for i = 4 by Linz.",
+  "citations": [
+    {
+      "section": "Introduction",
+      "label": "Definitions and notation",
+      "page": 34
+    },
+    {
+      "section": "19.1 The third and fourth eigenvalues of graphs",
+      "label": "Inequality (3) (Powers bound)",
+      "page": 51
+    },
+    {
+      "section": "19.1 The third and fourth eigenvalues of graphs",
+      "label": "Problem 10 (Powers [139])",
+      "page": 52
+    },
+    {
+      "section": "19.1 The third and fourth eigenvalues of graphs",
+      "label": "Problem 11 (Hong [3]) and remark on Linz's counterexample",
+      "page": 52
+    }
+  ]
+}

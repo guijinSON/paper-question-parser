@@ -1,0 +1,57 @@
+{
+  "arxiv_id": "2505.15351",
+  "question_id": "q_026",
+  "original_question": "Can one develop practical phase-retrieval algorithms, together with window functions and finite sampling schemes in R^d x R^d, such that for every function in a dense subset of L^2(R^d) the reconstruction from finitely many sampled short-time Fourier magnitude measurements converges, up to a global phase factor, to the true function as the number of samples tends to infinity?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 10996.34,
+  "target_in_paper": "Question 8.9 in Section 8.3 of Section 8, \"Problem: Mathematical Foundations of Wigner Distribution Deconvolution.\"",
+  "completeness_score": 8.5,
+  "correct_elements": "Your draft already matches the paper's official target very closely: it asks for practical phase-retrieval algorithms together with window functions and finite sampling schemes in R^d x R^d, and it requires asymptotic recovery from finitely many sampled short-time Fourier transform magnitudes, up to global phase, for every function in a dense subset of L^2(R^d) as the number of samples tends to infinity.",
+  "missing_details": [
+    "The paper is in the complex-valued infinite-dimensional setting: the object and window are functions f,w : R^d -> C, with w in L^2(R^d).",
+    "What is really needed is a family of algorithms indexed by the sample count k, not just an unspecified algorithm.",
+    "For each k, the algorithm takes exactly k nonnegative measurements and outputs a function in L^2(R^d): A_k : [0, infinity)^k -> L^2(R^d).",
+    "The measurements are specifically squared STFT magnitudes |V_w f|^2 sampled on a finite set, not generic phase-retrieval measurements.",
+    "The finite sampling schemes are explicitly of the form Omega_k = {(x_j, xi_j) : 1 <= j <= k} subset R^d x R^d.",
+    "The STFT should be defined explicitly: V_w f(x, xi) = integral_{R^d} f(t) w(t - x) e^{-i <t, xi>} dt.",
+    "Recovery up to global phase is quantified by inf_{alpha in S^1} ||alpha f - A_k(|V_w f|^2_{Omega_k})||_{L^2(R^d)}, where S^1 = {e^{i theta} : theta in R}.",
+    "The quantifier on the recoverable class is existential: the paper asks for convergence for all f in some dense subset of L^2(R^d), not for all of L^2(R^d).",
+    "Question 8.9 presents the displayed convergence as an example criterion (\"such that, e.g., ...\"), so the paper is not asserting that this is the only acceptable formalization.",
+    "The paper explicitly notes that the case d > 1 is of particular interest, because the cited approximate finite-sampling results focus on d = 1."
+  ],
+  "refined_question": "For a fixed dimension d >= 1, can one construct a window w in L^2(R^d), finite sampling sets Omega_k = {(x_j, xi_j) : 1 <= j <= k} subset R^d x R^d, and a family of practical phase-retrieval algorithms A_k : [0, infinity)^k -> L^2(R^d) such that, if V_w f(x, xi) = integral_{R^d} f(t) w(t - x)e^{-i <t, xi>} dt and y_k(f) = (|V_w f(x_j, xi_j)|^2)_{j=1}^k, then, for example, inf_{alpha in S^1} ||alpha f - A_k(y_k(f))||_{L^2(R^d)} -> 0 as k -> infinity for every f in some dense subset of L^2(R^d), especially in the higher-dimensional case d > 1?",
+  "equivalent_formulation": null,
+  "justification": "The draft is targeting Question 8.9 almost verbatim. The decisive features are the demand for practical algorithms, finite sampling schemes Omega_k subset R^d x R^d, reconstruction from finitely many sampled STFT magnitudes, convergence as k -> infinity, and recovery only on a dense subset of L^2(R^d); these are exactly the ingredients of Question 8.9 in Section 8.3. The nearby context in Section 8.3 defines sampled STFT phase retrieval and the global-phase equivalence relation, then explains that recovering all of L^2(R) from lattice STFT or Gabor data is impossible and discusses a weaker dense-set question for infinite Gabor sampling. The summary paragraph immediately before Question 8.9 says that only the cited works [61, 94] treat approximate recovery from finite measurement sets, which is precisely why Question 8.9 asks for finite-sample algorithms with asymptotic convergence on a dense set rather than a uniqueness theorem for all signals. Questions 8.6-8.8 are neighboring problems about admissible windows, informative infinite sampling sets, and dense recoverable sets on Gabor lattices, but your draft is most closely aligned with Question 8.9.",
+  "citations": [
+    {
+      "section": "2",
+      "label": "Infinite-dimensional setup",
+      "page": 4
+    },
+    {
+      "section": "8",
+      "label": "Equation (22)",
+      "page": 28
+    },
+    {
+      "section": "8.3",
+      "label": "paragraph beginning \"Consider the recovery of an object f in L^2(R) from the magnitude of its short-time Fourier transform (STFT)\"",
+      "page": 31
+    },
+    {
+      "section": "8.3",
+      "label": "Questions 8.6-8.8",
+      "page": 32
+    },
+    {
+      "section": "8.3",
+      "label": "paragraph beginning \"Of all of these results, only [61, 94] also considers the approximate recovery...\"",
+      "page": 33
+    },
+    {
+      "section": "8.3",
+      "label": "Question 8.9",
+      "page": 33
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "arxiv_id": "math_0109030",
+  "question_id": "q_003",
+  "original_question": "For each of the following matrix classes C: (i) the matrices A_{n,k,t} for positive integers n and k and t in (0, 1), (ii) GKK tau-matrices, (iii) GKK matrices, and (iv) tau-matrices, let C_n denote the subclass consisting of matrices in C of order at most n. What is the largest n for which every matrix in C_n is positive stable?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 13811.36,
+  "target_in_paper": "Section 3, Problem 3a (“Classes of stable matrices”), specialized to the four concrete classes listed immediately afterward in items (i)–(iv).",
+  "completeness_score": 8.5,
+  "correct_elements": "Your draft already matches the paper’s actual target very closely: it asks exactly for the order-threshold version of stability in Section 3, Problem 3a, and it lists the same four classes of interest named there. It also correctly interprets C_n as the subclass of matrices of order at most n and asks about positive stability rather than the stronger angular bound (2).",
+  "missing_details": [
+    "The paper works with complex square matrices; that ambient field is implicit in Section 2.",
+    "“Positive stable” is defined in Section 2 as having all eigenvalues in the open right half-plane, i.e. Re(λ) > 0 for every λ in the spectrum.",
+    "A GKK matrix must be defined: it is a weakly sign-symmetric P-matrix.",
+    "A P-matrix must be defined: all principal minors are positive.",
+    "Weak sign symmetry must be defined: A[α,β]A[β,α] ≥ 0 for all almost-principal minors (equivalently, minors of dispersal 1), with A[α,β] the corresponding minor.",
+    "A τ-matrix must be defined from Section 2: it is a P-matrix with eigenvalue monotonicity and with l(A) ≥ 0, where l(B) := min(σ(B) ∩ R) and min(∅) := ∞.",
+    "Eigenvalue monotonicity itself is implicit and should be stated: l(A(α,α)) ≤ l(A(β,β)) < ∞ whenever ∅ ≠ β ⊆ α.",
+    "The class “GKK τ-matrices” means the intersection of the GKK and τ classes.",
+    "The phrase “largest n” should be made explicit as a separate maximal order bound for each class C, not one common n for all four classes.",
+    "There is a notation clash in the draft between the cutoff index n in C_n and the family parameter n in A_{n,k,t}; a stand-alone version should rename one of them.",
+    "In this note, the family A_{n,k,t} is only referenced as the family used in Holtz [11]; its entries are not redefined here, so a fully stand-alone formulation should either retain that reference explicitly or import that outside definition."
+  ],
+  "refined_question": "For each of the following classes C of complex square matrices, define C_{≤N} := {A in C : ord(A) ≤ N}: (1) the family {A_{m,k,t} : m,k are positive integers and t in (0,1)} in the notation of Holtz [11] as cited in this paper; (2) the class of GKK τ-matrices; (3) the class of GKK matrices; and (4) the class of τ-matrices. Here, for index sets α,β of equal size, A[α,β] denotes the corresponding minor and A[α] := A[α,α] a principal minor; a P-matrix is one with A[α] > 0 for all principal minors; a GKK matrix is a weakly sign-symmetric P-matrix, meaning A[α,β]A[β,α] ≥ 0 for every almost-principal minor; if l(B) := min(σ(B) ∩ R) with min(∅) := ∞, then A has eigenvalue monotonicity when l(A(α,α)) ≤ l(A(β,β)) < ∞ whenever ∅ ≠ β ⊆ α; and a τ-matrix is a P-matrix with eigenvalue monotonicity and l(A) ≥ 0. A matrix is positive stable if every eigenvalue has positive real part. Determine, for each class C, the maximal N such that every matrix in C_{≤N} is positive stable.",
+  "equivalent_formulation": null,
+  "justification": "The draft is aimed at the exact open problem stated in Section 3 as Problem 3a. The sentence immediately preceding Problems 3a–3c explains the motivation: Holtz’s earlier examples A_{2k+2,k,t} are unstable for k > 20 and sufficiently small positive t, so the paper asks for the largest order up to which stability still holds in various classes. The four classes in your draft are exactly the four classes listed after Problem 3c. The only substantial incompleteness is definitional: Section 2 supplies the meanings of positive stability, GKK, τ, weak sign symmetry, P-matrix, and eigenvalue monotonicity, and the draft does not spell these out. There is also a notation ambiguity because the family A_{n,k,t} already uses n, while C_n uses n again for the order cutoff.",
+  "citations": [
+    {
+      "section": "2",
+      "label": "Basic notions: definitions of P-matrix, weak sign symmetry/GKK, eigenvalue monotonicity, τ-matrix, and positive stability",
+      "page": 1
+    },
+    {
+      "section": "3",
+      "label": "Motivating instability statement for A_{2k+2,k,t} from [11]",
+      "page": 2
+    },
+    {
+      "section": "3",
+      "label": "Problem 3a",
+      "page": 2
+    },
+    {
+      "section": "3",
+      "label": "Specific classes (i)–(iv) listed after Problems 3a–3c",
+      "page": 2
+    }
+  ]
+}

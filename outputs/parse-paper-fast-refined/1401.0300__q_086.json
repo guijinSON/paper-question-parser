@@ -1,0 +1,32 @@
+{
+  "arxiv_id": "1401.0300",
+  "question_id": "q_086",
+  "original_question": "(M. Gromov, B. Weiss). A group G is said to be sofic if for every finite set F ⊆ G containing 1 and every ε > 0 there exist n ∈ N and a map φ: F → Sn such that φ(1) = 1, d(φ(gh), φ(g)φ(h)) < ε for all g, h such that gh ∈ F, φ(g) does not have fixed points for every g ∈ F \\ {1}. Is every group sofic?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 3505.53,
+  "target_in_paper": "Problem 21.86 in the section \"New Problems (21st issue, 2026)\": \"Is every group sofic?\"",
+  "completeness_score": 9,
+  "correct_elements": "Your draft already tracks the paper's target almost verbatim. It identifies the correct open problem, gives the same quantifiers over finite subsets F ⊆ G containing 1 and ε > 0, uses approximating maps into symmetric groups S_n, includes the local multiplicativity condition for g, h with gh ∈ F, and preserves the paper's exact fixed-point-free requirement for every nonidentity element of F.",
+  "missing_details": [
+    "The metric d is not defined in the draft. The nearby context in Problem 21.83 defines the relevant distance on S_n as the normalized Hamming metric d_n(σ, τ) = (1/n)|{x ∈ {1, ..., n} : σ(x) ≠ τ(x)}|.",
+    "To be fully stand-alone, S_n should be identified as the symmetric group on {1, ..., n}.",
+    "The notation φ(1) = 1 should be disambiguated as φ(1_G) = id_{S_n}, i.e. the identity element of G is sent to the identity permutation.",
+    "The phrase \"φ(g) does not have fixed points\" should be made explicit as: for every x ∈ {1, ..., n}, one has φ(g)(x) ≠ x.",
+    "It helps to state explicitly that the question has no extra hypotheses on G: the problem asks this for arbitrary groups, not only finitely generated, countable, residually finite, or amenable ones."
+  ],
+  "refined_question": "Is every group G sofic? Equivalently, for every group G, every finite subset F ⊆ G with 1_G ∈ F, and every ε > 0, does there exist an integer n ≥ 1 and a map φ: F → S_n, where S_n is the symmetric group on {1, ..., n}, such that φ(1_G) = id_{S_n}, d_n(φ(gh), φ(g)φ(h)) < ε for all g, h ∈ F with gh ∈ F, and φ(g) is fixed-point-free for every g ∈ F \\ {1_G}; here d_n(σ, τ) = (1/n)|{x ∈ {1, ..., n} : σ(x) ≠ τ(x)}|?",
+  "equivalent_formulation": null,
+  "justification": "The draft is aiming at the paper's exact open problem, namely Problem 21.86, whose official formulation is precisely \"Is every group sofic?\" after a definition of soficity matching your draft. The only substantive implicit piece needed to make the statement fully self-contained is the meaning of the distance d on S_n; the nearest local definition appears immediately above, in Problem 21.83, where the normalized Hamming distance d_n is introduced. No narrower or broader equivalent reformulation is supplied in the paper near this problem, so the refined question stays with Problem 21.86 and only makes the local metric notation explicit.",
+  "citations": [
+    {
+      "section": "New Problems (21st issue, 2026)",
+      "label": "21.86",
+      "page": "174 (printed), PDF p. 173"
+    },
+    {
+      "section": "New Problems (21st issue, 2026)",
+      "label": "21.83",
+      "page": "174 (printed), PDF p. 173"
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "arxiv_id": "1012.5187",
+  "question_id": "q_009",
+  "original_question": "Improve the current lower bound O(n / log^2 n) for the maximum possible obstacle number of an n-vertex graph.",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 1023.56,
+  "target_in_paper": "Section 2.5, Open Problem 9: \"Improve the present lower bound of the obstacle number of a graph with n vertices.\"",
+  "completeness_score": 6.5,
+  "correct_elements": "Your draft targets the right open problem: improving the asymptotic lower bound for how large the obstacle number of an n-vertex graph can be. It also points to the same benchmark bound that the paper cites nearby, namely the Ω(n/log^2 n) lower bound proved by Mukkamala et al. for ordinary obstacle number.",
+  "missing_details": [
+    "The asymptotic notation is wrong: this is a lower bound, so the paper-faithful scale is Ω(n/log^2 n), not O(n/log^2 n).",
+    "The quantity being optimized should be defined explicitly, e.g. obs(G) for a graph G and obs(n) = max{obs(G) : |V(G)| = n}.",
+    "The paper’s obstacle number is defined via obstacle representations in the plane: vertices are represented by points, and two vertices are adjacent iff the straight-line segment between the corresponding points avoids all obstacles.",
+    "The default obstacle model here is ordinary obstacle number with simple polygonal obstacles; your draft does not say this, so it could be confused with the convex-obstacle or segment-obstacle variants mentioned nearby.",
+    "The paper assumes a general-position condition: no segment joining two represented vertices passes through another represented point or a vertex of an obstacle.",
+    "If the lower bound is stated asymptotically, the quantifiers should be made explicit: there exist constants c > 0 and n0 such that for every n >= n0 there is an n-vertex graph G with obs(G) >= c n/log^2 n.",
+    "The phrase \"maximum possible obstacle number\" should be tied to the class of all n-vertex graphs, not planar graphs, bipartite graphs, or any restricted family."
+  ],
+  "refined_question": "Let obs(G) denote the minimum number of simple polygonal obstacles in a plane obstacle representation of a graph G, where the vertices of G are represented by points in the plane, all represented points and obstacle vertices are in general position, and uv is an edge of G if and only if the straight-line segment joining the points for u and v avoids every obstacle. Define obs(n) := max{obs(G) : |V(G)| = n}. Improve the lower bound obs(n) = Ω(n/log^2 n).",
+  "equivalent_formulation": null,
+  "justification": "The draft is aiming at the obstacle-number lower-bound question from Section 2.5, and the nearest official formulation in the paper is exactly Open Problem 9, not the neighboring upper-bound question (Open Problem 8) or the low-obstacle-number questions (Open Problems 10 and 11). The nearby context in Section 2.5 supplies the needed definitions of obstacle representation and obstacle number, and it distinguishes the ordinary obstacle-number problem from the convex-obstacle variant. The explicit Ω(n/log^2 n) benchmark in your draft matches the lower bound cited there from Mukkamala et al.; however, the paper’s own official wording is broader and simply asks to improve the present lower bound. To make the question stand alone while staying faithful to the paper, it is best to define obs(G) and obs(n) explicitly, correct O to Ω, and keep the scope to ordinary obstacle number with simple polygonal obstacles.",
+  "citations": [
+    {
+      "section": "2.5 Obstacle Representations of Visibility Graphs",
+      "label": "definition of obstacle representation and obstacle number",
+      "page": "ar5iv HTML lines 138-145"
+    },
+    {
+      "section": "2.5 Obstacle Representations of Visibility Graphs",
+      "label": "Open Problem 9",
+      "page": "ar5iv HTML lines 147-150"
+    },
+    {
+      "section": "2.5 Obstacle Representations of Visibility Graphs",
+      "label": "nearby context distinguishing the convex-obstacle variant",
+      "page": "ar5iv HTML lines 147-152"
+    },
+    {
+      "section": "1 Introduction of cited reference [81], Graphs with large obstacle numbers",
+      "label": "Theorem 3",
+      "page": "PDF p. 3"
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "arxiv_id": "0909.0462",
+  "question_id": "q_002",
+  "original_question": "Let D be the stationary waiting time in an i.i.d. G/G/m first-come-first-served queue where the service-time sequence {(sigma_n)} and interarrival-time sequence {(t_n)} are independent, identically distributed, and satisfy rho := E sigma_1 / E t_1 < m. When rho is an integer, what conditions are necessary and sufficient for the power moment E D^gamma to be finite?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 474.09,
+  "target_in_paper": "Section 1.2 (\"Existence of Moments\"): the unnumbered open problem stated immediately after the noninteger-ρ proposition, asking \"what are the conditions for existence (finiteness) of power moments of D if ρ is an integer?\"",
+  "completeness_score": 8.5,
+  "correct_elements": "Your draft already captures the right model and target almost exactly: a stable i.i.d. FCFS G/G/m queue, the stationary waiting time D, the load parameter ρ = Eσ1 / Et1, the unresolved case in which ρ is an integer, and the aim of characterizing finiteness of the power moment E[D^γ].",
+  "missing_details": [
+    "The paper fixes γ > 0 explicitly before posing the question.",
+    "It is a queue with a finite number m of identical servers operating under the FCFS discipline; saying only \"G/G/m\" leaves some of that implicit.",
+    "The inputs are two mutually independent i.i.d. sequences, {σ_n} and {t_n}; that mutual independence of the two sequences should be stated explicitly.",
+    "The paper notes that under these i.i.d. assumptions and the stability condition ρ < m, the stationary distribution is unique; this is part of the standing scope for D.",
+    "The question is specifically the integer-ρ boundary case left open after the nearby proposition that handles the noninteger-ρ case.",
+    "The paper asks only about the delay D itself, not about broader workload-component variants or the tail-asymptotic questions raised later in Section 1.3."
+  ],
+  "refined_question": "Fix γ > 0. Consider a stable first-come-first-served G/G/m queue with a finite number m of identical servers, where {σ_n}_{n≥1} and {t_n}_{n≥1} are mutually independent i.i.d. sequences of nonnegative service times and interarrival times, respectively, satisfying ρ := E[σ_1]/E[t_1] < m, and let D denote the stationary waiting time of the queue (whose stationary distribution is unique in this i.i.d. setting). What are the necessary and sufficient conditions for the finiteness of E[D^γ] in the boundary case where ρ is an integer?",
+  "equivalent_formulation": null,
+  "justification": "The draft clearly targets the open problem in Section 1.2 rather than the total-variation conjecture in Section 1.1 or the rare-event/tail-asymptotic questions in Section 1.3. In Section 1.2 the paper fixes the i.i.d./independence assumptions, the stability condition ρ < m, the stationary waiting time D, and γ > 0; it then records the complete noninteger-ρ criterion in the nearby proposition and immediately isolates the missing integer-ρ case as the open problem. No ambient ring/field, homogeneity, degree, or nilpotency hypotheses are relevant here; the hidden assumptions are entirely queueing-theoretic and probabilistic.",
+  "citations": [
+    {
+      "section": "1.1",
+      "label": "Convergence in the total variation to the stationarity",
+      "page": 1
+    },
+    {
+      "section": "1.2",
+      "label": "Existence of Moments",
+      "page": 2
+    },
+    {
+      "section": "1.2",
+      "label": "Proposition (unnumbered; noninteger ρ case)",
+      "page": 2
+    },
+    {
+      "section": "1.2",
+      "label": "Open problem immediately after the Proposition",
+      "page": 2
+    },
+    {
+      "section": "1.3",
+      "label": "Rare events",
+      "page": 3
+    }
+  ]
+}

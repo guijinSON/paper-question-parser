@@ -1,0 +1,56 @@
+{
+  "arxiv_id": "2310.18163",
+  "question_id": "q_023",
+  "original_question": "Determine whether there exist convex bodies S in R^d for some d>=3 that are neither line segments nor d-dimensional balls but still have the Kakeya rotation property, meaning that inside every convex S-Kakeya body any two copies of S can be continuously rotated into one another while staying inside the body.",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 9190.98,
+  "target_in_paper": "Section 9, Question 9.3 of arXiv:2310.18163 (\"Convex S-Kakeya sets\"), which is the collection-paper restatement of Question 5.2 in Janzer's original paper \"Rotation inside convex Kakeya sets\".",
+  "completeness_score": 8,
+  "correct_elements": "Your draft correctly identifies the paper’s specific existence question: whether there is some convex set S in some dimension d>=3, other than the known examples of segments and balls, that still enjoys the Kakeya rotation property. It also correctly captures the intended informal meaning of that property as saying that inside every convex S-Kakeya body, any two copies of S can be continuously rotated into one another while remaining inside the body.",
+  "missing_details": [
+    "The nearest official formulation in arXiv:2310.18163 is Question 9.3 in Section 9; it is an existence question, not a broad classification problem.",
+    "The ambient space is Euclidean R^d, and the rotations are elements of SO(d).",
+    "The paper’s formal notion of an S-copy is a rotated and translated copy rho(S)+x; no scaling or other affine deformation is allowed.",
+    "The quantifier over K should be stated explicitly: for every convex body K in R^d that is S-Kakeya.",
+    "S-Kakeya must be defined formally: for every rotation rho in SO(d), there exists x in R^d such that rho(S)+x is contained in K.",
+    "The phrase \"can be continuously rotated into one another\" should be formalized by continuous maps gamma:[0,1]->SO(d) and delta:[0,1]->R^d joining the two given copies and satisfying gamma(t)(S)+delta(t) subseteq K for all t in [0,1].",
+    "To match the paper-faithful formulation, S should be described as a compact convex set / convex body; in the surrounding context, a body means a non-empty compact set.",
+    "The exclusion is phrased in the original paper as \"not a segment or a ball\" and in the Section 9 restatement as \"not a line segment or a d-dimensional ball\"; your draft should match one of these exact phrasings consistently.",
+    "The nearby motivating results should be kept implicit but not altered: the property is known for all convex bodies in R^2 and for segments in every dimension, while counterexamples exist for some convex bodies in every dimension d>=4."
+  ],
+  "refined_question": "Does there exist an integer d>=3 and a non-empty compact convex set S subseteq R^d, with S neither a segment nor a Euclidean ball, such that for every convex body K subseteq R^d satisfying the S-Kakeya condition\n(for every rotation rho in SO(d) there exists x in R^d with rho(S)+x subseteq K),\nany two S-copies in K can be rotated into each other within K; that is, whenever rho_0,rho_1 in SO(d) and x_0,x_1 in R^d satisfy rho_i(S)+x_i subseteq K for i=0,1, there exist continuous maps gamma:[0,1]->SO(d) and delta:[0,1]->R^d with gamma(0)=rho_0, gamma(1)=rho_1, delta(0)=x_0, delta(1)=x_1, and gamma(t)(S)+delta(t) subseteq K for all t in [0,1]?",
+  "equivalent_formulation": null,
+  "justification": "The draft is essentially a paraphrase of Question 9.3 in Section 9 of arXiv:2310.18163. Section 9 first defines what it means for K to be S-Kakeya and for S to have the Kakeya rotation property, then states Theorem 9.1: all convex bodies in R^2 and all unit line segments in arbitrary dimension have the property, whereas for each d>=4 some convex body fails it. Question 9.3 then asks exactly whether there are any further examples beyond segments and balls. Janzer’s original paper gives the fully formal SO(d)-based definitions in Section 1 and restates the same open problem as Question 5.2 in Section 5, so those formal quantifiers and continuity requirements are the missing ingredients needed to make your draft fully stand-alone and paper-faithful.",
+  "citations": [
+    {
+      "section": "9",
+      "label": "Definition of S-Kakeya and Kakeya rotation property (preceding Theorem 9.1)",
+      "page": "19-20"
+    },
+    {
+      "section": "9",
+      "label": "Theorem 9.1",
+      "page": "19-20"
+    },
+    {
+      "section": "9",
+      "label": "Question 9.3",
+      "page": "19-20"
+    },
+    {
+      "section": "1",
+      "label": "Definitions preceding Theorem 1.2",
+      "page": "151"
+    },
+    {
+      "section": "1",
+      "label": "Theorem 1.2 and Theorem 1.3",
+      "page": "151-152"
+    },
+    {
+      "section": "5",
+      "label": "Question 5.2",
+      "page": "175"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "arxiv_id": "2505.15351",
+  "question_id": "q_002",
+  "original_question": "Which aspects of object complexity in phase retrieval are already theoretically understood, and which unresolved mathematical problems still need to be solved in order to explain how the difficulty of reconstructing an object depends on its structure?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 10929.95,
+  "target_in_paper": "Question 3.1(2) in Section 3: \"Which aspects of object complexity are theoretically understood and what open problem should be addressed?\" with immediate nearby clarification from Question 3.1(3) and Sections 3.1–3.3.",
+  "completeness_score": 6.5,
+  "correct_elements": "Your draft correctly identifies the theme of Section 3: the intrinsic difficulty of phase retrieval, especially the contrast between what is already theoretically understood about object-dependent difficulty and what mathematics is still missing to explain why some objects are harder to reconstruct than others.",
+  "missing_details": [
+    "The paper’s setting is the phase retrieval problem I = A(f) = |Af|^2 in both continuous and discrete forms, not an unrestricted discussion of phase retrieval in general.",
+    "The object is complex-valued: either a function f:R^d→C or a vector f∈C^n; the main forward models in this section are coherent diffraction imaging with A = F and ptychography with A given by a subsampled short-time Fourier transform operator.",
+    "A critical practical restriction is that the object’s structure is not known before the experiment, so the paper is specifically interested in complexity measures that can be inferred from the measurements I alone.",
+    "The paper does not posit a single abstract notion of “object complexity”; it discusses concrete candidate proxies based on the autocorrelation γ = F^{-1}I, including support sets Sf and Sγ = Sf ⊖ Sf, the overdetermination ratio Ω = (1/2)|Sγ|/|Sf|, and the radius-of-gyration statistic B.",
+    "What is already theoretically understood nearby is not a full theory of complexity, but specific links between reconstruction difficulty and local stability up to global phase, the object-dependent constant C(g), support connectivity via the Cheeger constant, and transversality of the constraint intersection.",
+    "The unresolved mathematical issues are more specific than the draft says: whether bounds like (3) can be made useful in other spaces F to probe object properties, whether transversality can be made practically useful, and how it relates to complementarity and robust rank-null-space properties.",
+    "If “difficulty of reconstructing” is meant algorithmically, the paper treats this in the adjacent Question 3.1(3) and Section 3.3 via the gradient descent iteration f^{t+1} = f^t - μ∇L(f) for the square-root objective L(f) = Σ_j (|(Af)_j|^{1/2} - y_j^{1/2})^2, together with convergence bound (4).",
+    "The draft omits the paper’s most explicit open direction on reconstruction difficulty: proving an explicit dependence of the convergence rate on object structure, for example on smoothness class, or deriving usable complexity statistics from the Hessian ∇^2L and its conditioning.",
+    "There are no paper-critical homogeneity, degree, or nilpotency assumptions in this section; the hidden assumptions that matter are the complex-valued setting, the global-phase ambiguity, the chosen measurement operator A, and whether one is in the continuous or discrete model."
+  ],
+  "refined_question": "In the phase retrieval setting I = A(f) = |Af|^2 for complex-valued objects f (either f:R^d→C or f∈C^n), with primary focus on coherent diffraction imaging (A = F) and ptychography (A given by a subsampled STFT operator), and under the requirement that any useful complexity statistic should be inferable from the measurements I alone because the object structure is unknown a priori, which structural features of f are already rigorously connected to intrinsic reconstruction difficulty—through autocorrelation-based quantities γ = F^{-1}I, the overdetermination ratio Ω = (1/2)|Sγ|/|Sf|, the radius-of-gyration statistic B, local stability bounds up to global phase, support-connectivity/Cheeger effects, and transversality—and what mathematical results are still needed to turn these into justified predictors of reconstruction difficulty, especially of the convergence behavior of gradient-based phase retrieval (for example via explicit dependence on smoothness class or on Hessian conditioning)?",
+  "equivalent_formulation": null,
+  "justification": "The closest official formulation is Question 3.1(2) on page 4. Your draft is already close in spirit, but it omits the paper’s setup, the measurement-only restriction, and the specific mathematical mechanisms that the nearby text uses to make the question precise. The immediate context in Section 3 defines the continuous/discrete model I = A(f) = |Af|^2 and the CDI/ptychography scope; Section 3.1 introduces the candidate complexity surrogates Ω and B; Section 3.2 states what is theoretically understood via local stability, Cheeger/connectivity effects, and transversality; and Section 3.3 gives the adjacent open problem of making convergence-rate bounds depend explicitly on object structure. Because your wording mentions both “theoretically understood” and “how the difficulty of reconstructing depends on structure,” the refined question keeps Question 3.1(2) as the anchor while importing only the immediately adjacent Section 3.3 material needed to make that dependence precise, without broadening beyond Section 3.",
+  "citations": [
+    {
+      "section": "1.2",
+      "label": "Organization of the paper; Section 3 overview",
+      "page": 2
+    },
+    {
+      "section": "3",
+      "label": "Problem: intrinsic difficulty of phase retrieval; setup (1)–(2) and CDI/ptychography scope",
+      "page": "3-4"
+    },
+    {
+      "section": "3",
+      "label": "Questions 3.1(2)–(3)",
+      "page": 4
+    },
+    {
+      "section": "3.1",
+      "label": "Complexity measures: autocorrelation γ, overdetermination ratio Ω, radius-of-gyration statistic B",
+      "page": "4-5"
+    },
+    {
+      "section": "3.2",
+      "label": "Theoretical background: local stability bound (3), Cheeger constant, transversality",
+      "page": "5-7"
+    },
+    {
+      "section": "3.3",
+      "label": "Complexity and reconstruction: gradient descent, convergence bound (4), smoothness/Hessian open direction",
+      "page": "7-8"
+    }
+  ]
+}

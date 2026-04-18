@@ -1,0 +1,55 @@
+{
+  "arxiv_id": "2602.05394",
+  "question_id": "q_039",
+  "original_question": "Regression in the $\\ell_p$ norm: Consider the $ell_p$ linear regression problem minimize_x R^d |Ax - b |_ell_p for a matrix (A R^n x d ) and a vector (b R^n ). For a sketching matrix (Omega R^n x k ), the sketch-and-solve solution is [~ x argmin_x R^d |(Omega^ -> p Ax)-(Omega^ -> p b) |_ell_p. ] Formulate a generalization of the OSI property to the $ell_p$ regression problem which ensures that this procedure succeeds to constant-factor accuracy [ |A ~ x - b |_ell_p <= const* _x R^d |Ax - b |_ell_p. ]",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 12619.74,
+  "target_in_paper": "Section 5.1, Problem 5.3 (“Regression in the ℓ_p norm”), in the subsection “Injections vs. embeddings.” This is the paper’s exact open problem matching your draft. ([znakschoola.ru](https://www.znakschoola.ru/?_=%2Fpdf%2F2602.05394%23UE7DkG0PaBHZOakR54g1Wl8%3D&utm_source=openai))",
+  "completeness_score": 8.5,
+  "correct_elements": "Your draft already captures the core of the official problem: the ambient objects A, b, and Ω; the ℓ_p regression objective min_{x∈R^d} ||Ax-b||_{ℓ_p}; the sketch-and-solve estimator obtained from the sketched problem; and the desired constant-factor guarantee in the original, unsketched norm. It also correctly identifies that the missing ingredient is an ℓ_p analogue of the OSI condition. ([znakschoola.ru](https://www.znakschoola.ru/?_=%2Fpdf%2F2602.05394%23UE7DkG0PaBHZOakR54g1Wl8%3D&utm_source=openai))",
+  "missing_details": [
+    "State the ambient spaces exactly: A ∈ R^{n×d}, b ∈ R^n, and Ω ∈ R^{n×k}. The paper formulates the problem over the real numbers here. ([znakschoola.ru](https://www.znakschoola.ru/?_=%2Fpdf%2F2602.05394%23UE7DkG0PaBHZOakR54g1Wl8%3D&utm_source=openai))",
+    "Write the estimator as a set-valued optimization statement, namely ṽx ∈ argmin_{x∈R^d} ||(Ω^T A x) - (Ω^T b)||_{ℓ_p}; the paper does not assume uniqueness of the minimizer. ([znakschoola.ru](https://www.znakschoola.ru/?_=%2Fpdf%2F2602.05394%23UE7DkG0PaBHZOakR54g1Wl8%3D&utm_source=openai))",
+    "Correct the sketched objective notation: the paper uses Ω^T applied to Ax and b, not the garbled “Ω^→p” notation in the draft. ([znakschoola.ru](https://www.znakschoola.ru/?_=%2Fpdf%2F2602.05394%23UE7DkG0PaBHZOakR54g1Wl8%3D&utm_source=openai))",
+    "Make explicit that the task is to formulate the right generalization of the OSI property itself. Definition 5.1 only defines OSI/OSE in the ℓ_2 setting, and Problem 5.3 asks for the corresponding notion for ℓ_p regression. ([znakschoola.ru](https://www.znakschoola.ru/?_=%2Fpdf%2F2602.05394%23UE7DkG0PaBHZOakR54g1Wl8%3D&utm_source=openai))",
+    "Keep the target guarantee at constant-factor accuracy with an unspecified absolute constant C (the paper writes “const”); unlike neighboring Problems 5.1 and 5.2, Problem 5.3 does not ask for a relative-error factor of the form 1+O(ε). ([znakschoola.ru](https://www.znakschoola.ru/?_=%2Fpdf%2F2602.05394%23UE7DkG0PaBHZOakR54g1Wl8%3D&utm_source=openai))",
+    "Do not add assumptions not present in Problem 5.3, such as full rank of A, a specified failure probability δ, or side conditions like approximate matrix multiplication; those belong to the surrounding ℓ_2 discussion, not to the statement of Problem 5.3 itself. ([znakschoola.ru](https://www.znakschoola.ru/?_=%2Fpdf%2F2602.05394%23UE7DkG0PaBHZOakR54g1Wl8%3D&utm_source=openai))",
+    "For a fully stand-alone version, briefly recall the Euclidean OSI template from Definition 5.1: isotropy in expectation plus a lower-bound/injectivity guarantee on every fixed subspace. ([znakschoola.ru](https://www.znakschoola.ru/?_=%2Fpdf%2F2602.05394%23UE7DkG0PaBHZOakR54g1Wl8%3D&utm_source=openai))",
+    "If you want complete mathematical self-containment, say explicitly that p is in the norm regime (implicitly p ≥ 1 because the paper says “ℓ_p norm”); this is implicit in the paper’s wording rather than separately stated as a hypothesis. ([znakschoola.ru](https://www.znakschoola.ru/?_=%2Fpdf%2F2602.05394%23UE7DkG0PaBHZOakR54g1Wl8%3D&utm_source=openai))"
+  ],
+  "refined_question": "In Definition 5.1, an oblivious subspace injection (OSI) is an ℓ_2-based condition on a random sketching matrix Ω ∈ R^{n×k}. For the ℓ_p linear regression problem min_{x∈R^d} ||Ax-b||_{ℓ_p}, where A ∈ R^{n×d} and b ∈ R^n, and for the sketch-and-solve estimator ṽx ∈ argmin_{x∈R^d} ||Ω^T(Ax-b)||_{ℓ_p}, formulate an ℓ_p analogue of the OSI property—that is, a condition on the distribution of Ω playing the role of OSI in the ℓ_p setting—which is sufficient to guarantee constant-factor accuracy of sketch-and-solve: ||Aṽx-b||_{ℓ_p} ≤ C · min_{x∈R^d} ||Ax-b||_{ℓ_p} for some absolute constant C. ([znakschoola.ru](https://www.znakschoola.ru/?_=%2Fpdf%2F2602.05394%23UE7DkG0PaBHZOakR54g1Wl8%3D&utm_source=openai))",
+  "equivalent_formulation": null,
+  "justification": "The draft is targeting the exact official open problem, not merely a neighboring theme: Problem 5.3 in Section 5.1 asks for a generalization of OSI to ℓ_p regression with precisely the sketch-and-solve setup and constant-factor guarantee appearing in your draft. The nearby context that should be imported into a paper-faithful stand-alone version is Definition 5.1 on page 35, which defines OSE/OSI in the Euclidean setting, together with the discussion on page 36 explaining that OSIs already suffice for constant-factor guarantees in least-squares regression and low-rank approximation and motivating the sharper/open questions in Problems 5.1–5.3. ([znakschoola.ru](https://www.znakschoola.ru/?_=%2Fpdf%2F2602.05394%23UE7DkG0PaBHZOakR54g1Wl8%3D&utm_source=openai))",
+  "citations": [
+    {
+      "section": "5.1",
+      "label": "Definition 5.1 (Subspace embeddings and injections)",
+      "page": 35
+    },
+    {
+      "section": "5.1",
+      "label": "Meta-problem",
+      "page": 35
+    },
+    {
+      "section": "5.1",
+      "label": "Discussion preceding Problems 5.1–5.3 (CEMT25 constant-factor OSI guarantees)",
+      "page": 36
+    },
+    {
+      "section": "5.1",
+      "label": "Problem 5.1 (Sketch-and-solve)",
+      "page": 36
+    },
+    {
+      "section": "5.1",
+      "label": "Problem 5.2 (Randomized SVD)",
+      "page": 36
+    },
+    {
+      "section": "5.1",
+      "label": "Problem 5.3 (Regression in the ℓ_p norm)",
+      "page": 36
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "arxiv_id": "1111.1015",
+  "question_id": "q_009",
+  "original_question": "Given ε > 0 and an integer r > 1, does there exist a finite group G whose maximal symmetry number ms_r(G) is smaller than ε?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 1943.39,
+  "target_in_paper": "Section 7, Question 7.8: Does for every ε > 0 and r > 1 there exist a finite group G with ms_r(G) < ε? ([arxiv.org](https://arxiv.org/pdf/1111.1015))",
+  "completeness_score": 8.5,
+  "correct_elements": "Your draft already matches the paper’s official open question almost verbatim: it has the correct quantifier order (for every ε > 0, for a fixed r > 1), the correct object class (finite groups), the correct invariant (ms_r(G)), and the correct threshold formulation (asking whether it can be made smaller than an arbitrary ε). ([arxiv.org](https://arxiv.org/pdf/1111.1015))",
+  "missing_details": [
+    "In the paper, ms_r(G) is not an abstract symmetry invariant with unspecified symmetry notion: G is viewed in §7 as a compact topological group with Haar probability measure, and the admissible symmetries are the central symmetries s_c(x)=cx^{-1}c for c∈G. ([arxiv.org](https://arxiv.org/pdf/1111.1015))",
+    "The general definition used by the paper is ms_r(A)=inf_χ sup_i ms(χ^{-1}(i)), where χ ranges over measurable r-colorings and ms(B) is the maximal measure of a measurable symmetric subset of B; in the compact-group setting, because the central symmetries are involutive, this specializes to ms(B)=max_{c∈G} μ(B∩s_c(B)). ([arxiv.org](https://arxiv.org/pdf/1111.1015))",
+    "To make the finite-group case fully stand-alone, one should say that for finite G the Haar probability measure is the normalized counting measure μ(A)=|A|/|G|, so every subset/color class is measurable and ms_r(G) takes values in [0,1]. This is the finite specialization of the §7 setup. ([arxiv.org](https://arxiv.org/pdf/1111.1015))",
+    "The question is about the measure-valued maximal symmetry number ms_r(G) from §7, not the cardinal symmetry numbers MS_r(G) or MS_r^+(G) introduced later in §8. ([arxiv.org](https://arxiv.org/pdf/1111.1015))",
+    "The nearby context matters: Theorem 7.5 gives general bounds for finite groups, Theorem 7.6 and Question 7.7 discuss the odd-order case, and the example ms_2(Q_8)=1/8<1/4 shows that the lower bound 1/r^2 can fail for even non-abelian groups, which is exactly what motivates Question 7.8. ([arxiv.org](https://arxiv.org/pdf/1111.1015))"
+  ],
+  "refined_question": "For every ε > 0 and integer r > 1, does there exist a finite group G such that, with central symmetries s_c(x)=cx^{-1}c for c∈G and normalized counting measure on G, the maximal symmetry number\nms_r(G)=inf_{χ:G→{1,…,r}} max_{1≤i≤r} max_{c∈G} |χ^{-1}(i)∩s_c(χ^{-1}(i))|/|G|\n satisfies ms_r(G)<ε? ([arxiv.org](https://arxiv.org/pdf/1111.1015))",
+  "equivalent_formulation": "Equivalently, for every ε > 0 and integer r > 1, does there exist a finite group G together with an r-coloring χ:G→{1,…,r} such that every monochromatic subset A⊆G satisfying A=s_c(A) for some c∈G has normalized size |A|/|G|<ε? ([arxiv.org](https://arxiv.org/pdf/1111.1015))",
+  "justification": "The draft is targeting the exact official statement in the paper: Question 7.8 in §7. It is already very close, but it leaves implicit the paper’s ambient setup for ms_r(G): compact-group/Haar-measure language specialized to finite groups, with symmetry taken to mean invariance under some central symmetry s_c(x)=cx^{-1}c. The surrounding discussion confirms this is the intended target rather than a neighboring problem: Theorem 7.5 provides finite-group bounds, Theorem 7.6 and Question 7.7 isolate the odd-order phenomenon, and the quaternion example immediately precedes Question 7.8 to motivate the possibility that ms_r(G) may become arbitrarily small. ([arxiv.org](https://arxiv.org/pdf/1111.1015))",
+  "citations": [
+    {
+      "section": "§3",
+      "label": "definition of ms_r(A)",
+      "page": "P1"
+    },
+    {
+      "section": "§7",
+      "label": "setup of ms_r(G) via central symmetries s_c(x)=cx^{-1}c",
+      "page": "P7"
+    },
+    {
+      "section": "§7",
+      "label": "Theorem 7.5",
+      "page": "P8"
+    },
+    {
+      "section": "§7",
+      "label": "Theorem 7.6 and Question 7.7",
+      "page": "P8"
+    },
+    {
+      "section": "§7",
+      "label": "Question 7.8",
+      "page": "P8"
+    }
+  ]
+}

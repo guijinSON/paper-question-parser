@@ -1,0 +1,43 @@
+{
+  "arxiv_id": "2310.04207",
+  "question_id": "q_002",
+  "original_question": "For each integer k >= 1, does there exist an integer m >= 1 such that whenever A and B are matrices in GL_n(Z_p) satisfying AB congruent to BA modulo p^m, there exist commuting matrices A' and B' in GL_n(Z_p) with A congruent to A' modulo p^k and B congruent to B' modulo p^k?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 9147.55,
+  "target_in_paper": "Section 3, Question 3.2, which the paper presents as the explicit matrix reformulation of Question 3.1 about the stability of Z^2 with respect to the family (GL_n(Z_p), d_n).",
+  "completeness_score": 8,
+  "correct_elements": "Your draft correctly captures the core content of the target problem: it uses matrices over Z_p, asks for uniform control of exact commutation from sufficiently strong approximate commutation, has the right quantifier pattern (for each target accuracy k there exists a stronger approximation threshold m), and asks for commuting approximants A', B' that remain invertible and are congruent to the original matrices modulo p^k. This is very close to the paper's Question 3.2.",
+  "missing_details": [
+    "The prime p should be fixed in advance; the paper is asking a p-adic question for a fixed prime, not uniformly over all primes.",
+    "The statement should quantify over every matrix size n >= 1; in the paper the question is uniform in n, not for one fixed n.",
+    "It should be explicit that the congruences modulo p^m and modulo p^k are entrywise congruences in M_n(Z_p).",
+    "It is helpful to record the equivalent commutator form [A,B] ≡ I_n mod p^m M_n(Z_p).",
+    "The uniformity should be explicit: m may depend on k (and the fixed prime p), but not on n or on the particular matrices A and B.",
+    "The paper places this question in the stability framework: equivalently, it asks whether Z^2 is stable with respect to the family (GL_n(Z_p), d_n), where d_n is the p-adic sup metric on matrices."
+  ],
+  "refined_question": "Fix a prime p. Is it true that for every integer k >= 1 there exists an integer m >= 1 such that, for every integer n >= 1 and every pair of matrices A, B in GL_n(Z_p) satisfying AB ≡ BA mod p^m M_n(Z_p) (equivalently, [A,B] ≡ I_n mod p^m M_n(Z_p)), there exist commuting matrices A', B' in GL_n(Z_p) with A'B' = B'A', A ≡ A' mod p^k M_n(Z_p), and B ≡ B' mod p^k M_n(Z_p)?",
+  "equivalent_formulation": "Equivalently, for the family (GL_n(Z_p), d_n)_{n>=1} with d_n(g,h)=max_{i,j}|g_{ij}-h_{ij}|_p, is Z^2 stable in the sense that for every ε>0 there exists δ>0 such that, for every n>=1, whenever A,B in GL_n(Z_p) satisfy d_n([A,B],I_n) <= δ, there exist commuting A',B' in GL_n(Z_p) with d_n(A,A') <= ε and d_n(B,B') <= ε?",
+  "justification": "The draft clearly targets the stability problem discussed in Section 3 rather than any other part of the paper. Section 3 introduces ultrametric stability, identifies the non-Archimedean family (GL_n(Z_p), d_n) as the main p-adic analogue, then asks in Question 3.1 whether Z^2 is stable for that family. The paper immediately says that, after spelling out the metric d_n, this becomes the almost-commuting-matrices question stated as Question 3.2. Your draft already matches that reformulation closely, but to be fully stand-alone and faithful to the paper it should explicitly fix p, quantify over all n, specify that congruences are entrywise in M_n(Z_p), and preserve the uniform dependence of m only on the target precision k.",
+  "citations": [
+    {
+      "section": "3",
+      "label": "introductory discussion of ultrametric stability and the family (GL_n(Z_p), d_n)",
+      "page": "4"
+    },
+    {
+      "section": "3",
+      "label": "Question 3.1",
+      "page": "4"
+    },
+    {
+      "section": "3",
+      "label": "paragraph introducing the reformulation via almost-commuting matrices",
+      "page": "4"
+    },
+    {
+      "section": "3",
+      "label": "Question 3.2",
+      "page": "4"
+    }
+  ]
+}

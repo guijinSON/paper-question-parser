@@ -1,0 +1,37 @@
+{
+  "arxiv_id": "2311.03081",
+  "question_id": "q_004",
+  "original_question": "Fix an integer d >= 2. For each n, let p_{n,d}(t) = Product_{i=1}^n (1 + t^i + ... + t^{i(d-1)}), equivalently the generating function for partitions of integers at most (d-1)n(n+1)/2 having at most n parts with each part repeated at most d-1 times. Are the coefficients of p_{n,d}(t) unimodal for all sufficiently large n?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 9133.03,
+  "target_in_paper": "Section 2, Conjecture 2.4 (Almkvist '85).",
+  "completeness_score": 9,
+  "correct_elements": "Your draft already matches the paper's target very closely: it fixes d >= 2, uses the exact polynomial p_{n,d}(t) = prod_{i=1}^n (1 + t^i + ... + t^{i(d-1)}), gives the same partition-theoretic interpretation, and asks the same eventual unimodality question in n that the paper states as Almkvist's conjecture.",
+  "missing_details": [
+    "To make the quantifiers completely explicit, the paper's statement is: for every fixed integer d >= 2, there exists N(d) such that for all n >= N(d), p_{n,d}(t) has unimodal coefficients.",
+    "To be fully stand-alone, it helps to say that p_{n,d}(t) is a polynomial in Z[t].",
+    "To remove the last ambiguity, 'unimodal coefficients' should mean that the coefficient sequence of p_{n,d}(t), read in increasing powers of t, is weakly increasing up to some index and then weakly decreasing.",
+    "The paper presents this specifically as Conjecture 2.4 due to Almkvist (1985), so naming that source makes the question more paper-faithful.",
+    "The nearby Lefschetz-theoretic construction A(n,d) is not part of the conjecture itself; it appears only as a separate sufficient route in Question 2.5, so it should not be folded into the refined statement."
+  ],
+  "refined_question": "For each fixed integer d >= 2, define p_{n,d}(t) in Z[t] by\np_{n,d}(t) = prod_{i=1}^n (1 + t^i + ... + t^{i(d-1)}),\nso equivalently p_{n,d}(t) is the generating polynomial for partitions of m <= (d-1)n(n+1)/2 into at most n parts, with each part used at most d-1 times. Is it true that for every fixed d >= 2 there exists an integer N(d) such that, for all n >= N(d), the coefficient sequence of p_{n,d}(t) (in increasing degree) is unimodal?",
+  "equivalent_formulation": null,
+  "justification": "The exact match to your draft is Conjecture 2.4 in Section 2, not a broader neighboring problem. The paper first defines p_{n,d}(t) by the same partition-counting interpretation and records the product formula, then states the conjecture exactly as eventual unimodality for each fixed d >= 2. Immediately afterward, the paper introduces the non-standard graded Artinian complete intersection A(n,d) and notes only that resolving Question 2.5 would solve Conjecture 2.4; it does not state an equivalence. So the sharpest paper-faithful rewrite is the unimodality conjecture itself, with the quantifier 'for sufficiently large n' made explicit as an existence statement for N(d).",
+  "citations": [
+    {
+      "section": "Section 2",
+      "label": "paragraph introducing p_{n,d}(t) before Conjecture 2.4",
+      "page": "3"
+    },
+    {
+      "section": "Section 2",
+      "label": "Conjecture 2.4 (Almkvist '85)",
+      "page": "3"
+    },
+    {
+      "section": "Section 2",
+      "label": "Question 2.5",
+      "page": "3"
+    }
+  ]
+}

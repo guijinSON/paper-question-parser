@@ -1,0 +1,47 @@
+{
+  "arxiv_id": "2512.19395",
+  "question_id": "q_016",
+  "original_question": "Fix k >= 2. Does there exist m_0 such that whenever m >= m_0 and G avoids both theta_{1,p,q} and theta_{1,r,s}, with q >= p >= 3, s >= r >= 3, p + q = 2k + 1, and r + s = 2k + 2, then for each residue class l with 1 <= l <= k - 1 and m + k(k+1)/2 == l mod k, the graph G satisfies lambda(G) <= lambda(S^{1,l}_{(m-l)/k + (k+3)/2, k}), with equality only for that graph?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 12285.66,
+  "target_in_paper": "Section 3, Theorem 3.36, with setup from Section 1 (the definition of 𝒢(m,ℱ)) and immediate context from Theorem 3.35. The draft clearly targets the theta-graph extremal statement in Section 3 rather than an introduction-level conjecture.",
+  "completeness_score": 3,
+  "correct_elements": "The draft correctly identifies the theta-graph setting, the dependence on a fixed integer k, the parameter constraints q ≥ p ≥ 3, s ≥ r ≥ 3, p+q = 2k+1, r+s = 2k+2, the use of the adjacency spectral radius λ(G), and the intended uniqueness of an extremal graph.",
+  "missing_details": [
+    "In the paper, the relevant statement is for k ≥ 3, not k ≥ 2.",
+    "The ambient class is finite, simple graphs with m edges and no isolated vertices, i.e. graphs in 𝒢(m,F); the draft does not state the no-isolated-vertices condition.",
+    "The paper gives an explicit lower bound on m, namely m ≥ 9/4 k^6 + 6k^5 + 46k^4 + 56k^3 + 196k^2, rather than an unspecified existence statement 'there exists m_0'.",
+    "The paper's hypothesis is weaker: G ∈ 𝒢(m,θ_{1,p,q}) or G ∈ 𝒢(m,θ_{1,r,s}); the draft instead assumes simultaneous avoidance of both theta graphs.",
+    "The extremal graph in the paper is K_k ∨ ((m/k) - (k-1)/2)K_1, not a graph of the form S^{1,l}_{(m-l)/k + (k+3)/2, k}.",
+    "Accordingly, the paper's upper bound is λ(G) ≤ (k-1 + √(4m-k^2+1))/2, equivalently λ(K_k ∨ ((m/k) - (k-1)/2)K_1); it is not expressed via residue classes or S^{1,l}-graphs.",
+    "The residue-class condition m + k(k+1)/2 ≡ l (mod k) with 1 ≤ l ≤ k-1 does not appear in the paper's theta-graph statement.",
+    "The family S^{1,l}_{a,k} is not part of Theorem 3.36 in the given paper.",
+    "To be stand-alone, the question should define θ_{1,p,q} as the graph formed by three internally disjoint paths of lengths 1, p, q with common endpoints, and should say that λ(G) is the adjacency spectral radius.",
+    "The equality condition in the paper is exact: equality holds if and only if G ≅ K_k ∨ ((m/k) - (k-1)/2)K_1."
+  ],
+  "refined_question": "Fix k ≥ 3, and let p,q,r,s be integers with q ≥ p ≥ 3, s ≥ r ≥ 3, p+q = 2k+1, and r+s = 2k+2. Let θ_{1,a,b} denote the theta graph consisting of three internally disjoint paths of lengths 1, a, b with the same two endpoints, and let 𝒢(m,F) be the class of finite simple F-free graphs with m edges and no isolated vertices. For m ≥ 9/4 k^6 + 6k^5 + 46k^4 + 56k^3 + 196k^2, determine the maximum possible adjacency spectral radius λ(G) among graphs G in 𝒢(m,θ_{1,p,q}) ∪ 𝒢(m,θ_{1,r,s}); equivalently, is it true that every such G satisfies λ(G) ≤ (k−1+√(4m−k^2+1))/2, with equality if and only if G ≅ K_k ∨ ((m/k)−(k−1)/2)K_1?",
+  "equivalent_formulation": null,
+  "justification": "The parameter pattern in the draft matches the theta-graph result recorded in Section 3: Theorem 3.36 treats exactly the case q ≥ p ≥ 3, s ≥ r ≥ 3, p+q = 2k+1, r+s = 2k+2, and gives the unique extremal graph and sharp upper bound on λ(G). The draft, however, imports two features that do not belong to this statement in arXiv:2512.19395: a residue-class decomposition of m and an extremal family S^{1,l}_{·,k}. In the given paper, those features do not appear in the theta-graph result; instead, the extremal graph is the complete split graph K_k ∨ ((m/k)−(k−1)/2)K_1, and the theorem is stated for k ≥ 3 with an explicit threshold on m. The broader open problem nearby in the paper is Problem 10, but that asks about θ_{r,p,q}-free graphs with q ≥ p ≥ r ≥ 2 and is not the same statement your draft is aiming at.",
+  "citations": [
+    {
+      "section": "Section 1",
+      "label": "Problem 2 and the definition of 𝒢(m,ℱ)",
+      "page": "1-2"
+    },
+    {
+      "section": "Section 3",
+      "label": "Theorem 3.35",
+      "page": 9
+    },
+    {
+      "section": "Section 3",
+      "label": "Theorem 3.36",
+      "page": 9
+    },
+    {
+      "section": "Section 3",
+      "label": "Problem 10",
+      "page": 9
+    }
+  ]
+}

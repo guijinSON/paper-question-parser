@@ -1,0 +1,52 @@
+{
+  "arxiv_id": "1806.04980",
+  "question_id": "q_5_5",
+  "original_question": "Let K be a field of characteristic 0, and suppose that f ∈ K(x) is a rational function of degree 2. Then ιK (f, P ) = ∞ if and only if one of the following holds: (a) The map f is PCF, i.e., the critical points of f are preperiodic. (b) There is an r ≥ 2 so that the two critical points γ1 and γ2 of f satisfy a relation of the form f r (γ1 ) = f r (γ2 ). (c) The basepoint P of the tree Tf,∞ (P ) is periodic under f . (d) There is a non-trivial Möbius transformation ϕ(x) = αx+βγx+δ defined over K that satisfies ϕ ◦ f (x) = f ◦ ϕ(x) and ϕ(P ) = P.",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 6018.72,
+  "target_in_paper": "Conjecture 5.5 in Section 5 (\"Arboreal Representations\"), explicitly cited there as [123, Conjecture 3.11]; it is the quadratic rational-function specialization of the broader finite-index problem posed in Question 5.3(b).",
+  "completeness_score": 8.5,
+  "correct_elements": "Your draft has the correct target and is very close to the paper's official formulation: it matches the degree-2, characteristic-0 setting, uses the Odoni index iota_K(f,P), and lists exactly the four exceptional mechanisms appearing in Conjecture 5.5: PCF, collision of the two critical orbits at a common r-th iterate with r >= 2, periodicity of the basepoint P, and a nontrivial Mobius symmetry over K commuting with f and fixing P.",
+  "missing_details": [
+    "The conjecture in Section 5 inherits the setup that f is viewed as a morphism f: P^1 -> P^1 defined over K and that the basepoint satisfies P in P^1(K).",
+    "The full inverse-image tree T_{f,infty}(P) must be assumed complete; this is a standing assumption for the rest of Section 5 before the Odoni index is defined and before Conjecture 5.5 is stated.",
+    "For N = 1, the paper explicitly notes that completeness of T_{f,infty}(P) is equivalent to requiring that f^{-n}(P) contain no critical point of f for every n >= 1.",
+    "A stand-alone version should define T_{f,infty}(P) = {P} disjoint union f^{-1}(P) disjoint union f^{-2}(P) disjoint union ... as the rooted backward-orbit tree.",
+    "A stand-alone version should define the arboreal representation rho^arb_{f,P}: Gal(Kbar/K) -> Aut(T_{f,infty}(P)) and its image G_{f,infty}(P).",
+    "A stand-alone version should define the Odoni index as iota_K(f,P) = [Aut(T_{f,infty}(P)) : G_{f,infty}(P)].",
+    "The critical points gamma_1 and gamma_2 should be understood as the critical points of f in P^1(Kbar), not necessarily K-rational.",
+    "The notation f^r should be made explicit as the r-th iterate of f.",
+    "In condition (d), the Mobius transformation should be identified as a nonidentity element of PGL_2(K), equivalently phi(x) = (alpha x + beta)/(gamma x + delta) with alpha,beta,gamma,delta in K and alpha delta - beta gamma != 0.",
+    "To be paper-faithful, the statement should be phrased as an open conjectural classification question, not as an already proved theorem."
+  ],
+  "refined_question": "Let K be a field of characteristic 0, let Kbar be an algebraic closure of K, let f in K(x) be a rational function of degree 2, viewed as a morphism f: P^1 -> P^1 defined over K, and let P in P^1(K). Assume that the full inverse-image tree T_{f,infty}(P) = {P} disjoint union f^{-1}(P) disjoint union f^{-2}(P) disjoint union ... is complete, equivalently #f^{-n}(P) = 2^n for every n >= 0. Let rho^arb_{f,P}: Gal(Kbar/K) -> Aut(T_{f,infty}(P)) be the associated arboreal representation, let G_{f,infty}(P) be its image, and let iota_K(f,P) = [Aut(T_{f,infty}(P)) : G_{f,infty}(P)] be the Odoni index. Is it true that iota_K(f,P) is infinite if and only if one of the following four obstructions occurs: (a) f is postcritically finite, i.e. both critical points of f are preperiodic; (b) if gamma_1 and gamma_2 are the two critical points of f, then f^r(gamma_1) = f^r(gamma_2) for some integer r >= 2; (c) the basepoint P is periodic under f; or (d) there exists a nonidentity Mobius transformation phi in PGL_2(K), written phi(x) = (alpha x + beta)/(gamma x + delta), such that phi o f = f o phi and phi(P) = P?",
+  "equivalent_formulation": "Equivalently, since Definition 5.1 states that for N = 1 the tree T_{f,infty}(P) is complete if and only if f^{-n}(P) contains no critical point of f for every n >= 1, one may ask: for a degree-2 rational map f in K(x) and P in P^1(K) whose backward orbit avoids the critical points at every level, is the Odoni index iota_K(f,P) finite exactly when none of the four conditions (a)-(d) holds?",
+  "justification": "The draft is essentially a near-verbatim transcription of Conjecture 5.5, so the target in the paper is clear. However, Conjecture 5.5 relies on notation and assumptions introduced immediately beforehand in Section 5: the backward-orbit tree T_{f,infty}(P), the completeness hypothesis, the arboreal representation, its image G_{f,infty}(P), and the Odoni index iota_K(f,P). The broader problem is first posed in Question 5.3(b) as the finite-index problem for arboreal Galois images, and Conjecture 5.5 is the authors' specific quadratic-rational classification of the infinite-index exceptions. The refined question restores those inherited hypotheses and definitions while keeping the four exceptional cases exactly as stated in the paper.",
+  "citations": [
+    {
+      "section": "Section 5",
+      "label": "Section 5 opening setup",
+      "page": 8
+    },
+    {
+      "section": "Section 5",
+      "label": "Definition 5.1",
+      "page": 8
+    },
+    {
+      "section": "Section 5",
+      "label": "Definition 5.2",
+      "page": 9
+    },
+    {
+      "section": "Section 5",
+      "label": "Question 5.3(b)",
+      "page": 9
+    },
+    {
+      "section": "Section 5",
+      "label": "Conjecture 5.5",
+      "page": 10
+    }
+  ]
+}

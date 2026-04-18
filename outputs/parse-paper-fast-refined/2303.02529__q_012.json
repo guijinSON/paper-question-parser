@@ -1,0 +1,50 @@
+{
+  "arxiv_id": "2303.02529",
+  "question_id": "q_012",
+  "original_question": "Let Phi be a functional on the fringe tree. Suppose a central limit theorem is known for the stationary fringe process sum_{i=0}^{m-1} Phi(T_i), where T_i is the re-rooted local weak limit tree at leaf i. Does the analogous central limit theorem necessarily hold for the finite-tree statistic sum_{i=1}^n Phi(T_i^(n)) on DTCS(n)?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 8602.5,
+  "target_in_paper": "v2 §4.4, Open Problem 2: for a fixed finite clade shape χ, let N_n(χ) be the number of copies of χ in DTCS(n); prove that n^{-1}Var(N_n(χ)) converges to a limit σ^2(χ) and that the corresponding central limit theorem holds.",
+  "completeness_score": 3,
+  "correct_elements": "Your draft correctly locates the relevant part of the paper in the fringe/local-weak-limit viewpoint and in Gaussian fluctuation questions for finite DTCS(n) statistics determined by leaf-neighborhood structure. It also correctly senses a connection between the fringe process and asymptotics of counts in the finite tree.",
+  "missing_details": [
+    "The paper does not ask the question for an arbitrary functional Φ on fringe trees; it asks it for a fixed finite clade shape χ.",
+    "The finite-tree statistic in the paper is N_n(χ), the number of copies of χ in DTCS(n), not a general sum of leaf-indexed terms ∑_i Φ(T_i^{(n)}).",
+    "The paper states the first-order limit n^{-1}E[N_n(χ)] → p(χ)/i, where i is the number of leaves of χ and p(χ) is the probability that a distinguished leaf in the asymptotic fringe tree belongs to a clade of shape χ.",
+    "The paper asks for linear variance asymptotics n^{-1}Var(N_n(χ)) → σ^2(χ) and then the normalized CLT for N_n(χ); it does not formulate a transfer principle from an already-known stationary-process CLT.",
+    "Your draft introduces a stationary process (T_i) and assumes a CLT for its partial sums, but the paper only says the fringe tree is loosely analogous to a stationary process indexed by Z in v2, and in v3 it asks whether one can code the fringe process as a discrete stationary process at all.",
+    "The paper's object is a clade/fringe-shape count in DTCS(n), not a generic local functional on re-rooted trees at leaves.",
+    "To be stand-alone and paper-faithful, the question should specify that χ is fixed as n → ∞ and that the CLT is Gaussian with √n normalization.",
+    "In the current v3, the fringe-process discussion is reframed as a coding/scaling-limit problem (Open Problem 11), so the stationary-process language in your draft is suggestive but not the paper's final official formulation."
+  ],
+  "refined_question": "Fix a finite clade shape χ with i leaves, and let N_n(χ) denote the number of occurrences of χ as a fringe clade in the critical beta-splitting tree DTCS(n). If p(χ) is the asymptotic fringe probability that a distinguished leaf belongs to a clade of shape χ, so that n^{-1}E[N_n(χ)] → p(χ)/i as n → ∞, does there exist a constant σ^2(χ) such that n^{-1}Var(N_n(χ)) → σ^2(χ), and does the central limit theorem hold in the form (N_n(χ)-E[N_n(χ)])/√n ⇒ N(0,σ^2(χ))?",
+  "equivalent_formulation": null,
+  "justification": "The closest official match to your draft is not the current v3 Open Problem 11 by itself, but the earlier explicit fringe-statistic CLT question in arXiv v2. In v2 §4.4 the paper says the fringe tree may be viewed as a process loosely analogous to a stationary process indexed by Z, defines the finite-tree count N_n(χ) of copies of a fixed clade shape χ, identifies its first-order mean asymptotics, and then poses exactly the variance-and-CLT question for N_n(χ). Your draft captures the fringe/local viewpoint and the wish to pass from an infinite-volume fringe-process perspective to finite-tree fluctuations, but it broadens the paper in two ways: it replaces the fixed-shape count χ by an arbitrary functional Φ, and it reformulates the problem as a general implication from a stationary-process CLT to a finite-tree CLT, which the paper does not state. In the current v3, the same thematic issue is reframed more abstractly: §6 still describes the asymptotic fringe process via occupation probabilities and the local weak limit, while §8.1 asks whether that fringe process can be coded as a discrete stationary process with an identifiable scaling limit, expected heuristically to be reflecting-Cauchy-like.",
+  "citations": [
+    {
+      "section": "v2 §4.4",
+      "label": "discussion of the fringe tree as 'loosely analogous to a stationary process indexed by Z'",
+      "page": 16
+    },
+    {
+      "section": "v2 §4.4",
+      "label": "Open Problem 2",
+      "page": 17
+    },
+    {
+      "section": "v2 §4.4",
+      "label": "definition of N_n(χ) and asymptotic mean n^{-1}E[N_n(χ)] → p(χ)/i",
+      "page": "16-17"
+    },
+    {
+      "section": "v3 §6",
+      "label": "Proposition 12 and the description of the asymptotic fringe process",
+      "page": "not available in HTML version"
+    },
+    {
+      "section": "v3 §8.1",
+      "label": "Open Problem 11",
+      "page": "not available in HTML version"
+    }
+  ]
+}

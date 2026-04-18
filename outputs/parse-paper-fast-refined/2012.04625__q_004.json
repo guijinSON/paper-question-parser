@@ -1,0 +1,39 @@
+{
+  "arxiv_id": "2012.04625",
+  "question_id": "q_004",
+  "original_question": "Take the base-10 digit-reversal sequence and delete repeated values, producing the sequence 0,1,2,3,4,5,6,7,8,9,11,21,31,41,51,61,71,81,…. For the 4-regular graphs obtained from initial segments of this de-duplicated sequence, prove and explain the curious large-scale graph shape observed experimentally.",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 7466.16,
+  "target_in_paper": "The paper’s unnumbered open problem in the subsection on the base-10 digit-reversal sequence (A004086), where repeated values are removed so that the input list is distinct, and the authors ask for a rigorous explanation of the striking large-scale geometric/topological structure seen in the associated graphs.",
+  "completeness_score": 6.4,
+  "correct_elements": "Your draft correctly identifies the underlying sequence as decimal digit reversal with repetitions removed in order of first appearance, correctly focuses on the graph family built from initial segments of that distinct sequence, and correctly captures that the paper’s point is the experimentally observed global shape of those graphs rather than a local arithmetic property of the sequence.",
+  "missing_details": [
+    "You need to define digit reversal explicitly in base 10, including that leading zeros are deleted after reversal.",
+    "You need to say that repeated values are deleted while preserving first-occurrence order; this is essential, because simply sorting the distinct values gives a different ordering.",
+    "You need to define the graph construction precisely: for the first N distinct terms b_1, ..., b_N, let pi_N be the permutation with b_{pi_N(1)} < ... < b_{pi_N(N)}, and put edges on the cycle 1-2-...-N-1 and on the cycle pi_N(1)-pi_N(2)-...-pi_N(N)-pi_N(1).",
+    "You should clarify whether the paper is viewing the result as a 4-regular graph or 4-regular multigraph when the two cyclic edge sets overlap for small N or special configurations.",
+    "The phrase 'curious large-scale graph shape' is too vague unless you specify that the task is to identify and explain the asymptotic geometric/topological or self-similar structure visible in the paper’s drawings of the family G_N.",
+    "The quantifier should be over the whole family of initial-segment graphs G_N as N grows, not just a single finite graph.",
+    "Because this paper is a problem list, the paper-faithful request is to determine/explain the observed structure rigorously, not to broaden it into a general classification of all such permutation graphs or all regular graphs arising from sequences."
+  ],
+  "refined_question": "Let r(m) be the base-10 digit-reversal of m, with any leading zeros deleted after reversal, and let b_1, b_2, ... be the sequence obtained by listing the values r(0), r(1), r(2), ... and deleting repeated values while keeping the first occurrence of each value; thus b_1, b_2, ... = 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 11, 21, 31, 41, 51, 61, 71, 81, .... For each N >= 3, let pi_N be the permutation of {1, ..., N} such that b_{pi_N(1)} < b_{pi_N(2)} < ... < b_{pi_N(N)}, and let G_N be the graph obtained on vertex set {1, ..., N} by adding the cyclic edges i ~ i+1 for 1 <= i < N and N ~ 1, together with the cyclic edges pi_N(j) ~ pi_N(j+1) for 1 <= j < N and pi_N(N) ~ pi_N(1). Give a rigorous explanation of the large-scale structure observed experimentally for the family (G_N): identify the limiting geometric/topological or self-similar object encoded by these graphs, and prove that this is the correct asymptotic description of the graphs arising from initial segments of the de-duplicated decimal digit-reversal sequence.",
+  "equivalent_formulation": null,
+  "justification": "The abstract states that the paper studies graphs built from ordered lists of distinct real numbers and that the individual sequence examples are posed as open problems rather than solved theorems. Your draft clearly matches the digit-reversal example, but to make it stand-alone and paper-faithful it needs the exact distinctification step, the precise two-cycle graph construction, and a sharper statement that the aim is to explain the experimentally observed global geometry/topology of the resulting graph family. I have therefore kept the scope narrow: this is not reformulated as a broader problem about arbitrary permutation graphs or arbitrary regular graphs, only about the graphs attached in the paper to the decimal digit-reversal sequence after removing repeats.",
+  "citations": [
+    {
+      "section": "Abstract",
+      "label": "paper scope: graphs from ordered lists of distinct real numbers; examples are open problems",
+      "page": "p. 251"
+    },
+    {
+      "section": "Introduction",
+      "label": "general graph construction from a sequence via natural order and order-statistics permutation",
+      "page": "exact page not recoverable from available indexed sources"
+    },
+    {
+      "section": "Section 2, digit-reversal subsection",
+      "label": "digit-reversal example and the observed large-scale graph shape",
+      "page": "exact page not recoverable from available indexed sources"
+    }
+  ]
+}

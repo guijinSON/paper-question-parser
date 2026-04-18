@@ -1,0 +1,43 @@
+{
+  "arxiv_id": "math-0603631",
+  "question_id": "q_001",
+  "original_question": "Let f be a continuous function on R^2 such that for every straight line l_{alpha,p} = {x in R^2 : alpha . x = p}, where alpha is a unit vector and p is a real number, the line integral Rf = integral over l_{alpha,p} of f ds exists, and such that |f(x)| <= c(1 + |x|^m) for some constants c > 0 and m >= 0. If Rf = 0 for all p and all alpha, must it follow that f = 0? More broadly, what is the weakest natural growth restriction at infinity under which vanishing of all such Radon transforms forces f to be identically zero?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 13488.8,
+  "target_in_paper": "Section 1, Problem 1 (“Injectivity of the classical Radon transform”).",
+  "completeness_score": 8.5,
+  "correct_elements": "Your draft already captures almost all of the paper’s actual target: the ambient space R^2, the lines l_{alpha,p} = {x in R^2 : alpha·x = p} with alpha a unit vector and p real, the classical Radon transform as integration over each such line, the continuity assumption on f, the polynomial-growth bound |f(x)| <= c(1 + |x|^m) with fixed c > 0 and m >= 0, the vanishing condition Rf = 0 for all alpha and p, and the paper’s accompanying motivation about finding the weakest natural growth condition at infinity that still forces injectivity.",
+  "missing_details": [
+    "The paper states the linewise hypothesis as f restricted to l_{alpha,p} belonging to L^1(l_{alpha,p}) for every alpha and p, not merely that the improper line integral ‘exists’.",
+    "The operator should be defined explicitly as Rf(alpha,p) = integral over l_{alpha,p} of f ds, where ds is arclength measure on the whole affine line.",
+    "The universal quantifiers should be explicit: for every unit vector alpha in S^1 and every real p.",
+    "The constants c > 0 and m >= 0 are fixed globally and do not depend on alpha or p.",
+    "The question is posed in the paper as an open problem about injectivity of the classical Radon transform, not as an established theorem.",
+    "The nearest official formulation in the paper is the yes/no Problem 1 itself; the ‘weakest natural growth restriction’ sentence is the immediately following reformulation and should be treated as an equivalent paper-given restatement rather than as a broader new problem."
+  ],
+  "refined_question": "Let Rf(alpha,p) = integral over l_{alpha,p} of f ds be the classical Radon transform on R^2, where l_{alpha,p} := {x in R^2 : alpha·x = p}, alpha is a unit vector in S^1, p is real, and ds denotes arclength on the whole line l_{alpha,p}. Suppose f is continuous on R^2, f restricted to l_{alpha,p} lies in L^1(l_{alpha,p}) for every alpha in S^1 and p in R, and there exist constants c > 0 and a fixed m >= 0 such that |f(x)| <= c(1 + |x|^m) for all x in R^2. If Rf(alpha,p) = 0 for every alpha in S^1 and every p in R, must f vanish identically on R^2?",
+  "equivalent_formulation": "Equivalently, what is the weakest natural restriction on the growth of f at infinity under which the assumptions f in C(R^2), f restricted to l_{alpha,p} in L^1(l_{alpha,p}) for all alpha and p, and Rf(alpha,p) = 0 for all alpha and p imply f = 0?",
+  "justification": "This is the paper’s exact first open problem. Section 1 introduces the classical Radon transform on lines in the plane, states the hypotheses as equations (1.2)–(1.4) in the AJMAA version (equivalently (2)–(4) in the arXiv note), and then asks verbatim whether these assumptions force f = 0. The sentence in your draft about the ‘weakest natural growth restriction at infinity’ matches the very next paragraph, where the paper explicitly reformulates the problem in those terms. The surrounding context also notes both that some growth restriction is necessary (because there are nontrivial entire examples with vanishing line integrals) and that injectivity is already known on the weighted space L^1(R^2, (1 + |x|)^(-1)); this explains the paper’s intent but should remain background, not the main question.",
+  "citations": [
+    {
+      "section": "Section 1",
+      "label": "Problem 1; definition of the Radon transform and hypotheses (1.2)–(1.4)",
+      "page": "1 (arXiv preprint; corresponding Section 1 content appears on page 2 of the AJMAA version)"
+    },
+    {
+      "section": "Section 1",
+      "label": "Paragraph beginning “The open problem is to understand what the weakest natural restriction on the growth of f at infinity is...”",
+      "page": "1 (arXiv preprint; corresponding Section 1 content appears on page 2 of the AJMAA version)"
+    },
+    {
+      "section": "Section 1",
+      "label": "Paragraph noting existence of nontrivial entire functions satisfying the linewise integrability and zero-transform conditions",
+      "page": "1 (arXiv preprint; corresponding Section 1 content appears on page 2 of the AJMAA version)"
+    },
+    {
+      "section": "Section 1",
+      "label": "Sentence stating injectivity on L^1(R^2, (1 + |x|)^(-1))",
+      "page": "1 (arXiv preprint; corresponding Section 1 content appears on page 2 of the AJMAA version)"
+    }
+  ]
+}

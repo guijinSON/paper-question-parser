@@ -1,0 +1,43 @@
+{
+  "arxiv_id": "1204.6447",
+  "question_id": "q_012",
+  "original_question": "If f : {-1,1}^n -> {-1,1} is the intersection of k linear threshold functions, must its noise sensitivity satisfy NS_delta[f] <= O(sqrt(log k)) * sqrt(delta)?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 2239.15,
+  "target_in_paper": "The unnumbered open-problem entry \"Noise Sensitivity of Intersections of Halfspaces\" (source attributed there to [KOS02]).",
+  "completeness_score": 8.5,
+  "correct_elements": "Your draft is very close to the paper's official statement. It has the correct domain and codomain f : {-1,1}^n -> {-1,1}, the correct structural hypothesis that f is an intersection of k linear threshold functions, and the correct target upper bound NS_delta[f] <= O(sqrt(log k)) * sqrt(delta). This matches the paper's statement essentially verbatim.",
+  "missing_details": [
+    "The paper's statement is universally quantified; to be stand-alone, the question should say explicitly that the bound is asked for every n, every k, every such intersection of k threshold functions, and every noise parameter delta.",
+    "The paper does not redefine notation locally; it points readers elsewhere for definitions. So a stand-alone question must define NS_delta[f] explicitly.",
+    "Because the range is {-1,1} but the phrase \"intersection (AND)\" is naturally {0,1}-valued, the coding convention should be stated: f(x)=1 iff all k threshold functions output 1, and f(x)=-1 otherwise.",
+    "The constituent functions should be identified as arbitrary affine linear threshold functions h_j(x)=sgn(a_{j,0}+sum_{i=1}^n a_{j,i} x_i); the paper does not impose homogeneity or regularity assumptions.",
+    "The big-O should be understood as an absolute constant independent of n, k, delta, and the particular halfspaces; this should be stated explicitly in a sharpened formulation.",
+    "To stay faithful to the paper, it should be made explicit that this is the unrestricted Boolean-cube question, not the Gaussian special case and not the regular-halfspace case mentioned only as partial-results remarks."
+  ],
+  "refined_question": "Is it true that there exists an absolute constant C such that for every n,k >= 1, every Boolean function f : {-1,1}^n -> {-1,1} that is the Boolean AND of k linear threshold functions h_j(x)=sgn(a_{j,0}+sum_{i=1}^n a_{j,i} x_i) (so f(x)=1 iff h_1(x)=...=h_k(x)=1), and every noise rate delta in [0,1], one has NS_delta[f] <= C sqrt(log k) sqrt(delta), where NS_delta[f] := Pr[f(x) != f(y)] for x uniform on {-1,1}^n and y obtained from x by independently flipping each coordinate with probability delta?",
+  "equivalent_formulation": null,
+  "justification": "This paper is a list of unnumbered open problems, and the draft clearly targets the entry titled \"Noise Sensitivity of Intersections of Halfspaces.\" The official statement on that page is exactly the sqrt(log k) * sqrt(delta) bound for intersections of k linear threshold functions. I did not broaden the question to Gaussian space or to regular halfspaces, because those appear only as nearby remarks giving partial results, not as the main target. Since the paper's front matter explicitly sends the reader elsewhere for notation and definitions, the main work needed to make your draft fully stand-alone is to spell out the noise-sensitivity operator, the AND convention for {-1,1}-valued functions, the quantifiers, and the fact that the threshold functions are general affine LTFs.",
+  "citations": [
+    {
+      "section": "Front matter",
+      "label": "Notation and definitions note",
+      "page": "PDF p. 1"
+    },
+    {
+      "section": "Unnumbered open-problem list",
+      "label": "Noise Sensitivity of Intersections of Halfspaces — Statement",
+      "page": "PDF p. 6"
+    },
+    {
+      "section": "Unnumbered open-problem list",
+      "label": "Noise Sensitivity of Intersections of Halfspaces — Remarks",
+      "page": "PDF p. 6"
+    },
+    {
+      "section": "Unnumbered open-problem list",
+      "label": "Majority Is Least Stable Conjecture — Peres's Theorem remark using NS_delta notation",
+      "page": "PDF p. 5"
+    }
+  ]
+}

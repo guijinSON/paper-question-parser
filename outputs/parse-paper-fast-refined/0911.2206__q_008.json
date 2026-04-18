@@ -1,0 +1,47 @@
+{
+  "arxiv_id": "0911.2206",
+  "question_id": "q_008",
+  "original_question": "In the incompressible Jeffreys-type viscoelastic fluid model with constitutive law σ + λ1 Dσ/Dt = 2η(E + λ2 DE/Dt), when the objective derivative is the Jaumann or corotational derivative D0T/Dt = dT/dt + TW − WT, is the claimed global weak-solvability result in reference [53] actually correct? In particular, can one rigorously justify the step that requires the identity η|_{t=0} = 0 in the limit passage for the non-Newtonian stress tensors?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 617.27,
+  "target_in_paper": "The draft is trying to capture the review’s open unresolved issue about the initial-boundary value problem for an incompressible Jeffreys/Oldroyd-type fluid with the genuine objective Jaumann (corotational) derivative: namely, whether one really has global weak solvability for that objective model, or whether the theorem cited in the review as ref. [53] is not yet rigorously justified because of a gap in the limit passage for the stress terms.",
+  "completeness_score": 5.5,
+  "correct_elements": "Your draft correctly identifies the relevant part of the paper: the Jeffreys/Oldroyd constitutive law with an objective derivative, specifically the Jaumann/corotational rate, and the fact that the paper treats this as a delicate weak-solvability issue rather than a routine consequence of earlier Jeffreys-model results. It also correctly zooms in on the proof-level obstruction in the cited result [53]: the problematic passage to the limit for the non-Newtonian stress terms, apparently needing an unjustified initial-time identity of the form η|_{t=0}=0.",
+  "missing_details": [
+    "The paper’s target is an initial-boundary value problem, not just the constitutive relation in isolation; the momentum equation, incompressibility constraint, pressure, and forcing must be included.",
+    "The spatial-temporal setting should be stated: a bounded smooth domain Ω ⊂ R^n, typically n = 2 or 3, over a finite time interval [0,T].",
+    "The unknowns should be named explicitly: velocity v, pressure p, and either the stress tensor σ or the equivalent reduced formulation after substitution into the motion equation.",
+    "The material derivative d/dt used inside the objective derivative must be specified as ∂t + v·∇.",
+    "The tensors E(v) = (∇v + ∇v^T)/2 and W(v) = (∇v − ∇v^T)/2 must be defined explicitly.",
+    "The boundary and initial conditions are missing, especially the homogeneous Dirichlet condition for the velocity and the admissible initial data.",
+    "The notion of weak solution is missing; to be stand-alone, the function spaces for v (and σ if retained as an unknown) should be stated at least qualitatively.",
+    "The paper’s real intent is slightly sharper than your wording: it is not just 'is a certain step rigorous?', but 'is the weak-solvability claim for the genuine corotational model actually valid, or does the gap leave the problem open?'",
+    "The distinction between the genuine Jaumann derivative and the later smoothed/regularized Jaumann derivative is important context; later rigorous existence results are for the regularized derivative, not for the exact corotational rate in your draft.",
+    "The quantifiers should be explicit: for every T > 0, suitable external force f, and admissible initial data, does there exist a global weak solution on [0,T]?"
+  ],
+  "refined_question": "Let Ω ⊂ R^n (n = 2 or 3) be a bounded smooth domain and T > 0. Consider the incompressible Jeffreys/Oldroyd-type initial-boundary value problem on (0,T) × Ω with unknowns v, p, σ, divergence constraint div v = 0, homogeneous Dirichlet boundary condition for v, and constitutive law σ + λ1(∂tσ + (v·∇)σ + σW(v) − W(v)σ) = 2η(E(v) + λ2(∂tE(v) + (v·∇)E(v) + E(v)W(v) − W(v)E(v))), where E(v) = (∇v + ∇v^T)/2 and W(v) = (∇v − ∇v^T)/2. Is the review’s cited weak-solvability theorem for this genuine corotational/Jaumann objective-derivative model (reference [53]) actually correct, i.e. does the problem admit global weak solutions for admissible data, or does the apparent gap in the published limit passage for the nonlinear stress terms — seemingly requiring an unjustified identity such as η|_{t=0} = 0 — mean that the weak-solvability question for the unsmoothed Jaumann model remains open?",
+  "equivalent_formulation": null,
+  "justification": "This paper is not the quartic-polynomial paper suggested by the boilerplate instructions; it is a Russian review on Jeffreys-type viscoelastic-fluid models. The draft clearly targets the review’s discussion of objective derivatives, not any Conjecture 1.1 / Proposition 1.2 / Theorem 1.3 (those labels do not belong to this paper). The arXiv record states that the paper surveys recent results and 'main unsolved problems' for Jeffreys-type equations. The nearby technical context recovered from the same research line shows that the relevant derivative is the Jaumann objective rate D T/Dt = dT/dt + T W − W T, that such objective models were regarded as mathematically much less understood than the partial- or total-derivative Jeffreys/Kelvin-Voigt cases, and that the later rigorous existence theory was developed instead for a smoothed/regularized Jaumann derivative. So the nearest paper-faithful stand-alone question is not a broad inquiry about all objective derivatives, and not merely a local question about one proof line, but the narrower issue: whether the genuine corotational Jeffreys model really has the claimed global weak-solvability theorem, or whether the gap around the stress-limit passage means the problem was still open at the review stage.",
+  "citations": [
+    {
+      "section": "Abstract",
+      "label": "scope of the paper as a review of recent results and main unsolved problems for Jeffreys-type equations",
+      "page": "arXiv abstract"
+    },
+    {
+      "section": "Introduction / objective-derivative discussion (supporting later restatement from the same research line)",
+      "label": "definition of the Jaumann objective derivative and statement that objective models were only sparsely understood",
+      "page": "11-13"
+    },
+    {
+      "section": "§1.2.1 in the later full formulation of the objective model",
+      "label": "weak formulation and PDE setting for the smoothed Jaumann model, showing the exact IBVP framework missing from the draft",
+      "page": "67-68"
+    },
+    {
+      "section": "Introduction of the 2022 follow-up paper",
+      "label": "rigorous weak solvability proved for the regularized Jaumann derivative, not for the genuine corotational derivative",
+      "page": "1-2"
+    }
+  ]
+}

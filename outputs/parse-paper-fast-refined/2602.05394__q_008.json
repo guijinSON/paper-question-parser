@@ -1,0 +1,50 @@
+{
+  "arxiv_id": "2602.05394",
+  "question_id": "q_008",
+  "original_question": "Let $A$ be an $n x n$ random matrix with i.i.d. Gaussian (or Rademacher, or Bernoulli) entries, and take any $n$-dimensional vector $b$. Is it possible (conditioned on a high-probability event) to solve the linear system $Ax=b$ to high accuracy faster than $O(n^omega)$?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 12499.99,
+  "target_in_paper": "Problem 2.8 (\"Solving a random linear system\") in §2.4, \"The effect of outlying singular values (or eigenvalues),\" p. 13. ([znakschoola.ru](https://www.znakschoola.ru/?_=%2Fpdf%2F2602.05394%23UE7DkG0PaBHZOakR54g1Wl8%3D&utm_source=openai))",
+  "completeness_score": 9.5,
+  "correct_elements": "Your draft is already extremely close to the paper’s official wording: it has the same n × n random matrix model, the same listed entry distributions (Gaussian / Rademacher / Bernoulli), an arbitrary n-dimensional right-hand side b, the same high-probability conditioning, the same \"high accuracy\" goal, and the same faster-than-O(n^ω) runtime threshold. ([znakschoola.ru](https://www.znakschoola.ru/?_=%2Fpdf%2F2602.05394%23UE7DkG0PaBHZOakR54g1Wl8%3D&utm_source=openai))",
+  "missing_details": [
+    "The paper situates this specifically inside §2.4 as a random-matrix test case for the broader \"small outlying singular values\" discussion; that motivation is not explicit in the draft. ([znakschoola.ru](https://www.znakschoola.ru/?_=%2Fpdf%2F2602.05394%23UE7DkG0PaBHZOakR54g1Wl8%3D&utm_source=openai))",
+    "The probability is over the draw of A; b is arbitrary rather than random. ([znakschoola.ru](https://www.znakschoola.ru/?_=%2Fpdf%2F2602.05394%23UE7DkG0PaBHZOakR54g1Wl8%3D&utm_source=openai))",
+    "The phrase \"conditioned on a high-probability event\" is part of the official statement, but the paper does not quantify that event further in Problem 2.8 itself. ([znakschoola.ru](https://www.znakschoola.ru/?_=%2Fpdf%2F2602.05394%23UE7DkG0PaBHZOakR54g1Wl8%3D&utm_source=openai))",
+    "The phrase \"to high accuracy\" is also left informal in Problem 2.8; no norm, backward-error notion, or tolerance parameter is specified there. ([znakschoola.ru](https://www.znakschoola.ru/?_=%2Fpdf%2F2602.05394%23UE7DkG0PaBHZOakR54g1Wl8%3D&utm_source=openai))",
+    "For a fully stand-alone version, it helps to make explicit that ω denotes the matrix-multiplication exponent.",
+    "Problem 2.8 itself does not fix a computation model, even though nearby Problem 2.7 explicitly asks how the answer depends on the model of computation; so one should not silently add a direct-access or matrix-vector-product assumption that the paper does not state here. ([znakschoola.ru](https://www.znakschoola.ru/?_=%2Fpdf%2F2602.05394%23UE7DkG0PaBHZOakR54g1Wl8%3D&utm_source=openai))",
+    "The ambient field is implicit rather than stated; from the listed distributions, the intended setting is real matrices/vectors. This is an inference from the problem statement, not an extra hypothesis proved separately in the paper. ([znakschoola.ru](https://www.znakschoola.ru/?_=%2Fpdf%2F2602.05394%23UE7DkG0PaBHZOakR54g1Wl8%3D&utm_source=openai))",
+    "The paper names \"Bernoulli\" separately from \"Rademacher\" but does not further specify the Bernoulli convention in the quoted problem, so a faithful rewrite should keep that wording rather than impose a sharper convention not supplied there. ([znakschoola.ru](https://www.znakschoola.ru/?_=%2Fpdf%2F2602.05394%23UE7DkG0PaBHZOakR54g1Wl8%3D&utm_source=openai))"
+  ],
+  "refined_question": "Let A be an n × n random matrix with i.i.d. Gaussian, Rademacher, or Bernoulli entries, and let b be an arbitrary real n-dimensional vector. Is it possible, conditioned on a high-probability event over the draw of A, to solve the linear system Ax = b to high accuracy faster than O(n^ω), where ω denotes the matrix-multiplication exponent? ([znakschoola.ru](https://www.znakschoola.ru/?_=%2Fpdf%2F2602.05394%23UE7DkG0PaBHZOakR54g1Wl8%3D&utm_source=openai))",
+  "equivalent_formulation": null,
+  "justification": "Section 2.4 first frames a broader question about solving (n,0,l,κ) systems with small outlying singular values, then immediately introduces random matrices as a \"natural test-case\" and states the random-matrix question separately as Problem 2.8. The paper says this broader problem is \"closely related\" to Problem 2.8, not equivalent to it, so the paper-faithful target is the narrower official Problem 2.8 itself rather than the broader neighboring Problem 2.7. Your draft already matches that official problem almost verbatim; the only sharpening needed is to make the probability source explicit and to avoid adding extra model assumptions not present in the paper. ([znakschoola.ru](https://www.znakschoola.ru/?_=%2Fpdf%2F2602.05394%23UE7DkG0PaBHZOakR54g1Wl8%3D&utm_source=openai))",
+  "citations": [
+    {
+      "section": "2.4",
+      "label": "Section heading \"The effect of outlying singular values (or eigenvalues)\"",
+      "page": 11
+    },
+    {
+      "section": "2.4",
+      "label": "Definition 2.4",
+      "page": "11-13"
+    },
+    {
+      "section": "2.4",
+      "label": "Definition 2.5 and Problem 2.6",
+      "page": "12-13"
+    },
+    {
+      "section": "2.4",
+      "label": "Problem 2.7",
+      "page": 13
+    },
+    {
+      "section": "2.4",
+      "label": "Problem 2.8",
+      "page": 13
+    }
+  ]
+}

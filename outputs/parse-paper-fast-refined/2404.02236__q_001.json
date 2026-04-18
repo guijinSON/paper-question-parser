@@ -1,0 +1,42 @@
+{
+  "arxiv_id": "2404.02236",
+  "question_id": "q_001",
+  "original_question": "Let G be a graph with m edges and diameter D, and let U(t) = exp(itA) be the transition matrix of the continuous-time quantum walk on G, where A is the adjacency matrix of G. Suppose G admits perfect state transfer between two vertices. Prove a supercubic lower bound on the number of edges in terms of the diameter; specifically, show that m belongs to Omega(D^k) for some exponent k > 3.",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 9484.56,
+  "target_in_paper": "Section 2.1 (\"Lower bound\"), Open Problem 2.1: improve the known cubic diameter/edge bound for graphs with adjacency-matrix perfect state transfer by showing that m ∈ Ω(D^k) for some fixed k > 3.",
+  "completeness_score": 8.5,
+  "correct_elements": "Your draft is already very close to the paper's exact target. It uses the adjacency-matrix continuous-time quantum walk U(t)=exp(itA), assumes that the graph admits perfect state transfer, uses the edge count m and diameter D, and asks for a supercubic lower bound of the form m ∈ Ω(D^k) with k>3. That is exactly the lower-bound problem isolated in Section 2.1.",
+  "missing_details": [
+    "The paper frames this as an open problem, so the paper-faithful version should ask whether one can show such a bound, rather than present it as an already established theorem.",
+    "To make the question stand-alone, the graph should be specified as a finite connected graph, since the diameter D is being used.",
+    "Perfect state transfer should be stated explicitly: there exist vertices u,v, a time t ∈ R, and a phase γ ∈ C with |γ|=1 such that U(t)e_u = γe_v.",
+    "The Ω-notation should be quantified: one wants absolute constants c>0 and a fixed real exponent k>3, independent of G and D, such that m ≥ cD^k for all sufficiently large D (equivalently, uniformly over every graph in the class).",
+    "The intended problem is specifically to improve the nearby known cubic bound D^3 ≤ 80m; mentioning this makes the paper's intent sharper than just asking for any supercubic statement in isolation."
+  ],
+  "refined_question": "Open Problem 2.1 (paper-faithful reformulation). Let G be a finite connected graph with m edges and diameter D, let A=A(G) be its adjacency matrix, and let U(t)=exp(itA) be the transition matrix of the continuous-time quantum walk on G. Suppose G admits perfect state transfer in the adjacency-matrix model; that is, there exist vertices u,v ∈ V(G), a time t ∈ R, and a phase γ ∈ C with |γ|=1 such that U(t)e_u=γe_v. Can one improve the known cubic bound D^3 ≤ 80m by proving that there exist absolute constants c>0 and a fixed exponent k>3 such that every such graph satisfies m ≥ cD^k for all sufficiently large D?",
+  "equivalent_formulation": null,
+  "justification": "The draft clearly targets the lower-bound problem in Section 2.1 rather than any other part of the paper. Section 2 introduces the \"economic perfect state transfer\" theme, namely bounding the number of edges needed for perfect state transfer. The opening paragraph of Section 2.1 defines perfect state transfer in exactly the adjacency-matrix form used in your draft. The paragraph immediately before Open Problem 2.1 derives the cubic bound D^3 ≤ 80m, and Open Problem 2.1 then asks for a strict improvement to m ∈ Ω(D^k) for some k>3. So your draft is essentially correct, but to be fully stand-alone and faithful to the paper, it should explicitly quantify perfect state transfer, clarify the meaning of Ω, and state that the goal is to improve the known cubic bound.",
+  "citations": [
+    {
+      "section": "2",
+      "label": "Section 2, \"Economic perfect state transfer\"",
+      "page": 2
+    },
+    {
+      "section": "2.1",
+      "label": "paragraph beginning \"Formally, perfect state transfer occurs...\"",
+      "page": 3
+    },
+    {
+      "section": "2.1",
+      "label": "unnumbered bound immediately preceding Open Problem 2.1: D^3 ≤ 80m",
+      "page": 3
+    },
+    {
+      "section": "2.1",
+      "label": "Open Problem 2.1",
+      "page": 3
+    }
+  ]
+}

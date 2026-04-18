@@ -1,0 +1,42 @@
+{
+  "arxiv_id": "2502.01336",
+  "question_id": "q_002",
+  "original_question": "Let n >= 3, let Omega be an open subset of R^n, and let f: Omega -> R^n be a piecewise affine homeomorphism. Can f be approximated by diffeomorphisms in the Sobolev norm?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 10581.47,
+  "target_in_paper": "Section 1, Proposition 1.2, read in the context of Conjecture 1.1 and Theorem 1.3: the reduced higher-dimensional Ball-Evans subproblem asking whether a locally finitely piecewise affine homeomorphism can be upgraded to a diffeomorphic approximation in the relevant Sobolev topology.",
+  "completeness_score": 5,
+  "correct_elements": "The draft correctly identifies the higher-dimensional setting n >= 3, works on open subsets of R^n, focuses on piecewise affine homeomorphisms, and asks the right qualitative question: whether such maps admit approximation by diffeomorphisms in a Sobolev topology. This does match the paper's key reduced subproblem highlighted near Proposition 1.2 and Theorem 1.3.",
+  "missing_details": [
+    "The paper works with a homeomorphism f: Omega -> Delta between open subsets Omega, Delta subset R^n, not just a map Omega -> R^n with unspecified image.",
+    "The relevant notion is locally finitely piecewise affine homeomorphism, i.e. affine on each simplex of a locally finite triangulation; the local finiteness is part of the paper-faithful formulation.",
+    "The Sobolev hypotheses are not just informal: one needs f in W^{1,p}(Omega, R^n), and in the bi-Sobolev formulation tied to Conjecture 1.1 one also needs f^{-1} in W^{1,q}(Delta, R^n).",
+    "The exponents p and q, with 1 <= p, q < infinity, are missing.",
+    "The approximation is quantified: for every epsilon > 0 there should exist a diffeomorphism approximant.",
+    "The approximating maps should be diffeomorphisms g: Omega -> Delta onto the same target domain, not merely smooth injective maps into R^n.",
+    "The paper's reduction is naturally bi-Sobolev: the inverse should also approximate, namely in W^{1,q}(Delta, R^n), not only f itself in W^{1,p}(Omega, R^n).",
+    "Your draft says 'in the Sobolev norm' singular, but the paper-faithful reduced question is about the specific norm expression ||f-g||_{W^{1,p}(Omega)} + ||f^{-1}-g^{-1}||_{W^{1,q}(Delta)}.",
+    "The draft does not indicate that this is the piecewise-affine reduction of the broader Ball-Evans conjecture rather than the full conjecture itself.",
+    "The nearby Theorem 1.3 shows only approximation by smooth injective maps, so the missing issue is specifically promotion to diffeomorphisms (and, in the bi-Sobolev version, simultaneous control of inverses)."
+  ],
+  "refined_question": "Let n >= 3, let Omega, Delta be open subsets of R^n, and let f: Omega -> Delta be a locally finitely piecewise affine homeomorphism such that f in W^{1,p}(Omega, R^n) and f^{-1} in W^{1,q}(Delta, R^n) for some 1 <= p, q < infinity. Is it true that for every epsilon > 0 there exists a diffeomorphism g: Omega -> Delta such that ||f-g||_{W^{1,p}(Omega, R^n)} + ||f^{-1}-g^{-1}||_{W^{1,q}(Delta, R^n)} < epsilon?",
+  "equivalent_formulation": null,
+  "justification": "The draft is not aiming at the full Ball-Evans conjecture for arbitrary Sobolev homeomorphisms, but at the reduced piecewise-affine subproblem singled out in Section 1. Conjecture 1.1 gives the broader bi-Sobolev approximation goal; Proposition 1.2 isolates the corresponding piecewise-affine reduction; and Theorem 1.3 records the best nearby positive result, namely W^{1,p}-approximation of locally finitely piecewise affine homeomorphisms by smooth injective maps, showing that the missing step is precisely diffeomorphic approximation (with inverse control in the bi-Sobolev setting). Hence the refined question should add the target domain Delta, local finiteness of the affine structure, the exponents p and q, the inverse hypothesis, and the exact epsilon-quantified norm statement, while staying narrowly tied to the paper's Section 1 setup.",
+  "citations": [
+    {
+      "section": "1",
+      "label": "Conjecture 1.1",
+      "page": "not available"
+    },
+    {
+      "section": "1",
+      "label": "Proposition 1.2",
+      "page": "not available"
+    },
+    {
+      "section": "1",
+      "label": "Theorem 1.3",
+      "page": "not available"
+    }
+  ]
+}

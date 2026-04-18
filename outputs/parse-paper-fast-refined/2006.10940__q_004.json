@@ -1,0 +1,38 @@
+{
+  "arxiv_id": "2006.10940",
+  "question_id": "q_004",
+  "original_question": "In full-information online learning, does there exist an algorithm such that for every ε > 0 it simultaneously achieves regret at most O(√(Σ_t Var_{π∼Pt}(ℓt(π(xt))) · log(1/ε))) against the top ε-quantile of policies, where Pt is the algorithm's distribution over policies at round t?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 7074.8,
+  "target_in_paper": "Section 4, \"Consequences and Connections to Other Problems,\" subsection \"Second-Order Regret Bounds for Online Learning\" (page 4): the paper's paraphrase of Freund's unresolved COLT 2016 open problem asking for a simultaneous quantile regret bound of order sqrt((sum_t Var_{pi~P_t}(ell_t(pi(x_t)))) log(1/epsilon)) in full-information online learning.",
+  "completeness_score": 8.5,
+  "correct_elements": "Your draft already captures the main mathematical content very closely: it is in the full-information setting, quantifies over every epsilon > 0 simultaneously, uses the paper's exact second-order term sum_t Var_{pi~P_t}(ell_t(pi(x_t))), and asks for regret against the top epsilon-quantile of policies. It also correctly identifies P_t as the learner's distribution over policies at round t.",
+  "missing_details": [
+    "The paper's notation is inherited from Section 2: there is a context space X, a finite action space A = {1, ..., K}, a policy class Pi subseteq (X -> A), contexts x_t, and losses ell_t in [0,1]^A; in the full-information version the learner observes the entire loss vector ell_t after each round.",
+    "The relevant quantification is over an arbitrary online sequence of rounds t = 1, ..., T (in the paper's ambient adversarial setup), not just a fixed stochastic model.",
+    "The comparator must be defined explicitly: regret to the top epsilon-quantile means comparing the learner's cumulative expected loss sum_t E_{pi~P_t}[ell_t(pi(x_t))] to the average cumulative loss of the best epsilon-fraction of policies, not to a single best policy.",
+    "To make \"top epsilon-quantile\" stand-alone, one should specify that Pi is finite and that the top epsilon-quantile is the subset of size about epsilon|Pi| with smallest cumulative losses sum_t ell_t(pi(x_t)) (with the natural rounding convention when epsilon|Pi| is not an integer).",
+    "The paper presents the KL-comparator inequality in Eq. (4) only as a slight strengthening of the quantile statement, not as an equivalent reformulation, so it should not replace the quantile version as the main target.",
+    "It helps to state that one single algorithm/run must satisfy the bound for all epsilon in (0,1] simultaneously, without tuning the algorithm to epsilon."
+  ],
+  "refined_question": "In full-information online learning over a finite policy class Pi subseteq (X -> A), where on each round t = 1, ..., T an arbitrary context x_t in X and loss vector ell_t in [0,1]^A are presented, the learner chooses a distribution P_t in Delta(Pi), and then observes the entire loss vector ell_t, does there exist a single algorithm such that for every epsilon in (0,1], simultaneously, its cumulative expected loss satisfies\nsum_{t=1}^T E_{pi~P_t}[ell_t(pi(x_t))] - (1/|H_epsilon|) sum_{pi in H_epsilon} sum_{t=1}^T ell_t(pi(x_t)) <= O(sqrt((sum_{t=1}^T Var_{pi~P_t}(ell_t(pi(x_t)))) log(1/epsilon))),\nwhere H_epsilon subseteq Pi is the set of the best epsilon-fraction of policies (equivalently, a subset of size ceiling(epsilon|Pi|) with smallest cumulative loss)?",
+  "equivalent_formulation": null,
+  "justification": "The draft is not targeting Open Problem 1a, 1b, or 2. It matches the non-numbered paragraph in Section 4, \"Second-Order Regret Bounds for Online Learning\" (page 4), where the paper explicitly restates Freund's 2016 open problem in almost exactly your wording. Section 2, \"Problem Formulation\" (page 1), supplies the notation x_t, ell_t, A, Pi, and the policy-based loss ell_t(pi(x_t)) that the Section 4 paragraph reuses. The nearby Eq. (4) on page 4 is introduced only as a \"slight strengthening\" that implies the weaker quantile statement, so the quantile formulation itself is the closest paper-faithful target.",
+  "citations": [
+    {
+      "section": "2. Problem Formulation",
+      "label": "setup and notation for X, A, x_t, ell_t, Pi, and Reg(Pi)",
+      "page": 1
+    },
+    {
+      "section": "4. Consequences and Connections to Other Problems",
+      "label": "Second-Order Regret Bounds for Online Learning",
+      "page": 4
+    },
+    {
+      "section": "4. Consequences and Connections to Other Problems",
+      "label": "Eq. (4) and the sentence stating that Eq. (4) implies the weaker quantile bound",
+      "page": 4
+    }
+  ]
+}

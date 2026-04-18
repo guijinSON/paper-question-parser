@@ -1,0 +1,67 @@
+{
+  "arxiv_id": "1405.7308",
+  "question_id": "q_010",
+  "original_question": "The paper rigorously derives several NLS-type asymptotic models from Maxwell's equations and justifies them on times of order T/epsilon only while the approximating NLS-type solution stays bounded, which in the standard focusing case means times strictly before the focusing time T_foc. Can one rigorously justify at least one of these derived NLS-type models on a time interval [0, T/epsilon] with T greater than or equal to the focusing time T_foc, so that the approximation remains valid in the regime where the different models begin to differ in a physically meaningful way?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 3839.27,
+  "target_in_paper": "Section 4.5, Open Problem 10: the problem of extending the rigorous Maxwell-to-NLS-type approximation beyond the pre-focusing regime, specifically to a diffractive time scale [0, T/epsilon] with T >= T_foc.",
+  "completeness_score": 8.5,
+  "correct_elements": "Your draft correctly identifies the paper's actual long-time approximation issue: Section 3 proves O(epsilon)-type justifications of several NLS-type models derived from Maxwell's equations on intervals [0, T/epsilon], and Section 4.5 explains that for the standard focusing cubic NLS this argument only gives T < T_foc because the justification requires boundedness of the approximating envelope and the error constant blows up as T approaches the focusing time. Your draft also correctly captures the paper's motivation that the various models only begin to differ in a relevant way near focusing, so pre-focusing justifications are not sharp enough.",
+  "missing_details": [
+    "The nearest official formulation is not a general discussion in the introduction but Section 4.5, Open Problem 10.",
+    "The paper's notion of 'rigorous justification' is the Section 3 statement that the exact Maxwell solution U and the approximate field U_app(t,x) = u_app(t,x)e^{i(k·x-omega t)/epsilon} + c.c. both exist on [0, T/epsilon] and satisfy an O(epsilon) error estimate in L-infinity([0, T/epsilon] x R^d).",
+    "The exact underlying equations are the abstract Maxwell system (20) with wave-packet initial data (22), or in the ionization setting the coupled system (21)-(23); your draft does not name these systems.",
+    "The admissible initial envelopes and function spaces are part of the setup: u_0 belongs to B = H^{t_0}(R^d)^n with t_0 > d/2 or to the Wiener algebra W(R^d)^n, together with the polarization/nonresonance hypotheses used in Section 3.",
+    "More precisely, the Section 3 approximation theorems assume Assumptions 1, 3, 4 and a polarized initial datum of the form u_0 = pi_1(k)u_0 + epsilon r; Assumption 5 is additionally needed for the frequency-dependent polarization model (39).",
+    "T_foc should be identified exactly as the time when focusing occurs for the standard cubic focusing NLS (1), since that is how Section 4.5 introduces the symbol.",
+    "The paper's official problem asks for 'one of the NLS-type models derived here'; it does not ask for simultaneous justification of all models or for a systematic comparison among them.",
+    "The phrase about the approximating solution staying bounded should be tied to the specific Section 4.5 mechanism: the error constant C(T, ||u_app||_{L-infinity([0, T/epsilon]; B)}) blows up as T approaches T_foc in the standard focusing case.",
+    "If one wants the question to be fully stand-alone, one should say that the relevant family of approximations from Section 3 includes the full-dispersion model (31), the NLS model (32), the improved-dispersion model (35), the frequency-dependent-polarization model (39), and the ionization models (48) and (49).",
+    "The clause about the models beginning to differ in a physically meaningful way is faithful motivation from the surrounding discussion, but it is not part of the formal wording of Open Problem 10."
+  ],
+  "refined_question": "Under the same wave-packet and polarization assumptions as in Section 3—namely, for Maxwell initial data U|_{t=0} = u_0(x)e^{ik·x/epsilon} + c.c. with u_0 in B = H^{t_0}(R^d)^n (t_0 > d/2) or in the Wiener algebra W(R^d)^n, satisfying u_0 = pi_1(k)u_0 + epsilon r and the standing hypotheses of the corresponding derivation—can one rigorously justify at least one of the NLS-type approximations derived from Maxwell's equations in Section 3, in the same sense as the paper's O(epsilon) error estimates for U_app(t,x) = u_app(t,x)e^{i(k·x-omega t)/epsilon} + c.c., on a diffractive time interval [0, T/epsilon] with T >= T_foc, where T_foc is the focusing time of the standard cubic focusing NLS (1)?",
+  "equivalent_formulation": null,
+  "justification": "The draft is essentially a paraphrase of Section 4.5, Open Problem 10. The paper first sets up the exact Maxwell Cauchy problems (20)-(23) and then proves in Section 3 that several derived NLS-type envelope models approximate the exact Maxwell evolution with O(epsilon) error on [0, T/epsilon]. Section 4.5 then explains why this is not sharp in the focusing regime: for the standard cubic focusing NLS, the justification requires boundedness of the approximate envelope, so the constant in the estimate blows up as T approaches the focusing time T_foc; moreover, the paper notes that the various models only meaningfully separate near focusing. The official question is therefore precisely whether one can justify one such model on [0, T/epsilon] with T >= T_foc. Your draft is already close, but to be fully stand-alone and paper-faithful it should explicitly mention the Maxwell/NLS approximation framework, the O(epsilon) notion of justification from Section 3, and the exact meaning of T_foc.",
+  "citations": [
+    {
+      "section": "2.2.1-2.3",
+      "label": "Equations (20)-(23), Assumptions 1 and 3, and the definition of B",
+      "page": "31-33"
+    },
+    {
+      "section": "3.2",
+      "label": "Theorem 2",
+      "page": "37-38"
+    },
+    {
+      "section": "3.3",
+      "label": "Corollary 1 (Full Dispersion Model)",
+      "page": "39"
+    },
+    {
+      "section": "3.4",
+      "label": "Equation (32) and Corollary 2 (Schrödinger Approximation)",
+      "page": "40-41"
+    },
+    {
+      "section": "3.5-3.6",
+      "label": "Equation (35), Equation (39), Corollaries 3 and 4",
+      "page": "42-45"
+    },
+    {
+      "section": "3.7.3-3.7.4",
+      "label": "Equation (48), Equation (49), and Corollary 5",
+      "page": "52-53"
+    },
+    {
+      "section": "4.1.1",
+      "label": "Open Problem 2",
+      "page": "55"
+    },
+    {
+      "section": "4.5",
+      "label": "Discussion preceding Open Problem 10 and Open Problem 10",
+      "page": "64-65"
+    }
+  ]
+}

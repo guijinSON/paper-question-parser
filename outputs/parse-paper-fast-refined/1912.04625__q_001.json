@@ -1,0 +1,48 @@
+{
+  "arxiv_id": "1912.04625",
+  "question_id": "q_001",
+  "original_question": "Let M be the centered Hardy-Littlewood maximal operator on R^d, defined by M f(x) = sup_{r>0} (1/m(B(x,r))) ∫_{B(x,r)} |f(y)| dy, where B(x,r) is the open ball of center x and radius r, and let the uncentered maximal operator be defined analogously by taking the supremum over all open balls that contain x. Is the map f -> |∇M f| bounded from the Sobolev space W^{1,1}(R^d) to L^1(R^d)? Equivalently, for every f in W^{1,1}(R^d), is M f weakly differentiable and does there exist a universal constant C = C(d) such that ||∇M f||_{L^1(R^d)} <= C ||∇f||_{L^1(R^d)}? The same question is asked for the uncentered maximal operator.",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 6901.17,
+  "target_in_paper": "Section 3, \"The endpoint Sobolev space,\" specifically Question 1, together with the definitions of the centered and uncentered Hardy-Littlewood maximal operators from Section 1 and the reformulation via (3.1) and the dilation remark immediately after Question 1.",
+  "completeness_score": 8.5,
+  "correct_elements": "Your draft is already very close to the paper’s actual target. It correctly identifies the centered Hardy-Littlewood maximal operator on ℝ^d, the analogous uncentered operator, the endpoint Sobolev space W^{1,1}(ℝ^d), and the core issue: whether Mf is weakly differentiable with an L^1 bound on ∇Mf controlled by ∇f. It also correctly recognizes that the paper asks the same endpoint question for the uncentered operator.",
+  "missing_details": [
+    "The paper’s official formulation is the boundedness of the operator f ↦ |∇Mf| from W^{1,1}(ℝ^d) to L^1(ℝ^d), rather than directly phrasing M as a map into a Sobolev space.",
+    "If one states the problem in the paper’s operator-boundedness language, the first natural estimate is ∥∇Mf∥_{L^1} ≤ C∥f∥_{W^{1,1}}; the sharper scale-invariant estimate involving only ∥∇f∥_{L^1} is justified by the dilation remark immediately after (3.1), so that equivalence should be attributed to that remark.",
+    "The paper assumes all functions are real-valued.",
+    "The ambient setting should be stated explicitly as Euclidean ℝ^d with Euclidean open balls and d-dimensional Lebesgue measure.",
+    "The dimension quantifier should be explicit: the question is posed for general d ≥ 1, even though the surrounding discussion records that the case d = 1 is known and the problem remains open in general for d > 1.",
+    "For a fully stand-alone formulation, the uncentered operator should be named explicitly rather than only described as 'analogous'."
+  ],
+  "refined_question": "Fix d ≥ 1. For a real-valued function f on ℝ^d, define the centered Hardy-Littlewood maximal operator by Mf(x) = sup_{r>0} |B(x,r)|^{-1} ∫_{B(x,r)} |f(y)| dy, where B(x,r) is the Euclidean open ball and |B(x,r)| is its d-dimensional Lebesgue measure; define the uncentered operator widetilde M analogously by taking the supremum over all open balls B containing x. Is the endpoint operator f ↦ |∇Mf| bounded from W^{1,1}(ℝ^d) to L^1(ℝ^d)? The same question is asked for f ↦ |∇(widetilde M f)|.",
+  "equivalent_formulation": "Immediately after Question 1, the paper explains that this amounts to proving that, for every f ∈ W^{1,1}(ℝ^d), Mf (respectively widetilde M f) is weakly differentiable and satisfies a global estimate of the form ∥∇Mf∥_{L^1} ≤ C∥f∥_{W^{1,1}}; by the dilation remark following (3.1), such a bound would force the sharper scale-invariant inequality ∥∇Mf∥_{L^1} ≤ C_d∥∇f∥_{L^1}, and likewise for the uncentered operator.",
+  "justification": "The draft is targeting the paper’s main endpoint Sobolev open problem. Section 1 supplies the exact Hardy-Littlewood maximal-operator definitions and Sobolev notation; Section 3, Question 1 asks precisely whether f ↦ |∇Mf| is bounded W^{1,1}(ℝ^d) → L^1(ℝ^d), with the same question for the uncentered maximal operator. The sentence immediately after Question 1 explains that this requires weak differentiability of Mf and an L^1 gradient estimate, and the next sentence observes via dilation that the scale-invariant bound with only ∥∇f∥_{L^1} is the true form of the problem. The later discussion confirms that this question is settled in dimension 1 but remains open in general for d > 1, so your draft is pointed at exactly the right open problem, with only a few hidden assumptions and the boundedness-versus-dilation nuance needing tightening.",
+  "citations": [
+    {
+      "section": "1",
+      "label": "(1.1) and surrounding definitions",
+      "page": "pp. 69–70"
+    },
+    {
+      "section": "3",
+      "label": "Question 1",
+      "page": "p. 74"
+    },
+    {
+      "section": "3",
+      "label": "(3.1) and the dilation remark immediately after Question 1",
+      "page": "p. 74"
+    },
+    {
+      "section": "3.1",
+      "label": "Theorems 3.1 and 3.2, with the surrounding one-dimensional discussion",
+      "page": "pp. 75–76"
+    },
+    {
+      "section": "3.2",
+      "label": "The sentence stating that Question 1 remains open in general for d > 1, and Theorem 3.5",
+      "page": "pp. 76–77"
+    }
+  ]
+}

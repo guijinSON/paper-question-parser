@@ -1,0 +1,53 @@
+{
+  "arxiv_id": "1102.5727",
+  "question_id": "q_014",
+  "original_question": "A Costas array is called singly periodic when cyclic shifts of the columns of a W1 array again produce W1 arrays, and more generally the paper asks whether any singly periodic Costas array must belong to the W1 family. Is every singly periodic Costas array necessarily a W1 array?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 1237.46,
+  "target_in_paper": "Section 6.1, Problem 14: \"Is it true that every singly periodic Costas array is a W1 array?\"",
+  "completeness_score": 8,
+  "correct_elements": "Your draft identifies the correct open problem and preserves its intended direction: it asks whether the single-periodicity phenomenon characterizes the Welch family W1. That is exactly the question posed in Section 6.1, Problem 14 (p. 12).",
+  "missing_details": [
+    "The paper's exact target is Problem 14 in Section 6.1, not a broader classification problem.",
+    "To be stand-alone, the question should define the property on the candidate array itself: an order n Costas array is being assumed to remain Costas after every cyclic shift of its columns by any amount modulo n.",
+    "The draft should unpack what \"W1\" means: the Welch family from Section 3.2.1, consisting of exponential Welch permutations and their inverses/transposes (the logarithmic Welch arrays).",
+    "The ambient arithmetic for W1 should be stated: n = p - 1 for a prime p, alpha is a primitive root of F_p, and the exponential Welch form is f(i) = alpha^(i-1+c) mod p with c in {0, ..., p-2}.",
+    "The paper switches freely between Costas arrays and Costas permutations, so the array/permutation correspondence should be made explicit for a self-contained formulation.",
+    "A nearby known restriction omitted from the draft is that odd-order Costas arrays cannot be singly periodic, so the problem is only nontrivial in even order."
+  ],
+  "refined_question": "Let f:[n] -> [n] be a Costas permutation (equivalently, let A_f be the associated order n Costas array), and suppose that for every t in {0, ..., n-1}, the array obtained from A_f by cyclically shifting its columns by t positions modulo n is again a Costas array. Must f belong to the Welch family W1; equivalently, must there exist a prime p = n + 1, a primitive root alpha of F_p, and c in {0, ..., p-2} such that either f(i) = alpha^(i-1+c) mod p for i = 1, ..., p-1, or f is the inverse (transpose) of such a permutation?",
+  "equivalent_formulation": null,
+  "justification": "The draft is already close to the paper's actual intent because Section 6.1 explicitly poses Problem 14 in essentially the same words (p. 12). To make it fully paper-faithful and self-contained, one must import the earlier setup: Costas arrays are identified with Costas permutations in Section 3.1, Definition 1 (p. 2), and the Welch family W1 is defined in Section 3.2.1 via Theorem 1 and the paragraph immediately after it, where W1 is the union of exponential Welch arrays and their inverses/transposes, and where single periodicity is introduced as the closure of Wexp1 under cyclic column shifts (p. 3). The paragraph preceding Problem 14 adds two nearby facts that sharpen the scope: no non-W1 singly periodic examples are known, and odd-order Costas arrays cannot be singly periodic (Section 6.1, p. 12). The circular-Costas discussion that follows Problem 14 is relevant context but not an equivalent reformulation: it is presented only as a partial step toward the problem, not as the same question (Section 6.1, Definition 11, p. 12).",
+  "citations": [
+    {
+      "section": "3.1",
+      "label": "Definition 1",
+      "page": 2
+    },
+    {
+      "section": "3.2.1",
+      "label": "Theorem 1",
+      "page": 3
+    },
+    {
+      "section": "3.2.1",
+      "label": "paragraph following Theorem 1 defining W1 and single periodicity",
+      "page": 3
+    },
+    {
+      "section": "6.1",
+      "label": "paragraph preceding Problem 14",
+      "page": 12
+    },
+    {
+      "section": "6.1",
+      "label": "Problem 14",
+      "page": 12
+    },
+    {
+      "section": "6.1",
+      "label": "Definition 11",
+      "page": 12
+    }
+  ]
+}

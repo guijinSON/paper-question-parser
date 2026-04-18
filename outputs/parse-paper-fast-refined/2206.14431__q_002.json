@@ -1,0 +1,39 @@
+{
+  "arxiv_id": "2206.14431",
+  "question_id": "q_002",
+  "original_question": "Can a proper learning algorithm for size-s decision trees vary its amount of greediness across levels of the constructed tree, by searching over different numbers k of highly influential variables at different steps, in a way that preserves high accuracy while improving the runtime to polynomial time? In particular, is it enough to use k = polylog(s) near the top of the tree and then switch to constant k lower down?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 8360.61,
+  "target_in_paper": "Section 3, \"Possible approaches\" — specifically the unnumbered \"Adaptive greediness\" subproblem posed as a possible route toward Open Problem 1. The paper asks whether one can vary k, the number of top-k most influential variables searched over at each recursive step, across levels while still learning an accurate tree fast enough to obtain polynomial time. ([proceedings.mlr.press](https://proceedings.mlr.press/v178/open-problem-blanc22a/open-problem-blanc22a.pdf))",
+  "completeness_score": 8.5,
+  "correct_elements": "Your draft correctly captures the paper’s actual subquestion: it concerns the Blanc et al. (2021) top-down learner that searches over the top-k most influential variables, asks whether k can vary from step to step/level to level instead of being fixed at k = polylog(s), and highlights the specific example of using k = polylog(s) near the top and k = O(1) lower down in hopes of preserving accuracy while improving the runtime to polynomial time. ([proceedings.mlr.press](https://proceedings.mlr.press/v178/open-problem-blanc22a/open-problem-blanc22a.pdf))",
+  "missing_details": [
+    "The learning model should be stated explicitly: the unknown target is a size-s decision tree f:{0,1}^n→{0,1}, the distribution is uniform on {0,1}^n, and the learner has membership-query access to f. ([proceedings.mlr.press](https://proceedings.mlr.press/v178/open-problem-blanc22a/open-problem-blanc22a.pdf))",
+    "The accuracy requirement should be formalized as uniform-distribution error at most ε, i.e. Pr_{x∼{0,1}^n}[h(x) ≠ f(x)] ≤ ε; the draft says only \"high accuracy.\" ([proceedings.mlr.press](https://proceedings.mlr.press/v178/open-problem-blanc22a/open-problem-blanc22a.pdf))",
+    "The paper’s notion of \"greediness\" is specific: at each recursive call, the algorithm estimates influences and brute-force searches only among the top-k most influential variables for the next queried variable/root. ([proceedings.mlr.press](https://proceedings.mlr.press/v178/open-problem-blanc22a/open-problem-blanc22a.pdf))",
+    "The baseline being improved should be named: using a fixed k = polylog(s) for a depth-log s construction yields runtime k^{O(log s)} = s^{O(log log s)} in the adaptive-greediness discussion, matching the almost-polynomial dependence summarized from Blanc et al. (2021). ([proceedings.mlr.press](https://proceedings.mlr.press/v178/open-problem-blanc22a/open-problem-blanc22a.pdf))",
+    "The paper’s example schedule is more precise than \"near the top\" versus \"lower down\": it asks about k = polylog(s) for the first (log s)/(log log s) levels and then k = O(1) for the remaining log s - (log s)/(log log s) levels. ([proceedings.mlr.press](https://proceedings.mlr.press/v178/open-problem-blanc22a/open-problem-blanc22a.pdf))",
+    "To stay faithful to the paper, this should be framed as an intermediate avenue toward Open Problem 1, not as a broader new conjecture. The paper’s own question is whether such adaptive greediness is sufficient to learn an accurate tree. ([proceedings.mlr.press](https://proceedings.mlr.press/v178/open-problem-blanc22a/open-problem-blanc22a.pdf))",
+    "If you want the question tied back to the paper’s main objective, say explicitly that success would be interesting because it could yield a poly(n,s,1/ε)-time proper learner; the paper also notes that the global problem remains open even for weakly proper algorithms. ([proceedings.mlr.press](https://proceedings.mlr.press/v178/open-problem-blanc22a/open-problem-blanc22a.pdf))"
+  ],
+  "refined_question": "Under PAC learning of Boolean functions over {0,1}^n under the uniform distribution with membership queries, let f:{0,1}^n→{0,1} be an unknown size-s decision tree. Consider a top-down proper-learning strategy that, at each recursive step, chooses the next split by searching only among the top-k most influential variables of the current restricted function. Blanc et al. (2021) show that taking the same k = polylog(s) for all log s levels is enough to construct an accurate tree, with resulting runtime s^{O(log log s)}. Is adaptive greediness sufficient to improve this to polynomial time—specifically, can one take k = polylog(s) for the first (log s)/(log log s) levels and then k = O(1) for the remaining log s - (log s)/(log log s) levels, while still outputting a decision-tree hypothesis h with Pr_{x∼{0,1}^n}[h(x) ≠ f(x)] ≤ ε, thereby yielding a poly(n,s,1/ε)-time proper learner?",
+  "equivalent_formulation": null,
+  "justification": "The draft is not primarily aiming at the paper’s numbered Open Problem 1 itself, but at the specific proposed route in Section 3 labeled by the paragraph heading \"Adaptive greediness.\" That paragraph mirrors your draft: it contrasts the fixed-k search over top-k influential variables from Blanc et al. (2021) with the possibility of choosing different k at different steps, and it gives exactly the example k = polylog(s) for the first (log s)/(log log s) levels and k = O(1) afterwards, asking whether such adaptive greediness is sufficient to learn an accurate tree. Open Problem 1 and Theorem 2 supply the surrounding model and target guarantee: proper learning of size-s decision trees over {0,1}^n under the uniform distribution with membership queries to error ε in poly(n,s,1/ε) time, versus the current almost-polynomial s^{O(log log s)}-type dependence. ([proceedings.mlr.press](https://proceedings.mlr.press/v178/open-problem-blanc22a/open-problem-blanc22a.pdf))",
+  "citations": [
+    {
+      "section": "1. Introduction",
+      "label": "Open Problem 1",
+      "page": 1
+    },
+    {
+      "section": "2. Background and current status",
+      "label": "Theorem 2",
+      "page": 2
+    },
+    {
+      "section": "3. Possible approaches",
+      "label": "Adaptive greediness",
+      "page": 3
+    }
+  ]
+}

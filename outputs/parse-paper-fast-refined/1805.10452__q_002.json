@@ -1,0 +1,55 @@
+{
+  "arxiv_id": "1805.10452",
+  "question_id": "q_002",
+  "original_question": "Let F be a finite field of characteristic p such that the extension degree [F : F_p] is not a power of 2, let l be the smallest odd prime divisor of [F : F_p], and let d be a nondegenerate invertible exponent over F. Is the p-adic valuation V_{F,d} of the Weil spectrum always at most ((l + 1)/(2l))*[F : F_p]?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 5942.13,
+  "target_in_paper": "Conjecture 9.11 in Section 9 (Non-Archimedean Bounds), immediately motivated by Theorem 9.10 and following Corollary 9.8. The survey explicitly says this is the restatement of [47, Conjecture 6.1].",
+  "completeness_score": 9,
+  "correct_elements": "Your draft already matches the paper's target very closely: it has the correct ambient object (a finite field F of characteristic p), the correct degree hypothesis ([F:F_p] is not a power of 2), the correct auxiliary parameter (ℓ, the smallest odd prime divisor of [F:F_p]), the correct class of exponents (nondegenerate invertible exponents over F), the correct invariant (V_{F,d}), and the exact proposed upper bound ((ℓ+1)/(2ℓ))[F:F_p]. This is essentially Conjecture 9.11 verbatim, up to making the notation self-contained.",
+  "missing_details": [
+    "The draft does not define the Weil sums W_{F,d}(a): W_{F,d}(a)=sum_{x in F} psi(x^d-ax), where psi is the canonical additive character of F.",
+    "The draft does not define V_{F,d}; in the paper it is the valuation of the Weil spectrum, V_{F,d}=min_{a in F^*} v_p(W_{F,d}(a)), with the minimum taken over a in F^* (so a=0 is excluded because the Weil spectrum is indexed by F^*).",
+    "The draft does not spell out 'invertible exponent over F', namely gcd(d,|F|-1)=1.",
+    "The draft does not spell out 'nondegenerate', namely that d is not congruent to a power of p modulo |F|-1 (equivalently, d is not degenerate in the sense of Definition 5.3).",
+    "The draft does not specify that v_p is the p-adic valuation extended from Q to Q(zeta_p), the field containing the Weil sums.",
+    "The universal quantifier should be explicit: the question is whether the inequality holds for every finite field F and every nondegenerate invertible exponent d satisfying the stated hypotheses.",
+    "To be fully paper-faithful, the question should use the paper's terminology 'valuation of the Weil spectrum' rather than only 'p-adic valuation of the Weil spectrum' without definition.",
+    "No extra hypotheses from nearby case-splitting results (such as assumptions about degeneracy over F_p) should be added; Conjecture 9.11 is stated exactly for arbitrary nondegenerate invertible d over F under the degree hypothesis."
+  ],
+  "refined_question": "Let F be a finite field of characteristic p with canonical additive character psi, and let d be a nondegenerate invertible exponent over F, meaning gcd(d,|F|-1)=1 and d is not congruent to a power of p modulo |F|-1. For a in F, define W_{F,d}(a)=sum_{x in F} psi(x^d-ax), and define the valuation of the Weil spectrum by V_{F,d}=min_{a in F^*} v_p(W_{F,d}(a)), where v_p denotes the p-adic valuation extended to Q(zeta_p). If [F:F_p] is not a power of 2 and ℓ is the smallest odd prime divisor of [F:F_p], must one always have V_{F,d} <= ((ℓ+1)/(2ℓ))[F:F_p]?",
+  "equivalent_formulation": null,
+  "justification": "The draft is targeting the non-Archimedean bounds section, not the later three-valued-spectrum questions. In the survey, Section 9 first defines V_{F,d}, then recalls the general bound V_{F,d} <= (2/3)[F:F_p] for nondegenerate invertible exponents (Corollary 9.8), then gives Theorem 9.10 showing that when [F:F_p] is not a power of 2 there exist examples with V_{F,d}=((ℓ+1)/(2ℓ))[F:F_p], and finally states Conjecture 9.11 asserting that these values are maximal. So the closest official formulation is exactly Conjecture 9.11, together with the notation from Definitions 1.1, 1.3, 1.4, 5.3, and 9.1.",
+  "citations": [
+    {
+      "section": "§1",
+      "label": "Definitions 1.1, 1.3, and 1.4",
+      "page": 2
+    },
+    {
+      "section": "§5",
+      "label": "Definition 5.3",
+      "page": 8
+    },
+    {
+      "section": "§9",
+      "label": "Definition 9.1",
+      "page": 13
+    },
+    {
+      "section": "§9",
+      "label": "Corollary 9.8",
+      "page": 16
+    },
+    {
+      "section": "§9",
+      "label": "Theorem 9.10",
+      "page": 16
+    },
+    {
+      "section": "§9",
+      "label": "Conjecture 9.11",
+      "page": 16
+    }
+  ]
+}

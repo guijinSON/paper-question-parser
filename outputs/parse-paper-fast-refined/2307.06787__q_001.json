@@ -1,0 +1,48 @@
+{
+  "arxiv_id": "2307.06787",
+  "question_id": "q_001",
+  "original_question": "Let k be a fixed positive integer and let F_d^k(D_d) be the class of functions f:D_d->R on a domain D_d\\subset R^d of volume 1 such that every mixed partial derivative D^alpha f of order |alpha|<=k satisfies ||D^alpha f||_infty <= 1. For which domains D_d does the worst-case integration error admit an upper bound of the form e(n,F_d^k(D_d)) <= c_k d n^{-k/d}, and how can one explicitly construct algorithms that achieve this rate on those domains?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 8935.1,
+  "target_in_paper": "The draft is targeting the unnumbered Open Problem in Section 2 (\"Lower Bounds\"), stated immediately after Theorem 2.1, with additional clarifying context from Section 4, Remark 7(2). It is not targeting a Conjecture 1.1 / Proposition 1.2 / Theorem 1.3, since those labels do not occur in this paper.",
+  "completeness_score": 8,
+  "correct_elements": "Your draft already captures the right mathematical object and the right level of specificity: a fixed smoothness order k, domains D_d of volume 1 in R^d, the class F_d^k(D_d) defined by uniform bounds on all partial derivatives up to order k, the deterministic worst-case integration error e(n, F_d^k(D_d)), the sought upper bound of the form c_k d n^(-k/d), and the demand for explicit algorithms achieving that rate. This is very close to the paper's actual open problem in Section 2.",
+  "missing_details": [
+    "The paper works with open subsets D_d of R^d, of Lebesgue measure 1; this openness matters because derivatives are taken on D_d itself (Section 1).",
+    "The quantity e(n, F_d^k(D_d)) should be identified explicitly as the minimal deterministic worst-case error for approximating the integral over D_d using at most n function values (Section 1).",
+    "The constant c_k is intended to depend only on k, not on d, n, or the particular normalized domain D_d (Section 2, Open Problem).",
+    "Because the bound is dimension-explicit, the problem is really about families (D_d)_{d in N} of normalized domains across dimensions, not just a single fixed domain in one dimension.",
+    "The paper's nearby context matters: Theorem 2.1 gives explicit lower bounds for all volume-1 domains and known upper bounds on cubes, so the open problem asks for matching upper bounds on other domains together with constructions of algorithms (Section 2, Theorem 2.1 and Remark 2).",
+    "Section 4, Remark 7(2) explains that the weaker order n^(-k/d) is already known at least for bounded Lipschitz domains; what remains open here is the sharper uniform-in-d bound with the explicit prefactor c_k d and constructive algorithms."
+  ],
+  "refined_question": "Fix k in N. For each dimension d, let D_d be an open subset of R^d with Lebesgue measure 1, and define F_d^k(D_d) to be the class of all integrable functions f : D_d -> R such that ||D^alpha f||_infty <= 1 for every multi-index alpha with |alpha| <= k. Let e(n, F_d^k(D_d)) denote the minimal deterministic worst-case error of approximating the integral of f over D_d by algorithms that use at most n function values. For which families of normalized domains (D_d)_{d in N} does there exist a constant c_k > 0, depending only on k, such that for all d, n in N one has e(n, F_d^k(D_d)) <= c_k d n^(-k/d), and can one explicitly construct cubature algorithms that attain this bound on those domains?",
+  "equivalent_formulation": null,
+  "justification": "This is the nearest official formulation in the paper: after presenting Theorem 2.1 on the order of e(n, F_d^k) and the corresponding general-domain lower bounds, Novak states the open problem verbatim in the form \"For which D_d do we have upper bounds of the form ... Construct algorithms that achieve this bound for such domains\" (Section 2). Your draft matches that target closely. The only needed refinements are to make explicit that D_d is open and volume-normalized, that e(n, .) is the deterministic minimal worst-case integration error from Section 1, that c_k is uniform in d, n, and the domain, and that the domain question is dimension-uniform. Section 4, Remark 7(2) is the key nearby clarification: it records that the weaker order n^(-k/d) is known at least for bounded Lipschitz domains, so the unresolved issue in this paper is the stronger dimension-explicit upper bound c_k d n^(-k/d) together with explicit constructions.",
+  "citations": [
+    {
+      "section": "Section 1",
+      "label": "Introduction (definition of algorithms, worst-case error, and normalized open domains)",
+      "page": "p. 106"
+    },
+    {
+      "section": "Section 2",
+      "label": "Theorem 2.1",
+      "page": "pp. 108-109"
+    },
+    {
+      "section": "Section 2",
+      "label": "Open Problem (immediately after Theorem 2.1)",
+      "page": "p. 110"
+    },
+    {
+      "section": "Section 2",
+      "label": "Remark 2",
+      "page": "p. 110"
+    },
+    {
+      "section": "Section 4",
+      "label": "Remark 7(2)",
+      "page": "p. 117"
+    }
+  ]
+}

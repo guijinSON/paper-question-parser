@@ -1,0 +1,51 @@
+{
+  "arxiv_id": "2505.15351",
+  "question_id": "q_004",
+  "original_question": "Can phase-retrieval reconstructions be justified by attaching statistically meaningful confidence intervals, including possibly pixel-wise confidence intervals, to the recovered object?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 10972.82,
+  "target_in_paper": "Section 3, Questions 3.1(4): “Can we justify the obtained reconstruction by providing (pixel-wise) confidence intervals?”, with its intended meaning expanded in Section 3.4 (“Confidence intervals”). ([ir.cwi.nl](https://ir.cwi.nl/pub/35739/35739.pdf))",
+  "completeness_score": 8.5,
+  "correct_elements": "Your draft already captures the correct problem almost verbatim: it is about phase retrieval, about justifying an obtained reconstruction, and about doing so via confidence intervals, possibly pixel-wise. That is exactly the content of Question 3.1(4). ([ir.cwi.nl](https://ir.cwi.nl/pub/35739/35739.pdf))",
+  "missing_details": [
+    "The paper places the question inside the phase-retrieval model of recovering an unknown object from intensity-only data, written in Section 3 as I = 𝒜(f) = |Af|² in the continuous setting and I = 𝒜(f) = |A f|² in the discrete setting. ([ir.cwi.nl](https://ir.cwi.nl/pub/35739/35739.pdf))",
+    "The ambient object is either a complex-valued function f : ℝ^d → ℂ or a vector f ∈ ℂ^n; the paper explicitly works with both infinite- and finite-dimensional formulations. ([ir.cwi.nl](https://ir.cwi.nl/pub/35739/35739.pdf))",
+    "The local scope is not arbitrary phase retrieval: Section 3 says the main focus is standard coherent diffraction imaging with A = F and ptychography, where A is the (subsampled) short-time Fourier transform matrix. ([ir.cwi.nl](https://ir.cwi.nl/pub/35739/35739.pdf))",
+    "The question is framed as part of Section 3 on the intrinsic difficulty of phase retrieval, so the intended emphasis is uncertainty quantification as a way to assess or justify a reconstruction, not a broad survey of all Bayesian or statistical post-processing methods. ([ir.cwi.nl](https://ir.cwi.nl/pub/35739/35739.pdf))",
+    "The nearby exposition in Section 3.4 clarifies that the target is confidence intervals for reconstructed images or their parts; pixel-wise intervals are an example, not the only admissible form. ([ir.cwi.nl](https://ir.cwi.nl/pub/35739/35739.pdf))",
+    "The paper’s default technical route is classical maximum-likelihood-based interval construction using a Fisher information matrix obtained by taking an expectation of the Hessian. ([ir.cwi.nl](https://ir.cwi.nl/pub/35739/35739.pdf))",
+    "A paper-faithful stand-alone formulation should include the stated computational bottleneck: the Fisher-information approach is reported to be limited to dimensions below 100 pixels because of the cost of inverting that matrix. ([ir.cwi.nl](https://ir.cwi.nl/pub/35739/35739.pdf))",
+    "The nearby context also mentions one explicit alternative, conformal inference, together with its paper-specific obstacle: it would require a large realistic calibration dataset of objects, which the authors say is not yet available in diffraction imaging. ([ir.cwi.nl](https://ir.cwi.nl/pub/35739/35739.pdf))",
+    "To make the draft fully stand-alone, it should say what is being quantified (the unknown true object or parts of it relative to an obtained estimate), under what measurement model, and with what practical requirement (computational feasibility in high dimensions). ([ir.cwi.nl](https://ir.cwi.nl/pub/35739/35739.pdf))"
+  ],
+  "refined_question": "For the phase-retrieval problem of recovering an unknown object f from intensity-only measurements I = 𝒜(f) = |Af|² in the continuous setting or I = 𝒜(f) = |A f|² in the discrete setting—especially in coherent diffraction imaging (A = F) and ptychography, where A is a (subsampled) short-time Fourier transform matrix—can one justify an obtained reconstruction of f by constructing valid confidence intervals for the reconstructed image or its parts, possibly pixel-wise, with the usual confidence-interval interpretation relative to the true object, in a way that remains computationally feasible beyond the current Fisher-information/Hessian-based maximum-likelihood approach? ([ir.cwi.nl](https://ir.cwi.nl/pub/35739/35739.pdf))",
+  "equivalent_formulation": null,
+  "justification": "The draft is targeting the paper’s official open question almost word for word. Question 3.1(4) supplies the exact formulation, while Section 3 gives the measurement model and application scope, and Section 3.4 explains what the authors mean operationally by this question: uncertainty quantification for reconstructed images or their parts, mainly through Fisher-information/Hessian-based confidence intervals, with a stated current limit below 100 pixels and a possible alternative via conformal inference that is currently constrained by the lack of realistic calibration data. The refined version therefore sharpens the draft by restoring the paper’s exact setting and practical bottleneck without broadening the problem beyond the authors’ intent. ([ir.cwi.nl](https://ir.cwi.nl/pub/35739/35739.pdf))",
+  "citations": [
+    {
+      "section": "1.2",
+      "label": "Organization of the paper",
+      "page": 2
+    },
+    {
+      "section": "2.1-2.2",
+      "label": "Notation; finite- and infinite-dimensional setups",
+      "page": 3
+    },
+    {
+      "section": "3",
+      "label": "Problem: intrinsic difficulty of phase retrieval",
+      "page": 4
+    },
+    {
+      "section": "3",
+      "label": "Questions 3.1(4)",
+      "page": 5
+    },
+    {
+      "section": "3.4",
+      "label": "Confidence intervals",
+      "page": 9
+    }
+  ]
+}

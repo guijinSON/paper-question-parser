@@ -1,0 +1,41 @@
+{
+  "arxiv_id": "2602.05394",
+  "question_id": "q_005",
+  "original_question": "Can we solve an $(n,k,0,kappa)$ linear system $Ax=b$ to high accuracy using $~ O(k^omega + nnz(A)kappa)$ arithmetic operations?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 12497.66,
+  "target_in_paper": "Problem 2.5 (\"Large outlying singular values, l=0\") in Section 2.4, read together with Definition 2.4, which defines what an (n,k,l,κ) matrix is via a singular-value inequality. ([znakschoola.ru](https://www.znakschoola.ru/?_=%2Fpdf%2F2602.05394%23UE7DkG0PaBHZOakR54g1Wl8%3D&utm_source=openai))",
+  "completeness_score": 8.5,
+  "correct_elements": "Your draft is already very close to the paper’s official formulation: it asks about solving Ax=b for an (n,k,0,κ) system, keeps the paper’s phrase \"to high accuracy,\" and matches the exact sparse-complexity target ~O(k^ω + nnz(A)κ). The main omissions are the direct-access computational model and the paper’s precise Definition 2.4 of the tuple (n,k,0,κ). ([znakschoola.ru](https://www.znakschoola.ru/?_=%2Fpdf%2F2602.05394%23UE7DkG0PaBHZOakR54g1Wl8%3D&utm_source=openai))",
+  "missing_details": [
+    "The paper asks this specifically in the direct access model, not just in an unspecified model of computation; this model distinction is part of the point of Problem 2.5. ([znakschoola.ru](https://www.znakschoola.ru/?_=%2Fpdf%2F2602.05394%23UE7DkG0PaBHZOakR54g1Wl8%3D&utm_source=openai))",
+    "Definition 2.4 makes “(n,k,0,κ)” precise: A is an n×n matrix with singular values σ1≥σ2≥⋯≥σn>0, and when l=0 the required inequality is σ_{k+1}/σ_n ≤ κ. ([znakschoola.ru](https://www.znakschoola.ru/?_=%2Fpdf%2F2602.05394%23UE7DkG0PaBHZOakR54g1Wl8%3D&utm_source=openai))",
+    "The nearby text interprets this as k large singular-value outliers and one remaining cluster with condition number κ; setting l=0 means there are no small-outlier singular values in the formal model. ([znakschoola.ru](https://www.znakschoola.ru/?_=%2Fpdf%2F2602.05394%23UE7DkG0PaBHZOakR54g1Wl8%3D&utm_source=openai))",
+    "The runtime is measured in arithmetic operations in the direct-access / exact-arithmetic discussion immediately preceding Problem 2.5. ([znakschoola.ru](https://www.znakschoola.ru/?_=%2Fpdf%2F2602.05394%23UE7DkG0PaBHZOakR54g1Wl8%3D&utm_source=openai))",
+    "The paper uses nnz(A) to denote the number of nonzero entries of A. ([znakschoola.ru](https://www.znakschoola.ru/?_=%2Fpdf%2F2602.05394%23UE7DkG0PaBHZOakR54g1Wl8%3D&utm_source=openai))",
+    "The symbol ω is the exponent of matrix multiplication. ([znakschoola.ru](https://www.znakschoola.ru/?_=%2Fpdf%2F2602.05394%23UE7DkG0PaBHZOakR54g1Wl8%3D&utm_source=openai))",
+    "A fully stand-alone version should make the quantification explicit: the question is whether there exists an algorithm that works for every right-hand side b and every matrix A in this class. That universality is implicit in the paper’s wording but not spelled out in your draft. ([znakschoola.ru](https://www.znakschoola.ru/?_=%2Fpdf%2F2602.05394%23UE7DkG0PaBHZOakR54g1Wl8%3D&utm_source=openai))",
+    "To stay paper-faithful, do not replace “high accuracy” by a stronger self-chosen notion such as backward stability or a specific residual guarantee unless the paper itself does so nearby; in the displayed statement and retrieved surrounding text, the paper leaves that phrase informal. ([znakschoola.ru](https://www.znakschoola.ru/?_=%2Fpdf%2F2602.05394%23UE7DkG0PaBHZOakR54g1Wl8%3D&utm_source=openai))",
+    "The nearby retrieved text does not impose a sharper scalar-field restriction beyond speaking about singular values and A^⊤, so a faithful rewrite should avoid adding extra ambient-field assumptions that the paper itself does not state there. ([znakschoola.ru](https://www.znakschoola.ru/?_=%2Fpdf%2F2602.05394%23UE7DkG0PaBHZOakR54g1Wl8%3D&utm_source=openai))"
+  ],
+  "refined_question": "In the direct access model, where one may compute with A directly rather than only through oracle queries v -> {Av, A^⊤v}, does there exist an algorithm that, for every n×n matrix A with singular values σ1≥⋯≥σn>0 satisfying σ_{k+1}/σ_n ≤ κ (equivalently, A is an (n,k,0,κ) matrix in the sense of Definition 2.4) and every right-hand side b, solves Ax=b to high accuracy using ~O(k^ω + nnz(A)κ) arithmetic operations? ([znakschoola.ru](https://www.znakschoola.ru/?_=%2Fpdf%2F2602.05394%23UE7DkG0PaBHZOakR54g1Wl8%3D&utm_source=openai))",
+  "equivalent_formulation": null,
+  "justification": "This is exactly Problem 2.5, not the neighboring bit-complexity question Problem 2.9: the parameters (n,k,0,κ), the focus on large outlying singular values with l=0, and the target sparse direct-access complexity ~O(k^ω + nnz(A)κ) all match the official problem statement. Definition 2.4 supplies the hidden content of the tuple notation, and the surrounding paragraphs explain that the motivation is to improve an existing direct-access bound of ~O(k^ω + n^2κ) so that it also exploits sparsity through nnz(A). ([znakschoola.ru](https://www.znakschoola.ru/?_=%2Fpdf%2F2602.05394%23UE7DkG0PaBHZOakR54g1Wl8%3D&utm_source=openai))",
+  "citations": [
+    {
+      "section": "Section 2.4",
+      "label": "Definition 2.4",
+      "page": 11
+    },
+    {
+      "section": "Section 2.4",
+      "label": "Problem 2.5",
+      "page": 12
+    },
+    {
+      "section": "Section 2.4",
+      "label": "Unnumbered surrounding discussion immediately preceding Problem 2.5 (direct vs. matrix-vector product complexity; sparse-matrix motivation)",
+      "page": 12
+    }
+  ]
+}

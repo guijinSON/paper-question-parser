@@ -100,6 +100,7 @@ def main() -> int:
 
         accepted_items = payload.get("accepted")
         needs_review_items = payload.get("needs_review")
+        source = payload.get("source") if isinstance(payload.get("source"), dict) else {}
 
         if not isinstance(accepted_items, list):
             invalid_files.append({"file": file_path.name, "reason": "missing_or_invalid_accepted_array"})
@@ -110,6 +111,8 @@ def main() -> int:
             continue
 
         arxiv_id = file_path.stem
+        source_title = source.get("title")
+        source_url = source.get("url")
         accepted_count_by_file[file_path.name] = len(accepted_items)
         needs_review_count_by_file[file_path.name] = len(needs_review_items)
 
@@ -136,6 +139,8 @@ def main() -> int:
                 {
                     "arxiv_id": arxiv_id,
                     "source_file": file_path.name,
+                    "source_title": source_title,
+                    "source_url": source_url,
                     "question_id": item.get("id"),
                     "question_text": question_text,
                     "context_brief": item.get("context_brief"),

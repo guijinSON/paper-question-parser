@@ -1,0 +1,37 @@
+{
+  "arxiv_id": "2411.10046",
+  "question_id": "q_019",
+  "original_question": "Let v1, ..., vn be a linear ordering of the vertices of a graph G, and for each vertex vi define d-(vi) = |{j < i : vivj in E(G)}| and d+(vi) = |{j > i : vivj in E(G)}|. A Type-A order is one in which every vertex v satisfies that d-(v) is odd or 0. Can it be decided in polynomial time whether a graph G admits a Type-A order or a Type-B order, where a Type-B order requires that each vertex either has d-(v) odd or 0, or else has d-(v) even and d+(v) = 0?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 10237.16,
+  "target_in_paper": "Section 7, Problem 7.1 of arXiv:2411.10046, together with the Type-A and Type-B definitions stated immediately before it.",
+  "completeness_score": 8.5,
+  "correct_elements": "Your draft already captures the right section of the paper, the correct vertex-order notation d-(vi) and d+(vi), the exact Type-A condition, the extra terminal-vertex allowance in Type-B, and the intended algorithmic focus on polynomial-time recognition.",
+  "missing_details": [
+    "The paper's intent is two separate recognition problems: decide whether G admits a Type-A order, and decide whether G admits a Type-B order. Read as one disjunctive question ('Type-A or Type-B'), the problem collapses to the Type-B case because every Type-A order is automatically Type-B by definition.",
+    "The order is a linear ordering of all vertices of G, say v1, ..., vn with n = |V(G)|, and the conditions must hold for every vertex in that full ordering.",
+    "To be fully stand-alone, the question should explicitly restate both d-(vi) = |{j < i : vivj in E(G)}| and d+(vi) = |{j > i : vivj in E(G)}| inside the final formulation.",
+    "The computational task is recognition in polynomial time as a function of the input graph size; the paper treats the search problem separately in Problem 7.2, so that should not be merged into the decision question.",
+    "There is no ambient ring/field, homogeneity condition, degree-of-polynomial restriction, or nilpotency hypothesis here; the hidden structure is purely graph-theoretic."
+  ],
+  "refined_question": "Given a graph G and a linear ordering v1, ..., vn of V(G), define d-(vi) = |{j < i : vivj in E(G)}| and d+(vi) = |{j > i : vivj in E(G)}|. Is there a polynomial-time algorithm that, given G, decides separately whether G admits (i) a Type-A order, meaning an ordering for which d-(vi) is odd or 0 for every i, and (ii) a Type-B order, meaning an ordering for which for every i either d-(vi) is odd or 0, or else d-(vi) is even and d+(vi) = 0?",
+  "equivalent_formulation": null,
+  "justification": "The draft is aimed squarely at Section 7 ('Special orderings of vertices'). The notation d-(vi), d+(vi) and the two order types are defined there immediately before Problem 7.1, and the paper's official question is exactly the polynomial-time recognizability of those two order classes. The main correction needed is conceptual: Problem 7.1 asks for the complexity of the Type-A and Type-B recognition problems as separate questions, not for the single disjunction 'does G admit a Type-A order or a Type-B order?'. Under the paper's own definitions, Type-A is a special case of Type-B, so the disjunctive reading would not faithfully reflect the paper's intent. Also, the paper separates decision from construction: Problem 7.1 is the decision problem, while Problem 7.2 asks whether such an order can be found in polynomial time if it exists.",
+  "citations": [
+    {
+      "section": "7",
+      "label": "definitions of Type-A order and Type-B order immediately preceding Problem 7.1",
+      "page": 10
+    },
+    {
+      "section": "7",
+      "label": "Problem 7.1",
+      "page": 10
+    },
+    {
+      "section": "7",
+      "label": "Problem 7.2",
+      "page": 10
+    }
+  ]
+}

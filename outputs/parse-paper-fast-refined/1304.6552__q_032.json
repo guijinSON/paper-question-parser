@@ -1,0 +1,47 @@
+{
+  "arxiv_id": "1304.6552",
+  "question_id": "q_032",
+  "original_question": "Characterize the numerical semigroups S for which the omega-primality omega(S) is different from the type t(S).",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 2958.42,
+  "target_in_paper": "Section 7, unnumbered open problem immediately after the definition of omega-primality: characterize the numerical semigroups S for which omega(S) != t(S), where t(S) is the tame degree, not the type.",
+  "completeness_score": 3,
+  "correct_elements": "Your draft correctly identifies the class of objects (numerical semigroups), the invariant omega(S), and that the paper asks for a characterization of the exceptional case where omega(S) differs from another invariant denoted t(S).",
+  "missing_details": [
+    "The crucial mismatch is that in the relevant open problem t(S) denotes the tame degree of S, not the type of S.",
+    "The paper uses the notation t(S) twice in different sections: in Section 1 for type, and in Section 7 for tame degree; the target problem is the Section 7 one.",
+    "The numerical semigroup should be presented as S = <n1 < ... < ne> with its minimal system of generators fixed, since omega(S) is defined from the generators n1, ..., ne.",
+    "One must define omega(S,s): the least positive integer N such that whenever s divides s1 + ... + sk in the additive monoid S, then s divides a subsum of at most N of those summands.",
+    "One must then define omega(S) = max{omega(S,n1), ..., omega(S,ne)}.",
+    "To state the tame degree, one must define the factorization set Z(s) = {(x1,...,xe) in N^e : x1 n1 + ... + xe ne = s}.",
+    "The factorization distance d(x,y) used in the tame degree must be specified: d(x,y) = max{|x - gcd(x,y)|, |y - gcd(x,y)|}, with gcd taken coordinatewise and |x| = x1 + ... + xe.",
+    "The tame degree t(s) must be defined before t(S): it is the least N such that for every i with s - ni in S and every factorization x in Z(s), there exists y in Z(s) with yi != 0 and d(x,y) <= N; then t(S) = sup{s in S} t(s).",
+    "The divisibility relation in omega(S,s) is divisibility in the additive monoid S, i.e. a divides b means b - a is in S.",
+    "The paper's official framing is that semigroups with omega(S) != t(S) are rare, and it asks for a characterization of those exceptional semigroups."
+  ],
+  "refined_question": "Let S = <n1 < ... < ne> be a numerical semigroup. For s in S, let omega(S,s) be the least positive integer N such that whenever s divides s1 + ... + sk for some s1, ..., sk in S, there exists a subset {i1, ..., ir} of {1, ..., k} with r <= N such that s divides s_{i1} + ... + s_{ir}; define omega(S) = max{omega(S,n1), ..., omega(S,ne)}. For s in S, let Z(s) = {(x1,...,xe) in N^e : x1 n1 + ... + xe ne = s}, define d(x,y) = max{|x - gcd(x,y)|, |y - gcd(x,y)|} with gcd taken coordinatewise and |x| = x1 + ... + xe, and let t(s) be the least N such that for every i with s - ni in S and every x in Z(s), there exists y = (y1,...,ye) in Z(s) with yi != 0 and d(x,y) <= N; set t(S) = sup_{s in S} t(s). Characterize the numerical semigroups S for which omega(S) != t(S).",
+  "equivalent_formulation": null,
+  "justification": "The draft is aimed at the Section 7 open problem on the comparison between omega-primality and another invariant denoted t(S), but it is not paper-faithful because it identifies t(S) as the type. In the actual target passage, Section 7 first defines the tame degree t(S), then defines omega(S), and immediately asks for a characterization of numerical semigroups with omega(S) != t(S). Section 1 separately defines the type and also denotes it by t(S), which explains the ambiguity but confirms that the draft points to the wrong invariant. The refined version therefore keeps the characterization problem and omega-primality theme, while correcting t(S) to the tame degree and making the definitions explicit enough to stand alone.",
+  "citations": [
+    {
+      "section": "Section 1",
+      "label": "definition of pseudo-Frobenius numbers PF(S) and type t(S)",
+      "page": 1
+    },
+    {
+      "section": "Section 7",
+      "label": "introductory factorization notation Z(s) and distance d(x,y)",
+      "page": 11
+    },
+    {
+      "section": "Section 7",
+      "label": "definition of tame degree t(S)",
+      "page": 11
+    },
+    {
+      "section": "Section 7",
+      "label": "definition of omega(S,s), omega(S), and the unnumbered open problem asking for a characterization of semigroups with omega(S) != t(S)",
+      "page": 11
+    }
+  ]
+}

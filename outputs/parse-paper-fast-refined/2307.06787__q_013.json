@@ -1,0 +1,53 @@
+{
+  "arxiv_id": "2307.06787",
+  "question_id": "q_013",
+  "original_question": "For Sobolev approximation based on iid uniformly distributed sample points on a domain D_d\\subset R^d, do the asymptotic constants in expressions such as lim_{n->infinity} e(P_n,W_p^s(D_d),L_q(D_d)) n^{s/d-(1/p-1/q)+} always exist, and if they exist, do they depend only on the volume of D_d rather than on its shape?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 9037.16,
+  "target_in_paper": "Section 5 (\"iid Information\"), especially the final unnumbered Open Problem on asymptotic constants for algorithms restricted to iid uniformly distributed sample points; in the draft's narrower form, this specializes to the Sobolev L_q-approximation problem discussed just before Theorems 5.1 and 5.2.",
+  "completeness_score": 7.0,
+  "correct_elements": "Your draft correctly identifies the right theme and almost the right target: iid uniformly distributed sample points on a domain, Sobolev approximation in L_q, asymptotic constants for the normalized error, and the conjectural claim that these constants should depend on volume rather than shape. That is exactly the direction of the open problem posed at the end of Section 5.",
+  "missing_details": [
+    "The relevant item in arXiv:2307.06787 is not a numbered conjecture but the final unnumbered Open Problem in Section 5; this paper does not contain a Conjecture 1.1, Proposition 1.2, or Theorem 1.3.",
+    "The paper uses domains Ω that are open, bounded, and satisfy an interior cone condition; your draft only says D_d subset R^d.",
+    "The Sobolev parameters must be fixed: s is an integer smoothness parameter, and p,q must satisfy the point-evaluation assumptions used in Section 5 (namely the regime in which W_p^s(Ω) embeds into bounded continuous functions, so that sampling by function values is meaningful).",
+    "The approximation problem is specifically the operator APP: W_p^s(Ω) -> L_q(Ω).",
+    "The paper distinguishes two different iid-based approximation errors: a Monte Carlo error criterion and a stronger uniform error criterion. Your draft writes a generic e(P_n,...) without specifying which one is meant.",
+    "P_n should be defined explicitly as P_n={X_1,...,X_n} with X_1,...,X_n iid and uniformly distributed on Ω with respect to normalized Lebesgue measure.",
+    "The paper's notation is not simply e(P_n,...); one must say that the error is the infimum over all randomized algorithms allowed to use only the sampled values f|_{P_n}.",
+    "The normalizing rate is not uniformly the same across all regimes if one mixes the two error criteria. The Monte Carlo approximation rate matches n^{-s/d+(1/p-1/q)_+}, but for the uniform iid criterion the iid rate can differ in some p,q regimes, and the endpoint p=q=∞ carries an unavoidable logarithmic loss.",
+    "The positive-part notation (1/p-1/q)_+ should be defined as max(1/p-1/q,0).",
+    "The quantifiers should be fixed carefully: the question is for each fixed d,s,p,q and each fixed admissible domain Ω, not an unqualified 'always' over all settings at once.",
+    "The paper states the shape-versus-volume claim conjecturally and heuristically; it is not presented as proved, and nearby context in Section 4 suggests that boundary regularity may matter when one asks for precise asymptotic constants on general domains."
+  ],
+  "refined_question": "Fix d in N, an open bounded domain D subset R^d satisfying an interior cone condition, an integer s >= 1, and exponents 1 <= p,q <= infinity in the parameter regime of Section 5 for which point evaluations on W_p^s(D) are well defined and the approximation operator APP: W_p^s(D) -> L_q(D) is considered. Let P_n={X_1,...,X_n}, where X_1,...,X_n are iid uniformly distributed on D, and let e_iid(n;W_p^s(D),L_q(D)) denote the minimal approximation error achievable by randomized algorithms that may use only the sampled values f|_{P_n} under one of the two Section 5 error criteria (Monte Carlo error or uniform error). After normalization by the corresponding Section 5 convergence rate for that criterion—in particular by n^{s/d-(1/p-1/q)_+} in the Monte Carlo case, with the additional logarithmic correction in the exceptional endpoint p=q=∞—does the resulting sequence have a limit as n tends to infinity, and, if it does, is that asymptotic constant determined only by vol(D) and not by the shape of D?",
+  "equivalent_formulation": null,
+  "justification": "The closest paper-faithful target is the final Open Problem in Section 5, not a numbered conjecture. Your draft already captures its central content, but Section 5 first fixes the Sobolev setting, the admissible domains, and two distinct iid-based error notions via Theorems 5.1 and 5.2. Because the paper's open problem is phrased after those distinctions, a stand-alone reformulation has to specify the domain assumptions, the operator APP: W_p^s(D) -> L_q(D), the iid point set P_n, the exact meaning of the error quantity, and the fact that the normalization depends on which of the Section 5 error criteria is being used. The extra shape-versus-volume clause is indeed in the paper's final Section 5 conjectural remark, and Section 4 provides nearby supporting context where Novak already speculates that asymptotic constants for related Sobolev problems may be domain-shape independent.",
+  "citations": [
+    {
+      "section": "Section 5",
+      "label": "Sobolev setup for iid information and approximation problem",
+      "page": "within chapter pp. 117-119 (chapter pp. 105-131)"
+    },
+    {
+      "section": "Section 5",
+      "label": "Theorem 5.1",
+      "page": "within chapter pp. 119-120 (chapter pp. 105-131)"
+    },
+    {
+      "section": "Section 5",
+      "label": "Theorem 5.2",
+      "page": "within chapter pp. 120-121 (chapter pp. 105-131)"
+    },
+    {
+      "section": "Section 5",
+      "label": "Open Problem (final paragraph of Section 5)",
+      "page": "within chapter pp. 121-122 (chapter pp. 105-131)"
+    },
+    {
+      "section": "Section 4",
+      "label": "Remark 7(2)",
+      "page": "within chapter pp. 115-117 (chapter pp. 105-131)"
+    }
+  ]
+}

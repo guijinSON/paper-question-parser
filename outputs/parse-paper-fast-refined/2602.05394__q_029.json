@@ -1,0 +1,46 @@
+{
+  "arxiv_id": "2602.05394",
+  "question_id": "q_029",
+  "original_question": "Consider a general nonnormal matrix $A = V Lambda V^-1$ with largest eigenvalue magnitude $lambda_1$ and finite eigenvector condition number $kappa_V = |V | |V^-1 |$. Is there an algorithm that uses $ ( (nkappa_V),1/epsilon)$ matrix-vector products with $A$ and returns $lambda$ so that $|lambda - lambda'| epsilon |lambda_1|$, where $lambda'$ is any eigenvalue of $A$ with $|lambda' | (1-epsilon) lambda_1$?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 12558.8,
+  "target_in_paper": "Problem 3.9 in Section 3.5, 'Largest / rightmost eigenvalue'. ([arxiv.org](https://arxiv.org/pdf/2602.05394))",
+  "completeness_score": 7.5,
+  "correct_elements": "Your draft already captures the main ingredients of the paper’s question: the input is a diagonalizable but potentially nonnormal matrix written as A=VΛV^{-1}; the conditioning parameter is the eigenvector condition number κ_V; the access model is via matrix-vector products with A; and the goal is to output a scalar λ close to an eigenvalue whose modulus is within a factor 1−ε of the largest eigenvalue modulus. It also correctly stays with the largest-modulus version rather than drifting to the separate rightmost-eigenvalue variant. ([arxiv.org](https://arxiv.org/pdf/2602.05394))",
+  "missing_details": [
+    "The complexity in the paper is polynomial in log(nκ_V) and 1/ε, not polynomial in nκ_V itself. The missing poly(log(nκ_V),1/ε) structure is the main substantive omission. ([arxiv.org](https://arxiv.org/pdf/2602.05394))",
+    "κ_V is written as κ_V=∥V∥∥V^{-1}∥, so the stand-alone question should use norm notation rather than |V||V^{-1}|. Problem 3.9 does not further specialize the norm, so the faithful rewrite should preserve the generic norm notation. ([arxiv.org](https://arxiv.org/pdf/2602.05394))",
+    "The problem is restricted to matrices that admit a diagonalization A=VΛV^{-1}; equivalently, it is about diagonalizable matrices with finite eigenvector condition number. A stand-alone version should say that explicitly. ([arxiv.org](https://arxiv.org/pdf/2602.05394))",
+    "A stand-alone version should quantify the inputs: for every dimension n and accuracy parameter ε∈(0,1), given only oracle access to v↦Av, does such an algorithm exist? The query model is implicit in the paper but should be made explicit. ([arxiv.org](https://arxiv.org/pdf/2602.05394))",
+    "It should define the largest eigenvalue magnitude explicitly, e.g. λ1:=max_i |λ_i(A)|. ([arxiv.org](https://arxiv.org/pdf/2602.05394))",
+    "The phrase 'where λ′ is any eigenvalue' is ambiguous in isolation. The next remark says that demanding an approximation for each λ′ with |λ′|≥(1−ε)|λ1| is a strengthening, so the intended base problem is to approximate one such near-maximal-modulus eigenvalue, not all of them. ([arxiv.org](https://arxiv.org/pdf/2602.05394))",
+    "The ambient field is not stated inside Problem 3.9, but the surrounding Section 3 formulates nearby eigenvalue questions over C and the remark mentions the complex plane. Making A∈C^{n×n} explicit improves self-containment without broadening the problem. ([arxiv.org](https://arxiv.org/pdf/2602.05394))",
+    "The paper separately mentions a rightmost-eigenvalue variant only as a nearby variant, so it should not be folded into the refined main question. ([arxiv.org](https://arxiv.org/pdf/2602.05394))",
+    "No homogeneity, degree, nilpotency, or 'for all sufficiently large' qualifiers occur here; adding any such conditions would be unfaithful to the paper’s formulation. ([arxiv.org](https://arxiv.org/pdf/2602.05394))"
+  ],
+  "refined_question": "Let A∈C^{n×n} be a diagonalizable, not necessarily normal matrix with diagonalization A=VΛV^{-1}. Let λ1:=max_i |λ_i(A)| be the largest eigenvalue modulus, and assume the eigenvector condition number κ_V:=∥V∥∥V^{-1}∥ is finite. Given only oracle access to matrix-vector products v↦Av and an accuracy parameter ε∈(0,1), does there exist an algorithm that uses poly(log(nκ_V),1/ε) such matrix-vector products and returns a scalar λ∈C for which there exists an eigenvalue λ′ of A satisfying |λ′|≥(1−ε)λ1 and |λ−λ′|≤ελ1? ([arxiv.org](https://arxiv.org/pdf/2602.05394))",
+  "equivalent_formulation": null,
+  "justification": "The draft is clearly targeting Section 3.5, Problem 3.9, rather than a neighboring problem: it matches the same class of inputs A=VΛV^{-1}, the same conditioning parameter κ_V, the same matrix-vector-product access model, and the same accuracy target of approximating an eigenvalue whose modulus is within a factor 1−ε of the largest modulus. The nearby remarks are essential for sharpening the wording: they note only a possible spectral-radius approximation via the power method, identify a stronger version that would approximate each near-maximal-modulus eigenvalue, and then mention the rightmost-eigenvalue question only as a separate variant. Hence the faithful stand-alone rewrite should keep the largest-modulus problem, preserve the poly(log(nκ_V),1/ε) matvec complexity, and interpret the base task as finding one such eigenvalue. ([arxiv.org](https://arxiv.org/pdf/2602.05394))",
+  "citations": [
+    {
+      "section": "1",
+      "label": "Introduction",
+      "page": "P2-P3"
+    },
+    {
+      "section": "3.3",
+      "label": "Problem 3.4 (nearby eigenvalue-problem notation over C)",
+      "page": "P22"
+    },
+    {
+      "section": "3.5",
+      "label": "Problem 3.9",
+      "page": "P25"
+    },
+    {
+      "section": "3.5",
+      "label": "Remarks following Problem 3.9",
+      "page": "P26"
+    }
+  ]
+}

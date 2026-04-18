@@ -1,0 +1,49 @@
+{
+  "arxiv_id": "2509.25446",
+  "question_id": "q_030",
+  "original_question": "Let (W, S) be a Coxeter system, let T = {w s w^{-1} : s in S, w in W} be the set of reflections, and let ell(t) denote Coxeter length. Is the generating function sum_{t in T} x^{ell(t)} always rational?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 11468.05,
+  "target_in_paper": "Stembridge’s problem as quoted in Section 1 (Introduction): for a Coxeter system (W,S), is the Poincaré series of reflections T(q)=∑_{t∈T} q^{ℓ(t)} rational?",
+  "completeness_score": 8.5,
+  "correct_elements": "Your draft already captures the core mathematical object and the correct question: a Coxeter system (W,S), the reflection set T=⋃_{w∈W}wSw^{-1}, the ordinary Coxeter length ℓ (not reflection length), and the ask for rationality of the reflection-length generating function. This is essentially the same problem stated in the introduction of the paper.",
+  "missing_details": [
+    "The paper works with Coxeter systems with S finite; that finiteness hypothesis should be stated explicitly.",
+    "The series is presented as the Poincaré series T(q), i.e. a formal power series in one variable q (the paper uses q, not x).",
+    "'Rational' is meant algebraically: T(q) can be written as a ratio of two polynomials in q, equivalently T(q)∈Q(q).",
+    "The length function should be specified as the Coxeter length with respect to the simple generating set S.",
+    "To be fully stand-alone, the quantifier should be explicit: 'for every Coxeter system (W,S) with S finite'.",
+    "The paper’s nearby context identifies this as a question about counting reflections as elements of W, not counting reduced words or palindromic representatives; that distinction should remain explicit.",
+    "An equivalent root-theoretic formulation used in the paper is that T(q)=qΦ+(q^2), where Φ+(q)=∑_{β∈Φ+} q^{dp(β)}; this is not necessary in the main question, but it is part of the paper’s precise surrounding context."
+  ],
+  "refined_question": "For every Coxeter system (W,S) with S finite, let T=⋃_{w∈W} wSw^{-1} be the set of reflections and let ℓ:W→N be the Coxeter length function with respect to S. Is the Poincaré series of reflections\nT(q):=∑_{t∈T} q^{ℓ(t)} ∈ Z[[q]]\nrational, i.e. does T(q) belong to Q(q) (equivalently, can it be expressed as a ratio of two polynomials in q)?",
+  "equivalent_formulation": "Equivalently, if Φ+ is the set of positive roots and dp(β) is the depth of β, is the depth generating function Φ+(q):=∑_{β∈Φ+} q^{dp(β)} rational? In the paper this is equivalent because each reflection t corresponds to a positive root αt with ℓ(t)=2dp(αt)+1, so T(q)=qΦ+(q^2).",
+  "justification": "The draft is aiming at the introduction’s formulation of Stembridge’s question, not at the later affine-only closed-form theorem. In Section 1, the paper defines the Poincaré series A(q)=∑_{w∈A}q^{ℓ(w)} and then states Stembridge’s problem exactly as the rationality of T(q)=∑_{t∈T}q^{ℓ(t)} (Section 1, Introduction, p. 2). The paper also clarifies that 'rational' means a ratio of polynomials in q (Section 1, Introduction, p. 2). Proposition 3.1 supplies the root-theoretic relation ℓ(t)=2dp(αt)+1 for the positive root αt attached to a reflection t (Section 3.1, Proposition 3.1, p. 11), which yields the explicit equivalent formulation T(q)=qΦ+(q^2) used in the introduction when discussing de Man’s solution (Section 1, Introduction, p. 4). Theorem 1.2 and Theorem 4.11 are sharper affine results giving a closed-form rational expression, so they provide nearby precision and scope, but they are not the exact target of your draft because your draft asks the general 'always rational?' question rather than the affine formula (Section 1, Theorem 1.2, p. 4; Section 4, Theorem 4.11, p. 28).",
+  "citations": [
+    {
+      "section": "1. Introduction",
+      "label": "Stembridge’s problem (quoted in the introduction)",
+      "page": 2
+    },
+    {
+      "section": "1. Introduction",
+      "label": "Definition of Poincaré series A(q) and explanation of rationality as ratio of polynomials",
+      "page": 2
+    },
+    {
+      "section": "3.1. Reflection-prefixes and palindromic reduced words",
+      "label": "Proposition 3.1",
+      "page": 11
+    },
+    {
+      "section": "1. Introduction",
+      "label": "Theorem 1.2",
+      "page": 4
+    },
+    {
+      "section": "4. Enumeration of the reflections in affine type",
+      "label": "Theorem 4.11",
+      "page": 28
+    }
+  ]
+}

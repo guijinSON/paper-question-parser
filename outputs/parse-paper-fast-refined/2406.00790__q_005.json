@@ -1,0 +1,53 @@
+{
+  "arxiv_id": "2406.00790",
+  "question_id": "q_005",
+  "original_question": "For integers e and m with 3 <= e < m, let T(e,m) be the supremum of t(Gamma) over all numerical semigroups Gamma with embedding dimension edim(Gamma) = e + 1 and multiplicity mult(Gamma) = m, where t(Gamma) is the type of Gamma, namely the number of pseudo-Frobenius numbers of Gamma. Determine T(e,m).",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 9889.89,
+  "target_in_paper": "Section 2, Problem 5 of arXiv:2406.00790: determine T(e,m), the extremal type among numerical semigroups with embedding dimension e+1 and multiplicity m. This is the type-analogue of Problem 2, not the more specific fixed-e asymptotic conjecture cited later as Problem 6.",
+  "completeness_score": 9,
+  "correct_elements": "Your draft already matches the paper's main target almost exactly: it uses the same parameter range 3 <= e < m, the same extremal quantity T(e,m), the same constraints edim(Gamma)=e+1 and mult(Gamma)=m, and the same interpretation of the type as the number of pseudo-Frobenius numbers.",
+  "missing_details": [
+    "State explicitly that Gamma ranges over numerical semigroups, i.e. cofinite additive submonoids of N.",
+    "Give the exact definition of a pseudo-Frobenius number: an integer p not in Gamma such that p+gamma belongs to Gamma for every nonzero gamma in Gamma; then t(Gamma) is the cardinality of that set.",
+    "Mention the paper's immediate surrounding context: after Problem 5, the authors introduce the benchmark upper bound D(e,m), defined from the Macaulay expansion data r, s, and n^{<d>}, and Theorem 7 studies when T(e,m)=D(e,m).",
+    "If one imports the nearby asymptotic statements, clarify the quantifiers: 'e >> 0' means 'for all sufficiently large e, depending on the fixed value of delta=m-e', and 'm >> 0' means 'for all sufficiently large m, depending on the fixed value of e'.",
+    "Note that no ambient field or semigroup ring is part of Problem 5 itself; the question is purely semigroup-theoretic and type is field-independent.",
+    "The source paper [MS24] writes the same extremal quantity as a maximum, not merely a supremum; this is a sharper stand-alone formulation once finiteness is known."
+  ],
+  "refined_question": "For integers e,m in N with 3 <= e < m, let T(e,m) := sup{ t(Gamma) : Gamma is a numerical semigroup with edim(Gamma)=e+1 and mult(Gamma)=m }, where a pseudo-Frobenius number of Gamma is an integer p not in Gamma such that p+gamma is in Gamma for every gamma in Gamma\\{0}, and t(Gamma) is the number of pseudo-Frobenius numbers of Gamma. Determine T(e,m). In the paper's immediate framework, this is organized through the natural upper bound D(e,m)=binom(e+r-2,r-1)+s^{<r>}, where r is determined by binom(e+r-1,r-1) <= m < binom(e+r,r), s := m-binom(e+r-1,r-1), and n^{<d>} is defined from the Macaulay expansion n=binom(n_d,d)+binom(n_{d-1},d-1)+...+binom(n_j,j) by n^{<d>} := binom(n_d-1,d)+binom(n_{d-1}-1,d-1)+...+binom(n_j-1,j); so the sharp paper-faithful version is to determine T(e,m), and in particular to identify for which pairs (e,m) one has T(e,m)=D(e,m).",
+  "equivalent_formulation": null,
+  "justification": "The draft is already very close to the exact open problem stated in the survey: Section 2, Problem 5 asks to determine T(e,m) for numerical semigroups with edim(Gamma)=e+1 and mult(Gamma)=m. The nearby context on the same page defines the upper bound D(e,m) and states Theorem 7, which proves T(e,e+delta)=D(e,e+delta) for fixed delta and sufficiently large e; this shows that the paper frames the problem through sharpness of D(e,m). I therefore keep the question centered on Problem 5 itself, while making explicit the semigroup-theoretic definitions and the D(e,m) framework. I do not replace it by Problem 6, because although Problem 6 is printed in the survey as a duplicate of Problem 5, its citation to [MS24, Conjecture 5.3] shows that the intended neighboring problem is the stricter asymptotic conjecture that for fixed e>3 one should have T(e,m)<D(e,m) for all sufficiently large m.",
+  "citations": [
+    {
+      "section": "1. Generalities",
+      "label": "definitions of edim(Gamma), mult(Gamma), pseudo-Frobenius numbers, and type t(Gamma)",
+      "page": 2
+    },
+    {
+      "section": "2. Embedding dimension and multiplicity",
+      "label": "Problem 5",
+      "page": 5
+    },
+    {
+      "section": "2. Embedding dimension and multiplicity",
+      "label": "Theorem 7",
+      "page": 5
+    },
+    {
+      "section": "2. Embedding dimension and multiplicity",
+      "label": "Problem 6 (as printed in the survey)",
+      "page": 5
+    },
+    {
+      "section": "1. Introduction of [MS24]",
+      "label": "Problem 1.3 and Theorem 1.4",
+      "page": "2-3"
+    },
+    {
+      "section": "5. Results for the type of [MS24]",
+      "label": "Conjecture 5.3",
+      "page": 15
+    }
+  ]
+}

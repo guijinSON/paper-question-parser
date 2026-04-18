@@ -1,0 +1,47 @@
+{
+  "arxiv_id": "2602.05394",
+  "question_id": "q_031",
+  "original_question": "Prove stronger theoretical bounds for GECP applied to $K$, by exploiting the structure of the kernel $K$.",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 12591.57,
+  "target_in_paper": "Problem 4.2 in Section 4.1.1 (\"The discrete Lehmann representation\"): prove stronger theoretical bounds for GECP for the specific DLR kernel K(t,ω)=e^{-tω}/(1+e^{-ω}).",
+  "completeness_score": 8.5,
+  "correct_elements": "Your draft already captures the exact algorithmic target (GECP), the fact that the object of interest is the kernel K, and the intended proof strategy of exploiting special structure rather than asking for a generic worst-case GECP result. In fact, it is very close to the paper’s official formulation of Problem 4.2.",
+  "missing_details": [
+    "The kernel must be stated explicitly: K(t,ω)=e^{-tω}/(1+e^{-ω}).",
+    "The application setting is the discrete Lehmann representation for imaginary-time Green’s functions, where G(t)=∫_{-Λ}^{Λ} K(t,ω)ρ(ω)dω.",
+    "The variables and domain are implicit in the draft: t is the imaginary-time variable (dimensionless, on [0,1] in the DLR normalization) and ω ranges over the truncated frequency interval [-Λ,Λ].",
+    "GECP is being used to construct a rank-k cross approximation of K by selecting time/frequency interpolation nodes; that role of GECP should be made explicit.",
+    "The approximation metric is missing: the nearby discussion measures error by the infinity norm, written in the paper as ||K-ĤK||∞≤ε.",
+    "The phrase \"stronger theoretical bounds\" should be anchored to the currently cited guarantee for GECP: k=O(Λ+log(1/ε)) implies ||K-ĤK||∞≤ε.",
+    "The paper also gives the sharper benchmark that there exists some rank-k approximation K_k with k=O(log(Λ)log(1/ε)) implying ||K-K_k||∞≤ε; the refined question should indicate that the desired GECP bound is meant to move toward explaining this gap.",
+    "The quantifiers are implicit: the desired bound should be uniform in the cutoff Λ and tolerance ε (at least for the regime considered in the paper, e.g. Λ large and 0<ε<1).",
+    "The scope should remain this specific DLR kernel, not broaden to arbitrary kernels or to the alternative sparse-ρ formulation mentioned later in the subsection.",
+    "The nearby positive-definite-kernel/pivoted-Cholesky remark is only contextual evidence, not the main problem statement, so the refined version should not replace Problem 4.2 with that variant."
+  ],
+  "refined_question": "For the discrete Lehmann representation kernel K(t,ω)=e^{-tω}/(1+e^{-ω}), arising in G(t)=∫_{-Λ}^{Λ} K(t,ω)ρ(ω)dω and restricted to (t,ω)∈[0,1]×[-Λ,Λ], prove improved error-versus-rank bounds for the rank-k cross approximation ĤK_k produced by Gaussian elimination with complete pivoting. More precisely, by exploiting the specific structure of this kernel, obtain a GECP guarantee in the paper’s infinity norm that is substantially sharper than the existing analytic-kernel bound k=O(Λ+log(1/ε)) ⇒ ||K-ĤK_k||∞≤ε, ideally clarifying why GECP empirically behaves much closer to the benchmark existence rate k=O(log(Λ)log(1/ε)) ⇒ ||K-K_k||∞≤ε.",
+  "equivalent_formulation": null,
+  "justification": "The cited paper is an open-problems workshop article, so the nearest official target is not a conjecture/theorem pair but Problem 4.2 in Section 4.1.1. Your draft is almost verbatim the official problem statement, which is why the score is high. However, standing alone it does not identify which kernel K is meant, what problem class it comes from, what norm and approximation model are under discussion, or what \"stronger\" is measured against. The nearby context in the same subsection defines the DLR setting via imaginary-time Green’s functions, states the current GECP bound and the sharper existence benchmark, and then immediately formulates Problem 4.2. The positive-definite-kernel/pivoted-Cholesky remark that follows is explicitly presented only as a relatively satisfactory answer under an extra assumption, so it should not replace the official question. Likewise, the later sparse-ρ discussion is presented as an alternative perspective, not as an equivalent reformulation of Problem 4.2.",
+  "citations": [
+    {
+      "section": "4.1.1",
+      "label": "The discrete Lehmann representation",
+      "page": "30"
+    },
+    {
+      "section": "4.1.1",
+      "label": "Equation (11) and the surrounding comparison between the existing GECP bound and the sharper existence rate",
+      "page": "30"
+    },
+    {
+      "section": "4.1.1",
+      "label": "Problem 4.2",
+      "page": "30"
+    },
+    {
+      "section": "4.1.1",
+      "label": "Post-Problem 4.2 discussion on the continuous positive definite kernel case and pivoted Cholesky",
+      "page": "30"
+    }
+  ]
+}

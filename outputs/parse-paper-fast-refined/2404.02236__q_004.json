@@ -1,0 +1,39 @@
+{
+  "arxiv_id": "2404.02236",
+  "question_id": "q_004",
+  "original_question": "Design a polynomial-time algorithm that decides whether a given graph admits pretty good state transfer between two vertices, and also design an algorithm that computes a subsequence of times witnessing that phenomenon. Here pretty good state transfer between vertices u and v means that there are distinct times t for which the sequence (|exp(it_j A)_{uv}|)_{j >= 0} converges to 1, where A is the adjacency matrix of the graph.",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 9497.56,
+  "target_in_paper": "Section 2.3 (\"Bonus problems related to state transfer\"), Open Problem 2.4: find a polynomial-time algorithm to test whether pretty good state transfer occurs, and an algorithm to compute a subsequence of times witnessing it.",
+  "completeness_score": 8.5,
+  "correct_elements": "Your draft is already very close to the paper's actual target. It captures the same two algorithmic tasks as Open Problem 2.4: a polynomial-time decision procedure for pretty good state transfer and a separate procedure for producing witness times. It also uses the correct continuous-time evolution exp(i t A) and the correct convergence criterion |(exp(i t_j A))_{uv}| -> 1 for pretty good state transfer.",
+  "missing_details": [
+    "The paper's local definition is for a fixed pair of vertices, so the input should be made explicit as a finite graph G together with specified vertices u and v (implicitly distinct).",
+    "The times t_j should be stated to be real numbers, and the witness sequence should consist of pairwise distinct real times.",
+    "To be fully stand-alone, define the continuous-time quantum walk operator as U(t) = exp(i t A(G)), where A(G) is the adjacency matrix of G, and then state the condition as |U(t_j)_{uv}| -> 1.",
+    "The phrase \"graph admits pretty good state transfer\" is ambiguous unless one says whether this means between the given pair u,v or for some unspecified pair; in this context it should mean between the designated vertices u and v.",
+    "The paper only requires polynomial time for the decision algorithm; for the second task it asks more generally for an algorithm computing a witnessing subsequence of times, not explicitly a polynomial-time one.",
+    "If the algorithm returns witness times, the success condition should be stated explicitly: on yes-instances it outputs a sequence (or, in the paper's wording, a subsequence) (t_j) such that |(exp(i t_j A(G)))_{uv}| converges to 1.",
+    "No ambient ring/field, homogeneity, degree, or nilpotency conditions are relevant here; the hidden assumptions that matter are instead the finite graph setting, the adjacency-matrix Hamiltonian, and the real time parameter."
+  ],
+  "refined_question": "Given a finite graph G with adjacency matrix A(G) and two distinct vertices u,v in V(G), find a polynomial-time algorithm that decides whether pretty good state transfer occurs between u and v, in the sense that there exists a sequence of pairwise distinct real times (t_j)_{j >= 0} such that |(exp(i t_j A(G)))_{uv}| converges to 1 as j -> infinity; and, whenever the answer is yes, find an algorithm that computes such a witnessing sequence of times (equivalently, a subsequence of times representing pretty good state transfer, in the paper's wording).",
+  "equivalent_formulation": null,
+  "justification": "This draft is targeting Open Problem 2.4 almost verbatim. The paper first defines the continuous-time quantum walk by U(t) = exp(i t A(G)) in the introduction, then immediately before Open Problem 2.4 defines pretty good state transfer between vertices u and v by the existence of a sequence of distinct times (t_j) for which |(exp(i t_j A(G)))_{uv}| tends to 1. Open Problem 2.4 then asks for exactly two things: a polynomial-time test for whether pretty good state transfer occurs, and an algorithm to compute a subsequence of times witnessing it. The main refinement needed is to make the fixed input pair (G,u,v), the real-time sequence, and the witness-output condition explicit. The paper itself does not state an alternate equivalent formulation of this open problem.",
+  "citations": [
+    {
+      "section": "1",
+      "label": "Introduction",
+      "page": "1"
+    },
+    {
+      "section": "2.3",
+      "label": "paragraph immediately preceding Open Problem 2.4",
+      "page": "5-6"
+    },
+    {
+      "section": "2.3",
+      "label": "Open Problem 2.4",
+      "page": "6"
+    }
+  ]
+}

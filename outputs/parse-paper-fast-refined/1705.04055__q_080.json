@@ -1,0 +1,42 @@
+{
+  "arxiv_id": "1705.04055",
+  "question_id": "q_080",
+  "original_question": "A word is quasiperiodic if there exists another word x such that every position of the word lies inside some occurrence of x as a factor. Given a morphism f and a letter a such that a is the initial letter of f(a), is it decidable whether the infinite fixed point f^ω(a) is quasiperiodic?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 5477.02,
+  "target_in_paper": "Question 3.3.13.1 in Section 3.3 (“Quasiperiodicity”): “Given a morphism f and a letter a such that a is the initial letter of f(a), is it decidable that f^ω(a) is quasiperiodic?” The surrounding paragraph also gives the intended notion of quasiperiodicity and notes that Levé and Richomme had already obtained algorithms for deciding strong quasiperiodicity on finite and infinite words. ([paperzz.com](https://paperzz.com/doc/7042904/ten-conferences-words--open-problems-and))",
+  "completeness_score": 9,
+  "correct_elements": "Your draft is already very close to the paper-faithful formulation: it asks exactly about a morphism f, a letter a with a as the initial letter of f(a), and the decidability of whether the infinite fixed point f^ω(a) is quasiperiodic. It also correctly uses the coverage definition of quasiperiodicity that appears in Section 3.3. ([paperzz.com](https://paperzz.com/doc/7042904/ten-conferences-words--open-problems-and))",
+  "missing_details": [
+    "A fully stand-alone version should specify that f is a morphism of words on some finite alphabet A, typically f: A* -> A*. The paper leaves the alphabet and codomain implicit. ([paperzz.com](https://paperzz.com/doc/7042904/ten-conferences-words--open-problems-and))",
+    "It should say explicitly that f^ω(a) denotes the right-infinite fixed point obtained by iterating f on a, i.e. that the limit exists as an infinite word; in the paper this is encoded only implicitly through the notation f^ω(a) together with the hypothesis that a is the initial letter of f(a). ([paperzz.com](https://paperzz.com/doc/7042904/ten-conferences-words--open-problems-and))",
+    "The quasiperiod should be stated as a nonempty finite word q, and the coverage condition should be attached explicitly to the whole right-infinite word: every position of f^ω(a) lies inside some occurrence of q. Section 3.3 gives the coverage idea, but the question itself does not restate these details. ([paperzz.com](https://paperzz.com/doc/7042904/ten-conferences-words--open-problems-and))",
+    "To make the decision problem fully explicit, one can unpack 'is it decidable' as: given the finite description of f and the letter a, is there an algorithm deciding whether f^ω(a) is quasiperiodic? This algorithmic input/output structure is implicit in the paper's wording. ([paperzz.com](https://paperzz.com/doc/7042904/ten-conferences-words--open-problems-and))",
+    "No ambient ring/field, homogeneity, degree, or nilpotency conditions are involved here; this is a combinatorics-on-words decision problem, so those items are not missing data for this particular question. ([paperzz.com](https://paperzz.com/doc/7042904/ten-conferences-words--open-problems-and))"
+  ],
+  "refined_question": "Let A be a finite alphabet, let f: A* -> A* be a morphism, and let a ∈ A be such that a is the first letter of f(a) and the iterates of f on a define a right-infinite fixed point f^ω(a). Recall that an infinite word w ∈ A^N is quasiperiodic if there exists a nonempty finite word q ∈ A+ such that every position of w belongs to some occurrence of q as a factor of w. Is there an algorithm that, given f and a, decides whether the pure morphic word f^ω(a) is quasiperiodic? ([paperzz.com](https://paperzz.com/doc/7042904/ten-conferences-words--open-problems-and))",
+  "equivalent_formulation": null,
+  "justification": "The draft is targeting Section 3.3 exactly, not a neighboring statement elsewhere in the paper. Question 3.3.13.1 matches it almost word for word, whereas Conjecture 3.3.13.2 is a distinct and broader question about weak quasiperiodicity of morphisms generating quasiperiodic infinite words, so it should not replace your draft. The surrounding context in Section 3.3 supplies the intended definition of quasiperiodicity and explains why this fixed-point decidability question is natural after the known decidability results for strong quasiperiodicity. ([paperzz.com](https://paperzz.com/doc/7042904/ten-conferences-words--open-problems-and))",
+  "citations": [
+    {
+      "section": "3.3",
+      "label": "Introductory definition/context paragraph before Question 3.3.13.1",
+      "page": 16
+    },
+    {
+      "section": "3.3",
+      "label": "Question 3.3.13.1",
+      "page": 16
+    },
+    {
+      "section": "3.3",
+      "label": "Conjecture 3.3.13.2",
+      "page": 16
+    },
+    {
+      "section": "References",
+      "label": "[24] WORDS 2013 proceedings cited for Levé and Richomme, pp. 181–192",
+      "page": 21
+    }
+  ]
+}

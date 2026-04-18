@@ -1,0 +1,44 @@
+{
+  "arxiv_id": "0909.0462",
+  "question_id": "q_007",
+  "original_question": "For the same join-the-shortest-queue model with stationary ergodic input, what are the minimal assumptions that guarantee uniqueness of the stationary regime?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 485.38,
+  "target_in_paper": "Section 2, \"Further problems on multi-server queues,\" second bullet: \"what are the minimal requirements for the uniqueness of the stationary regime?\"",
+  "completeness_score": 7,
+  "correct_elements": "Your draft correctly identifies the relevant part of the paper: the join-the-shortest-queue model with stationary ergodic input, and it focuses on the uniqueness question rather than the neighboring questions about how many stationary regimes may exist or about weak/total-variation convergence.",
+  "missing_details": [
+    "The paper's setup is a multi-server queue, explicitly \"say, 2-server,\" not an arbitrary JSQ variant.",
+    "The input is the stationary ergodic sequence {(t_n, sigma_n)}, where t_n is the interarrival time between customers n and n+1 and sigma_n is the service time of customer n.",
+    "Each server has its own individual queue, and each arriving customer joins immediately the shortest queue; if several queues are tied for shortest, one of them is chosen at random.",
+    "The question is posed only after assuming the \"obvious stability condition\"; from the preceding multi-server setup in Section 1.1, this is E[sigma_1] < m E[t_1], hence E[sigma_1] < 2 E[t_1] in the two-server case.",
+    "What is being asked for is the weakest additional assumptions, if any, beyond stationary ergodicity and stability that ensure uniqueness; this qualifier should be stated explicitly.",
+    "To be stand-alone, the question should specify that uniqueness concerns the stationary regime of the natural state process of the JSQ system, not merely a scalar waiting-time marginal.",
+    "The neighboring open problem about weak or total-variation convergence is separate in the paper and should not be folded into the uniqueness question."
+  ],
+  "refined_question": "In the multi-server join-the-shortest-queue system, already in the two-server case, with stationary ergodic input sequence {(t_n, sigma_n)} where t_n is the interarrival time between customers n and n+1 and sigma_n is the service time of customer n, each server has its own queue, and each arrival joins a shortest queue (breaking ties at random among the shortest queues), assume the obvious load/stability condition E[sigma_1] < m E[t_1] (in particular E[sigma_1] < 2 E[t_1] when m = 2). What are the weakest additional assumptions, if any, beyond stationary ergodicity and this stability condition, that guarantee that the associated join-the-shortest-queue system has a unique stationary regime?",
+  "equivalent_formulation": null,
+  "justification": "The draft clearly targets Section 2 rather than the earlier FCFS conjectures: the exact paper-faithful target is the second bullet in Section 2, which asks for the minimal requirements for uniqueness of the stationary regime. The two sentences immediately preceding that bullet supply the hidden model details: a multi-server, specifically \"say, 2-server,\" queue with stationary ergodic input {(t_n, sigma_n)}, individual queues in front of the servers, and JSQ routing with random tie-breaking among equal shortest queues. The phrase \"obvious stability condition\" is not spelled out in Section 2, but it is inherited from the preceding multi-server setup in Section 1.1, where stability is E[sigma_1] < m E[t_1]. Section 1.1 also explains that for extra mixing assumptions such as i.i.d. or regenerative input one can prove uniqueness and total-variation convergence, which is why the Section 2 bullet is naturally read as asking for the weakest such additional assumptions in the JSQ setting. The third bullet in Section 2 asks separately about weak/TV convergence, so the refined question should stay narrowly on uniqueness.",
+  "citations": [
+    {
+      "section": "2",
+      "label": "Further problems on multi-server queues (model description preceding the bullets)",
+      "page": "not available in inspected HTML mirror"
+    },
+    {
+      "section": "2",
+      "label": "Further problems on multi-server queues (second bullet: uniqueness of the stationary regime)",
+      "page": "not available in inspected HTML mirror"
+    },
+    {
+      "section": "1.1",
+      "label": "Multi-server G/G/m setup and stability condition E[sigma_1] < m E[t_1]",
+      "page": "not available in inspected HTML mirror"
+    },
+    {
+      "section": "1.1",
+      "label": "Paragraph stating that i.i.d. or regenerative input gives uniqueness of the stationary regime and total-variation convergence",
+      "page": "not available in inspected HTML mirror"
+    }
+  ]
+}

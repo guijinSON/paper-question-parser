@@ -1,0 +1,71 @@
+{
+  "arxiv_id": "2303.11464",
+  "question_id": "q_007",
+  "original_question": "When the input consists of an arbitrary binary matrix A with distinct nonzero columns, is the Computational Problem of determining the probability that m_i^A(x) = m_i^A(y) for all i an NP-complete problem?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 8567.56,
+  "target_in_paper": "Section 2, Open Problem 2.3: \"Is Computational Problem NP-Complete for arbitrary A?\" This is stated as a rephrasing of the efficiency part of Open Problem 2.2.",
+  "completeness_score": 6.5,
+  "correct_elements": "Your draft correctly identifies the right target: the Section 2 complexity question for the paper's Computational Problem in the arbitrary-A regime. In particular, it correctly includes that A is a binary matrix with pairwise distinct nonzero columns, that the quantity of interest is the probability that m_i^A(x) = m_i^A(y) for all i, and that the paper asks about NP-completeness for arbitrary A.",
+  "missing_details": [
+    "The paper first fixes positive integers n and t, and an integer m with 1 <= m <= 2^n - 1; A is specifically an n x m binary matrix.",
+    "The columns of A are vectors a_1, ..., a_m in {0,1}^n, and they are required to be nonzero and pairwise distinct.",
+    "The random objects x and y are not arbitrary vectors: they are n x t binary matrices, written x = (x_1^T, ..., x_t^T) and y = (y_1^T, ..., y_t^T), with x_j, y_j in {0,1}^n.",
+    "x and y are sampled independently and uniformly at random from {0,1}^{n x t}.",
+    "The notation m_i^A must be defined explicitly: m_i^A(x) := sum_{j=1}^t <a_i, x_j>_2.",
+    "The inner product <.,.>_2 is the inner product in GF(2)^n, but the outer sum defining m_i^A(x) is taken in the integers.",
+    "The quantifier in the event is over all i = 1, ..., m.",
+    "To stay paper-faithful, the question should be framed as the Computational Problem from Section 2, whose exact complexity question is Open Problem 2.3; this is the paper's rephrasing of the 'efficiently' half of Open Problem 2.2.",
+    "The paper places this arbitrary-A complexity question in contrast with special cases already understood or partially understood, such as A = I_n and the maximal case where A contains all nonzero binary vectors."
+  ],
+  "refined_question": "Let n,t be positive integers and let 1 <= m <= 2^n - 1. Let A = (a_1^T,...,a_m^T) be an n x m binary matrix whose columns a_i belong to {0,1}^n and are nonzero and pairwise distinct. For x = (x_1^T,...,x_t^T) and y = (y_1^T,...,y_t^T) sampled independently and uniformly from {0,1}^{n x t}, define, for each i = 1,...,m, m_i^A(x) := sum_{j=1}^t <a_i, x_j>_2, where <.,.>_2 is the inner product in GF(2)^n and the outer sum is taken in Z. What is the computational complexity of exactly computing P(m_i^A(x) = m_i^A(y) for all i = 1,...,m) as A varies? Equivalently, in the paper's wording: is this Computational Problem NP-complete for arbitrary A?",
+  "equivalent_formulation": "For which choices of A can we answer Computational Problem efficiently?",
+  "justification": "The draft is targeting the quantum-circuit/combinatorial problem in Section 2, not any other section of the paper. Section 2 introduces the arbitrary-collection-of-subsets setting for commutative quantum circuits, then formalizes the associated binary-matrix setup, defines the expressiveness indicators m_i^A, and states the Computational Problem. After discussing special families where the problem is tractable or partially tractable, the paper asks Open Problem 2.2 and then explicitly rephrases its efficiency half as Open Problem 2.3. Because your draft asks whether the problem is NP-complete for arbitrary A, the nearest official formulation is Open Problem 2.3 verbatim, made stand-alone by importing the definitions from the immediately preceding setup.",
+  "citations": [
+    {
+      "section": "2",
+      "label": "Introduction",
+      "page": "9-10"
+    },
+    {
+      "section": "2",
+      "label": "A combinatorial problem",
+      "page": 10
+    },
+    {
+      "section": "2",
+      "label": "Definition 2.2 (Expressiveness Indicator)",
+      "page": 11
+    },
+    {
+      "section": "2",
+      "label": "Computational Problem",
+      "page": 11
+    },
+    {
+      "section": "2",
+      "label": "Discussion after Computational Problem",
+      "page": 12
+    },
+    {
+      "section": "2",
+      "label": "Lemma 2.5",
+      "page": 12
+    },
+    {
+      "section": "2",
+      "label": "Lemma 2.7",
+      "page": "13-14"
+    },
+    {
+      "section": "2",
+      "label": "Open Problem 2.2",
+      "page": 15
+    },
+    {
+      "section": "2",
+      "label": "Open Problem 2.3",
+      "page": 15
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "arxiv_id": "2201.09150",
+  "question_id": "q_016",
+  "original_question": "Determine whether solutions of the memory-smearing model converge to solutions of the conflict-zone memory model as the memory-diffusion coefficient epsilon_i tends to 0+.",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 8006.71,
+  "target_in_paper": "Open Problem 16 in Section 2.2.2 (Dynamic memory): the zero-memory-diffusion limit for the memory-smearing extension (2.15) of the magnitude-valued conflict-zone memory model (2.13). ([math.ualberta.ca](https://www.math.ualberta.ca/~hwang/WangSalmaniwReview.pdf))",
+  "completeness_score": 8.0,
+  "correct_elements": "Your draft is already very close to the paper’s intended target. It identifies the correct pair of models—the memory-smearing system (2.15) and the conflict-zone memory system (2.13)—and the correct singular limit ε_i → 0+. ([math.ualberta.ca](https://www.math.ualberta.ca/~hwang/WangSalmaniwReview.pdf))",
+  "missing_details": [
+    "The paper phrases the problem as asking in what sense the convergence holds, so the missing sharpness is the solution concept and convergence topology, not just a yes/no determination. ([math.ualberta.ca](https://www.math.ualberta.ca/~hwang/WangSalmaniwReview.pdf))",
+    "The limit model is specifically the magnitude-based conflict-zone memory formulation (2.13), not the alternative probability-density formulation (2.12). ([math.ualberta.ca](https://www.math.ualberta.ca/~hwang/WangSalmaniwReview.pdf))",
+    "The system is formulated for n interacting populations u_i with memory variables k_i, indexed by i = 1, ..., n, and encounter coefficients ρ_ij. ([math.ualberta.ca](https://www.math.ualberta.ca/~hwang/WangSalmaniwReview.pdf))",
+    "The nonlocal term k_i^{g,R} is the perception-based convolution with a perceptual kernel g of radius R; that operator should be defined explicitly in a stand-alone question. ([math.ualberta.ca](https://www.math.ualberta.ca/~hwang/WangSalmaniwReview.pdf))",
+    "The regularization parameter is actually a family ε_i, one for each population, and the paper states 0 < ε_i < d_i. ([math.ualberta.ca](https://www.math.ualberta.ca/~hwang/WangSalmaniwReview.pdf))",
+    "The neighboring context around problems (2.13) and (2.15) emphasizes periodic boundary conditions on a bounded domain and often the top-hat kernel, but Open Problem 16 itself does not restate those conditions; if you want a fully stand-alone formulation, you should either specify the common domain/boundary setting or explicitly say that the question is asked for the same setting in which both systems are posed. ([math.ualberta.ca](https://www.math.ualberta.ca/~hwang/WangSalmaniwReview.pdf))",
+    "To compare two solution families rigorously, one should also say that they are posed with the same compatible initial and boundary data; this is implicit in the paper’s wording and is a necessary sharpening rather than an explicit extra hypothesis. ([math.ualberta.ca](https://www.math.ualberta.ca/~hwang/WangSalmaniwReview.pdf))",
+    "If one wants the perceptual kernel itself to be part of the stand-alone statement, the paper’s Section 2.1 hypotheses on g are also implicit background: symmetry, unit mass, convergence to a Dirac mass as R → 0+, and monotonic decay away from the origin. ([math.ualberta.ca](https://www.math.ualberta.ca/~hwang/WangSalmaniwReview.pdf))"
+  ],
+  "refined_question": "For the n-population, magnitude-valued conflict-zone memory system with perception, where k_i^{g,R}(x,t) := ∫_Ω k_i(y,t) g(x - y) dy and the unregularized model is ∂_t u_i = d_i Δu_i + γ_i ∇·(u_i ∇k_i^{g,R}), ∂_t k_i = u_i ∑_{j=1}^n ρ_ij u_j - (μ + βu_i) k_i, consider its memory-smearing regularization obtained by replacing the k_i-equation with ∂_t k_i = ε_i Δk_i + u_i ∑_{j=1}^n ρ_ij u_j - (μ + βu_i) k_i, with 0 < ε_i < d_i. When the two systems are posed on the same domain with the same compatible data, in what solution class and topology do solutions of the memory-smearing system converge, as each ε_i → 0+, to solutions of the conflict-zone memory system? ([math.ualberta.ca](https://www.math.ualberta.ca/~hwang/WangSalmaniwReview.pdf))",
+  "equivalent_formulation": null,
+  "justification": "The draft is not aiming at a broader neighboring issue; it is essentially a paraphrase of Open Problem 16. The nearby context first defines the conflict-zone memory model (2.13), explains that this is the magnitude-type memory law rather than the probability-type variant (2.12), then introduces memory smearing as the addition of ε_i Δk_i in the cognitive-map equation to obtain (2.15), and finally asks about the ε_i → 0+ limit. The bounded-periodic/top-hat setting appears in the adjacent existence problems (Open Problems 10 and 15) and in the later boundary-condition discussion, so it is contextual background rather than the literal wording of Open Problem 16. Also, the categories mentioned in your generic instruction set such as ambient ring/field, homogeneity, degree restrictions, and nilpotency are simply not applicable to this PDE problem; the real missing structure is the PDE system, the operator k_i^{g,R}, parameter ranges, and the precise meaning of convergence. ([math.ualberta.ca](https://www.math.ualberta.ca/~hwang/WangSalmaniwReview.pdf))",
+  "citations": [
+    {
+      "section": "2.1 Perception",
+      "label": "Equations (2.3) and (2.5)",
+      "page": "8-10"
+    },
+    {
+      "section": "2.2.2 Dynamic memory",
+      "label": "Equations (2.12) and (2.13)",
+      "page": "16"
+    },
+    {
+      "section": "2.2.2 Dynamic memory",
+      "label": "Open Problem 10",
+      "page": "16"
+    },
+    {
+      "section": "2.2.2 Dynamic memory",
+      "label": "Equation (2.15) and Open Problems 15-16",
+      "page": "18"
+    },
+    {
+      "section": "4.1.2 Boundary conditions",
+      "label": "discussion of periodic boundary conditions",
+      "page": "40"
+    }
+  ]
+}

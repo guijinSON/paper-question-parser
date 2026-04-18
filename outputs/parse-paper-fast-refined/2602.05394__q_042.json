@@ -1,0 +1,45 @@
+{
+  "arxiv_id": "2602.05394",
+  "question_id": "q_042",
+  "original_question": "Rerandomized subsampled trigonometric transforms: Assume that $n = Omega( r)$. Prove or disprove: The rerandomized SRHT of dimension $k = O(r/epsilon^2)$ is an oblivious subspace embedding with $alpha = 1-epsilon$ and $beta = 1+epsilon$.",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 12622.69,
+  "target_in_paper": "Problem 5.6 (Rerandomized subsampled trigonometric transforms) in Section 5.3, read together with Definition 5.3 (rerandomized SRHT) and Definition 5.1 (oblivious subspace embedding).",
+  "completeness_score": 7,
+  "correct_elements": "Your draft correctly identifies the exact open problem type (prove or disprove), the correct sketching family (the rerandomized SRHT), the target row dimension scaling k = O(r/epsilon^2), and the desired near-isometry parameters alpha = 1 - epsilon and beta = 1 + epsilon. It also uses r for the subspace dimension, which matches the paper’s formulation.",
+  "missing_details": [
+    "The paper’s hypothesis is n = Omega(log r), not n = Omega(r). This is the main substantive mismatch.",
+    "The operator itself must be defined: the rerandomized SRHT is Omega = sqrt(n/k) D1 F D2 F S, where D1 and D2 are independent diagonal matrices with iid Rademacher entries, F is the Walsh-Hadamard matrix, and S uniformly subsamples down to k positions.",
+    "The ambient field is real: the relevant subspaces are V subseteq R^n and Omega belongs to R^{n x k}.",
+    "Oblivious subspace embedding must be quantified: for every fixed r-dimensional subspace V subseteq R^n, the embedding inequalities must hold with high constant probability over the draw of Omega.",
+    "The inequalities are on squared Euclidean norms and involve Omega^T x, namely alpha ||x||_2^2 <= ||Omega^T x||_2^2 <= beta ||x||_2^2 for all x in V.",
+    "The paper’s default convention for an unspecified failure probability should be made explicit in a stand-alone version: some fixed small constant failure probability, e.g. 0.01.",
+    "Dimension k should be identified as the output dimension of the sketch, not the subspace dimension.",
+    "To make the question fully self-contained, one should state the sampling/randomness in S and the independence of D1 and D2."
+  ],
+  "refined_question": "Let Omega in R^{n x k} be the rerandomized subsampled randomized Hadamard transform defined by Omega = sqrt(n/k) D1 F D2 F S, where F is the n x n Walsh-Hadamard matrix, D1 and D2 are independent diagonal matrices with iid Rademacher (+/-1) entries, and S is the random coordinate-selection matrix that keeps k uniformly random positions. Assume n = Omega(log r). Prove or disprove that, for k = O(r/epsilon^2), Omega is an oblivious subspace embedding for r-dimensional subspaces of R^n with distortion parameters alpha = 1 - epsilon and beta = 1 + epsilon; that is, for every fixed r-dimensional subspace V subseteq R^n, with some fixed small failure probability over the randomness in Omega, one has (1 - epsilon)||x||_2^2 <= ||Omega^T x||_2^2 <= (1 + epsilon)||x||_2^2 for all x in V.",
+  "equivalent_formulation": null,
+  "justification": "The draft is aiming directly at Problem 5.6 in Section 5.3, page 39. I kept the scope exactly on the rerandomized SRHT, because although the subsection title mentions subsampled trigonometric transforms more broadly, the official open problem is stated specifically for the rerandomized SRHT. I corrected the ambient-dimension assumption from n = Omega(r) to the paper’s n = Omega(log r), and I imported the precise definition of the rerandomized SRHT from Definition 5.3 and the precise meaning of oblivious subspace embedding from Definition 5.1 so the rewritten problem is stand-alone. I did not weaken the target to constant-distortion OSE or to OSI only, even though the paper says those weaker variants are also interesting, because they are explicitly presented only as nearby weaker questions, not as the main target. Theorem 5.4 provides the immediate motivation for Problem 5.6: traditional SRHTs need O((r + log n) log r) embedding dimension for constant-distortion embedding and can fail to be even subspace injections when k = o(r log r).",
+  "citations": [
+    {
+      "section": "5.1",
+      "label": "Definition 5.1 (Subspace embeddings and injections)",
+      "page": 35
+    },
+    {
+      "section": "5.3",
+      "label": "Definition 5.3 (Subsampled randomized Hadamard transform)",
+      "page": 38
+    },
+    {
+      "section": "5.3",
+      "label": "Theorem 5.4 (Subsampled randomized Hadamard transform)",
+      "page": 39
+    },
+    {
+      "section": "5.3",
+      "label": "Problem 5.6 (Rerandomized subsampled trigonometric transforms)",
+      "page": 39
+    }
+  ]
+}

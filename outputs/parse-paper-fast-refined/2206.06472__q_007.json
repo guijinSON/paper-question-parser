@@ -1,0 +1,54 @@
+{
+  "arxiv_id": "2206.06472",
+  "question_id": "q_007",
+  "original_question": "Let T103(a,b) denote the number of tilings of the (a,b)-benzel in which right stones are allowed, left stones are forbidden, and all three bone orientations are allowed. Whenever the Conway-Lagarias invariant of the (a,b)-benzel is positive or zero, must a type-103 tiling exist?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 8339.18,
+  "target_in_paper": "Section 6, Problem 7: Is it true that when the Conway-Lagarias invariant associated with the (a, b)-benzel is positive or zero, tilings of type 103 exist?",
+  "completeness_score": 9,
+  "correct_elements": "Your draft correctly identifies the paper's target as Problem 7 rather than the neighboring exact-enumeration Problem 6: it uses the paper's notation T103(a,b), correctly interprets type 103 as the right-stone / no-left-stone / three-bones case, and asks the same existential question about whether nonnegative Conway-Lagarias invariant forces the existence of such a tiling (Section 1, pages 5-6; Section 6, Problem 7, page 9).",
+  "missing_details": [
+    "The question is not fully stand-alone unless the (a,b)-benzel itself is defined. In the paper, for admissible parameters 2 <= a <= 2b and 2 <= b <= 2a, it is the polyhex whose cell centers (i,j,k) in Z^3 satisfy i + j + k = 1 and -(a-1) <= j-i, k-j, i-k <= b-1; the paper also notes that no generality is lost by restricting to this range (Section 1, pages 2-3).",
+    "A stand-alone formulation should state explicitly that T103(a,b) counts tilings by translates of the right-pointing stone together with all three bone prototiles (vertical, rising, and falling), with left stones forbidden (Section 1, page 5; Table 1, page 6).",
+    "The hypothesis should define the Conway-Lagarias invariant, not just name it. In the paper it is the tiling-invariant quantity total area of right stones minus total area of left stones, and for benzels it is given by an explicit piecewise formula depending on a+b mod 3 (Section 1, page 5).",
+    "The universal quantifier should be explicit: the paper asks the question for every admissible (a,b)-benzel, not just for the values listed in Table 5 (Section 6, page 9).",
+    "To match the paper's intent exactly, the conclusion should be phrased as T103(a,b) > 0, i.e. at least one type-103 tiling exists (Section 1, page 5).",
+    "The nearby context matters: immediately before Problem 7 the paper notes the necessary obstruction that a strictly negative Conway-Lagarias invariant rules out type-103 tilings, so Problem 7 is asking whether the converse sufficiency statement holds for invariant >= 0 (Section 6, page 9).",
+    "No ambient ring/field, homogeneity, degree, nilpotency, or asymptotic 'for sufficiently large m' condition is relevant here; this is a discrete geometric tiling problem, so the missing details are geometric and combinatorial rather than algebraic."
+  ],
+  "refined_question": "For integers a,b with 2 <= a <= 2b and 2 <= b <= 2a, let the (a,b)-benzel be the polyhex consisting of those unit hexagonal cells whose centers (i,j,k) in Z^3 satisfy i + j + k = 1 and -(a-1) <= j-i, k-j, i-k <= b-1. Let T103(a,b) denote the number of tilings of this benzel by translates of the right-pointing stone and the three bone prototiles (vertical, rising, and falling), with left-pointing stones forbidden. Let C(a,b) be the Conway-Lagarias invariant of the benzel, i.e. the tiling-invariant difference total area of right stones minus total area of left stones, given by C(a,b) = (3a^2 - 6ab + 3b^2 - a - b)/2 if a+b ≡ 0 (mod 3), C(a,b) = (-a^2 + 4ab - b^2 - a - b + 2)/2 if a+b ≡ 1 (mod 3), and C(a,b) = (3a^2 - 6ab + 3b^2 + a + b - 2)/2 if a+b ≡ 2 (mod 3). Is it true that T103(a,b) > 0 for every such (a,b) with C(a,b) >= 0?",
+  "equivalent_formulation": null,
+  "justification": "The draft is trying to capture Section 6, Problem 7, and it does so very closely. The match is exact in scope: Problem 7 is the general existence question for type-103 tilings under the sign condition on the Conway-Lagarias invariant, whereas Problem 6 in the same section is a different question about a closed formula for T103(n,2n-3) along one peripheral diagonal. The definitions needed to make the question stand-alone are all supplied earlier in Section 1: the geometric definition of benzels, the five prototiles, the counting function Tijk(a,b), the meaning of 'type 103', and the explicit formula for the Conway-Lagarias invariant. The sentence immediately preceding Problem 7 supplies the intended logical context: negative invariant is a necessary obstruction, and the open problem asks whether nonnegative invariant is also sufficient for existence.",
+  "citations": [
+    {
+      "section": "Section 1",
+      "label": "definition of the (a,b)-benzel",
+      "page": "2-3"
+    },
+    {
+      "section": "Section 1",
+      "label": "Conway-Lagarias invariant for benzels",
+      "page": 5
+    },
+    {
+      "section": "Section 1",
+      "label": "definition of Tijk(a,b)",
+      "page": 5
+    },
+    {
+      "section": "Section 1",
+      "label": "Table 1: type 103 corresponds to Problems 6-7",
+      "page": 6
+    },
+    {
+      "section": "Section 6",
+      "label": "Problem 6",
+      "page": 8
+    },
+    {
+      "section": "Section 6",
+      "label": "Problem 7 and its preceding contextual remark",
+      "page": 9
+    }
+  ]
+}

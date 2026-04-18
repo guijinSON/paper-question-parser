@@ -1,0 +1,59 @@
+{
+  "arxiv_id": "1003.3127",
+  "question_id": "q_004",
+  "original_question": "Let X = R^n_{++} be the strictly positive orthant, and let f be the negative entropy Legendre function from Example 1.1(ii). For this Bregman distance, closed convex sets are known to be right D-Chebyshev, but there are also nonconvex examples that are right D-Chebyshev. Is it possible to characterize exactly which subsets of the strictly positive orthant are right D-Chebyshev for the negative-entropy Bregman distance?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 712.46,
+  "target_in_paper": "Section 8, Problem 4, as motivated in Section 3 immediately after Example 3.3 and Fact 3.4.",
+  "completeness_score": 8.5,
+  "correct_elements": "The draft correctly identifies the intended setting as the strictly positive orthant R^n_{++}, the Legendre function as the negative entropy from Example 1.1(ii), the relevant notion as right Bregman-Chebyshevness, and the key motivation from the paper: convex sets are included, but there are also nonconvex right D-Chebyshev examples in this negative-entropy setting.",
+  "missing_details": [
+    "The paper's exact object is the class of right Bregman-Chebyshev subsets C, meaning: for every y in U := int dom f = R^n_{++}, the right nearest-point set P^->_{C}(y) := argmin_{x in C} D_f(x,y) is a singleton.",
+    "The ambient space is finite-dimensional real Euclidean space R^n, not an abstract X; this matters because the paper's standing assumptions and notation are tied to that setting.",
+    "To make the question fully stand-alone, the negative entropy and its Bregman distance should be written explicitly: f(x)=sum_i (x_i log x_i - x_i), and D_f(x,y)=sum_i [x_i log(x_i/y_i)-x_i+y_i].",
+    "The paper works under a standing set assumption C subset U with cl(C) subset U (and implicitly C nonempty); your draft does not state this hidden domain restriction.",
+    "Fact 3.4 in the paper says 'if C is convex, then C is right D-Chebyshev' in this setting; your draft narrows this to 'closed convex sets,' which is safe but not the paper's exact formulation.",
+    "The paper states this as an explicit open problem, not as a theorem request or a broad research program.",
+    "To stay paper-faithful, the question should not drift to the neighboring full-domain problem (Problem 3) about nonquadratic Legendre functions whose gradient preserves convexity."
+  ],
+  "refined_question": "Let n be a positive integer, let U = R^n_{++}, and let f:U->R be the negative entropy f(x)=sum_{i=1}^n (x_i log x_i - x_i). For a nonempty subset C of U with cl(C) subset U, define the right Bregman nearest-point map by P^->_{C}(y) := argmin_{x in C} D_f(x,y), where D_f(x,y)=f(x)-f(y)-<grad f(y),x-y>=sum_{i=1}^n [x_i log(x_i/y_i)-x_i+y_i]. Characterize exactly those subsets C of the strictly positive orthant for which P^->_{C}(y) is a singleton for every y in U; equivalently, characterize the right D_f-Chebyshev subsets of R^n_{++} for the negative-entropy (Kullback-Leibler) Bregman distance.",
+  "equivalent_formulation": null,
+  "justification": "This draft is targeting the paper's Problem 4 almost verbatim. In Section 3, after recalling the general right-Chebyshev convexity theorem under full-domain assumptions (Fact 3.2), the authors show that the negative-entropy case behaves differently: Example 3.3 gives a nonconvex right D-Chebyshev set, and Fact 3.4 shows that convex sets are right D-Chebyshev in this setting. They then ask in Section 3, 'Is it possible to describe the right D-Chebyshev sets in this setting?', and restate that precisely in Section 8 as Problem 4. So the correct refinement is not a broader question about all Legendre functions or all Bregman distances, but the narrow classification problem for right D-Chebyshev subsets of R^n_{++} when f is the negative entropy.",
+  "citations": [
+    {
+      "section": "§1",
+      "label": "Example 1.1(ii)",
+      "page": "exact page unavailable in accessible HTML; chapter spans pp. 1-21"
+    },
+    {
+      "section": "§1",
+      "label": "Example 1.5(ii)",
+      "page": "exact page unavailable in accessible HTML; chapter spans pp. 1-21"
+    },
+    {
+      "section": "§1",
+      "label": "Definition 1.6 and Definition 1.7",
+      "page": "exact page unavailable in accessible HTML; chapter spans pp. 1-21"
+    },
+    {
+      "section": "§3",
+      "label": "Fact 3.2",
+      "page": "exact page unavailable in accessible HTML; chapter spans pp. 1-21"
+    },
+    {
+      "section": "§3",
+      "label": "Example 3.3",
+      "page": "exact page unavailable in accessible HTML; chapter spans pp. 1-21"
+    },
+    {
+      "section": "§3",
+      "label": "Fact 3.4",
+      "page": "exact page unavailable in accessible HTML; chapter spans pp. 1-21"
+    },
+    {
+      "section": "§8",
+      "label": "Problem 4",
+      "page": "exact page unavailable in accessible HTML; chapter spans pp. 1-21"
+    }
+  ]
+}

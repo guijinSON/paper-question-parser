@@ -1,0 +1,42 @@
+{
+  "arxiv_id": "1606_07891",
+  "question_id": "q_001",
+  "original_question": "Let N be a compact closed Riemannian manifold, isometrically embedded in R^m, and let u belong to W^{1,n}(B^n, N). If u is weakly n-harmonic, meaning that it is a critical point of the n-Dirichlet energy among range variations, must u always be continuous on B^n?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 4736.89,
+  "target_in_paper": "Problem 2.2 (p = n) in §2.1: “Are all weakly n-harmonic maps u ∈ W^{1,n}(B^n, N) continuous?”",
+  "completeness_score": 8.5,
+  "correct_elements": "Your draft already matches the paper very closely: it has the correct target class N ⊂ R^m of compact closed Riemannian manifolds, the correct Sobolev class u ∈ W^{1,n}(B^n, N), the correct variational notion of weak n-harmonicity via range variations, and the correct regularity conclusion (continuity).",
+  "missing_details": [
+    "The paper’s intended unresolved regime is the higher-dimensional case n > 2 (equivalently n >= 3); for n = 2, regularity is classical, so leaving n arbitrary makes the question slightly less faithful to the paper’s intent.",
+    "To be fully stand-alone, the n-Dirichlet energy should be written explicitly as E_n[v] = (1/n) ∫_{B^n} |∇v|^n dx.",
+    "The variational definition should be stated exactly as in Definition 2.1: d/dt|_{t=0} E_n[pi o (u + t phi)] = 0 for every phi ∈ W^{1,n}_0(B^n, R^m) ∩ L^∞(B^n, R^m), where pi is the nearest-point projection from a tubular neighborhood of N.",
+    "If one wants the PDE form made explicit, the equivalent Euler-Lagrange system is -div(|∇u|^{n-2} ∇u) = |∇u|^{n-2} A_u(∇u, ∇u) in distributions, where A is the second fundamental form of the embedding N ⊂ R^m.",
+    "It helps to specify that B^n is the Euclidean unit ball in R^n and that the question is about continuity in the interior domain B^n."
+  ],
+  "refined_question": "Let n >= 3, let B^n ⊂ R^n be the unit ball, let N ⊂ R^m be a compact closed Riemannian manifold isometrically embedded in Euclidean space, and let pi be the nearest-point projection from a tubular neighborhood of N onto N. If u ∈ W^{1,n}(B^n, N) is weakly n-harmonic in the sense that d/dt|_{t=0} E_n[pi o (u + t phi)] = 0 for every phi ∈ W^{1,n}_0(B^n, R^m) ∩ L^∞(B^n, R^m), where E_n[v] = (1/n) ∫_{B^n} |∇v|^n dx, must u be continuous on B^n?",
+  "equivalent_formulation": "Equivalently: let n >= 3, let N ⊂ R^m be a compact closed Riemannian manifold, and let u ∈ W^{1,n}(B^n, N) satisfy the Euler-Lagrange system -div(|∇u|^{n-2} ∇u) = |∇u|^{n-2} A_u(∇u, ∇u) in D'(B^n), where A is the second fundamental form of N ⊂ R^m. Is u necessarily continuous on B^n?",
+  "justification": "The draft is essentially the paper’s official open problem, namely Problem 2.2 in §2.1. The only substantive tightening needed is to make explicit that the paper is concerned with the higher-dimensional open case n > 2, since the two-dimensional case is already known. Definition 2.1 and equations (2.2)–(2.4) provide the exact meaning of “weakly n-harmonic” and justify the alternate PDE formulation.",
+  "citations": [
+    {
+      "section": "§1",
+      "label": "Introduction (discussion of the higher-dimensional open regularity problems for equations involving the n-Laplace operator)",
+      "page": 2
+    },
+    {
+      "section": "§2.1",
+      "label": "Definition 2.1",
+      "page": 3
+    },
+    {
+      "section": "§2.1",
+      "label": "Equations (2.2)–(2.4)",
+      "page": 3
+    },
+    {
+      "section": "§2.1",
+      "label": "Problem 2.2 (p = n)",
+      "page": 3
+    }
+  ]
+}

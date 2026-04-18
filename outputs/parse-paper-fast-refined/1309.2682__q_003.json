@@ -1,0 +1,47 @@
+{
+  "arxiv_id": "1309.2682",
+  "question_id": "q_003",
+  "original_question": "Is there an algorithm C that takes as input a Diophantine equation D, returns an integer, and guarantees that this returned integer is greater than the number of non-negative integer solutions whenever that solution set is finite? The algorithm may fail to terminate, return nothing, or return something irrelevant when D has infinitely many non-negative integer solutions.",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 3426.27,
+  "target_in_paper": "The draft does not closely match the actual target of arXiv:1309.2682. The nearest paper-faithful target is the paper’s open problem about the computability of the function f attached to unique-solution subsystems of E_n, together with the main theorem that every function g:N→N having a single-fold Diophantine representation is eventually dominated by f.",
+  "completeness_score": 2,
+  "correct_elements": "Your draft correctly has an algorithmic/existence flavor, uses non-negative integer solutions, and asks only for a one-sided guarantee in the finite-solution case. Those features align loosely with Tyszka’s general program of extracting effective bounds from Diophantine finiteness/uniqueness phenomena.",
+  "missing_details": [
+    "The paper is not about an arbitrary algorithm on arbitrary Diophantine equations returning a bound on the number of solutions.",
+    "The ambient objects are systems S contained in E_n, where E_n={x_k=1, x_i+x_j=x_k, x_i·x_j=x_k : i,j,k∈{1,...,n}}.",
+    "The paper’s function f(n) is defined using uniqueness, not mere finiteness: S must have a unique solution in non-negative integers.",
+    "The bound in the paper is a coordinatewise height bound on that unique solution, namely membership in [0,b]^n, not a bound on the cardinality of the solution set.",
+    "The input in the paper’s open problem is effectively n (equivalently, the computability of the function f), not an arbitrary Diophantine equation D.",
+    "The paper’s main proved comparison is with functions g:N→N that have a single-fold Diophantine representation; your draft omits single-fold Diophantine representation entirely.",
+    "The relevant quantifier is eventual domination: there exists m such that for all n≥m, g(n)≤f(n).",
+    "The paper also states that f is computable in the limit via a MuPAD program that outputs values converging eventually to f(n); your draft does not mention limit-computability.",
+    "Because the paper studies unique solutions of subsystems of E_n, it does not ask for any guarantee when there are finitely many but more than one non-negative solution.",
+    "The draft changes the controlled quantity from solution height to solution count, which is a substantial shift away from the paper’s actual intent."
+  ],
+  "refined_question": "Let E_n={x_k=1, x_i+x_j=x_k, x_i·x_j=x_k : i,j,k∈{1,...,n}}. For each positive integer n, let f(n) be the least non-negative integer b such that every subsystem S⊆E_n having a unique solution in non-negative integers x_1,...,x_n has that solution in [0,b]^n. Is the function f computable? Equivalently, is there an algorithm which, given n, outputs this least universal bound f(n) for unique non-negative solutions of subsystems of E_n?",
+  "equivalent_formulation": "Does there exist an algorithm that, on input a positive integer n, computes the least b∈N such that every subsystem S⊆E_n with a unique solution in N^n has that solution in [0,b]^n?",
+  "justification": "In arXiv:1309.2682, the central objects are the sets E_n and the associated function f defined from unique solutions in N^n, not arbitrary Diophantine equations with finitely many solutions. The paper’s title already identifies the open problem as the computability of f, while the abstract gives the exact definition of f and the proved domination statement for single-fold Diophantine representations. Your draft preserves the broad effective-bounding theme, but it shifts both the domain of inputs and the bounded quantity: from unique-solution subsystems of E_n and coordinatewise size bounds to arbitrary Diophantine equations and bounds on the number of finite non-negative solutions. That makes it only loosely related, not paper-faithful. The refined question above is therefore the narrowest stand-alone formulation that matches the paper’s actual intent.",
+  "citations": [
+    {
+      "section": "Title",
+      "label": "open problem: computability of f",
+      "page": "arXiv abstract page"
+    },
+    {
+      "section": "Abstract",
+      "label": "definition of E_n and f",
+      "page": "arXiv abstract page"
+    },
+    {
+      "section": "Abstract",
+      "label": "main domination statement for single-fold Diophantine representations",
+      "page": "arXiv abstract page"
+    },
+    {
+      "section": "Book front matter / table of contents",
+      "label": "published chapter begins on page 577",
+      "page": 577
+    }
+  ]
+}

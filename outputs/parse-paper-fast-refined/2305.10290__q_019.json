@@ -1,0 +1,49 @@
+{
+  "arxiv_id": "2305.10290",
+  "question_id": "q_019",
+  "original_question": "Let G be a nontrivial graph with maximum degree Delta. Does there always exist an edge signing sigma such that the signed graph has spectral radius strictly less than 2*sqrt(Delta - 1)?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 8756.03,
+  "target_in_paper": "Section 12, Conjecture 14 (Gregory, c.f. [85]), the nonregular-graph variant of the Bilu-Linial conjecture.",
+  "completeness_score": 8.5,
+  "correct_elements": "Your draft is already very close to the paper’s actual target. It has the right governing parameter (the maximum degree Δ), the right quantifier structure (for every such graph, does there exist a signing/signature σ?), the right object of study (a signed graph obtained from G by assigning signs to edges), and the right strict bound 2√(Δ−1). It also correctly avoids adding a connectedness assumption, which is important because Conjecture 14 is stated for general nontrivial graphs, unlike Conjecture 13 and Theorem 4, which are for connected d-regular graphs.",
+  "missing_details": [
+    "The paper uses the term signature: one should specify that σ is a map σ:E(G)→{+1,−1}.",
+    "The spectral radius is that of the signed adjacency matrix of (G,σ), not of the underlying unsigned graph; this operator should be defined explicitly.",
+    "The signed adjacency matrix is obtained from A(G) by replacing the 1-entry corresponding to each edge e with σ(e).",
+    "Δ should be written explicitly as the maximum degree Δ(G) of the underlying graph G.",
+    "For a fully stand-alone statement, the ambient graph class should be stated: throughout the paper graphs are simple, undirected, and unweighted.",
+    "The paper distinguishes spectral radius from the largest eigenvalue for signed graphs; the question should explicitly be about spectral radius ρ(G,σ), not merely λ1, because these need not coincide in general.",
+    "The phrase nontrivial graph is left implicit in the draft; to avoid ambiguity and keep the square-root bound meaningful, one can state the hypothesis as Δ(G)≥1 (or equivalently that G has at least one edge)."
+  ],
+  "refined_question": "Let G be a simple undirected unweighted graph with maximum degree Δ(G)=Δ≥1. Does there exist a signature σ:E(G)→{+1,−1} such that, if Aσ denotes the signed adjacency matrix obtained from A(G) by assigning entry σ(e) to each edge e, then the signed graph (G,σ) satisfies ρ(Aσ)=ρ(G,σ)<2√(Δ−1)?",
+  "equivalent_formulation": null,
+  "justification": "The draft is targeting Section 12’s Conjecture 14 rather than Conjecture 13 or Problem 6. The decisive match is that your draft uses the maximum degree Δ of an arbitrary graph and the exact strict bound 2√(Δ−1), which is precisely Gregory’s conjectured nonregular extension of the Bilu-Linial bound. The nearby context in Section 12 defines signed graphs, signatures, switching equivalence, and the signed adjacency matrix, and Theorem 4 together with Remark 1 explains why the paper phrases the question in terms of spectral radius rather than just the largest eigenvalue. Problem 6 is only a stronger sufficient question, not an equivalent reformulation, since the paper says only that an affirmative answer to Problem 6 would imply Conjecture 14.",
+  "citations": [
+    {
+      "section": "Introduction",
+      "label": "Global conventions and notation: graphs are simple, undirected, and unweighted; Δ(G) denotes maximum degree",
+      "page": "34"
+    },
+    {
+      "section": "Section 12",
+      "label": "Definitions of signed graph, signature, signed adjacency matrix, and switching equivalence",
+      "page": "45"
+    },
+    {
+      "section": "Section 12",
+      "label": "Theorem 4 and Remark 1",
+      "page": "45"
+    },
+    {
+      "section": "Section 12",
+      "label": "Conjecture 14 (Gregory, c.f. [85])",
+      "page": "45"
+    },
+    {
+      "section": "Section 12",
+      "label": "Problem 6 (Belardo-Cioabă-Koolen-Wang [85])",
+      "page": "46"
+    }
+  ]
+}

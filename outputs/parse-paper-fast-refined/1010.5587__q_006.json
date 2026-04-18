@@ -1,0 +1,47 @@
+{
+  "arxiv_id": "1010.5587",
+  "question_id": "q_006",
+  "original_question": "Fix parameters (λ,h) in the interior of the delocalized region D, where D = {(λ,h) : F(λ,h)=0}. Is it true that for every ε > 0, the quenched polymer measure of the event that the polymer stays entirely in the favorable solvent during the whole terminal segment [εN, N] tends to 0 almost surely as N → ∞? In the paper's notation this is the question whether lim_{N→∞} P_{N,ω}(Δ_n = 0 for every n ∈ [εN, N] ∩ N) = 0 almost surely, where Δ_n is the indicator that monomer n is below the interface, so Δ_n = 0 means that monomer n is not below the interface.",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 1003.97,
+  "target_in_paper": "Section 5.2 (\"The delocalized phase\"), final unnumbered open problem after equation (50): the authors ask whether, for parameters in the interior of the delocalized region D, the quenched probability that the polymer stays in the upper/favorable solvent throughout the terminal stretch [εN, N] tends to 0 almost surely in the disorder.",
+  "completeness_score": 9,
+  "correct_elements": "Your draft is already extremely close to the paper's exact target. It matches the final open problem in Section 5.2 almost verbatim: it uses the right hypothesis ((λ,h) in the interior of D), the right quantifier (for every ε > 0), the right quenched measure P_{N,ω}, the right event (Δ_n = 0 for all n in [εN, N] ∩ N), and the right mode of convergence (P(dω)-almost surely as N → ∞). It also correctly identifies Δ_n = 0 as the polymer not being below the interface.",
+  "missing_details": [
+    "The paper asks this in the general renewal-based copolymer model of Section 1.2, not only in the simple random walk realization.",
+    "To be stand-alone, the model assumptions should be stated: τ is a persistent renewal with K(n) = P(τ_1 = n) ~ C_K n^{-(1+α)} for some α > 0 and C_K > 0.",
+    "The IID sign variables ξ_j should be specified: P(ξ_j = 0) = P(ξ_j = 1) = 1/2, independent of τ and of the disorder.",
+    "The disorder assumptions should be stated: ω = (ω_n) are IID with E[ω_1] = 0, E[ω_1^2] = 1, and M(t) = E[e^{tω_1}] < ∞ for every t ∈ R.",
+    "The quenched polymer measure should be identified explicitly as P_{N,ω,λ,h}, defined by equation (4), rather than only denoted informally by P_{N,ω}.",
+    "The definition Δ_n := Σ_{j≥1} ξ_j 1_{(τ_{j-1},τ_j]}(n) ∈ {0,1} should be included, so that Δ_n = 1 means the nth monomer is in the lower half-plane/water and Δ_n = 0 means it is in the upper/favorable solvent.",
+    "The free energy F and the delocalized region D should be tied back to the paper's definition D = {(λ,h): F(λ,h) = 0}, with interior taken in the parameter plane.",
+    "The parameter domain should be made explicit: λ > 0 and h ≥ 0, with h ≥ 0 assumed without loss of generality in the paper.",
+    "The phrase almost surely should be specified as almost surely with respect to the disorder law P(dω).",
+    "To stay paper-faithful, it helps to note that this is posed as an open pathwise question following averaged delocalization estimates in Theorem 4 and equations (39)-(50), not as a proved theorem."
+  ],
+  "refined_question": "In the general copolymer model of Section 1.2, let τ be a persistent renewal process with K(n) = P(τ_1 = n) ~ C_K n^{-(1+α)} for some α > 0, let ξ = (ξ_j) be IID Bernoulli(1/2) signs independent of τ, let ω = (ω_n) be IID disorder with E[ω_1] = 0, E[ω_1^2] = 1, and E[e^{tω_1}] < ∞ for all t ∈ R, and let P_{N,ω,λ,h} be the quenched polymer measure defined in equation (4) on the variables Δ_n := Σ_{j≥1} ξ_j 1_{(τ_{j-1},τ_j]}(n) ∈ {0,1}. Fix λ > 0 and h ≥ 0 such that (λ,h) lies in the interior of the delocalized region D := {(λ,h) : F(λ,h) = 0}, where F is the quenched free energy defined in equation (6). Is it true that, for every ε > 0, one has P_{N,ω,λ,h}(Δ_n = 0 for every n ∈ [εN, N] ∩ N) → 0 as N → ∞ for P-almost every disorder realization ω?",
+  "equivalent_formulation": null,
+  "justification": "The draft is targeting the paper's final open problem in Section 5.2, not Conjecture 1.1 / Proposition 1.2 / Theorem 1.3 of some other paper. The exact sentence appears at the end of Section 5.2, immediately after the discussion of Theorem 4 and the stronger averaged estimate (50). The nearby context needed to make the question stand alone is spread across Sections 1.2 and 1.3: Section 1.2 defines the general copolymer model, the variables Δ_n, and the quenched measure P_{N,ω,λ,h}; Section 1.3 defines the free energy F, the regions D and L, and explains that in the interior of D the polymer visits water with zero density. Section 5.2 then emphasizes that, despite averaged bounds on N_N, almost-sure pathwise information in the delocalized phase is still missing, and gives exactly this terminal-segment question as the example. Therefore the sharpened question should remain this specific almost-sure terminal-segment problem and should not be broadened to other delocalization criteria such as O(log N) or O(1) bounds on N_N.",
+  "citations": [
+    {
+      "section": "1.2",
+      "label": "equations (4)-(5), definition of P_{N,ω,λ,h} and of Δ_n",
+      "page": "PDF pp.2-3"
+    },
+    {
+      "section": "1.3",
+      "label": "equations (6), (11), (12), (13), and definition of D and L",
+      "page": "PDF pp.4-5"
+    },
+    {
+      "section": "5.2",
+      "label": "Theorem 4 and equations (39)-(41)",
+      "page": "PDF pp.18-19"
+    },
+    {
+      "section": "5.2",
+      "label": "equation (50) and final unnumbered open problem",
+      "page": "PDF p.20"
+    }
+  ]
+}

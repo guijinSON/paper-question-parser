@@ -1,0 +1,49 @@
+{
+  "arxiv_id": "2303.11464",
+  "question_id": "q_002",
+  "original_question": "Given a weighted simple graph G = (V, E, omega), design an algorithm that constructs an epsilon-net for G using fewer landmarks than the currently available methods while also running faster than those existing algorithms.",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 8519.93,
+  "target_in_paper": "Section 1, Open Problem 1.2 in \"The Dowker complex in metric graphs.\"",
+  "completeness_score": 8.0,
+  "correct_elements": "Your draft is already very close to the paper's intended target. It identifies the correct setting (a weighted simple graph G=(V,E,ω)), the correct task (construct an ε-net), and the two exact performance goals emphasized in the paper: use fewer landmarks and achieve lower execution time than existing methods. That matches the paper's algorithmic open problem rather than the neighboring bounds question.",
+  "missing_details": [
+    "The radius ε should be stated explicitly as an input parameter; the paper defines an ε-net relative to a prescribed ε in Definition 1.5.",
+    "The relevant metric should be specified: the graph carries the induced geodesic distance d_G on V, and the ε-net is taken in the finite metric space (V,d_G), not just in the abstract combinatorial graph.",
+    "The output subset L⊂V should be defined exactly as a landmark set that is both an ε-sample and ε-sparse: every v∈V must satisfy d_G(v,u)≤ε for some u∈L, and every distinct u,u'∈L must satisfy d_G(u,u')>ε.",
+    "The baseline 'currently available methods' should be identified paper-faithfully as the greedy, iterative, and SPTpruning ε-net algorithms discussed immediately before Open Problem 1.2.",
+    "To make the comparison stand-alone, it should be clear that landmark count and running time are being compared on the same input graph G and the same ε.",
+    "The paper's motivation is landmark selection for witness/Dowker complexes in topological data analysis on metric graphs; your draft omits that context, which is not part of the bare optimization target but is part of the paper's intent.",
+    "No ambient ring/field, homogeneity, degree restriction, nilpotency condition, or 'for all sufficiently large m' quantifier is relevant here; those algebraic details are not part of this graph-metric open problem."
+  ],
+  "refined_question": "Given a weighted simple graph G=(V,E,ω), let d_G be the induced geodesic distance on V, and fix ε>0. Devise an algorithm that outputs a subset L⊂V of landmarks forming an ε-net for the metric space (V,d_G)—that is, every vertex v∈V lies within distance ε of some u∈L, and every two distinct landmarks u,u'∈L satisfy d_G(u,u')>ε—such that, for the same graph G and radius ε, the algorithm uses fewer landmarks and has lower execution time than the existing greedy, iterative, and SPTpruning ε-net algorithms.",
+  "equivalent_formulation": null,
+  "justification": "The draft is targeting Section 1, Open Problem 1.2, page 565. It matches that open problem's two explicit desiderata: fewer landmarks and lower execution time. Definition 1.5 on page 564 supplies the missing formal meaning of an ε-net in the metric space (V,d_G), namely ε-sample plus ε-sparse. The discussion immediately preceding Open Problem 1.2 on page 565 identifies the benchmark procedures as the greedy, iterative, and SPTpruning algorithms. The surrounding Section 1 context places the problem within landmark selection for witness/Dowker complexes on metric graphs, but the nearest official formulation is still Open Problem 1.2 itself. The paper does not state an explicit equivalent reformulation of Open Problem 1.2, so none should be introduced.",
+  "citations": [
+    {
+      "section": "1. The Dowker complex in metric graphs",
+      "label": "Definition 1.2",
+      "page": "562"
+    },
+    {
+      "section": "1. The Dowker complex in metric graphs",
+      "label": "Definition 1.4",
+      "page": "564"
+    },
+    {
+      "section": "1. The Dowker complex in metric graphs",
+      "label": "Definition 1.5",
+      "page": "564"
+    },
+    {
+      "section": "1. The Dowker complex in metric graphs",
+      "label": "Open Problem 1.1",
+      "page": "564-565"
+    },
+    {
+      "section": "1. The Dowker complex in metric graphs",
+      "label": "Open Problem 1.2",
+      "page": "565"
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "arxiv_id": "1103.3808",
+  "question_id": "q_031",
+  "original_question": "Let F = {a1(t), ..., aℓ(t)} be Hardy-field functions of polynomial growth such that every nontrivial linear combination a in span*(F) stays unbounded away from every real multiple of every integer polynomial. Must the family {[a1(n)], ..., [aℓ(n)]} then be good for ℓ-recurrence of a single transformation?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 1460.01,
+  "target_in_paper": "Problem 25 in Section 6.1.4 ('Necessary conditions for ℓ-recurrence').",
+  "completeness_score": 8,
+  "correct_elements": "Your draft is already very close to the paper-faithful target. It correctly identifies the Hardy-field setting, the polynomial-growth regime, the key obstruction on every nontrivial linear combination in span*(F), the integer-part sequences [a_i(n)], and the intended conclusion about ℓ-recurrence for a single transformation.",
+  "missing_details": [
+    "The paper assumes that a_1(t), ..., a_ℓ(t) belong to the same Hardy field, not merely that each is a Hardy-field function.",
+    "The paper fixes polynomial growth explicitly: there exists k in N such that a_i(t)/t^k -> 0 for each i.",
+    "The notation span*(F) must be defined as the set of all nontrivial linear combinations of elements of F.",
+    "The avoidance hypothesis should be stated exactly as |a(t) - c p(t)| -> infinity as t -> infinity for every a in span*(F), every c in R, and every p in Z[t].",
+    "The bracket notation [x] should be defined as the integer part (floor) of x.",
+    "The phrase 'good for ℓ-recurrence of a single transformation' must be unpacked: for every invertible measure-preserving system (X, X, mu, T) and every A in X with mu(A) > 0, there exists n in N with [a_i(n)] != 0 for all i such that mu(A ∩ T^{- [a_1(n)]}A ∩ ... ∩ T^{- [a_ℓ(n)]}A) > 0.",
+    "No ergodicity assumption is present in the recurrence question; the quantifier is over all systems.",
+    "Because Hardy-field elements are germs, all asymptotic statements are understood as t -> infinity (equivalently, for all sufficiently large t)."
+  ],
+  "refined_question": "Let F = {a_1(t), ..., a_ℓ(t)} be real-valued functions of polynomial growth belonging to a common Hardy field, where polynomial growth means that a_i(t)/t^k -> 0 for some k in N and all i, and let span*(F) denote the set of all nonzero real linear combinations of the functions in F. Assume that for every a in span*(F), every c in R, and every p in Z[t], one has |a(t) - c p(t)| -> infinity as t -> infinity. Must the integer-part sequences ([a_1(n)]), ..., ([a_ℓ(n)]) be good for ℓ-recurrence of a single transformation; that is, for every invertible measure-preserving system (X, X, mu, T) and every measurable set A with mu(A) > 0, does there exist n in N with [a_i(n)] != 0 for all i such that mu(A ∩ T^{- [a_1(n)]}A ∩ ... ∩ T^{- [a_ℓ(n)]}A) > 0?",
+  "equivalent_formulation": "Equivalently, does every set E subset Z with positive upper density contain a configuration {m, m + [a_1(n)], ..., m + [a_ℓ(n)]} for some m in Z and some n in N with [a_i(n)] != 0 for all i?",
+  "justification": "The draft is aiming at the recurrence problem for families of Hardy-field sequences, not at the neighboring convergence problems. In Section 6.1.4, Problem 25 asks exactly whether the hypothesis |a(t) - c p(t)| -> infinity for every a in span*(F), c in R, and p in Z[t] forces the family {([a_1(n)]), ..., ([a_ℓ(n)])} to be good for ℓ-recurrence of a single transformation. The nearby setup in Section 6.1 supplies the common-Hardy-field assumption, the meaning of polynomial growth, and the notation span*(F). Definition 3.1 supplies the exact meaning of 'good for ℓ-recurrence of a single transformation', and the theorem later in Section 3.1 gives the equivalent positive-density combinatorial formulation. The preceding theorem in Section 6.1.4 is the single-sequence analogue and confirms that this is the intended recurrence-side extension.",
+  "citations": [
+    {
+      "section": "6.1",
+      "label": "setup before Problem 22",
+      "page": "PDF p. 29"
+    },
+    {
+      "section": "6.1.4",
+      "label": "Theorem preceding Problem 25",
+      "page": "PDF p. 31"
+    },
+    {
+      "section": "6.1.4",
+      "label": "Problem 25",
+      "page": "PDF p. 31"
+    },
+    {
+      "section": "3.1",
+      "label": "Definition 3.1",
+      "page": "PDF p. 13"
+    },
+    {
+      "section": "3.1",
+      "label": "Theorem (combinatorial reformulation of recurrence)",
+      "page": "PDF p. 15"
+    }
+  ]
+}

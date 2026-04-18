@@ -1,0 +1,40 @@
+{
+  "arxiv_id": "0707.4558",
+  "question_id": "q_009",
+  "original_question": "Which conditional independence models can actually be realized by multivariate Gaussian distributions on R^n? Equivalently, how can one study the geometry of Gaussian conditional independence models, that is, semi-algebraic subsets of the cone PD_n of positive definite symmetric n×n matrices defined by equations of the form [i ⊥⊥ j | K] = 0?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 142.15,
+  "target_in_paper": "Section 4, the General Problem immediately following the Specific Problem: characterize Gaussian-realizable conditional independence structures, phrased in the paper as “Study the geometry of conditional independence models for multivariate Gaussian random variables. Which semigraphoids can be realized by Gaussians?”",
+  "completeness_score": 8,
+  "correct_elements": "Your draft correctly identifies the broad target of Section 4: the realizability problem for Gaussian conditional independence structures, the geometric viewpoint via covariance matrices in the positive definite cone, and the fact that Gaussian CI constraints are expressed by vanishing determinants of the form [i ⟂⟂ j | K].",
+  "missing_details": [
+    "The paper’s official formulation is in terms of semigraphoids: it asks which semigraphoids are realizable by Gaussians, not just vaguely which CI models are realizable.",
+    "To make the question stand-alone, one should define the ambient object: a mean-zero multivariate Gaussian random vector X on R^n with covariance matrix Σ = (σ_ij).",
+    "The notation [i ⟂⟂ j | K] should be defined explicitly as the almost-principal minor of Σ with row set {i} ∪ K and column set {j} ∪ K, where K ⊂ {1,…,n} and i,j ∈ {1,…,n} \\ K.",
+    "The equivalence between vanishing of [i ⟂⟂ j | K] and Gaussian conditional independence Xi ⟂ Xj | XK should be stated, since this is the lemma that justifies translating between CI structures and determinant equations.",
+    "PD_n should be identified precisely as the open cone of positive definite real symmetric n×n matrices (the paper also notes its dimension is binomial(n+1,2)).",
+    "The paper’s definition of a Gaussian conditional independence model is not an arbitrary semi-algebraic subset of PD_n, but one defined by a prescribed collection of polynomial equations [i ⟂⟂ j | K] = 0.",
+    "The paper adds an algebro-geometric refinement: one studies the corresponding complex algebraic variety cut out by these equations, then asks about its real locus and its intersection with the positive definite cone.",
+    "Your draft does not indicate that this general problem is presented in the paper as the broader question behind the narrower 5×5 specific problem about which sets of almost-principal minors can vanish."
+  ],
+  "refined_question": "For a mean-zero Gaussian random vector X on R^n with covariance matrix Σ ∈ PD_n, let [i ⟂⟂ j | K] denote the almost-principal minor of Σ with row indices {i} ∪ K and column indices {j} ∪ K, where K ⊂ {1,…,n} and i,j ∈ {1,…,n} \\ K; by Lemma 4.1, [i ⟂⟂ j | K] = 0 if and only if Xi is conditionally independent of Xj given XK. Which collections of such conditional independence statements—equivalently, which semigraphoids—are realizable by some positive definite covariance matrix Σ, and hence arise as Gaussian conditional independence models M = {Σ ∈ PD_n : [i ⟂⟂ j | K] = 0 for the prescribed statements}, viewed algebro-geometrically through the real locus of the complex variety defined by these equations?",
+  "equivalent_formulation": "Which semigraphoids can be realized by Gaussians?",
+  "justification": "Although Section 4 opens with the narrower 5×5 “Specific Problem,” your draft clearly aims at the broader “General Problem” stated right after it, because it asks about realizability of Gaussian CI structures in all dimensions and about the geometry of Gaussian CI models. The refined version therefore keeps the paper’s general scope, but restores the paper’s precise vocabulary (“semigraphoids”), the exact determinant notation for almost-principal minors, the covariance-matrix setup, and the Lemma 4.1 bridge between determinant vanishing and Gaussian conditional independence. It also incorporates the paper’s algebro-geometric viewpoint via the complex variety defined by equations (4.1) and its real locus inside PD_n.",
+  "citations": [
+    {
+      "section": "Section 4",
+      "label": "Specific Problem / General Problem",
+      "page": 8
+    },
+    {
+      "section": "Section 4",
+      "label": "Lemma 4.1",
+      "page": 8
+    },
+    {
+      "section": "Section 4",
+      "label": "Equation (4.1)",
+      "page": 8
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "arxiv_id": "2009.05870",
+  "question_id": "q_001",
+  "original_question": "For the hypergraphic planted clique (HPC) detection problem, where one must distinguish an Erdős-Rényi d-hypergraph G_d(N, 1/2) from a planted-clique alternative G_d(N, 1/2, κ) formed by choosing κ vertices uniformly at random and connecting every hyperedge whose vertices all lie in that planted set, what is the sharp threshold on the clique size κ at which polynomial-time singular-value-decomposition-based detection on a matricization or unfolding of the adjacency tensor succeeds, and is there some other polynomial-time algorithm that can solve HPC detection for κ below that SVD threshold?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 7120.63,
+  "target_in_paper": "Section 3, Challenge 1, read together with the Section 2 definition of HPC detection in equation (1), the definition of the adjacency tensor A=A(G), and the Section 2 discussion immediately preceding Conjecture 1 that records the currently known SVD success/failure regime.",
+  "completeness_score": 8.5,
+  "correct_elements": "Your draft correctly identifies the paper’s actual open problem as the two-part Question in Section 3, Challenge 1: determine the SVD-based detection limit for hypergraphic planted clique after matricizing/unfolding the adjacency tensor, and ask whether any polynomial-time algorithm can succeed for smaller clique size. It also correctly states the null/alternative models G_d(N,1/2) versus G_d(N,1/2,κ) and the planted-set construction.",
+  "missing_details": [
+    "The paper is asymptotic in N, so the question should explicitly say that N→∞.",
+    "The order d should be fixed. In the surrounding HPC discussion the intended hypergraph case is d≥3, while Conjecture 1 is stated for any fixed d≥2.",
+    "The object being unfolded is specifically the adjacency tensor A=A(G)∈{0,1}^{N⊗d}, with A_{i1,...,id}=1 iff {i1,...,id} is a hyperedge and 0 otherwise.",
+    "Under H1, the planted set K is chosen uniformly at random among all κ-subsets of [N], and every d-hyperedge contained entirely in K is added.",
+    "The success criterion should be stated: a sequence of polynomial-time tests φ_N solves detection if P_H0(φ_N(G)=1)+P_H1(φ_N(G)=0)→0.",
+    "The paper’s wording is 'the sharp limit of κ' for SVD on a matricization/unfolding of A, not a broader computational threshold for HPC as a whole.",
+    "To be paper-faithful, the question should mention the known baseline motivating the challenge: SVD is known to solve HPC when κ=Ω(√N) and to fail when κ=N^{1/2-ε} for any ε>0.",
+    "The second part asks for any other polynomial-time algorithm below the SVD limit, not specifically another spectral or tensor-unfolding method.",
+    "No ambient field/ring, homogeneity, degree, or nilpotency assumptions are involved here; the relevant objects are {0,1}-valued adjacency tensors of d-uniform hypergraphs."
+  ],
+  "refined_question": "For a fixed integer d≥3, let G be a d-uniform hypergraph on [N], let A=A(G)∈{0,1}^{N⊗d} be its adjacency tensor, and consider the hypergraphic planted clique detection problem with hypotheses H0:G∼G_d(N,1/2) versus H1:G∼G_d(N,1/2,κ), where under H1 a set K⊂[N] of size κ is chosen uniformly at random and every d-hyperedge contained in K is planted; a sequence of polynomial-time tests solves detection if P_H0(φ_N(G)=1)+P_H1(φ_N(G)=0)→0 as N→∞. What is the sharp asymptotic limit of κ for which applying singular value decomposition to a matricization/unfolding of A guarantees successful HPC detection, and does there exist any polynomial-time algorithm that solves HPC detection for κ asymptotically below that SVD limit?",
+  "equivalent_formulation": null,
+  "justification": "The draft is aimed at Section 3, Challenge 1, not at the paper’s main hardness conjecture or its PC-vs-HPC reduction question. The match is very close because your two clauses mirror the two sentences of Challenge 1 almost verbatim. To make it fully stand-alone and faithful to the paper, one must import the Section 2 model definition, the adjacency-tensor notation, the asymptotic error criterion for detection, and the fixed-d assumption. This short COLT note contains Section 2, equation (1), Conjecture 1, and Challenges 1–3, but no Proposition 1.2 or Theorem 1.3; the nearest official formulation for your draft is therefore Section 3, Challenge 1, with notation supplied by Section 2.",
+  "citations": [
+    {
+      "section": "Section 2",
+      "label": "Equation (1) and surrounding definition of HPC detection and success criterion",
+      "page": 2
+    },
+    {
+      "section": "Section 2",
+      "label": "Discussion immediately before Conjecture 1 (largest-clique bound; SVD succeeds for κ=Ω(√N) and fails for κ=N^{1/2-ε})",
+      "page": 3
+    },
+    {
+      "section": "Section 2",
+      "label": "Conjecture 1 (HPC detection)",
+      "page": 3
+    },
+    {
+      "section": "Section 3",
+      "label": "Challenge 1",
+      "page": 3
+    }
+  ]
+}

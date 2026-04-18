@@ -1,0 +1,47 @@
+{
+  "arxiv_id": "2307.06787",
+  "question_id": "q_014",
+  "original_question": "Let S_d(f)=\\u222b_{D_d} f(x) rho(x) dx be a weighted multivariate integral over an open set D_d\\subset R^d, and consider randomized cubature rules of the form A_n^omega(f)=sum_{j=1}^n a_j(omega) f(x_j(omega)), possibly with the sample points x_j chosen as iid uniform points in D_d. Does there exist a universal randomized algorithm for this weighted integration problem, meaning a single algorithm family that works across multiple smoothness classes, with error bounds comparable to those known in the unweighted cube case, perhaps allowing additional logarithmic factors if exact optimal rates are too expensive in practice?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 9031.57,
+  "target_in_paper": "Section 6, \"A final open problem\" (equation (17)), read together with Section 1 for the standing integration/randomization setup and Section 3, Theorem 3.1 for the benchmark cube-case error orders; the paper does not contain a Conjecture 1.1, Proposition 1.2, or Theorem 1.3.",
+  "completeness_score": 7.5,
+  "correct_elements": "Your draft correctly identifies the weighted integral over a general open domain, the intended class of linear randomized cubature rules A_n^omega(f)=sum_{j=1}^n a_j(omega) f(x_j(omega)), the possibility of using iid uniformly distributed sample points, the universality theme (one algorithm family across several smoothness classes), the comparison with the unweighted cube case, and the paper’s pragmatic allowance that extra logarithmic factors may be acceptable if exact optimal rates come with impractically large constants.",
+  "missing_details": [
+    "The nearest official target is not a numbered conjecture but the unlabeled final open problem in Section 6, specifically equation (17).",
+    "The paper’s standing ambient setting from Section 1 is real-valued integration: d,n in N, D_d subset R^d open, f:D_d->R integrable, and initially lambda_d(D_d)=1.",
+    "The benchmark is not just a vague \"unweighted cube case\" but the specific universality result of Section 3, Theorem 3.1 for the randomized Frolov algorithm.",
+    "The intended smoothness classes behind that benchmark are the isotropic Sobolev spaces H_d^k with k>d/2 and the dominating mixed-smoothness spaces H_d^{k,mix} with k in N.",
+    "The benchmark asks for both randomized-error and deterministic worst-case error behavior; your draft mentions only error bounds in general, not that dual criterion.",
+    "The exact benchmark orders from Theorem 3.1 are omitted: randomized error n^{-k/d-1/2} and deterministic worst-case error n^{-k/d} in the isotropic case, and randomized error n^{-k-1/2} and deterministic worst-case error n^{-k}(log n)^{(d-1)/2} in the mixed-smoothness case.",
+    "The paper explicitly says that such universal algorithms are currently known only for rho=1 on D_d=[0,1]^d; the question is about extending beyond that case.",
+    "\"Possibly based on iid uniformly distributed x_j\" in the paper means iid-uniform nodes are allowed as a design principle, not required in every candidate algorithm.",
+    "The paper also mentions a concrete possible route, namely exactness spaces V_K = span{ x^i : product_{j=1}^d (i_j+1) <= K }, K=1,2,..., though this is a suggested method rather than part of the statement itself.",
+    "There are no homogeneity, degree, characteristic, or nilpotency restrictions in this problem; the relevant hidden assumptions are instead domain, integrability, Sobolev-class choice, and error criterion."
+  ],
+  "refined_question": "Let D_d\\subset\\mathbb R^d be an open set (with the paper’s standing normalization \\(\\lambda_d(D_d)=1\\)), let \\(\\rho:D_d\\to\\mathbb R\\) be a weight, and define \\(S_d(f)=\\int_{D_d} f(x)\\rho(x)\\,dx\\) for integrable real-valued \\(f:D_d\\to\\mathbb R\\). Beyond the currently understood case \\(\\rho\\equiv 1\\) on \\([0,1]^d\\), does there exist a single universal family of randomized cubature rules of the linear form \\(A_n^\\omega(f)=\\sum_{j=1}^n a_j(\\omega)f(x_j(\\omega))\\), possibly based on iid points \\(x_j\\) uniformly distributed on \\(D_d\\), that extends the universality phenomenon of the randomized Frolov algorithm to this weighted-domain setting and, on the corresponding isotropic Sobolev classes \\(H_d^k\\) (for \\(k>d/2\\)) and dominating mixed-smoothness classes \\(H_d^{k,\\mathrm{mix}}\\) (for \\(k\\in\\mathbb N\\)), achieves the same benchmark orders as in Theorem 3.1—namely randomized error \\(n^{-k/d-1/2}\\) and deterministic worst-case error \\(n^{-k/d}\\) in the isotropic case, and randomized error \\(n^{-k-1/2}\\) and deterministic worst-case error \\(n^{-k}(\\log n)^{(d-1)/2}\\) in the mixed-smoothness case—or at least these rates up to additional logarithmic factors if exact optimality is computationally impractical?",
+  "equivalent_formulation": null,
+  "justification": "The draft clearly points to the paper’s final open problem rather than to any broader neighboring topic: Section 6 is the only place where Novak explicitly asks about the weighted integral \\(\\int_{D_d} f(x)\\rho(x)\\,dx\\), universal randomized algorithms of the form \\(\\sum a_j(\\omega)f(x_j(\\omega))\\), possible use of iid uniformly distributed nodes, matching the cube-case benchmark from Theorem 3.1, and allowing extra logarithmic losses if exact optimal orders are not practical. Section 1 supplies the standing notation and the deterministic/randomized error framework, while Section 3 gives the exact benchmark rates that must be unpacked to make the question stand alone. Section 5 is relevant context for the iid clause, since it shows that iid-uniform points can already be optimal for unweighted Sobolev integration under the Monte Carlo criterion, but it is not itself the statement your draft is aiming at.",
+  "citations": [
+    {
+      "section": "1",
+      "label": "equation (1), formulas (2)-(3), and randomized-error setup around (8)",
+      "page": "109"
+    },
+    {
+      "section": "3",
+      "label": "Theorem 3.1",
+      "page": "114"
+    },
+    {
+      "section": "5",
+      "label": "Corollary 1",
+      "page": "123-124"
+    },
+    {
+      "section": "6",
+      "label": "A final open problem; equation (17)",
+      "page": "126"
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "arxiv_id": "2201.09150",
+  "question_id": "q_047",
+  "original_question": "Determine which knowledge-based strategies are optimal for the two static-memory resource-tracking models that use resource-to-average-resource and resource-to-population ratios, and compare those predictions with the optimality results already known for the original nonlocal perception model.",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 8049.7,
+  "target_in_paper": "Open Problem 47 (Section 4.3): \"Which knowledge-based strategies are optimal in terms of the foraging success (2.4) for models (2.7) and (2.8)? How do these insights compare to results obtained in Fagan et al. (2017)?\" By the immediately preceding context, 'foraging success' is the functional defined in Eq. (4.6), while Eq. (2.4) is the benchmark nonlocal perception model.",
+  "completeness_score": 7.0,
+  "correct_elements": "The draft correctly identifies the paper’s open problem about the two new static cognitive-map models from Section 2.2.1—one based on the ratio of resource density to average resource density and one based on per-capita resource density—and it correctly asks for optimal knowledge-based strategies together with a comparison to the benchmark nonlocal perception model analyzed by Fagan et al. (2017).",
+  "missing_details": [
+    "The exact target is Open Problem 47 in Section 4.3, not a broader question about all memory-based models in the paper.",
+    "Optimality is with respect to the foraging success functional FS = ∫_{t_*}^{t_max} ∫_Ω u(x,t)m(x,t) dx dt, with t_* chosen so that transient dynamics have settled; the draft leaves the success criterion implicit.",
+    "The official wording says 'foraging success (2.4)', but the nearby text shows that foraging success is defined in Eq. (4.6), whereas Eq. (2.4) is the original nonlocal perception PDE being used as the comparison model.",
+    "The two target models should be stated explicitly: Eq. (2.7) uses the cognitive map m(x,t)/m̄(t), where m̄(t)=|Ω|^{-1}∫_Ω m(y,t)dy; Eq. (2.8) uses the per-capita resource density m(x,t)/u(x,t).",
+    "The benchmark 'original nonlocal perception model' should be identified explicitly as Eq. (2.4), with perception function h(x,t)=∫_Ω m(y,t)g(x−y)dy.",
+    "'Knowledge-based strategies' should be tied to the quantities varied in the surrounding discussion: diffusion and advection strengths, perceptual kernel/detection function g, and perceptual radius R.",
+    "The models here are movement-only models with explicit resource density m(x,t) given a priori; the comparison is about resource tracking, not growth or reproduction.",
+    "The paper explicitly warns that one strategy may fail to be uniformly optimal; the sharp stand-alone question should ask under which conditions or under which model formulation a strategy is advantageous.",
+    "To make the comparison with Fagan et al. (2017) stand-alone, one should mention the benchmark findings highlighted by the paper: foraging success can be non-monotone in perceptual radius R in some environments, and increases monotonically with advection strength in the local limit R→0+.",
+    "Checklist items such as ambient ring/field, homogeneity, degree restrictions, nilpotency, and 'for all sufficiently large m' are not applicable to this PDE movement-ecology problem."
+  ],
+  "refined_question": "For the two static cognitive-map movement models with prescribed resource density m(x,t) on a spatial domain Ω,\n(1) ∂_t u = dΔu − γ∇·(u∇∫_Ω [m(y,t)/m̄(t)] g(x−y)dy), where m̄(t)=|Ω|^{-1}∫_Ω m(y,t)dy,\nand\n(2) ∂_t u = dΔu − γ∇·(u∇∫_Ω [m(y,t)/u(y,t)] g(x−y)dy),\nwith g a perceptual kernel (for example local, top-hat, Gaussian, or exponential, with perceptual radius R), determine which knowledge-based movement strategies maximize the foraging success functional FS = ∫_{t_*}^{t_max}∫_Ω u(x,t)m(x,t) dx dt, where t_* is chosen after transient dynamics have settled, and determine under what environmental conditions or for which model ((2.7) versus (2.8)) a given strategy is advantageous; then compare these optimality predictions with those for the benchmark nonlocal perception model ∂_t u = dΔu − γ∇·(u∇h), h(x,t)=∫_Ω m(y,t)g(x−y)dy, as discussed in Fagan et al. (2017).",
+  "equivalent_formulation": null,
+  "justification": "The draft is targeting Open Problem 47 because that is the only place in the paper where models (2.7) and (2.8) are jointly singled out and compared directly with the Fagan et al. (2017) nonlocal perception model. Section 2.2.1 provides the precise static-memory PDEs and clarifies that the two ratios are m/m̄ and m/u. Section 2.1 identifies Eq. (2.4) as the benchmark nonlocal perception model and introduces the perceptual-kernel notation. Section 4.2.2 defines the operative success criterion, namely the foraging success functional (4.6). The surrounding discussion in Section 4.3 sharpens the intended scope further by indicating that the relevant strategic variables are the same kinds considered for model (2.4)—diffusion/advection parameters and perceptual kernel/radius—and by explicitly noting that optimality may depend on the model formulation or conditions rather than being universal. The paper does not state a proved equivalent reformulation of Open Problem 47. Items such as ambient field, homogeneity, degree, nilpotency, and asymptotic phrases like 'for all sufficiently large m' are simply not part of this PDE-ecology problem.",
+  "citations": [
+    {
+      "section": "2.1",
+      "label": "Eqs. (2.2)–(2.5), especially Eq. (2.4)",
+      "page": "PDF pp. 7-8"
+    },
+    {
+      "section": "2.2.1",
+      "label": "Eqs. (2.7)–(2.8)",
+      "page": "PDF p. 10"
+    },
+    {
+      "section": "4.2.2",
+      "label": "Eq. (4.6)",
+      "page": "PDF p. 45"
+    },
+    {
+      "section": "4.3",
+      "label": "discussion of Fagan et al. (2017) benchmark results",
+      "page": "PDF p. 48"
+    },
+    {
+      "section": "4.3",
+      "label": "Open Problem 47",
+      "page": "PDF p. 48"
+    }
+  ]
+}

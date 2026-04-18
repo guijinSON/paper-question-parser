@@ -1,0 +1,44 @@
+{
+  "arxiv_id": "1204.6447",
+  "question_id": "q_003",
+  "original_question": "Let f : {-1,1}^n -> R_{>=0} satisfy E[f] = 1, and fix 0 < rho < 1. Must the upper tail of the noise operator obey Pr[T_rho f >= t] < o(1/t)?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 2135.98,
+  "target_in_paper": "Talagrand's \"Convolution with a Biased Coin\" Conjecture",
+  "completeness_score": 8.5,
+  "correct_elements": "Your draft is already very close to the paper's exact statement. It has the correct ambient space ({-1,1}^n), codomain (nonnegative reals), normalization E[f] = 1, fixed noise parameter 0 < rho < 1, and the official tail-decay question for T_rho f with an o(1/t) upper bound.",
+  "missing_details": [
+    "State explicitly that n is arbitrary and the question is meant to hold for every dimension n >= 1.",
+    "Specify that E[f] and Pr[.] are with respect to the uniform measure on {-1,1}^n.",
+    "Define the operator T_rho explicitly: (T_rho f)(x) = E[f(y)] where y is a rho-correlated copy of x.",
+    "Spell out that the phrase o(1/t) is an asymptotic statement as t -> infinity.",
+    "Make explicit that once rho is fixed, the tail bound is intended uniformly over all admissible dimensions n and all admissible functions f; otherwise the little-o notation is ambiguous.",
+    "State that there are no further assumptions on f beyond nonnegativity and mean 1 (no Boolean-valued, boundedness, degree, symmetry, or other structural restrictions).",
+    "Do not fold in the Gaussian-space variant or Talagrand's stronger suggested O(1/(t sqrt(log t))) decay; in this paper those appear only as remarks, not as the formal statement."
+  ],
+  "refined_question": "For each fixed rho in (0,1), let T_rho denote the standard noise operator on the discrete cube, defined by (T_rho f)(x) = E[f(y)] where x is uniform on {-1,1}^n and y is a rho-correlated copy of x. Is it true that there exists a function a_rho(t) = o(1/t) as t -> infinity such that, for every n >= 1 and every function f : {-1,1}^n -> [0,infinity) with E[f] = 1, one has Pr_x[(T_rho f)(x) >= t] <= a_rho(t) for all sufficiently large t?",
+  "equivalent_formulation": null,
+  "justification": "The draft is targeting exactly the unnumbered problem entry in the paper labeled Talagrand's \"Convolution with a Biased Coin\" Conjecture. I kept the paper's official weaker formulation with o(1/t), because that is the formal statement in the entry, while the stronger O(1/(t sqrt(log t))) decay is presented only as a remark. The only substantive refinements needed to make the question stand alone are the standard definition of T_rho, the uniform-cube probability space for E and Pr, and the asymptotic/uniform meaning of the little-o bound that the paper leaves implicit through its front-matter notation note. The paper does not provide an explicit equivalent reformulation for this conjecture.",
+  "citations": [
+    {
+      "section": "Front matter (unnumbered)",
+      "label": "Notation and definitions note",
+      "page": "PDF p. 1"
+    },
+    {
+      "section": "Main list (unnumbered)",
+      "label": "Talagrand's \"Convolution with a Biased Coin\" Conjecture (Statement)",
+      "page": "PDF p. 2"
+    },
+    {
+      "section": "Main list (unnumbered)",
+      "label": "Talagrand's \"Convolution with a Biased Coin\" Conjecture (Remarks: stronger suggested bound and prize)",
+      "page": "PDF p. 2"
+    },
+    {
+      "section": "Main list (unnumbered)",
+      "label": "Talagrand's \"Convolution with a Biased Coin\" Conjecture (Remarks: Gaussian special case and known bounds)",
+      "page": "PDF pp. 2-3"
+    }
+  ]
+}

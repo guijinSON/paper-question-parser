@@ -1,0 +1,42 @@
+{
+  "arxiv_id": "2310.18163",
+  "question_id": "q_005",
+  "original_question": "For integers 4<=t<=n, let g_{K_t}(n) be the maximum size of a family of graphs on vertex set [n] such that the intersection of any two graphs in the family contains a copy of the complete graph K_t. Determine whether g_{K_t}(n)=2^{C(n,2)-C(t,2)} for all such t and n.",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 9072.44,
+  "target_in_paper": "Section 4, Conjecture 4.1 (the clique case of the H-intersecting-family problem).",
+  "completeness_score": 8.5,
+  "correct_elements": "Your draft matches Conjecture 4.1 very closely: it uses the same parameter range 4≤t≤n, the same extremal quantity g_{K_t}(n), the same ambient object (families of graphs on [n]), the same K_t-intersection condition, and the exact conjectured value 2^{\\binom{n}{2}-\\binom{t}{2}}.",
+  "missing_details": [
+    "Specify that [n]={1,2,...,n} and that all graphs are simple labelled graphs on this common vertex set.",
+    "State explicitly that K_t is the complete graph on t vertices and that 'contains a copy of K_t' means as a subgraph (not necessarily induced).",
+    "Use the paper’s quantifier 'for all G_1,G_2 in F' rather than the potentially ambiguous phrase 'any two graphs'; in the paper this includes the case G_1=G_2, so each graph in F itself must contain a K_t.",
+    "If you want the formulation to mirror the paper exactly, note that this is the specialization H=K_t of the general definition g_H(n):=max{|F|: F is an H-intersecting family of graphs on [n]}.",
+    "For paper-faithful nearby context, note that the paper records that Conjecture 4.1 has already been proved for t=4, so the genuinely open cases there are t≥5."
+  ],
+  "refined_question": "For integers t,n with 4≤t≤n, let [n]:={1,2,...,n}, let K_t denote the complete graph on t vertices, and let g_{K_t}(n) be the maximum size of a family F of simple labelled graphs on the common vertex set [n] such that for every G_1,G_2 in F, the intersection graph G_1∩G_2 contains a copy of K_t. Is it true that g_{K_t}(n)=2^{\\binom{n}{2}-\\binom{t}{2}} for all 4≤t≤n?",
+  "equivalent_formulation": "Equivalently, for every t≥4 and n≥t, is the 'trivial' family consisting of all graphs on [n] that contain a fixed copy of K_t always a largest possible K_t-intersecting family?",
+  "justification": "The draft is clearly targeting Section 4’s Conjecture 4.1. Section 4 first defines H-intersecting families and the extremal function g_H(n), then states exactly the K_t specialization with the range 4≤t≤n and the formula g_{K_t}(n)=2^{\\binom{n}{2}-\\binom{t}{2}}. The nearby Proposition 4.2 and Conjecture 4.3 are not the same problem: they replace the condition 'G_1∩G_2 contains a copy of K_t' by the stronger/broader chromatic-number condition 'χ(G_1∩G_2)≥t'. The paragraph immediately after Conjecture 4.1 also provides important scope context by noting that Berger and Zhao proved the case t=4, leaving t≥5 open in the paper’s discussion.",
+  "citations": [
+    {
+      "section": "4",
+      "label": "definition of H-intersecting and g_H(n)",
+      "page": 9
+    },
+    {
+      "section": "4",
+      "label": "Conjecture 4.1",
+      "page": 9
+    },
+    {
+      "section": "4",
+      "label": "paragraph after Conjecture 4.1",
+      "page": 9
+    },
+    {
+      "section": "4",
+      "label": "Proposition 4.2 and Conjecture 4.3",
+      "page": "9-10"
+    }
+  ]
+}

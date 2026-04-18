@@ -1,0 +1,54 @@
+{
+  "arxiv_id": "2201.09150",
+  "question_id": "q_055",
+  "original_question": "Develop a general numerical technique that can efficiently solve the nonlocal movement problems from Section 2.2.2 under boundary conditions that are not periodic.",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 8080.05,
+  "target_in_paper": "Open Problem 55 (Section 4.7, Numerical analysis): \"Is there a general technique to efficiently solve nonlocal problems of the form appearing in Sect. 2.2.2 subject to boundary conditions that are not of the periodic type?\"",
+  "completeness_score": 9,
+  "correct_elements": "Your draft already identifies the correct target almost verbatim: it is a numerical-analysis question, it asks for a general efficient technique, it points to the Section 2.2.2 model class, and it focuses on boundary conditions that are not periodic.",
+  "missing_details": [
+    "The exact target is Open Problem 55 in Section 4.7, rather than the nearby analytical existence questions in Section 4.1.2.",
+    "The scope is the bounded-domain dynamic-memory/nonlocal-perception PDEs introduced in Section 2.2.2, namely the model family running from (2.9) through (2.19), not all nonlocal models in the paper.",
+    "The nonlocal structure should be made explicit: these models contain perceptual or cognitive-map convolution terms of the form a_{g,R}(x,t)=∫_Ω a(y,t)g(x-y)dy, or a boundary-modified analogue of that term.",
+    "The difficulty for non-periodic boundary conditions is not merely the boundary data themselves; it is that the perceptual/detection kernel must be defined or modified near the boundary of the domain.",
+    "The paper's motivating examples of non-periodic boundary conditions include zero-flux, homogeneous Neumann, and homogeneous Dirichlet conditions; the refined question should signal that this is the intended bounded-domain setting.",
+    "The periodic case is an explicit exception in the paper because pseudo-spectral/Fourier methods can exploit the convolution theorem there; the open problem asks for a comparable general technique beyond that special case.",
+    "No algebraic data such as ambient ring/field, homogeneity, degree restrictions, nilpotency conditions, or phrases like 'for all sufficiently large m' are relevant here; the missing mathematical data are instead the PDE family, domain, kernel, and boundary-condition conventions."
+  ],
+  "refined_question": "Is there a general numerical technique that can efficiently solve, on bounded spatial domains, the nonlocal dynamic-memory movement models introduced in Section 2.2.2—namely the PDE systems (2.9)–(2.19), whose movement terms involve perceptual/cognitive-map convolutions a_{g,R}(x,t)=∫_Ω a(y,t)g(x-y)dy or an appropriate boundary-modified version of this nonlocal term—when the boundary condition is not periodic (for example zero-flux, homogeneous Neumann, or homogeneous Dirichlet)?",
+  "equivalent_formulation": null,
+  "justification": "The draft is targeting Open Problem 55 exactly. Section 4.7 frames this as a numerical-analysis problem for the Section 2.2.2 models, and states that periodic boundary conditions are the exceptional case because pseudo-spectral methods can exploit Fourier-series/convolution structure there. Section 2.2.2 supplies the precise family of models meant by 'problems of the form appearing in Sect. 2.2.2,' namely the dynamic-memory/nonlocal-perception equations (2.9)–(2.19). The nearby discussion in Section 4.1.2 explains the hidden boundary issue: for non-periodic problems, the perceptual kernel must be modified near the boundary, for example via the cut-off/renormalized construction (4.3), and Open Problems 39–40 isolate that same obstacle on the analytical side. So the paper-faithful sharpening is to keep the question numerical and general, but make explicit that it concerns bounded-domain Section 2.2.2 models with nonlocal perception/cognitive-map terms and non-periodic boundary handling.",
+  "citations": [
+    {
+      "section": "2.2.2 Dynamic memory",
+      "label": "Models (2.9)–(2.19)",
+      "page": "P11-P19"
+    },
+    {
+      "section": "4.1.2 Considerations",
+      "label": "Equation (4.3)",
+      "page": "P39"
+    },
+    {
+      "section": "4.1.2 Considerations",
+      "label": "Open Problem 39",
+      "page": "P40"
+    },
+    {
+      "section": "4.1.2 Considerations",
+      "label": "Open Problem 40",
+      "page": "P40"
+    },
+    {
+      "section": "4.7 Numerical analysis",
+      "label": "Pseudo-spectral methods discussion",
+      "page": "P53"
+    },
+    {
+      "section": "4.7 Numerical analysis",
+      "label": "Open Problem 55",
+      "page": "P53"
+    }
+  ]
+}

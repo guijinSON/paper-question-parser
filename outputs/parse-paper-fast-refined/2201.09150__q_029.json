@@ -1,0 +1,53 @@
+{
+  "arxiv_id": "2201.09150",
+  "question_id": "q_029",
+  "original_question": "Determine whether discrete-delay movement models with top-hat-kernel nonlocal perception converge to corresponding local delayed models as R tends to 0+, and characterize the qualitative differences between the local and nonlocal delayed systems.",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 8036.97,
+  "target_in_paper": "Open Problem 29 in Section 2.3.1, with Open Problem 28 and Open Problem 24 as the immediate setup. This paper does not contain a Conjecture 1.1, Proposition 1.2, or Theorem 1.3; the nearest official formulation is Open Problem 29.",
+  "completeness_score": 8,
+  "correct_elements": "Your draft correctly captures the core content of the paper’s official question: it is about explicit discrete-time-delay PDE movement models, augmented by nonlocal perception through a top-hat detection kernel, and it asks both for the R -> 0+ local-limit question and for a comparison of the resulting local versus nonlocal delayed dynamics. That is essentially the substance of Open Problem 29.",
+  "missing_details": [
+    "The paper is not asking about arbitrary discrete-delay movement models; it is specifically referring to extensions of the local delayed models of forms (2.20) and (2.24) in Section 2.3.1.",
+    "The relevant nonlocality is added by replacing the delayed local advective potential with its perceptual average via the spatial convolution a^{g,R}(x,t) = integral over Omega of a(y,t) g(x-y) dy from (2.5), using the top-hat kernel from (2.3).",
+    "The local delayed problems that serve as the comparison point are the no-perception cases, clarified in Section 5.3 by the kernel choice g(x) = delta(x) together with the discrete-time kernel G(t) = delta(t - tau).",
+    "The nearby text suggests that the natural first setting is a one-dimensional bounded spatial domain with periodic boundary conditions, so that the detection function does not need boundary modification.",
+    "The scalar local delayed model is u_t = d1 Delta u - gamma div(u nabla u_tau) + f(u), where tau > 0, d1 > 0, gamma is real, u_tau(x,t) = u(x,t - tau), and f is C^1 on R_+ with f(0) = f(1) = 0 and f(u) < 0 for u > 1.",
+    "The system local delayed model is the one-dimensional consumer-resource system u_t = d22 u_xx - d21 (u (v_tau)_x)_x + f(u,v), v_t = d11 v_xx + g(u,v), with d11, d22 > 0 and d21 >= 0, where v_tau(x,t) = v(x,t - tau).",
+    "The top-hat detection function itself should be specified: g_R(z) = 1/(2R) for |z| <= R and 0 otherwise; the surrounding discussion also notes the formal property lim_{R -> 0+} g_R = delta.",
+    "The phrase 'converge' is too vague relative to the paper’s wording 'in what sense'; a stand-alone question should state the solution class and topology or mode of convergence to be proved (for example, classical, weak, mild, local-in-time, global-in-time, etc.).",
+    "The phrase 'qualitative differences' should be tied to solution behavior or dynamical outcomes for delayed PDEs, such as stability of constant steady states, bifurcation behavior, pattern formation, non-constant steady states, or other long-time space-use outcomes.",
+    "Open Problem 28 immediately preceding Open Problem 29 asks first whether solutions exist for these nonlocal-perception delayed extensions at all, so well-posedness is an implicit prerequisite to the convergence question.",
+    "No ambient ring/field, homogeneity, degree restriction, or nilpotency condition is relevant in this PDE paper; the missing data are instead the PDE models, kernels, variables, domain, boundary conditions, parameters, quantifiers, and the meaning of the convergence statement."
+  ],
+  "refined_question": "For the explicit discrete-delay movement models of Section 2.3.1 obtained from the scalar equation u_t = d1 Delta u - gamma div(u nabla u_tau) + f(u) and the one-dimensional consumer-resource system u_t = d22 u_xx - d21 (u (v_tau)_x)_x + f(u,v), v_t = d11 v_xx + g(u,v), where u_tau(x,t) = u(x,t - tau), v_tau(x,t) = v(x,t - tau), tau > 0, d1 > 0, gamma is real, d11,d22 > 0, and d21 >= 0, replace the delayed local potential by its top-hat perceptual average a_tau^{R}(x,t) = integral over Omega of a(y,t - tau) g_R(x-y) dy (with a = u in the scalar model and a = v in the consumer-resource model), where g_R(z) = 1/(2R) for |z| <= R and 0 otherwise. On a bounded one-dimensional domain, preferably first with periodic boundary conditions as suggested in the paper, in what sense do solutions of these nonlocal-perception, discrete-delay problems converge as R -> 0+ to the corresponding local delayed problems obtained by replacing a_tau^{R} with a(x,t - tau), and what qualitative differences persist between the local and nonlocal delayed solutions?",
+  "equivalent_formulation": null,
+  "justification": "The closest official statement is Open Problem 29 in Section 2.3.1. The paper first introduces the local discrete-delay scalar model (2.20) and then explicitly asks in Open Problem 24 how adding nonlocal perception with a top-hat detection function changes the dynamics. It next introduces the local delayed consumer-resource system (2.24), then states Open Problem 28 for the existence of the corresponding nonlocal-perception delayed extensions, and finally states Open Problem 29: in what sense may these problems converge as R -> 0+, and what are the qualitative differences between local and nonlocal time-delay problems. Section 2.1 supplies the precise top-hat kernel and the formal local-limit property lim_{R -> 0+} g_R = delta, while Section 5.3 identifies the purely local delayed models as the kernel choice g(x) = delta(x), G(t) = delta(t - tau). I therefore kept the question narrowly tied to models (2.20) and (2.24), added the missing kernel/domain/parameter notation from the nearby context, and preserved the paper’s deliberately open phrasing 'in what sense' rather than imposing a stronger convergence claim. I did not broaden the problem beyond these specific delayed movement formulations.",
+  "citations": [
+    {
+      "section": "2.1",
+      "label": "equations (2.3) and (2.5)",
+      "page": "7-8"
+    },
+    {
+      "section": "2.3.1",
+      "label": "equation (2.20) and Open Problem 24",
+      "page": "20-21"
+    },
+    {
+      "section": "2.3.1",
+      "label": "equation (2.24), Open Problem 28, and Open Problem 29",
+      "page": "22-23"
+    },
+    {
+      "section": "4.1.2",
+      "label": "discussion of ill-posedness as R tends to zero in a related nonlocal model",
+      "page": "37"
+    },
+    {
+      "section": "5.3",
+      "label": "equations (5.1)-(5.2) and Table 1",
+      "page": "59-61"
+    }
+  ]
+}

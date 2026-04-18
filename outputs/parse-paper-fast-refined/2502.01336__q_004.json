@@ -1,0 +1,45 @@
+{
+  "arxiv_id": "2502.01336",
+  "question_id": "q_004",
+  "original_question": "Let Omega be an open subset of R^2, let f: Omega -> R^2 be a homeomorphism with Jf > 0 almost everywhere, let p >= 1, and let a > 0. Define E1(f) = integral_Omega (|Df(x)|^p + 1 / Jf(x)^a) dx and E2(f) = integral_Omega (|Df(x)|^2 + |Df(x)|^2 / Jf(x)) dx. Can one find a sequence of diffeomorphisms that approximates f both in the Sobolev norm and in the value of E1 or E2?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 10559.27,
+  "target_in_paper": "The draft is aiming at the survey’s nonlinear-elasticity strengthening of the Ball–Evans approximation problem: not merely whether a planar Sobolev homeomorphism can be approximated by diffeomorphisms, but whether one can choose the approximating diffeomorphisms so that a singular elastic energy of the form E1 or the planar neo-Hookean-type energy E2 converges as well.",
+  "completeness_score": 7,
+  "correct_elements": "Your draft correctly identifies the planar setting, the orientation-preserving Sobolev homeomorphism assumption via Jf>0 a.e., the two specific singular energies that matter in the nonlinear-elasticity motivation, and the stronger goal of simultaneous approximation in Sobolev norm and in energy value rather than plain W^{1,p} density alone.",
+  "missing_details": [
+    "The question should explicitly assume finiteness of the relevant energy: E1(f)<infinity or E2(f)<infinity.",
+    "For E1, the relevant strong topology is W^{1,p}(Omega;R^2); for E2 it is W^{1,2}(Omega;R^2). In your draft, the Sobolev norm is mentioned only generically.",
+    "The codomain of the approximants should be fixed as f(Omega), i.e. one asks for diffeomorphisms fm:Omega->f(Omega), not arbitrary maps into R^2.",
+    "In the elasticity-motivated formulation, one usually wants the approximants to preserve admissibility: same image and, when boundary values are prescribed, the same trace/boundary data (equivalently fm-f in W_0^{1,p} in the appropriate exponent, whenever that trace formulation makes sense).",
+    "For E2, the parameter p is not free; that energy is specifically the W^{1,2}/neo-Hookean-type case.",
+    "It should be stated that the sequence consists of smooth orientation-preserving diffeomorphisms.",
+    "If one uses the planar equivalence emphasized in the Ball–Evans literature, one may replace smooth diffeomorphisms by piecewise affine homeomorphisms; this equivalence is not stated in your draft.",
+    "A bounded-domain assumption is typically part of the elasticity formulation, although your draft only says open subset."
+  ],
+  "refined_question": "Let Omega be a bounded domain in R^2, and let f:Omega->f(Omega) be an orientation-preserving homeomorphism. Assume either (i) f belongs to W^{1,p}(Omega;R^2) for some p>=1 and E1(f)=\\int_Omega (|Df(x)|^p+J_f(x)^{-a}) dx<infinity for some a>0, or (ii) f belongs to W^{1,2}(Omega;R^2) and E2(f)=\\int_Omega (|Df(x)|^2+|Df(x)|^2/J_f(x)) dx<infinity. Is it true that one can find a sequence of smooth diffeomorphisms f_m:Omega->f(Omega), preserving the prescribed boundary data when such data are part of the admissible class, such that f_m->f strongly in W^{1,p}(Omega;R^2) in case (i) (respectively strongly in W^{1,2}(Omega;R^2) in case (ii)) and, simultaneously, E1(f_m)->E1(f) in case (i) (respectively E2(f_m)->E2(f) in case (ii))?",
+  "equivalent_formulation": "In the planar setting, the same question can be asked with 'smooth diffeomorphisms' replaced by 'piecewise affine homeomorphisms', if one uses the paper’s equivalence between these approximation modes.",
+  "justification": "The draft is clearly not trying to restate the bare Ball–Evans density conjecture alone; the added singular terms J_f^{-a} and |Df|^2/J_f show that it is targeting the nonlinear-elasticity version in which admissible Sobolev homeomorphisms should be approximated by admissible smooth competitors without losing the value of the elastic energy. The nearby Ball–Evans context is the standard one explained in Hencl’s survey abstract and in the introduction of the planar W^{1,1} approximation paper: one wants smooth or piecewise affine homeomorphic competitors for elastic energies that blow up as det Df approaches 0 and require orientation preservation. The refinements above make the question stand-alone and keep it narrow: they add the missing finite-energy hypothesis, the correct Sobolev topology for each energy, the requirement that the approximants map Omega onto f(Omega), and the usual admissibility/boundary-data condition. Because the accessible web text for arXiv:2502.01336 did not expose the later open-problem section itself, this refined formulation is reconstructed as tightly as possible from the survey’s stated scope and the exact nonlinear-elasticity context developed in the paper-specific neighboring sources cited by Hencl.",
+  "citations": [
+    {
+      "section": "Abstract of arXiv:2502.01336",
+      "label": "paper overview and statement that it gives open problems connected to the Ball-Evans approximation problem",
+      "page": "n/a"
+    },
+    {
+      "section": "Introduction",
+      "label": "Eq. (1.1)-(1.2) and Ball-Evans nonlinear-elasticity motivation in Hencl-Pratelli, Diffeomorphic Approximation of W^{1,1} Planar Sobolev Homeomorphisms",
+      "page": 1
+    },
+    {
+      "section": "Introduction",
+      "label": "Theorem 1.1 in Hencl-Pratelli: planar approximation by diffeomorphisms with same image and boundary admissibility",
+      "page": 2
+    },
+    {
+      "section": "Abstract of arXiv:2212.06452 / ESAIM COCV 30 (2024)",
+      "label": "lower semicontinuity of polyconvex energies for weak limits of homeomorphisms, showing the surrounding energy-theoretic context",
+      "page": "n/a"
+    }
+  ]
+}

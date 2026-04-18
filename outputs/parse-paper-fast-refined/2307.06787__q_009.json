@@ -1,0 +1,45 @@
+{
+  "arxiv_id": "2307.06787",
+  "question_id": "q_009",
+  "original_question": "Let C~^2(D_d) be the class of twice continuously differentiable functions f on an open set D_d\\subset R^d with volume 1 such that ||f||_infty <= 1, Lip(f) <= d^{-1/2}, and every directional derivative D^Theta f satisfies Lip(D^Theta f) <= d^{-1} for all directions Theta on the unit sphere. Does there exist a constant C>0, independent of d and of the domain D_d, such that the worst-case integration error always satisfies e(n,C~^2(D_d)) >= C n^{-2/d}?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 8961.69,
+  "target_in_paper": "Section 4 (\"General Domains\"), Example 1, equation (14): the conjectured explicit uniform lower bound for deterministic numerical integration on the orthogonally invariant class \\widetilde C^2(D_d), introduced immediately after Remark 8.",
+  "completeness_score": 8.5,
+  "correct_elements": "Your draft already captures the correct target very closely: it identifies the right function class \\widetilde C^2(D_d), the normalization \\lambda_d(D_d)=1, the directional-derivative Lipschitz constraint, the uniformity of the constant with respect to both d and the domain D_d, and the exact lower-bound scale e(n,\\widetilde C^2(D_d))\\ge C n^{-2/d}. This is precisely the conjectural lower bound posed in Example 1.",
+  "missing_details": [
+    "The paper’s e(n,F_d) is the minimal worst-case error over all deterministic algorithms that approximate \\int_{D_d} f(x)\\,dx using n function values; this should be stated explicitly.",
+    "The Lipschitz seminorm is defined by Lip(g)=sup_{x,y\\in D_d} |g(x)-g(y)|/\\|x-y\\|_2, i.e. with the Euclidean norm.",
+    "D^\\Theta f must be explicitly defined as the directional derivative in direction \\Theta\\in S^{d-1}.",
+    "The quantifiers should be made explicit: for all d,n\\in \\mathbb N and all open sets D_d\\subset \\mathbb R^d with Lebesgue measure \\lambda_d(D_d)=1.",
+    "The functions are real-valued: f:D_d\\to \\mathbb R.",
+    "The conjecture belongs to the orthogonally invariant variant discussed in Remark 8; the paper emphasizes that only the case k=2 is treated there.",
+    "No additional boundary regularity is assumed here beyond D_d being open and volume-normalized; one should not add Lipschitz-domain assumptions.",
+    "The paper phrases this as an explicit uniform lower bound for integration, not as a broader tractability or asymptotic-constant problem."
+  ],
+  "refined_question": "Let d,n\\in \\mathbb N, and let D_d\\subset \\mathbb R^d be an open set with Lebesgue measure \\lambda_d(D_d)=1. Define\n\\widetilde C^2(D_d):=\\{f\\in C^2(D_d;\\mathbb R): \\|f\\|_\\infty\\le 1,\\ \\operatorname{Lip}(f)\\le d^{-1/2},\\ \\operatorname{Lip}(D^\\Theta f)\\le d^{-1}\\ \\text{for every }\\Theta\\in S^{d-1}\\},\nwhere D^\\Theta f denotes the directional derivative in direction \\Theta and \\operatorname{Lip}(g):=\\sup_{x,y\\in D_d,\\ x\\ne y}|g(x)-g(y)|/\\|x-y\\|_2. Let e(n,\\widetilde C^2(D_d)) be the minimal worst-case error of deterministic algorithms that approximate \\int_{D_d} f(x)\\,dx using n function values. Is it true that there exists a constant C>0, independent of both d and D_d, such that\n e(n,\\widetilde C^2(D_d))\\ge C\\,n^{-2/d}\nfor all d,n\\in \\mathbb N and all such domains D_d?",
+  "equivalent_formulation": null,
+  "justification": "The draft is targeting Example 1 in Section 4, not one of the paper’s earlier lower-bound statements for the non-rotationally-invariant classes F_d^k(D_d). Remark 8 introduces the orthogonally invariant norm and says that only the case k=2 will be discussed next; Example 1 then defines \\widetilde C^2(D_d) exactly with the bounds \\|f\\|_\\infty\\le 1, Lip(f)\\le d^{-1/2}, and Lip(D^\\Theta f)\\le d^{-1} for all \\Theta\\in S^{d-1}, and states the conjecture e(n,\\widetilde C^2(D_d))\\ge C n^{-2/d}. The introduction supplies the meaning of e(n,F_d) as the optimal deterministic worst-case integration error based on n function values. The surrounding comments in Example 1 explain that this would be an explicit uniform lower bound and that, because matching upper bounds are known for cubes, the rate n^{-2/d} cannot be improved. So the refined question above is the paper-faithful stand-alone version of exactly that conjecture.",
+  "citations": [
+    {
+      "section": "1 Introduction",
+      "label": "definition of e(A_n,F_d) and e(n,F_d), equations (1)-(3)",
+      "page": "105-106"
+    },
+    {
+      "section": "4 General Domains",
+      "label": "Remark 8",
+      "page": "116"
+    },
+    {
+      "section": "4 General Domains",
+      "label": "Example 1",
+      "page": "117"
+    },
+    {
+      "section": "4 General Domains",
+      "label": "equation (14)",
+      "page": "117"
+    }
+  ]
+}

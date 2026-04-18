@@ -1,0 +1,47 @@
+{
+  "arxiv_id": "0909.0462",
+  "question_id": "q_008",
+  "original_question": "For the join-the-shortest-queue model with stationary ergodic input and only the obvious stability condition, under what conditions, if any, do the queue-length or workload distributions converge weakly or in total variation to stationarity?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 442.11,
+  "target_in_paper": "Section 2, \"Further problems on multi-server queues,\" specifically the third bullet \"under what conditions (none?) do we have weak (or TV) convergence?\" for the join-the-shortest-queue model, read with the first two bullets on existence and uniqueness of stationary regimes and with the inherited model/setup from Section 1.",
+  "completeness_score": 7,
+  "correct_elements": "Your draft captures the right model family (join-the-shortest-queue), the right input assumption (stationary ergodic input), the paper's intent to work under only the natural/obvious stability condition, and the specific open issue of convergence to stationarity in weak or total-variation sense.",
+  "missing_details": [
+    "The relevant statement is not a theorem/conjecture label but a bullet-point open problem in Section 2 of this short note.",
+    "The model is a finite multi-server queue, with the paper explicitly saying \"say, 2-server.\"",
+    "The input notation is inherited from Section 1: {t_n, sigma_n}, where t_n is the interarrival time between customers n and n+1 and sigma_n is the service time of customer n.",
+    "The servers are identical, and the natural stability condition inherited from Section 1 is E[sigma_1] < m E[t_1]; in the paper's 2-server illustration this is E[sigma_1] < 2 E[t_1].",
+    "There are separate individual queues in front of the servers, and each arrival joins the currently shortest queue; if several queues are shortest, one of them is chosen at random.",
+    "The paper does not isolate queue-length marginals versus workload marginals here; it asks about convergence of the system state/model more generally, so a stand-alone formulation should name the state description explicitly.",
+    "The nearby context in Section 2 also asks how many stationary regimes may exist and what minimal assumptions ensure uniqueness; this matters because \"convergence to stationarity\" is ambiguous without at least an implicit stationary regime to converge to.",
+    "The paper's wording is sharper than your draft on whether extra assumptions are needed: it asks \"under what conditions (none?)\".",
+    "A paper-faithful reformulation should preserve that the problem is asked under no extra assumptions beyond stability, not under i.i.d., regenerative, Markov, or mixing hypotheses.",
+    "Section 2 does not specify an initial condition, so a faithful rewrite should avoid adding one."
+  ],
+  "refined_question": "For a finite system of identical servers—explicitly, in the paper, say two servers—with stationary ergodic input {t_n, sigma_n} (t_n the interarrival time between customers n and n+1, sigma_n the service time of customer n), separate queues at the servers, and join-the-shortest-queue routing with random tie-breaking among shortest queues, and assuming only the natural stability condition inherited from the paper (E[sigma_1] < m E[t_1], hence E[sigma_1] < 2 E[t_1] in the two-server case), are any assumptions beyond stability required for the distribution of the JSQ system state to converge to a stationary regime, and if so, under what conditions can one prove weak convergence or even convergence in total variation?",
+  "equivalent_formulation": null,
+  "justification": "The draft is aimed at the third bullet of Section 2, where Foss defines the stationary-ergodic-input JSQ model and asks exactly \"under what conditions (none?) do we have weak (or TV) convergence?\" (Section 2, p. 3). To make that bullet stand alone without broadening it, one must import the inherited notation and stability condition from Section 1: the queue is a finite system of identical servers driven by stationary ergodic interarrival and service times {t_n, sigma_n}, with stability E[sigma_1] < m E[t_1] (Section 1 and Section 1.1, p. 1). The same Section 2 passage also states the two adjacent open problems about the number of stationary regimes and the minimal requirements for uniqueness, so a faithful rewrite should at least acknowledge that convergence is being asked in the presence of unresolved existence/uniqueness issues (Section 2, p. 3). I did not broaden the question beyond the paper: Section 2 is about the JSQ model itself, not a more general routing family, and the paper does not introduce extra assumptions such as mixing, Markovianity, or regenerativity for this JSQ problem.",
+  "citations": [
+    {
+      "section": "1",
+      "label": "Multi-server queue with First-Come-First-Served discipline",
+      "page": 1
+    },
+    {
+      "section": "1.1",
+      "label": "G/G/m FCFS setup with stationary ergodic {t_n, sigma_n} and stability E[sigma_1] < m E[t_1]",
+      "page": 1
+    },
+    {
+      "section": "2",
+      "label": "Further problems on multi-server queues",
+      "page": 3
+    },
+    {
+      "section": "2",
+      "label": "JSQ model definition and bullet-point open problems on number of stationary regimes, uniqueness, and weak/(TV) convergence",
+      "page": 3
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "arxiv_id": "2203.13484",
+  "question_id": "q_002",
+  "original_question": "Let M ≥ 2 point nuclei with charges θ1, ..., θM ≥ 0 and positions R1, ..., RM in R^3 satisfy Σ_{m=1}^M θm ≤ 1. Consider the multi-center Dirac-Coulomb operator D0 - Σ_{m=1}^M θm/|x - Rm|, and let λ1 denote its lowest eigenvalue in the spectral gap (-1, 1). Is this eigenvalue always at least as large as the lowest gap eigenvalue for the single-center Coulomb field carrying the same total charge, namely does λ1(D0 - Σ_{m=1}^M θm/|x - Rm|) ≥ λ1(D0 - (Σ_{m=1}^M θm)/|x|) = sqrt(1 - (Σ_{m=1}^M θm)^2) hold for every choice of M, positions, and charges with total charge at most 1?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 8208.69,
+  "target_in_paper": "Conjecture 1.1, with the equivalent finitely many point-nuclei reformulation given in Proposition 1.2",
+  "completeness_score": 8,
+  "correct_elements": "Your draft captures the core mathematical comparison correctly: a multi-center Dirac-Coulomb field with nonnegative charges summing to at most 1; the first level in the spectral gap (-1,1); and the proposed lower bound by the one-center Coulomb value with the same total charge, namely sqrt(1-(sum theta_m)^2). It also matches the paper's physical interpretation that concentrating the nuclear charge at one point should create the strongest attraction.",
+  "missing_details": [
+    "The paper's official conjecture is stated first for a general nonnegative finite charge distribution mu on R^3, not only for a finite sum of point charges.",
+    "The operator is the free Dirac operator D_0 = -i alpha·nabla + beta acting on L^2(R^3, C^4), and this should be stated explicitly in a stand-alone question.",
+    "The relevant operator is the distinguished self-adjoint extension of D_0 - mu * |x|^{-1}; the paper does not leave the self-adjoint realization implicit.",
+    "The quantity lambda_1 is defined as the first min-max level in the spectral gap (equivalently, the lowest gap eigenvalue when that level is an eigenvalue), rather than only informally as 'the lowest eigenvalue.'",
+    "The natural total-charge parameter should be named explicitly, e.g. nu := mu(R^3) in the general formulation or nu := sum_{m=1}^M theta_m in the point-mass formulation.",
+    "If one uses the point-nucleus version, the conjecture should allow any finite M >= 1, not only M >= 2.",
+    "The admissibility condition is tied to the Coulomb singularities through the distinguished extension; in the point-mass case this is automatically compatible with nonnegative theta_m and total charge nu <= 1, but it should be made explicit.",
+    "The comparison operator is precisely the one-center Coulomb operator D_0 - nu/|x|, whose first gap level equals sqrt(1-nu^2) for 0 <= nu <= 1; this identity should be included as part of the formal statement, not left implicit."
+  ],
+  "refined_question": "Let mu be a nonnegative finite measure on R^3 with total charge nu := mu(R^3) <= 1, and define the electrostatic potential V_mu(x) := -(mu * |.|^{-1})(x). Let D_0 = -i alpha·nabla + beta on L^2(R^3, C^4), and let lambda_1(D_0 + V_mu) denote the first min-max level in the spectral gap (-1,1) of the distinguished self-adjoint extension of D_0 + V_mu. Is it true that for every such mu one has lambda_1(D_0 + V_mu) >= lambda_1(D_0 - nu/|x|) = sqrt(1 - nu^2)? In other words, among all nonnegative charge distributions with fixed total charge nu <= 1, is the lowest gap level minimized when the whole charge is concentrated at a single point?",
+  "equivalent_formulation": "Equivalent point-nucleus formulation (as reformulated in Proposition 1.2): for every finite family of nonnegative charges theta_1, ..., theta_M and positions R_1, ..., R_M in R^3 with nu := sum_{m=1}^M theta_m <= 1, does the distinguished multi-center Dirac-Coulomb operator D_0 - sum_{m=1}^M theta_m/|x-R_m| satisfy lambda_1(D_0 - sum_{m=1}^M theta_m/|x-R_m|) >= lambda_1(D_0 - nu/|x|) = sqrt(1 - nu^2)?",
+  "justification": "The draft is already close to the paper's intent, but the nearest official target is the more precise Conjecture 1.1 from the introduction, which is phrased for general charge distributions and uses the distinguished extension together with the first min-max level. Proposition 1.2 supplies the finitely many point-nuclei reformulation that your draft is trying to express. Theorem 1.3 is the main nearby partial result toward this conjectural comparison, so the sharp stand-alone rewrite should inherit the introduction's exact operator-theoretic setup while staying with the same one-center lower-bound question.",
+  "citations": [
+    {
+      "section": "Abstract / opening description",
+      "label": "Abstract",
+      "page": "487"
+    },
+    {
+      "section": "1. Introduction",
+      "label": "Conjecture 1.1",
+      "page": "488"
+    },
+    {
+      "section": "1. Introduction",
+      "label": "Proposition 1.2",
+      "page": "488-489"
+    },
+    {
+      "section": "1. Introduction",
+      "label": "Theorem 1.3",
+      "page": "489"
+    }
+  ]
+}

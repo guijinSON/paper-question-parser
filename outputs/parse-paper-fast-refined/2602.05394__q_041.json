@@ -1,0 +1,47 @@
+{
+  "arxiv_id": "2602.05394",
+  "question_id": "q_041",
+  "original_question": "Subspace injection properties of sparse random matrices: Assume the condition $r O(n/ n)$ relating the subspace dimension $r$ and the ambient dimension $n$. Prove or disprove: A SparseStack embedding with parameters $ = O(1)$ and $k = O(r)$ is an oblivious subspace injection with parameter $alpha = const$. More specifically, do parameters $ = 4$ and $k = 2r$ suffice to achieve the OSI property (for all sufficiently large $r$)?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 12596.58,
+  "target_in_paper": "Problem 5.5, \"Subspace injection properties of sparse random matrices,\" in Section 5.2 (Sparse dimensionality reduction maps). It is explicitly presented as the weaker OSI follow-up to Problem 5.4 (the Nelson–Nguyen OSE conjecture). ([znakschoola.ru](https://www.znakschoola.ru/?_=%2Fpdf%2F2602.05394%23UE7DkG0PaBHZOakR54g1Wl8%3D&utm_source=openai))",
+  "completeness_score": 8,
+  "correct_elements": "Your draft is very close to the paper’s actual target. It correctly focuses on SparseStack, asks for an oblivious subspace injection rather than an oblivious subspace embedding, uses the asymptotic regime k = O(r) with constant sparsity ζ = O(1), asks for a universal lower injectivity constant α, includes the ambient-dimension relation between r and n, and singles out the concrete parameter test ζ = 4 and k = 2r. Those are exactly the ingredients of Problem 5.5. ([znakschoola.ru](https://www.znakschoola.ru/?_=%2Fpdf%2F2602.05394%23UE7DkG0PaBHZOakR54g1Wl8%3D&utm_source=openai))",
+  "missing_details": [
+    "The dimension condition is garbled in the draft. The paper’s statement is: assume r ≤ O(n/\\log n), not merely an unspecified relation between r and n. ([znakschoola.ru](https://www.znakschoola.ru/?_=%2Fpdf%2F2602.05394%23UE7DkG0PaBHZOakR54g1Wl8%3D&utm_source=openai))",
+    "The ambient field is the real numbers: the sketch is a random matrix Ω ∈ R^{n×k}, and the subspace is an r-dimensional V ⊆ R^n. ([znakschoola.ru](https://www.znakschoola.ru/?_=%2Fpdf%2F2602.05394%23UE7DkG0PaBHZOakR54g1Wl8%3D&utm_source=openai))",
+    "The paper’s SparseStack model must be stated explicitly: choose integers ζ, b ≥ 1 with k = bζ, and form Ω by stacking ζ one-sparse CountSketch-type blocks, scaled by 1/√ζ; equivalently the signs ϱ_{ij} are iid Rademachers and the locations s_{ij} are iid uniform on {1, ..., b}. ([znakschoola.ru](https://www.znakschoola.ru/?_=%2Fpdf%2F2602.05394%23UE7DkG0PaBHZOakR54g1Wl8%3D&utm_source=openai))",
+    "The OSI property is not just a lower singular-value bound. By Definition 5.1 it consists of two parts: (i) isotropy, E||Ω^T x||_2^2 = ||x||_2^2 for every x ∈ R^n, and (ii) injectivity on the target subspace, α||x||_2^2 ≤ ||Ω^T x||_2^2 for every x ∈ V. ([znakschoola.ru](https://www.znakschoola.ru/?_=%2Fpdf%2F2602.05394%23UE7DkG0PaBHZOakR54g1Wl8%3D&utm_source=openai))",
+    "The oblivious quantifier must be stated: for any fixed r-dimensional subspace V ⊆ R^n, the random draw of Ω should satisfy the OSI property with high probability. When the failure probability δ is omitted, the paper says to interpret it as some fixed small constant, e.g. δ = 0.01. ([znakschoola.ru](https://www.znakschoola.ru/?_=%2Fpdf%2F2602.05394%23UE7DkG0PaBHZOakR54g1Wl8%3D&utm_source=openai))",
+    "The meaning of α = const should be made explicit: α should be a universal positive constant independent of n, r, and V. Likewise, the hidden constants in ζ = O(1) and k = O(r) are absolute constants. ([znakschoola.ru](https://www.znakschoola.ru/?_=%2Fpdf%2F2602.05394%23UE7DkG0PaBHZOakR54g1Wl8%3D&utm_source=openai))",
+    "The map acts as x ↦ Ω^T x, so the inequality is written on ||Ω^T x||_2, not ||Ωx||_2. This orientation is part of the paper’s notation. ([znakschoola.ru](https://www.znakschoola.ru/?_=%2Fpdf%2F2602.05394%23UE7DkG0PaBHZOakR54g1Wl8%3D&utm_source=openai))",
+    "The phrase \"for all sufficiently large r\" should be quantified: there should exist r_0 such that the claim holds for all r ≥ r_0 and all admissible ambient dimensions n obeying r ≤ O(n/\\log n). This is especially relevant in the concrete ζ = 4, k = 2r test case. ([znakschoola.ru](https://www.znakschoola.ru/?_=%2Fpdf%2F2602.05394%23UE7DkG0PaBHZOakR54g1Wl8%3D&utm_source=openai))",
+    "There is an implicit integrality constraint from Definition 5.2: k = bζ with b an integer. Hence the literal specialization ζ = 4 and k = 2r forces b = r/2, so the concrete parameter choice is only exactly compatible with the definition when r is even, unless one introduces an unstated rounding convention. This is an inference from the definition plus the problem statement. ([znakschoola.ru](https://www.znakschoola.ru/?_=%2Fpdf%2F2602.05394%23UE7DkG0PaBHZOakR54g1Wl8%3D&utm_source=openai))",
+    "To stay paper-faithful, the refined question should not ask for an upper distortion parameter β or full OSE behavior, because Problem 5.5 deliberately weakens Problem 5.4 from OSE to OSI. ([znakschoola.ru](https://www.znakschoola.ru/?_=%2Fpdf%2F2602.05394%23UE7DkG0PaBHZOakR54g1Wl8%3D&utm_source=openai))"
+  ],
+  "refined_question": "Let ζ, b ∈ N with k = bζ, and let Ω ∈ R^{n×k} be a SparseStack random matrix in the sense of Definition 5.2: for each i ∈ {1, ..., n} and j ∈ {1, ..., ζ}, choose iid Rademacher signs ϱ_{ij} and iid locations s_{ij} uniformly from {1, ..., b}, and set Ω to be (1/√ζ) times the horizontal concatenation of the corresponding one-sparse row blocks. Assume the subspace dimension and ambient dimension satisfy r ≤ C n/\\log n for some absolute constant C, and let V ⊆ R^n be any fixed r-dimensional subspace. Prove or disprove that there exist absolute constants ζ_0, c, α > 0 such that whenever Ω is drawn with row sparsity ζ ≤ ζ_0 and embedding dimension k ≤ c r, then with at least 0.99 probability it is an oblivious subspace injection for V; that is, E||Ω^T x||_2^2 = ||x||_2^2 for every x ∈ R^n and α||x||_2^2 ≤ ||Ω^T x||_2^2 for every x ∈ V. In particular, does the fixed choice ζ = 4 and k = 2r (equivalently b = r/2, so literally when r is even) satisfy this OSI property for all sufficiently large r? ([znakschoola.ru](https://www.znakschoola.ru/?_=%2Fpdf%2F2602.05394%23UE7DkG0PaBHZOakR54g1Wl8%3D&utm_source=openai))",
+  "equivalent_formulation": null,
+  "justification": "The draft is not aiming at the stronger Nelson–Nguyen OSE problem in Problem 5.4, but at the next official question, Problem 5.5, which asks whether SparseStack with constant sparsity ζ = O(1) and dimension k = O(r) is an OSI with α = const under the hypothesis r ≤ O(n/\\log n), and then asks specifically about ζ = 4 and k = 2r for all sufficiently large r. That match is exact once the garbled dimension condition is repaired. The nearby context needed to make the question stand-alone comes from Definition 5.1, which defines subspace embeddings, subspace injections, and the default meaning of unspecified failure probability, and from Definition 5.2, which defines the SparseStack model itself. Problem 5.4 is relevant only as the immediately preceding stronger OSE question from which Problem 5.5 is derived. ([znakschoola.ru](https://www.znakschoola.ru/?_=%2Fpdf%2F2602.05394%23UE7DkG0PaBHZOakR54g1Wl8%3D&utm_source=openai))",
+  "citations": [
+    {
+      "section": "5.1",
+      "label": "Definition 5.1 (Subspace embeddings and injections)",
+      "page": 35
+    },
+    {
+      "section": "5.2",
+      "label": "Definition 5.2 (SparseStack [KN12])",
+      "page": 37
+    },
+    {
+      "section": "5.2",
+      "label": "Problem 5.4 (Nelson–Nguyen conjecture: Subspace embedding properties of sparse random matrices)",
+      "page": 37
+    },
+    {
+      "section": "5.2",
+      "label": "Problem 5.5 (Subspace injection properties of sparse random matrices)",
+      "page": 38
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "arxiv_id": "2307.06787",
+  "question_id": "q_010",
+  "original_question": "For the same orthogonally invariant class C~^2(D_d), it is known that the integration problem suffers from the curse of dimensionality for certain domains D_d having small radius, including l_p^d balls with p>=2. Does the curse of dimensionality also hold when D_d is an l_p^d ball with p<2?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 9028.56,
+  "target_in_paper": "Section 4, Example 1 (following Remark 8): the open subcase of the conjectured uniform lower bound (14) for the orthogonally invariant class \\widetilde{C}^2(D_d), namely the unresolved question in comment 2 whether the curse of dimensionality holds when D_d is a volume-normalized \\ell_p^d-ball with p<2.",
+  "completeness_score": 7,
+  "correct_elements": "Your draft correctly identifies the relevant function class as the orthogonally invariant class \\widetilde{C}^2(D_d), the known positive result for certain small-radius domains including volume-normalized \\ell_p^d-balls with p\\ge 2, and the unresolved p<2 case. It also correctly focuses on the curse-of-dimensionality question rather than a broader tractability issue.",
+  "missing_details": [
+    "The paper works with worst-case numerical integration over open sets D_d\\subset \\mathbb{R}^d of Lebesgue measure 1; this normalization should be stated explicitly.",
+    "The class must be defined explicitly: \\widetilde{C}^2(D_d)=\\{f\\in C^2(D_d): \\|f\\|_\\infty\\le 1, \\operatorname{Lip}(f)\\le d^{-1/2}, \\operatorname{Lip}(D^\\theta f)\\le d^{-1}\\ \\text{for every }\\theta\\in S^{d-1}\\}.",
+    "The directional derivative notation D^\\theta f should be defined, with \\theta ranging over the Euclidean unit sphere S^{d-1}.",
+    "The Lipschitz constant \\operatorname{Lip}(g) is taken with respect to the Euclidean norm on D_d; this is part of the paper's orthogonally invariant setup.",
+    "The domains in the open question are not arbitrary \\ell_p^d-balls, but volume-normalized open \\ell_p^d-balls in \\mathbb{R}^d.",
+    "The paper's nearest official formulation is stronger than merely asking for the curse: it conjectures a uniform lower bound e(n,\\widetilde{C}^2(D_d))\\ge C n^{-2/d} with C independent of d and D_d.",
+    "The quantifiers should be stated: the conjectural lower bound is for all n,d\\in \\mathbb{N}, with a constant C>0 independent of n, d, and the admissible domains D_d.",
+    "The draft does not specify whether p is fixed in [1,2) or whether the claim is meant uniformly for all such p; the paper's comment is about the regime p<2 for these balls.",
+    "The meaning of 'the curse of dimensionality' should be made stand-alone, e.g. exponential growth of the information complexity n(\\varepsilon,\\widetilde{C}^2(D_d)) in d for some fixed error threshold \\varepsilon\\in(0,1).",
+    "The paper's context is real-valued functions on real domains, not abstract orthogonally invariant objects; that ambient setting should be stated."
+  ],
+  "refined_question": "Let D_d\\subset \\mathbb{R}^d be the open volume-normalized \\ell_p^d-ball (so \\lambda_d(D_d)=1) for some p\\in[1,2). For the worst-case numerical integration problem over the orthogonally invariant class\n\\widetilde{C}^2(D_d)=\\{f\\in C^2(D_d): \\|f\\|_\\infty\\le 1,\\ \\operatorname{Lip}(f)\\le d^{-1/2},\\ \\operatorname{Lip}(D^\\theta f)\\le d^{-1}\\ \\text{for every }\\theta\\in S^{d-1}\\},\nwhere \\operatorname{Lip}(g)=\\sup_{x,y\\in D_d,\\,x\\ne y}|g(x)-g(y)|/\\|x-y\\|_2 and D^\\theta f is the directional derivative in direction \\theta, does there exist a constant C>0, independent of n, d, and D_d, such that\n e(n,\\widetilde{C}^2(D_d))\\ge C\\,n^{-2/d}\\quad\\text{for all }n,d\\in\\mathbb{N}?\nIn particular, does numerical integration over \\widetilde{C}^2(D_d) suffer from the curse of dimensionality for volume-normalized \\ell_p^d-balls with p<2?",
+  "equivalent_formulation": null,
+  "justification": "The draft is clearly targeting Section 4 rather than any introductory conjecture: Remark 8 introduces the orthogonally invariant normed class, and Example 1 gives the exact class \\widetilde{C}^2(D_d), the conjectured uniform lower bound (14), and then explicitly singles out in comment 2 the unresolved case of \\ell_p^d-balls with p<2. Since the paper's nearest official formulation is the stronger lower-bound conjecture e(n,\\widetilde{C}^2(D_d))\\ge C n^{-2/d}, the refined question specializes that conjecture to the p<2 ball regime while preserving the paper's original intent. The user's draft asks only for the curse, which is a weaker consequence of the paper's stated conjectural lower bound.",
+  "citations": [
+    {
+      "section": "4",
+      "label": "Remark 8",
+      "page": 117
+    },
+    {
+      "section": "4",
+      "label": "Example 1",
+      "page": 117
+    },
+    {
+      "section": "4",
+      "label": "Example 1, equation (14), comment 2",
+      "page": 117
+    }
+  ]
+}

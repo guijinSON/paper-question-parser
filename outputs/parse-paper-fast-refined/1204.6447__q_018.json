@@ -1,0 +1,42 @@
+{
+  "arxiv_id": "1204.6447",
+  "question_id": "q_018",
+  "original_question": "Fix 0 <= rho, mu, nu <= 1. If A,B subseteq R^n have Gaussian measures mu and nu respectively and A is centrally symmetric, A = -A, what is the minimum possible value of Pr[x in A, y in B] when (x,y) are rho-correlated n-dimensional Gaussian vectors?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 2280.05,
+  "target_in_paper": "Symmetric Gaussian Problem",
+  "completeness_score": 9,
+  "correct_elements": "Your draft already matches the paper's stated open problem very closely: it fixes 0 <= rho, mu, nu <= 1, takes A,B subseteq R^n with Gaussian measures mu and nu, assumes A is centrally symmetric, and asks for the minimum of Pr[X in A, Y in B] for rho-correlated n-dimensional Gaussian vectors. ([cs.cmu.edu](https://www.cs.cmu.edu/~odonnell/papers/aobf-open-problems.pdf))",
+  "missing_details": [
+    "Specify that the measure is the standard Gaussian measure gamma_n on R^n, and that A and B are measurable.",
+    "Quantify the dimension explicitly (for a fixed or arbitrary n >= 1); the paper states the problem in R^n but the draft leaves the quantifier on n implicit.",
+    "Define precisely what 'rho-correlated n-dimensional Gaussians' means, e.g. X,Z are independent N(0,I_n) and Y = rho X + sqrt(1-rho^2) Z, equivalently Cov(X_i,Y_j) = rho delta_ij.",
+    "State explicitly that the optimization is over all such measurable A,B with gamma_n(A)=mu and gamma_n(B)=nu.",
+    "If you want the paper's only explicit equivalent reformulation, note that it is equivalent to impose both A = -A and B = -B. ([cs.cmu.edu](https://www.cs.cmu.edu/~odonnell/papers/aobf-open-problems.pdf))"
+  ],
+  "refined_question": "For fixed n >= 1 and 0 <= rho, mu, nu <= 1, let gamma_n denote the standard Gaussian measure on R^n. Among all measurable sets A,B subseteq R^n with gamma_n(A)=mu, gamma_n(B)=nu, and A=-A, determine the minimum possible value of P[X in A, Y in B], where X,Z are independent N(0,I_n) random vectors and Y = rho X + sqrt(1-rho^2) Z (equivalently, (X,Y) are standard rho-correlated n-dimensional Gaussian vectors).",
+  "equivalent_formulation": "Equivalent formulation stated in the paper: impose both symmetries A = -A and B = -B, with the same Gaussian-measure constraints and the same minimization of P[X in A, Y in B].",
+  "justification": "The draft clearly targets the unnumbered open problem titled \"Symmetric Gaussian Problem\" rather than a broader neighboring topic. The official statement on PDF page 8 is essentially the same question as your draft. The nearby remarks add the paper-faithful refinements that (i) one may equivalently require both A=-A and B=-B, (ii) without symmetry the minimizers are opposing halfspaces by Borell's result, and (iii) the centered-ball/complement-of-centered-ball claim is presented only as a reasonable conjecture, not as the formal problem statement, so it should not replace the question itself. The main improvements needed are only the stand-alone definitions of gamma_n, measurability, the quantifier on n, and the precise meaning of rho-correlation. ([cs.cmu.edu](https://www.cs.cmu.edu/~odonnell/papers/aobf-open-problems.pdf))",
+  "citations": [
+    {
+      "section": "Main matter (unnumbered problem list)",
+      "label": "Symmetric Gaussian Problem — Statement",
+      "page": "8 (tool page P7)"
+    },
+    {
+      "section": "Main matter (unnumbered problem list)",
+      "label": "Symmetric Gaussian Problem — first remark (equivalent to require A = -A and B = -B)",
+      "page": "8 (tool page P7)"
+    },
+    {
+      "section": "Main matter (unnumbered problem list)",
+      "label": "Symmetric Gaussian Problem — second remark (without symmetry, opposing halfspaces via Borell)",
+      "page": "8 (tool page P7)"
+    },
+    {
+      "section": "Main matter (unnumbered problem list)",
+      "label": "Symmetric Gaussian Problem — third remark (reasonable conjecture: centered ball and complement of centered ball)",
+      "page": "8-9 (tool pages P7-P8)"
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "arxiv_id": "2303.00950",
+  "question_id": "q_003",
+  "original_question": "For two-armed Bernoulli bandits in the fixed-budget setting, Kaufmann et al. (2016) show that an optimal sampling vector exists, but that vector depends on the unknown means of the two arms and therefore is not available a priori. Is there an algorithm that can still achieve asymptotic optimality in this setting without requiring prior knowledge of those unknown arm means?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 8510.51,
+  "target_in_paper": "The closest paper-faithful target is the Bernoulli-specific open question at the end of Section 5 ('Known results for two-armed bandits'), read together with Section 4, Conjecture 2 and Equation (5): for two-armed Bernoulli bandits in the adaptive fixed-budget setting, can one achieve asymptotic optimality even though the oracle optimal sampling vector w*(mu) depends on the unknown arm means and is therefore not available a priori?",
+  "completeness_score": 8,
+  "correct_elements": "Your draft correctly identifies the exact niche the paper isolates: two-armed Bernoulli bandits, fixed-budget best-arm identification, the existence of an optimal sampling vector, the obstacle that this vector depends on unknown means, and the resulting question of whether asymptotic optimality is still achievable without oracle knowledge of those means. That is much closer to the paper's actual intent than the broader fixed-budget open problems.",
+  "missing_details": [
+    "The paper works with a bandit instance mu=(mu_1,mu_2) in the class S of instances with a unique best arm I*(mu); that unique-best-arm assumption should be stated explicitly.",
+    "A fixed-budget algorithm should be defined as a sequential sampling rule plus a decision rule returning hat I_n after exactly n samples.",
+    "The relevant loss is the misidentification probability p_{mu,n} = P_mu(hat I_n != I*(mu)); your draft does not name this quantity.",
+    "The phrase 'asymptotic optimality' is implicit in your draft but should be written in the paper's fixed-budget asymptotic form, namely through the quantity n / log(1/p_{mu,n}) as n -> infinity.",
+    "The nearby formal object tied to the 'optimal sampling vector' is the non-adaptive complexity Gamma_na^*(mu) from Equation (5), not a generic unspecified optimum.",
+    "The optimizer w*(mu) lives in the simplex Sigma_2 and is defined through Gamma_na^*(mu) = sup_{w in Sigma_2} inf_{nu in Alt(mu)} [sum_i w_i KL(nu_i||mu_i)]^{-1}; the KL direction KL(nu_i||mu_i) is part of the exact formulation.",
+    "It should be explicit that the desired algorithm is adaptive and valid without prior knowledge of mu; the oracle non-adaptive rule that simply fixes w*(mu) is excluded because w*(mu) depends on the unknown instance.",
+    "To stay paper-faithful, the question should remain specifically about two-armed Bernoulli bandits and should not broaden to all Bernoulli bandits or all fixed-budget models.",
+    "The draft does not distinguish between the paper's broad fixed-budget complexity question (Open problem 1) and this narrower Bernoulli-specific obstruction; the refined question should target only the latter."
+  ],
+  "refined_question": "Let mu=(mu_1,mu_2) be a two-armed Bernoulli bandit instance in S with a unique best arm I*(mu). A fixed-budget algorithm sequentially chooses arms based on past observations and, after exactly n samples, outputs a recommendation hat I_n; write p_{mu,n}=P_mu(hat I_n != I*(mu)). In the nearby non-adaptive large-deviations formulation, the oracle sampling proportion w*(mu) in Sigma_2 achieves Gamma_na^*(mu)=sup_{w in Sigma_2} inf_{nu in Alt(mu)} [w_1 KL(nu_1||mu_1)+w_2 KL(nu_2||mu_2)]^{-1}, but w*(mu) depends on the unknown Bernoulli means and so cannot be fixed a priori. Does there exist an adaptive fixed-budget algorithm that does not know mu_1 or mu_2 in advance and nevertheless, for every such two-armed Bernoulli instance mu, satisfies limsup_{n->infinity} n/log(1/p_{mu,n}) <= Gamma_na^*(mu), i.e. achieves the same asymptotically optimal fixed-budget performance as the oracle rule based on w*(mu)?",
+  "equivalent_formulation": null,
+  "justification": "The draft is not really aiming at Open problem 1 or Open problem 2, both of which are broader. Its nearest match is the informal Bernoulli-specific question closing Section 5. The paper first defines the fixed-budget criterion p_{mu,n} and the general notion of asymptotic fixed-budget complexity, then in Section 4 introduces the non-adaptive complexity Gamma_na^*(mu) and the oracle optimizer w*(mu), explicitly noting that w*(mu) depends on the unknown instance and is therefore not a valid adaptive rule. Section 5 then specializes this exact obstruction to two-armed Bernoulli bandits and says it is unclear whether one can still achieve asymptotic optimality without that oracle requirement. The refined question therefore makes the loss, quantifiers, asymptotic criterion, and oracle benchmark explicit while staying as narrow as the paper itself.",
+  "citations": [
+    {
+      "section": "Section 1",
+      "label": "Introduction and problem formulation",
+      "page": 1
+    },
+    {
+      "section": "Section 3",
+      "label": "definition of p_{mu,n}",
+      "page": 2
+    },
+    {
+      "section": "Section 3",
+      "label": "Open problem 1",
+      "page": 3
+    },
+    {
+      "section": "Section 4",
+      "label": "Conjecture 2 and Equation (5)",
+      "page": 4
+    },
+    {
+      "section": "Section 5",
+      "label": "Known results for two-armed bandits",
+      "page": 4
+    }
+  ]
+}

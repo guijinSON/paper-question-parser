@@ -1,0 +1,59 @@
+{
+  "arxiv_id": "1204.1895",
+  "question_id": "q_010",
+  "original_question": "Find probability measures P on cookie environments - excluding measures that merely encode ordinary random walk in random environment - such that for P-almost every environment ω, the quenched law of either the hitting time T_n or the position X_n, after whatever centering and normalization are needed, converges weakly to a nondegenerate limit distribution as n tends to infinity.",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 2111.92,
+  "target_in_paper": "Section 6.2, Problem and Example 6.17 (\"d ≥ 1, quenched CLT\").",
+  "completeness_score": 9.0,
+  "correct_elements": "Your draft already captures the core of the paper’s open problem almost verbatim: it asks for measures P on cookie environments, excludes the RWRE-type cases, works in the quenched setting for P-almost every environment ω, focuses on the observables T_n and X_n, allows whatever centering and normalization are needed, and asks for weak convergence to a nondegenerate limit law as n tends to infinity.",
+  "missing_details": [
+    "The paper’s P is a probability measure on the cookie-environment space (Ω, F), where Ω = M_E^{Z^d×N} and E = {±e_j : 1 ≤ j ≤ d}; the walk is the nearest-neighbor excited random walk defined by equation (1.1).",
+    "The quenched law should be named explicitly as P_{0,ω}; the walk is started at 0.",
+    "T_n should be defined explicitly as T_n := inf{m ≥ 0 : X_m = n}; in the paper this notation comes from the general convention T_k := inf{m ≥ 0 : X_m = k}.",
+    "Because X_n is defined for all d ≥ 1 but T_n is only naturally a one-dimensional observable in this notation, a fully stand-alone formulation should state that the T_n alternative is the one-dimensional case.",
+    "The exclusion of RWRE should be stated in the paper’s precise terms: exclude measures P supported on environments for which ω(z, e, i) does not depend on i, since those are exactly the nearest-neighbor RWREs in this framework.",
+    "The paper’s nearby example shows that the centering may depend on ω; this should be made explicit if one wants the question to be fully faithful to the text.",
+    "The section-level context is that Section 6 otherwise discusses averaged limit laws under P_0; Problem 6.17 is posed as the quenched analogue at the end of that section."
+  ],
+  "refined_question": "For the nearest-neighbor excited random walk X = (X_n)_{n≥0} on Z^d started at 0 and defined from a random cookie environment ω ∈ Ω := M_E^{Z^d×N} by equation (1.1), find probability measures P on (Ω, F), excluding the RWRE case in which ω(z, e, i) is P-a.s. independent of i, such that for P-almost every environment ω the quenched law P_{0,ω} of either X_n (for d ≥ 1) or, in the one-dimensional setting, the hitting time T_n := inf{m ≥ 0 : X_m = n}, after suitable centering and normalization as needed (possibly depending on ω), converges weakly as n → ∞ to a nondegenerate limit distribution.",
+  "equivalent_formulation": null,
+  "justification": "The draft is not aiming at Conjecture 1.1 / Proposition 1.2 / Theorem 1.3; it matches a different part of the paper, namely Problem and Example 6.17. Section 6 explicitly says that the section treats averaged limit laws under P_0 and that quenched limit laws are only mentioned in Problem and Example 6.17. The exact wording of your draft tracks that problem very closely. To make it stand alone, one must import the model and notation from Section 1: the ERW dynamics from (1.1), the notation T_k := inf{n ≥ 0 : X_n = k}, and the identification of RWRE as the special case where the cookies do not depend on the visit index i. The nearby context also matters: Theorem 6.5 gives the averaged one-dimensional limit laws for T_n and X_n, Theorem 6.16 gives the averaged multidimensional CLT for X_n, and Example 6.17(a) shows that the allowed centering can be environment-dependent.",
+  "citations": [
+    {
+      "section": "1",
+      "label": "Equation (1.1) and surrounding model description",
+      "page": "PDF p. 2"
+    },
+    {
+      "section": "1",
+      "label": "RWRE identified as the special case where ω(z,e,i) does not depend on i; surrounding discussion of equation (1.2)",
+      "page": "PDF pp. 3-4"
+    },
+    {
+      "section": "1",
+      "label": "Notation (definition of T_k)",
+      "page": "PDF p. 5"
+    },
+    {
+      "section": "6",
+      "label": "Section introduction",
+      "page": "PDF p. 24"
+    },
+    {
+      "section": "6.1",
+      "label": "Theorem 6.5",
+      "page": "PDF pp. 26-27"
+    },
+    {
+      "section": "6.2",
+      "label": "Theorem 6.16",
+      "page": "PDF p. 33"
+    },
+    {
+      "section": "6.2",
+      "label": "Problem and Example 6.17",
+      "page": "PDF pp. 33-34"
+    }
+  ]
+}

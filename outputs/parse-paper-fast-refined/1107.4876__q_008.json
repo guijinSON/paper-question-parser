@@ -1,0 +1,54 @@
+{
+  "arxiv_id": "1107.4876",
+  "question_id": "q_008",
+  "original_question": "Let f be a superattracting germ in End(C^n,O), and let H be the first nonzero homogeneous term in its expansion. Assume H is degenerate, meaning H(v)=0 for some nonzero v. If the postcritical set PCrit(f)=union_{k>=0} f^k(Crit(f)) is an analytic cone near the origin, must f be holomorphically locally conjugated to H?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 1705.55,
+  "target_in_paper": "Theorem 0.3 (Local Böttcher Coordinates), especially the equivalence between local conjugacy and the postcritical-set vector-field condition, read together with Remark 0.2 and Definition 1.1.",
+  "completeness_score": 3,
+  "correct_elements": "Your draft correctly identifies the paper’s main local theme: a superattracting holomorphic germ, its lowest-order model H, and the idea that the geometry of the critical/postcritical locus near 0 should govern whether the germ is locally conjugate to that model.",
+  "missing_details": [
+    "The paper does not work with an arbitrary first nonzero homogeneous term in general; its formal local theorem assumes an adapted superattracting fixed point with a decomposition E = E1 ⊕ ··· ⊕ Ep.",
+    "The model map is the quasihomogeneous part H = H1 ⊕ ··· ⊕ Hp, not just an arbitrary homogeneous term.",
+    "For each j, Hj : Ej → Ej must be a nondegenerate homogeneous map, meaning Hj^{-1}(0) = {0}, of degree kj ≥ 2.",
+    "The adapted hypothesis is quantitative: if Fj := πj ◦ F and vj := πj(v), then Fj(v) = Hj(vj) + O(||v|| · ||vj||^{kj}) as v → 0.",
+    "The conclusion is the existence of a germ of analytic isomorphism Φ with Φ(0) = 0 and D0Φ = id such that Φ ◦ F = H ◦ Φ.",
+    "The paper does not use the bare condition 'PCrit(F) is an analytic cone near 0' as its exact sufficient criterion.",
+    "Instead, the postcritical condition is formulated via an admissible p-tuple of vector fields.",
+    "An admissible p-tuple (ζ1, ..., ζp) must consist of pairwise commuting analytic germs such that each ζj is tangent to Ej, vanishes on {vj = 0}, and satisfies ζj(v) = ϑj(v) + o(||v||), where ϑj(v) = (v; vj).",
+    "The exact meaning of 'tangent to the germ of the postcritical set' is not the union notation alone: there must be a neighborhood U of 0 on which F is analytic, F : U → F(U) is proper, and ζj is tangent to the critical value set of F^n : U → F^n(U) for every n ≥ 1.",
+    "Your draft adds the hypothesis that H is degenerate; this is outside the scope of the paper’s main local theorem, which explicitly requires nondegeneracy of the homogeneous pieces Hj.",
+    "The draft also suppresses the fact that, without the adapted/nondegenerate setup, conjugacy to the lowest-order terms is false in general; the paper gives a basic counterexample in the introduction and a degenerate/nilpotent warning example in Section 4.",
+    "In the paper’s notation the ambient space is a finite-dimensional complex vector space E ≅ C^m equipped with a Hermitian norm, not an arbitrary ambient ring or field."
+  ],
+  "refined_question": "Let E be a finite-dimensional complex vector space with a direct-sum decomposition E = E1 ⊕ ··· ⊕ Ep, and let F : (E,0) → (E,0) be an analytic germ having an adapted superattracting fixed point in the sense that, for each j ∈ {1, ..., p}, there exists a nondegenerate homogeneous map Hj : Ej → Ej of degree kj ≥ 2 such that, writing Fj := πj ◦ F and vj := πj(v), one has Fj(v) = Hj(vj) + O(||v|| · ||vj||^{kj}) as v → 0. If H := H1 ⊕ ··· ⊕ Hp is the quasihomogeneous part of F, is the existence of a local Böttcher coordinate—namely an analytic isomorphism germ Φ : (E,0) → (E,0) with Φ(0) = 0, D0Φ = id, and Φ ◦ F = H ◦ Φ—equivalent to the existence of an admissible p-tuple of analytic vector-field germs (ζ1, ..., ζp), where each ζj is tangent to Ej, vanishes on {vj = 0}, satisfies ζj(v) = ϑj(v) + o(||v||) with ϑj(v) = (v; vj), the ζj commute pairwise, and each ζj is tangent, on some neighborhood U with F : U → F(U) proper, to the critical value set of F^n for every n ≥ 1?",
+  "equivalent_formulation": "Equivalent formulation from Theorem 0.3: under the same hypotheses on F and H, such a germ Φ exists if and only if there is an admissible p-tuple of analytic vector-field germs (ξ1, ..., ξp) such that DF ◦ ξj = kj · ξj ◦ F near 0 for every j ∈ {1, ..., p}.",
+  "justification": "The draft is closest to the paper’s local Böttcher-coordinate problem, but the paper’s official formulation is sharper and narrower. The introduction first explains that mere similarity of lowest-order terms is not enough in higher dimension and that analytic-cone behavior of critical/postcritical components is only a necessary heuristic. The precise local theorem is then stated for adapted superattracting germs whose quasihomogeneous part is built from nondegenerate homogeneous pieces, and it replaces the vague cone hypothesis by an explicit admissible-vector-field condition tangent to the postcritical geometry. The degenerate-H case in your draft is not the paper’s target; nearby discussion in Section 4 gives a nilpotent/degenerate example showing why one cannot simply ask for conjugacy to the naive lowest-order model in that broader setting.",
+  "citations": [
+    {
+      "section": "Introduction",
+      "label": "Example 0.1 and Remark 0.2",
+      "page": "PDF pp. 1-2"
+    },
+    {
+      "section": "Introduction",
+      "label": "Theorem 0.3 (Local Böttcher Coordinates)",
+      "page": "PDF p. 3"
+    },
+    {
+      "section": "§1.1",
+      "label": "Definition 1.1",
+      "page": "PDF p. 4"
+    },
+    {
+      "section": "§1.1",
+      "label": "Definition 1.4",
+      "page": "PDF pp. 4-5"
+    },
+    {
+      "section": "§4",
+      "label": "Questions for further study; degenerate/nilpotent counterexample discussion",
+      "page": "PDF p. 27"
+    }
+  ]
+}

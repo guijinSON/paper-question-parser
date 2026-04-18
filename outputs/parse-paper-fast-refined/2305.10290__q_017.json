@@ -1,0 +1,39 @@
+{
+  "arxiv_id": "2305.10290",
+  "question_id": "q_017",
+  "original_question": "Let G be a connected n-vertex m-edge graph of minimum spectral radius, and let r satisfy e(T_{n,r-1}) < m <= e(T_{n,r}). Is there a constant alpha > 0 such that G must be r-colorable whenever m = Omega(n^alpha)?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 8787.49,
+  "target_in_paper": "Section 11, Conjecture 12 (\"A modified version of Guiduli’s conjecture\").",
+  "completeness_score": 8.5,
+  "correct_elements": "Your draft already captures the right target almost verbatim: it uses the extremal setting of a connected n-vertex, m-edge graph minimizing spectral radius; it selects r via the Turán thresholds e(T_{n,r-1}) < m <= e(T_{n,r}); and it asks for the same qualitative conclusion that such a minimizer should be r-colorable once m is polynomially large in n.",
+  "missing_details": [
+    "The minimization domain should be made explicit: G is taken from H(n,m), the set of connected graphs on n vertices and m edges.",
+    "The paper works with simple, undirected, unweighted graphs, and spectral radius means the adjacency spectral radius λ(G).",
+    "T_{n,r} should be defined explicitly as the r-partite Turán graph on n vertices, i.e. the complete r-partite graph with part sizes differing by at most 1.",
+    "The conclusion should be stated in graph-coloring language as χ(G) <= r, or equivalently that G is r-colorable.",
+    "The constant α > 0 is intended as an absolute constant, not depending on n, m, r, or G.",
+    "The asymptotic shorthand m = Ω(n^α) should be unpacked to explicit quantifiers, e.g. there exist constants c > 0 and n0 such that whenever n >= n0 and m >= c n^α, the conclusion holds.",
+    "The paper notes that this is a modified version of Guiduli’s original conjecture because the original form is false for small m; that context is implicit in your draft."
+  ],
+  "refined_question": "Let H(n,m) denote the family of connected simple graphs on n vertices and m edges, and let λ(G) be the spectral radius of the adjacency matrix of G. Suppose that G in H(n,m) minimizes λ over H(n,m). Let T_{n,r} be the r-partite Turán graph on n vertices, and let r be the unique integer such that e(T_{n,r-1}) < m <= e(T_{n,r}). Does there exist an absolute constant α > 0 such that, for some constants c > 0 and n0, whenever n >= n0 and m >= c n^α, every such minimizer G satisfies χ(G) <= r?",
+  "equivalent_formulation": null,
+  "justification": "The draft clearly targets Section 11 rather than the earlier conjectures in the paper. In that section the authors first introduce H(n,m) as the class of connected n-vertex, m-edge graphs and then state Conjecture 12, which is exactly the modified Guiduli conjecture your draft is aiming at. The official wording is already extremely close to your draft, so the main refinements are only to make the minimization domain explicit, define the spectral and Turán notation, and expand the asymptotic phrase m = Ω(n^α) into explicit quantifiers. I did not broaden the problem beyond Conjecture 12, and I did not replace it by the original Guiduli conjecture because the paper explicitly says the original version fails for small m.",
+  "citations": [
+    {
+      "section": "Introduction / preliminaries",
+      "label": "global graph and spectral notation",
+      "page": "33-34"
+    },
+    {
+      "section": "11 Graphs with a prescribed average degree",
+      "label": "introductory paragraph defining H(n,m)",
+      "page": 44
+    },
+    {
+      "section": "11 Graphs with a prescribed average degree",
+      "label": "Conjecture 12 (A modified version of Guiduli’s conjecture)",
+      "page": 44
+    }
+  ]
+}

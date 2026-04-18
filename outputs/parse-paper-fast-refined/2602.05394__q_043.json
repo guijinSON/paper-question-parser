@@ -1,0 +1,40 @@
+{
+  "arxiv_id": "2602.05394",
+  "question_id": "q_043",
+  "original_question": "Given any choice of $m$-node tree tensor network (e.g., tensor train or Tucker) and choice of ranks (dimensions of edges in the tensor network), let the set of representable tensors in this tensor network be $S R^d_1 x *s x d_n$. Find a polynomial-time algorithm that takes as input any tensor $A R^d_1 x *s x d_n$ and yields an approximation $X S$ such that [ |X-A |_F^2 < (m-1) _Y S |Y-A |_F^2, ] or show that an $(m-1)$-approximation is optimal under complexity-theoretic assumptions.",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 12696.47,
+  "target_in_paper": "Section 6.1, Problem 6.1 / concluding open question in “Optimal bounds for Tensor Train decomposition”: after reviewing TT-SVD and sequentially truncated HOSVD, the paper asks whether one can beat the standard (m-1)-approximation guarantee for a fixed tree tensor network with prescribed edge dimensions, or else prove that factor optimal under standard complexity assumptions.",
+  "completeness_score": 8,
+  "correct_elements": "Your draft is very close to the paper-faithful target. It correctly centers the question on a fixed tree tensor network (with tensor train and Tucker as examples), fixes the internal edge dimensions/ranks, defines the feasible set S of representable tensors, measures error in squared Frobenius norm, and asks for either a polynomial-time algorithm improving the known (m-1) guarantee or a complexity-theoretic optimality result. This matches the subsection’s motivation from TT-SVD/HOSVD and the final open question posed there.",
+  "missing_details": [
+    "The paper works over real tensors: A is in R^{d_1 x ... x d_n}.",
+    "The tree tensor network topology and all edge dimensions/ranks are fixed in advance; the algorithmic question is then about approximating an arbitrary input tensor A within that fixed format.",
+    "The draft is ambiguous about the role of m versus n: the paper’s subsection motivates the bound using a sequence of m-1 SVD truncations associated with the chosen tree format, while your tensor ambient space is written with n modes.",
+    "The paper’s context is specifically worst-case approximation guarantees relative to the best approximation inside S, i.e. min_{Y in S} ||Y-A||_F^2.",
+    "The approximation factor is tied to the standard recursive SVD-based procedures (TT-SVD for tensor train, sequentially truncated HOSVD for Tucker), which should be named because they supply the benchmark being improved.",
+    "Polynomial time should be understood with respect to the input tensor size for the fixed network/rank specification.",
+    "The hardness alternative in the paper is only under standard complexity-theoretic assumptions; no sharper assumption is stated in the nearby formulation.",
+    "The examples tensor train and Tucker are illustrative only; the paper’s open question is for any fixed tree tensor network of that type, not only those two formats."
+  ],
+  "refined_question": "Fix an m-node tree tensor network T (for example, tensor train or Tucker) together with prescribed dimensions on its internal edges, and let S be the set of tensors in R^{d_1 x ... x d_n} representable by that fixed network. Does there exist a polynomial-time algorithm that, given any tensor A in R^{d_1 x ... x d_n}, outputs X in S satisfying ||X-A||_F^2 < (m-1) min_{Y in S} ||Y-A||_F^2? If not, can one show, under standard complexity-theoretic assumptions, that the factor (m-1) achieved by the known recursive SVD-based algorithms is optimal?",
+  "equivalent_formulation": null,
+  "justification": "The draft is aiming at the final open question in Section 6.1, not at a broader tensor-approximation problem. The subsection first explains that TT-SVD (for tensor train) and sequentially truncated HOSVD (for Tucker) obtain guarantees by performing a sequence of m-1 low-rank matrix approximations, and that this yields the currently known general (m-1)-type worst-case bound for tree tensor decompositions. It then explicitly asks whether one can improve that factor for an arbitrary fixed tree tensor network with prescribed edge dimensions, or instead prove that the factor is complexity-theoretically optimal. Because your draft already mentions an arbitrary m-node tree tensor network, the representable set S, the squared Frobenius objective, and the alternative of an optimality/hardness result, the closest paper-faithful refinement is this exact open question rather than a looser or more specialized TT-only reformulation.",
+  "citations": [
+    {
+      "section": "6",
+      "label": "Section heading: “Tensor, quantum, and other problems” / subsection 6.1",
+      "page": 39
+    },
+    {
+      "section": "6.1",
+      "label": "Problem 6.1 / “Optimal bounds for Tensor Train decomposition”",
+      "page": "39-40"
+    },
+    {
+      "section": "6.1",
+      "label": "Motivation paragraph discussing TT-SVD, sequentially truncated HOSVD, and the m-1 SVD-based guarantee",
+      "page": "39-40"
+    }
+  ]
+}

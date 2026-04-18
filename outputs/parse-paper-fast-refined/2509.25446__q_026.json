@@ -1,0 +1,37 @@
+{
+  "arxiv_id": "2509.25446",
+  "question_id": "q_026",
+  "original_question": "Fix 0 <= k <= binom(n,2), let lambda and mu be partitions of length at most n with mu contained in lambda, and define the symmetric function t_{lambda/mu,k} = (-1)^k sum_{w in S_n, ell(w) >= k} epsilon_w h_{lambda + delta - w(mu + delta)}. Is there a natural combinatorial interpretation of the scalar product <t_{lambda/mu,k}, s_nu>?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 11434.11,
+  "target_in_paper": "Section 2 (Problems of 2025), Problem 26, which records [Stan1999, Ch. 7 Exer. 38(b)]: the open problem asking for a nice combinatorial interpretation of the scalar product ⟨t_{λ/μ,k}, s_ν⟩, where t_{λ/μ,k} is the truncation of the Jacobi–Trudi expansion of s_{λ/μ} obtained by keeping only terms with ℓ(w) ≥ k.",
+  "completeness_score": 8.5,
+  "correct_elements": "Your draft is already very close to the paper's exact target. It fixes k in the same range, takes λ and μ to be partitions of length at most n with μ contained in λ, defines the same truncated Jacobi–Trudi sum t_{λ/μ,k}, and asks for a combinatorial interpretation of the scalar product with a Schur function s_ν.",
+  "missing_details": [
+    "The paper's problem is not fully stand-alone unless the ambient symmetric-function ring is specified; one should say that t_{λ/μ,k}, h_r, and s_ν live in the ring Λ of symmetric functions (typically over Q or Z) in infinitely many variables.",
+    "The scalar product should be identified explicitly as the Hall inner product on Λ.",
+    "The vector δ must be defined explicitly as δ = (n−1, n−2, ..., 1, 0).",
+    "The sign ε_w should be defined explicitly as sgn(w).",
+    "The statistic ℓ(w) should be defined explicitly as the inversion number (equivalently, Coxeter length) of w ∈ S_n.",
+    "Because λ and μ are only said to have length at most n, they should be regarded as n-tuples by appending trailing zeros before forming λ + δ − w(μ + δ).",
+    "The notation h_{λ+δ−w(μ+δ)} needs to be unpacked: for an integer vector α = (α_1, ..., α_n), one should define h_α = ∏_i h_{α_i}, together with the standard conventions h_0 = 1 and h_r = 0 for r < 0.",
+    "The quantifier on ν is implicit in the draft; to make the question stand-alone, one should ask for all partitions ν of the relevant degree.",
+    "The degree restriction is implicit: t_{λ/μ,k} is homogeneous of degree |λ|−|μ|, so only partitions ν with |ν| = |λ|−|μ| are relevant.",
+    "The containment notation μ ⊆ λ should be clarified as Ferrers/Young-diagram containment."
+  ],
+  "refined_question": "Let Λ = Sym_Q be the ring of symmetric functions in variables x_1, x_2, ... equipped with the Hall inner product ⟨·,·⟩. Fix an integer n ≥ 1 and an integer k with 0 ≤ k ≤ binom(n,2). Let λ and μ be partitions of length at most n with μ ⊆ λ, and regard them as elements of Z^n by appending trailing zeros. Set δ := (n−1, n−2, ..., 1, 0). For w ∈ S_n, let ℓ(w) be its inversion number and ε_w := sgn(w). For α = (α_1, ..., α_n) ∈ Z^n, define h_α := ∏_{i=1}^n h_{α_i}, with the standard conventions h_0 = 1 and h_r = 0 for r < 0. Define\n\nt_{λ/μ,k} := (−1)^k ∑_{w∈S_n, ℓ(w)≥k} ε_w h_{λ+δ−w(μ+δ)}.\n\nThis is the truncation of the Jacobi–Trudi expansion of the skew Schur function s_{λ/μ} obtained by keeping only those terms indexed by permutations w with ℓ(w) ≥ k. Since t_{λ/μ,k} is homogeneous of degree |λ|−|μ|, ask for each partition ν of |λ|−|μ|: is there a nice combinatorial interpretation of the Hall inner product ⟨t_{λ/μ,k}, s_ν⟩?",
+  "equivalent_formulation": null,
+  "justification": "The draft is essentially a near-verbatim restatement of the paper's Problem 26, so the correct refinement is not to broaden it but only to make the standard symmetric-function notation explicit. Problem 26 states exactly this truncation-of-Jacobi–Trudi question and does not supply a different theorem, conjecture, or equivalent reformulation elsewhere in the paper. The additions in the refined version—ambient ring, Hall inner product, the definition of δ, the meaning of ε_w and ℓ(w), zero-padding of λ and μ, the convention for h_α, and the degree restriction on ν—are precisely the implicit data needed to make the problem mathematically self-contained while staying faithful to the printed statement.",
+  "citations": [
+    {
+      "section": "Abstract",
+      "label": "paper scope",
+      "page": 1
+    },
+    {
+      "section": "2. Problems of 2025",
+      "label": "Problem 26",
+      "page": 3
+    }
+  ]
+}

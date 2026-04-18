@@ -1,0 +1,52 @@
+{
+  "arxiv_id": "2505.15351",
+  "question_id": "q_001",
+  "original_question": "In coherent diffraction imaging or ptychography, can one estimate how complex an unknown object is using only its magnitude-only measurements, for example by using existing complexity statistics or by defining new ones that are computable from the measurements before reconstruction?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 10901.12,
+  "target_in_paper": "Question 3.1(1) in Section 3 (\"Problem: Intrinsic Difficulty of Phase Retrieval\"), as elaborated in Section 3.1 (\"Complexity measures\").",
+  "completeness_score": 7.5,
+  "correct_elements": "Your draft correctly identifies the application setting (coherent diffraction imaging and ptychography), the fact that only magnitude/intensity data are available, and the central open issue of estimating an object's intrinsic phase-retrieval difficulty from measurements alone before reconstruction. It also matches the paper's interest in both reusing known statistics and designing new measurement-computable ones.",
+  "missing_details": [
+    "The paper poses this as an open problem about the intrinsic difficulty of phase retrieval, not just a general question about object complexity.",
+    "The governing model should be stated: in Section 3 the measurements are I = A(f) = |Af|^2, with emphasis on standard CDI where A = F and on ptychography where A is a subsampled short-time Fourier transform matrix.",
+    "The object is complex-valued: in the continuous setting f: R^D -> C, and in the discrete setting f in C^n.",
+    "Section 3.1 makes the question concrete mainly in the standard CDI setting, where I = |Ff|^2 and the autocorrelation is gamma = F^{-1} I.",
+    "The paper's candidate measurement-only statistics are not arbitrary: it specifically discusses the support-based overdetermination ratio Omega = (1/2)|S_f - S_f|/|S_f|, where S_f = {r in G : f(r) != 0} and S_gamma = S_f - S_f on a rectangular D-dimensional grid G.",
+    "The paper explicitly asks whether one can define a generalized version of Omega that accounts for the amplitudes |f(r)| rather than treating all support points equally.",
+    "A second explicit candidate is the normalized second-order moment (radius of gyration) B = (int ||r||^2 |gamma(r)|^2 dr)/(int |gamma(r)|^2 dr), together with its equivalent intensity-domain expression B = (int ||grad I(q)||^2 dq)/(int |I(q)|^2 dq).",
+    "The target quantity is the difficulty of the phase-retrieval problem, motivated by heuristics such as 'more fringes in the intensity pattern means an easier problem,' rather than a generic complexity notion.",
+    "The paper notes that autocorrelation and its moments are already used in both sparse CDI and ptychography; this is part of the motivation for these particular statistics.",
+    "If one mentions practical computability from data, the paper also notes a caveat: statistics based on the estimated autocorrelation can be sensitive to noise and to beamstop-induced suppression of the center of the diffraction pattern."
+  ],
+  "refined_question": "In the phase-retrieval model I = A(f) = |Af|^2, with Section 3 focused on standard coherent diffraction imaging (A = F) and ptychography (A given by a subsampled short-time Fourier transform matrix), can one estimate the intrinsic difficulty of recovering an unknown complex-valued object f from the measured intensities alone, prior to reconstruction? More concretely, in the standard CDI formulation I = |Ff|^2 with autocorrelation gamma = F^{-1} I on a rectangular D-dimensional grid G, can one identify or justify measurement-only complexity statistics that predict phase-retrieval difficulty, such as the overdetermination ratio Omega = (1/2)|S_f - S_f|/|S_f| with S_f = {r in G : f(r) != 0}, a weighted generalization of Omega that accounts for |f(r)|, or the normalized second-order moment B = (int ||r||^2 |gamma(r)|^2 dr)/(int |gamma(r)|^2 dr) (equivalently B = (int ||grad I(q)||^2 dq)/(int |I(q)|^2 dq))?",
+  "equivalent_formulation": null,
+  "justification": "The draft is closest to Question 3.1(1), where the paper asks for measures that estimate object complexity from the measurements, after first stating that the object's specifics are unknown before the experiment and that measurement-only complexity measures are therefore essential (Section 3, p. 4; Questions 3.1, p. 5). Section 3.1 then supplies the paper's intended scope and notation: the general model I = A(f) = |Af|^2 with focus on CDI and ptychography, and the concrete CDI formulas based on autocorrelation gamma = F^{-1}I, the support-based overdetermination ratio Omega, and the radius-of-gyration statistic B (Section 3, p. 4; Section 3.1, pp. 5-6). Your draft is slightly broader than the paper because it does not specify that the paper is after complexity measures tied to intrinsic phase-retrieval difficulty, and it omits the particular candidate statistics and definitions that the paper discusses nearby.",
+  "citations": [
+    {
+      "section": "Section 3",
+      "label": "Problem: Intrinsic Difficulty of Phase Retrieval",
+      "page": 4
+    },
+    {
+      "section": "Section 3",
+      "label": "Questions 3.1(1)",
+      "page": 5
+    },
+    {
+      "section": "Section 3.1",
+      "label": "Complexity measures",
+      "page": "5-6"
+    },
+    {
+      "section": "Section 3.1",
+      "label": "overdetermination ratio Omega",
+      "page": 5
+    },
+    {
+      "section": "Section 3.1",
+      "label": "radius of gyration B and equivalent intensity-domain formula",
+      "page": 6
+    }
+  ]
+}

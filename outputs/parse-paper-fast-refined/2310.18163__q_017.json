@@ -1,0 +1,47 @@
+{
+  "arxiv_id": "2310.18163",
+  "question_id": "q_017",
+  "original_question": "Suppose the edges of an n-vertex graph are properly coloured, so no two incident edges have the same colour. Determine whether the entire edge set can always be covered by O(n) rainbow paths, where each path uses no colour more than once.",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 9138.03,
+  "target_in_paper": "Section 7 (Some questions in Ramsey theory, poset saturation and graph colouring), Graph Colouring, Question 7.4; this is the same problem stated more formally as Problem 4 in the cited paper of Bonamy, Botler, Dross, Naia, and Skokan.",
+  "completeness_score": 9,
+  "correct_elements": "Your draft captures the right setting and the right target almost exactly: a properly edge-coloured n-vertex graph, rainbow paths, and the question of whether O(n) such paths suffice to cover the whole edge set. It also correctly unpacks 'properly coloured' and 'rainbow path' in plain language.",
+  "missing_details": [
+    "The O(n) bound should be made explicit as: there exists an absolute constant C such that every such graph on n vertices admits at most Cn rainbow paths.",
+    "The problem is about covering E(G), not necessarily partitioning it: every edge must belong to at least one chosen path, but the paths are not required to be edge-disjoint.",
+    "To be fully stand-alone, the graph should be named G and n identified with |V(G)|.",
+    "For complete precision, one should state that G is a finite undirected graph and that 'path' is used in the standard graph-theoretic sense.",
+    "No ambient ring/field, homogeneity, degree, nilpotency, or 'for all sufficiently large' clause is relevant here; the hidden assumptions are entirely graph-theoretic."
+  ],
+  "refined_question": "Does there exist an absolute constant C such that every finite properly edge-coloured graph G = (V,E) admits a family of at most C|V| paths whose union contains E, with each path rainbow (that is, no two edges on the same path have the same colour)?",
+  "equivalent_formulation": null,
+  "justification": "The draft is aimed at Question 7.4 in Section 7 of the Leader-birthday paper: the hypotheses 'no two incident edges have the same colour' and the conclusion 'cover the edge-set with O(n) rainbow paths' match that question verbatim. The nearby discussion adds the only substantive context given there, namely that a greedy removal of longest rainbow paths yields an n log n bound, so the issue is whether one can improve this to linear. The cited source [1] states the same problem in cleaner graph notation as Problem 4, defines a rainbow path as one with no repeated edge-colour, and shows why the problem was posed: an affirmative answer would provide an alternative route to the linear separating-path theorem via a linear path cover. No explicit equivalent reformulation of the rainbow-path problem itself is proved in the paper; only this implication is given.",
+  "citations": [
+    {
+      "section": "arXiv:2310.18163, Section 7 (Graph Colouring)",
+      "label": "Question 7.4",
+      "page": 16
+    },
+    {
+      "section": "arXiv:2310.18163, Section 7 (Graph Colouring)",
+      "label": "Question 7.4 discussion",
+      "page": 16
+    },
+    {
+      "section": "Bonamy-Botler-Dross-Naia-Skokan [1], Introduction",
+      "label": "Problem 4",
+      "page": 2
+    },
+    {
+      "section": "Bonamy-Botler-Dross-Naia-Skokan [1], Introduction",
+      "label": "Conjecture 1 and Theorem 2 context for Problem 4",
+      "page": 2
+    },
+    {
+      "section": "Bonamy-Botler-Dross-Naia-Skokan [1], proof setup",
+      "label": "Theorem 6",
+      "page": 3
+    }
+  ]
+}

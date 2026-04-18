@@ -1,0 +1,66 @@
+{
+  "source": {
+    "url": "https://zbmath.org/1284206",
+    "resolved_locator": "https://pubs.ams.org/ebooks/crmp/017/",
+    "title": "Some open problems.",
+    "title_origin": "source_text"
+  },
+  "accepted": [],
+  "needs_review": [
+    {
+      "id": "error_source_001",
+      "reason": "source_metadata_only_no_readable_fulltext",
+      "question_text_raw": "",
+      "evidence": [
+        {
+          "page": "AMS volume page",
+          "quote": "Some open problems ... Chapter PDF ... pp. 1 - 9"
+        },
+        {
+          "page": "OpenAlex record for 10.1090/crmp/017/01",
+          "quote": "\"open_access\": {\"is_oa\": false, \"oa_status\": \"closed\", \"oa_url\": null, \"any_repository_has_fulltext\": false}"
+        },
+        {
+          "page": "AMS chapter fetch attempt",
+          "quote": "curl: (56) The requested URL returned error: 403"
+        }
+      ]
+    }
+  ],
+  "trace": [
+    {
+      "id": "source_001",
+      "stage": "input",
+      "notes": "Normalized the user input as zbMATH record 1284206 and resolved it to Gilbert Baumslag's chapter 'Some open problems.' in Summer School in Group Theory in Banff, 1996, CRM Proceedings & Lecture Notes 17, pages 1-9.",
+      "evidence_refs": [
+        "zbmath_title",
+        "crossref_doi"
+      ]
+    },
+    {
+      "id": "source_001",
+      "stage": "map",
+      "notes": "Recovered the AMS volume page for the exact work and confirmed the chapter title and page span, but did not recover readable chapter body text. The AMS page exposed chapter/full-PDF actions, while OpenAlex marked the DOI record closed-access with no repository full text.",
+      "evidence_refs": [
+        "ams_chapter_listing",
+        "openalex_closed_access"
+      ]
+    },
+    {
+      "id": "source_001",
+      "stage": "quality_gates",
+      "notes": "Rejected extraction because no readable exact-work PDF or HTML full-text copy was recovered. AMS chapter download attempts were access-blocked, and external web searches only surfaced later derivative problem lists and citations rather than the 1999 chapter itself. Per source-adequacy rules, resolver metadata and secondhand compilations are insufficient technical sources.",
+      "evidence_refs": [
+        "ams_chapter_listing",
+        "openalex_closed_access",
+        "ams_download_403"
+      ]
+    },
+    {
+      "id": "source_001",
+      "stage": "persist",
+      "notes": "Saved exact JSON to outputs/parse-paper/1284206.json and outputs/latest.json.",
+      "evidence_refs": []
+    }
+  ]
+}

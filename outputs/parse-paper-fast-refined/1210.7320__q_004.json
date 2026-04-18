@@ -1,0 +1,43 @@
+{
+  "arxiv_id": "1210.7320",
+  "question_id": "q_004",
+  "original_question": "For each pattern length k, determine whether the largest Stanley-Wilf limit among all classical patterns of length k is always attained by a layered pattern.",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 2553.52,
+  "target_in_paper": "Section 4, “Are layered patterns the most easily avoided?”, specifically the statement that one of the weakest versions of the conjecture says that among all patterns of a given length k, the largest Stanley-Wilf limit is attained by some layered pattern; the survey explicitly attributes this to [23, Conjecture 1]. ([vdoc.pub](https://vdoc.pub/documents/surveys-in-combinatorics-2013-7rqqau6gfgb0?utm_source=openai))",
+  "completeness_score": 8.5,
+  "correct_elements": "Your draft already captures the right open problem very closely: it quantifies by pattern length k, compares all classical patterns of that fixed length, and asks whether the maximal Stanley-Wilf limit is achieved by a layered pattern. That is essentially the Section 4 formulation in the paper. ([vdoc.pub](https://vdoc.pub/documents/surveys-in-combinatorics-2013-7rqqau6gfgb0?utm_source=openai))",
+  "missing_details": [
+    "The paper defines the Stanley-Wilf limit explicitly: if Av_p(n) is the number of permutations of length n avoiding the classical pattern p, then SW(p) = lim_{n→∞} Av_p(n)^{1/n}. A stand-alone question should include this definition. ([vdoc.pub](https://vdoc.pub/documents/surveys-in-combinatorics-2013-7rqqau6gfgb0?utm_source=openai))",
+    "It should say explicitly that the patterns under discussion are classical permutation patterns; the paper states that, unless otherwise noted, the remainder of the discussion is about classical patterns. ([vdoc.pub](https://vdoc.pub/documents/surveys-in-combinatorics-2013-7rqqau6gfgb0?utm_source=openai))",
+    "It should define ‘layered pattern’ as a direct sum of decreasing permutations, or equivalently as a concatenation of decreasing blocks whose entries increase from block to block. ([vdoc.pub](https://vdoc.pub/documents/surveys-in-combinatorics-2013-7rqqau6gfgb0?utm_source=openai))",
+    "The quantifier should be made fully explicit: for each k, there exists at least one layered pattern of length k whose Stanley-Wilf limit equals the maximum over all length-k patterns. The paper does not assert uniqueness. ([vdoc.pub](https://vdoc.pub/documents/surveys-in-combinatorics-2013-7rqqau6gfgb0?utm_source=openai))",
+    "If one wants to mirror the paper's Section 4 exactly, one should note its local abuse of notation: in that section, ‘layered’ is allowed to include reverse/complement equivalents (‘up-layered’) because they are Wilf equivalent; however, the standard layered definition is sufficient for a stand-alone statement. ([vdoc.pub](https://vdoc.pub/documents/surveys-in-combinatorics-2013-7rqqau6gfgb0?utm_source=openai))",
+    "No ambient ring, field, homogeneity, degree, nilpotency, or ‘sufficiently large m’ condition is relevant here; the missing content is purely combinatorial notation and quantification."
+  ],
+  "refined_question": "For each integer k ≥ 1, let Av_p(n) denote the number of permutations of length n that avoid the classical pattern p, and let SW(p) := lim_{n→∞} Av_p(n)^{1/n} be the Stanley-Wilf limit. Is it true that for every k there exists a layered pattern p of length k—equivalently, a direct sum of decreasing permutations—such that SW(p) = max{SW(q) : q is a classical pattern of length k}?",
+  "equivalent_formulation": null,
+  "justification": "The draft is already an almost verbatim paraphrase of the weak extremal conjecture discussed in Section 4, so the main refinements needed are self-containment and precision: define avoidance counts and the Stanley-Wilf limit from Section 3, define layered patterns from Section 4, and make the existential quantifier over maximizers explicit. I did not replace it by the stronger nearby variants about asymptotic dominance or pointwise inequalities Av_σ(n) ≤ Av_τ(n) for all n, because the paper treats those as distinct stronger conjectures and even notes that one such stronger version is false. ([vdoc.pub](https://vdoc.pub/documents/surveys-in-combinatorics-2013-7rqqau6gfgb0?utm_source=openai))",
+  "citations": [
+    {
+      "section": "Section 1",
+      "label": "Introduction: Section 4 concerns which patterns are easiest to avoid, with layered patterns expected to dominate",
+      "page": 240
+    },
+    {
+      "section": "Section 3",
+      "label": "definition of Av_p(n) and the Stanley-Wilf limit SW(p)",
+      "page": 245
+    },
+    {
+      "section": "Section 4",
+      "label": "definition of layered permutation/pattern and direct/skew sums",
+      "page": "246-247"
+    },
+    {
+      "section": "Section 4",
+      "label": "statement paraphrasing [23, Conjecture 1]: maximal Stanley-Wilf limit attained by some layered pattern",
+      "page": 247
+    }
+  ]
+}

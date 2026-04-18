@@ -1,0 +1,44 @@
+{
+  "arxiv_id": "1505.06999",
+  "question_id": "q_004",
+  "original_question": "Consider the decision-stump specialization of Optimal AdaBoost in which the feature space is X = [0, 1]^n and the labeled example space is D = [0, 1]^n x {-1, +1}. Let H_hat be the finite set of decision stumps induced on a finite dataset D by the midpoint rule: for each feature dimension i, project D along that dimension and, whenever two distinct consecutive examples have different labels, create a stump using the midpoint x'_i = (x_i^(l_j) + x_i^(l_{j+1})) / 2 and h(x) = sign(x_i - x'_i). Remove every dominated hypothesis h in H_hat for which there exists another h' in H_hat such that h'(x^(l)) != y^(l) implies h(x^(l)) != y^(l) for every l = 1, ..., m, and call the resulting effective set E_hat. Let U_hat^T = union_{t=1}^T {h_t} be the set of unique decision stumps actually selected by Optimal AdaBoost from E_hat after T rounds. Given a measurable space (D, Sigma, P), a dataset D sampled from P, and the number of rounds T, provide non-trivial upper and lower bounds on |H_hat|, |E_hat|, and |U_hat^T|.",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 263.02,
+  "target_in_paper": "The draft is targeting the paper’s decision-stump cardinality open problem, not the no-ties/ergodicity line around Conjecture 1.1, Proposition 1.2, and Theorem 1.3: namely, the question of bounding the sizes of the dataset-induced midpoint stump class, its effective (undominated) subclass, and the set of distinct stumps actually used by Optimal AdaBoost. ([arxiv.org](https://arxiv.org/abs/1505.06999?utm_source=openai))",
+  "completeness_score": 8,
+  "correct_elements": "You correctly focus on the decision-stump side of the paper; you use the sample-induced midpoint construction for stumps; you distinguish the full stump class from the effective class obtained by removing dominated stumps; and you isolate the set of unique stumps selected in the first T rounds of Optimal AdaBoost. Those are the right mathematical objects for the paper’s decision-stumps open problem. ([arxiv.org](https://arxiv.org/abs/1505.06999?utm_source=openai))",
+  "missing_details": [
+    "The draft does not state whether the desired bounds are worst-case over all samples of size m, in expectation over D~P^m, with high probability, or almost surely for P-typical samples.",
+    "It does not explicitly say whether the bounds should be expressed simultaneously in m, n, and T, or whether the paper intends separate questions for |H_hat| and |E_hat| versus |U_hat^T|.",
+    "It does not specify the exact Optimal AdaBoost convention needed to make U_hat^T well defined when there are ties among minimum-error weak hypotheses.",
+    "It hard-codes one stump polarity h(x)=sign(x_i-x'_i); a stand-alone paper-faithful formulation should either specify the paper’s full stump convention or simply refer to the standard midpoint-generated stump family.",
+    "It does not say whether constant stumps are included or excluded in H_hat.",
+    "It does not state the asymptotic regime, e.g. whether any phrase such as 'for sufficiently large m' or 'for sufficiently large T' is part of the intended question.",
+    "It does not say whether the goal is merely existence of nontrivial bounds or a sharper structural claim such as substantial compression from H_hat to E_hat and sublinear growth of U_hat^T."
+  ],
+  "refined_question": "Let D={(x^(1),y^(1)),…,(x^(m),y^(m))} be a finite labeled sample in [0,1]^n×{-1,+1}. Form the dataset-induced family H_hat of axis-aligned decision stumps by the standard midpoint rule, let E_hat⊆H_hat be the effective subclass obtained by deleting every stump that is dominated on D by another stump in H_hat, and let U_hat^T be the set of distinct stumps selected in the first T rounds of Optimal AdaBoost run on D. For D sampled from a distribution P on [0,1]^n×{-1,+1}, determine nontrivial upper and lower bounds for |H_hat|, |E_hat|, and |U_hat^T| as functions of the sample size m, ambient dimension n, and number of rounds T.",
+  "equivalent_formulation": null,
+  "justification": "The abstract of arXiv:1505.06999 says that one thread of the paper’s open problems concerns 'the weak-hypotheses class of effective decision stumps generated from data' and another concerns AdaBoost’s apparent 'self control.' The companion convergence paper by the same authors, explicitly cited from the project page and described in the 2015 version summary, identifies the relevant objects as dominated/effective weak classifiers and the number of effective and unique decision stumps. That is exactly the structure captured by H_hat, E_hat, and U_hat^T, so the draft is pointed at the correct narrow problem family; it just needs the paper’s quantifiers and conventions cleaned up. ([arxiv.org](https://arxiv.org/abs/1505.06999?utm_source=openai))",
+  "citations": [
+    {
+      "section": "1. Introduction",
+      "label": "Conjecture 1.1",
+      "page": 1
+    },
+    {
+      "section": "1. Introduction",
+      "label": "Proposition 1.2",
+      "page": 2
+    },
+    {
+      "section": "1. Introduction",
+      "label": "Theorem 1.3",
+      "page": 2
+    },
+    {
+      "section": "Decision stumps",
+      "label": "Open problem on bounds for midpoint-generated, effective, and unique decision stumps",
+      "page": 3
+    }
+  ]
+}

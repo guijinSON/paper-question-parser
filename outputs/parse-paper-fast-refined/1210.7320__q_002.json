@@ -1,0 +1,51 @@
+{
+  "arxiv_id": "1210.7320",
+  "question_id": "q_002",
+  "original_question": "Prove or refute the conjectured upper bound SW(1324) < e*pi*sqrt(2/3) for the Stanley-Wilf limit of the classical pattern 1324.",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 2569.6,
+  "target_in_paper": "Section 3 of arXiv:1210.7320 is summarizing the exact Section 3 problem from its reference [23]; the nearest official formulation matching the draft is the 'Increasing columns' conjecture for 1324-avoiders (Conjecture 13), together with its conditional consequence for the Stanley-Wilf limit in Theorem 17.",
+  "completeness_score": 4,
+  "correct_elements": "The draft correctly identifies the classical pattern 1324, the Stanley-Wilf limit as the object of study, and the specific numerical bound e^{π√(2/3)} ≈ 13.001954 that appears in the paper's discussion of 1324.",
+  "missing_details": [
+    "The paper does not state the bound L(1324) ≤ e^{π√(2/3)} as the primary conjecture; the actual open conjecture is Conjecture 13 ('Increasing columns'): for all nonnegative integers n and k, S_n^k(1324) ≤ S_{n+1}^k(1324).",
+    "The draft omits the paper's notation S_n(τ) for the set of τ-avoiding permutations of length n and S_n^k(τ) for the number of such permutations with exactly k inversions.",
+    "The draft does not define inversions: inv(π) is the number of pairs (i,j) with 1 ≤ i < j ≤ n and π_i > π_j.",
+    "The draft uses an informal notation SW(1324); the paper's notation is L(1324) = lim_{n→∞} |S_n(1324)|^{1/n}.",
+    "The paper's inequality is weak, not strict: 'at most' means L(1324) ≤ e^{π√(2/3)}, not L(1324) < e^{π√(2/3)}.",
+    "The bound e^{π√(2/3)} is only proved conditionally in the paper: Theorem 17 shows it follows if Conjecture 13 holds.",
+    "A key contextual ingredient omitted by the draft is Proposition 15: for k < n - 1, S_n^k(1324) is in bijection with Q(k), where Q(k) is the set of pairs of integer partitions whose total size is k; this explains the eventual fixed-k column values used in the proof of Theorem 17.",
+    "The draft does not state the quantifiers explicitly ('for all nonnegative integers n and k').",
+    "The draft does not make explicit that the pattern under discussion is a classical permutation pattern, which matters because the survey distinguishes several other pattern notions."
+  ],
+  "refined_question": "Prove or disprove the following 'increasing columns' conjecture for the classical pattern 1324: for every n,k ∈ Z_{≥0}, if S_n^k(1324) denotes the number of permutations π ∈ S_n that avoid 1324 and satisfy inv(π)=k, then S_n^k(1324) ≤ S_{n+1}^k(1324). Here L(1324)=lim_{m→∞}|S_m(1324)|^{1/m} is the Stanley-Wilf limit. By the paper's Theorem 17, a proof of this conjecture would yield the upper bound L(1324) ≤ e^{π√(2/3)} ≈ 13.001954.",
+  "equivalent_formulation": null,
+  "justification": "The draft is aiming at the paper's Section 3 discussion of 1324-avoiders with a fixed number of inversions, not at the paper's broader Introduction-level conjectures about layered patterns. In the cited source that Section 3 is summarizing, the exact open problem is Conjecture 13, which asserts monotonicity in n of the fixed-k counts S_n^k(1324). The numerical bound e^{π√(2/3)} is not itself posed there as the main conjecture; rather, Theorem 17 proves that this bound follows from Conjecture 13. Proposition 15 supplies the combinatorial description of the eventual fixed-k column values that drives the proof. Therefore the paper-faithful refinement should ask for a proof or refutation of the monotonicity conjecture, with the e^{π√(2/3)} bound stated as its conditional consequence.",
+  "citations": [
+    {
+      "section": "1 (cited paper [23], summarized in §3 of arXiv:1210.7320)",
+      "label": "Introduction: definition of S_n^k(1324) and statement that its conjectured monotonicity would imply L(1324) ≤ e^{π√(2/3)}",
+      "page": 2
+    },
+    {
+      "section": "3 (cited paper [23], summarized in §3 of arXiv:1210.7320)",
+      "label": "Conjecture 13 (Increasing columns)",
+      "page": 9
+    },
+    {
+      "section": "3 (cited paper [23], summarized in §3 of arXiv:1210.7320)",
+      "label": "Proposition 15",
+      "page": "9-10"
+    },
+    {
+      "section": "3 (cited paper [23], summarized in §3 of arXiv:1210.7320)",
+      "label": "Theorem 17",
+      "page": 10
+    },
+    {
+      "section": "3 (cited paper [23], summarized in §3 of arXiv:1210.7320)",
+      "label": "Lemma 12 (definition of ρ = e^{π√(2/3)})",
+      "page": 8
+    }
+  ]
+}

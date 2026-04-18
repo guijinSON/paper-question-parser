@@ -1,0 +1,46 @@
+{
+  "arxiv_id": "2110.09638",
+  "question_id": "q_001",
+  "original_question": "Consider the single-channel slotted multiple-access problem with n indistinguishable users, where after each slot every user receives perfect feedback giving the exact number of transmitters F[t] on that slot, and the objective is to minimize the expected time until the first successful transmission. The paper develops an efficiently computable policy for arbitrary positive integers n: users randomize on the first slot, use the observed collision size to partition themselves into groups, and then recursively continue with the more favorable subgroup. Is this policy optimal for every positive integer n, or can some other decentralized policy achieve a smaller expected time to first success for some values of n?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 7682.54,
+  "target_in_paper": "Conjecture 1.1: z_n^* = z_n for all positive integers n.",
+  "completeness_score": 8.5,
+  "correct_elements": "Your draft already captures the right problem class and the right open issue: a single-channel slotted system with n indistinguishable users; exact transmitter-count feedback F[t] after each slot; decentralized/randomized user behavior; the objective of minimizing the expected time to the first success; the paper's first-slot randomization, partition-into-groups, and recursive continuation idea; and the question of whether that policy is globally optimal or can be beaten by some other decentralized policy.",
+  "missing_details": [
+    "The paper defines two distinct quantities that should be named explicitly: z_n^* is the infimum expected time to first success over all decentralized n-user algorithms, while z_n is the expected time achieved by the paper's recursively defined divide-and-conquer algorithm.",
+    "It should be stated that all users know n at the start, and n does not change on the timescale of interest.",
+    "It should be stated that users are unlabeled/indistinguishable and all independently implement the same algorithm, with independent randomization.",
+    "The problem is infinite-horizon: there is no deadline or finite time horizon for the first success problem.",
+    "The exact role of the feedback should be made explicit: after each slot all users observe common perfect feedback F[t] in {0,1,...,n}, where F[t] is the exact number of transmitters and success means F[t]=1.",
+    "The divide-and-conquer policy should be stated in its exact recursive form: if the first-slot outcome is F[1] in {0,n}, the procedure restarts; if F[1]=1, it stops; if F[1]=i in {2,...,n-1}, the users split into groups of sizes i and n-i and recurse only on the group with smaller continuation value min{z_i,z_{n-i}}.",
+    "The first-slot transmission probability p is not arbitrary in the paper's formulation; z_n is defined by optimizing over p in the recursive formula for z_n.",
+    "To match the paper exactly, the question should distinguish this conjecture from the paper's separate open problems about more limited feedback and other variants.",
+    "The paper-faithful formulation should note the currently proved cases n in {1,2,3,4,6}, because Theorem 1.3 is the precise nearby result framing the remaining open cases."
+  ],
+  "refined_question": "For each positive integer n, consider a single-channel slotted multiple-access system with n indistinguishable users who all know n and who independently implement the same decentralized randomized algorithm, receiving after each slot common perfect feedback F[t] in {0,1,...,n} equal to the exact number of transmitters on that slot; a success occurs iff F[t]=1. Let z_n^* denote the infimum expected time to the first success over all such n-user algorithms. Let z_1=1, z_2=2, and for n>=3 let z_n be the value of the paper's recursively defined divide-and-conquer policy: on slot 1 each user transmits independently with probability p in (0,1); if F[1] is 0 or n, restart; if F[1]=1, stop; and if F[1]=i in {2,...,n-1}, partition the users into the transmitting group of size i and the silent group of size n-i, discard the group with larger continuation value, and recurse on the other group, so that z_n = inf over p in (0,1) of (1 + sum from i=2 to n-1 of min{z_i,z_{n-i}} C(n,i) p^i (1-p)^(n-i)) divided by (1 - p^n - (1-p)^n). Is it true that z_n^* = z_n for every positive integer n?",
+  "equivalent_formulation": "Equivalently: is the paper's divide-and-conquer algorithm globally optimal among all decentralized n-user algorithms for every positive integer n, rather than only optimal within its own structured class and rather than only in the proved cases n in {1,2,3,4,6}?",
+  "justification": "The draft is aiming at the paper's main n-user optimality conjecture, not the neighboring open problems about weaker feedback or other model variants. In the introduction, the paper highlights the question 'Is the algorithm of this paper optimal for all values of n?'. Section IV-A defines the recursive divide-and-conquer values z_n and shows they are optimal within that structured class. Section V then defines z_n^* over all decentralized algorithms, states the conjecture z_n=z_n^* for all n, and proves it only for n in {1,2,3,4,6}. So the sharpest stand-alone reformulation is exactly the equality z_n^*=z_n for every positive integer n, with the model and recursion spelled out explicitly.",
+  "citations": [
+    {
+      "section": "Introduction",
+      "label": "open question (i): Is the algorithm of this paper optimal for all values of n?",
+      "page": "1"
+    },
+    {
+      "section": "Section IV-A",
+      "label": "definition of z_n^* and recursive divide-and-conquer construction of z_n; Eq. (16) in the accessible Allerton mirror",
+      "page": "6"
+    },
+    {
+      "section": "Section V",
+      "label": "conjecture z_n = z_n^* for all n; theorem proving the cases n in {1,2,3,4,6} (Theorem 2 in the accessible Allerton mirror)",
+      "page": "6"
+    },
+    {
+      "section": "Introduction",
+      "label": "Conjecture 1.1; Proposition 1.2; Theorem 1.3",
+      "page": "arXiv v3 introduction; exact page number not exposed by the accessible mirror"
+    }
+  ]
+}

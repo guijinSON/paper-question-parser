@@ -1,0 +1,38 @@
+{
+  "arxiv_id": "1406.1949",
+  "question_id": "q_023",
+  "original_question": "Find the asymptotic value of subset(L) when L is a sqrt(n) by sqrt(n) integer lattice, where subset(L) is the size of the largest subset of lattice points that spans each positive distance at most once.",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 3883.82,
+  "target_in_paper": "Section 6, Problem 23: “(Erdős and Guy [26]) Find the asymptotic value of subset(L), where L is a √n × √n integer lattice.”",
+  "completeness_score": 8.5,
+  "correct_elements": "Your draft correctly identifies the paper’s square-lattice special case rather than the broader planar problem, uses the right quantity subset(L), and captures the intended condition that distances inside the chosen subset should not repeat.",
+  "missing_details": [
+    "The ambient setting should be stated explicitly: L is a finite subset of the Euclidean plane R^2, specifically a square integer lattice inside Z^2.",
+    "The lattice should be written concretely, for example L = [m] × [m] with n = m^2, or equivalently as a √n × √n integer lattice; otherwise the meaning of √n implicitly assumes n is a perfect square.",
+    "subset(L) should be defined as a maximum over subsets A ⊂ L, not just described informally.",
+    "The paper’s exact no-repetition condition is stronger when written formally: there are no a, b, c, d in A with |ab| = |cd| > 0, including overlapping-pair cases such as a = c.",
+    "It should be explicit that the repeated quantity is positive Euclidean distance, so zero distances are excluded.",
+    "The asymptotic variable should be stated explicitly: n → ∞, equivalently m → ∞ with n = m^2."
+  ],
+  "refined_question": "For n = m^2, let L = [m] × [m] ⊂ Z^2 ⊂ R^2 be the m × m integer lattice. Define subset(L) to be the maximum cardinality of a subset A ⊂ L such that no two distinct unordered pairs of points of A determine the same positive Euclidean distance; equivalently, there do not exist a, b, c, d ∈ A with ||a - b||2 = ||c - d||2 > 0, even if the two pairs share a point. What is the asymptotic value of subset(L) as n → ∞?",
+  "equivalent_formulation": "Equivalently: if L = [m] × [m] and n = m^2, what is the asymptotic maximum size of a subset A ⊂ L for which all positive pairwise Euclidean distances determined by A are distinct?",
+  "justification": "The draft clearly targets the lattice special case singled out in Section 6, Problem 23, not the general planar function subset(n). The paper first defines subset(P) and subset(n) in the immediately preceding discussion, then states Problem 23 as the special case where L is a √n × √n integer lattice. The nearby context also supplies the precise no-repeated-distance condition and notes the current bounds for this special case. I therefore kept the question narrowly focused on that exact lattice problem, while making the plane, the lattice model, the positivity of the distance, and the asymptotic parameter explicit.",
+  "citations": [
+    {
+      "section": "6",
+      "label": "Definition of subset(P) and Problem 22",
+      "page": "HTML lines 233-237 (ar5iv HTML version; no page numbers shown)"
+    },
+    {
+      "section": "6",
+      "label": "Theorem 6.1 and surrounding context",
+      "page": "HTML lines 238-250 (ar5iv HTML version; no page numbers shown)"
+    },
+    {
+      "section": "6",
+      "label": "Problem 23",
+      "page": "HTML lines 253-258 (ar5iv HTML version; no page numbers shown)"
+    }
+  ]
+}

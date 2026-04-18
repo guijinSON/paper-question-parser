@@ -1,0 +1,44 @@
+{
+  "arxiv_id": "1112.5632",
+  "question_id": "q_008",
+  "original_question": "Find an analog of the asymptotic lower matching conjecture for arbitrary infinite r-regular graphs, at least for matching densities p in [0, 2/3]. In other words, determine a lower-bound principle for p-matching entropy in the non-bipartite infinite regular setting that plays the role that ALMC plays for bipartite infinite regular graphs.",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 1964.51,
+  "target_in_paper": "The draft is targeting the first closing open problem of Section 7, already foreshadowed in Section 1 immediately after the ALMC statement: find an ALMC-type lower-bound inequality for the p-matching entropy of arbitrary infinite r-regular graphs, at least for p in [0, 2/3]. In the Section 7 closing sentence the paper says \"LAMC\", but the surrounding context shows ALMC is intended.",
+  "completeness_score": 8,
+  "correct_elements": "Your draft correctly identifies the intended open problem as an infinite-graph entropy question, not a finite-graph matching-count question; it correctly focuses on an analogue of the asymptotic lower matching conjecture; it correctly places the problem in the non-bipartite/general infinite r-regular setting; and it correctly retains the paper's explicit fallback range p in [0, 2/3].",
+  "missing_details": [
+    "The paper's object is the p-matching entropy h_G(p), defined for a countable infinite graph G via finite approximants G_k=(V_k,E_k) with 2m_k/|V_k| -> p, where phi(m_k,G_k) is the number of m_k-matchings; your draft does not state this definition.",
+    "The benchmark being analogized is the bipartite ALMC inequality h_G(p) >= f(p,r), where f(p,r) = (1/2)(p log r - p log p - 2(1-p) log(1-p) + (r-p) log(1-p/r)); your draft refers to ALMC informally but does not spell out the actual lower-bound template from the paper.",
+    "The first Section 7 open problem has no connectivity or bridgelessness assumption; your draft should not accidentally import the hypotheses of the second Section 7 question, which is specifically about infinite cubic connected graphs with no bridges.",
+    "The paper's scope here is countable infinite r-regular graphs; this countability assumption is implicit in your draft and should be made explicit if the question is to be stand-alone.",
+    "The paper asks for an analogue valid at least on p in [0, 2/3], not necessarily for all p in [0,1]; your draft should make clear that [0, 2/3] is the paper-faithful guaranteed target range.",
+    "The closing line of Section 7 says \"LAMC\", but Section 1 discusses ALMC and the intended reference is clearly to the asymptotic lower matching conjecture; a stand-alone version should silently normalize this typo rather than preserve the ambiguity.",
+    "The paper does not formulate this first open problem as the special cubic bridgeless case; that is a separate second question, so the refined version should stay with the general r-regular problem only."
+  ],
+  "refined_question": "For each fixed integer r >= 2, let G=(V,E) be a countable infinite r-regular graph, and define its p-matching entropy by h_G(p) = limsup_{k -> infinity} (1/|V_k|) log phi(m_k,G_k), where G_k=(V_k,E_k) is a sequence of finite graphs converging to G, phi(m_k,G_k) is the number of m_k-matchings of G_k, and 2m_k/|V_k| -> p. In the bipartite case, the asymptotic lower matching conjecture asserts that h_G(p) >= f(p,r) for all p in [0,1], where f(p,r) = (1/2)(p log r - p log p - 2(1-p) log(1-p) + (r-p) log(1-p/r)). What is the correct analogue of this ALMC lower-bound inequality for arbitrary, not necessarily bipartite, infinite r-regular graphs, at least for p in [0, 2/3]?",
+  "equivalent_formulation": null,
+  "justification": "Section 1 defines h_G(p) for countable infinite graphs, states the AUMC, then gives the ALMC lower bound h_G(p) >= f(p,r) for bipartite infinite r-regular graphs. Immediately after that, the paper says that a similar inequality should exist for infinite r-regular graphs at least on p in [0, 2/3]. Section 7 then closes with two open problems for the non-bipartite infinite setting, and the first is exactly the general-r question your draft is aiming at. The second Section 7 question is narrower, about infinite cubic connected bridgeless graphs, so your draft should not be rewritten to that one instead.",
+  "citations": [
+    {
+      "section": "Section 1",
+      "label": "definition of h_G(p) and AUMC, equation (1.14)",
+      "page": 21
+    },
+    {
+      "section": "Section 1",
+      "label": "equations (1.15)-(1.16) defining f(p,r) and stating ALMC",
+      "page": 21
+    },
+    {
+      "section": "Section 1",
+      "label": "sentence after equation (1.16) forecasting a similar inequality for infinite r-regular graphs at least for p in [0, 2/3]",
+      "page": 21
+    },
+    {
+      "section": "Section 7",
+      "label": "closing open problem 1 for infinite regular non-bipartite graphs",
+      "page": 32
+    }
+  ]
+}

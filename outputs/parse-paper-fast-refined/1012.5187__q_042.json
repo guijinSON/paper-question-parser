@@ -1,0 +1,43 @@
+{
+  "arxiv_id": "1012.5187",
+  "question_id": "q_042",
+  "original_question": "Determine the correct asymptotic order of the minimum number of bits needed by an optimal covering-set representation of a visibility graph, where a covering set is a family of cliques and complete bipartite graphs whose members are subgraphs of the visibility graph and whose union covers every edge.",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 1171.32,
+  "target_in_paper": "Open Problem 42 in §4.9 (Representing Visibility Graphs), within Section 4 on visibility graphs of simple polygons.",
+  "completeness_score": 7.5,
+  "correct_elements": "The draft correctly identifies the core target: the paper asks for the tight asymptotic bit complexity of an optimal covering-set representation in which the cover consists of cliques and complete bipartite subgraphs whose union covers all edges of the visibility graph.",
+  "missing_details": [
+    "The paper's scope here is polygon visibility graphs: in Section 4, 'visibility graph' means the vertex visibility graph of a simple polygon, not point-visibility graphs or segment-visibility graphs.",
+    "The asymptotic variable should be made explicit: the question is about n-vertex visibility graphs, i.e. worst-case behavior as a function of n = |V(G)|.",
+    "The paper frames this as a worst-case extremal question over all such visibility graphs, not just for one fixed graph.",
+    "The nearby context records the current gap that motivates the problem: an O(n log^4 n) upper bound and an Omega(n log^2 n) lower bound on the number of bits.",
+    "The question is about the bit complexity of the specific covering-set representation model discussed in §4.9, not about arbitrary encodings of visibility graphs.",
+    "The paper separates the extremal bound question from the algorithmic construction question: polynomial-time construction of a matching cover is Open Problem 43, not Open Problem 42."
+  ],
+  "refined_question": "For n-vertex visibility graphs G of simple polygons, determine the tight worst-case asymptotic order, as a function of n, of the minimum number of bits used by an optimal covering set of G, where a covering set is a family of subgraphs of G, each of which is either a clique or a complete bipartite graph, and every edge of G lies in at least one member of the family. In the notation implicit in §4.9, close the gap between the recorded O(n log^4 n) upper bound and Omega(n log^2 n) lower bound.",
+  "equivalent_formulation": null,
+  "justification": "The draft is closest to Open Problem 42. Section 4 is explicitly about visibility graphs of simple polygons, so the generic phrase 'visibility graph' in §4.9 inherits that scope. The paragraph immediately preceding Open Problem 42 introduces the covering-set representation by cliques and complete bipartite graphs, states the known upper and lower bit bounds, and then asks for a tight order bound. This matches the draft's focus on the asymptotic number of bits in an optimal covering-set representation. The draft needed sharpening mainly by restoring the polygon-specific scope, the n-vertex worst-case quantification, and the motivating O(n log^4 n) versus Omega(n log^2 n) gap; it should not be broadened to the algorithmic question of finding such a cover in polynomial time, which is Open Problem 43.",
+  "citations": [
+    {
+      "section": "§1 Introduction",
+      "label": "definition of the visibility graph of a polygon",
+      "page": "ar5iv HTML lines 20-21"
+    },
+    {
+      "section": "§4 Visibility graph theory: Polygons / §4.1 Visibility Graph Recognition",
+      "label": "scope of Section 4 as visibility graphs of simple polygons",
+      "page": "ar5iv HTML lines 312-315"
+    },
+    {
+      "section": "§4.9 Representing Visibility Graphs",
+      "label": "context before Open Problem 42",
+      "page": "ar5iv HTML lines 410-418"
+    },
+    {
+      "section": "§4.9 Representing Visibility Graphs",
+      "label": "Open Problem 42",
+      "page": "ar5iv HTML lines 419-421"
+    }
+  ]
+}

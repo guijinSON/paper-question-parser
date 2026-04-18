@@ -1,0 +1,51 @@
+{
+  "arxiv_id": "2307.06787",
+  "question_id": "q_006",
+  "original_question": "Universal algorithms for multivariate integration are currently known in the paper only for the cube [0,1]^d. Do there exist universal algorithms of the same kind for integration over domains other than [0,1]^d?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 8947.66,
+  "target_in_paper": "Section 3, Open Problem (p. 114): \"So far only the domain [0,1]^d was studied for the construction of universal algorithms. One might speculate that universal algorithms also exist for other domains.\" This is sharpened in Section 6, A Final Open Problem / Eq. (17) (p. 126), which asks for universal randomized linear algorithms over an open domain D_d ⊂ R^d, ideally with the same optimal error bounds as Theorem 3, known only for ρ = 1 on D_d = [0,1]^d.",
+  "completeness_score": 6,
+  "correct_elements": "Your draft correctly identifies the right topic: the paper's open problem about extending the universal-integration algorithms beyond the cube [0,1]^d. It also correctly reflects the paper's state-of-the-art claim that the universal constructions discussed there are known only on [0,1]^d, and it asks the intended existence question rather than drifting into a different issue such as tractability or lower bounds.",
+  "missing_details": [
+    "The draft does not specify what 'universal' means in this paper: one and the same randomized algorithm should work across a whole scale of smoothness classes, rather than being retuned to each smoothness parameter k.",
+    "It omits the algorithm class used in the paper: randomized linear cubature rules of the form A_n^ω(f) = Σ_{j=1}^n a_j(ω) f(x_j(ω)).",
+    "It omits that Section 3 seeks algorithms that are good simultaneously in the randomized worst-case setting and in the deterministic worst-case setting.",
+    "It does not name the benchmark results from Theorem 3 that define the target meaning of 'same kind': for isotropic Sobolev smoothness H_d^k with k > d/2, e^ran(A_n,H_d^k) ≍ n^(-k/d-1/2) and e(A_n,H_d^k) ≍ n^(-k/d); for dominating mixed smoothness H_d^{k,mix} with k ∈ N, e^ran(A_n,H_d^{k,mix}) ≍ n^(-k-1/2) and e(A_n,H_d^{k,mix}) ≍ n^(-k)(log n)^((d-1)/2).",
+    "It omits that the randomized Frolov algorithm in Theorem 3 is unbiased: E(A_n(f)) = S_d(f).",
+    "It does not specify the integration functional. In the nearest Section 3 formulation this is the unweighted integral over [0,1]^d; in the later final open problem it is the weighted functional S(f) = ∫_{D_d} f(x)ρ(x) dx. Since your draft targets the Section 3 open problem, the faithful rewrite should stay with the unweighted case rather than broadening to arbitrary weights.",
+    "It does not state the ambient domain assumptions needed to make the question stand-alone. Section 1 normalizes domains by λ_d(D_d) = 1, and Section 4 explains that for non-Lipschitz domains the definitions of Sobolev-type spaces may differ; bounded Lipschitz domains are the clean paper-faithful setting if one wants precise Sobolev notation on general domains.",
+    "It omits the paper's suggestion that one might even hope for such algorithms with iid uniformly distributed sample points x_j, which appears in the final open problem.",
+    "It does not indicate that the paper allows a weaker fallback target if exact optimality is too much to ask: matching the Theorem 3 rates up to additional logarithmic factors."
+  ],
+  "refined_question": "Let D_d ⊂ R^d be a bounded Lipschitz domain with λ_d(D_d) = 1, and let S_D(f) = ∫_{D_d} f(x) dx. Does there exist, for domains D_d other than [0,1]^d, a universal randomized linear cubature algorithm A_n^ω(f) = Σ_{j=1}^n a_j(ω) f(x_j(ω))—ideally unbiased and possibly with x_j iid uniformly distributed on D_d—such that the same algorithm, without being retuned to the smoothness parameter k, achieves on the corresponding Sobolev scales the cube-optimal orders from Theorem 3 simultaneously in the randomized and deterministic worst-case settings; namely, for all k > d/2 on isotropic Sobolev spaces H^k(D_d), e^ran(A_n,H^k(D_d)) ≍ n^(-k/d-1/2) and e(A_n,H^k(D_d)) ≍ n^(-k/d), and for all k ∈ N on mixed-smoothness spaces H^{k,mix}(D_d), e^ran(A_n,H^{k,mix}(D_d)) ≍ n^(-k-1/2) and e(A_n,H^{k,mix}(D_d)) ≍ n^(-k)(log n)^((d-1)/2); or, if exact optimality is impossible, at least these rates up to additional logarithmic factors?",
+  "equivalent_formulation": null,
+  "justification": "The exact official formulation closest to your draft is the Section 3 open problem about extending universal algorithms from [0,1]^d to other domains. To make that question stand-alone and paper-faithful, one must import the paper's meaning of universality from Theorem 3: a single randomized linear algorithm, not depending on k, that is simultaneously optimal in randomized and deterministic worst-case error on the Sobolev scales treated there. Section 6 confirms that this is indeed the intended unresolved direction, restating it as a final open problem for general domains and emphasizing that such algorithms are only known for ρ = 1 on [0,1]^d. Section 4 adds the hidden domain caveat: on arbitrary non-Lipschitz domains the relevant Sobolev-space definitions are not canonical, so bounded Lipschitz domains are the cleanest sharp formulation if one wants a fully explicit stand-alone question.",
+  "citations": [
+    {
+      "section": "1",
+      "label": "Introduction, Eq. (1)",
+      "page": 105
+    },
+    {
+      "section": "3",
+      "label": "Theorem 3",
+      "page": 113
+    },
+    {
+      "section": "3",
+      "label": "Open Problem (\"So far only the domain [0,1]^d was studied...\")",
+      "page": 114
+    },
+    {
+      "section": "4",
+      "label": "General Domains (discussion of bounded Lipschitz domains and non-uniqueness of Sobolev definitions on more general domains)",
+      "page": "114-115"
+    },
+    {
+      "section": "6",
+      "label": "A Final Open Problem / Eq. (17)",
+      "page": 126
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "arxiv_id": "2501.14554",
+  "question_id": "q_003",
+  "original_question": "For the maximum r-independent set problem on a continuous graph Gamma, how does computational complexity depend jointly on the radius r and on the structure of the underlying graph, beyond the known cases where some small radii and sufficiently large radii are polynomial-time solvable while many other rational radii are NP-hard?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 10402.46,
+  "target_in_paper": "Section 3.1 (Maximum independent set), open problem under the heading \"Discretization and tractability\".",
+  "completeness_score": 5,
+  "correct_elements": "Your draft correctly identifies the relevant problem as the maximum r-independent set problem on a continuous graph, correctly focuses on algorithmic complexity as the radius varies, and correctly reflects the nearby paper context that contrasts easy regimes for some small radii and sufficiently large radii with hardness results for many rational radii.",
+  "missing_details": [
+    "The paper first asks whether there exists an independence-number-preserving discretization of the edge set; your draft omits this conditional first step.",
+    "The object Gamma should be defined as a continuous graph in the paper's sense: finitely many endpoints, unit-length rectifiable edges, and shortest-path metric on all points of the edges.",
+    "The optimization parameter should be named explicitly: alpha_r(Gamma), the maximum cardinality of a set S subseteq Gamma such that d(x,y) >= r for all distinct x,y in S.",
+    "The paper's question is posed for general continuous graphs, not as a joint classification by graph structure or graph classes; your phrase about dependence on the structure of the underlying graph broadens the question beyond the paper.",
+    "The paper gives a specific trivial large-radius benchmark: if n is the number of endpoints and r is larger than the diameter bound coming from n, then each connected component contributes at most one point and the problem becomes trivial; that concrete regime should be stated if you want the question to be stand-alone and paper-faithful.",
+    "The paper explains what 'discretization' means: a predetermined finite set of points of Gamma, for example all endpoints together with fixed subdivision points on edges.",
+    "The official target here is the tractability question in Section 3.1, not the neighboring open questions in the same section about certificates, relaxation gaps, or approximation."
+  ],
+  "refined_question": "Let Gamma be a continuous graph in the sense of the paper: Gamma has finitely many endpoints, every edge is a unit-length rectifiable interval, and distances are measured by shortest-path length. For r > 0, let alpha_r(Gamma) denote the maximum size of a set S subseteq Gamma such that d(x,y) >= r for every two distinct points x,y in S. Does there exist a predetermined finite discretization of the edge set of Gamma that preserves alpha_r(Gamma); and, if such a discretization exists, for which values of r is computing alpha_r(Gamma) on general continuous graphs polynomial-time solvable and for which values is it computationally intractable, beyond the trivial sufficiently-large-r regime where the diameter bound forces at most one selected point per connected component?",
+  "equivalent_formulation": null,
+  "justification": "The draft clearly targets the maximum-independent-set part of the survey, and more specifically the subsection in Section 3.1 titled \"Discretization and tractability,\" because that is where the paper asks how complexity varies with the radius r. It does not target the later open questions in the same section about certificates, relaxation gaps, or approximation. To make the question stand alone and faithful to the paper, one must import the paper's definitions of continuous graph and r-independence, and also restore the conditional wording that the paper uses: first ask for an alpha_r-preserving finite discretization, and only then ask for which radii the resulting problem is polynomial-time solvable or intractable. The phrase in your draft about dependence on graph structure is broader than the paper's actual formulation, which is asked for general continuous graphs and only mentions a structural diameter observation for very large r.",
+  "citations": [
+    {
+      "section": "2",
+      "label": "Definitions 1-4",
+      "page": "HTML lines 13-25 (page number unavailable in HTML version)"
+    },
+    {
+      "section": "3.1",
+      "label": "Definition 9",
+      "page": "HTML lines 47-49 (page number unavailable in HTML version)"
+    },
+    {
+      "section": "3.1",
+      "label": "Discretization and tractability",
+      "page": "HTML lines 65-69 (page number unavailable in HTML version)"
+    }
+  ]
+}

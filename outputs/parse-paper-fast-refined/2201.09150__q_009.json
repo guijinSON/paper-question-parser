@@ -1,0 +1,56 @@
+{
+  "arxiv_id": "2201.09150",
+  "question_id": "q_009",
+  "original_question": "Determine in what sense solutions exist for the landscape-mark memory model under zero-flux, homogeneous Neumann, or homogeneous Dirichlet boundary conditions in a bounded domain with a top-hat detection kernel.",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 7926.96,
+  "target_in_paper": "Open Problem 9 in Section 2.2.2 (Dynamic memory): the time-dependent existence problem for model (2.11), the marks-on-the-landscape model in which populations respond to foreign marks left in the environment, under zero-flux, homogeneous Neumann, or homogeneous Dirichlet boundary conditions with a top-hat detection function in a bounded domain. ([math.ualberta.ca](https://www.math.ualberta.ca/~hwang/WangSalmaniwReview.pdf))",
+  "completeness_score": 8,
+  "correct_elements": "Your draft is already very close to the paper's actual target. It correctly identifies the marks-on-the-landscape model, asks an existence question rather than a qualitative-pattern question, and matches the official boundary-condition list (zero-flux, homogeneous Neumann, homogeneous Dirichlet), the bounded-domain setting, and the top-hat detection function. Those are exactly the distinguishing features of Open Problem 9. ([math.ualberta.ca](https://www.math.ualberta.ca/~hwang/WangSalmaniwReview.pdf))",
+  "missing_details": [
+    "The official target is specifically the time-dependent problem for model (2.11), not one of the nearby steady-state questions (Open Problems 7 and 8). ([math.ualberta.ca](https://www.math.ualberta.ca/~hwang/WangSalmaniwReview.pdf))",
+    "To be stand-alone, the PDE system itself should be stated: partial_t u_i = d_i Delta u_i - gamma_i div(u_i nabla p_i^{g,R}) and partial_t p_i = sum_{j=1}^n alpha_{ij} u_j - mu p_i, for i = 1, ..., n. ([math.ualberta.ca](https://www.math.ualberta.ca/~hwang/WangSalmaniwReview.pdf))",
+    "The unknowns and their meaning should be explicit: u_i(x,t) is the density of population i, while p_i(x,t) is the density of marks foreign to population i; the paper stresses that this is a form of environmental memory, not a cognitive map stored in the animal's brain. ([math.ualberta.ca](https://www.math.ualberta.ca/~hwang/WangSalmaniwReview.pdf))",
+    "The perception operator and the top-hat kernel should be defined. The paper uses a_{g,R}(x,t) = integral over Omega of a(y,t) g(x-y) dy, and the top-hat detection function is the normalized kernel supported on the perceptual ball of radius R. ([math.ualberta.ca](https://www.math.ualberta.ca/~hwang/WangSalmaniwReview.pdf))",
+    "The parameter set and indexing are implicit in your draft and should be named: i = 1, ..., n interacting populations, d_i > 0, gamma_i in R, mu > 0, alpha_ij in R, with alpha_ij > 0 meaning attraction, alpha_ij < 0 meaning repulsion, and the cited biological model taking alpha_ii = 0. ([math.ualberta.ca](https://www.math.ualberta.ca/~hwang/WangSalmaniwReview.pdf))",
+    "The boundary conditions need their model-specific meaning. For this system, zero-flux is the specialization of the general condition d partial_n u - (partial_n a)u = 0, hence here d_i partial_n u_i - gamma_i u_i partial_n p_i^{g,R} = 0; homogeneous Neumann means partial_n u_i = 0; homogeneous Dirichlet means u_i = 0. The paper also notes that zero-flux and homogeneous Neumann are not automatically equivalent in general. ([math.ualberta.ca](https://www.math.ualberta.ca/~hwang/WangSalmaniwReview.pdf))",
+    "Because the domain is bounded and the kernel is nonlocal, the question implicitly includes how the top-hat perception operator is to be interpreted near the boundary. Section 4.1.2 identifies this as a main analytical obstacle and discusses a boundary cut-off definition in the style of (4.3). ([math.ualberta.ca](https://www.math.ualberta.ca/~hwang/WangSalmaniwReview.pdf))",
+    "Since this is a time-dependent existence problem, a fully stand-alone formulation should say that one is asking for existence for prescribed initial data u_i(.,0) and p_i(.,0). ([math.ualberta.ca](https://www.math.ualberta.ca/~hwang/WangSalmaniwReview.pdf))",
+    "The phrase 'in what sense' is intentionally open in the paper, but a stand-alone version should make clear that the issue is to determine an appropriate weak, mild, strong, or classical solution concept, and whether existence is local or global in time. ([math.ualberta.ca](https://www.math.ualberta.ca/~hwang/WangSalmaniwReview.pdf))"
+  ],
+  "refined_question": "Let Omega be a bounded domain in R^d, let i = 1, ..., n, and consider the marks-on-the-landscape system (2.11): partial_t u_i = d_i Delta u_i - gamma_i div(u_i nabla p_i^{g,R}) and partial_t p_i = sum_{j=1}^n alpha_ij u_j - mu p_i, where u_i(x,t) is the density of population i, p_i(x,t) is the density of foreign marks on the landscape, and p_i^{g,R}(x,t) = integral over Omega of p_i(y,t) g(x-y) dy with g the normalized top-hat detection function of perceptual radius R. For prescribed initial data, and with an appropriate boundary-adapted interpretation of the top-hat perception operator near partial Omega, in what sense do solutions to this time-dependent problem exist in a bounded domain when one imposes either the zero-flux condition d_i partial_n u_i - gamma_i u_i partial_n p_i^{g,R} = 0, the homogeneous Neumann condition partial_n u_i = 0, or the homogeneous Dirichlet condition u_i = 0 on partial Omega? ([math.ualberta.ca](https://www.math.ualberta.ca/~hwang/WangSalmaniwReview.pdf))",
+  "equivalent_formulation": null,
+  "justification": "The draft is targeting Open Problem 9 rather than Open Problem 20. The decisive clue is 'landscape-mark': in Section 2.2.2, model (2.11) is explicitly introduced as movement in response to marks on the landscape left by other populations, whereas the next model family replaces these environmental marks by conflict-zone memory stored within the forager's mind. The refined version therefore keeps the exact model, the time-dependent scope, and the same three non-periodic boundary-condition classes, while making explicit the PDEs, the perception operator, the role of the top-hat kernel, and the boundary-definition issue emphasized later in Section 4.1.2. The algebraic checklist items from the generic template (ring/field, degree, nilpotency, 'sufficiently large m') are not applicable here because the paper's target is a PDE existence problem, not an algebraic conjecture. ([math.ualberta.ca](https://www.math.ualberta.ca/~hwang/WangSalmaniwReview.pdf))",
+  "citations": [
+    {
+      "section": "Section 2.1 Perception",
+      "label": "Equations (2.3) and (2.5)",
+      "page": "P7-P8"
+    },
+    {
+      "section": "Section 2.2.2 Dynamic memory",
+      "label": "Equation (2.11)",
+      "page": "P13"
+    },
+    {
+      "section": "Section 2.2.2 Dynamic memory",
+      "label": "Open Problem 9",
+      "page": "P14"
+    },
+    {
+      "section": "Section 4.1.2 Boundary conditions",
+      "label": "Equation (4.1) and discussion of Neumann/Dirichlet conditions",
+      "page": "P38-P39"
+    },
+    {
+      "section": "Section 4.1.2 Boundary conditions",
+      "label": "Equation (4.3) and Open Problem 39",
+      "page": "P39-P40"
+    },
+    {
+      "section": "Section 5.1.1 Well-posedness of existing models",
+      "label": "discussion of top-hat regularity difficulty",
+      "page": "P54"
+    }
+  ]
+}

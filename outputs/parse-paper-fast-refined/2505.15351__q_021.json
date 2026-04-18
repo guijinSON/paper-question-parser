@@ -1,0 +1,52 @@
+{
+  "arxiv_id": "2505.15351",
+  "question_id": "q_021",
+  "original_question": "For Wigner distribution deconvolution with symmetric or more general windows whose ambiguity factors may vanish, what bandlimit assumptions on the unknown signal are sufficient to ensure unique recovery, and more generally what quantitative relationship links the size and location of the vanishing factors |F[w · S_xi w]_x| to the band-limitedness of the signal?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 10964.3,
+  "target_in_paper": "Section 8.1, Question 8.4: \"Which band limit has to be assumed to guarantee unique recovery for symmetric windows and, more generally, what is the quantitative relation between vanishing |F[\\overline{w} \\circ S_\\xi w]_x| and band-limited f in terms of WDD?\"",
+  "completeness_score": 8.5,
+  "correct_elements": "Your draft correctly identifies the discrete Wigner Distribution Deconvolution part of the paper, focuses on symmetric windows and more general vanishing window-side ambiguity/WDD factors, and preserves the exact two-part intent of the paper’s Question 8.4: first, determine what band limit on the unknown signal suffices for unique recovery; second, determine a quantitative relation between vanishing of the coefficients |F[\\overline{w} \\circ S_\\xi w]_x| and the band-limitedness of f.",
+  "missing_details": [
+    "The problem is posed in the discrete, finite-dimensional setting, not the continuous STFT setting: f,w ∈ C^n and x, ξ ∈ [n] = {0,1,...,n−1}.",
+    "The measurement model is the discrete WDD model I_{ξ,x} = |F[f \\circ S_x w]_ξ|^2, where F is the unitary discrete Fourier transform, S_x is the cyclic shift, and ◦ is the Hadamard product.",
+    "The question arises specifically from the discrete WDD identity (F^{-1} I F)_{ξ,x} = F[f \\circ S_ξ \\overline{f}]_x · \\overline{F[\\overline{w} \\circ S_ξ w]_x}; the relevant vanishing occurs in the window factor F[\\overline{w} \\circ S_ξ w]_x.",
+    "The nearby setup assumes full scan positions X = [n] and a localized window supp(w) = [δ] with δ < n/2; this is the paper’s intended scope for the open question.",
+    "The standard hypothesis being relaxed is the nonvanishing condition F[\\overline{w} \\circ S_ξ w]_x ≠ 0 on the WDD inversion indices; your draft does not explicitly say that the problem is about replacing this hypothesis.",
+    "The symmetric-window motivation is more specific in the paper: symmetric windows are problematic because they have at least one zero coefficient in every second diagonal family, placing them between the known 'single-zero still unique' regime and the known ambiguous regime where all zero-frequency coefficients are lost.",
+    "The bandlimitedness connection is motivated by the formula F[f \\circ S_ξ \\overline{f}]_x = (1/n)e^{-(2π i x ξ)/n} F[Ff \\circ S_{−x} \\overline{Ff}]_ξ; this is the exact nearby relation the paper uses to connect missing WDD coefficients to band limits.",
+    "The paper does not specify a formal support model or numeric threshold for 'band-limited'; a faithful rewrite should therefore ask which band limit must be assumed, rather than imposing a more specific notion of bandlimitedness not fixed by the authors.",
+    "The paper phrases the goal as 'guarantee unique recovery' in the discrete WDD setting; your draft should avoid drifting into broader continuous-STFT, arbitrary-sampling, or general ambiguity-function problems discussed elsewhere in Section 8.",
+    "There are no homogeneity, degree, nilpotency, or 'for all sufficiently large m' conditions in this problem; the hidden assumptions that matter are instead the complex-vector setting, DFT/shift notation, localized window hypothesis, and full-scan discrete WDD framework."
+  ],
+  "refined_question": "In the discrete Wigner Distribution Deconvolution setting, let n ∈ N, f,w ∈ C^n, let F be the unitary discrete Fourier transform, S_x the cyclic shift, and ◦ the Hadamard product, and suppose the phaseless measurements are I_{ξ,x} = |F[f \\circ S_x w]_ξ|^2 for all x,ξ ∈ [n], with w localized so that supp(w) = [δ] for some δ < n/2. When the usual nonvanishing condition on the window-side WDD factors F[\\overline{w} \\circ S_ξ w]_x fails, in particular for symmetric windows, what band limit on f is sufficient to guarantee unique recovery via WDD, and more generally what quantitative relation between the vanishing of |F[\\overline{w} \\circ S_ξ w]_x| and the band-limitedness of f ensures uniqueness?",
+  "equivalent_formulation": null,
+  "justification": "The draft is targeting the exact open problem stated as Question 8.4 in Section 8.1. The surrounding text first sets up the discrete WDD inversion formula and the usual nonvanishing assumption on the window factor, then explains why symmetric windows violate that assumption, why truncating small window coefficients behaves like a low-pass filter, and why bandlimitedness becomes relevant through the displayed identity relating F[f \\circ S_ξ \\overline{f}]_x to Fourier-domain diagonals of Ff. That context shows that the paper’s intent is not the broader Question 8.1 ('how many zeros are allowed?') or the algorithmic Questions 8.2–8.3 about subspace completion, but specifically the band-limit-versus-vanishing tradeoff in discrete WDD uniqueness.",
+  "citations": [
+    {
+      "section": "1.2",
+      "label": "Section 8 is introduced as the part on the mathematical foundations of Wigner Distribution Deconvolution and unique recovery criteria",
+      "page": 2
+    },
+    {
+      "section": "2.1",
+      "label": "Finite-dimensional notation: [n], f,w ∈ C^n, Hadamard product ◦, unitary DFT F, cyclic shift S_r",
+      "page": "2-3"
+    },
+    {
+      "section": "8",
+      "label": "Discrete WDD measurement model and inversion identity (26), plus the localized-window nonvanishing assumption (27)",
+      "page": 28
+    },
+    {
+      "section": "8.1",
+      "label": "Question 8.1 and the surrounding discussion of symmetric windows, truncation of small |F[\\overline{w} \\circ S_ξ w]_x|, and the displayed formula linking bandlimitedness to WDD diagonals",
+      "page": "28-29"
+    },
+    {
+      "section": "8.1",
+      "label": "Question 8.4",
+      "page": 29
+    }
+  ]
+}

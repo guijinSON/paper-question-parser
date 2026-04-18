@@ -1,0 +1,40 @@
+{
+  "arxiv_id": "2602.05394",
+  "question_id": "q_027",
+  "original_question": "Give a ``TCS-style'' analysis of MR$^3$ which proves its correctness and convergence under easily verifiable conditions on the input.",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 12497.19,
+  "target_in_paper": "Section 3.4 (\"Revisiting MR3\"), Problem 3.7: \"Give a 'TCS-style' analysis of MR3 which proves its correctness and convergence under easily verifiable conditions on the input.\"",
+  "completeness_score": 8.5,
+  "correct_elements": "Your draft is already extremely close to the paper's official formulation: it correctly targets MR3/MRRR, asks for a \"TCS-style\" analysis, and focuses on proving correctness and convergence under easily verifiable input conditions rather than drifting to a broader neighboring eigenvalue problem.",
+  "missing_details": [
+    "MR3 should be identified explicitly as the Multiple Relatively Robust Representations (MRRR) algorithm.",
+    "The input is not an arbitrary matrix: the section defines MR3 for a real symmetric tridiagonal matrix T in R^{n x n}.",
+    "The paper is asking about a floating-point implementation of MR3, not an exact-arithmetic analysis.",
+    "The sufficient hypotheses are meant to be checkable from the input itself (or at least not hidden runtime-only assumptions); this matters because the section says existing correctness proofs rely on assumptions some of which cannot be verified until the algorithm is executed.",
+    "The scope is the tridiagonal eigenproblem itself, not the preceding reduction of a general symmetric matrix A to tridiagonal form.",
+    "A stand-alone version should quantify over every symmetric tridiagonal input T satisfying the stated conditions and specify that the goal is to guarantee that MR3 terminates/converges and correctly computes the intended eigenpairs of T.",
+    "The draft leaves implicit whether the guarantee is for all eigenpairs or any requested subset; the surrounding context only says MR3 can compute k eigenpairs in O(kn), so the safest paper-faithful phrasing is to say \"the desired/requested eigenpairs.\"",
+    "To stay paper-faithful, the question should not drift into the separate bidiagonal SVD problem posed immediately afterward as Problem 3.8."
+  ],
+  "refined_question": "Give a rigorous theoretical-computer-science-style analysis of a floating-point implementation of the Multiple Relatively Robust Representations (MRRR, or MR3) algorithm for the real symmetric tridiagonal eigenproblem: namely, identify sufficient conditions on an input matrix T in R^{n x n} that are easy to verify from the input and prove that, whenever those conditions hold, MR3 converges/terminates and correctly computes the desired eigenvalues and eigenvectors of T.",
+  "equivalent_formulation": null,
+  "justification": "The draft is essentially Problem 3.7 almost word for word. Section 3.4 first sets the scope by defining MR3/MRRR as the algorithm for computing eigenvalues and eigenvectors of a symmetric tridiagonal matrix T, then explains the precise gap: there is no rigorous TCS-style proof of success for a floating-point implementation on arbitrary symmetric tridiagonal input, existing correctness work is conditional on assumptions not all verifiable in advance, and roundoff can cause failure when eigenvalues are too tightly clustered. So the only sharpening needed is to make explicit the paper's implicit scope: floating-point MR3, real symmetric tridiagonal input T, and a priori/easily checkable sufficient conditions. It should not be broadened to the dense symmetric eigenproblem or to the separate bidiagonal SVD open problem in Problem 3.8.",
+  "citations": [
+    {
+      "section": "3.4",
+      "label": "Revisiting MR3 (introductory discussion)",
+      "page": 25
+    },
+    {
+      "section": "3.4",
+      "label": "Problem 3.7",
+      "page": 25
+    },
+    {
+      "section": "3.4",
+      "label": "Problem 3.8",
+      "page": 25
+    }
+  ]
+}

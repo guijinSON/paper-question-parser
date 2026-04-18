@@ -1,0 +1,55 @@
+{
+  "arxiv_id": "1204.5247",
+  "question_id": "q_007",
+  "original_question": "A matroid can be identified with a pure simplicial complex whose restriction to any subset of the vertex set is also pure. For such matroid complexes, are the face vectors (f-vectors) always unimodal, or even log-concave? What about the corresponding h-vectors?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 2152.38,
+  "target_in_paper": "Section 5, Open Problem 7 (the paper’s restatement of Stanley’s Twenty-Fifth Problem): whether matroid f-vectors are always unimodal or log-concave, and likewise for matroid h-vectors.",
+  "completeness_score": 9,
+  "correct_elements": "Your draft correctly identifies the paper’s matroid-complex setup from Section 3 and asks essentially the same shape question posed in Section 5, Open Problem 7: whether matroid f-vectors are always unimodal, or even log-concave, and whether the same is true for matroid h-vectors.",
+  "missing_details": [
+    "The universal quantifier should be explicit: the question is about all finite matroid complexes, not a special subclass such as representable matroids.",
+    "The h-vector should be identified precisely as the h-vector of the Stanley-Reisner ring K[Δ] = K[x1,...,xr]/IΔ of the matroid complex Δ.",
+    "The ambient data for IΔ are implicit in your draft: for a simplicial complex Δ on V = {1,...,r}, one has IΔ = (xF = ∏_{i in F} xi : F not in Δ) in S = K[x1,...,xr], with K a field.",
+    "The f-vector should be understood as the face-count vector of Δ; the paper’s simplicial-complex discussion uses the rank-vector / pure-f-vector convention, which includes the empty face.",
+    "The terms unimodal and log-concave are not defined in the draft; for a sequence (ai), unimodal means weakly increasing and then weakly decreasing, and log-concave means ai^2 >= a_{i-1} a_{i+1} whenever both neighbors exist.",
+    "It helps to state that no representability, characteristic, or other extra hypothesis is part of the question.",
+    "To stay paper-faithful, it should be clear that this is not Stanley’s neighboring Conjecture 3.4 ('Any matroid h-vector is a pure O-sequence'), which is a different problem discussed in the same section.",
+    "The nearby context notes that log-concavity of matroid h-vectors would imply log-concavity of matroid f-vectors, so the h-vector question is formally the stronger one in that direction."
+  ],
+  "refined_question": "Let Δ be a finite matroid complex on V = {1, ..., r}, i.e. a pure simplicial complex such that every restriction Δ|W to a subset W ⊆ V is also pure. Let f(Δ) denote its face vector, and let h(Δ) denote the h-vector of its Stanley-Reisner ring K[Δ] = K[x1, ..., xr]/IΔ, where IΔ = (xF = ∏_{i∈F} xi : F ∉ Δ). Must f(Δ) always be unimodal, or even log-concave? Likewise, must h(Δ) always be unimodal, or even log-concave?",
+  "equivalent_formulation": null,
+  "justification": "The closest paper-faithful target is Open Problem 7 in Section 5, which asks almost verbatim whether all matroid f-vectors are unimodal or log-concave, and what happens for matroid h-vectors. Your opening sentence comes directly from the Section 3 setup defining matroid complexes, so the main refinement needed is to make the h-vector precise by naming the Stanley-Reisner ring and ideal. I did not replace your draft with Conjecture 3.4, because that nearby statement concerns pure O-sequences rather than unimodality or log-concavity. The surrounding discussion also explains that the h-vector log-concavity question is the stronger one, since it would imply the corresponding f-vector log-concavity statement.",
+  "citations": [
+    {
+      "section": "1",
+      "label": "Introduction (matroid h-vector problem as a separate theme)",
+      "page": "P1"
+    },
+    {
+      "section": "3",
+      "label": "definition of simplicial complexes and pure f-vectors",
+      "page": "P8-P9"
+    },
+    {
+      "section": "3",
+      "label": "definition of matroid complex and Stanley-Reisner ring",
+      "page": "P12"
+    },
+    {
+      "section": "3",
+      "label": "Conjecture 3.4",
+      "page": "P12"
+    },
+    {
+      "section": "5",
+      "label": "Open Problem 7",
+      "page": "P16"
+    },
+    {
+      "section": "5",
+      "label": "Open Problem 7 context: representable matroids and h-log-concavity implies f-log-concavity",
+      "page": "P16"
+    }
+  ]
+}

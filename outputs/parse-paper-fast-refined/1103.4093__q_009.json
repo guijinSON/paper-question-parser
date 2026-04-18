@@ -1,0 +1,52 @@
+{
+  "arxiv_id": "1103.4093",
+  "question_id": "q_009",
+  "original_question": "For polycyclic-group-based cryptography, which commuting subgroups should be chosen so that the described schemes remain secure?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 1555.63,
+  "target_in_paper": "Section 11, Open Problems, General item 9: \"What is the appropriate choice of commuting subgroups in polycyclic groups which makes the described schemes secure?\"",
+  "completeness_score": 8.5,
+  "correct_elements": "Your draft already captures the correct topic almost exactly: it identifies polycyclic-group-based cryptography, focuses on commuting subgroups, and asks for the subgroup choice that yields security. This is essentially a close paraphrase of the paper's explicit open problem in Section 11.",
+  "missing_details": [
+    "The ambient object is a platform group G that is polycyclic and finitely presented, not polycyclic-group cryptography in full generality.",
+    "The relevant subgroups should be specified as secret subgroups A, B <= G chosen by the two parties.",
+    "The paper's earlier protocols require A and B to commute elementwise, not merely to commute abstractly as subgroups.",
+    "The schemes in view are the previously described protocols that use commuting subgroups, especially the Ko-Lee key-exchange protocol and the Shamir three-pass/key-transport protocol, rather than every noncommutative protocol in the survey.",
+    "The hidden size condition should be stated: the subgroups are intended to be large enough to permit random private choices; in Section 5 the paper also ties 'large' to difficulty of determining whether an arbitrary element lies in A or B.",
+    "The standard platform assumptions from the earlier sections are implicit: G should have efficiently computable normal forms and hence an effectively solvable word problem.",
+    "Section 7 adds further intended platform properties that motivate the security question: exponential growth for large key space, and ideally hard conjugator/conjugacy behavior.",
+    "In the polycyclic setting, Section 8 supplies extra context: polycyclic groups admit consistent polycyclic presentations and normal forms via collection, and their search conjugacy problem is solvable but of unknown complexity, which helps explain why subgroup choice is delicate.",
+    "The paper does not impose a finite-versus-infinite restriction here; that is treated as a separate open problem, so the refined question should not add such a restriction.",
+    "There is no ambient ring, field, homogeneity condition, degree restriction, or nilpotency hypothesis in this problem; the setting is purely group-theoretic."
+  ],
+  "refined_question": "Let G be a finitely presented polycyclic group used as a platform group, with an efficiently computable normal form. For the earlier described protocols that require secret large subgroups A, B <= G that commute elementwise—specifically the Ko-Lee key-exchange protocol and the Shamir three-pass/key-transport construction—what is the appropriate choice of commuting subgroups A and B, large enough for random private selections, that makes these schemes secure?",
+  "equivalent_formulation": null,
+  "justification": "The draft points directly to the explicit open problem stated in Section 11, so the refined question stays narrowly with that formulation rather than broadening to platform-group selection in general or to the separate complexity questions that immediately follow. To make it stand alone, I added only the assumptions that the paper itself supplies earlier: the relevant protocols are the ones in Sections 4 and 5 that use secret commuting subgroups; those subgroups are intended to commute elementwise and be large enough for random choices; and the platform group assumptions come from Sections 7 and 8, where normal forms, efficient word problem, and the polycyclic setting are explained. I did not add any stronger security model or any finite/infinite restriction, because the paper does not do so here.",
+  "citations": [
+    {
+      "section": "Section 11",
+      "label": "Open Problems, General item 9",
+      "page": "N/A (HTML conversion does not display original pagination)"
+    },
+    {
+      "section": "Section 4",
+      "label": "Ko-Lee protocol description",
+      "page": "N/A (HTML conversion does not display original pagination)"
+    },
+    {
+      "section": "Section 5",
+      "label": "Shamir three-pass / key transport protocol with commuting subgroups",
+      "page": "N/A (HTML conversion does not display original pagination)"
+    },
+    {
+      "section": "Section 7",
+      "label": "General platform-group requirements, including large commuting subgroups for Ko-Lee-type protocols",
+      "page": "N/A (HTML conversion does not display original pagination)"
+    },
+    {
+      "section": "Section 8",
+      "label": "Cryptography With Polycyclic Groups",
+      "page": "N/A (HTML conversion does not display original pagination)"
+    }
+  ]
+}

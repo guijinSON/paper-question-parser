@@ -1,0 +1,46 @@
+{
+  "arxiv_id": "2006.10940",
+  "question_id": "q_003",
+  "original_question": "In stochastic realizable contextual bandits, suppose (xt, ℓt) are drawn i.i.d. from a fixed distribution D, each policy class Πm is induced by a regression class Fm ⊂ (X × A → [0, 1]) via πf(x) = argmin_a f(x, a), and there exist m⋆ and f⋆ ∈ Fm⋆ such that E[ℓ(a) | x] = f⋆(x, a) for all contexts x and actions a. Is there, for some α ∈ [1/2, 1), an algorithm whose expected regret to the optimal policy πf⋆ is O(poly(K, M, log log |F|) · T^α log^(1−α) |Fm⋆|)? Alternatively, can one prove that no algorithm can achieve this guarantee for any α ∈ [1/2, 1)?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 7013.97,
+  "target_in_paper": "Open Problem 2 in Section 2 (the \"Stochastic Setting\") of the paper: the stochastic, realizable contextual-bandit model-selection problem with target regret O(poly(K, M, log log |F|) · T^α · log^{1-α}|F_{m⋆}|) for some α in [1/2, 1), or else a lower bound ruling this out.",
+  "completeness_score": 8.5,
+  "correct_elements": "Your draft already captures the main target almost exactly: it uses the stochastic i.i.d. setting, the realizability assumption via a regression class F_{m⋆}, the induced policy map π_f(x)=argmin_a f(x,a), regret against the optimal policy π_{f⋆}, the dependence on poly(K, M, log log |F|), the exponent range α in [1/2, 1), and the paper’s explicit alternative of proving impossibility instead of designing an algorithm. It also correctly focuses on the paper’s easiest and final formulation rather than the more ambitious adversarial model-selection question.",
+  "missing_details": [
+    "The paper states the problem for a finite nested sequence of regression classes F_1 ⊂ F_2 ⊂ ⋯ ⊂ F_M = F; this nestedness and finiteness are part of the official formulation.",
+    "The ambient contextual-bandit protocol should be stated explicitly: there is a context space X, a finite action space A = {1, ..., K}, a horizon T, the learner observes x_t before acting, chooses a_t, and then observes only the bandit feedback ℓ_t(a_t).",
+    "The losses are vector-valued and bounded: each ℓ_t lies in [0,1]^A, and each regression function maps X × A to [0,1].",
+    "The official quantifier is universal: the algorithm should work for any nested sequence F_1 ⊂ ⋯ ⊂ F_M = F and whenever the data are stochastic and realizable, not merely for one fixed family once chosen.",
+    "The expectation in the regret bound is over both the learner’s internal randomness and the i.i.d. sample (x_t, ℓ_t) from D.",
+    "The paper explicitly notes that, under realizability, π_{f⋆} is the optimal unconstrained policy; this is why the regret target can be phrased either against π_{f⋆} or against the class Π_{m⋆}.",
+    "Because the bound contains log |F| and log |F_{m⋆}|, the relevant classes are implicitly finite (or at least treated via finite cardinality) in the stated problem.",
+    "The paper does not add any extra margin, dimension, or distributional assumptions beyond stochasticity and realizability in Open Problem 2; those should not be inserted into the refined question.",
+    "If one wants the statement to be fully formal, the argmin tie-breaking in π_f(x) = argmin_a f(x,a) is left implicit in the paper and would need a fixed convention."
+  ],
+  "refined_question": "Let X be a context space, A = {1, ..., K} a finite action set, and T the horizon. Consider a finite nested sequence of finite regression classes F_1 ⊂ F_2 ⊂ ⋯ ⊂ F_M = F, where each F_m is a subset of functions X × A → [0,1], and let Π_m = {π_f : f ∈ F_m} with π_f(x) := argmin_{a∈A} f(x,a). In each round t, the learner observes x_t, chooses an action a_t ∈ A, and observes only ℓ_t(a_t), where (x_t, ℓ_t) are drawn i.i.d. from a fixed distribution D on X × [0,1]^A. Assume realizability: there exist m⋆ ∈ [M] and f⋆ ∈ F_{m⋆} such that E[ℓ(a) | x] = f⋆(x,a) for all x ∈ X and a ∈ A. Does there exist, for some α ∈ [1/2, 1), a contextual-bandit algorithm such that for every such nested sequence and every stochastic realizable D, one has E[∑_{t=1}^T ℓ_t(a_t) - ∑_{t=1}^T ℓ_t(π_{f⋆}(x_t))] ≤ O(poly(K, M, log log |F|) · T^α · log^{1-α}|F_{m⋆}|)? If not, can one prove that no algorithm can achieve this guarantee for any α ∈ [1/2, 1)?",
+  "equivalent_formulation": "Equivalently, under the realizability assumption, ask for the same regret bound against the class Π_{m⋆} rather than explicitly against the single policy π_{f⋆}, since the paper states that π_{f⋆} is then the optimal unconstrained policy and hence the relevant benchmark in Π_{m⋆}.",
+  "justification": "The draft is clearly targeting Open Problem 2, not the adversarial model-selection questions in Open Problem 1a/1b. Its core assumptions and target rate match the official statement almost verbatim. The main refinements needed to make it fully paper-faithful are the finite nested sequence F_1 ⊂ ⋯ ⊂ F_M = F, the contextual-bandit interaction model and bounded-loss/action-space setup inherited from Section 2, the universal quantifier over all such sequences and stochastic realizable instances, and the paper’s explicit observation that benchmarking against π_{f⋆} is the same as benchmarking against Π_{m⋆} in this realizable setting.",
+  "citations": [
+    {
+      "section": "Section 1",
+      "label": "Introduction",
+      "page": 1
+    },
+    {
+      "section": "Section 2",
+      "label": "Problem Formulation",
+      "page": 1
+    },
+    {
+      "section": "Section 2",
+      "label": "Open Problem 1b",
+      "page": 2
+    },
+    {
+      "section": "Section 2",
+      "label": "Open Problem 2 (Eq. (3))",
+      "page": 3
+    }
+  ]
+}

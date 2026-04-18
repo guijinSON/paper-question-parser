@@ -1,0 +1,44 @@
+{
+  "arxiv_id": "1703.04931",
+  "question_id": "q_023",
+  "original_question": "For the semiclassical focusing nonlinear Schrodinger equation, can one solve the forward scattering problem for general smooth initial data and then implement the associated Riemann-Hilbert numerical methodology to compute the Cauchy problem in the small-dispersion limit epsilon = hbar down to 0?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 5350.92,
+  "target_in_paper": "Problem 6 (numerical solution of integrable systems), specifically the focusing NLS semiclassical subproblem: solve the forward problem for general smooth initial data and then use numerical Riemann-Hilbert methods to compute the Cauchy problem as ε = ħ -> 0.",
+  "completeness_score": 8.5,
+  "correct_elements": "Your draft is already very close to the paper's actual target. It identifies the correct equation class (focusing NLS in the semiclassical/small-dispersion regime), the correct two-step structure (forward scattering followed by inverse Riemann-Hilbert computation), the correct data class at the paper's level of specificity ('general smooth initial data'), and the correct asymptotic objective (compute the Cauchy problem as ε = ħ tends to 0).",
+  "missing_details": [
+    "The paper frames this inside Problem 6's forward/inverse decomposition for integrable systems: the forward step is the scattering map from initial data to scattering data, and the inverse step is the numerical solution of the associated Riemann-Hilbert problem.",
+    "The nearby context says that, in general, one must use the extended scattering data, not only the reflection coefficient: u0 -> (r(z), {λ_j}, {c_j}).",
+    "The paper places the problem on the line, with initial data u0(x) = u(x,0), and the inverse Riemann-Hilbert data have the oscillatory form r(z)e^{iθ_{x,t}(z)}.",
+    "The numerical inverse method is not described generically; the paper specifically points to the Olver / Deconinck-Olver-Trogdon numerical Riemann-Hilbert methodology.",
+    "The paper emphasizes that the hard part is the non-self-adjoint nature of the focusing NLS forward problem in the semiclassical limit, which your draft leaves implicit.",
+    "The technical obstruction is described explicitly: the relevant spectral information is 'beyond all orders'; every λ in the numerical range of the scattering operator T(ħ) is an eigenvalue of T(ħ) to all orders, in the sense that ||(T(ħ) - λ)u|| = O(|ħ|^k) for every k >= 1 for some unit vector u = u(k).",
+    "The paper presents this as one of the most challenging subproblems in an ongoing 'open program,' not merely as a routine implementation task once a standard forward solver is available."
+  ],
+  "refined_question": "For the focusing nonlinear Schrödinger equation on the line in the semiclassical/small-dispersion regime ε = ħ -> 0, with general smooth initial data u0(x) = u(x,0), can one solve the non-self-adjoint forward scattering problem by determining the full extended scattering data u0 -> (r(z), {λ_j}, {c_j}) for the relevant scattering operator T(ħ), and then apply the Olver/Deconinck-Olver-Trogdon numerical Riemann-Hilbert methodology to compute the corresponding solution u(x,t) of the Cauchy problem in this limit?",
+  "equivalent_formulation": null,
+  "justification": "The draft clearly targets the focusing NLS part of Problem 6 rather than any earlier random-matrix statement. The nearest official formulation is the sentence in Problem 6 that says it remains open to solve the forward problem for focusing NLS with general smooth initial data and then implement the RHP methodology to obtain the Cauchy problem in the small-dispersion limit ε = ħ -> 0. I sharpened the draft only by importing the immediate context that defines what 'forward problem' and 'RHP methodology' mean here: the forward problem is the scattering map from u0 to scattering data, in general the extended map u0 -> (r(z), {λ_j}, {c_j}), and the inverse problem is the numerical solution of the associated oscillatory RHP using the Olver/Deconinck-Olver-Trogdon framework. I also made explicit the paper's stated obstruction, namely that the forward problem is non-self-adjoint and 'beyond all orders.' I did not broaden the question to general non-self-adjoint operators or to other integrable systems, because the paper singles out focusing NLS as the specific hard case in this passage.",
+  "citations": [
+    {
+      "section": "Problem 6",
+      "label": "forward/inverse decomposition; forward problem as the reflection map u0(x) -> r(z)",
+      "page": "15"
+    },
+    {
+      "section": "Problem 6",
+      "label": "footnote 2: in general one must use the extended scattering map u0 -> (r(z), {λ_j}, {c_j})",
+      "page": "15"
+    },
+    {
+      "section": "Problem 6",
+      "label": "open problem: solve the forward problem for focusing NLS with general smooth initial data and implement the RHP methodology for ε = ħ -> 0",
+      "page": "16"
+    },
+    {
+      "section": "Problem 6",
+      "label": "technical difficulty: 'beyond all orders' behavior and the scattering operator T(ħ)",
+      "page": "16"
+    }
+  ]
+}

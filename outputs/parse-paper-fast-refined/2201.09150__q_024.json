@@ -1,0 +1,58 @@
+{
+  "arxiv_id": "2201.09150",
+  "question_id": "q_024",
+  "original_question": "Determine how adding top-hat-kernel nonlocal perception to the scalar discrete-delay movement model changes the analysis and dynamical outcomes, especially in a one-dimensional periodic domain where no kernel truncation at the boundary is needed.",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 7967.51,
+  "target_in_paper": "Section 2.3.1, Open Problem 24: the paper asks how adding nonlocal perception to the scalar discrete-delay model of Shi et al. (2019), specifically by pairing a single discrete time delay with a top-hat detection function, changes the analysis and the resulting dynamical outcomes, with a bounded one-dimensional periodic domain suggested as the cleanest setting.",
+  "completeness_score": 8.0,
+  "correct_elements": "Your draft correctly identifies the exact open problem's main ingredients: it starts from the scalar discrete-delay movement model in Section 2.3.1, adds top-hat-kernel nonlocal perception, asks how the previous analysis changes, asks about dynamical consequences, and singles out the bounded one-dimensional periodic setting for the same reason given in the paper, namely that no boundary modification of the detection kernel is then required.",
+  "missing_details": [
+    "The draft does not name the baseline equation explicitly: model (2.20), u_t = d_1 Delta u - gamma div(u nabla u_tau) + f(u), with u_tau(x,t)=u(x,t-tau).",
+    "It omits the parameter and hypothesis data attached to (2.20): d_1 > 0, gamma in R, tau > 0, and f in C^1(R_+) of roughly logistic type with f(0)=f(1)=0 and f(u)<0 for u>1.",
+    "It does not specify that the paper is asking how the analysis in Shi et al. (2019) changes, not a broader or unrelated nonlocal-delay comparison.",
+    "It does not define the nonlocal perception operator or the top-hat detection kernel. Nearby notation from Sections 2.1 and 2.2 uses a_g,R(x,t)=integral_Omega a(y,t) g(x-y) dy, with top-hat kernel g_R(z)=(2R)^(-1) on |z|<=R and 0 otherwise, where R is the perceptual radius.",
+    "It does not state that the paper is concerned with a single discrete delay paired with the top-hat kernel, rather than distributed delay or a different detection function.",
+    "It does not make the periodic geometry fully stand-alone: a bounded one-dimensional domain such as Omega=(0,L) with periodic boundary conditions is the intended setting.",
+    "It does not explicitly say that the periodic case is preferred because it avoids modifying or truncating the kernel near the boundary, unlike nonperiodic bounded-domain constructions such as (4.3).",
+    "It leaves the word analysis too implicit. In the nearby context, the paper points especially to stability and bifurcation analysis, spontaneous pattern formation, and qualitative properties of nonconstant steady states or spatiotemporal states.",
+    "It does not record the comparison baseline supplied later in the paper: for the local delay model (2.20), the stability of the constant steady state depends on the diffusion/advection ratio and is reported to be independent of the discrete delay tau.",
+    "If the question is to be fully self-contained as an initial-value PDE problem, the delayed history data on t in [-tau,0] and periodicity/nonnegativity assumptions would also need to be stated, even though the open problem itself leaves them implicit.",
+    "There are no ambient ring/field, homogeneity, degree, or nilpotency conditions in this PDE problem; the hidden assumptions here are analytic ones about the equation, kernel, domain, boundary condition, delay, and reaction term."
+  ],
+  "refined_question": "Consider the scalar delayed diffusion-advection model from equation (2.20), u_t = d_1 u_xx - gamma d/dx(u d/dx u_tau) + f(u), where u_tau(x,t)=u(x,t-tau), d_1>0, gamma in R, tau>0, and f in C^1(R_+) is of logistic type with f(0)=f(1)=0 and f(u)<0 for u>1. On a bounded one-dimensional periodic domain Omega=(0,L), replace the local delayed cue u_tau by its top-hat perceptual average u_tau^{g,R}(x,t)=integral_Omega g_R(x-y)u(y,t-tau)dy, with g_R(z)=(2R)^(-1) for |z|<=R and 0 otherwise, interpreted periodically. How does this single-discrete-delay plus top-hat-nonlocal-perception modification change the Shi et al. (2019) stability/bifurcation analysis and the resulting dynamical outcomes, especially the stability of the spatially constant state and the onset and qualitative type of nonconstant spatiotemporal patterns, in the periodic setting where no boundary truncation of the kernel is required?",
+  "equivalent_formulation": null,
+  "justification": "This is Open Problem 24, not the neighboring Open Problem 23. Open Problem 23 asks only how the analysis of the local delayed model changes under different boundary data, whereas your draft is specifically about adding top-hat nonlocal perception to the scalar discrete-delay model. The wording about a one-dimensional periodic domain with no need to modify the kernel near the boundary matches the paper's own motivation for the preferred setting. The baseline scalar delay model is defined immediately before Open Problem 24 in equation (2.20), the top-hat kernel and perception notation come from Section 2.1 together with the nonlocal perception notation used earlier in Section 2.2, the periodic-boundary rationale is explained in Section 4.1.2, and the local-model dynamical baseline to be compared against is summarized in Section 5.2.2.",
+  "citations": [
+    {
+      "section": "2.3.1 Discrete time delays",
+      "label": "Equation (2.20)",
+      "page": "P20"
+    },
+    {
+      "section": "2.3.1 Discrete time delays",
+      "label": "Open Problem 24",
+      "page": "P20-P21"
+    },
+    {
+      "section": "2.1 Perception",
+      "label": "Equations (2.3) and (2.5)",
+      "page": "P7-P9"
+    },
+    {
+      "section": "4.1.2 Boundary conditions",
+      "label": "Periodic boundary discussion and Equation (4.3)",
+      "page": "P39-P40"
+    },
+    {
+      "section": "5.2.2 Explicit memory models",
+      "label": "Summary of model (2.20) dynamics",
+      "page": "P57-P58"
+    },
+    {
+      "section": "5.3 Unification and equivalence of existing models",
+      "label": "Equations (5.1)-(5.2) and Table 1",
+      "page": "P58-P60"
+    }
+  ]
+}

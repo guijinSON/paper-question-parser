@@ -1,0 +1,44 @@
+{
+  "arxiv_id": "1407.2380",
+  "question_id": "q_014",
+  "original_question": "If (x_n)_{n>=0} is the van der Corput sequence in base 2, can one show that for almost all real alpha there exists C(alpha) > 0 such that the discrepancy of ((x_n, {n alpha}))_{n>=0} satisfies D_N >= C(alpha) (log N)^2 / N for infinitely many N?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 4190.11,
+  "target_in_paper": "Section 3, Open Problem 11: the metrical lower-bound problem for the discrepancy of the two-dimensional Halton-Kronecker sequence ((x_n, {n alpha}))_{n>=0}, where (x_n) is the van der Corput sequence in base 2.",
+  "completeness_score": 8.7,
+  "correct_elements": "Your draft already captures the right open problem very closely. It has the correct sequence type (a 2-dimensional Halton-Kronecker sequence formed from the base-2 van der Corput sequence and the Kronecker sequence {n alpha}), the correct quantifier ('for almost all' alpha), the correct lower-bound scale ((log N)^2/N), the correct dependence of the constant on alpha alone, and the correct 'infinitely many N' conclusion. This matches Open Problem 11 rather than a broader neighboring problem.",
+  "missing_details": [
+    "The paper uses D_N for the ordinary discrepancy of the first N points of a sequence in [0,1)^d, not the star discrepancy; this should be stated explicitly.",
+    "The underlying 2-dimensional sequence should be written as z_n = (x_n, {n alpha}) in [0,1)^2, with D_N understood as the discrepancy of z_0, ..., z_{N-1}.",
+    "The first component x_n should be explicitly identified as the one-dimensional Halton sequence in base 2, i.e. the van der Corput sequence in base 2; for stand-alone clarity one may write x_n = phi_2(n), where phi_2 is the base-2 radical-inverse function.",
+    "The phrase 'almost all real alpha' should be interpreted metrically, i.e. with respect to Lebesgue measure.",
+    "The fractional-part notation {n alpha} should be declared.",
+    "It should be explicit that the constant C(alpha) is positive and independent of N.",
+    "It helps to state that N ranges over positive integers and that the bound is required for infinitely many such N."
+  ],
+  "refined_question": "Let phi_2(n) denote the base-2 van der Corput sequence, and for alpha in R define z_n = (phi_2(n), {n alpha}) in [0,1)^2 for n >= 0. If D_N(z_n) denotes the ordinary discrepancy of the first N points z_0, ..., z_{N-1}, show that for Lebesgue-almost every alpha there exists a constant C(alpha) > 0 such that D_N(z_n) >= C(alpha) (log N)^2 / N for infinitely many positive integers N.",
+  "equivalent_formulation": null,
+  "justification": "The draft is targeting Open Problem 11 in Section 3. The paper first recalls a metrical upper-bound theorem for Halton-Kronecker sequences (Theorem 3.1), then emphasizes that no concrete low-discrepancy Halton-Kronecker example is known and singles out the base-2 van der Corput/Kronecker hybrid as the basic concrete case (Open Problem 7). It then isolates the specific metrical lower-bound question for almost all alpha as Open Problem 11. Section 1 provides the paper's notation for discrepancy, so a faithful stand-alone rewrite must specify that D_N is the ordinary discrepancy of the first N points of the sequence in [0,1)^2.",
+  "citations": [
+    {
+      "section": "1",
+      "label": "definition of discrepancy D_N (and distinction from star discrepancy)",
+      "page": "171"
+    },
+    {
+      "section": "3",
+      "label": "Theorem 3.1",
+      "page": "181"
+    },
+    {
+      "section": "3",
+      "label": "Open Problem 7",
+      "page": "181-182"
+    },
+    {
+      "section": "3",
+      "label": "Open Problem 11",
+      "page": "183"
+    }
+  ]
+}

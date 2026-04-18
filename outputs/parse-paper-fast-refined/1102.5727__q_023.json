@@ -1,0 +1,49 @@
+{
+  "arxiv_id": "1102.5727",
+  "question_id": "q_023",
+  "original_question": "Let C(m,n,N) denote the number of m x n Golomb rectangles containing N dots, where a Golomb rectangle is a rectangular dot pattern whose autocorrelation takes exactly the three values {N, 1, 0}. Determine C(m,n,N). In particular, for fixed m and n find the largest N with C(m,n,N) > 0, and for fixed N find the smallest m and n with C(m,n,N) > 0.",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 1270.41,
+  "target_in_paper": "Section 8.1, Problem 23 (Golomb rectangles), together with Definition 12 and the immediately preceding contextual paragraph.",
+  "completeness_score": 9.0,
+  "correct_elements": "The draft already captures Problem 23 almost verbatim: it introduces the same counting function C(m,n,N), asks for its determination, and includes both extremal existence questions (maximal N for fixed m,n, and minimal dimensions for fixed N). It also uses the paper's defining autocorrelation condition {N,1,0} for Golomb rectangles.",
+  "missing_details": [
+    "Definition 12 includes the standing condition N > 2; the draft omits this.",
+    "A Golomb rectangle is a rectangular binary array of dots and blanks; to be fully stand-alone, the question should specify that one is counting m x n 0-1 arrays (or subsets of [m] x [n]) with exactly N dots.",
+    "The autocorrelation is taken over ordinary integer translations, not modular shifts; this convention is inherited from the cross-correlation/autocorrelation setup in Section 3.1.",
+    "To make the statement self-contained, the autocorrelation should be defined explicitly, e.g. as Psi_A(u,v) = |(A + (u,v)) intersect A| for all (u,v) in Z^2.",
+    "The nearby context in Section 8.1 makes clear that, unlike Costas arrays or RADAR/SONAR arrays, no extra one-dot-per-row or one-dot-per-column restriction is imposed; the draft leaves that implicit.",
+    "If one wants a completely formal optimization problem, the phrase 'smallest m and n' needs an interpretation for minimization over pairs (m,n); the paper states this informally and leaves the ordering implicit.",
+    "The paper defines C(m,n,N) as the number of Golomb rectangles, with no quotient by symmetry indicated; the draft does not say whether arrays are counted up to symmetry or as distinct placements."
+  ],
+  "refined_question": "Fix positive integers m, n, and N > 2. Let [m] = {1, ..., m} and [n] = {1, ..., n}. For a set A subset of [m] x [n] with |A| = N, define its autocorrelation by Psi_A(u,v) = |(A + (u,v)) intersect A| for (u,v) in Z^2, where A + (u,v) = {(i + u, j + v) : (i,j) in A} and shifts are taken in ordinary integer arithmetic (no modular wraparound). Call A a Golomb rectangle if the range of Psi_A is exactly {N, 1, 0}. Let C(m,n,N) denote the number of m x n Golomb rectangles containing N dots. Determine C(m,n,N). In particular, for fixed m and n determine the maximal N for which C(m,n,N) > 0; conversely, for fixed N determine the smallest values of m and n for which C(m,n,N) > 0.",
+  "equivalent_formulation": null,
+  "justification": "The draft is clearly targeting the Golomb-rectangle problem in Section 8.1 rather than any earlier construction-theoretic problem: the notation C(m,n,N), the exact counting task, and the two extremal subquestions are precisely those of Problem 23. The relevant nearby context is the paragraph introducing Golomb rectangles as the next relaxation beyond RADAR/SONAR arrays, followed by Definition 12, which gives the official definition in terms of autocorrelation range, and then Problem 23 itself. The refinement therefore stays narrow and faithful to the paper, adding only the implicit conventions needed to make the question self-contained: N > 2, the binary-array/set-of-dots model, and autocorrelation under ordinary Z^2 shifts.",
+  "citations": [
+    {
+      "section": "§3.1",
+      "label": "Definition 2",
+      "page": 2
+    },
+    {
+      "section": "§3.1",
+      "label": "Definition 1 and the equivalent autocorrelation characterization immediately following it",
+      "page": "2-3"
+    },
+    {
+      "section": "§8.1",
+      "label": "Introductory paragraph before Definition 12",
+      "page": 16
+    },
+    {
+      "section": "§8.1",
+      "label": "Definition 12",
+      "page": 16
+    },
+    {
+      "section": "§8.1",
+      "label": "Problem 23",
+      "page": 16
+    }
+  ]
+}

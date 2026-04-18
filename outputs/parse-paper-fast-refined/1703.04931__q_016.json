@@ -1,0 +1,48 @@
+{
+  "arxiv_id": "1703.04931",
+  "question_id": "q_016",
+  "original_question": "Can one rigorously prove universality for one of the other numerical algorithms with random data discussed in the paper, especially the conjugate-gradient algorithm for solving a random linear system A x = b with both A and b random?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 5409.98,
+  "target_in_paper": "Problem 4 (numerical computation with random data), specifically the concluding open-problem statement: it is an open problem to prove universality rigorously for any of the other numerical algorithms discussed in [40], with the conjugate-gradient algorithm for random Ax = b singled out as a case that seems within reach. ([www2.math.ethz.ch](https://www2.math.ethz.ch/EMIS/journals/SIGMA/2017/016/sigma17-016.pdf))",
+  "completeness_score": 8.0,
+  "correct_elements": "Your draft correctly identifies that the paper is asking for a rigorous universality result beyond the Toda algorithm, that the target should be one of the other random-data algorithms discussed in Problem 4, and that the conjugate-gradient method for a random linear system is the paper's specially highlighted candidate. ([www2.math.ethz.ch](https://www2.math.ethz.ch/EMIS/journals/SIGMA/2017/016/sigma17-016.pdf))",
+  "missing_details": [
+    "The draft does not state what “universality” means in this paper: two-component universality for the halting-time fluctuations τ_{ε,n,A,E}, obtained by centering the halting time by its sample average and normalizing by its sample standard deviation over the ensemble. ([www2.math.ethz.ch](https://www2.math.ethz.ch/EMIS/journals/SIGMA/2017/016/sigma17-016.pdf))",
+    "It does not make explicit that the universal law is supposed to be independent of the input ensemble E, while still depending on the algorithm A. ([www2.math.ethz.ch](https://www2.math.ethz.ch/EMIS/journals/SIGMA/2017/016/sigma17-016.pdf))",
+    "It does not register that the open problem is specifically about the other algorithms discussed in [40], i.e. algorithms beyond the rigorously analyzed Toda case treated in Theorem 1. ([www2.math.ethz.ch](https://www2.math.ethz.ch/EMIS/journals/SIGMA/2017/016/sigma17-016.pdf))",
+    "For a stand-alone CG formulation, one should define the CG halting time as the first iteration k for which the residual satisfies ||Hx_k - b||_2 < ε. That residual-based stopping rule is the one used in the empirical CG study cross-referenced by the paper. ([pmc.ncbi.nlm.nih.gov](https://pmc.ncbi.nlm.nih.gov/articles/PMC4210305/))",
+    "Because the target algorithm is conjugate gradient, the matrix in the linear system cannot be an arbitrary random matrix; it must be in the positive-definite setting used in the cited CG experiments. The 2017 paper leaves this implicit through its reference to [40]. ([pmc.ncbi.nlm.nih.gov](https://pmc.ncbi.nlm.nih.gov/articles/PMC4210305/))",
+    "If one wants the question to be fully stand-alone rather than cross-referenced, one should also specify the asymptotic regime in which universality is sought: n large, ε small, and the relevant scaling regime in which the empirical universality was observed. ([www2.math.ethz.ch](https://www2.math.ethz.ch/EMIS/journals/SIGMA/2017/016/sigma17-016.pdf))"
+  ],
+  "refined_question": "Can one rigorously establish, for the conjugate-gradient algorithm among the “other numerical algorithms” treated empirically in [40], the same two-component universality for halting-time fluctuations that Problem 4 defines for numerical computation with random data—namely: for random positive-definite n × n linear systems Hx = b with H and b random, if k_ε(H,b) is the first CG iteration for which ||Hx_k - b||_2 < ε and τ_{ε,n,CG,E} := (k_ε(H,b) - ⟨k_ε⟩)/σ_{ε,n,CG,E}, does τ_{ε,n,CG,E} converge, for ε small and n large in the relevant scaling regime, to a limiting law that is independent of the underlying input ensemble E? ([www2.math.ethz.ch](https://www2.math.ethz.ch/EMIS/journals/SIGMA/2017/016/sigma17-016.pdf))",
+  "equivalent_formulation": null,
+  "justification": "The draft is targeting the end of Problem 4. That section first defines the paper’s notion of universality through the halting-time variable T_{ε,n,A,E} and its centered/scaled fluctuation τ_{ε,n,A,E}, and explains that the universal law is ensemble-independent but algorithm-dependent. It then lists CG and GMRES among the empirically studied non-eigenvalue algorithms in [40]. After presenting Theorem 1 as the section’s rigorous universality result for the Toda algorithm, the paper explicitly states the open problem of proving universality rigorously for the other algorithms and says that CG for random Ax = b seems within reach. So your draft is already close to the official target; the main repair is to make the paper’s specific notion of universality and halting time explicit, while keeping the scope on CG rather than broadening to unrelated algorithms. ([www2.math.ethz.ch](https://www2.math.ethz.ch/EMIS/journals/SIGMA/2017/016/sigma17-016.pdf))",
+  "citations": [
+    {
+      "section": "Problem 4 (numerical computation with random data)",
+      "label": "definition of T_{ε,n,A,E} and τ_{ε,n,A,E}",
+      "page": "8-9"
+    },
+    {
+      "section": "Problem 4 (numerical computation with random data)",
+      "label": "list of algorithms discussed in [40], including conjugate gradient and GMRES for random Hx = b",
+      "page": 9
+    },
+    {
+      "section": "Problem 4 (numerical computation with random data)",
+      "label": "Theorem 1 (universality for the Toda algorithm)",
+      "page": 10
+    },
+    {
+      "section": "Problem 4 (numerical computation with random data)",
+      "label": "open problems following Theorem 1",
+      "page": "11-12"
+    },
+    {
+      "section": "Problem 4 (numerical computation with random data)",
+      "label": "sentence singling out the conjugate-gradient algorithm for random Ax = b as within reach",
+      "page": 12
+    }
+  ]
+}

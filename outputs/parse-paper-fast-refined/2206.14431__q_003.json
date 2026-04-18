@@ -1,0 +1,45 @@
+{
+  "arxiv_id": "2206.14431",
+  "question_id": "q_003",
+  "original_question": "Is there a way to choose the first ell levels of the learned decision tree all at once, for ell on the order of log log s, while examining only polylog(s) candidate choices at each step, so that the resulting proper learning algorithm for size-s decision trees runs in polynomial time? Equivalently, can the structural search space for these multi-level splits be reduced enough that the total number of subproblems stays polynomial in s?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 8396.31,
+  "target_in_paper": "Section 3 (\"Possible approaches\"), in the \"New splitting criteria\" paragraph, which asks whether one can determine ℓ = Θ(log log s) top levels at once while considering only polylog(s) candidate choices per stage, as a route toward Open Problem 1. ([proceedings.mlr.press](https://proceedings.mlr.press/v178/open-problem-blanc22a/open-problem-blanc22a.pdf))",
+  "completeness_score": 8.3,
+  "correct_elements": "Your draft correctly captures the paper’s multi-level-splitting route to polynomial-time proper learning: batching the top ℓ levels instead of only the root, taking ℓ on the order of log log s, restricting attention to only polylog(s)-many candidates at each recursive stage, and aiming to keep the number of subproblems polynomial in s. This aligns with the \"New splitting criteria\" paragraph rather than the neighboring \"Adaptive greediness\" discussion. ([proceedings.mlr.press](https://proceedings.mlr.press/v178/open-problem-blanc22a/open-problem-blanc22a.pdf))",
+  "missing_details": [
+    "The learning model is PAC learning under the uniform distribution with membership queries, not an unrestricted algorithm-design problem. ([proceedings.mlr.press](https://proceedings.mlr.press/v178/open-problem-blanc22a/open-problem-blanc22a.pdf))",
+    "The target is an unknown Boolean function f:{0,1}^n→{0,1} representable by a size-s decision tree over n variables, and the goal is to output a proper decision tree hypothesis h with uniform-distribution error at most ε. ([proceedings.mlr.press](https://proceedings.mlr.press/v178/open-problem-blanc22a/open-problem-blanc22a.pdf))",
+    "The question is posed as a possible route to Open Problem 1—obtaining a poly(n,s,1/ε)-time proper learner—not as a numbered conjecture or theorem. ([proceedings.mlr.press](https://proceedings.mlr.press/v178/open-problem-blanc22a/open-problem-blanc22a.pdf))",
+    "The relevant recursive objects are restricted functions f_π in the Mehta–Raghavan dynamic-programming viewpoint; the paper is asking about choosing the variables queried on the first ℓ levels for each such restricted subproblem. ([proceedings.mlr.press](https://proceedings.mlr.press/v178/open-problem-blanc22a/open-problem-blanc22a.pdf))",
+    "The immediate context is that Blanc et al. (2021) already identify a polylog(s)-size candidate set for the root variable of each restricted function using influence, yielding s^{O(log log s)} runtime; the open question asks whether a stronger multi-level structural restriction is possible. ([proceedings.mlr.press](https://proceedings.mlr.press/v178/open-problem-blanc22a/open-problem-blanc22a.pdf))",
+    "The paper also records the quantitative motivation: if the number of admissible depth-ℓ choices is at most N^ℓ, then the number of subproblems is at most (N^ℓ·2^ℓ)^{O(log s)/ℓ}, which would be polynomial in s if N^ℓ = 2^{O(ℓ)}. ([proceedings.mlr.press](https://proceedings.mlr.press/v178/open-problem-blanc22a/open-problem-blanc22a.pdf))",
+    "The paper leaves open whether ordinary influence suffices to identify such candidates, or whether one needs a slightly higher-order splitting criterion; a faithful stand-alone version should preserve that possibility. ([proceedings.mlr.press](https://proceedings.mlr.press/v178/open-problem-blanc22a/open-problem-blanc22a.pdf))",
+    "There are no ambient ring/field, homogeneity, degree, or nilpotency assumptions here; this is a Boolean decision-tree learning problem. ([proceedings.mlr.press](https://proceedings.mlr.press/v178/open-problem-blanc22a/open-problem-blanc22a.pdf))"
+  ],
+  "refined_question": "In the PAC model under the uniform distribution with membership queries, let f:{0,1}^n→{0,1} be an unknown size-s decision tree target, and seek a proper decision tree hypothesis h satisfying Pr_{x∼{0,1}^n}[h(x)≠f(x)]≤ε. Can one strengthen the structural step behind Blanc et al. (2021) so that, for each restricted subproblem f_π arising in the recursive/dynamic-programming view, one can determine the variables queried on the first ℓ = Θ(log log s) levels by examining only polylog(s) candidate multi-level split choices at that stage—possibly via a splitting criterion slightly higher-order than influence—thereby yielding a poly(n,s,1/ε)-time proper learning algorithm for size-s decision trees? ([proceedings.mlr.press](https://proceedings.mlr.press/v178/open-problem-blanc22a/open-problem-blanc22a.pdf))",
+  "equivalent_formulation": null,
+  "justification": "This 5-page note does not contain a Conjecture 1.1 / Proposition 1.2 / Theorem 1.3 sequence, so the nearest official target is the Section 3 question under \"New splitting criteria.\" Your draft is clearly aiming at that paragraph, because it focuses on choosing the top ℓ levels in one batch, with ℓ around log log s, in order to shrink the search space enough for polynomial-time proper learning. To make the question fully stand-alone and paper-faithful, one must add the uniform-distribution membership-query model, the target/hypothesis/error specification, and the restricted-function viewpoint from the dynamic-programming discussion. The subproblem-count bound is part of the paragraph’s motivation, but the paper does not label it as a formal equivalence theorem, so I have left the alternate-formulation field null rather than overstating the claim. ([proceedings.mlr.press](https://proceedings.mlr.press/v178/open-problem-blanc22a/open-problem-blanc22a.pdf))",
+  "citations": [
+    {
+      "section": "1",
+      "label": "Open Problem 1",
+      "page": 1
+    },
+    {
+      "section": "2",
+      "label": "Theorem 2",
+      "page": 2
+    },
+    {
+      "section": "3",
+      "label": "Adaptive greediness",
+      "page": 3
+    },
+    {
+      "section": "3",
+      "label": "New splitting criteria",
+      "page": 3
+    }
+  ]
+}

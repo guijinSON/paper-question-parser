@@ -1,0 +1,44 @@
+{
+  "arxiv_id": "2507.14986",
+  "question_id": "q_002",
+  "original_question": "Let X_1 follow a Laplace distribution with mean 0 and scale 1/sqrt(2), let X_2 follow a t distribution with 5 degrees of freedom, location 0, and scale sqrt(3/5), and let X_1 and X_2 be independent. For every coefficient pair (alpha, beta) with alpha^2 + beta^2 = 1 and |alpha| >= 0.1835, does unlinked linear regression remain identifiable up to changing the signs of alpha and beta, even though the fourth-moment criterion in Theorem 6 does not generally certify that conclusion for this example?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 11278.42,
+  "target_in_paper": "Section 4.5, Example 3 immediately following Theorem 6: for X1 ~ Laplace(0, 1/√2) and X2 ~ t5(0, √(3/5)), the authors state that Theorem 6 does not generally guarantee identifiability up to signs when |α| ≥ 0.1835, and then conjecture that identifiability up to signs nevertheless holds in this third example. Section 5 restates the same idea in broader informal form, but Example 3 is the narrowest paper-faithful target.",
+  "completeness_score": 8,
+  "correct_elements": "Your draft correctly identifies the exact distributions used in Example 3, the normalization α^2 + β^2 = 1, the independence of X1 and X2, the intended conclusion 'identifiable up to signs', and the key obstruction that the fourth-moment criterion from Theorem 6 does not certify that conclusion in the numerically problematic regime |α| ≥ 0.1835. Those details match the paper very closely.",
+  "missing_details": [
+    "The paper formulates the question through the solution set B0 = {(a,b) in R^2 : aX1 + bX2 =d αX1 + βX2}; this set should be defined explicitly.",
+    "The phrase 'identifiable up to changing the signs of alpha and beta' should be made precise as B0 ⊆ {(σα, τβ) : σ, τ in {-1,1}}, i.e. coordinatewise sign flips, not merely a simultaneous global sign change.",
+    "To connect the distributional question to the actual ULR model with additive noise, the mild Lemma 1 assumption should be stated: ε is independent of X and the zero set of its characteristic function contains no nonempty open interval.",
+    "The theorem-based obstruction should be stated precisely: with m_i = E[X_i^4], c = E[(αX1 + βX2)^4] (since α^2 + β^2 = 1), and w_i = (m_i - 3)/(c - 3), Theorem 6 certifies sign-identifiability only when min{w1, w2} < 1.",
+    "The draft is slightly narrower than the paper's conjectural statement: the paper conjectures sign-identifiability for the entire third example, not only for the subregime |α| ≥ 0.1835; that threshold is introduced only to mark where the Theorem 6 criterion numerically fails.",
+    "The ambient parameter space R^2 and the normalization role of α^2 + β^2 = 1 (so the rescaled variable Yu in Theorem 6 equals αX1 + βX2 here) should be stated explicitly.",
+    "The chosen scales 1/√2 and √(3/5) are not arbitrary; they make X1 and X2 centered with unit variance, matching the standing assumptions of Theorem 6."
+  ],
+  "refined_question": "Let X = (X1, X2) with independent components X1 ~ Laplace(0, 1/√2) and X2 ~ t5(0, √(3/5)), so that E[X1] = E[X2] = 0 and Var(X1) = Var(X2) = 1. For a fixed coefficient pair (α, β) in R^2 with α^2 + β^2 = 1, define B_{α,β} := {(a,b) in R^2 : aX1 + bX2 =d αX1 + βX2}. Is it true that for every such (α,β), one has B_{α,β} ⊆ {(σα, τβ) : σ,τ in {-1,1}}? Equivalently, does Example 3 after Theorem 6 hold conjecturally in full, namely that this Laplace/t5 design is identifiable up to coordinatewise sign flips, even though the fourth-moment sufficient condition from Theorem 6—namely min{w1,w2} < 1 with m_i = E[X_i^4], c = E[(αX1 + βX2)^4], and w_i = (m_i - 3)/(c - 3)—fails numerically at least on the region |α| ≥ 0.1835?",
+  "equivalent_formulation": "Under the Lemma 1 noise condition, namely with ε independent of X and the zero set of its characteristic function containing no nonempty open interval, is the ULR model Y =d αX1 + βX2 + ε identifiable up to coordinatewise sign flips, in the sense that Y =d aX1 + bX2 + ε implies (a,b) in {(σα, τβ) : σ,τ in {-1,1}}?",
+  "justification": "The fingerprint of your draft is exact: the Laplace/t5 pair, the normalization α^2 + β^2 = 1, the threshold 0.1835, and the explicit mention of Theorem 6's fourth-moment criterion all occur together only in Example 3 after Theorem 6. The nearest official formulation is the sentence immediately after that example: the authors conjecture that identifiability up to signs still holds in the third example, even though fourth moments may be insufficient to prove it. Section 5 gives a broader informal conjecture, but Example 3 is the narrower and more faithful target for your draft. Your version is close, but to make it stand-alone and paper-faithful it should define B0/B_{α,β}, spell out the precise meaning of 'up to signs', and state the Lemma 1 equivalence that connects the noiseless distributional formulation to the full ULR model.",
+  "citations": [
+    {
+      "section": "§2",
+      "label": "Lemma 1",
+      "page": "3"
+    },
+    {
+      "section": "§4.5",
+      "label": "Theorem 6",
+      "page": "8"
+    },
+    {
+      "section": "§4.5",
+      "label": "Example 3 after Theorem 6",
+      "page": "9"
+    },
+    {
+      "section": "§5",
+      "label": "informal conjecture",
+      "page": "10-11"
+    }
+  ]
+}

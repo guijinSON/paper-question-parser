@@ -1,0 +1,47 @@
+{
+  "arxiv_id": "1103.3808",
+  "question_id": "q_013",
+  "original_question": "For the same polynomial family P, let dW_min(P) be the least d for which Zd,T is characteristic for the corresponding averages on every Weyl system, that is, every system (T^d, X_{T^d}, m_{T^d}, T) with T a unipotent affine transformation. Must one always have dW_min(P) ≤ |P| - 1?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 1382.81,
+  "target_in_paper": "Section 5.1, 'Powers of a single transformation' (more specifically the Weyl-system specialization of the optimal characteristic-factor problem): in the March 2011 version this is 'Special Case of Problem 1', and in the revised arXiv version it is the 'Special Case of Problem 9' in Section 5.1.1.",
+  "completeness_score": 8,
+  "correct_elements": "The draft correctly targets the Weyl-system restriction of the paper's characteristic-factor problem for polynomial averages, uses the right quantity dW_min(P), and asks for exactly the paper's inequality dW_min(P) <= |P| - 1.",
+  "missing_details": [
+    "P should be defined explicitly as a finite family P = {p1, ..., p_l} of integer polynomials.",
+    "The paper assumes P is 'essentially distinct', meaning every polynomial pi and every difference pi - pj for i != j is nonconstant.",
+    "The relevant averages should be stated explicitly: A_N^P(f1, ..., f_l) = (1/N) sum_{n=1}^N T^{p1(n)}f1 ... T^{p_l(n)}f_l.",
+    "The ambient dynamical system for these averages should be specified as an invertible measure-preserving system (X, Sigma, mu, T), with f1, ..., f_l in L^infty(mu).",
+    "'Characteristic' should be qualified as characteristic for mean (L^2) convergence of the above averages, since that is the paper's formulation.",
+    "dW_min(P) should be defined as the least integer d such that Z_{d,T} is characteristic for those averages on every Weyl system, with the torus dimension allowed to vary.",
+    "A Weyl system should be defined explicitly as a system on an m-dimensional torus, ((R/Z)^m, B, m_{(R/Z)^m}, T), where T is a unipotent affine transformation.",
+    "The quantifier |P| >= 2 should be stated explicitly.",
+    "To be fully paper-faithful, the question should also make clear that no extra degree, homogeneity, or zero-constant-term assumptions are imposed beyond 'integer' and 'essentially distinct'.",
+    "The notation Z_{d,T} should be identified as the Host-Kra factor from the paper's Z_k hierarchy."
+  ],
+  "refined_question": "Let P = {p1, ..., p_l} be a finite family of essentially distinct integer polynomials, meaning that each pi and each difference pi - pj (for i != j) is nonconstant. For the polynomial ergodic averages A_N^P(f1, ..., f_l) := (1/N) sum_{n=1}^N T^{p1(n)}f1 ... T^{p_l(n)}f_l on an invertible measure-preserving system (X, Sigma, mu, T), let dW_min(P) be the least integer d such that, for every Weyl system (((R/Z)^m, B_{(R/Z)^m}, m_{(R/Z)^m}, T)) with T a unipotent affine transformation, the Host-Kra factor Z_{d,T} is characteristic for mean (L^2) convergence of the averages A_N^P(f1, ..., f_l) for all f1, ..., f_l in L^infty(mu). Is it true that for every such family P with |P| >= 2 one always has dW_min(P) <= |P| - 1?",
+  "equivalent_formulation": null,
+  "justification": "The draft is aiming at the paper's official Weyl-system special case of the optimal characteristic-factor problem. The paper first fixes a family P of essentially distinct integer polynomials and the single-transformation polynomial averages, then states that some Host-Kra factor Z_{d,T} is characteristic and defines d_min(P). It then restricts to Weyl systems, defines dW_min(P), and immediately states the open problem asking whether dW_min(P) <= |P| - 1. So the mathematical core of the draft is right, but it is not yet stand-alone because it leaves implicit the hypotheses on P, the exact averages, the ambient class of systems and functions, and the fact that 'characteristic' is meant for mean convergence. The paper does mention the separate open problem of whether d_min(P) = dW_min(P), but it does not prove this equivalent to the inequality above, so no alternate formulation should be given as an equivalence.",
+  "citations": [
+    {
+      "section": "5.1. Powers of a single transformation",
+      "label": "definition of P as a family of essentially distinct integer polynomials; polynomial averages; theorem defining d(P) and d_min(P)",
+      "page": 20
+    },
+    {
+      "section": "5.1. Powers of a single transformation / optimal characteristic factors",
+      "label": "definition of Weyl systems and dW_min(P); Special Case of Problem 1 in the March 2011 version (renumbered as Special Case of Problem 9 in the revised version)",
+      "page": 21
+    },
+    {
+      "section": "2.3. The factors Z_k and their structure (old version numbering); corresponds to the Host-Kra-factor discussion in the revised paper",
+      "label": "Z_{k,T} hierarchy and the criterion linking Z-factors to characteristic factors for mean convergence",
+      "page": 5
+    },
+    {
+      "section": "5.1. Powers of a single transformation / optimal characteristic factors",
+      "label": "nearby remark that no example is known with d_min(P) != dW_min(P), motivating but not proving an equivalence",
+      "page": 21
+    }
+  ]
+}

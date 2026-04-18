@@ -1,0 +1,47 @@
+{
+  "arxiv_id": "0704.1689",
+  "question_id": "q_001",
+  "original_question": "Let P(z) be a homogeneous polynomial of degree 4 in C[z] whose Hessian matrix Hes P is nilpotent, so P is Hessian nilpotent. If Delta := sum_{i=1}^n D_i^2 is the Laplace operator on C[z], must the iterated Laplacians of the powers of P eventually vanish in the sense that Delta^m(P(z)^(m+1)) = 0 for all sufficiently large m?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 125.24,
+  "target_in_paper": "Conjecture 1.1 (Vanishing Conjecture) in Section 1.1: for any Hessian nilpotent homogeneous polynomial P(z) of degree 4, Delta^m(P(z)^(m+1)) = 0 when m >> 0.",
+  "completeness_score": 9,
+  "correct_elements": "Your draft is already very close to the paper's exact target. It has the right object (a Hessian nilpotent polynomial P), the right homogeneity and degree restriction (homogeneous of degree 4), the right base field (C), the right operator (the Laplacian Delta), and the right eventual-vanishing expression Delta^m(P(z)^(m+1)). This is exactly the content of Conjecture 1.1 in the introduction.",
+  "missing_details": [
+    "Specify the ambient polynomial ring explicitly as C[z_1,...,z_n] with z=(z_1,...,z_n) and arbitrary n >= 1.",
+    "Define the differential operators explicitly by D_i = partial/partial z_i before defining Delta = sum_{i=1}^n D_i^2.",
+    "State the Hessian explicitly as Hes P = (D_i D_j P)_{1<=i,j<=n}, so the nilpotency condition is completely stand-alone.",
+    "Make the quantifier precise: there exists an integer N such that Delta^m(P(z)^(m+1)) = 0 for every integer m >= N.",
+    "If you want the paper-faithful label, identify the statement as Conjecture 1.1, the Vanishing Conjecture."
+  ],
+  "refined_question": "Let n >= 1, let z=(z_1,...,z_n), let C[z]=C[z_1,...,z_n], and write D_i = partial/partial z_i for 1 <= i <= n. Let Delta := sum_{i=1}^n D_i^2 be the Laplace operator on C[z]. If P(z) in C[z] is a homogeneous polynomial of degree 4 whose Hessian matrix Hes P = (D_i D_j P)_{1<=i,j<=n} is nilpotent (that is, P is Hessian nilpotent), is it true that there exists N >= 1 such that Delta^m(P(z)^(m+1)) = 0 for every integer m >= N?",
+  "equivalent_formulation": "Equivalently (by Theorem 7.4, applied to this quartic homogeneous case), if F(z)=z-grad P(z)=(z_1-D_1P(z),...,z_n-D_nP(z)), must P(z) belong to the subalgebra C[F]:=C[F_1(z),...,F_n(z)]?",
+  "justification": "The draft is aiming at Conjecture 1.1 in Section 1.1, page 136, essentially verbatim. The nearby context confirms the intended notation and scope: Proposition 1.2 on page 136 gives the paper's standard criterion for Hessian nilpotency, namely that for formal power series with order at least 2, P is HN iff Delta^m(P^m)=0 for all m >= 1; this matches the role of the HN hypothesis in the conjecture. Theorem 1.3 on page 137 shows that the coefficients of the deformed inversion pair Q_t are proportional to Delta^m(P^(m+1)), explaining why the conjecture is formulated with the power m+1 rather than some neighboring exponent. If one wants a paper-explicit equivalent reformulation, Theorem 7.4 later proves that for any HN polynomial with order at least 2, the vanishing conjecture for P is equivalent to P being a polynomial in the coordinates of the associated symmetric map F=z-grad P.",
+  "citations": [
+    {
+      "section": "1.1",
+      "label": "Conjecture 1.1",
+      "page": 136
+    },
+    {
+      "section": "1.1",
+      "label": "Proposition 1.2",
+      "page": 136
+    },
+    {
+      "section": "1.1",
+      "label": "Theorem 1.3",
+      "page": 137
+    },
+    {
+      "section": "7",
+      "label": "Lemma 7.1",
+      "page": 153
+    },
+    {
+      "section": "7",
+      "label": "Theorem 7.4",
+      "page": 155
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "arxiv_id": "1905.08230",
+  "question_id": "q_010",
+  "original_question": "For 0 < b < 1, define ψ_b ∈ L2(R) by ψ̂_b = 1_{(−1,−b)∪(b,1)}.\n\nA frame wavelet is a function ψ whose dyadic wavelet system {ψ_{j,k}(x) := 2^{j/2} ψ(2^j x − k)} is a frame for L2(R) with bounds 0 < c ≤ d < ∞.\n\nFor what values of 1/8 < b ≤ 1/6 is ψ_b a frame wavelet?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 6541.21,
+  "target_in_paper": "Section 2.7, Problem 2.7: determine exactly which b in 1/8 < b <= 1/6 make the band-limited function ψ_b, defined by ψ̂_b = 1_{(-1,-b)∪(b,1)}, a dyadic frame wavelet. ([pages.uoregon.edu](https://pages.uoregon.edu/mbownik/preprints/open.pdf))",
+  "completeness_score": 9.2,
+  "correct_elements": "Your draft already captures the paper's target almost exactly: it uses the same family ψ_b, the same unresolved interval 1/8 < b <= 1/6, and the same dyadic frame property for the system {ψ_{j,k}} in L^2(ℝ). It also correctly states the frame inequalities and keeps the scope one-dimensional and dyadic, which is exactly the scope of Problem 2.7. ([pages.uoregon.edu](https://pages.uoregon.edu/mbownik/preprints/open.pdf))",
+  "missing_details": [
+    "The paper's dyadic wavelet system is the one from Definition 2.1: ψ_{j,k}(x) = 2^{j/2} ψ(2^j x - k) with j, k in ℤ.",
+    "To make the question fully stand-alone, the Fourier transform convention used in the paper should be stated explicitly: ψ̂(ξ) = ∫_ℝ ψ(x)e^{-2πixξ} dx.",
+    "The paper uses the synonym 'framelet' for 'frame wavelet'; including that terminology would make the rewrite closer to the official wording.",
+    "The paper notes that this interval is singled out because the status of ψ_b is already known for all other b in (0,1), via the classification table immediately following Problem 2.7."
+  ],
+  "refined_question": "Using the Fourier transform convention ψ̂(ξ) = ∫_ℝ ψ(x)e^{-2πixξ} dx, let 0 < b < 1 and define ψ_b ∈ L^2(ℝ) by ψ̂_b = 1_{(-1,-b)∪(b,1)}. For j, k ∈ ℤ, set ψ_{b;j,k}(x) = 2^{j/2} ψ_b(2^j x - k). Determine exactly those parameters b ∈ (1/8, 1/6] for which the dyadic wavelet system {ψ_{b;j,k} : j, k ∈ ℤ} is a frame for L^2(ℝ); equivalently, for which there exist constants 0 < c ≤ d < ∞ such that c||f||_2^2 ≤ Σ_{j,k∈ℤ} |⟨f, ψ_{b;j,k}⟩|^2 ≤ d||f||_2^2 for every f ∈ L^2(ℝ).",
+  "equivalent_formulation": null,
+  "justification": "This is essentially a near-verbatim restatement of the paper's official open problem in Section 2.7. The only refinements needed are to import the dyadic-system notation from Definition 2.1, the frame inequalities from the paper's definition of a framelet, and the Fourier transform convention stated earlier in Section 2. The surrounding context on page 6 also explains that (1/8, 1/6] is the remaining unresolved parameter range, with all other b already classified in the table following Problem 2.7. ([pages.uoregon.edu](https://pages.uoregon.edu/mbownik/preprints/open.pdf))",
+  "citations": [
+    {
+      "section": "Section 2",
+      "label": "Definition 2.1",
+      "page": 1
+    },
+    {
+      "section": "Section 2",
+      "label": "Fourier transform definition preceding Definition 2.3",
+      "page": 1
+    },
+    {
+      "section": "Section 2",
+      "label": "Framelet definition and frame inequality (2.3)",
+      "page": 3
+    },
+    {
+      "section": "Section 2.7",
+      "label": "Problem 2.7",
+      "page": 6
+    },
+    {
+      "section": "Section 2.7",
+      "label": "Table following Problem 2.7",
+      "page": 6
+    }
+  ]
+}

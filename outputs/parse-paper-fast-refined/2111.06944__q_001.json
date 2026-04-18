@@ -1,0 +1,57 @@
+{
+  "arxiv_id": "2111.06944",
+  "question_id": "q_001",
+  "original_question": "Let G be a simple undirected graph with adjacency matrix A, and for vertices i and j let I be the set of all positive real numbers beta such that i and j are beta-subgraph equivalent, meaning [e^(beta A)]_ii = [e^(beta A)]_jj. Theorem 2.5 shows that if I has an accumulation point then i and j are cospectral, in the sense that [A^r]_ii = [A^r]_jj for every integer r >= 0, and I is all of R_+. Determine whether some weaker finiteness hypothesis already forces the same conclusion: for example, if I is finite, or if M = |I| satisfies a suitable condition, must i and j already be cospectral?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 7832.56,
+  "target_in_paper": "The discussion immediately after Theorem 2.5 in Section 2.2, where the paper asks whether the accumulation-point hypothesis on I can be weakened to a condition on the finite cardinality M=|I|, with the nearest official quantitative formulation given by Theorem 2.9 in Section 2.3.",
+  "completeness_score": 7.0,
+  "correct_elements": "The draft correctly captures the ambient setting of a simple undirected graph G with adjacency matrix A, the definition of beta-subgraph equivalence via [e^{beta A}]_{ii}=[e^{beta A}]_{jj}, the definition of cospectrality via [A^r]_{ii}=[A^r]_{jj} for every integer r>=0, and the content of Theorem 2.5 that an accumulation point of I forces i and j to be cospectral and in fact I=R_+. ([archive.intlpress.com](https://archive.intlpress.com/site/pub/files/_fulltext/journals/joc/2023/0014/0004/JOC-2023-0014-0004-a002.pdf?utm_source=openai))",
+  "missing_details": [
+    "The paper does not leave the cardinality question in the vague form 'is there some suitable condition on M?'; it supplies a concrete quantitative answer in Theorem 2.9: if d is the number of distinct eigenvalues of A, then any two non-cospectral vertices have at most d-1 interlacing values. ([archive.intlpress.com](https://archive.intlpress.com/site/pub/files/_fulltext/journals/joc/2023/0014/0004/JOC-2023-0014-0004-a002.pdf?utm_source=openai))",
+    "So the paper-faithful sharp version must introduce d explicitly as the number of distinct eigenvalues of A; without d, the phrase 'M satisfies a suitable condition' is too underspecified. ([archive.intlpress.com](https://archive.intlpress.com/site/pub/files/_fulltext/journals/joc/2023/0014/0004/JOC-2023-0014-0004-a002.pdf?utm_source=openai))",
+    "Finiteness by itself is not enough: the text right after Theorem 2.5 states that the implication already fails for M=1, and that examples with at least one beta-subgraph-equivalence value are common. ([archive.intlpress.com](https://archive.intlpress.com/site/pub/files/_fulltext/journals/joc/2023/0014/0004/JOC-2023-0014-0004-a002.pdf?utm_source=openai))",
+    "If one wants the paper's native terminology, for non-cospectral vertices such beta-values are called interlacing values, and I is the zero set of g(beta)=[e^{beta A}]_{ii}-[e^{beta A}]_{jj} on beta>0. ([archive.intlpress.com](https://archive.intlpress.com/site/pub/files/_fulltext/journals/joc/2023/0014/0004/JOC-2023-0014-0004-a002.pdf?utm_source=openai))",
+    "The natural sharper nearby refinement is Proposition 2.13, which bounds the number of interlacing values by the number of sign changes in the spectral-coefficient vector (C_{hi}-C_{hj})_{h=1}^d; however, the nearest official formulation matching the draft is still Theorem 2.9. ([archive.intlpress.com](https://archive.intlpress.com/site/pub/files/_fulltext/journals/joc/2023/0014/0004/JOC-2023-0014-0004-a002.pdf?utm_source=openai))"
+  ],
+  "refined_question": "Let G be a simple undirected graph with adjacency matrix A, and let d be the number of distinct eigenvalues of A. For vertices i,j in V(G), define I={beta>0 : [e^{beta A}]_{ii}=[e^{beta A}]_{jj}}. Prove or disprove that if i and j are not cospectral, meaning that there exists an integer r>=0 with [A^r]_{ii} != [A^r]_{jj}, then |I| <= d-1.",
+  "equivalent_formulation": null,
+  "justification": "Your draft is aimed at the post-Theorem 2.5 question in Section 2.2, but as written it remains broader and less sharp than the paper. The paper first asks informally whether finiteness or cardinality of I can replace the accumulation-point hypothesis, then immediately develops the interlacing framework and answers this quantitatively in Section 2.3: Theorem 2.9 gives the exact paper-level threshold in terms of d, the number of distinct eigenvalues. Therefore the narrowest stand-alone formulation faithful to the paper is the d-1 upper-bound question, not the open-ended 'if I is finite, or if M satisfies some suitable condition' version. The introduction also confirms that the paper's broader aim is to understand when SC(i,beta)=SC(j,beta) and how many such beta-values can occur. ([archive.intlpress.com](https://archive.intlpress.com/site/pub/files/_fulltext/journals/joc/2023/0014/0004/JOC-2023-0014-0004-a002.pdf?utm_source=openai))",
+  "citations": [
+    {
+      "section": "1",
+      "label": "Introduction",
+      "page": "426"
+    },
+    {
+      "section": "2.1",
+      "label": "Definition 2.1",
+      "page": "428"
+    },
+    {
+      "section": "2.1",
+      "label": "Definition 2.2",
+      "page": "429"
+    },
+    {
+      "section": "2.2",
+      "label": "Theorem 2.5",
+      "page": "430"
+    },
+    {
+      "section": "2.2",
+      "label": "post-Theorem 2.5 discussion",
+      "page": "431"
+    },
+    {
+      "section": "2.3",
+      "label": "Theorem 2.9",
+      "page": "433"
+    },
+    {
+      "section": "2.3",
+      "label": "Proposition 2.13",
+      "page": "434"
+    }
+  ]
+}

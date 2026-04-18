@@ -1,0 +1,42 @@
+{
+  "arxiv_id": "2206.14431",
+  "question_id": "q_001",
+  "original_question": "Does there exist a membership-query algorithm that runs in time polynomial in the number of variables n, the target decision-tree size s, and 1/epsilon, and that properly learns any size-s decision tree over {0,1}^n to error at most epsilon under the uniform distribution? The learner should output a decision-tree hypothesis, and the problem remains open even if the learner is allowed to be only weakly proper, meaning it may return a decision tree whose size is not restricted to s.",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 8344.42,
+  "target_in_paper": "Open Problem 1 in Section 1, together with the immediately following remark distinguishing strictly proper from weakly proper learning.",
+  "completeness_score": 9,
+  "correct_elements": "Your draft already captures the paper's main target very closely: the model uses membership queries; the desired runtime is polynomial in n, s, and 1/epsilon; the target class is size-s decision trees on {0,1}^n; the error guarantee is under the uniform distribution; the learner is supposed to output a decision-tree hypothesis; and the paper explicitly notes that the problem is still open even if one weakens properness to allow the output tree to have unrestricted size.",
+  "missing_details": [
+    "The paper states the target explicitly as an unknown Boolean function f:{0,1}^n -> {0,1} that is promised to be a size-s decision tree, with the learner given query access to f.",
+    "The hypothesis is likewise a Boolean function h:{0,1}^n -> {0,1} represented by a decision tree.",
+    "The error criterion is written explicitly as Pr_{x ~ U({0,1}^n)}[f(x) != h(x)] <= epsilon, where U({0,1}^n) is the uniform distribution on the hypercube.",
+    "The formulation is universally quantified over all relevant parameters and targets: for every n, s, epsilon > 0, and every unknown size-s decision tree target f, one seeks such an algorithm.",
+    "The nearby contextual remark uses the paper's terminology 'strictly proper' versus 'weakly proper': strictly proper means returning a size-s decision tree for a size-s target, while weakly proper allows any decision-tree size."
+  ],
+  "refined_question": "Does there exist a poly(n,s,1/epsilon)-time membership-query algorithm that, given epsilon > 0 and query access to an unknown size-s decision tree f:{0,1}^n -> {0,1}, outputs a decision tree h:{0,1}^n -> {0,1} such that Pr_{x ~ U({0,1}^n)}[h(x) != f(x)] <= epsilon? In the strongest intended form, the learner is strictly proper, meaning h is also a size-s decision tree; however, the paper notes that this question remains open even in the weaker properness model where h may be an arbitrary-size decision tree.",
+  "equivalent_formulation": null,
+  "justification": "For arXiv:2206.14431, the nearest official formulation is not a conjecture/proposition/theorem trio but the paper's main labeled statement, Open Problem 1. The paragraph immediately before it fixes the exact setting: PAC learning under the uniform distribution with membership queries, an unknown size-s target f:{0,1}^n -> {0,1}, a decision-tree hypothesis h:{0,1}^n -> {0,1}, and the requirement Pr[f(x) != h(x)] <= epsilon under uniform x (Section 1, setup paragraph, p. 1). Open Problem 1 then asks for a poly(n,s,1/epsilon)-time membership-query learner for size-s decision trees (Section 1, Open Problem 1, p. 1). The next paragraph introduces the strictly proper versus weakly proper distinction and explicitly states that Open Problem 1 is open even for weakly proper algorithms (Section 1, p. 2). Section 2 only records the current best known almost-polynomial-time result and does not alter the problem statement (Section 2, Theorem 2, p. 2).",
+  "citations": [
+    {
+      "section": "1",
+      "label": "Introductory setup paragraph before Open Problem 1",
+      "page": 1
+    },
+    {
+      "section": "1",
+      "label": "Open Problem 1",
+      "page": 1
+    },
+    {
+      "section": "1",
+      "label": "Strictly proper vs. weakly proper remark",
+      "page": 2
+    },
+    {
+      "section": "2",
+      "label": "Theorem 2",
+      "page": 2
+    }
+  ]
+}

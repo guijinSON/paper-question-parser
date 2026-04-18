@@ -1,0 +1,50 @@
+{
+  "arxiv_id": "2602.05394",
+  "question_id": "q_002",
+  "original_question": "For each class of parameterized benchmark linear systems, develop theoretically and practically fast algorithms.",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 12497.65,
+  "target_in_paper": "Section 2.1, Problem 2.2: \"For each class of parameterized benchmark linear systems, develop theoretically and practically fast algorithms.\"",
+  "completeness_score": 8.5,
+  "correct_elements": "Your draft captures the exact core task of the paper almost verbatim: it is about parameterized benchmark linear systems, and it asks for algorithms that are fast both theoretically and practically. It also stays in the correct part of the paper—iterative linear-system solving—rather than drifting to neighboring questions on multigrid, eigenvalues, or sketching.",
+  "missing_details": [
+    "It does not say that the benchmark classes are the ones contemplated together with Problem 2.1: benchmark families that are accepted as practically relevant and suitable for theoretical analysis.",
+    "It does not make explicit that the intended source of these systems is parameterized discretizations of model PDE problems, rather than arbitrary matrix families.",
+    "It omits the concrete benchmark families discussed nearby in the paper: diffusion, convection-diffusion, and Helmholtz-type problems.",
+    "It omits the main parameters that vary those families in the nearby discussion, such as the diffusion tensor a(x,y), convection field b(x,y), wavenumber k, discretization choices, and shifted-Laplacian parameters.",
+    "It omits the matrix features that motivate the difficulty of the problem in the nearby context: large coefficient jumps, positive off-diagonal entries from higher-order discretizations, nonsymmetry, possible loss of diagonal dominance, and indefiniteness.",
+    "It does not make explicit that Problem 2.2 presupposes that a benchmark family has already been fixed; generating the family itself is the separate Problem 2.1.",
+    "It does not spell out that the paper intentionally leaves \"fast\" informal: the goal is to obtain algorithms with meaningful theoretical guarantees and strong empirical performance, without the paper fixing a single runtime model, precision model, or error tolerance.",
+    "The paper does not impose a single ambient field/ring, operator-homogeneity condition, degree restriction, nilpotency condition, or any quantifier of the form \"for all sufficiently large m\" for this problem; those notions are absent or inapplicable here and should not be inserted."
+  ],
+  "refined_question": "Fix a benchmark family of linear systems arising from a practically relevant, theoretically analyzable parameterized discretization of a model PDE—of the kind discussed in Section 2.1, such as diffusion, convection-diffusion, or Helmholtz problems, with parameters like coefficient field, convection field, wavenumber, and discretization choices. For each such benchmark family, can one develop algorithms for solving the resulting linear systems that are both provably fast and fast in practice across the family’s parameter range?",
+  "equivalent_formulation": null,
+  "justification": "The draft is essentially the official Problem 2.2 with only the surrounding context omitted. The subsection title and the immediately preceding Problem 2.1 show that the paper is not asking for fast algorithms for arbitrary linear systems, but for each benchmark class in a deliberately chosen collection of parameterized linear-system families. The nearby discussion makes the intended scope concrete by proposing PDE-discretization families such as diffusion, convection-diffusion, and Helmholtz problems, together with the qualitative matrix phenomena those families exhibit. Because the paper does not formalize a single asymptotic target, precision model, or tolerance for the word \"fast,\" the faithful refinement should expose the benchmark-family and PDE-discretization context without adding stronger formal assumptions that the paper itself does not impose.",
+  "citations": [
+    {
+      "section": "Abstract",
+      "label": "Abstract",
+      "page": 1
+    },
+    {
+      "section": "Contents",
+      "label": "Section 2.1, \"Scalable iterative solvers for a set of parameterized benchmark problems\"",
+      "page": 4
+    },
+    {
+      "section": "2.1",
+      "label": "Problem 2.1",
+      "page": 4
+    },
+    {
+      "section": "2.1",
+      "label": "Problem 2.2",
+      "page": 4
+    },
+    {
+      "section": "2.1",
+      "label": "Nearby discussion of benchmark PDE families (diffusion, convection-diffusion, Helmholtz)",
+      "page": "4-7"
+    }
+  ]
+}

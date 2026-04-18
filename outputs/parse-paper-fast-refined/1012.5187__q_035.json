@@ -1,0 +1,46 @@
+{
+  "arxiv_id": "1012.5187",
+  "question_id": "q_035",
+  "original_question": "Design a constant-factor approximation algorithm for the minimum dominating set problem on visibility graphs of simple polygons.",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 1123.28,
+  "target_in_paper": "Section 4.5, Open Problem 35: \"Design a constant factor approximation algorithm for computing minimum dominating set of visibility graphs.\"",
+  "completeness_score": 8.5,
+  "correct_elements": "Your draft already captures the paper's core task almost exactly: it asks for a constant-factor approximation algorithm, for the minimum dominating set problem, in the polygon-visibility setting of Section 4. The restriction to simple polygons is also faithful to the surrounding Section 4 context on polygon visibility graphs.",
+  "missing_details": [
+    "The paper's graph is the vertex visibility graph of a polygon: the graph vertices are the polygon's vertices, and two vertices are adjacent exactly when the straight segment between them lies entirely within the polygon.",
+    "The nearby definition explicitly allows the visibility segment to pass through a reflex vertex or graze along a polygon edge; that convention is part of the paper's intended visibility model.",
+    "A stand-alone version should state the input model as: given a graph G promised to be such a visibility graph of a simple polygon P.",
+    "A stand-alone version should define dominating set explicitly: a set D of vertices such that every vertex outside D has a neighbor in D.",
+    "The approximation guarantee should be formalized: output D with |D| <= c * OPT(G) for some absolute constant c independent of n = |V(G)|.",
+    "It should say polynomial-time algorithm, since the paper is asking for an approximation algorithm in the standard algorithmic sense.",
+    "The context immediately before Open Problem 35 notes that an O(log n)-approximation is already obtainable via known art-gallery approximation algorithms; the genuine open issue is improving this to a constant factor.",
+    "To avoid ambiguity with the point-visibility and segment-visibility models studied elsewhere in the paper, the refined question should explicitly say vertex visibility graph of a simple polygon.",
+    "No ambient ring/field, homogeneity, degree, or nilpotency conditions are relevant here; the missing details are combinatorial and input-model details instead."
+  ],
+  "refined_question": "Given a graph G = G(P) that is promised to be the vertex visibility graph of a simple polygon P in the plane—that is, V(G) is the vertex set of P and two vertices u,v are adjacent in G exactly when the segment uv lies entirely within P, with visibility allowed to pass through reflex vertices or graze along polygon edges—design a polynomial-time algorithm and an absolute constant c >= 1 that outputs a dominating set D of G such that every vertex of G is either in D or adjacent to a vertex of D, and |D| <= c * OPT(G), where OPT(G) is the minimum size of a dominating set of G.",
+  "equivalent_formulation": null,
+  "justification": "The draft clearly targets Section 4.5 rather than the point-visibility material near the start of the paper, so Conjecture 1 / Theorem 1 are not the relevant targets here. Open Problem 35 is nearly verbatim your draft, but the surrounding paper context supplies the missing stand-alone content: Section 1 defines the polygon vertex-visibility graph, Section 4 treats polygon visibility graphs in the simple-polygon setting, and the paragraph immediately preceding Open Problem 35 records that an O(log n)-approximation is already known. The refined version therefore keeps the exact open problem, but makes explicit the promised input class, the visibility convention, the definition of dominating set, and the formal meaning of a constant-factor approximation.",
+  "citations": [
+    {
+      "section": "1 Introduction",
+      "label": "definition of the vertex visibility graph of a polygon",
+      "page": "page unavailable in ar5iv HTML view"
+    },
+    {
+      "section": "4 Visibility graph theory: Polygons / 4.1 Visibility Graph Recognition",
+      "label": "simple-polygon setting; Open Problem 28",
+      "page": "page unavailable in ar5iv HTML view"
+    },
+    {
+      "section": "4.5 Minimum Dominating Set in Visibility Graphs",
+      "label": "context paragraph preceding Open Problem 35",
+      "page": 26
+    },
+    {
+      "section": "4.5 Minimum Dominating Set in Visibility Graphs",
+      "label": "Open Problem 35",
+      "page": 26
+    }
+  ]
+}

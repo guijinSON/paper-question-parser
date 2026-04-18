@@ -1,0 +1,50 @@
+{
+  "arxiv_id": "1204.6447",
+  "question_id": "q_025",
+  "original_question": "If f : {-1,1}^n -> {-1,1} is monotone, must its total influence satisfy I[f] < o(sens[f])?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 2238.28,
+  "target_in_paper": "The open-problem entry titled \"Average versus Max Sensitivity for Monotone Functions\": \"Let f : {-1,1}^n -> {-1,1} be monotone. Then I[f] < o(sens[f]).\"",
+  "completeness_score": 8,
+  "correct_elements": "Your draft is very close to the paper's actual target. It correctly identifies the monotone Boolean-function setting, the two quantities being compared (total influence I[f] and sens[f]), and the paper's intended asymptotic little-o separation.",
+  "missing_details": [
+    "The paper's statement is specifically about Boolean functions f : {-1,1}^n -> {-1,1}.",
+    "Monotonicity is with respect to the coordinatewise partial order on {-1,1}^n.",
+    "sens[f] here means maximum sensitivity, not average sensitivity or block sensitivity.",
+    "I[f] is the total influence; in the paper's terminology this is the quantity being contrasted with max sensitivity under the heading \"Average versus Max Sensitivity for Monotone Functions.\"",
+    "The flip notation x^{\\oplus i} should be defined if used; it means x with the i-th coordinate flipped.",
+    "The little-o notation is asymptotic in n, so a fully stand-alone version should quantify over a sequence/family f_n and state that I[f_n]/sens[f_n] -> 0 as n -> infinity.",
+    "The paper presents this as an open problem entry, not as a proved theorem or proposition.",
+    "No field/ring choice, polynomial degree, homogeneity, or nilpotency assumptions belong to this target problem."
+  ],
+  "refined_question": "Let (f_n)_{n \\ge 1} be a sequence of monotone Boolean functions f_n : {-1,1}^n -> {-1,1}, where monotone means that x_i \\le y_i for all i implies f_n(x) \\le f_n(y). For each n, define the total influence I[f_n] = \\sum_{i=1}^n Pr_{x \\in {-1,1}^n}[f_n(x) \\ne f_n(x^{\\oplus i})], where x^{\\oplus i} is obtained from x by flipping its i-th coordinate, and define the maximum sensitivity sens[f_n] = \\max_{x \\in {-1,1}^n} |{ i \\in [n] : f_n(x) \\ne f_n(x^{\\oplus i}) }|. Is it true that every such monotone family satisfies I[f_n] = o(sens[f_n]) as n -> infinity?",
+  "equivalent_formulation": null,
+  "justification": "The draft is aiming at the exact open-problem entry \"Average versus Max Sensitivity for Monotone Functions\" rather than a neighboring conjecture. It is already almost verbatim to the paper's statement, but it leaves implicit the Boolean-cube domain/codomain and the asymptotic meaning of the little-o notation. To make it fully stand-alone and faithful to the paper, one must spell out that sens[f] is maximum sensitivity, that I[f] is total influence, and that the claim is an asymptotic one over increasing dimensions n. The paper itself gives only a very short statement here and relies on earlier standard notation plus an opening note directing the reader elsewhere for definitions. The nearby remark that the tightest known example had I[f] approximately sens[f]^0.61 confirms that the intended question is about a genuine asymptotic gap between average sensitivity and maximum sensitivity for monotone Boolean functions.",
+  "citations": [
+    {
+      "section": "opening note (no numbered section)",
+      "label": "For notation and definitions, see e.g. analysisofbooleanfunctions.org",
+      "page": "PDF p. 1"
+    },
+    {
+      "section": "problem list (no numbered section)",
+      "label": "Sensitivity versus Block Sensitivity",
+      "page": "PDF p. 2"
+    },
+    {
+      "section": "problem list (no numbered section)",
+      "label": "Fourier Entropy–Influence Conjecture",
+      "page": "PDF p. 4"
+    },
+    {
+      "section": "problem list (no numbered section)",
+      "label": "Average versus Max Sensitivity for Monotone Functions",
+      "page": "PDF p. 10"
+    },
+    {
+      "section": "problem list (no numbered section)",
+      "label": "Average versus Max Sensitivity for Monotone Functions, Remarks",
+      "page": "PDF p. 11"
+    }
+  ]
+}

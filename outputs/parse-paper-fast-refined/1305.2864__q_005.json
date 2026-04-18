@@ -1,0 +1,74 @@
+{
+  "arxiv_id": "1305.2864",
+  "question_id": "q_005",
+  "original_question": "When a pest has a natural predator, how should pesticide application be timed and scaled so that it suppresses the pest instead of causing a later resurgence above the crop's economic threshold? More generally, what mathematical model captures the fact that pesticide application reduces both pest and predator populations, changes their ratio, and can make a later outbreak worse even when the immediate effect is a drop in pest abundance?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 2939.25,
+  "target_in_paper": "Section 6, \"The paradox of pesticides\": the pesticide-forced Lotka-Volterra model (6.1)–(6.2), the definition of the pulse term Δ(t-T), and the two numbered conclusions that (i) timing of application is crucial and (ii) the amount applied is also crucial.",
+  "completeness_score": 7,
+  "correct_elements": "Your draft correctly identifies the paper’s actual ecological phenomenon: pesticide application can initially reduce the pest yet later trigger a stronger resurgence when a natural predator is present; both pest and predator are affected; their ratio after spraying matters; timing and dose matter; and the relevant outcome is whether the later pest level exceeds the crop’s economic threshold. Those are exactly the qualitative points emphasized in Section 6.",
+  "missing_details": [
+    "The paper does not ask for a broad optimal-control policy; it uses one specific simple model: a Lotka-Volterra predator-prey system with a single pesticide pulse.",
+    "The state variables must be named: H(t) is the pest population and P(t) is the pest’s predator population.",
+    "The governing equations are explicit: dH/dt = H(a - bP) - αΔ(t - T) and dP/dt = P(bcH - d) - βΔ(t - T).",
+    "The parameters a, b, c, d, α, β are assumed to be positive constants.",
+    "The pesticide is modeled as an impulse at a specified application time T; that application time must be part of the question.",
+    "The pulse shape is specified in the paper: Δ(t - T) = 1/ε for t in [T, T + ε], and Δ(t - T) = 0 otherwise, where ε > 0 is small.",
+    "To make the question stand-alone, one must say that the analysis starts from a pre-pesticide trajectory of the unforced predator-prey system, since the phase-plane location at time T is what makes timing matter.",
+    "The paper’s conclusions are qualitative and phase-plane based, not a theorem with a formal threshold condition; 'economic threshold' is not introduced as a separate model parameter.",
+    "The paper explicitly separates two effects that your draft blends together: whether spraying occurs when both populations are relatively large versus when either the pest or predator population is relatively small, and whether the amount sprayed is moderate or large.",
+    "The paper also explicitly notes that resurgence can still occur even if pesticide directly kills only the pest and not the predator, because the predator population later decreases when its food source is reduced.",
+    "The spatially dependent extension is mentioned only as an afterthought; it is not the core target of Section 6 and should not be built into the main question.",
+    "This part of the paper is not framed as a conjecture, proposition, or theorem, so a faithful rewrite should be an analysis question about this exact model rather than a request for a broader general theory."
+  ],
+  "refined_question": "In Section 6 of arXiv:1305.2864, the paradox of pesticides is modeled by the single-pulse forced Lotka-Volterra system dH/dt = H(a - bP) - αΔ(t - T), dP/dt = P(bcH - d) - βΔ(t - T), where H(t) is the pest population, P(t) is the predator population, a, b, c, d, α, β are positive constants, T is the pesticide-application time, and Δ(t - T) = 1/ε for t in [T, T + ε] and 0 otherwise. Starting from a pre-pesticide trajectory of the unforced system, determine how the phase-plane position at the application time T and the pesticide amounts α and β decide whether the post-application orbit leads to suppression of the pest or instead to pest resurgence, meaning that a later maximum of H rises well beyond the crop’s economic threshold. In particular, formulate the question so that it captures the paper’s two claims: spraying when both H and P are relatively large can reduce both populations, whereas spraying when either H or P is relatively small, or spraying too large an amount, can move the system onto a larger cycle and produce a later pest outbreak; and explain why resurgence may still occur even when only the pest is directly reduced by the pesticide.",
+  "equivalent_formulation": null,
+  "justification": "The draft is clearly targeting Section 6 rather than any earlier part of the paper: it mentions a pest with a natural predator, pesticide timing and scale, immediate reduction followed by later resurgence, and the pest/predator ratio. This paper does not contain a Conjecture 1.1, Proposition 1.2, or Theorem 1.3 relevant to your draft; instead, Section 6 gives a specific forced Lotka-Volterra model and then states two qualitative conclusions about timing and amount of pesticide. The refined question therefore stays narrow: it asks for analysis of that exact model, with the exact variables, parameters, pulse definition, and qualitative outcomes used in the paper, and it avoids broadening the issue into a general pesticide-control or optimization problem that the paper does not formulate.",
+  "citations": [
+    {
+      "section": "1",
+      "label": "Introduction",
+      "page": "379-380"
+    },
+    {
+      "section": "6",
+      "label": "Equations (6.1)-(6.2)",
+      "page": "386"
+    },
+    {
+      "section": "6",
+      "label": "Definition of Δ(t-T)",
+      "page": "386"
+    },
+    {
+      "section": "6",
+      "label": "Key point (1): timing of applying the pesticides is crucial",
+      "page": "386"
+    },
+    {
+      "section": "6",
+      "label": "Key point (2): the amount of pesticides applied is also important",
+      "page": "386"
+    },
+    {
+      "section": "6",
+      "label": "Figure 5 caption",
+      "page": "387"
+    },
+    {
+      "section": "6",
+      "label": "Figure 6 caption",
+      "page": "388"
+    },
+    {
+      "section": "6",
+      "label": "Figure 7 caption",
+      "page": "389"
+    },
+    {
+      "section": "6",
+      "label": "Figure 8 caption",
+      "page": "390"
+    }
+  ]
+}

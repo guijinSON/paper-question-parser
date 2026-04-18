@@ -1,0 +1,66 @@
+{
+  "arxiv_id": "2111.06826",
+  "question_id": "q_002",
+  "original_question": "View conjugate MAP estimation in an exponential family as stochastic mirror descent on the negative log-likelihood, with mirror map induced by the log-partition function A and decreasing step sizes γ_n = 1/(n_0 + n). Find a convergence-rate theorem for stochastic mirror descent that is strong enough to cover the MAP iterates arising from standard exponential-family models, including Gaussian examples such as N(m, σ^2) or the barrier-type case N(0, σ^2), despite the fact that existing relative-smoothness analyses fail on these barrier objectives. In particular, the desired result should explain the observed O(1/n) behavior for MAP-like updates in settings where current SMD bounds do not apply.",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 7840.46,
+  "target_in_paper": "Section 3, Open Problem 2 (Convergence rate for SMD), read together with the MAP=SMD correspondence in Eqs. (15)-(16) and Appendix F, and with the Gaussian/barrier obstruction explained in Section 6.",
+  "completeness_score": 8,
+  "correct_elements": "Your draft correctly identifies the paper's second main open problem: conjugate MAP in an exponential family can be written as stochastic mirror descent with mirror map A and decreasing steps gamma_n = 1/(n_0 + n), and the missing theorem should be strong enough to cover Gaussian examples that behave like barrier objectives. It also correctly captures the motivation from the observed O(1/n) behavior and the fact that existing relative-smoothness-based SMD analyses do not cover the relevant MAP iterates.",
+  "missing_details": [
+    "The paper's formal target is a convergence rate for the last SMD iterate that yields expected function-value suboptimality, equivalently expected KL risk for conjugate MAP, not just any generic SMD convergence statement.",
+    "The ambient setting is a steep, regular exponential family with minimal sufficient statistic T, natural parameter theta in an open convex set Theta subset of R^d, mean parameter mu = grad A(theta), and conjugate prior hyperparameters (eta_0, n_0).",
+    "The exact stochastic optimization model is f_x(theta) = A(theta) - <theta, T(x)> and f(theta) = E[f_X(theta)], with minimizer theta_star; in the well-specified setting, f(theta) - f(theta_star) equals KL(P_theta_star || P_theta).",
+    "The MAP recursion must be identified with the SMD last-iterate update initialized from the prior-induced parameter, not merely with a mirror-descent-like heuristic; Appendix F gives the exact correspondence and the step-size family gamma_n = 1/(n_0 + n).",
+    "In the paper's relative-smoothness framing, the population objective f is 1-smooth and 1-strongly convex relative to A; this is part of why the missing ingredient is a stochastic relative-smoothness theorem rather than a deterministic one.",
+    "To stay closest to the paper's own examples, the canonical simple obstruction is the centered Gaussian with unknown variance N(0, sigma^2) from Section 4.1; the full Gaussian with unknown mean and variance appears as a broader nontrivial barrier example in Section 4.2 and in the introduction.",
+    "Section 6 makes the failure mode more precise than a general statement that relative-smoothness analyses fail: assumptions (31) and (32) require uniform bounds over all iterates and break for barrier objectives because stochastic iterates can approach the boundary where the relevant Bregman terms blow up; assumption (33) can partially handle barriers but only under constant step sizes and only to a variance ball.",
+    "Table 1 shows the desired theorem must simultaneously cover the Gaussian-variance example, allow decreasing step sizes, control function values/KL rather than only reverse Bregman divergence, and preferably control the last iterate rather than only averaged iterates.",
+    "The O(1/n) rate is motivation coming from Eq. (23) and Theorem 4.2; it is not itself the exact wording of Open Problem 2, so a paper-faithful rewrite should present it as the rate one wants to recover, not as a separately stated theorem from the paper."
+  ],
+  "refined_question": "Let {P_theta : theta in Theta subset R^d} be a steep, regular exponential family with minimal sufficient statistic T and log-partition A, so that mu = grad A(theta), and let theta_star be the true parameter generating iid samples X_1, ..., X_n. For conjugate prior hyperparameters (eta_0, n_0), let theta_hat_n be the MAP estimator, equivalently the last iterate of stochastic mirror descent for the stochastic losses f_x(theta) = A(theta) - <theta, T(x)>, mirror map A, prior-induced initialization, and step sizes gamma_t = 1/(n_0 + t). Since the population objective f(theta) = E[f_X(theta)] is 1-smooth and 1-strongly convex relative to A and satisfies f(theta) - f(theta_star) = KL(P_theta_star || P_theta), prove a non-asymptotic convergence rate for the last iterate of this SMD scheme in expected function suboptimality (equivalently expected KL risk), E[f(theta_hat_n) - f(theta_star)] = E[KL(P_theta_star || P_theta_hat_n)], that applies to conjugate MAP for standard exponential-family models, in particular the centered Gaussian with unknown variance N(0, sigma^2) and other Gaussian barrier objectives, under the natural decreasing schedule gamma_t = 1/(n_0 + t). The rate should recover the O(1/n) behavior suggested by the asymptotic theory and by the explicit centered-Gaussian MAP bound, while avoiding the current relative-smoothness assumptions that either exclude barrier objectives through uniform boundedness requirements or only treat constant-step convergence to a variance ball.",
+  "equivalent_formulation": "Equivalent formulation: derive a non-asymptotic upper bound on the frequentist KL risk of the conjugate MAP estimator, E[KL(P_theta_star || P_theta_hat_n)], because for exponential families this KL equals log-likelihood suboptimality and the conjugate MAP recursion is exactly the corresponding SMD update.",
+  "justification": "The nearest official formulation is Open Problem 2 in Section 3: the paper explicitly asks for a convergence rate for stochastic mirror descent that applies to conjugate MAP of exponential families such as Gaussians. The surrounding context needed to make that question stand alone comes from Eq. (4) and Eq. (12), which identify the target quantity with KL/log-likelihood suboptimality; from Eqs. (15)-(16) and Appendix F, which state the exact MAP=SMD correspondence and the decreasing-step schedule induced by the conjugate prior; from Theorem 4.2 and Eq. (23), which motivate the desired O(1/n) behavior; and from Section 6/Table 1, which explain exactly why existing SMD analyses are insufficient, especially on barrier objectives like the Gaussian-variance example.",
+  "citations": [
+    {
+      "section": "1",
+      "label": "Eq. (4) and optimization discussion",
+      "page": "not available in HTML view"
+    },
+    {
+      "section": "2",
+      "label": "Eq. (11) (conjugate MAP)",
+      "page": "not available in HTML view"
+    },
+    {
+      "section": "3",
+      "label": "Eq. (12), Eqs. (15)-(16), Open Problem 2 (Convergence rate for SMD)",
+      "page": "not available in HTML view"
+    },
+    {
+      "section": "4.1",
+      "label": "Theorem 4.2 (MAP Bound)",
+      "page": "not available in HTML view"
+    },
+    {
+      "section": "4.2",
+      "label": "Full Gaussian (Non-Trivial)",
+      "page": "not available in HTML view"
+    },
+    {
+      "section": "5.1",
+      "label": "Eq. (23) (asymptotic rate)",
+      "page": "not available in HTML view"
+    },
+    {
+      "section": "6.1-6.2",
+      "label": "Table 1 and discussion after Eqs. (31)-(33)",
+      "page": "not available in HTML view"
+    },
+    {
+      "section": "Appendix F",
+      "label": "Eqs. (133)-(135) / Review of SMD",
+      "page": "not available in HTML view"
+    }
+  ]
+}

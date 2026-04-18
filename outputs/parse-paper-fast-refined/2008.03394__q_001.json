@@ -1,0 +1,61 @@
+{
+  "arxiv_id": "2008.03394",
+  "question_id": "q_001",
+  "original_question": "Let S_m be the space of real 2 x m matrices, let L_1 and L_2 be self-adjoint positive-definite linear maps on S_m, let F_1,F_2 in S_m and c_1,c_2 in R define the two quadratic wells W_j(F)=(F-F_j)·L_j(F-F_j)+c_j, and let W(F)=min{W_1(F),W_2(F)}. Is the quasiconvex envelope QW of this two-well energy always equal to its rank-one convex envelope RW in two spatial dimensions, for every choice of m,L_1,L_2,F_1,F_2,c_1,c_2?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 7143.3,
+  "target_in_paper": "§2, Problem 2.1: Is rank-one convexity equal to quasi-convexity for the two-well problem in two spatial dimensions?, together with the paper-explicit equivalent reformulation as §2, Problem 2.2.",
+  "completeness_score": 8.5,
+  "correct_elements": "Your draft already captures the core target of the paper very closely. It has the correct ambient space S_m = ℝ^{2×m}, the correct two-well structure W = min{W_1,W_2}, the correct class of data (self-adjoint positive-definite L_1,L_2 and well centers F_1,F_2), the correct two-dimensional setting (the 2 rows encode the two spatial dimensions), and the correct universal question asking whether the quasiconvex envelope equals the rank-one convex envelope for all such data. This is essentially the content of Problem 2.1.",
+  "missing_details": [
+    "The paper takes m to be an arbitrary positive integer; that quantifier should be stated explicitly.",
+    "The space S_m is explicitly equipped with the standard inner product A·B = Tr(AB^T).",
+    "The quasiconvexification is defined in periodic-cell form: QW(F) = inf_u ⟨W(F + ∇u)⟩, where the infimum is over all periodic m-component potentials u and ⟨·⟩ denotes the average over the unit cell.",
+    "The paper fixes the gradient convention {∇u}_{ij} = ∂u_j/∂x_i.",
+    "To make the question fully stand-alone, RW should be defined as the largest function below W that is convex on every affine line F + t(a ⊗ b), with a ∈ ℝ^2 and b ∈ ℝ^m.",
+    "The paper writes the translated wells as W_j(F) = (F − F_j)·L_j(F − F_j) + k_j and only then expands them as F·L_jF + 2V_j·F + c_j, with V_j = −L_jF_j and c_j = k_j + F_j·L_jF_j; your draft uses c_j directly in the translated form, which is mathematically harmless but not notation-faithful.",
+    "The nearby context notes that adding the same constant to both well constants does not change the problem, and then one may assume the augmented block matrices K_j = [[L_j, V_j], [V_j^T, c_j]] are positive definite.",
+    "The paper immediately says the problem can be reduced to the case F_1 = F_2 = 0; this reduction is not part of the headline question, but it is part of the nearby sharpening of the setup.",
+    "The paper explicitly identifies an equivalent composites formulation, namely equality of G_f-closure and lamination closure for two-phase 2D composites with arbitrary n-component fields; including that equivalence makes the question more faithful to the paper's intent."
+  ],
+  "refined_question": "Let m be an arbitrary positive integer, and let S_m = ℝ^{2×m} be equipped with the inner product A·B = Tr(AB^T). Given self-adjoint positive-definite linear maps L_1, L_2 : S_m → S_m, matrices F_1, F_2 ∈ S_m, and real constants k_1, k_2, define the two quadratic wells W_j(F) = (F − F_j)·L_j(F − F_j) + k_j and the two-well energy W(F) = min{W_1(F), W_2(F)} on S_m. Define the quasiconvexification by QW(F) = inf_u ⟨W(F + ∇u)⟩, where the infimum is over all periodic m-component potentials u on a unit cell and {∇u}_{ij} = ∂u_j/∂x_i, and let RW denote the largest function below W that is convex on every rank-one line F + t(a ⊗ b), a ∈ ℝ^2, b ∈ ℝ^m. Is it true that QW = RW on S_m for every such choice of m, L_1, L_2, F_1, F_2, k_1, k_2?",
+  "equivalent_formulation": "For arbitrary positive integer n and volume fraction f ∈ [0,1], consider a two-phase periodic composite in two spatial dimensions with constitutive law J(x) = L(x)E(x), where E has n components e^(i)(x) = e_0^(i) + ∇V_i with e_0^(i) ∈ ℝ^2 constant and V_i periodic, each component j^(i) of J is divergence-free, and L(x) = χ(x)L_1 + (1 − χ(x))L_2 with χ the phase indicator satisfying ⟨χ⟩ = f and L_1, L_2 self-adjoint positive-definite mappings on S_n. Is the G_f-closure G_f(L_1, L_2) equal to its lamination closure G_f^L(L_1, L_2), where G_f^L is the closure of effective tensors produced by multiple-rank laminates?",
+  "justification": "The draft is plainly aiming at §2, Problem 2.1 rather than a broader neighboring issue: the paper introduces exactly this two-well energy on S_m and asks whether rank-one convexity equals quasi-convexity in two spatial dimensions. The author then immediately states that, in the composites setting, Problem 2.1 is equivalent to Problem 2.2, and later derives that equivalence through formulas (2.20)–(2.22), where restricting χ to multiple-rank laminates corresponds to passing from quasiconvexification to rank-one convexification. Nearby Remarks 2.3 and 2.5 further delimit the intended scope: the n = 1 case is known only under extra assumptions, the n = 2 case is explicitly identified as open, and higher-n or multiphase questions are posed as subsequent extensions rather than the main target. So the narrow, paper-faithful refinement is Problem 2.1, with only the paper-explicit equivalent formulation Problem 2.2 added.",
+  "citations": [
+    {
+      "section": "Abstract and §1 Introduction",
+      "label": "motivation: hierarchical laminates versus all 2D two-phase microstructures",
+      "page": "P0-P1"
+    },
+    {
+      "section": "§2",
+      "label": "Problem 2.1 and formulas (2.1)-(2.4)",
+      "page": "P1"
+    },
+    {
+      "section": "§2",
+      "label": "Problem 2.1 continuation: definition of RW; reduction comments after (2.5)-(2.7)",
+      "page": "P2"
+    },
+    {
+      "section": "§2",
+      "label": "Problem 2.2",
+      "page": "P2-P3"
+    },
+    {
+      "section": "§2",
+      "label": "Equivalence via formulas (2.20)-(2.22)",
+      "page": "P5-P6"
+    },
+    {
+      "section": "§2",
+      "label": "Remark 2.3",
+      "page": "P3"
+    },
+    {
+      "section": "§2",
+      "label": "Remark 2.5",
+      "page": "P3"
+    }
+  ]
+}

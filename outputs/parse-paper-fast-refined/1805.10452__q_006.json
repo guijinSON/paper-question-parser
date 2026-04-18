@@ -1,0 +1,68 @@
+{
+  "arxiv_id": "1805.10452",
+  "question_id": "q_006",
+  "original_question": "Let F be a finite field of characteristic p with |F| > 2, and let d be an invertible exponent over F satisfying d == 1 mod (p - 1). Must there always exist a nonzero element a in F such that the Weil sum W_{F,d}(a) equals 0? Equivalently, under the same hypotheses, must the Dedekind determinant D_{F,d} = product_{a in F^*} W_{F,d}(a) vanish, or, equivalently again, must the number of solutions of the associated hyperplane-section system in Conjecture 11.4 equal q^(q-3) when |F| = q?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 5991.51,
+  "target_in_paper": "Section 11, Conjecture 11.1 (Helleseth Vanishing Conjecture, 1971), together with its explicit restatements in Conjecture 11.2 and Conjecture 11.4.",
+  "completeness_score": 9,
+  "correct_elements": "Your draft targets exactly the right open problem in the paper. It already has the correct hypotheses from Helleseth’s Vanishing Conjecture—F finite of characteristic p, |F| > 2, d invertible over F, and d ≡ 1 (mod p − 1)—and it correctly recognizes the two official equivalent reformulations given in the same section: the Dedekind-determinant formulation and the point-count/hyperplane-section formulation.",
+  "missing_details": [
+    "Define “invertible exponent over F” explicitly as gcd(d, |F*|) = 1.",
+    "Define the Weil sum itself: W_{F,d}(a) = Σ_{x∈F} ψ(x^d − ax), where ψ is the canonical additive character of F.",
+    "If full self-containment is desired, spell out the canonical additive character as ψ(x) = exp(2πi Tr_{F/F_p}(x)/p).",
+    "If the determinant reformulation is mentioned, define D_{F,d} explicitly as Π_{a∈F*} W_{F,d}(a).",
+    "If the point-count reformulation is mentioned, specify q = |F|, write F* = {b1, …, b_{q−1}}, and state the system explicitly: b1x1 + ··· + b_{q−1}x_{q−1} = 0 and x1^d + ··· + x_{q−1}^d = 0.",
+    "Make clear that these are restatements explicitly proved nearby in the paper, not broader neighboring zero-in-spectrum problems."
+  ],
+  "refined_question": "Let F be a finite field of characteristic p, let ψ:F→C be its canonical additive character ψ(x) = exp(2πi Tr_{F/F_p}(x)/p), and for each positive integer d with gcd(d, |F*|) = 1 define W_{F,d}(a) = Σ_{x∈F} ψ(x^d − ax) for a ∈ F. If |F| > 2 and d ≡ 1 (mod p − 1), must there exist some a ∈ F* such that W_{F,d}(a) = 0?",
+  "equivalent_formulation": "Equivalent restatement (Conjecture 11.4): if |F| = q > 2 and F* = {b1, …, b_{q−1}}, is the number of tuples (x1, …, x_{q−1}) ∈ F^{q−1} satisfying b1x1 + ··· + b_{q−1}x_{q−1} = 0 and x1^d + ··· + x_{q−1}^d = 0 equal to q^(q−3)?",
+  "justification": "The draft’s first sentence is essentially Conjecture 11.1 itself in Section 11. Its determinant clause matches the paper’s immediate equivalent restatement Conjecture 11.2, and its hyperplane-section clause matches Conjecture 11.4, which the paper derives from Lemma 7.2 by taking k = q − 1 and {b1, …, b_{q−1}} = F*. The only real omissions are imported definitions from earlier sections—especially Definition 1.1 for “invertible exponent” and Definition 1.3 for W_{F,d}. Also, the congruence d ≡ 1 (mod p − 1) is paper-critical: Corollary 6.5 records that this is exactly the condition under which all Weil-sum values lie in Z. So the sharp paper-faithful refinement is simply Conjecture 11.1 stated with those definitions restored, not a broader zero-spectrum question.",
+  "citations": [
+    {
+      "section": "1",
+      "label": "canonical additive character (section preamble)",
+      "page": "1"
+    },
+    {
+      "section": "1",
+      "label": "Definition 1.1",
+      "page": "2"
+    },
+    {
+      "section": "1",
+      "label": "Definition 1.3",
+      "page": "2"
+    },
+    {
+      "section": "6",
+      "label": "Corollary 6.5",
+      "page": "9"
+    },
+    {
+      "section": "7",
+      "label": "Lemma 7.2",
+      "page": "10"
+    },
+    {
+      "section": "11",
+      "label": "Conjecture 11.1",
+      "page": "21"
+    },
+    {
+      "section": "11",
+      "label": "Conjecture 11.2",
+      "page": "22"
+    },
+    {
+      "section": "11",
+      "label": "Theorem 11.3",
+      "page": "22"
+    },
+    {
+      "section": "11",
+      "label": "Conjecture 11.4",
+      "page": "22"
+    }
+  ]
+}

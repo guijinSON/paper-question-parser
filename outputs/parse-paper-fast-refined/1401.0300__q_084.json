@@ -1,0 +1,47 @@
+{
+  "arxiv_id": "1401.0300",
+  "question_id": "q_084",
+  "original_question": "For σ ∈ Sn and τ ∈ Sm, where n ⩽ m, let dflex n(σ, τ) = (1/n) · (|{x ∈ {1,..., n} | σ(x) ̸= τ (x)}| + (m − n)). An almost-homomorphism {fn } is said to be flexibly close to a homomorphism if there is a sequence of group homomorphisms ρn: G → Smn with n ⩽ mn such that dflex n(ρn(g), fn(g)) → 0 as n → ∞ for all g ∈ G. The group G is said to be flexibly permutation stable if every almost-homomorphism of G is flexibly close to a homomorphism. Is SLn(Z) flexibly permutation-stable?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 3663.73,
+  "target_in_paper": "The draft is trying to capture the flexible-permutation-stability question introduced by Becker–Lubotzky in Section 4.4 (“A flexible variant of P-stability”), sharpened by Ioana’s official formulation of flexible P-stability and his remark that it is open whether groups with property (τ) can be flexibly P-stable. Specialized to the arithmetic example from Becker–Lubotzky’s Theorem 1.3, this becomes the question for SL_r(Z).",
+  "completeness_score": 6,
+  "correct_elements": "The draft correctly identifies the right stability notion as the flexible variant of permutation/P-stability, correctly captures the idea of allowing extra points before correcting an almost action, and reproduces Becker–Lubotzky’s cross-size defect metric d_flex from Section 4.4. It also picks a paper-faithful higher-rank arithmetic test case, namely SL_n(Z), which is central in Becker–Lubotzky’s discussion.",
+  "missing_details": [
+    "The paper-faithful modern formulation uses asymptotic homomorphisms σ_k: G → Sym(X_k) on finite sets X_k; your draft calls {f_n} an almost-homomorphism but does not state the asymptotic homomorphism condition d_H(σ_k(gh), σ_k(g)σ_k(h)) → 0 for all g,h ∈ G.",
+    "Your notation overloads n: it appears both in SL_n(Z) and in S_n. These should be separated, e.g. use r for the matrix rank and k for the approximation index.",
+    "To match the higher-rank arithmetic case treated around Theorem 1.3, the rank should be fixed with r ≥ 3; r = 2 is a qualitatively different case and is not the intended Property-(T)/(τ) example.",
+    "The official flexible-P-stability definition needs finite supersets X_k ⊂ Y_k together with genuine homomorphisms τ_k: G → Sym(Y_k).",
+    "The size control |Y_k|/|X_k| → 1 is essential for flexible P-stability; without it one gets the weaker 'very flexible' notion.",
+    "The comparison between σ_k(g) and τ_k(g) should be stated using the normalized Hamming metric on the same set, namely d_H(σ_k(g), τ_k(g)|_{X_k}), unless one explicitly chooses the Becker–Lubotzky presentation-based d_flex framework.",
+    "If one insists on the Becker–Lubotzky Section 4.4 formulation, one must first fix a finite generating set S and quotient map π: F_S → G, and define a P-stability challenge by requiring relator-defect d_H(f_k(w), id) → 0 for every w ∈ ker π.",
+    "The quantifiers should be explicit: the approximation condition is for every g,h ∈ G, and the correction condition is for every g ∈ G.",
+    "The draft does not specify whether it is asking for flexible P-stability or very flexible P-stability; in the relevant literature these are distinct notions unless additional hypotheses are invoked.",
+    "The paper-level intent is a single-group question for a fixed group G, so the refined question should ask about a fixed SL_r(Z), not leave the rank implicit."
+  ],
+  "refined_question": "Fix an integer r ≥ 3. Is the group SL_r(Z) flexibly P-stable in permutations? Equivalently, if d_H denotes the normalized Hamming metric on permutations of a finite set, does every asymptotic homomorphism σ_k: SL_r(Z) → Sym(X_k) on finite sets X_k—meaning that d_H(σ_k(gh), σ_k(g)σ_k(h)) → 0 for every g,h ∈ SL_r(Z)—admit finite supersets X_k ⊂ Y_k with |Y_k|/|X_k| → 1 and genuine homomorphisms τ_k: SL_r(Z) → Sym(Y_k) such that d_H(σ_k(g), τ_k(g)|_{X_k}) → 0 for every g ∈ SL_r(Z)?",
+  "equivalent_formulation": null,
+  "justification": "Your draft mixes two nearby formulations from the literature: Becker–Lubotzky’s Section 4.4 presentation-based d_flex definition, and the later full-group asymptotic-homomorphism formulation used by Ioana. The nearest official open formulation is Ioana’s remark that it is unknown whether groups with property (τ) can be flexibly P-stable; the natural arithmetic specialization, staying close to Becker–Lubotzky’s surrounding discussion, is to ask this for a fixed higher-rank group SL_r(Z), r ≥ 3, especially since Becker–Lubotzky had just proved that SL_n(Z), n ≥ 3, is not P-stable in the strict sense. The refined question therefore keeps your target group and stability notion, but replaces the incomplete 'almost-homomorphism' language by the paper-standard asymptotic-homomorphism quantifiers and the essential size condition |Y_k|/|X_k| → 1.",
+  "citations": [
+    {
+      "section": "1",
+      "label": "Theorem 1.3",
+      "page": 3
+    },
+    {
+      "section": "4.4",
+      "label": "A flexible variant of P-stability",
+      "page": "15-16"
+    },
+    {
+      "section": "1",
+      "label": "Definition 1.2 and Remark 1.3",
+      "page": 2
+    },
+    {
+      "section": "3.2",
+      "label": "Lemma 3.2",
+      "page": "9-10"
+    }
+  ]
+}

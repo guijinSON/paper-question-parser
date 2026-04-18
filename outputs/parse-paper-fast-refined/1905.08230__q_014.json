@@ -1,0 +1,48 @@
+{
+  "arxiv_id": "1905.08230",
+  "question_id": "q_014",
+  "original_question": "Let A ∈ GL_n(R) and Γ ⊂ R^n a full rank lattice. Let ψ be an orthonormal (or Parseval) wavelet associated with (A,Γ), and let ψ̂ be its Fourier transform.\n\nDoes Calderón’s formula ∑_{j∈Z} |ψ̂((A^T)^j ξ)|^2 = 1 hold for almost every ξ ∈ R^n?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 6570.6,
+  "target_in_paper": "Section 3.3, Problem 3.3 (\"Calderón’s formula\").",
+  "completeness_score": 8,
+  "correct_elements": "Your draft already matches the paper’s intended open problem very closely: it has the correct data A ∈ GL_n(R), a full-rank lattice Γ ⊂ R^n, a single wavelet ψ, the Fourier transform ψ̂, the Calderón sum over j ∈ Z with (A^T)^j, and the almost-everywhere conclusion on R^n. It also correctly reflects that the paper asks the same question for both orthonormal and Parseval wavelets.",
+  "missing_details": [
+    "The paper’s wavelets are elements of L^2(R^n), so ψ should be stated as ψ ∈ L^2(R^n).",
+    "The phrase “associated with (A,Γ)” should be made explicit using the affine system ψ_{j,k}(x) := |det A|^{j/2} ψ(A^j x − k), with j ∈ Z and k ∈ Γ.",
+    "For the orthonormal case, that affine system must be an orthonormal basis of L^2(R^n); for the Parseval case, it must be a Parseval frame for L^2(R^n).",
+    "Problem 3.3 is posed for any pair (A,Γ) for which such a wavelet exists; the paper does not add extra hypotheses such as expansiveness, integrality, or |det A| > 1 in the statement of this problem.",
+    "It should be explicit that “almost every” means Lebesgue-almost every ξ ∈ R^n.",
+    "For full paper-faithful context, the formula is equation (3.7), and the surrounding discussion says it is the first of two equations, together with (3.8), expected to characterize Parseval wavelets; your draft omits that role."
+  ],
+  "refined_question": "Let n ≥ 1, let A ∈ GL_n(R), and let Γ ⊂ R^n be a full-rank lattice. Suppose ψ ∈ L^2(R^n) is a single-generator wavelet associated with (A,Γ), meaning that the affine system {ψ_{j,k}(x) := |det A|^{j/2} ψ(A^j x − k) : j ∈ Z, k ∈ Γ} is either an orthonormal basis of L^2(R^n) or a Parseval frame for L^2(R^n). Must the Calderón identity sum_{j∈Z} |ψ̂((A^T)^j ξ)|^2 = 1 hold for Lebesgue-almost every ξ ∈ R^n?",
+  "equivalent_formulation": null,
+  "justification": "The draft is essentially the exact open problem stated in the paper as Problem 3.3 in §3.3. Definition 3.1 and equation (3.1) supply the hidden meaning of “wavelet associated with (A,Γ).” The paragraph immediately before §3.3 explains why this problem appears here: the authors expect the existence problem for orthonormal wavelets and the existence problem for MSF wavelets to coincide, but say this is unknown because the Calderón-formula problem is still open. The paragraph immediately after Problem 3.3 places (3.7) into its precise role as the first of two equations, together with (3.8), expected to characterize Parseval wavelets. Since the paper does not prove an equivalent reformulation of Problem 3.3, the faithful refinement is to restate that exact question with the ambient L^2(R^n) setting and affine-system normalization spelled out, and not to broaden it into the larger characterization problem.",
+  "citations": [
+    {
+      "section": "§3",
+      "label": "Definition 3.1 and equation (3.1)",
+      "page": "PDF p. 8"
+    },
+    {
+      "section": "§2.1",
+      "label": "unnumbered definition of Parseval wavelet",
+      "page": "PDF p. 3"
+    },
+    {
+      "section": "§3.3",
+      "label": "paragraph immediately preceding Problem 3.3",
+      "page": "PDF p. 11"
+    },
+    {
+      "section": "§3.3",
+      "label": "Problem 3.3 and equation (3.7)",
+      "page": "PDF p. 11"
+    },
+    {
+      "section": "§3.3",
+      "label": "equation (3.8) and the paragraph following Problem 3.3",
+      "page": "PDF p. 11"
+    }
+  ]
+}

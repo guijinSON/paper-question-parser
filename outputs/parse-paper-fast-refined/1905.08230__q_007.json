@@ -1,0 +1,51 @@
+{
+  "arxiv_id": "1905.08230",
+  "question_id": "q_007",
+  "original_question": "For ψ ∈ L2(R), define ψ_{j,k}(x) := 2^{j/2} ψ(2^j x − k), j,k ∈ Z. Call ψ a Riesz wavelet for L2(R) if {ψ_{j,k} : j,k ∈ Z} is a Riesz basis of L2(R).\n\nIs the collection of all Riesz wavelets dense in L2(R) with respect to the L2 norm?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 6589.32,
+  "target_in_paper": "Section 2.4, Problem 2.4, p. 4: Is the collection of all Riesz wavelets dense in L^2(R)?",
+  "completeness_score": 9.5,
+  "correct_elements": "Your draft is already extremely close to the paper’s official formulation. It uses the classical one-dimensional dyadic wavelet system ψ_{j,k}(x)=2^{j/2}ψ(2^j x-k) with j,k∈Z, it asks about Riesz wavelets in L^2(R), and it asks exactly about density in the L^2 norm; this matches the scope of Section 2 and the wording of Problem 2.4 almost verbatim (Section 2, Definition 2.1, p. 1; Section 2.4, Problem 2.4, p. 4).",
+  "missing_details": [
+    "To make the question fully stand-alone, it is helpful to unpack what “Riesz basis” means, namely completeness in L^2(R) together with a two-sided ℓ^2/L^2 norm inequality for finitely supported coefficient families; the paper uses the term without restating the inequality here (Section 2.2, unnumbered definition preceding Problem 2.2, p. 3).",
+    "The paper’s intended scope is the classical one-dimensional dyadic setting with fixed dilation 2 and fixed translation lattice Z; this hidden restriction matters because the nearby partial positive result allows the dilation matrix A and lattice Γ to vary, which is explicitly not the same problem (Section 2, Definition 2.1, p. 1; Section 2.4, discussion on p. 5).",
+    "The topology should be stated explicitly as the L^2(R)-norm on the generators ψ themselves, not on the associated wavelet systems; your draft says this, but making it part of the final single-sentence question keeps it fully self-contained and paper-faithful (Section 2.4, Problem 2.4, p. 4).",
+    "The refined question should avoid drifting to neighboring variants discussed nearby, such as density of framelets, non-density of tight framelets, or higher-dimensional approximation with variable A and Γ; the paper treats those only as context around the same open problem (Section 2.4, Theorem 2.9, p. 4; Theorem 2.10, pp. 4-5; discussion on p. 5)."
+  ],
+  "refined_question": "Let ψ∈L^2(R) and define ψ_{j,k}(x):=2^{j/2}ψ(2^j x-k) for j,k∈Z. Say that ψ is a Riesz wavelet for L^2(R) if the dyadic wavelet system {ψ_{j,k}}_{j,k∈Z} is a Riesz basis of L^2(R), i.e. its linear span is dense in L^2(R) and there exist constants 0<A≤B<∞ such that for every finitely supported scalar family {c_{j,k}}, A∑_{j,k}|c_{j,k}|^2 ≤ ||∑_{j,k} c_{j,k}ψ_{j,k}||_{L^2(R)}^2 ≤ B∑_{j,k}|c_{j,k}|^2. Is the set of all such ψ dense in L^2(R) with respect to the L^2(R)-norm?",
+  "equivalent_formulation": null,
+  "justification": "The draft clearly targets Section 2.4 rather than the connectivity questions in Section 2.1. The paper states the open problem exactly as Problem 2.4 on p. 4. The surrounding context supplies the needed hidden assumptions: Definition 2.1 fixes the classical one-dimensional dyadic system on L^2(R), and the unnumbered discussion just before Problem 2.2 explains that a Riesz wavelet means a generator whose wavelet system is a Riesz basis of the ambient Hilbert space H, here H=L^2(R) (Section 2, Definition 2.1, p. 1; Section 2.2, p. 3; Section 2.4, Problem 2.4, p. 4). Section 2.4 also explains why the question should not be broadened: framelets are dense (Theorem 2.9, p. 4), tight framelets are not dense (Theorem 2.10, pp. 4-5), and Cabrelli–Molter’s partial approximation result does not settle Problem 2.4 because it allows the dilation matrix A and translation lattice Γ to vary, whereas Problem 2.4 keeps the dyadic dilation and integer translates fixed (Section 2.4, p. 5).",
+  "citations": [
+    {
+      "section": "2",
+      "label": "Definition 2.1",
+      "page": 1
+    },
+    {
+      "section": "2.2",
+      "label": "unnumbered definition of Riesz wavelet preceding Problem 2.2",
+      "page": 3
+    },
+    {
+      "section": "2.4",
+      "label": "Problem 2.4",
+      "page": 4
+    },
+    {
+      "section": "2.4",
+      "label": "Theorem 2.9",
+      "page": 4
+    },
+    {
+      "section": "2.4",
+      "label": "Theorem 2.10",
+      "page": "4-5"
+    },
+    {
+      "section": "2.4",
+      "label": "discussion after Theorem 2.10 on fixed dyadic dilation and fixed lattice of translates",
+      "page": 5
+    }
+  ]
+}

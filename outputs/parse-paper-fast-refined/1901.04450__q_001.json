@@ -1,0 +1,49 @@
+{
+  "arxiv_id": "1901.04450",
+  "question_id": "q_001",
+  "original_question": "Consider the exterior Robin boundary value problem for the unit sphere in R^3: find a harmonic function w(φ, θ, r), defined for r > 1, 2π-periodic in θ, twice continuously differentiable, satisfying Laplace’s equation together with the boundary conditions lim_{r→1+} ||α w(φ, θ, r) + β ∂w/∂r(φ, θ, r) − h(φ, θ)||_{L^2(S)} = 0 and lim_{r→∞} w(φ, θ, r) = 0, where h ∈ L^2(S), S is the unit sphere, and α, β are chosen so that α − β(k + 1) ≠ 0 for every nonnegative integer k. For this problem, the boundary operator obtained from the solution formula is not a semigroup unless β = 0 (the Dirichlet case) or α = 0 (the Neumann case). In the semigroup setting for the Dirichlet and Neumann problems, the key tool relating approximation behavior and ergodic behavior is the interconnection theorem λR(λ; A^{-1})f = f − λ^{-1}R(λ^{-1}; A)f, where A is the infinitesimal generator of a semigroup. Does there exist an analogous interconnection relation for the Robin problem, or more generally when the relevant operator A is not the generator of a semigroup of operators, that could play the same role in establishing counterparts of the equivalences involving the resolvents and inverse/ergodic assertions from Theorems 1.1 and 2.1?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 6499.74,
+  "target_in_paper": "The draft is aiming at the paper's stated novel open problem: to find a Robin-case substitute for the semigroup-based interconnection machinery that works for the exterior Dirichlet and Neumann problems, even though the exterior Robin solution operators for the unit sphere in R^3 do not form a semigroup.",
+  "completeness_score": 8.5,
+  "correct_elements": "Your draft already isolates the correct mathematical setting: the exterior Robin problem for the unit sphere in R^3 with boundary data h in L^2(S), the nondegeneracy condition alpha - beta(k+1) != 0 for all k >= 0, the fact that the associated Robin solution family fails to be a semigroup except in the Dirichlet case beta = 0 and the Neumann case alpha = 0, and the role of the semigroup interconnection theorem in the Dirichlet/Neumann theory. It also correctly identifies that the real issue is not solving the Robin boundary value problem itself, but recovering an analogue of the approximation-versus-ergodic linkage used earlier in the paper.",
+  "missing_details": [
+    "The paper frames this as a specific open problem about the exterior Robin problem for the unit sphere, not as a broad question about arbitrary non-semigroup operators.",
+    "The semigroup identity that plays the key role is the general interconnection formula in a-Drazin form, lambda R(lambda; B)f = [P + I - lambda^{-1}R(lambda^{-1}; A)]f, with B the a-Drazin inverse and P the projection onto the nullspace; your draft states only the invertible special case B = A^{-1}.",
+    "A stand-alone formulation should name the Robin solution family/operator itself (for example U_R(r)h or U_R(e^t)h), rather than referring only to 'the boundary operator obtained from the solution formula.'",
+    "The question should explicitly say that the desired Robin analogue is meant to recover the same kind of approximation/ergodic equivalences proved for Dirichlet and Neumann, rather than merely any formal resolvent identity.",
+    "To be fully self-contained, the natural spherical-harmonic multiplier structure of the Robin solution family should be stated explicitly, e.g. coefficients r^{-(k+1)}/(alpha - beta(k+1)).",
+    "The scope should stay with the paper's unit-sphere, L^2(S), spherical-harmonic framework, and should not drift into a general theory of non-semigroup operators beyond what is needed for this Robin problem.",
+    "Because the paper presents this as an open problem or programmatic question rather than as a theorem/conjecture with a closed formal label visible in the fetched text, the rewritten question should be phrased as a precise research question, not as a claim that the paper already formulates an exact theorem-numbered conjecture."
+  ],
+  "refined_question": "Let S be the unit sphere in R^3, let h in L^2(S), and let alpha, beta be fixed real constants such that alpha - beta(k+1) != 0 for every k in N_0. Denote by U_R(r)h the unique exterior Robin solution of Laplace's equation for r > 1 with boundary condition alpha w + beta partial_r w = h on S and decay w(r,phi,theta) -> 0 as r -> infinity; equivalently, in spherical harmonics, U_R(r) has multipliers r^{-(k+1)}/(alpha - beta(k+1)). Except in the limiting Dirichlet case beta = 0 and Neumann case alpha = 0, the family {U_R(e^t)}_{t >= 0} is not a C_0-semigroup on L^2(S). Is there, nevertheless, a Robin-specific analogue of the semigroup interconnection theorem—namely of the resolvent relation lambda R(lambda; B)f = [P + I - lambda^{-1}R(lambda^{-1}; A)]f, which in the invertible case reduces to lambda R(lambda; A^{-1})f = f - lambda^{-1}R(lambda^{-1}; A)f—that links the boundary-approximation behavior of U_R(r) as r -> 1+ to a naturally associated inverse/ergodic problem in the whole space, and thereby yields Robin counterparts of the Dirichlet/Neumann approximation-versus-ergodic equivalences proved in the paper?",
+  "equivalent_formulation": null,
+  "justification": "The arXiv abstract explicitly says that the Robin case is the paper's novel open problem: the solution of the third boundary value problem is not a semigroup of operators, so the semigroup methods used for Dirichlet and Neumann cannot be applied. The later published version repeats the same point in the Introduction and again in the section titled 'The third or Robin's problem of potential theory.' The exact semigroup tool your draft invokes is the interconnection identity used in the Dirichlet/Neumann framework (Theorem 5.1, equation (5.2), and the ensuing Section 6 'General Interconnection Theorem'). So the closest paper-faithful sharpening is not a broad question about all non-semigroup operators, but a narrow request for a Robin analogue of that interconnection principle in the unit-sphere exterior problem.",
+  "citations": [
+    {
+      "section": "Abstract",
+      "label": "arXiv abstract",
+      "page": "abstract page on arXiv (no page number shown)"
+    },
+    {
+      "section": "Introduction",
+      "label": "statement that Dirichlet/Neumann use semigroup methods, whereas Robin does not",
+      "page": "HTML snippet from published version; page number not shown"
+    },
+    {
+      "section": "The third or Robin’s problem of potential theory",
+      "label": "Robin problem setup in the published version",
+      "page": "HTML snippet from published version; page number not shown"
+    },
+    {
+      "section": "Section 6",
+      "label": "General Interconnection Theorem",
+      "page": "HTML version of related Dirichlet/Neumann paper; page number not shown"
+    },
+    {
+      "section": "Section 5",
+      "label": "Theorem 5.1, equation (5.2)",
+      "page": "HTML version of related Dirichlet/Neumann paper; page number not shown"
+    }
+  ]
+}

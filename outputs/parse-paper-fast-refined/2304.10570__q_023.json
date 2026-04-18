@@ -1,0 +1,50 @@
+{
+  "arxiv_id": "2304.10570",
+  "question_id": "q_023",
+  "original_question": "Prove a super-linear lower bound for the stabilizer rank of quantum states in the stated d-qubit stabilizer framework.",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 8753.84,
+  "target_in_paper": "Section 4.3, Problem 23 (\"Prove a super linear lower bound for stabilizer rank\"), read together with the immediately preceding definitions of the d-qubit stabilizer set Stab_d and the exact stabilizer rank stabR(T), and with the preceding sentence highlighting the family v^{⊗ d} for v = e_0 + sqrt(2)e_1.",
+  "completeness_score": 6,
+  "correct_elements": "Your draft correctly identifies the right topic and target asymptotic: it is about stabilizer rank, not tensor subrank or generic stabilizer rank, and it asks for a super-linear lower bound in the d-qubit stabilizer setting of Section 4.3.",
+  "missing_details": [
+    "The ambient space should be stated explicitly: T is a d-qubit state in (ℂ^2)^{⊗ d}.",
+    "The paper’s stabilizer framework should be defined: Stab_d = {U·e_0^{⊗ d} : U ∈ C_d}, where C_d is the finite quotient of the d-qubit Clifford group action used in the paper.",
+    "The exact meaning of stabilizer rank should be included: stabR(T) = min{r : T = α_1T_1 + ... + α_rT_r with T_i ∈ Stab_d and α_i ∈ ℂ}.",
+    "It should be clear that this is exact stabilizer rank, not approximate stabilizer rank.",
+    "The asymptotic variable and quantifier should be spelled out: the lower bound is as d → ∞, and 'super-linear' means a bound f(d) with f(d)/d → ∞ (equivalently, eventually larger than every constant multiple of d).",
+    "The draft does not specify whether the claim is about some explicit family of states, all states in a class, or the generic stabilizer rank; the nearby context indicates the intended reading is about exhibiting explicit states with unusually large stabilizer rank.",
+    "The immediately preceding context singles out the concrete family v^{⊗ d}, where v = e_0 + sqrt(2)e_1, as the motivating candidate whose known lower bounds the paper wants improved; without mentioning this, the question is less sharp than the paper’s local intent.",
+    "The draft should distinguish Problem 23 from Problem 24, which concerns the separate quantity stabR_d (generic stabilizer rank)."
+  ],
+  "refined_question": "For each integer d ≥ 1, let P_d be the d-th Pauli group on (ℂ^2)^{⊗ d}, let C_d be the corresponding d-qubit Clifford quotient acting on projective space, let Stab_d = {U·e_0^{⊗ d} : U ∈ C_d} ⊂ (ℂ^2)^{⊗ d}, and define the exact stabilizer rank of T ∈ (ℂ^2)^{⊗ d} by stabR(T) = min{r : T = α_1T_1 + ··· + α_rT_r with T_i ∈ Stab_d and α_i ∈ ℂ}. Can one exhibit an explicit family of d-qubit states T_d (with the motivating example in the paper being T_d = (e_0 + sqrt(2)e_1)^{⊗ d}) such that stabR(T_d) ≥ f(d) for some function f satisfying f(d)/d → ∞ as d → ∞?",
+  "equivalent_formulation": "Equivalently, in the paper’s tensor-rank notation, find an explicit family T_d ∈ (ℂ^2)^{⊗ d} with R_{Stab_d}(T_d) = ω(d), since the paper states that stabR(T) = R_{Stab_d}(T).",
+  "justification": "The draft is clearly aiming at Section 4.3, Problem 23, because its wording is almost the same as the official problem statement. To make it mathematically stand-alone, one must import the paper’s definitions of Stab_d and stabR(T) from the preceding paragraph and clarify that the asymptotic parameter is the number of qubits d. The paragraph immediately before Problem 23 gives the only concrete family mentioned in this local discussion, namely v^{⊗ d} with v = e_0 + sqrt(2)e_1, together with the currently cited lower bounds; making that family visible sharpens the question while staying within the paper’s intent. It is also important not to drift into Problem 24, which is about the separate generic quantity stabR_d rather than the stabilizer rank of an explicit state family.",
+  "citations": [
+    {
+      "section": "4.3",
+      "label": "definition of Stab_d",
+      "page": "14"
+    },
+    {
+      "section": "4.3",
+      "label": "definition of stabR(T) and the equivalence stabR(T) = R_{Stab_d}(T)",
+      "page": "14-15"
+    },
+    {
+      "section": "4.3",
+      "label": "paragraph preceding Problem 23 (v = e_0 + sqrt(2)e_1 and quoted lower bounds)",
+      "page": "15"
+    },
+    {
+      "section": "4.3",
+      "label": "Problem 23",
+      "page": "15"
+    },
+    {
+      "section": "4.3",
+      "label": "Problem 24",
+      "page": "15"
+    }
+  ]
+}

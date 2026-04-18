@@ -1,0 +1,54 @@
+{
+  "arxiv_id": "2012.04625",
+  "question_id": "q_015",
+  "original_question": "Let A053392 map a decimal integer to the decimal concatenation of the sums of each pair of consecutive digits, and then remove duplicates to obtain A347520. Explain why the associated 4-regular graphs of this de-duplicated digit-concatenation sequence are so striking and highly regular.",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 7415.13,
+  "target_in_paper": "Section 2.15 (\"A Digit Concatenation Sequence\"), read together with the open-problem framing in Section 1.1 and the graph construction in Section 1.2: explain/prove the striking regularity of the graphs arising from A347520, the duplicate-free version of A053392.",
+  "completeness_score": 8,
+  "correct_elements": "The draft correctly identifies the precise sequence discussed in Section 2.15: start from A053392, delete repeated values to get A347520, and ask why the resulting associated 4-regular graphs look exceptionally regular. That is essentially the paper's own empirical observation for this example, and the draft stays narrowly aligned with the paper's intent.",
+  "missing_details": [
+    "The paper studies a family of finite graphs G_N built from the first N terms of the sequence, not a single graph attached to the infinite sequence.",
+    "A347520 should be defined as the sequence obtained from A053392 by deleting repeated values while preserving first-occurrence order.",
+    "The graph construction from Section 1.2 should be stated explicitly: for a_1, ..., a_N, connect consecutive terms cyclically in sequence order, then sort the same N values increasingly and connect consecutive values cyclically again.",
+    "The paper's construction allows multiple edges between a pair of vertices; so the object is more precisely a 4-regular graph with possible double edges (i.e. a 4-regular multigraph in modern terminology), though there are no loops.",
+    "The base-10 nature of A053392 should be explicit: if n has decimal digits d_1 ... d_k, then the image is obtained by concatenating the decimal integers d_1+d_2, d_2+d_3, ..., d_{k-1}+d_k.",
+    "The question should be framed as a rigorous explanation/proof of the observed regularity in Figure 13, since the paper presents this example empirically as one of its open problems.",
+    "If one wants the question to be fully stand-alone, it should say that the paper is asking for the structural feature of A347520 responsible for the observed regularity, rather than merely requesting an informal visual explanation."
+  ],
+  "refined_question": "Let A053392 be the base-10 map that sends an integer n with decimal expansion d_1d_2...d_k to the integer obtained by concatenating the decimal sums d_1+d_2, d_2+d_3, ..., d_{k-1}+d_k, and let A347520 be the sequence obtained from A053392 by deleting repeated values in order of first appearance. For each N, let a_1, ..., a_N be the first N terms of A347520, and let G_N be the 4-regular graph of Section 1.2 (allowing double edges): connect a_i to a_{i+1} cyclically in the original sequence order, and also connect consecutive vertices cyclically after sorting {a_1, ..., a_N} in increasing order. Give a rigorous explanation for the empirical phenomenon observed in Figure 13: why do the graphs G_N arising from A347520 display such striking and highly regular structure, and what concrete combinatorial or arithmetic property of A347520 forces that regularity?",
+  "equivalent_formulation": null,
+  "justification": "The draft points directly to Section 2.15, which is the paper's dedicated discussion of A347520. That section does not state a numbered conjecture or theorem; instead it records the empirical observation that the duplicate-free digit-concatenation sequence yields a very regular graph. Sections 1.1 and 2 explain that these empirical observations are intended as open problems asking the reader to prove or explain the visible structure, and Section 1.2 supplies the exact 4-regular graph construction that must be imported to make the question self-contained. The refined question therefore stays narrow: it does not broaden to general digit systems, unrelated graph invariants, or spectral reformulations not made explicit for this example.",
+  "citations": [
+    {
+      "section": "1.1",
+      "label": "Introduction / open-problem framing",
+      "page": "ar5iv HTML lines 46-52"
+    },
+    {
+      "section": "1.2",
+      "label": "A Type of Graph",
+      "page": "ar5iv HTML lines 55-59"
+    },
+    {
+      "section": "2",
+      "label": "Table 1 entry for A347520",
+      "page": "ar5iv HTML lines 98-101"
+    },
+    {
+      "section": "2",
+      "label": "Introduction to the list of examples",
+      "page": "ar5iv HTML lines 102-105"
+    },
+    {
+      "section": "2.15",
+      "label": "A Digit Concatenation Sequence",
+      "page": "ar5iv HTML lines 255-257"
+    },
+    {
+      "section": "2.14-2.15",
+      "label": "Figure 13 caption (A347520 graph)",
+      "page": "ar5iv HTML lines 254-257"
+    }
+  ]
+}

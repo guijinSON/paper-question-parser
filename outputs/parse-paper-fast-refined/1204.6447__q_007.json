@@ -1,0 +1,39 @@
+{
+  "arxiv_id": "1204.6447",
+  "question_id": "q_007",
+  "original_question": "Let f : {-1,1}^n -> {-1,1} be computable by a DNF of size s > 1, and let epsilon in (0,1/2]. Is the Fourier spectrum of f always epsilon-concentrated on some collection F with |F| <= s^{O(log(1/epsilon))}?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 2230.06,
+  "target_in_paper": "Unnumbered problem \"Mansour's Conjecture\" in the main problem list (page 4).",
+  "completeness_score": 9,
+  "correct_elements": "Your draft is already extremely close to the paper's exact formulation: it has the correct domain and codomain f : {-1,1}^n -> {-1,1}, the hypothesis that f is computable by a DNF of size s > 1, the parameter range ε in (0,1/2], and the strong target bound |F| <= s^{O(log(1/ε))} that appears under the heading \"Mansour's Conjecture.\"",
+  "missing_details": [
+    "The quantifiers should be explicit: the statement is for every n, every Boolean function f computable by a size-s DNF, and every ε in (0,1/2].",
+    "The Fourier representation should be spelled out to make the question stand-alone: f(x)=Σ_{S⊆[n]} hat f(S) χ_S(x) under the uniform measure on {-1,1}^n.",
+    "The collection F should be identified as a set of Fourier characters, equivalently a set of subsets S⊆[n] indexing the Walsh basis.",
+    "The meaning of \"ε-concentrated\" should be made explicit, namely that the squared Fourier mass outside F is at most ε: Σ_{S∉F} hat f(S)^2 <= ε.",
+    "The hidden constant in O(log(1/ε)) should be stated as absolute/universal, independent of n, s, f, and ε.",
+    "To be fully stand-alone, \"DNF of size s\" should be glossed as a DNF with s terms.",
+    "The paper itself does not define these notations locally; it explicitly refers the reader elsewhere for notation and definitions."
+  ],
+  "refined_question": "For every n >= 1, every Boolean function f : {-1,1}^n -> {-1,1} computable by a DNF with s > 1 terms, and every ε in (0,1/2], if f has Fourier-Walsh expansion f(x)=Σ_{S⊆[n]} hat f(S) χ_S(x) under the uniform measure on {-1,1}^n, where χ_S(x)=∏_{i∈S} x_i, must there exist a set F⊆2^[n] and an absolute constant C such that Σ_{S∉F} hat f(S)^2 <= ε and |F| <= s^{C log(1/ε)}?",
+  "equivalent_formulation": null,
+  "justification": "The draft is targeting the exact unnumbered problem labeled \"Mansour's Conjecture\" on page 4, and it is already almost a verbatim restatement of that item. I only sharpened it by making explicit the standard Fourier-Walsh notation that the paper leaves implicit. This is necessary because the title page says the note assumes external standard notation and definitions. The page-4 remarks also confirm that the intended target is the strong s^{O(log(1/ε))} form, not the weaker nearby variants s^{O_ε(1)} or the consequence from the Fourier Entropy-Influence Conjecture with s^{O(1/ε)}.",
+  "citations": [
+    {
+      "section": "front matter",
+      "label": "notation-and-definitions note on the title page",
+      "page": 1
+    },
+    {
+      "section": "unnumbered problem list",
+      "label": "Mansour's Conjecture",
+      "page": 4
+    },
+    {
+      "section": "unnumbered problem list",
+      "label": "Mansour's Conjecture remarks",
+      "page": 4
+    }
+  ]
+}

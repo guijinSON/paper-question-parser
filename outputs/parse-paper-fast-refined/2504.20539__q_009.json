@@ -1,0 +1,41 @@
+{
+  "arxiv_id": "2504.20539",
+  "question_id": "q_009",
+  "original_question": "Fix even tensor order r and integer level ell with n much larger than ell and ell >= r/2. Let M(lambda) be the matrix indexed by ell-subsets I, J of [n], with entries M(lambda)_{I,J} = lambda + Z_{IΔJ} when |IΔJ| = r and 0 otherwise, where Z_S are independent N(0,1) variables for |S| = r. Let lambda^natural_{r,ell} be the eigenvalue pop-out threshold of M(lambda). Is it true that for each fixed r, one has n^{r/4} * lambda^natural_{r,ell} -> 0 as ell -> infinity (after taking n -> infinity)?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 10817.66,
+  "target_in_paper": "Entry 5, Conjecture 9 (Kikuchi Spectral Threshold)",
+  "completeness_score": 8.5,
+  "correct_elements": "Your draft is very close to the paper’s official formulation. It correctly targets the Kikuchi-matrix question in Tensor PCA, uses even tensor order r, the level parameter ℓ with n much larger than ℓ and ℓ ≥ r/2, the matrix indexed by ℓ-subsets of [n], the entry rule M(λ)_{I,J} = λ + Z_{IΔJ} when |IΔJ| = r and 0 otherwise, and the asymptotic question of whether the normalized pop-out threshold n^{r/4} λ^natural_{r,ℓ} tends to 0 as ℓ → ∞ after the large-n limit. That is exactly the content of the paper’s Kikuchi Spectral Threshold conjecture.",
+  "missing_details": [
+    "The paper states that r, ℓ, n are positive integers with r even and n ≫ ℓ ≥ r/2, and that r and ℓ are fixed while n → ∞.",
+    "The ambient field is ℝ: M(λ) is a real symmetric random matrix, and λ_max denotes its largest eigenvalue.",
+    "Rows and columns are indexed by subsets I, J ⊂ [n] of size exactly ℓ, where [n] = {1, 2, ..., n}.",
+    "The Gaussian noise variables are indexed by r-subsets S ⊂ [n]: for each such S, Z_S ~ N(0,1), independently.",
+    "The conjecture assumes λ ≥ 0.",
+    "The threshold λ^natural_{r,ℓ} is not an informal spectral threshold; it is defined by a specific expected-top-eigenvalue separation criterion: for every λ > λ^natural_{r,ℓ}, there exists ε > 0 such that E[λ_max(M(λ))] > (1 + ε + o(1)) E[λ_max(M(0))] as n → ∞.",
+    "The phrase 'after taking n → ∞' should be built into the formulation, since λ^natural_{r,ℓ} is an asymptotic pop-out threshold for the family M^{(n)}(λ), not a purely finite-n quantity.",
+    "In the paper, the form λ + Z_{IΔJ} comes after reducing symmetric Tensor PCA to the all-ones spike x = 1 by rotational invariance of the noise; without that nearby context, the signal term can look unmotivated.",
+    "The paper frames the problem specifically as understanding when the top of the spectrum of M reveals the spike, and Conjecture 9 is the official formulation of that question."
+  ],
+  "refined_question": "Let r and ℓ be fixed positive integers with r even and ℓ ≥ r/2, and for each n ≫ ℓ let M^{(n)}(λ) be the real symmetric matrix of size (n choose ℓ) × (n choose ℓ), indexed by ℓ-subsets I, J ⊂ [n], defined by M^{(n)}(λ)_{I,J} = λ + Z_{IΔJ} if |IΔJ| = r and M^{(n)}(λ)_{I,J} = 0 otherwise, where for each r-subset S ⊂ [n] the variables Z_S are independent N(0,1) random variables and IΔJ = (I ∪ J) \\ (I ∩ J). Let λ^natural_{r,ℓ} denote the asymptotic eigenvalue pop-out threshold of this family, in the sense that for every λ > λ^natural_{r,ℓ} there exists ε > 0 such that E[λ_max(M^{(n)}(λ))] > (1 + ε + o_n(1)) E[λ_max(M^{(n)}(0))] as n → ∞. Is it true that, for each fixed even r, one has n^{r/4} λ^natural_{r,ℓ} → 0 as ℓ → ∞, with the ℓ-limit understood only after the large-n asymptotic in the definition of λ^natural_{r,ℓ}?",
+  "equivalent_formulation": null,
+  "justification": "The draft is clearly aiming at the paper’s Tensor-PCA/Kikuchi open problem, and the nearest official formulation is Conjecture 9 in Entry 5. The matrix model in your draft matches the paper’s Kikuchi matrix after the paper uses rotational invariance to assume the spike is the all-ones vector. The only substantive gaps are the paper’s exact asymptotic regime, the precise definition of the pop-out threshold via E[λ_max(M(λ))], the λ ≥ 0 restriction, and the need to make the order of limits explicit. Tightening those details yields a stand-alone question that remains faithful to the paper’s exact intent and does not broaden it.",
+  "citations": [
+    {
+      "section": "Entry 5 Tensor PCA and the Kikuchi algorithm",
+      "label": "Tensor PCA model and reduction to the all-ones spike; Kikuchi matrix definition",
+      "page": "6-7"
+    },
+    {
+      "section": "Entry 5 Tensor PCA and the Kikuchi algorithm",
+      "label": "Conjecture 9 (Kikuchi Spectral Threshold)",
+      "page": 7
+    },
+    {
+      "section": "Entry 5 Tensor PCA and the Kikuchi algorithm",
+      "label": "Discussion immediately after Conjecture 9",
+      "page": 7
+    }
+  ]
+}

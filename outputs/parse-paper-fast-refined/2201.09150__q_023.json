@@ -1,0 +1,50 @@
+{
+  "arxiv_id": "2201.09150",
+  "question_id": "q_023",
+  "original_question": "For the scalar diffusion-advection model whose advective potential is the population density evaluated tau time units in the past, determine how the existing analysis changes when homogeneous Neumann boundary data are replaced by periodic or homogeneous Dirichlet boundary data.",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 7944.75,
+  "target_in_paper": "Open Problem 23 in Section 2.3.1 (Discrete time delays — Scalar equations), attached to model (2.20): the paper asks how the Shi et al. (2019) Neumann-boundary analysis for the delayed scalar diffusion-advection equation changes under periodic or homogeneous Dirichlet boundary data. ([math.ualberta.ca](https://www.math.ualberta.ca/~hwang/WangSalmaniwReview.pdf))",
+  "completeness_score": 8.5,
+  "correct_elements": "Your draft is already very close to the paper’s official target: it identifies the scalar delay model in which the advective potential is the population density evaluated at time t−τ, keeps the focus on replacing homogeneous Neumann data by periodic or homogeneous Dirichlet data, and asks specifically how the existing Shi et al. (2019) analysis changes, rather than drifting to the neighboring problem about adding nonlocal perception. ([math.ualberta.ca](https://www.math.ualberta.ca/~hwang/WangSalmaniwReview.pdf))",
+  "missing_details": [
+    "The exact PDE should be stated explicitly: u_t = d1Δu − γ∇·(u∇uτ) + f(u), where uτ(x,t) = u(x,t−τ). ([math.ualberta.ca](https://www.math.ualberta.ca/~hwang/WangSalmaniwReview.pdf))",
+    "The parameter assumptions are omitted: τ>0, d1>0, and γ∈R. ([math.ualberta.ca](https://www.math.ualberta.ca/~hwang/WangSalmaniwReview.pdf))",
+    "The reaction term hypotheses are omitted: f∈C1(R+) and is taken to be roughly logistic, with f(0)=f(1)=0 and f(u)<0 for u>1. ([math.ualberta.ca](https://www.math.ualberta.ca/~hwang/WangSalmaniwReview.pdf))",
+    "A stand-alone version should specify the state variable and codomain: u is a nonnegative population density, so one is studying nonnegative real-valued solutions. ([math.ualberta.ca](https://www.math.ualberta.ca/~hwang/WangSalmaniwReview.pdf))",
+    "The spatial setting should be made explicit: for Neumann/Dirichlet one should say the problem is posed on a smooth bounded domain Ω⊂R^n with boundary ∂Ω; for the periodic case, the paper interprets this as a periodic domain, equivalently a torus in higher dimensions. ([math.ualberta.ca](https://www.math.ualberta.ca/~hwang/WangSalmaniwReview.pdf))",
+    "The phrase “existing analysis” is still implicit. The review indicates that, for model (2.20), the Shi et al. (2019) analysis includes at least unique global solvability under mild conditions and stability conclusions for the constant steady state. ([math.ualberta.ca](https://www.math.ualberta.ca/~hwang/WangSalmaniwReview.pdf))",
+    "To be fully self-contained, the question should quantify over suitable compatible initial/history data for the delayed problem; the short open-problem statement suppresses this, but the review’s general discussion of well-posedness and initial conditions shows that such data are part of the time-dependent formulation. ([math.ualberta.ca](https://www.math.ualberta.ca/~hwang/WangSalmaniwReview.pdf))",
+    "The nearby boundary-condition context is also suppressed: homogeneous Dirichlet data are interpreted as a hostile boundary and periodic data are analytically easier because they avoid a physical boundary. This helps explain why the boundary change is mathematically nontrivial in the paper’s framing. ([math.ualberta.ca](https://www.math.ualberta.ca/~hwang/WangSalmaniwReview.pdf))"
+  ],
+  "refined_question": "Let Ω⊂R^n be a smooth bounded domain, let τ>0, d1>0, γ∈R, and let f∈C1(R+) satisfy f(0)=f(1)=0 and f(u)<0 for u>1. For nonnegative solutions u of the delayed scalar diffusion-advection equation u_t = d1Δu − γ∇·(u∇u(x,t−τ)) + f(u), posed with suitable compatible initial/history data, determine how the Shi et al. (2019) analysis carried out under homogeneous Neumann boundary conditions changes when one instead imposes either periodic boundary conditions (equivalently, studies the problem on a torus) or homogeneous Dirichlet boundary conditions on ∂Ω. ([math.ualberta.ca](https://www.math.ualberta.ca/~hwang/WangSalmaniwReview.pdf))",
+  "equivalent_formulation": null,
+  "justification": "The draft matches Open Problem 23 almost verbatim, because it concerns exactly the scalar discrete-delay model (2.20) with advective potential a(x,t)=u(x,t−τ) and asks only about changing the boundary data from the homogeneous Neumann case used in Shi et al. (2019) to periodic or homogeneous Dirichlet data. It is not the adjacent Open Problem 24, which asks about adding nonlocal perception via a top-hat kernel, nor the later boundary-kernel problems in Section 4.1.2/4.7. To make the question genuinely stand-alone while staying paper-faithful, the model definition from Section 2.3.1, the paper’s summary of the known Shi et al. (2019) results in Sections 5.1.2 and 5.2.2, and the boundary-condition interpretations in Section 4.1.2 all need to be folded into the wording. ([math.ualberta.ca](https://www.math.ualberta.ca/~hwang/WangSalmaniwReview.pdf))",
+  "citations": [
+    {
+      "section": "2.3.1 Discrete time delays — Scalar equations",
+      "label": "Model (2.20) and Open Problem 23",
+      "page": "P20"
+    },
+    {
+      "section": "4.1.2 Considerations — Initial conditions",
+      "label": "Initial-data discussion for time-dependent problems",
+      "page": "P37"
+    },
+    {
+      "section": "4.1.2 Considerations — Boundary conditions",
+      "label": "Homogeneous Dirichlet, periodic boundary conditions, and their interpretations",
+      "page": "P38-P39"
+    },
+    {
+      "section": "5.1.2 Explicit memory models",
+      "label": "Model (2.20) has a unique global solution under mild conditions; cites Shi et al. (2019), Proposition 2.1",
+      "page": "P55"
+    },
+    {
+      "section": "5.2.2 Explicit memory models",
+      "label": "Stability summary for model (2.20)",
+      "page": "P57"
+    }
+  ]
+}

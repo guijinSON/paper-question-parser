@@ -1,0 +1,59 @@
+{
+  "arxiv_id": "1204.1895",
+  "question_id": "q_007",
+  "original_question": "Assume the family of cookie stacks is i.i.d. and elliptic, so every transition probability ω(z,e,i) is strictly positive almost surely, and fix a nonzero direction l in R^d. On the event that the walk does not escape to infinity in norm, does the directional speed X_n · l / n converge almost surely to 0 as n tends to infinity?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 159.38,
+  "target_in_paper": "Problem 4.7 in Section 4.2 (p. 132): assume (IID), (EL), and ℓ∈R^d with ℓ≠0; does X_n·ℓ/n converge P_0-a.s. on the event {|X_n|→∞}^c to 0 as n→∞? ([math.sinica.edu.tw](https://www.math.sinica.edu.tw/bulletins/20131/2013106.pdf?utm_source=openai))",
+  "completeness_score": 9,
+  "correct_elements": "Your draft is already very close to the paper’s exact formulation: it has the right environmental assumptions ((IID) and ellipticity (EL)), the right parameter (a fixed nonzero direction ℓ∈R^d), the right exceptional event (the walk does not escape to infinity in norm, i.e. {|X_n|→∞}^c), and the right limit claim X_n·ℓ/n→0. ([math.sinica.edu.tw](https://www.math.sinica.edu.tw/bulletins/20131/2013106.pdf?utm_source=openai))",
+  "missing_details": [
+    "The paper states the question for an excited random walk X=(X_n)_{n≥0} on the lattice Z^d, with nearest-neighbor steps in E={±e_j:1≤j≤d}, defined by the transition rule (1.1); your draft assumes this context but does not state it. ([math.sinica.edu.tw](https://www.math.sinica.edu.tw/bulletins/20131/2013106.pdf?utm_source=openai))",
+    "The question is asked under the averaged law P_0 for a walk started at 0, so the almost sure statement should be explicitly P_0-a.s., not an unspecified a.s. claim. ([math.sinica.edu.tw](https://www.math.sinica.edu.tw/bulletins/20131/2013106.pdf?utm_source=openai))",
+    "The paper makes the quantifiers in (EL) explicit: for every z∈Z^d, e∈E, and i∈N, one has P-a.s. ω(z,e,i)>0. Your paraphrase captures the meaning but not the full quantified form. ([math.sinica.edu.tw](https://www.math.sinica.edu.tw/bulletins/20131/2013106.pdf?utm_source=openai))",
+    "The paper explicitly allows all dimensions d≥1; that scope should be stated. ([math.sinica.edu.tw](https://www.math.sinica.edu.tw/bulletins/20131/2013106.pdf?utm_source=openai))",
+    "To stay paper-faithful, the event should be written exactly as {|X_n|→∞}^c, which is the complement of transience in the sense of Definition 3.1. ([math.sinica.edu.tw](https://www.math.sinica.edu.tw/bulletins/20131/2013106.pdf?utm_source=openai))",
+    "This is posed as an open problem (Problem 4.7), not as a theorem already resolved in the paper. ([math.sinica.edu.tw](https://www.math.sinica.edu.tw/bulletins/20131/2013106.pdf?utm_source=openai))",
+    "Nearby context matters: Theorem 4.6 already proves a directional law of large numbers on A_ℓ={lim X_n·ℓ=∞}, so Problem 4.7 is specifically asking for the complementary, non-escaping regime. ([math.sinica.edu.tw](https://www.math.sinica.edu.tw/bulletins/20131/2013106.pdf?utm_source=openai))"
+  ],
+  "refined_question": "Let X=(X_n)_{n≥0} be the nearest-neighbor excited random walk on Z^d, where d≥1, started at 0 and defined by (1.1), in a random cookie environment ω such that the family of cookie stacks (ω(z,·,·))_{z∈Z^d} is i.i.d. under P and satisfies ellipticity (EL): for every z∈Z^d, e∈E={±e_j:1≤j≤d}, and i∈N, one has P-a.s. ω(z,e,i)>0. Fix a nonzero vector ℓ∈R^d. Is it true that X_n·ℓ/n converges to 0 P_0-a.s. on the event {|X_n|→∞}^c as n→∞? ([math.sinica.edu.tw](https://www.math.sinica.edu.tw/bulletins/20131/2013106.pdf?utm_source=openai))",
+  "equivalent_formulation": null,
+  "justification": "The draft is targeting Section 4.2, Problem 4.7 almost verbatim, not a broader neighboring question. The paper first defines transience by |X_n|→∞ and introduces A_ℓ={lim X_n·ℓ=∞} in Definition 3.1 (p. 118), then proves in Theorem 4.6 (p. 131) a directional law of large numbers on A_ℓ. Immediately after that, Problem 4.7 (p. 132) asks whether X_n·ℓ/n→0 on the complementary event {|X_n|→∞}^c under (IID) and (EL). Theorem 4.8 on the same page explicitly says its extra hypothesis is present because of Problem 4.7, confirming that this is the exact nearby open problem your draft is trying to capture. The model and assumptions needed to make the question stand-alone come from the general ERW definition in Section 1 and the statements of (IID) and (EL) on pp. 107-108. ([math.sinica.edu.tw](https://www.math.sinica.edu.tw/bulletins/20131/2013106.pdf?utm_source=openai))",
+  "citations": [
+    {
+      "section": "1",
+      "label": "Model definition (1.1) and assumption (IID)",
+      "page": 107
+    },
+    {
+      "section": "1",
+      "label": "Ellipticity condition (EL)",
+      "page": 108
+    },
+    {
+      "section": "3",
+      "label": "Definition 3.1",
+      "page": 118
+    },
+    {
+      "section": "4.2",
+      "label": "Lemma 4.5",
+      "page": 131
+    },
+    {
+      "section": "4.2",
+      "label": "Theorem 4.6",
+      "page": 131
+    },
+    {
+      "section": "4.2",
+      "label": "Problem 4.7",
+      "page": 132
+    },
+    {
+      "section": "4.2",
+      "label": "Theorem 4.8",
+      "page": 132
+    }
+  ]
+}

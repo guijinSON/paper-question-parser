@@ -1,0 +1,38 @@
+{
+  "arxiv_id": "2303.11464",
+  "question_id": "q_013",
+  "original_question": "Given a directed acyclic graph G together with integers M >= n and O >= 0, can the graph be reversed using persistent memory at most M and computational cost at most O?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 8580.38,
+  "target_in_paper": "Open Problem 5.1 (DAG Reversal) in Section 5, Data flow reversal problems. ([archive.intlpress.com](https://archive.intlpress.com/site/pub/files/_fulltext/journals/joc/2023/0014/0004/JOC-2023-0014-0004-a008.pdf))",
+  "completeness_score": 8.5,
+  "correct_elements": "Your draft already captures the right problem class, the right input type (a directed acyclic graph G), the fact that this is a decision problem with two resource budgets, and the exact budget inequalities M >= n and O >= 0. It is therefore very close to the paper's official formulation of DAG Reversal. ([archive.intlpress.com](https://archive.intlpress.com/site/pub/files/_fulltext/journals/joc/2023/0014/0004/JOC-2023-0014-0004-a008.pdf))",
+  "missing_details": [
+    "The symbol n is not defined in the draft. In Section 5, n is the number of source vertices X = {1, ..., n} of the evaluation DAG, representing the persistent inputs x in R^n. ([archive.intlpress.com](https://archive.intlpress.com/site/pub/files/_fulltext/journals/joc/2023/0014/0004/JOC-2023-0014-0004-a008.pdf))",
+    "The paper does not consider an arbitrary DAG in isolation: G is the DAG induced by evaluating a numerical program y = F(x), with vertices partitioned as V = (X, Z, Y), where Z are intermediate vertices and Y are sinks. This setup is part of the intended scope of Open Problem 5.1. ([archive.intlpress.com](https://archive.intlpress.com/site/pub/files/_fulltext/journals/joc/2023/0014/0004/JOC-2023-0014-0004-a008.pdf))",
+    "The phrase graph be reversed should be clarified in the paper's sense: reversing G is equivalent to reversing the program's data flow by accessing the vertices in reverse order during adjoint-mode algorithmic differentiation. ([archive.intlpress.com](https://archive.intlpress.com/site/pub/files/_fulltext/journals/joc/2023/0014/0004/JOC-2023-0014-0004-a008.pdf))",
+    "The meaning of computational cost is only implicit in your draft. Nearby context states that, without loss of generality, unit cost is assumed for each elemental function Fj, so the cost budget O refers to this combinatorial reversal cost under that unit-cost model. ([archive.intlpress.com](https://archive.intlpress.com/site/pub/files/_fulltext/journals/joc/2023/0014/0004/JOC-2023-0014-0004-a008.pdf))",
+    "The memory bound should be stated as persistent memory of size less than or equal to M, matching the wording of the open problem and distinguishing it from the nonpersistent memory in which the original DAG is too large to be stored. ([archive.intlpress.com](https://archive.intlpress.com/site/pub/files/_fulltext/journals/joc/2023/0014/0004/JOC-2023-0014-0004-a008.pdf))",
+    "If the question is meant to be fully stand-alone, it helps to retain the Section 5 data-flow context that explains why M must satisfy M >= n: the persistent inputs are always available, while overwritten intermediate values may need to be stored or recomputed. ([archive.intlpress.com](https://archive.intlpress.com/site/pub/files/_fulltext/journals/joc/2023/0014/0004/JOC-2023-0014-0004-a008.pdf))"
+  ],
+  "refined_question": "Let G = (V, E) be the directed acyclic graph induced by evaluating a numerical program y = F(x), where the vertices are topologically ordered and decompose as V = (X, Z, Y) with X = {1, ..., n} the source vertices representing the persistent inputs x in R^n, Z the intermediate vertices, and Y the sinks. Assuming unit cost for each elemental function evaluation Fj, and given integers M >= n and O >= 0, can G be reversed within persistent memory of size less than or equal to M and computational cost less than or equal to O? ([archive.intlpress.com](https://archive.intlpress.com/site/pub/files/_fulltext/journals/joc/2023/0014/0004/JOC-2023-0014-0004-a008.pdf))",
+  "equivalent_formulation": "Equivalently, given a numerical program whose evaluation induces the DAG G, can its data flow be reversed by accessing the vertices of G in reverse order while using persistent memory at most M and computational cost at most O? ([archive.intlpress.com](https://archive.intlpress.com/site/pub/files/_fulltext/journals/joc/2023/0014/0004/JOC-2023-0014-0004-a008.pdf))",
+  "justification": "The draft is essentially a near-paraphrase of Open Problem 5.1, and it is much closer to that official statement than to any neighboring problem in the paper. Section 5 first introduces the specific computational-graph model G = (V, E) coming from a numerical program y = F(x), defines the roles of the source, intermediate, and sink vertices, explains that reversing the DAG is equivalent to reversing the data flow in adjoint mode, and notes the unit-cost assumption for the elemental functions. Immediately after that context, the paper states Open Problem 5.1 in almost the same words as your draft. The adjacent Theorem 5.1 confirms that the exact named problem is DAG Reversal. ([archive.intlpress.com](https://archive.intlpress.com/site/pub/files/_fulltext/journals/joc/2023/0014/0004/JOC-2023-0014-0004-a008.pdf))",
+  "citations": [
+    {
+      "section": "5. Data flow reversal problems",
+      "label": "Introduction",
+      "page": "584-585"
+    },
+    {
+      "section": "5. Data flow reversal problems",
+      "label": "Open Problem 5.1 (DAG Reversal)",
+      "page": 585
+    },
+    {
+      "section": "5. Data flow reversal problems",
+      "label": "Theorem 5.1",
+      "page": 585
+    }
+  ]
+}

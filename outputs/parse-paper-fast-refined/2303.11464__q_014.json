@@ -1,0 +1,49 @@
+{
+  "arxiv_id": "2303.11464",
+  "question_id": "q_014",
+  "original_question": "Let M be a real n x n matrix with spectral radius lambda = rho(M) < 1, partitioned into an l x l block array, and let delta be a delay matrix with zero diagonal and entries in {0,1,...,k}. If M(delta) is the asynchronous-update operator induced by those communication delays, is it always true that rho(M(delta)) <= lambda^(1/(k+1))? If not, does there exist some universal bound f(lambda, k) in (0,1) such that rho(M(delta)) <= f(lambda, k)?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 8624.51,
+  "target_in_paper": "Section 6, Open Problem 6.1 (\"Price of asynchrony\"), with notation fixed by the preceding problem statement and Lemmas 6.1–6.2. ([archive.intlpress.com](https://archive.intlpress.com/site/pub/files/_fulltext/journals/joc/2023/0014/0004/JOC-2023-0014-0004-a008.pdf))",
+  "completeness_score": 8.0,
+  "correct_elements": "Your draft already captures the right target very closely: the ambient field is real, the matrix M is n x n with spectral radius λ = ρ(M) < 1, M is partitioned into an ℓ x ℓ block array, δ is a zero-diagonal delay pattern bounded by k, the object of interest is the delayed/asynchronous operator M(δ), and the question asks exactly the two-part alternative posed in the paper: first the candidate bound ρ(M(δ)) ≤ λ^(1/(k+1)), and, if that fails, whether some bound depending only on (λ,k) still exists. The candidate exponent is exactly the one suggested by Lemma 6.2. ([archive.intlpress.com](https://archive.intlpress.com/site/pub/files/_fulltext/journals/joc/2023/0014/0004/JOC-2023-0014-0004-a008.pdf))",
+  "missing_details": [
+    "The paper does not treat M(δ) as primitive notation: it first defines, for any κ ≥ max_{i,j} δ_{ij}, a history-space operator M(δ,κ) on R^((κ+1)n) that sends (x̃^(κ), …, x̃^(0)) to (x̃^(κ+1), …, x̃^(1)); your draft should state this operator explicitly or else fix κ := max δ and define M(δ) from it. ([archive.intlpress.com](https://archive.intlpress.com/site/pub/files/_fulltext/journals/joc/2023/0014/0004/JOC-2023-0014-0004-a008.pdf))",
+    "The delayed iteration itself should be spelled out: x̃_i^(t+1) = Σ_j M_ij x̃_j^(t-δ_ji), where δ_ji is the delay in information sent from compute node j to compute node i. Your draft refers to an induced asynchronous operator but leaves this recurrence implicit. ([archive.intlpress.com](https://archive.intlpress.com/site/pub/files/_fulltext/journals/joc/2023/0014/0004/JOC-2023-0014-0004-a008.pdf))",
+    "Lemma 6.1 is part of the nearby context needed to make the notation stand-alone: once κ ≥ max δ, the spectral radius ρ(M(δ,κ)) is independent of κ, which is why the paper later writes M(δ) abusively. That convention is hidden in the draft. ([archive.intlpress.com](https://archive.intlpress.com/site/pub/files/_fulltext/journals/joc/2023/0014/0004/JOC-2023-0014-0004-a008.pdf))",
+    "To avoid ambiguity in the paper's notation δ ∈ [k]^(ℓ×ℓ), a stand-alone version should say explicitly that δ_ii = 0 and 0 ≤ δ_ij ≤ k for all i,j, equivalently max_{i,j} δ_{ij} ≤ k. ([archive.intlpress.com](https://archive.intlpress.com/site/pub/files/_fulltext/journals/joc/2023/0014/0004/JOC-2023-0014-0004-a008.pdf))",
+    "The quantifiers in the paper are fully uniform: the bound, if true, is meant to hold for every n, every block count ℓ, every real block-partitioned matrix M with ρ(M)=λ<1, and every admissible delay matrix δ. Your draft suggests this, but does not make the uniformity fully explicit. ([archive.intlpress.com](https://archive.intlpress.com/site/pub/files/_fulltext/journals/joc/2023/0014/0004/JOC-2023-0014-0004-a008.pdf))",
+    "The provenance of the exponent 1/(k+1) should be noted: Lemma 6.2 proves that if every nonzero block of M experiences the same maximal delay k, then ρ(M(δ)) = ρ(M)^(1/(k+1)). Open Problem 6.1 asks whether this uniform-delay case is the worst case among all delay patterns bounded by k. ([archive.intlpress.com](https://archive.intlpress.com/site/pub/files/_fulltext/journals/joc/2023/0014/0004/JOC-2023-0014-0004-a008.pdf))",
+    "The second clause should be formalized exactly as in the paper: the question is whether there exists some function f:(0,1)×N→(0,1) such that ρ(M(δ)) ≤ f(λ,k). Saying merely 'universal bound' leaves implicit that f may depend only on λ and k, not on n, ℓ, M, or δ beyond the stated hypotheses. ([archive.intlpress.com](https://archive.intlpress.com/site/pub/files/_fulltext/journals/joc/2023/0014/0004/JOC-2023-0014-0004-a008.pdf))"
+  ],
+  "refined_question": "Let M ∈ R^(n×n) satisfy ρ(M)=λ<1, and suppose M is partitioned into an ℓ×ℓ block matrix (M_ij)_(i,j=1)^ℓ. Let δ=(δ_ji) ∈ N^(ℓ×ℓ) satisfy δ_ii=0 and 0 ≤ δ_ji ≤ k for all i,j, and set κ := max_{i,j} δ_{ij}. Define asynchronous iterates by x̃_i^(t+1) = Σ_(j=1)^ℓ M_ij x̃_j^(t-δ_ji), and let M(δ):R^((κ+1)n)→R^((κ+1)n) be the corresponding history-update operator sending (x̃^(κ),…,x̃^(0)) to (x̃^(κ+1),…,x̃^(1)). Is it always true that ρ(M(δ)) ≤ λ^(1/(k+1))? If not, does there exist a function f:(0,1)×N→(0,1) such that, for every choice of n, ℓ, M, and δ satisfying these hypotheses, one still has ρ(M(δ)) ≤ f(λ,k)? ([archive.intlpress.com](https://archive.intlpress.com/site/pub/files/_fulltext/journals/joc/2023/0014/0004/JOC-2023-0014-0004-a008.pdf))",
+  "equivalent_formulation": "Equivalently, by Lemma 6.1 one may replace M(δ) by M(δ,κ') for any κ' ≥ max_{i,j} δ_{ij}, since all such history-update operators have the same spectral radius; so the same question can be asked with ρ(M(δ,κ')) in place of ρ(M(δ)). ([archive.intlpress.com](https://archive.intlpress.com/site/pub/files/_fulltext/journals/joc/2023/0014/0004/JOC-2023-0014-0004-a008.pdf))",
+  "justification": "This is the nearest official formulation in the paper. Your draft is not drifting toward a broader asynchronous-iteration problem; it is specifically Open Problem 6.1 in Section 6. The immediately preceding problem statement defines the delayed block recurrence and the induced operator M(δ,κ) on history space. Lemma 6.1 supplies the κ-independence of the spectral radius, which is why the paper writes M(δ), and Lemma 6.2 proves the model case ρ(M(δ)) = ρ(M)^(1/(k+1)) when all nonzero blocks incur the same delay k. Open Problem 6.1 then asks exactly whether that uniform-delay value is a universal upper bound for all delay patterns bounded by k, and if not whether some function f(λ,k) still universally controls ρ(M(δ)). ([archive.intlpress.com](https://archive.intlpress.com/site/pub/files/_fulltext/journals/joc/2023/0014/0004/JOC-2023-0014-0004-a008.pdf))",
+  "citations": [
+    {
+      "section": "6",
+      "label": "Price of asynchrony (section heading and introduction)",
+      "page": 587
+    },
+    {
+      "section": "6",
+      "label": "Problem statement defining the delayed recurrence and M(δ,κ)",
+      "page": 589
+    },
+    {
+      "section": "6",
+      "label": "Lemma 6.1",
+      "page": 589
+    },
+    {
+      "section": "6",
+      "label": "Lemma 6.2",
+      "page": 590
+    },
+    {
+      "section": "6",
+      "label": "Open Problem 6.1",
+      "page": 590
+    }
+  ]
+}

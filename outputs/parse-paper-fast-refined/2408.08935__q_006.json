@@ -1,0 +1,45 @@
+{
+  "arxiv_id": "2408.08935",
+  "question_id": "q_006",
+  "original_question": "For the Haar system in L^p with 1 < p < infinity, can one find an equivalent norm under which the Haar basis becomes exactly 1-greedy, rather than merely (1 + epsilon)-greedy for each fixed epsilon > 0?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 10010.14,
+  "target_in_paper": "Section 4.1, in the unnumbered renorming paragraph immediately after Question 4: García states that for each fixed ε > 0 one can renorm L^p, 1 < p < ∞, so that the Haar system is (1 + ε)-greedy, and that it remains open whether one can achieve the constant 1.",
+  "completeness_score": 9,
+  "correct_elements": "Your draft already isolates the right problem very accurately: it is about the Haar system in L^p for 1 < p < ∞, about equivalent renormings of the ambient Banach space, and about improving the known '(1 + ε)-greedy for every fixed ε > 0' renormings to an exactly 1-greedy renorming. That is precisely the unresolved point singled out in the paper's Section 4.1 discussion of isometric renormings.",
+  "missing_details": [
+    "The quantifier should be explicit: the question is naturally 'for each p with 1 < p < ∞'.",
+    "The new norm should be stated to be equivalent to the original L^p norm on the same underlying space L^p.",
+    "The phrase '1-greedy' should be defined in the paper's sense: the greedy constant C_g in Definition 4.4 equals 1.",
+    "To make that definition stand-alone, one should specify that if A is any finite greedy set of x (i.e. A indexes the |A| largest Haar coefficients of x in modulus), then the corresponding greedy projection P_A x satisfies the best m-term error inequality with constant 1.",
+    "The best m-term approximation term σ_m(x) should be defined explicitly as the infimum over all linear combinations of at most m Haar functions, with respect to the renormed norm.",
+    "The paper's nearby equivalent characterization of 1-greedy bases, via 1-unconditionality plus Property (A), is stated for real Banach spaces; your draft leaves the scalar-field convention implicit.",
+    "The known positive result should be quantified exactly: for every fixed ε > 0 there exists an equivalent renorming making the Haar system (1 + ε)-greedy.",
+    "The paper does not ask for a single renorming working uniformly for all p; the renorming may depend on p."
+  ],
+  "refined_question": "For each p with 1 < p < ∞, does there exist a norm ||·||_0 on L^p, equivalent to the original L^p norm, such that the Haar system is 1-greedy in (L^p, ||·||_0)? Equivalently in the language of greedy approximation: if A is any finite greedy set of x (chosen from the Haar coefficients of x by taking the |A| largest coefficients in modulus), P_A x is the associated Haar coordinate projection, and σ_m(x; ||·||_0) := inf{||x - Σ_{n∈B} b_n h_n||_0 : |B| ≤ m}, is it possible to renorm L^p so that ||x - P_A x||_0 ≤ σ_|A|(x; ||·||_0) for every x and every such A?",
+  "equivalent_formulation": "In the real Banach-space setting, equivalently by Theorem 4.18: for each 1 < p < ∞, can L^p be equivalently renormed so that the Haar system becomes 1-unconditional and has Property (A)?",
+  "justification": "The draft is already extremely close to the paper's actual intent. The exact target is not Question 4 or Question 5 themselves, but the immediately following renorming discussion in Section 4.1, where García turns from isometric greedy-type constants to renormings and then singles out the Haar system in L^p, 1 < p < ∞: the cited prior work gives (1 + ε)-greedy renormings for fixed ε > 0, and the open issue is whether one can reach the sharp constant 1. To make the question fully stand-alone and paper-faithful, one has to import the paper's notion of greedy sets/sums and the formal definition of C-greedy from Section 4. The only paper-explicit equivalent reformulation nearby is Theorem 4.18, which characterizes 1-greediness in real Banach spaces as 1-unconditionality plus Property (A).",
+  "citations": [
+    {
+      "section": "4",
+      "label": "greedy sums / greedy sets notation",
+      "page": 10
+    },
+    {
+      "section": "4",
+      "label": "Definition 4.4",
+      "page": 12
+    },
+    {
+      "section": "4.1 Isometric case of greedy-like bases",
+      "label": "Theorem 4.18",
+      "page": 19
+    },
+    {
+      "section": "4.1 Isometric case of greedy-like bases",
+      "label": "unnumbered renorming paragraph after Question 4",
+      "page": 20
+    }
+  ]
+}

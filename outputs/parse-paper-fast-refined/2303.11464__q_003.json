@@ -1,0 +1,52 @@
+{
+  "arxiv_id": "2303.11464",
+  "question_id": "q_003",
+  "original_question": "Let G = (V, E, omega) be a weighted simple graph, let W = V be the witness set, and let L subseteq V be an epsilon-net used to build the filtered Dowker complex Dow_alpha(W, L). Determine how to choose epsilon and how to select the epsilon-net L so that, for sufficiently large alpha, the one-dimensional persistence diagram PD_1(Dow_alpha(W, L)) has as many points as the genus of G. Assuming such an epsilon-net is given, bound the bottleneck distance between PD_1(VR_alpha(G)) and PD_1(Dow_alpha(W, L)) in terms of the cycle lengths of G and epsilon.",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 8530.3,
+  "target_in_paper": "Section 1, Open Problem 1.3 in The Dowker complex in metric graphs",
+  "completeness_score": 9,
+  "correct_elements": "Your draft is already very close to the paper's exact target. It correctly identifies the graph-theoretic setting G = (V, E, omega), fixes the witness set as W = V, uses an epsilon-net L of vertices, asks for conditions ensuring that the one-dimensional Dowker persistence captures the genus of G, and then asks for a bottleneck-distance comparison with the one-dimensional Vietoris-Rips persistence in terms of epsilon and cycle lengths. This is essentially the content of Open Problem 1.3.",
+  "missing_details": [
+    "The paper's background implicitly uses the geodesic metric d_G induced by a connected weighted simple graph; connectedness and the finiteness of d_G on V are hidden assumptions that are not stated in the draft.",
+    "The paper defines an epsilon-net in the metric space (V, d_G) as a set L that is both an epsilon-sample and epsilon-sparse: every vertex of V lies within distance epsilon of some landmark in L, and any two distinct landmarks are more than epsilon apart.",
+    "To make the question fully stand-alone, the filtered objects should be named explicitly as the filtrations {Dow_alpha(W, L)}_{alpha >= 0} and {VR_alpha(G)}_{alpha >= 0}; otherwise the notation PD_1(Dow_alpha(W, L)) is not standard, since a persistence diagram is attached to a filtration, not to a single complex at one scale.",
+    "The paper defines Dow_alpha(W, L) using the geodesic metric: a simplex sigma subseteq L belongs to Dow_alpha(W, L) if there exists w in W such that d_G(w, l) <= alpha for every l in sigma.",
+    "The genus of G is not just an informal cycle count; in the nearby context it is specified as the cardinality of a minimal system of cycles of G.",
+    "The paper's persistence-diagram notation counts points with multiplicity and only off-diagonal points, so cardinality should be understood in that sense.",
+    "The term d_B should be stated explicitly as the bottleneck distance between persistence diagrams.",
+    "Cycle lengths should be understood as weighted lengths coming from omega, i.e. sums of edge weights along cycles, not merely combinatorial cycle lengths.",
+    "For a fully self-contained mathematical statement, one should fix homology coefficients over a field; the paper leaves coefficients implicit.",
+    "The phrase for sufficiently large alpha is not formalized in the draft and is slightly ambiguous in the paper as written, so a sharpened stand-alone version should recast the statement in terms of the whole filtered Dowker and Vietoris-Rips constructions."
+  ],
+  "refined_question": "Fix a field k for persistent homology coefficients. Let G = (V, E, omega) be a connected weighted simple graph with positive edge weights, let d_G be the geodesic metric on V, let W = V, and let L subseteq V be an epsilon-net in (V, d_G), meaning that every v in V satisfies d_G(v, L) <= epsilon and every distinct l, l' in L satisfy d_G(l, l') > epsilon. For the filtered Dowker complex {Dow_alpha(W, L)}_{alpha >= 0}, where a simplex sigma subseteq L lies in Dow_alpha(W, L) iff there exists w in W with d_G(w, l) <= alpha for all l in sigma, determine epsilon > 0 and a rule for choosing the epsilon-net L so that the one-dimensional persistence diagram PD_1({Dow_alpha(W, L)}_{alpha >= 0}) has exactly genus(G) off-diagonal points counted with multiplicity, where genus(G) is the cardinality of a minimal system of cycles of G. Assuming such an epsilon-net L has been chosen, find a bound for the bottleneck distance d_B between PD_1({VR_alpha(G)}_{alpha >= 0}) and PD_1({Dow_alpha(W, L)}_{alpha >= 0}), where VR_alpha(G) is the Vietoris-Rips complex on (V, d_G), in terms of epsilon and the weighted lengths of cycles in G.",
+  "equivalent_formulation": null,
+  "justification": "The draft is aiming at Open Problem 1.3, not at a neighboring problem. The paper first sets up the metric-graph framework and persistent-homology notation, then defines Vietoris-Rips complexes, Dowker complexes, and epsilon-nets in exactly the form used by your draft. The motivating paragraph immediately before Open Problem 1.3 states that, for metric graphs, the one-dimensional Vietoris-Rips persistence diagram has as many points as the genus of G for large enough scale, and Open Problem 1.3 then asks precisely for: (i) a choice of epsilon and an epsilon-net L with W = V so that the Dowker persistence diagram has the same genus-sized cardinality, and (ii) a bottleneck-distance bound between the one-dimensional Vietoris-Rips and Dowker persistence diagrams in terms of cycle lengths and epsilon. The main sharpening needed is to make the filtration-level notation and the hidden metric assumptions explicit.",
+  "citations": [
+    {
+      "section": "Section 1. The Dowker complex in metric graphs",
+      "label": "Background",
+      "page": "561-562"
+    },
+    {
+      "section": "Section 1. The Dowker complex in metric graphs",
+      "label": "Definition 1.1 (Vietoris-Rips Complex)",
+      "page": "562"
+    },
+    {
+      "section": "Section 1. The Dowker complex in metric graphs",
+      "label": "Definition 1.4 (Dowker Complex)",
+      "page": "563-564"
+    },
+    {
+      "section": "Section 1. The Dowker complex in metric graphs",
+      "label": "Definition 1.5 (epsilon-net)",
+      "page": "564"
+    },
+    {
+      "section": "Section 1. The Dowker complex in metric graphs",
+      "label": "Open Problem 1.3",
+      "page": "565-566"
+    }
+  ]
+}

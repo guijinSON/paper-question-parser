@@ -1,0 +1,44 @@
+{
+  "arxiv_id": "2003.11441",
+  "question_id": "q_011",
+  "original_question": "Consider the parabolic problem u_t - div(a grad u) = 0 in Omega x (0, T), with boundary condition u = g(x, t) on ∂Omega x (0, T) and initial condition u = h(x) on Omega x {0}, where g and h are to be chosen appropriately and the coefficient a is known on ∂Omega. Does knowledge of the final-time state u(·, T) uniquely determine the coefficient a?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 7024.24,
+  "target_in_paper": "Section 7, Problem 7.2, \"Parabolic inverse problem with final data\" (renumbered as Section 8, Problem 8.2 in the published version).",
+  "completeness_score": 8.5,
+  "correct_elements": "The draft already identifies the correct open problem: it uses the homogeneous parabolic equation u_t - div(a∇u) = 0, prescribes boundary data g and initial data h, assumes that a is known on ∂Ω, and asks whether the single final-time state u(·, T) determines a. That matches the paper’s Problem 7.2 rather than the neighboring Problem 7.1, which instead uses a source term f, zero boundary/initial data, and observations at one or more fixed times.",
+  "missing_details": [
+    "The ambient domain should be stated: Ω is a bounded, connected open subset of R^n.",
+    "The unknown coefficient is not arbitrary: a = a(x) is a time-independent scalar coefficient.",
+    "The coefficient class includes uniform ellipticity: there is a constant K > 0 such that K^{-1} ≤ a(x) ≤ K.",
+    "The quantifier on the data should be sharpened: the paper asks about appropriately chosen g and h, i.e. whether one can choose a suitable pair of boundary/initial data, not whether uniqueness holds for every possible g and h.",
+    "The uniqueness question is among coefficients sharing the prescribed boundary information, since the paper explicitly assumes a is known on ∂Ω.",
+    "The observation is only the single final state u(·, T); it is not the broader neighboring problem with data at one or more intermediate/fixed times.",
+    "The paper does not specify precise function spaces, boundary regularity, or compatibility conditions for g and h in Problem 7.2 itself; a faithful stand-alone rewrite should therefore say only that g and h are chosen suitably so the initial-boundary value problem is well posed, without importing stronger assumptions from outside the paper."
+  ],
+  "refined_question": "Let Ω ⊂ R^n be a bounded, connected open set, let T > 0, and let a = a(x) be a time-independent scalar coefficient satisfying the uniform ellipticity bound K^{-1} ≤ a(x) ≤ K. Consider the initial-boundary value problem u_t - div(a∇u) = 0 in Ω × (0, T), u = g(x, t) on ∂Ω × (0, T), and u = h(x) on Ω × {0}, where g and h are chosen suitably so that the problem is well posed. Assuming that the boundary trace of a is known on ∂Ω, do there exist suitably chosen functions g and h such that the single final-time datum u(·, T) uniquely determines a in Ω among all such coefficients?",
+  "equivalent_formulation": null,
+  "justification": "The draft is clearly aimed at the paper’s final open problem, namely Problem 7.2/8.2, because it reproduces its homogeneous parabolic PDE, its boundary and initial conditions, its final-time observation u(·, T), and the extra assumption that a is known on ∂Ω. To make the question fully stand-alone and faithful to the surrounding context, one must restore the hypotheses inherited from the opening of the section: Ω is bounded and connected, and a is a time-independent scalar uniformly elliptic coefficient. The main sharpening needed is the quantifier on g and h: the paper asks whether suitably chosen data can make the final observation uniquely identify a, not whether arbitrary data do so. The paragraph immediately after the problem also explains that the boundary knowledge of a is intentional, because the question is modeled on an elliptic inverse problem with interior data where such boundary information is needed.",
+  "citations": [
+    {
+      "section": "7 (arXiv v1) / 8 (published version)",
+      "label": "opening context of the final section and equation (7.1)/(11)",
+      "page": "597–598"
+    },
+    {
+      "section": "7 (arXiv v1) / 8 (published version)",
+      "label": "Problem 7.1 / Problem 8.1",
+      "page": "597"
+    },
+    {
+      "section": "7 (arXiv v1) / 8 (published version)",
+      "label": "Problem 7.2 / Problem 8.2",
+      "page": "598"
+    },
+    {
+      "section": "7 (arXiv v1) / 8 (published version)",
+      "label": "paragraph immediately after Problem 7.2 / Problem 8.2",
+      "page": "598"
+    }
+  ]
+}

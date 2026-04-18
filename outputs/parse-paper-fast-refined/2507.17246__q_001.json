@@ -1,0 +1,42 @@
+{
+  "arxiv_id": "2507.17246",
+  "question_id": "q_001",
+  "original_question": "Let G be a connected graph of order n and girth g, where the girth is the length of the shortest cycle of G. The Euler Sombor index of G is EUS(G) = sum over all edges uv of sqrt(d(u)^2 + d(v)^2 + d(u)d(v)), where d(u) is the degree of vertex u. For fixed integers n and g, what is the maximum possible value of EUS(G) over all connected graphs with order n and girth g, and which connected graphs attain that maximum?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 11208.71,
+  "target_in_paper": "Section 3, concluding remarks: the still-open problem of determining the maximum Euler Sombor index and the extremal connected graphs among graphs of fixed order and given girth; this is the unresolved maximum half of Problem 1 restated in Section 1.",
+  "completeness_score": 8,
+  "correct_elements": "The draft correctly uses the Euler Sombor index, works in the class of connected graphs parameterized by order n and girth g, and asks for both the extremal value and the characterization of extremal graphs. Its focus on the maximum case matches the part of the fixed-order/fixed-girth problem that this paper explicitly leaves open after proving the minimum case.",
+  "missing_details": [
+    "The paper works with finite simple graphs; this should be stated explicitly.",
+    "The admissible parameter range should be made explicit: since girth is the length of a shortest cycle, one needs 3 <= g <= n and |V(G)| = n.",
+    "The quantifier should be written unambiguously as a maximum over all simple connected graphs G with girth(G) = g.",
+    "The degree notation should be tied to the graph, e.g. d_G(u), to make the formula stand-alone.",
+    "To be paper-faithful, the question should be identified as the unresolved maximum part of Problem 1, because Theorem 3 of the paper already settles the minimum value and its extremal graphs for connected graphs of fixed order and girth."
+  ],
+  "refined_question": "For integers n and g with 3 <= g <= n, determine\nmax { EUS(G) : G is a finite simple connected graph with |V(G)| = n and girth(G) = g },\nwhere\nEUS(G) = sum over uv in E(G) of sqrt(d_G(u)^2 + d_G(v)^2 + d_G(u)d_G(v)),\nand characterize all graphs G for which this maximum is attained.",
+  "equivalent_formulation": null,
+  "justification": "The draft is not aiming at the main proved theorem of the paper on fixed order and girth, because Section 2 proves the minimum EUS in that setting, not the maximum. In Section 1 the paper restates Problem 1 from Khanra and Das as asking for the extremal values and extremal graphs among connected graphs of fixed order and given girth (p. 904). Then Theorem 3 gives the minimum value and minimizers for connected graphs of order n and girth g (p. 909). Finally, the concluding remarks explicitly state that what remains open is determining the maximum EUS index and characterizing the extremal graphs among connected graphs with fixed order and given girth (p. 915). So the closest paper-faithful refinement of the draft is exactly the maximum-case question above, with the simple-graph assumption and the admissible range 3 <= g <= n made explicit.",
+  "citations": [
+    {
+      "section": "1 Introduction",
+      "label": "notation and definitions for simple graphs, order, degree, and girth",
+      "page": 902
+    },
+    {
+      "section": "1 Introduction",
+      "label": "Problem 1",
+      "page": 904
+    },
+    {
+      "section": "2 Main results",
+      "label": "Theorem 3",
+      "page": 909
+    },
+    {
+      "section": "3 Concluding remarks",
+      "label": "remaining open problem on the maximum EUS for fixed order and given girth",
+      "page": 915
+    }
+  ]
+}

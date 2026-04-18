@@ -1,0 +1,43 @@
+{
+  "arxiv_id": "2210.05915",
+  "question_id": "q_015",
+  "original_question": "Fix integers k > 3 and Delta > 3. For all but finitely many connected graphs G of maximum degree Delta, is the list-chromatic number of the k-th power bounded by chi_l(G^k) <= sum_{i=1}^k Delta (Delta - 1)^(i-1) + 1 - k, and does the same bound also hold for the painting number chi_p(G^k)?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 8442.39,
+  "target_in_paper": "Open Problem 15 in Section 6, which asks for the list-coloring and painting analogues of the higher-power coloring bound proved in Theorem 43; the needed notation and motivation come from Section 5.3. ([combinatorics.org](https://www.combinatorics.org/ojs/index.php/eljc/article/download/ds25/pdf/))",
+  "completeness_score": 8.5,
+  "correct_elements": "Your draft already captures almost all of the paper's intended problem: it fixes k and Δ, uses the 'all but finitely many connected graphs' quantifier, restricts to graphs with maximum degree Δ, gives the exact bound D_{k,Δ}+1-k in expanded form, and asks for both the list-chromatic and painting versions. Also, your notation χℓ(G^k) and χp(G^k) is mathematically equivalent in content to the paper's superscript-k notation. ([combinatorics.org](https://www.combinatorics.org/ojs/index.php/eljc/article/download/ds25/pdf/))",
+  "missing_details": [
+    "The paper's parameter range is k ≥ 3 and Δ ≥ 3, not k > 3 and Δ > 3; your draft unintentionally excludes the boundary cases k = 3 and Δ = 3 that are part of the stated problem. ([combinatorics.org](https://www.combinatorics.org/ojs/index.php/eljc/article/download/ds25/pdf/))",
+    "To be fully stand-alone, the k-th power G^k should be defined as the graph on V(G) in which two vertices are adjacent exactly when their distance in G is at most k. ([combinatorics.org](https://www.combinatorics.org/ojs/index.php/eljc/article/download/ds25/pdf/))",
+    "The bound is naturally written using D_{k,Δ}, which Section 5.3 defines as the largest possible degree of a vertex in the k-th power of a graph of maximum degree Δ, with D_{k,Δ} = Σ_{i=1}^k Δ(Δ-1)^(i-1) = Δ((Δ-1)^k-1)/(Δ-2). ([combinatorics.org](https://www.combinatorics.org/ojs/index.php/eljc/article/download/ds25/pdf/))",
+    "For a fully self-contained statement, χp should be identified as the paint number (online list chromatic number), defined via the k-painting game. ([combinatorics.org](https://www.combinatorics.org/ojs/index.php/eljc/article/download/ds25/pdf/))",
+    "The fixed-parameter quantifier structure should be explicit: for each fixed pair (k, Δ), there are only finitely many exceptional connected graphs with maximum degree Δ. ([combinatorics.org](https://www.combinatorics.org/ojs/index.php/eljc/article/download/ds25/pdf/))",
+    "The paper presents this as an open problem/question, not as a theorem or established equivalence; Theorem 43 is only the ordinary coloring analogue. ([combinatorics.org](https://www.combinatorics.org/ojs/index.php/eljc/article/download/ds25/pdf/))"
+  ],
+  "refined_question": "Fix integers k ≥ 3 and Δ ≥ 3, and let D_{k,Δ} := Σ_{i=1}^k Δ(Δ-1)^(i-1) = Δ((Δ-1)^k-1)/(Δ-2), the largest possible degree of a vertex in the k-th power of a graph of maximum degree Δ. If G^k denotes the graph obtained from a connected graph G by joining every pair of vertices whose distance in G is at most k, then for all but finitely many connected graphs G with Δ(G) = Δ, must one have χℓ(G^k) ≤ D_{k,Δ} + 1 - k, and likewise χp(G^k) ≤ D_{k,Δ} + 1 - k, where χp is the paint number (online list chromatic number)? ([combinatorics.org](https://www.combinatorics.org/ojs/index.php/eljc/article/download/ds25/pdf/))",
+  "equivalent_formulation": null,
+  "justification": "The draft is clearly targeting the higher-powers problem rather than any square-coloring or planar subsection: the exact quantity Σ_{i=1}^k Δ(Δ-1)^(i-1)+1-k appears in Section 5.3 as D_{k,Δ}+1-k, Theorem 43 proves that bound for ordinary coloring, and Open Problem 15 in Section 6 asks for precisely the list-coloring and painting analogues. The only substantive corrections needed are the endpoint conditions k ≥ 3 and Δ ≥ 3, plus making the definitions of G^k, D_{k,Δ}, and χp explicit so the question is fully stand-alone and faithful to the paper. ([combinatorics.org](https://www.combinatorics.org/ojs/index.php/eljc/article/download/ds25/pdf/))",
+  "citations": [
+    {
+      "section": "1 Introduction",
+      "label": "definitions of χℓ, χp, and G^d",
+      "page": "2-3"
+    },
+    {
+      "section": "5.3 Higher Powers",
+      "label": "definition of D_{k,Δ}",
+      "page": "29"
+    },
+    {
+      "section": "5.3 Higher Powers",
+      "label": "Theorem 43 and the following painting remark",
+      "page": "29"
+    },
+    {
+      "section": "6 Open Problems and Conjectures",
+      "label": "15",
+      "page": "32"
+    }
+  ]
+}

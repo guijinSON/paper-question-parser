@@ -1,0 +1,47 @@
+{
+  "arxiv_id": "1907.04349",
+  "question_id": "q_010",
+  "original_question": "Does every connected d-regular graph G admit a signature σ whose signed adjacency matrix has spectral radius at most 2 sqrt(d - 1)?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 6705.25,
+  "target_in_paper": "Conjecture 3.20 (Bilu-Linial) in Section 3.5, presented as the d-regular Ramanujan/2-lift specialization of Problem 3.18 on signatures minimizing the spectral radius. ([sites.udel.edu](https://sites.udel.edu/cioaba/files/2019/07/SignedGraphsSurveyJuly09.pdf))",
+  "completeness_score": 9,
+  "correct_elements": "Your draft already matches the paper's official target almost verbatim: it quantifies over connected d-regular graphs, asks for the existence of a signature, and uses the correct Ramanujan bound 2 sqrt(d - 1). Crucially, it asks about spectral radius, which is the stronger Bilu-Linial conjectural statement rather than the weaker Marcus-Spielman-Srivastava theorem that only bounds the largest eigenvalue. ([sites.udel.edu](https://sites.udel.edu/cioaba/files/2019/07/SignedGraphsSurveyJuly09.pdf))",
+  "missing_details": [
+    "The paper's surrounding setup is that G is an unsigned graph, and in Problem 3.18 the ambient graph is explicitly simple and connected; making G finite/simple/unsigned makes the question stand alone. ([sites.udel.edu](https://sites.udel.edu/cioaba/files/2019/07/SignedGraphsSurveyJuly09.pdf))",
+    "A signature should be stated explicitly as a map sigma:E(G)->{+1,-1}. ([sites.udel.edu](https://sites.udel.edu/cioaba/files/2019/07/SignedGraphsSurveyJuly09.pdf))",
+    "The signed adjacency matrix should be defined entrywise by (A_sigma)_{xy}=sigma(xy) when xy is an edge of G and 0 otherwise. ([sites.udel.edu](https://sites.udel.edu/cioaba/files/2019/07/SignedGraphsSurveyJuly09.pdf))",
+    "The spectral radius should be defined as rho(A_sigma)=max{|lambda| : lambda is an eigenvalue of A_sigma}; in signed graphs this is not automatically the same as the largest eigenvalue. ([sites.udel.edu](https://sites.udel.edu/cioaba/files/2019/07/SignedGraphsSurveyJuly09.pdf))",
+    "If you want the formulation to reflect the nearby context, you may note that the paper motivates this conjecture through d-regular expanders and Ramanujan graphs; the surrounding discussion uses d>=3, although Conjecture 3.20 itself does not restate a lower bound on d. ([sites.udel.edu](https://sites.udel.edu/cioaba/files/2019/07/SignedGraphsSurveyJuly09.pdf))"
+  ],
+  "refined_question": "For every finite connected d-regular unsigned graph G, does there exist a signature sigma:E(G)->{+1,-1} such that the signed adjacency matrix A_sigma, defined by (A_sigma)_{xy}=sigma(xy) if xy is an edge of G and 0 otherwise, has spectral radius rho(A_sigma)=max{|lambda| : lambda is an eigenvalue of A_sigma} at most 2 sqrt(d - 1)? ([sites.udel.edu](https://sites.udel.edu/cioaba/files/2019/07/SignedGraphsSurveyJuly09.pdf))",
+  "equivalent_formulation": "Equivalently, does every connected d-regular graph G admit a signature sigma such that every eigenvalue of A_sigma lies in the interval [-2 sqrt(d - 1), 2 sqrt(d - 1)]? ([sites.udel.edu](https://sites.udel.edu/cioaba/files/2019/07/SignedGraphsSurveyJuly09.pdf))",
+  "justification": "The draft is aiming at Conjecture 3.20, not at the broader optimization Problem 3.18 and not at Theorem 3.21. The reason is that Conjecture 3.20 is the exact printed existence statement with the bound 2 sqrt(d - 1) on the spectral radius, while Theorem 3.21 only guarantees a signature whose largest eigenvalue is at most 2 sqrt(d - 1). The paragraph immediately after Theorem 3.21 stresses that these are different because signed adjacency matrices need not satisfy Perron-Frobenius, so controlling the largest eigenvalue does not control the full spectral radius. ([sites.udel.edu](https://sites.udel.edu/cioaba/files/2019/07/SignedGraphsSurveyJuly09.pdf))",
+  "citations": [
+    {
+      "section": "1",
+      "label": "Introduction",
+      "page": "1-2"
+    },
+    {
+      "section": "2",
+      "label": "Theorem 2.5",
+      "page": 3
+    },
+    {
+      "section": "3.5",
+      "label": "Problem 3.18",
+      "page": 10
+    },
+    {
+      "section": "3.5",
+      "label": "Conjecture 3.20",
+      "page": 10
+    },
+    {
+      "section": "3.5",
+      "label": "Theorem 3.21 and following explanatory paragraph",
+      "page": "10-11"
+    }
+  ]
+}

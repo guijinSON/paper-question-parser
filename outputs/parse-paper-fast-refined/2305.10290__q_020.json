@@ -1,0 +1,59 @@
+{
+  "arxiv_id": "2305.10290",
+  "question_id": "q_020",
+  "original_question": "For a connected graph G, does there always exist an edge signing sigma such that the signed spectral radius satisfies rho(G, sigma) < 2*sqrt(rho(G) - 1)?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 8767.08,
+  "target_in_paper": "Section 12, Problem 6 (Belardo-Cioabă-Koolen-Wang) in the Bilu-Linial section; this is the ρ(G)-based signed-spectral-radius question, stated immediately after Gregory's max-degree variant in Conjecture 14.",
+  "completeness_score": 9,
+  "correct_elements": "Your draft is already very close to the paper's exact target. It has the right quantifier structure (for each connected graph G, does there exist a signing/signature σ), the right quantity on the left-hand side (the signed spectral radius, not merely the top eigenvalue), and the right bound on the right-hand side, 2√(ρ(G)-1). It also correctly targets the stronger ρ(G)-based question from Problem 6 rather than the neighboring max-degree statement in Conjecture 14.",
+  "missing_details": [
+    "The paper works throughout with simple, undirected, unweighted graphs.",
+    "The signing should be specified as a signature σ:E(G)→{+1,-1}, and the resulting signed graph is denoted Γ=(G,σ).",
+    "ρ(G,σ) should be defined as the spectral radius of the signed adjacency matrix A(Γ), obtained from the ordinary adjacency matrix A(G) by replacing each 1 corresponding to a negative edge by -1.",
+    "ρ(G) should be defined as the spectral radius of the ordinary adjacency matrix A(G) of the underlying unsigned graph G.",
+    "The paper explicitly distinguishes spectral radius from largest eigenvalue for signed graphs; in general λ1(Γ) need not equal ρ(Γ), so the use of spectral radius here is essential.",
+    "The statement is posed in the paper as an open problem/question, not as a proved theorem.",
+    "To make the question fully stand-alone and paper-faithful, it helps to say explicitly that no regularity or maximum-degree hypothesis is assumed here; those belong to the neighboring Conjectures 13 and 14, not to Problem 6."
+  ],
+  "refined_question": "Let G be a connected simple undirected graph, and let σ:E(G)→{+1,-1} be a signature on its edges. Write Γ=(G,σ) for the resulting signed graph, let A(Γ) be its signed adjacency matrix, let ρ(G,σ):=ρ(A(Γ)) be the spectral radius of A(Γ), and let ρ(G):=ρ(A(G)) be the spectral radius of the ordinary adjacency matrix of G. Must every connected graph G admit a signature σ such that ρ(G,σ)<2√(ρ(G)-1)?",
+  "equivalent_formulation": null,
+  "justification": "The draft is essentially a near-verbatim paraphrase of the paper's Section 12, Problem 6. The surrounding discussion first defines signed graphs, signatures, and signed adjacency matrices; then recalls the regular-graph Bilu-Linial conjecture (Conjecture 13); then states Gregory's nonregular max-degree variant (Conjecture 14); and finally asks the stronger ρ(G)-based question in Problem 6, explicitly noting that an affirmative answer to Problem 6 would imply Conjecture 14. Because your draft uses ρ(G) rather than the maximum degree Δ(G), it is targeting Problem 6 itself, not the neighboring Gregory conjecture.",
+  "citations": [
+    {
+      "section": "Introduction",
+      "label": "Definitions and notation",
+      "page": 1
+    },
+    {
+      "section": "Section 12",
+      "label": "opening definitions of signed graph/signature/signed adjacency matrix",
+      "page": 12
+    },
+    {
+      "section": "Section 12",
+      "label": "Conjecture 13",
+      "page": 12
+    },
+    {
+      "section": "Section 12",
+      "label": "Theorem 4",
+      "page": 12
+    },
+    {
+      "section": "Section 12",
+      "label": "Remark 1",
+      "page": 12
+    },
+    {
+      "section": "Section 12",
+      "label": "Conjecture 14",
+      "page": 12
+    },
+    {
+      "section": "Section 12",
+      "label": "Problem 6",
+      "page": 12
+    }
+  ]
+}

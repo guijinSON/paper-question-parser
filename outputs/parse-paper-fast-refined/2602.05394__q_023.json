@@ -1,0 +1,46 @@
+{
+  "arxiv_id": "2602.05394",
+  "question_id": "q_023",
+  "original_question": "Give a provable randomized algorithm for backward error diagonalization or Schur form with runtime $O(n^3 ^c(n/delta))$ that only uses $O( (n/delta))$ bits of precision.",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 12553.07,
+  "target_in_paper": "Section 3.2, Problem 3.3, “Accuracy vs. precision in efficient diagonalization algorithms.” ([ar5iv.labs.arxiv.org](https://ar5iv.labs.arxiv.org/html/2602.05394v1))",
+  "completeness_score": 7,
+  "correct_elements": "Your draft has the right target and already captures the core of the official problem: it asks for a provable randomized algorithm for backward-error diagonalization or Schur form, with the intended cubic-up-to-polylogarithmic runtime and logarithmic precision target. The garbled asymptotic notation is still close enough to the paper’s exact formulation to identify Problem 3.3. ([ar5iv.labs.arxiv.org](https://ar5iv.labs.arxiv.org/html/2602.05394v1))",
+  "missing_details": [
+    "The input domain is missing: the problem is about arbitrary general matrices, i.e. an n x n complex matrix A, not a restricted class such as Hermitian or tridiagonal matrices. ([ar5iv.labs.arxiv.org](https://ar5iv.labs.arxiv.org/html/2602.05394v1))",
+    "The tolerance parameter must be explicit: the question is parameterized by a backward-error tolerance δ > 0. ([ar5iv.labs.arxiv.org](https://ar5iv.labs.arxiv.org/html/2602.05394v1))",
+    "The success condition is not stated: for diagonalization, one should specify an invertible V and diagonal D with backward error at most δ (after the standard normalization ||A|| ≤ 1, or equivalently after rescaling the input); for Schur form, one should specify a unitary Q and upper-triangular T approximating A to backward error δ. ([arxiv.org](https://arxiv.org/abs/1912.08805))",
+    "The quantifiers are missing: the intended question is for every n, every input matrix A, and every tolerance δ. ([ar5iv.labs.arxiv.org](https://ar5iv.labs.arxiv.org/html/2602.05394v1))",
+    "The runtime model should be stated explicitly as O(n^3 log^c(n/δ)) arithmetic operations (or floating-point operations), for some universal constant c. ([znakschoola.ru](https://www.znakschoola.ru/?_=%2Fpdf%2F2602.05394%23UE7DkG0PaBHZOakR54g1Wl8%3D&utm_source=openai))",
+    "The precision model should be stated explicitly as O(log(n/δ)) bits of precision used throughout the computation. ([znakschoola.ru](https://www.znakschoola.ru/?_=%2Fpdf%2F2602.05394%23UE7DkG0PaBHZOakR54g1Wl8%3D&utm_source=openai))",
+    "It should be clear that this is a randomized algorithmic question for the full diagonalization/Schur-form task, not the neighboring deterministic perturbation problem of Section 3.1. ([ar5iv.labs.arxiv.org](https://ar5iv.labs.arxiv.org/html/2602.05394v1))",
+    "The stand-alone version should not leave open whether one wants both outputs or either one of the two paper-listed targets; the paper states the problem as diagonalization or Schur form. ([ar5iv.labs.arxiv.org](https://ar5iv.labs.arxiv.org/html/2602.05394v1))",
+    "A paper-faithful stand-alone version should avoid adding hidden spectral assumptions such as bounded eigenvector condition number or eigenvalue separation; Section 3.1 presents those as obstacles handled internally by current randomized approaches, not as hypotheses of Problem 3.3. ([ar5iv.labs.arxiv.org](https://ar5iv.labs.arxiv.org/html/2602.05394v1))"
+  ],
+  "refined_question": "Given n, an arbitrary matrix A in C^{n x n}, and a backward-error tolerance δ > 0, give a provable randomized algorithm that computes either (i) a backward-error diagonalization of A, meaning an invertible matrix V and a diagonal matrix D with ||A - VDV^{-1}|| <= δ after the standard normalization ||A|| <= 1 (equivalently, after rescaling the input), or (ii) a backward-error Schur form of A, meaning a unitary matrix Q and an upper-triangular matrix T with ||A - QTQ*|| <= δ; and do so in O(n^3 log^c(n/δ)) arithmetic operations for some universal constant c while using only O(log(n/δ)) bits of precision throughout. ([ar5iv.labs.arxiv.org](https://ar5iv.labs.arxiv.org/html/2602.05394v1))",
+  "equivalent_formulation": null,
+  "justification": "This is Problem 3.3, not the neighboring perturbation problem in Section 3.1, because your draft asks for the full randomized diagonalization/Schur-form algorithm together with the specific target complexity O(n^3 log^c(n/δ)) and precision O(log(n/δ)) bits. That is exactly the focus of Section 3.2. The nearby context in Section 3.1 explains why current provable algorithms are randomized at all: they first apply a random perturbation to control the conditioning of the eigenproblem. The remarks after Problem 3.3 show that the real gap is precision rather than mere provability: the diagonalization result of BGK+23 achieves nearly matrix-multiplication time but with polylogarithmically many extra bits, while the Schur-form result of BGS22 also uses higher precision; the paper points to inverse-free sign-function iterations as a possible route to the desired O(log(n/δ)) precision bound. ([ar5iv.labs.arxiv.org](https://ar5iv.labs.arxiv.org/html/2602.05394v1))",
+  "citations": [
+    {
+      "section": "1",
+      "label": "Introduction",
+      "page": 3
+    },
+    {
+      "section": "3.1",
+      "label": "Deterministic pseudospectral shattering / Minami bound",
+      "page": 21
+    },
+    {
+      "section": "3.2",
+      "label": "Problem 3.3 (Accuracy vs. precision in efficient diagonalization algorithms)",
+      "page": 22
+    },
+    {
+      "section": "3.2",
+      "label": "Remarks after Problem 3.3",
+      "page": 22
+    }
+  ]
+}

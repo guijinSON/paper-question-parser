@@ -1,0 +1,43 @@
+{
+  "arxiv_id": "2601.15576",
+  "question_id": "q_014",
+  "original_question": "If x in X is a singular point of dimension n, must its normalized volume satisfy vol-hat(x, X) <= 2 (n - 1)^n, with equality only for the A_1 singularity?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 12369.64,
+  "target_in_paper": "Section 3.2, Problem 27 (the 'second largest normalized volume' problem), read together with Section 3, item 16 for the definition of normalized volume and Theorem 17 for the stable-degeneration reduction.",
+  "completeness_score": 8.8,
+  "correct_elements": "Your draft is very close to the paper's actual target. It captures the exact numerical bound 2(n-1)^n, the rigidity statement that equality should occur only for the A_1 singularity, and the fact that the question is about normalized volume of a singular n-dimensional point. This is essentially Problem 27 stated in the paper, modulo some setup that the paper leaves implicit from the surrounding section.",
+  "missing_details": [
+    "The paper's normalized volume is defined only for klt singularity germs. So the intended scope is not an arbitrary singular point x in X, but an n-dimensional singular klt germ x in X.",
+    "Problem 27 is in the boundary-free case Δ=0. The general definition in Section 3 is for x in (X,Δ), but the problem itself is stated for x in X alone.",
+    "To make the question stand-alone, one should spell out the invariant: widehat{vol}(x,X) = inf_{v in Val_{X,x}} A_X(v)^n vol(v), where the infimum runs over valuations centered at x.",
+    "The dimension parameter n should be identified explicitly as dim(X), equivalently the dimension of the singularity germ x in X.",
+    "The equality case should say what 'A_1 singularity' means in this context, namely the n-dimensional ordinary double point; the paper names A_1 but does not reintroduce the model in Problem 27 itself.",
+    "The nearby context records an important reduction: by induction on dimension together with Theorem 17, it suffices to treat isolated K-semistable log Fano cone singularities. This is not part of the statement itself, but it is part of the paper's intended scope and strategy."
+  ],
+  "refined_question": "Let x in X be an n-dimensional singular klt germ, with no boundary (so widehat{vol}(x,X) means the normalized volume widehat{vol}(x,X) := inf_{v in Val_{X,x}} A_X(v)^n vol(v)). Must one have widehat{vol}(x,X) <= 2(n-1)^n, with equality if and only if x in X is the n-dimensional A_1 singularity (ordinary double point)?",
+  "equivalent_formulation": null,
+  "justification": "This matches Problem 27 essentially verbatim. Section 3 first defines the normalized volume of a klt singularity germ x in (X,Δ), and Problem 27 in Section 3.2 then specializes to the case Δ=0 and asks whether the largest normalized volume among singular n-dimensional germs is 2(n-1)^n, attained only by the A_1 singularity. The surrounding discussion explains that this is the 'second largest volume' question: the maximal normalized volume is n^n and is realized only by smooth points, while in dimension 3 the second largest volume is already known to be the A_1 singularity. The paper also states immediately afterward that, by induction on dimension together with the stable degeneration theorem, it suffices to treat isolated K-semistable log Fano cone singularities, which is the main hidden contextual reduction behind the problem.",
+  "citations": [
+    {
+      "section": "Section 3",
+      "label": "16 (definition of normalized volume)",
+      "page": 5
+    },
+    {
+      "section": "Section 3",
+      "label": "Theorem 17 (Stable degeneration)",
+      "page": "5-6"
+    },
+    {
+      "section": "Section 3.2",
+      "label": "Theorem 26",
+      "page": 9
+    },
+    {
+      "section": "Section 3.2",
+      "label": "Problem 27",
+      "page": 9
+    }
+  ]
+}

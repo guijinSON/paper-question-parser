@@ -1,0 +1,43 @@
+{
+  "arxiv_id": "2006.08535",
+  "question_id": "q_002",
+  "original_question": "Let W be the Coxeter group from the paper, let H be its Iwahori-Hecke algebra over A = Z[v, v^{-1}] with standard basis {T_w ; w in W}, and define structure constants f_{x,y,z} in A by T_x T_y = sum_{z in W} f_{x,y,z} T_z. Is there an integer N >= 0 such that for every x, y, z in W, the shifted coefficient v^{-N} f_{x,y,z} lies in Z[v^{-1}]?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 7048.57,
+  "target_in_paper": "Open problem 234* in item 2 of the paper: the boundedness conjecture for the standard-basis structure constants f_{x,y,z} of the Iwahori-Hecke algebra H attached to a Coxeter group W with a weight function L.",
+  "completeness_score": 7.5,
+  "correct_elements": "Your draft correctly identifies the ambient Laurent polynomial ring A = Z[v,v^{-1}], the standard basis {T_w}, the structure constants f_{x,y,z} defined by T_x T_y = sum_z f_{x,y,z} T_z, and the core boundedness question asking for a single integer N >= 0 such that v^{-N} f_{x,y,z} lies in Z[v^{-1}] uniformly for all x,y,z in W.",
+  "missing_details": [
+    "The paper does not fix one specific \"Coxeter group from the paper\"; it states the problem for an arbitrary Coxeter group W coming from a finite index set I and a Coxeter matrix (m_{ij}).",
+    "A weight function L: W -> N is part of the data. This is essential, because the Hecke algebra in the paper is the Iwahori-Hecke algebra attached to the pair (W,L), not just to W.",
+    "The weight function must satisfy the paper's hypotheses: L(w) > 0 for w != 1 and L(ww') = L(w) + L(w') whenever |ww'| = |w| + |w'|.",
+    "To make the question stand-alone, H should be defined by the paper's relations: (T_{s_i} + v^{-L(s_i)})(T_{s_i} - v^{L(s_i)}) = 0 for i in I, and T_w T_{w'} = T_{ww'} whenever lengths add.",
+    "The quantifier on N should be clarified: N may depend on the fixed pair (W,L), but it must be uniform over all x,y,z in W.",
+    "The paper's immediate intent is that this boundedness hypothesis is then used to define a(z), the leading coefficients gamma_{x,y,z^{-1}}, and the asymptotic ring J in 235*; your draft omits that nearby motivation."
+  ],
+  "refined_question": "Let I be a finite set, let (m_{ij})_{i,j in I} be a symmetric Coxeter matrix with diagonal entries 1 and off-diagonal entries in {2,3,...,infinity}, and let W be the corresponding Coxeter group with generators {s_i ; i in I} and length function |.|. Let L: W -> N be a weight function such that L(w) > 0 for every w != 1 and L(ww') = L(w) + L(w') whenever |ww'| = |w| + |w'|. Set A = Z[v,v^{-1}], where v is an indeterminate, and let H be the associated Iwahori-Hecke algebra, i.e. the free A-module with basis {T_w ; w in W} satisfying (T_{s_i} + v^{-L(s_i)})(T_{s_i} - v^{L(s_i)}) = 0 for all i in I and T_w T_{w'} = T_{ww'} whenever |ww'| = |w| + |w'|. For x,y in W, write T_x T_y = sum_{z in W} f_{x,y,z} T_z with f_{x,y,z} in A. Must there exist an integer N >= 0, depending only on the fixed pair (W,L), such that v^{-N} f_{x,y,z} belongs to Z[v^{-1}] for every x,y,z in W?",
+  "equivalent_formulation": null,
+  "justification": "This draft is aiming exactly at open problem 234*, not at the later asymptotic-algebra question 235*. The paper first sets up the Coxeter datum (W,L), defines the Iwahori-Hecke algebra H and the coefficients f_{x,y,z}, and then asks precisely for the existence of a uniform integer N with v^{-N} f_{x,y,z} in Z[v^{-1}] for all x,y,z. Your version already captures the heart of the boundedness statement, but it is not fully stand-alone because it suppresses the weight function L and the defining relations of the unequal-parameter Hecke algebra, and it makes the scope sound as though there were a single distinguished Coxeter group in the paper. The paragraph immediately following 234* confirms the paper's intent: this boundedness is the hypothesis used to define a(z) and then the ring J in 235*.",
+  "citations": [
+    {
+      "section": "1",
+      "label": "opening setup defining the Coxeter group W, the weight function L, and the Iwahori-Hecke algebra H",
+      "page": 56
+    },
+    {
+      "section": "2",
+      "label": "definition of the structure constants f_{x,y,z} by T_x T_y = sum_z f_{x,y,z} T_z",
+      "page": 57
+    },
+    {
+      "section": "2",
+      "label": "234*",
+      "page": 57
+    },
+    {
+      "section": "2",
+      "label": "paragraph immediately after 234* explaining that this boundedness is used to define a(z), gamma_{x,y,z^{-1}}, and J",
+      "page": 57
+    }
+  ]
+}

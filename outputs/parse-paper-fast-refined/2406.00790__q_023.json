@@ -1,0 +1,47 @@
+{
+  "arxiv_id": "2406.00790",
+  "question_id": "q_023",
+  "original_question": "Fix an embedding dimension e and let F be a family of numerical semigroups with that fixed embedding dimension. For each i = 1, ..., e - 1 define B_i(F) = sup{ b_i(R_Gamma) | Gamma in F }, where R_Gamma is the local semigroup ring of Gamma. Must it be true that the quantities B_i(F) are either all finite or all infinite?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 9953.34,
+  "target_in_paper": "Section 6, Problem 24 (Uniform boundedness).",
+  "completeness_score": 8.8,
+  "correct_elements": "Your draft is already very close to the paper’s exact target. It correctly fixes a family of numerical semigroups with common embedding dimension e, defines family-wise suprema of the i-th Betti numbers for i = 1, ..., e-1, and asks for the same dichotomy stated in the paper: whether these suprema must be simultaneously finite or simultaneously infinite.",
+  "missing_details": [
+    "A ground field k should be fixed. In Section 1 the semigroup rings are defined over a field, and the paper notes that intermediate Betti numbers can depend on the characteristic.",
+    "The local semigroup ring should be identified explicitly as R_Gamma = k[[Gamma]] = k[[t^{n_1},...,t^{n_e}]] when Gamma = <n_1,...,n_e>.",
+    "The meaning of beta_i(R_Gamma) should be stated: it is the i-th Betti number in a minimal free resolution of R_Gamma over a minimal regular local presentation.",
+    "It should be explicit that every Gamma in the family has embedding dimension exactly e, not merely at most e.",
+    "No extra hypotheses such as symmetry, almost symmetry, width bounds, homogeneity, degree conditions, or nilpotency assumptions belong to this problem; the paper asks it for arbitrary families of numerical semigroups of fixed embedding dimension."
+  ],
+  "refined_question": "Fix a field k and a positive integer e. Let F be a family of numerical semigroups Gamma with embedding dimension e(Gamma) = e. For each Gamma in F, write Gamma = <n_1,...,n_e> and let R_Gamma = k[[Gamma]] = k[[t^{n_1},...,t^{n_e}]] be its local semigroup ring. Let beta_i(R_Gamma) denote the i-th Betti number of R_Gamma over a minimal regular local presentation. For each i = 1, ..., e - 1, define B_i(F) = sup{beta_i(R_Gamma) : Gamma in F}. Is it true that the numbers B_1(F), ..., B_{e-1}(F) are either all finite or all infinite?",
+  "equivalent_formulation": "Equivalently, one may replace R_Gamma = k[[Gamma]] by the graded semigroup ring k[Gamma], since Section 1 states that beta_i(k[[Gamma]]) = beta_i(k[Gamma]) for all i.",
+  "justification": "This is exactly the open problem stated as Problem 24 in Section 6. Your draft already matches the family-level supremum formulation and the finite-versus-infinite dichotomy in the paper. To make it fully stand-alone and faithful to the paper, the main missing ingredients are the fixed ground field k, the precise ring-theoretic meaning of R_Gamma and of beta_i, and the fact that the paper imposes no extra structural assumptions on the family beyond fixed embedding dimension. The nearby context in Section 6 also explains that the first interesting case is embedding dimension 4 and relates that case to Theorem 17 and Problem 25.",
+  "citations": [
+    {
+      "section": "Introduction",
+      "label": "Betti-number viewpoint for studying relations of numerical semigroups via semigroup rings and syzygies",
+      "page": "p. 365"
+    },
+    {
+      "section": "§1 Generalities",
+      "label": "definitions of k[[S]], Betti numbers, and the equality beta_i(k[[S]]) = beta_i(k[S])",
+      "page": "pp. 365-367"
+    },
+    {
+      "section": "§1 Generalities",
+      "label": "remark that Betti numbers may depend on the characteristic of the ground field",
+      "page": "pp. 366-367"
+    },
+    {
+      "section": "§6 Uniform boundedness",
+      "label": "Problem 24",
+      "page": "pp. 377-378"
+    },
+    {
+      "section": "§6 Uniform boundedness",
+      "label": "Theorem 17 and Problem 25",
+      "page": "pp. 377-378"
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "arxiv_id": "2502.19916",
+  "question_id": "q_003",
+  "original_question": "Consider the one-dimensional heavy-ball setting on F_{mu,L}, and let the purple region denote the set of tunings (gamma, beta) for which there exists a function in F_{mu,L} and an initialization whose heavy-ball trajectory forms a cycle. Can one prove that, in dimension 1, this full purple region of cycling tunings is actually achieved, thereby proving that heavy-ball cannot accelerate in dimension 1 either?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 10635.4,
+  "target_in_paper": "Section 2 (\"Open problem 1: behavior in dimension 1\"), specifically the first of the paper’s \"two connected conjectures\": \"Can we prove that the purple region representing all the cycles, is achieved in dimension 1, therefore proving that [HB] cannot accelerate in dimension 1 either?\" ([ar5iv.org](https://ar5iv.org/html/2502.19916v1))",
+  "completeness_score": 8,
+  "correct_elements": "Your draft correctly targets the dimension-1 heavy-ball question over F_{μ,L}, it focuses on the purple cycling region rather than the broader Lyapunov/cycle gap of Open problem 2, and it preserves the paper’s intended implication: if the full purple region is attained already in dimension 1, then heavy-ball cannot accelerate there either. That is exactly the sharper Section 2 formulation sitting underneath the broader Section 1 question \"Does heavy-ball accelerate over scalar functions of F_{μ,L}?\" ([ar5iv.org](https://ar5iv.org/html/2502.19916v1))",
+  "missing_details": [
+    "The scalar ambient space should be explicit: the paper’s question is about scalar functions, i.e. dimension d=1, so one is considering f: ℝ → ℝ and HB iterates x_t ∈ ℝ. ([ar5iv.org](https://ar5iv.org/html/2502.19916v1))",
+    "The heavy-ball method itself should be written out as the two-step recursion x_{t+1}=x_t-γ f'(x_t)+β(x_t-x_{t-1}), since the paper frames everything in terms of this specific algorithm. ([ar5iv.org](https://ar5iv.org/html/2502.19916v1))",
+    "F_{μ,L} should be defined stand-alone as the class of L-smooth, μ-strongly convex functions, with 0<μ<L. ([ar5iv.org](https://ar5iv.org/html/2502.19916v1))",
+    "The phrase \"purple region\" should be tied to the paper’s actual usage: it is the region of tunings for which cycles are already known/proved on F_{μ,L} in dimension 2, and whose numerically found 1D counterpart is reported as indistinguishable in Figure 3. ([ar5iv.org](https://ar5iv.org/html/2502.19916v1))",
+    "The existential quantifiers behind \"achieved\" should be made explicit: for each tuning (γ,β) in that region, one seeks some cycle length K≥2, some scalar function f∈F_{μ,L}, and some initialization of the two-step method whose HB orbit is exactly K-periodic. The paper’s definition of a cycle of length K supplies this quantifier pattern. ([ar5iv.org](https://ar5iv.org/html/2502.19916v1))",
+    "The consequence \"therefore proving that heavy-ball cannot accelerate in dimension 1 either\" should be stated in the paper’s intended worst-case sense: Section 1 explains that the accelerated quadratic-tuning region lies inside the purple cycle region, so realizing that region in 1D would rule out acceleration over scalar F_{μ,L}. ([ar5iv.org](https://ar5iv.org/html/2502.19916v1))",
+    "No homogeneity, polynomial degree, nilpotency, or other algebraic restrictions belong here; this paper’s problem is purely about real smooth strongly convex functions and heavy-ball dynamics, so those hypotheses should neither be added nor searched for. ([arxiv.org](https://arxiv.org/abs/2502.19916))"
+  ],
+  "refined_question": "Fix 0<μ<L, and consider the scalar Heavy-Ball method x_{t+1}=x_t-γ f'(x_t)+β(x_t-x_{t-1}) on functions f:ℝ→ℝ in F_{μ,L}, the class of L-smooth, μ-strongly convex functions. Let P_{purple}(μ,L) denote the purple cycle region from the paper, i.e. the set of tunings already known in dimension 2 to admit a heavy-ball cycle on some function in F_{μ,L}. Is it true that every tuning (γ,β)∈P_{purple}(μ,L) is also realized in dimension 1, in the sense that there exist an integer K≥2, a scalar function f∈F_{μ,L}, and an initialization of the Heavy-Ball method whose trajectory is exactly K-periodic? If so, this would establish that Heavy-Ball does not accelerate over scalar functions in F_{μ,L} either.",
+  "equivalent_formulation": null,
+  "justification": "The draft is aiming at the sharper Section 2 conjecture, not merely the broader introductory question. Section 1 first states Open problem 1 as \"Does heavy-ball accelerate over scalar functions of F_{μ,L}?\" and explains that the purple region consists of tunings for which cycles are provably found, with the acceleration-relevant quadratic tunings falling inside that region. Section 2 then reports numerical evidence that the 1D cycle region is indistinguishable from the known 2D purple region and culminates in the exact conjecture your draft is paraphrasing: proving that the whole purple region is achieved in dimension 1 would prove non-acceleration in dimension 1 as well. Finally, Section 3 provides the explicit quantifier structure needed to make the question stand-alone by defining what a cycle of length K means. ([ar5iv.org](https://ar5iv.org/html/2502.19916v1))",
+  "citations": [
+    {
+      "section": "Section 1",
+      "label": "Open problem 1; discussion of the purple cycle region (Figures 1–2)",
+      "page": "page number unavailable in accessible HTML version"
+    },
+    {
+      "section": "Section 2",
+      "label": "Open problem 1: behavior in dimension 1; numerical comparison of 1D and 2D cycle regions",
+      "page": "page number unavailable in accessible HTML version"
+    },
+    {
+      "section": "Section 2",
+      "label": "Two connected conjectures, item (i)",
+      "page": "page number unavailable in accessible HTML version"
+    },
+    {
+      "section": "Section 3",
+      "label": "How did we find cycles? Definition of a cycle of length K",
+      "page": "page number unavailable in accessible HTML version"
+    }
+  ]
+}

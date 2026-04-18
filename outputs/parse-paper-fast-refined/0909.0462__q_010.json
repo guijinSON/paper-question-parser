@@ -1,0 +1,39 @@
+{
+  "arxiv_id": "0909.0462",
+  "question_id": "q_010",
+  "original_question": "On a circle, black particles arrive according to a Poisson stream of rate lambda and remain there, while white particles arrive according to an independent Poisson stream of rate 1 and immediately disappear after, if possible, deleting the nearest black particle within distance epsilon of their arrival location. Is this model stable whenever lambda < 1, independently of the circle length and of epsilon?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 433.3,
+  "target_in_paper": "Section 3.2, \"Stability of a model with two streams: stream of customers and stream of servers\" (within Section 3, \"Greedy service mechanism\"), page 4.",
+  "completeness_score": 8.5,
+  "correct_elements": "Your draft already captures the core open problem very closely: two independent Poisson streams of black and white particles with rates lambda and 1; black particles remain unless deleted; a white particle deletes the nearest black particle within distance epsilon of its arrival point if one exists; and the conjectured stability condition is lambda < 1, uniformly over the circle length and epsilon. That is essentially the same problem stated in Section 3.2.",
+  "missing_details": [
+    "The arrivals are not just temporal Poisson streams; they are Poisson rains on a continuous circle, so each arrival location is implicitly uniform on the circle.",
+    "The circle should be understood as having an arbitrary fixed positive length L, and epsilon should be an arbitrary fixed positive parameter.",
+    "The relevant distance and epsilon-neighbourhood are with respect to the circle metric.",
+    "The white particle chooses among black particles present at its arrival instant and deletes the nearest one in its epsilon-neighbourhood.",
+    "To make the question stand-alone, the stochastic object whose stability is being asked about should be named explicitly: the evolving black-particle configuration process (equivalently, the associated continuous-state-space queueing model).",
+    "The paper does not specify a tie-breaking rule for equally near black particles; on a continuous circle such ties have probability 0, so this is usually left implicit.",
+    "The paper frames this as a continuous-state-space model with a greedy/local rule, which helps distinguish it from the easier finite-state or state-independent variants mentioned immediately afterward."
+  ],
+  "refined_question": "Fix a circle of arbitrary length L > 0 and a parameter epsilon > 0. Black particles arrive on the circle as a Poisson rain of rate lambda, with arrival locations uniform on the circle, and each black particle stays until deleted. Independently, white particles arrive as a Poisson rain of rate 1, with uniform arrival locations; each white particle immediately disappears, but at its arrival epoch it inspects the epsilon-neighbourhood of its arrival point (for the circle metric) and, if that neighbourhood contains any black particles, deletes the black particle nearest to it. Is the resulting continuous-state-space greedy system stable, for every lambda < 1, independently of the circle length L and of epsilon?",
+  "equivalent_formulation": null,
+  "justification": "This is the exact open problem stated in Section 3.2: the paper describes a circle with two independent Poisson rains of black and white particles of rates lambda and 1, respectively; black particles stop on the circle; white particles immediately disappear after deleting the nearest black particle in their epsilon-neighbourhood if one is present; and the paper says that the natural conjecture is that stability should follow from lambda < 1, independently of the circle length and epsilon. The surrounding Section 3 context identifies this as one of two continuous-state-space models whose difficulty comes from a greedy local rule. Your draft is therefore very close, but it leaves implicit the spatial-uniform Poisson-rain interpretation, the fixed arbitrary parameters L and epsilon, the circle metric, and the intended stability object/process, all of which help make the question fully stand-alone and faithful to the paper.",
+  "citations": [
+    {
+      "section": "Opening paragraph",
+      "label": "Paper introduction / statement that the note collects open problems in queueing",
+      "page": 1
+    },
+    {
+      "section": "3",
+      "label": "Greedy service mechanism",
+      "page": 4
+    },
+    {
+      "section": "3.2",
+      "label": "Stability of a model with two streams: stream of customers and stream of servers",
+      "page": 4
+    }
+  ]
+}

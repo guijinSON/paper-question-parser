@@ -1,0 +1,45 @@
+{
+  "arxiv_id": "2310.18163",
+  "question_id": "q_020",
+  "original_question": "Over all edge-colourings of the hypercube Q_n with two colours, determine the largest possible average, over all antipodal vertex pairs v and v-bar, of the minimum number of colour changes needed along a path from v to v-bar. One may ask the same question with the paths restricted to be geodesics.",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 9129.5,
+  "target_in_paper": "Section 8, Question 8.3 (\"Antipodal paths in Q_n with few colour changes\")",
+  "completeness_score": 8.5,
+  "correct_elements": "Your draft correctly identifies the paper’s averaged variant of the antipodal-path problem: a 2-edge-colouring of the hypercube Q_n, antipodal endpoints v and its antipode, minimization of the number of colour changes along a connecting path, maximization over all colourings, and the separately mentioned geodesic-only version.",
+  "missing_details": [
+    "The official target is Question 8.3, which is a variant of Conjecture 8.1/Question 8.2; it is not the original one-pair existence conjecture.",
+    "The colouring is specifically a red-blue colouring of the edges of Q_n.",
+    "The average is written explicitly in the paper as (1/2^n) times the sum over all vertices v in Q_n of the minimum number of colour changes on a path from v to its antipode.",
+    "To make the question stand-alone, one should define the antipode of v as the vertex differing from v in every coordinate (equivalently, the bitwise complement).",
+    "One should define a colour change as an index at which two consecutive edges of the path have different colours.",
+    "The minimization is over all v-to-antipode paths in Q_n; only afterwards does the paper note the analogous variant where the minimum is restricted to geodesics.",
+    "If the geodesic variant is mentioned, geodesic should be defined exactly as in the nearby context: a shortest path in Q_n, equivalently one in which no direction is repeated.",
+    "The quantity being asked for is a function of n: for each n, maximize that average over all red-blue edge-colourings of Q_n."
+  ],
+  "refined_question": "For each n, among all red-blue edge-colourings of the n-dimensional hypercube Q_n, determine the maximum possible value of (1/2^n) sum over v in Q_n of m(v), where m(v) denotes the minimum number of colour changes along any path in Q_n from v to its antipode (the vertex differing from v in every coordinate).",
+  "equivalent_formulation": "Equivalently, if v is chosen uniformly at random from V(Q_n), how large can the expected minimum number of colour changes on a path from v to its antipode be, maximized over all red-blue edge-colourings of Q_n? The paper then separately notes the analogous version with the minimum restricted to geodesic paths.",
+  "justification": "The draft is aiming at the paper’s Section 8 averaged variant, namely Question 8.3, rather than the stronger existence statements Conjecture 8.1 or Question 8.2. Section 8 first fixes the ambient setting of red-blue edge-colourings of Q_n, antipodal vertices, and geodesics (Conjecture 8.1). After recalling Question 8.2, the authors explicitly propose the averaged problem in Question 8.3 and rewrite it as a precise normalized sum over all vertices v in Q_n. The paper immediately adds that the same question can also be posed for geodesic paths, so your final sentence matches a genuine nearby variant, but it is not part of the main official statement itself. The surrounding context also explains why this averaged question is intended as an induction-friendly step toward the original antipodal-path conjecture, and notes that a layered colouring gives a lower bound of order sqrt(n), which is part of the motivation for keeping the formulation exactly at the average level rather than broadening it.",
+  "citations": [
+    {
+      "section": "8",
+      "label": "Conjecture 8.1",
+      "page": 17
+    },
+    {
+      "section": "8",
+      "label": "Question 8.2",
+      "page": 17
+    },
+    {
+      "section": "8",
+      "label": "Question 8.3",
+      "page": 18
+    },
+    {
+      "section": "8",
+      "label": "Conjecture 8.4",
+      "page": 18
+    }
+  ]
+}

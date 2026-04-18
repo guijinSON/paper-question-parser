@@ -1,0 +1,48 @@
+{
+  "arxiv_id": "2410.09897",
+  "question_id": "q_009",
+  "original_question": "Let (W,S) be a finite Coxeter system and let u <= v in W. Writing the R-polynomial in the form ~R_{u,v}(t) = Q_{u,v}(t^2) when ell(u,v) is even and ~R_{u,v}(t) = t Q_{u,v}(t^2) when ell(u,v) is odd, must the polynomial Q_{u,v}(t) always be log-concave?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 10140.49,
+  "target_in_paper": "Section 2, Conjecture 2.4, with its setup supplied by Proposition 2.3 and the ordinary R-polynomial definition coming from Theorem 1.2 with J = emptyset.",
+  "completeness_score": 8.5,
+  "correct_elements": "Your draft is already very close to the paper's exact target: it has the right scope (finite Coxeter system), the right hypothesis (u <= v), the right parity decomposition of the tilde-R polynomial, and the right property being asked about (log-concavity of Q_{u,v}(t)). This is exactly the problem formalized as Conjecture 2.4.",
+  "missing_details": [
+    "The paper first defines the auxiliary polynomial widetilde{R}_{u,v}(t) by the identity R_{u,v}(q) = q^{ell(u,v)/2} widetilde{R}_{u,v}(q^{1/2} - q^{-1/2}); your draft assumes widetilde{R}_{u,v}(t) without stating this definition (Proposition 2.3, p. 9; ordinary R-polynomials from Theorem 1.2, p. 2).",
+    "The order relation u <= v is Bruhat order, and ell(u,v) means ell(v) - ell(u); the paper sets this notation in Section 1 (p. 1).",
+    "The ambient coefficient rings are part of the setup: R_{u,v}(q) is in Z[q], while widetilde{R}_{u,v}(t) and Q_{u,v}(t) lie in N[t] (Theorem 1.2, p. 2; Proposition 2.3, p. 9).",
+    "The uniqueness of Q_{u,v}(t) comes from the fact that when u <= v, all exponents appearing in widetilde{R}_{u,v}(t) have the same parity, and deg(widetilde{R}_{u,v}) = ell(u,v); this should be stated if the question is to be stand-alone (Proposition 2.3, p. 9).",
+    "The paper's notion of a log-concave polynomial is coefficientwise: if Q_{u,v}(t) = sum_i a_i t^i, then a_i^2 >= a_{i-1} a_{i+1} for all relevant i; your draft does not spell this out (Section 2, definition paragraph before Theorem 2.1, p. 8).",
+    "The paper asks this only for finite Coxeter systems; it does not state Conjecture 2.4 for arbitrary Coxeter systems, though it remarks that such a broader statement is conceivable (Conjecture 2.4 and following paragraph, p. 9)."
+  ],
+  "refined_question": "Let (W,S) be a finite Coxeter system, let u,v be elements of W with u <= v in Bruhat order, and let R_{u,v}(q) be the ordinary R-polynomial of W. Define the polynomial widetilde{R}_{u,v}(t) in N[t] by R_{u,v}(q) = q^{ell(u,v)/2} widetilde{R}_{u,v}(q^{1/2} - q^{-1/2}), where ell(u,v) = ell(v) - ell(u). Proposition 2.3 implies that deg(widetilde{R}_{u,v}) = ell(u,v) and that all exponents occurring in widetilde{R}_{u,v}(t) have the same parity, so there is a unique polynomial Q_{u,v}(t) in N[t] such that widetilde{R}_{u,v}(t) = Q_{u,v}(t^2) if ell(u,v) is even, and widetilde{R}_{u,v}(t) = t Q_{u,v}(t^2) if ell(u,v) is odd. Must Q_{u,v}(t) always be log-concave; equivalently, if Q_{u,v}(t) = sum_i a_i t^i, must a_i^2 >= a_{i-1} a_{i+1} hold for every i?",
+  "equivalent_formulation": null,
+  "justification": "The draft is aiming precisely at Conjecture 2.4 in Section 2. Proposition 2.3, immediately preceding Conjecture 2.4, introduces the polynomials widetilde{R}_{u,v}(t), states the defining relation with the ordinary R-polynomials, and gives the same-parity property that produces Q_{u,v}(t). Conjecture 2.4 then states exactly that Q_{u,v}(t) is log-concave for finite Coxeter systems. To make the question fully stand-alone and faithful to the paper, one must add the definition of widetilde{R}_{u,v}(t), specify that <= is Bruhat order and ell(u,v) = ell(v)-ell(u), record the coefficient rings, and spell out the paper's coefficientwise definition of log-concavity. Theorem 1.2 is relevant only as the formal source of the ordinary R-polynomials used in Proposition 2.3.",
+  "citations": [
+    {
+      "section": "Section 1",
+      "label": "Initial notation for Bruhat order and ell(u,v)",
+      "page": 1
+    },
+    {
+      "section": "Section 1",
+      "label": "Theorem 1.2",
+      "page": 2
+    },
+    {
+      "section": "Section 2",
+      "label": "Definition paragraph before Theorem 2.1",
+      "page": 8
+    },
+    {
+      "section": "Section 2",
+      "label": "Proposition 2.3",
+      "page": 9
+    },
+    {
+      "section": "Section 2",
+      "label": "Conjecture 2.4",
+      "page": 9
+    }
+  ]
+}

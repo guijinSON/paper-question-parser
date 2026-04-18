@@ -1,0 +1,44 @@
+{
+  "arxiv_id": "math_0109030",
+  "question_id": "q_007",
+  "original_question": "For a matrix A of order n, define c_j = (sum over all principal minors A[alpha] with #alpha = j of A[alpha]) / binomial(n, j) for j = 0, ..., n. Does every GKK tau-matrix satisfy Newton's inequalities c_j^2 >= c_{j-1} c_{j+1} for each j = 1, ..., n - 1?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 13843.93,
+  "target_in_paper": "Section 3, Problem 5 (\"Newton's inequalities\") of arXiv:math/0109030.",
+  "completeness_score": 8.5,
+  "correct_elements": "Your draft already captures the paper's intended target very closely. It asks about the same matrix class (GKK tau-matrices), uses the same normalized averages of principal minors c_j, and states exactly the Newton inequalities c_j^2 >= c_{j-1} c_{j+1} for j = 1, ..., n - 1 that appear in the paper's official Problem 5.",
+  "missing_details": [
+    "The paper works with complex square matrices A in C^{n x n}, not only real matrices.",
+    "The notation A[alpha] means the principal minor det A(alpha, alpha); more generally A[alpha, beta] denotes det A(alpha, beta) when #alpha = #beta, and A[emptyset] is defined to be 1.",
+    "The index sets alpha, beta are taken from the collection of increasing sequences (equivalently, subsets) of {1, 2, ..., n}; the question is quantified over all n and all matrices A of order n in the specified class.",
+    "To make the question stand-alone, 'GKK' must be defined: A is a P-matrix (all principal minors positive) and is weakly sign-symmetric, meaning A[alpha, beta] A[beta, alpha] >= 0 for all almost principal minors, i.e. when #alpha = #beta = #(alpha union beta) - 1.",
+    "To make the question stand-alone, 'tau-matrix' must be defined via eigenvalue monotonicity: if l(B) := min(sigma(B) intersect R) with min(emptyset) := infinity, then l(A(alpha, alpha)) <= l(A(beta, beta)) < infinity whenever emptyset != beta subseteq alpha, together with l(A) >= 0.",
+    "The paper states this as an open problem, not as a proved theorem or conjecture with the same label; its nearest official formulation is Problem 5 in Section 3.",
+    "No extra assumption such as stability, strict GKK, real spectrum, or diagonalizability belongs to the main Problem 5; those only appear in surrounding discussion or in the subproblems 5a and 5b."
+  ],
+  "refined_question": "Let n be a positive integer and let A in C^{n x n}. For each subset alpha subseteq {1, ..., n}, write A[alpha] := det A(alpha, alpha), with A[emptyset] := 1. Call A a GKK tau-matrix if: (i) A is a P-matrix, i.e. A[alpha] > 0 for all alpha; (ii) A is weakly sign-symmetric, i.e. A[alpha, beta] A[beta, alpha] >= 0 whenever #alpha = #beta = #(alpha union beta) - 1; and (iii) with l(B) := min(sigma(B) intersect R) and min(emptyset) := infinity, one has eigenvalue monotonicity l(A(alpha, alpha)) <= l(A(beta, beta)) < infinity for every nonempty beta subseteq alpha subseteq {1, ..., n}, and also l(A) >= 0. For j = 0, ..., n, define c_j := (sum over all alpha with #alpha = j of A[alpha]) / binom(n, j). Must every GKK tau-matrix satisfy Newton's inequalities c_j^2 >= c_{j-1} c_{j+1} for each j = 1, ..., n - 1?",
+  "equivalent_formulation": null,
+  "justification": "The draft is already very close to the paper's exact target. In this paper, the Newton-inequalities question appears explicitly as Problem 5 in Section 3, after Section 2 introduces the needed notation and the definitions of P-matrix, weak sign symmetry/GKK, omega-matrix, and tau-matrix. The main refinements needed are only the ambient field C, the precise meaning of A[alpha] and A[alpha,beta], the convention A[emptyset] = 1, and the full definitions hidden inside the phrase 'GKK tau-matrix'. The paper also makes clear that the main target is the full GKK tau question, while 5a (M-matrices) and 5b (stable GKK tau-matrices) are only subordinate variants, so the refined question should stay with Problem 5 rather than drift to those subproblems.",
+  "citations": [
+    {
+      "section": "1",
+      "label": "Motivation",
+      "page": 1
+    },
+    {
+      "section": "2",
+      "label": "Basic notions",
+      "page": 2
+    },
+    {
+      "section": "3",
+      "label": "Problem 5 (Newton's inequalities)",
+      "page": 4
+    },
+    {
+      "section": "3",
+      "label": "Problems 5a and 5b / surrounding context",
+      "page": 4
+    }
+  ]
+}

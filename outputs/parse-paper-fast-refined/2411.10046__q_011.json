@@ -1,0 +1,36 @@
+{
+  "arxiv_id": "2411.10046",
+  "question_id": "q_011",
+  "original_question": "Let v be a vertex of a graph G. Is the list packing number of G always at most two more than the list packing number of the vertex-deleted graph G \\ v? Equivalently, must chi*_l(G) <= chi*_l(G \\ v) + 2 hold for every graph G and every vertex v of G?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 10244.79,
+  "target_in_paper": "Section 2 ('Various open problems related to list packing'), subsection 'Removing an edge or vertex', Problem 2.9, specifically its vertex-deletion clause.",
+  "completeness_score": 8.5,
+  "correct_elements": "Your draft identifies the correct parameter (the list packing number χ^*_ℓ), the correct graph operation (deleting a vertex v from G), the correct additive bound (+2), and the correct universal scope (for every graph G and every vertex v). It is essentially the vertex-deletion half of Problem 2.9.",
+  "missing_details": [
+    "To be fully stand-alone, the question should define χ^*_ℓ(G): it is the least integer k such that every k-list-assignment L of G admits k pairwise disjoint proper L-colourings.",
+    "The surrounding notation from the paper should be made explicit: a k-list-assignment gives each vertex a k-element list of colours; an L-colouring is proper if adjacent vertices receive different colours; and two L-colourings are disjoint if they assign different colours to each vertex.",
+    "The deletion notation should be spelled out once: G∖v denotes the graph obtained from G by deleting the vertex v.",
+    "The official paper formulation is bundled with the analogous edge-deletion question in the same Problem 2.9, although your draft clearly targets only the vertex-deletion half."
+  ],
+  "refined_question": "Let χ^*_ℓ(G) denote the least integer k such that, for every assignment L that gives each vertex of a graph G a k-element list of colours, there exist k pairwise disjoint proper L-colourings of G (that is, each colouring chooses a colour from each vertex’s list, adjacent vertices receive different colours, and no two of the k colourings assign the same colour to the same vertex). For every graph G and every vertex v∈V(G), is it true that χ^*_ℓ(G) ≤ χ^*_ℓ(G∖v) + 2, where G∖v is the vertex-deleted graph?",
+  "equivalent_formulation": null,
+  "justification": "The draft is aimed directly at Problem 2.9 in Section 2 of the paper. The nearby context first defines list-assignments, proper and disjoint L-colourings, L-packings, and the list packing number χ^*_ℓ(G), and then asks the vertex-removal question under the subsection 'Removing an edge or vertex'. I therefore kept the refinement narrowly on that vertex-deletion question, without broadening it to the parallel edge-deletion question. No ambient ring/field, homogeneity, degree, nilpotency, or asymptotic 'sufficiently large' conditions arise here, because this is a purely graph-theoretic problem.",
+  "citations": [
+    {
+      "section": "2. Various open problems related to list packing",
+      "label": "definitions of list-assignment, proper/disjoint L-colourings, L-packing, and χ^*_ℓ(G)",
+      "page": 3
+    },
+    {
+      "section": "2. Various open problems related to list packing",
+      "label": "subsection 'Removing an edge or vertex'",
+      "page": 4
+    },
+    {
+      "section": "2. Various open problems related to list packing",
+      "label": "Problem 2.9",
+      "page": 4
+    }
+  ]
+}

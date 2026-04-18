@@ -1,0 +1,55 @@
+{
+  "arxiv_id": "2201.09150",
+  "question_id": "q_014",
+  "original_question": "For the consumer-resource system in which consumers move according to a top-hat-kernel perception of resource density, determine whether time-dependent solutions exist in a bounded domain with periodic boundary conditions.",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 7957.46,
+  "target_in_paper": "Section 2.2.2, Open Problem 14 for model (2.14): the paper asks in what sense solutions exist for the time-dependent consumer-resource system with periodic boundary conditions on a bounded domain. This matches the direct resource-perception model a(x,t) = γ v_{g,R}(x,t), not the later dynamic-memory extensions (2.18)-(2.19). ([math.ualberta.ca](https://www.math.ualberta.ca/~hwang/WangSalmaniwReview.pdf))",
+  "completeness_score": 7.0,
+  "correct_elements": "Your draft correctly identifies the right model family (a consumer-resource system in which consumer movement is biased by perceived resource density), the time-dependent existence question, and the bounded periodic-domain setting. The top-hat qualifier is also paper-faithful: Sect. 2.1 introduces the top-hat detection kernel, and Table 1 records top-hat as the kernel attached to model (2.14). ([math.ualberta.ca](https://www.math.ualberta.ca/~hwang/WangSalmaniwReview.pdf))",
+  "missing_details": [
+    "The exact PDE system is missing. The target model is u_t = D1Δu - γ∇·(u∇v_{g,R}) + cβuv/(α+v) - du and v_t = D2Δv + rv(1 - v/K) - βuv/(α+v). ([math.ualberta.ca](https://www.math.ualberta.ca/~hwang/WangSalmaniwReview.pdf))",
+    "The draft does not define the variables: u(x,t) is the consumer density and v(x,t) is the resource density. ([math.ualberta.ca](https://www.math.ualberta.ca/~hwang/WangSalmaniwReview.pdf))",
+    "The perception operator must be specified. The paper defines a_{g,R}(x,t) = ∫_Ω a(y,t)g(x-y)dy in (2.5), so here v_{g,R} is the spatial convolution of v with the detection kernel g. ([math.ualberta.ca](https://www.math.ualberta.ca/~hwang/WangSalmaniwReview.pdf))",
+    "The top-hat kernel itself is not written down. In Sect. 2.1, the one-dimensional top-hat kernel is g(z) = 1/(2R) for |z| ≤ R and 0 otherwise, with perceptual radius R; the paper notes higher-dimensional analogues. ([math.ualberta.ca](https://www.math.ualberta.ca/~hwang/WangSalmaniwReview.pdf))",
+    "The parameter assumptions are omitted: γ > 0, D1 > 0, D2 > 0, r > 0, K > 0, β > 0, α > 0, c > 0, and d > 0. ([math.ualberta.ca](https://www.math.ualberta.ca/~hwang/WangSalmaniwReview.pdf))",
+    "The official formulation asks in what sense solutions exist, not merely whether they exist. A stand-alone version should make explicit the intended solution concept (for example, weak, mild, or classical) and whether existence is local or global in time. ([math.ualberta.ca](https://www.math.ualberta.ca/~hwang/WangSalmaniwReview.pdf))",
+    "The initial-data class is left implicit. A stand-alone research question should say that one seeks existence for admissible periodic initial data and ideally indicate the regularity and nonnegativity assumptions to be used. ([math.ualberta.ca](https://www.math.ualberta.ca/~hwang/WangSalmaniwReview.pdf))",
+    "The draft should distinguish this direct resource-perception model (2.14) from the different extensions (2.18) and (2.19), where consumers move using a dynamic cognitive map q rather than directly via current resource density v_{g,R}. ([math.ualberta.ca](https://www.math.ualberta.ca/~hwang/WangSalmaniwReview.pdf))"
+  ],
+  "refined_question": "Let Ω be a bounded periodic domain (equivalently, a torus in higher dimensions), and consider the consumer-resource system u_t = D1Δu - γ∇·(u∇v_{g,R}) + cβuv/(α+v) - du, v_t = D2Δv + rv(1 - v/K) - βuv/(α+v), where u(x,t) and v(x,t) denote the consumer and resource densities, respectively, γ > 0 and D1, D2, r, K, β, α, c, d are positive constants, and v_{g,R} denotes the periodic spatial convolution from (2.5) with the top-hat detection kernel g from (2.3) of perceptual radius R. For admissible periodic initial data, in what sense (for example, weak, mild, or classical; local or global in time) do solutions to this time-dependent problem exist? ([math.ualberta.ca](https://www.math.ualberta.ca/~hwang/WangSalmaniwReview.pdf))",
+  "equivalent_formulation": null,
+  "justification": "The nearest official formulation is Open Problem 14 in Sect. 2.2.2. Your draft points to the model where consumers are attracted by perceived current resource density, which the paper writes as a(x,t) = γ v_{g,R}(x,t) and then encodes in system (2.14). That is why Open Problem 14, rather than Open Problem 21, is the right target: the latter concerns the extensions (2.18)-(2.19) with a dynamic cognitive map q(x,t). The top-hat wording in your draft is consistent with the paper's setup because Sect. 2.1 defines the top-hat detection kernel and Table 1 lists top-hat as the kernel associated to model (2.14). Open Problem 14 itself also notes the nearby state of the art: Song et al. (2022) analyzed a no-flux bounded one-dimensional case mathematically and used periodic boundary conditions only in simulations. Periodic boundary conditions are central to the paper's intent because Sect. 4.1.2 explains that the periodic case is analytically preferred for nonlocal kernels, avoiding the need to redefine the kernel near the boundary. ([math.ualberta.ca](https://www.math.ualberta.ca/~hwang/WangSalmaniwReview.pdf))",
+  "citations": [
+    {
+      "section": "2.1",
+      "label": "Eqs. (2.3) and (2.5)",
+      "page": "PDF pp. 7-8"
+    },
+    {
+      "section": "2.2.2",
+      "label": "Eq. (2.14)",
+      "page": "PDF p. 16"
+    },
+    {
+      "section": "2.2.2",
+      "label": "Open Problem 14",
+      "page": "PDF p. 16"
+    },
+    {
+      "section": "2.2.2",
+      "label": "Eqs. (2.18)-(2.19)",
+      "page": "PDF pp. 18-19"
+    },
+    {
+      "section": "4.1.2",
+      "label": "Periodic boundary condition discussion and Eq. (4.3)",
+      "page": "PDF pp. 39-40"
+    },
+    {
+      "section": "5.3",
+      "label": "Table 1 entry for model (2.14)",
+      "page": "PDF p. 60"
+    }
+  ]
+}

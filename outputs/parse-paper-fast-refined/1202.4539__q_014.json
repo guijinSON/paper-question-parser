@@ -1,0 +1,44 @@
+{
+  "arxiv_id": "1202.4539",
+  "question_id": "q_014",
+  "original_question": "For each dimension s >= 2 and positive integer q, let D(a_1, ..., a_s; q) be the discrepancy of the multidimensional Korobov-Hlawka sequence defined in the paper. Is the true order of min_{(a_1,...,a_s) in Z^s} D(a_1, ..., a_s; q) bounded by O_s((log q)^(s-1))? Equivalently, can the extra factor log log q in Bykovskii's bound O_s((log q)^(s-1) log log q) be removed?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 2195.46,
+  "target_in_paper": "The unnumbered open problem in the survey's later Zaremba/good-lattice-points discussion that asks whether the known upper bound for the minimum discrepancy of Korobov-Hlawka lattice point sets can be improved by deleting the extra factor log log q from Bykovskii's estimate.",
+  "completeness_score": 7.5,
+  "correct_elements": "Your draft already captures the core mathematical target very well: it asks about the minimum discrepancy of s-dimensional Korobov-Hlawka point sets, fixes the dimension s and modulus q, and focuses on the specific sharpening suggested by the paper's discussion of Bykovskii's bound, namely whether the extra factor log log q is artefactual. That is the right problem, and it stays narrowly aligned with the paper's intent rather than drifting to a broader discrepancy question.",
+  "missing_details": [
+    "The object should be defined explicitly as a finite Korobov-Hlawka point set/grid K_q(a_1,...,a_s) = {({a_1 k/q},...,{a_s k/q}) : k = 1,...,q} in [0,1)^s; calling it a 'sequence' is slightly ambiguous in this context.",
+    "The discrepancy must be defined stand-alone, i.e. as the supremum over axis-parallel half-open boxes in [0,1)^s.",
+    "The normalization should be fixed explicitly. In the standard discrepancy notation one has disc(K_q(a)) <<_s (log q)^{s-1} log log q / q, whereas your draft uses the rescaled quantity without the factor 1/q.",
+    "The minimization domain should be specified: only the residue classes modulo q matter, and one usually imposes gcd(a_1,...,a_s,q) = 1 so that the point set has q distinct nodes.",
+    "The asymptotic quantifier should be explicit: the question is for each fixed s as q -> infinity, with the implied constant depending only on s.",
+    "It helps to say that this is the multidimensional extension of the classical good-lattice-point/Zaremba-type problem, especially because the case s = 2 is the classical boundary case in the surrounding literature.",
+    "If one wants the question to be fully faithful to the literature cited around the paper, one should distinguish the usual discrepancy disc(K_q(a)) from the rescaled minimum discrepancy quantity q * disc(K_q(a))."
+  ],
+  "refined_question": "For fixed s >= 2 and q >= 2, and for a = (a_1,...,a_s) in Z^s with gcd(a_1,...,a_s,q) = 1, let K_q(a) = {({a_1 k/q},...,{a_s k/q}) : k = 1,...,q} subset [0,1)^s be the s-dimensional Korobov-Hlawka point set. Let disc(K_q(a)) denote its discrepancy from the uniform distribution with respect to axis-parallel half-open boxes, and set Delta_q(a) := q * disc(K_q(a)). Is it true that for every fixed dimension s one has min_a Delta_q(a) <<_s (log q)^(s-1) as q -> infinity? In other words, can one remove the extra factor log log q from the best known general upper bound min_a Delta_q(a) <<_s (log q)^(s-1) log log q?",
+  "equivalent_formulation": null,
+  "justification": "The draft is substantively on target: it singles out exactly the sharpening that the survey points to in the Korobov-Hlawka/good-lattice discussion, namely the removal of the log log q loss from Bykovskii's upper bound. What needed sharpening was not the mathematical aim but the stand-alone formulation: the paper's underlying object is a finite point set K_q(a), the discrepancy needs to be defined explicitly, and the normalization has to be fixed because the literature alternates between disc(K_q(a)) and the rescaled quantity q * disc(K_q(a)). The nearest official formulation in the survey appears to be unnumbered rather than a formal conjecture. The precise asymptotic form of the known bound and the statement that only a factor log log N separates it from the conjectured order are stated explicitly in Bykovskii's 2012 paper, which is the source the survey is invoking. A later paper of Illarionov restates the same Korobov-Hlawka notation cleanly and confirms the same discrepancy normalization.",
+  "citations": [
+    {
+      "section": "Later section of arXiv:1202.4539 on Zaremba/good lattice points",
+      "label": "unnumbered open question after the discussion of Bykovskii's bound",
+      "page": "page not recovered from accessible OCR"
+    },
+    {
+      "section": "Introduction of Bykovskii 2012",
+      "label": "definition of K_N(a), discrepancy D(K_N(a)), and the minimum discrepancy quantity D_N^(s)(K)",
+      "page": "447"
+    },
+    {
+      "section": "Introduction of Bykovskii 2012",
+      "label": "bound D_N^(s)(K) <<_s (log N)^(s-1) log log N / N and statement that it differs from the conjectured bound only by the factor log log N",
+      "page": "447-448"
+    },
+    {
+      "section": "Section 1 of Illarionov 2022",
+      "label": "restatement of Korobov-Hlawka point sets K_N(a) and their discrepancy notation",
+      "page": "1222-1223"
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "arxiv_id": "2509.19863",
+  "question_id": "q_013",
+  "original_question": "For the three-dimensional Brezis-Nirenberg Dirichlet problem -Delta u = lambda u + |u|^(2*-2)u in a general bounded domain Omega, possibly convex or even strictly star-shaped, does there exist a least-energy sign-changing solution for every lambda > 0?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 11342.12,
+  "target_in_paper": "Section 1.3.6, Open question 12 (\"Least-energy sign-changing solutions of the Brezis-Nirenberg problem (1.1)\")",
+  "completeness_score": 8.5,
+  "correct_elements": "Your draft already captures the paper's actual target very closely: it is about the three-dimensional Brezis-Nirenberg Dirichlet problem, on a general bounded domain Omega, with the full parameter range lambda > 0, and it asks for the existence of a least-energy sign-changing solution. This matches Open question 12, not the neighboring N = 4 spectral question in Open question 11.",
+  "missing_details": [
+    "The paper's standing assumption for problem (1.1) is that Omega is a smoothly bounded domain of R^N; in this question that means Omega should be taken as a smoothly bounded domain of R^3.",
+    "In dimension N = 3 one has 2^* = 6, so the equation should be written explicitly as -Delta u = lambda u + |u|^4 u.",
+    "The unknown is sought in the Sobolev space H_0^1(Omega), with zero Dirichlet boundary condition on partial Omega.",
+    "The paper encodes 'sign-changing' by requiring u^+ != 0 and u^- != 0, via the sign-changing Nehari manifold.",
+    "The phrase 'least-energy sign-changing solution' should be defined explicitly: it is a sign-changing critical point u_hat with E'_lambda(u_hat) = 0 in H^{-1} that attains the minimum of E_lambda on the sign-changing Nehari manifold N_sg.",
+    "To be fully stand-alone, the energy functional should be stated: E_lambda(u) = (1/2)||grad u||_{L^2(Omega)}^2 - (lambda/2)||u||_{L^2(Omega)}^2 - (1/6)||u||_{L^6(Omega)}^6.",
+    "For full paper-faithfulness, it helps to mention that the paper poses this specifically after recalling that analogous least-energy existence is already known for N = 4 with lambda not in sigma(-Delta) and for N >= 5 with lambda > 0."
+  ],
+  "refined_question": "Let Omega be a smoothly bounded domain in R^3, and for lambda > 0 consider the Brezis-Nirenberg problem -Delta u = lambda u + |u|^4 u in Omega, u = 0 on partial Omega. Define E_lambda(u) = (1/2)||grad u||_{L^2(Omega)}^2 - (lambda/2)||u||_{L^2(Omega)}^2 - (1/6)||u||_{L^6(Omega)}^6 and N_sg = {u in H_0^1(Omega) minus {0} : u^+ != 0, u^- != 0, E'_lambda(u^+)u^+ = 0, E'_lambda(u^-)u^- = 0}. Does there exist, for every lambda > 0 and for a general bounded domain Omega (in particular, possibly convex or even strictly star-shaped), a sign-changing critical point u_hat in N_sg such that E'_lambda(u_hat) = 0 in H^{-1} and E_lambda(u_hat) = inf_{v in N_sg} E_lambda(v)?",
+  "equivalent_formulation": "Equivalently: in dimension N = 3, is the infimum of E_lambda over the sign-changing Nehari manifold N_sg attained by a sign-changing critical point for every lambda > 0 on a general bounded domain Omega?",
+  "justification": "The draft is targeting the paper's Open question 12. In Section 1.3.6 the authors first define the energy E_lambda and the sign-changing Nehari manifold N_sg, then recall the known least-energy existence result for N = 4 with lambda not in sigma(-Delta) and for N >= 5 with lambda > 0, and finally ask whether the analogous least-energy sign-changing solution exists for N = 3 and every lambda > 0 on a general bounded domain, even allowing convex or strictly star-shaped domains. That is exactly the scope of your draft, but the stand-alone formulation needs the minimization/critical-point definition of 'least-energy sign-changing solution' and the ambient space H_0^1(Omega).",
+  "citations": [
+    {
+      "section": "1",
+      "label": "Problem (1.1)",
+      "page": 1
+    },
+    {
+      "section": "1.1",
+      "label": "History paragraph on sign-changing solutions in dimension 3",
+      "page": 2
+    },
+    {
+      "section": "1.3.6",
+      "label": "Equation (1.12) and definition of the sign-changing Nehari manifold N_sg",
+      "page": 10
+    },
+    {
+      "section": "1.3.6",
+      "label": "Paragraph recalling the known least-energy existence result from [59]",
+      "page": 10
+    },
+    {
+      "section": "1.3.6",
+      "label": "Open question 12",
+      "page": 10
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "arxiv_id": "2501.14554",
+  "question_id": "q_008",
+  "original_question": "For the hard instances of the minimum r-cover problem on continuous graphs, namely when r is a non-unit fraction, what lower bounds on approximation hardness can be proved for computing the minimum number of radius-r balls needed to cover the graph?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 10356.31,
+  "target_in_paper": "Section 3.2 (\"Vertex cover\"), subsection \"(In)approximability,\" final open question: \"For the hard cases of the problem (with the radius r being a non-unit fraction, see Hartmann et al [9]), what are the lower bounds for the inapproximability of the minimum r-cover problem?\"",
+  "completeness_score": 8,
+  "correct_elements": "Your draft correctly identifies the right problem family (minimum r-cover on continuous graphs), the right hard regime (non-unit fractions), and the right research direction (lower bounds on approximation hardness for the minimum number of radius-r balls needed to cover the graph). It is already very close to the exact open question asked in Section 3.2, and it stays within the paper’s intended scope rather than drifting to neighboring issues such as duality, discretization, or the relaxation gap.",
+  "missing_details": [
+    "The paper works with a continuous graph G obtained from a finite endpoint set and continuous edges, each assumed to be a unit-length interval, with distance defined by the shortest-path metric on all points of G.",
+    "A radius-r ball is defined in this metric space, and an r-cover is a family of such balls whose union covers every point of G.",
+    "The centers of the balls are allowed to lie anywhere in the continuous graph G, not just at the endpoints V.",
+    "The objective quantity should be named explicitly: tau_r(G), the minimum cardinality of an r-cover of G.",
+    "In the nearby context, the hard regime is specifically rational radii r > 0 that are non-unit fractions; the paper first notes that for every rational r the problem is in NP, then recalls Hartmann et al.'s result that unit fractions are polynomial-time solvable while non-unit fractions are NP-hard.",
+    "The approximation question is about polynomial-time inapproximability bounds, i.e. lower bounds on achievable approximation ratios, rather than exact complexity or existence of approximation algorithms.",
+    "The usual complexity qualifier underlying such a question (for example, unless P = NP) is implicit in the draft and should be made explicit in a stand-alone formulation.",
+    "No ambient ring, field, homogeneity, degree, or nilpotency conditions are relevant here; the hidden assumptions are entirely those of the metric-graph model."
+  ],
+  "refined_question": "Let G be a continuous graph in the sense of the paper: a metric graph obtained from a finite endpoint set with each edge realized as a unit-length continuous interval, and with distance given by the shortest-path metric on all points of G. For a rational radius r > 0, let tau_r(G) denote the minimum number of radius-r balls, with centers allowed anywhere in G, whose union covers all points of G. Hartmann et al. are cited as showing that this minimum r-cover problem is polynomial-time solvable when r is a unit fraction and NP-hard when r is a non-unit fraction. For the hard regime—namely, rational radii r that are non-unit fractions (not of the form 1/q with q in N)—what lower bounds can be proved on the polynomial-time approximability of tau_r(G), i.e. which approximation ratios can be ruled out for the minimum r-cover problem on general continuous graphs unless P = NP?",
+  "equivalent_formulation": null,
+  "justification": "The draft clearly targets the last open question in Section 3.2 under the heading \"(In)approximability,\" not the duality, discretization, or relaxation-gap questions. To make it paper-faithful and stand-alone, one must import the definitions of continuous graph, metric, ball, and r-cover from Section 2 and Definition 10, and also the immediately preceding Section 3.2 paragraph that identifies the relevant hard cases as non-unit-fraction radii via the cited Hartmann et al. results. The paper does not provide a separate labeled conjecture, theorem, or explicit equivalent reformulation for this question, so the refined version is a sharpened restatement of that exact open problem. The instruction to prioritize Conjecture 1.1, Proposition 1.2, and Theorem 1.3 does not apply here, because this draft plainly targets a different section of this survey paper.",
+  "citations": [
+    {
+      "section": "2",
+      "label": "Definition 1",
+      "page": "n/a (HTML version consulted)"
+    },
+    {
+      "section": "2",
+      "label": "Definition 3",
+      "page": "n/a (HTML version consulted)"
+    },
+    {
+      "section": "2",
+      "label": "Definition 8",
+      "page": "n/a (HTML version consulted)"
+    },
+    {
+      "section": "3.2",
+      "label": "Definition 10",
+      "page": "n/a (HTML version consulted)"
+    },
+    {
+      "section": "3.2",
+      "label": "Discretization, tractability and r-certificates",
+      "page": "n/a (HTML version consulted)"
+    },
+    {
+      "section": "3.2",
+      "label": "(In)approximability",
+      "page": "n/a (HTML version consulted)"
+    }
+  ]
+}

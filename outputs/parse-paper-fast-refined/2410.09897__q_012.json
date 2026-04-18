@@ -1,0 +1,46 @@
+{
+  "arxiv_id": "2410.09897",
+  "question_id": "q_012",
+  "original_question": "Let sum_{i=0}^d h_i t^i be a polynomial with only real roots such that h_0 = 1 and h_0 < h_1 < ... < h_k for some 0 <= k <= d. Must there exist a simplicial complex whose f-vector is (h_0, h_1 - h_0, ..., h_k - h_{k-1})?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 10204.35,
+  "target_in_paper": "Problem 2.10 in Section 2 (\"Unimodality\").",
+  "completeness_score": 9,
+  "correct_elements": "It correctly captures the real-rooted polynomial setup, the normalization h_0=1, the initial strict inequalities h_0<h_1<...<h_k for some 0<=k<=d, and the target tuple (h_0, h_1-h_0, ..., h_k-h_{k-1}) attached to a simplicial complex.",
+  "missing_details": [
+    "The paper explicitly assumes P(t)=sum_{i=0}^d h_i t^i belongs to N[t], so the coefficients h_i are nonnegative integers, not just arbitrary real numbers.",
+    "To make the question fully stand-alone, the f-vector should be indexed explicitly: for a finite simplicial complex Delta, f(Delta)=(f_{-1},f_0,...), where f_i counts i-dimensional faces and f_{-1}=1 for the empty face.",
+    "The target is an arbitrary simplicial complex, not a simplicial convex polytope; that stronger polytope/h-vector question is the separate neighboring Problem 2.9.",
+    "It is worth keeping the exact quantifier 'for some 0<=k<=d' and the finite degree bound d as part of the formal statement."
+  ],
+  "refined_question": "Let P(t)=sum_{i=0}^d h_i t^i be a polynomial in N[t] with only real roots, and assume that h_0=1 and h_0<h_1<...<h_k for some integer k with 0<=k<=d. Does there exist a finite simplicial complex Delta whose f-vector, indexed as f(Delta)=(f_{-1},f_0,...,f_{k-1}), satisfies f_{-1}=1 and f_{i-1}=h_i-h_{i-1} for every 1<=i<=k; equivalently, f(Delta)=(h_0,h_1-h_0,...,h_k-h_{k-1})?",
+  "equivalent_formulation": null,
+  "justification": "Your draft is essentially Problem 2.10 almost verbatim (Section 2, Problem 2.10, p. 8). The only paper-critical omission is the coefficient domain N[t], plus the standard indexing convention for the f-vector needed to make the question self-contained. The nearby context on p. 8 shows that this is intentionally the weaker simplicial-complex question, distinct from Problem 2.9, which asks for a simplicial convex polytope whose h-vector is the full coefficient vector of a symmetric monic real-rooted polynomial. Theorems 2.7 and 2.8 provide the immediate motivating background for why h-vectors and real-rootedness are being linked in this part of the paper.",
+  "citations": [
+    {
+      "section": "2",
+      "label": "Theorem 2.1",
+      "page": "6"
+    },
+    {
+      "section": "2",
+      "label": "Theorem 2.7",
+      "page": "8"
+    },
+    {
+      "section": "2",
+      "label": "Theorem 2.8",
+      "page": "8"
+    },
+    {
+      "section": "2",
+      "label": "Problem 2.9",
+      "page": "8"
+    },
+    {
+      "section": "2",
+      "label": "Problem 2.10",
+      "page": "8"
+    }
+  ]
+}

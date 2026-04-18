@@ -1,0 +1,48 @@
+{
+  "arxiv_id": "1709.01670",
+  "question_id": "q_001",
+  "original_question": "Is the single-machine scheduling problem 1||sum w_j T_j, which minimizes total weighted tardiness, fixed-parameter tractable when parameterized by p_max, the maximum processing time of any job?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 5520.05,
+  "target_in_paper": "Section 3.1, Open Problem 1: the paper asks whether the single-machine total weighted tardiness problem 1||Σ_j w_j T_j is fixed-parameter tractable when parameterized by the maximum processing time p_max. The immediately following sentence about the number of distinct processing times is a separate question and is not part of Open Problem 1. ([ar5iv.org](https://ar5iv.org/pdf/1709.01670))",
+  "completeness_score": 9,
+  "correct_elements": "Your draft already captures the exact open problem the paper states: it has the right scheduling setting (single machine), the right objective (total weighted tardiness), the right problem notation (1||Σ_j w_j T_j), and the right parameter (p_max). It also asks exactly the right complexity question, namely fixed-parameter tractability. ([ar5iv.org](https://ar5iv.org/pdf/1709.01670))",
+  "missing_details": [
+    "Spell out the model encoded by 1||: there is a single machine, each job j has processing time p_j, and the machine can process at most one job at a time. ([ar5iv.org](https://ar5iv.org/pdf/1709.01670))",
+    "Make explicit that there are no additional middle-field constraints such as release dates, precedence constraints, or preemption; in this paper, such constraints would have to appear explicitly in the three-field notation, and preemption is absent by default. ([ar5iv.org](https://ar5iv.org/pdf/1709.01670))",
+    "Define the objective components explicitly: each job j also has a due date d_j and a weight w_j; if C_j is its completion time, then its tardiness is T_j := max{C_j - d_j, 0}. ([ar5iv.org](https://ar5iv.org/pdf/1709.01670))",
+    "Define the parameter explicitly as p_max := max_j p_j. ([ar5iv.org](https://ar5iv.org/pdf/1709.01670))",
+    "State fixed-parameter tractability in the paper’s formal sense: ask whether there is an algorithm with running time f(p_max)·|I|^{O(1)} for instances I of the problem. ([ar5iv.org](https://ar5iv.org/pdf/1709.01670))",
+    "To stay fully faithful to the paper’s intent, note that this is the unrestricted weighted-tardiness problem; the agreeable-processing-times-and-weights special case mentioned just before Open Problem 1 is only motivation, not part of the question itself. ([ar5iv.org](https://ar5iv.org/pdf/1709.01670))"
+  ],
+  "refined_question": "Given a set J of jobs, where each job j has a processing time p_j, a due date d_j, and a weight w_j, and all jobs must be scheduled nonpreemptively on a single machine, let C_j denote the completion time of job j in the schedule and let T_j := max{C_j - d_j, 0} be its tardiness. Is the problem 1||Σ_{j∈J} w_j T_j of finding a schedule minimizing Σ_{j∈J} w_j T_j fixed-parameter tractable with respect to the parameter p_max := max_{j∈J} p_j; that is, does there exist an algorithm that solves every instance I in time f(p_max)·|I|^{O(1)}? ([ar5iv.org](https://ar5iv.org/pdf/1709.01670))",
+  "equivalent_formulation": null,
+  "justification": "The draft is already aimed at the correct target: Section 3.1 is specifically about total weighted tardiness on a single machine, and Open Problem 1 asks exactly about fixed-parameter tractability with parameter p_max. The surrounding context that makes the question stand alone comes from Section 2.1.3, which defines total weighted tardiness and the tardiness variable, and Section 2.2, which defines FPT. The next sentence in Section 3.1 about the number of distinct processing times is a separate follow-up observation and should not be folded into the refined question. ([ar5iv.org](https://ar5iv.org/pdf/1709.01670))",
+  "citations": [
+    {
+      "section": "2.1.1",
+      "label": "Single-machine environments",
+      "page": "not available in fetched HTML; the published journal version spans pp. 254-261 overall"
+    },
+    {
+      "section": "2.1.2",
+      "label": "Release dates / Preemption",
+      "page": "not available in fetched HTML; the published journal version spans pp. 254-261 overall"
+    },
+    {
+      "section": "2.1.3",
+      "label": "Objective functions",
+      "page": "not available in fetched HTML; the published journal version spans pp. 254-261 overall"
+    },
+    {
+      "section": "2.2",
+      "label": "Parameterized complexity",
+      "page": "not available in fetched HTML; the published journal version spans pp. 254-261 overall"
+    },
+    {
+      "section": "3.1",
+      "label": "Open Problem 1",
+      "page": "not available in fetched HTML; the published journal version spans pp. 254-261 overall"
+    }
+  ]
+}

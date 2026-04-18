@@ -1,0 +1,63 @@
+{
+  "arxiv_id": "2201.09150",
+  "question_id": "q_010",
+  "original_question": "For the multispecies movement model in which populations remember conflict zones and avoid them through a dynamic cognitive map, determine whether time-dependent solutions and spatially non-constant steady states exist in a bounded periodic domain with a top-hat kernel, describe their qualitative properties, and determine whether the solutions remain well defined as R tends to 0+.",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 7958.49,
+  "target_in_paper": "Open Problem 10 in Section 2.2.2, attached to the conflict-zone dynamic-memory system (2.13) for n interacting populations. This is the model where populations remember conflict zones and move away from the perceived cognitive map of those zones. It is not the later nonlocal-conflict extension (2.16).",
+  "completeness_score": 8.5,
+  "correct_elements": "The draft correctly identifies the conflict-zone multispecies dynamic cognitive-map model, the periodic bounded-domain setting, the top-hat detection kernel, the time-dependent existence question, the existence of spatially non-constant steady states, the request for qualitative properties, and the local-perception limit R -> 0+. Those are exactly the components bundled together in Open Problem 10 for model (2.13).",
+  "missing_details": [
+    "The paper's exact target is model (2.13), not the later extension (2.16); your draft does not name the equation and could therefore be misread as referring to the wrong nearby model.",
+    "The unknowns should be stated explicitly: u_i(x,t) is the density of population i and k_i(x,t) is that population's cognitive map of conflict zones, for i=1,...,n.",
+    "The PDE system itself is missing: partial_t u_i = d_i Delta u_i + gamma_i div(u_i grad(k_i^{g,R})) and partial_t k_i = u_i sum_{j=1}^n rho_{ij} u_j - (mu + beta u_i) k_i.",
+    "The perception operator should be defined: k_i^{g,R}(x,t) = integral over Omega of k_i(y,t) g_R(x-y) dy, with the subscripts indicating dependence on the kernel g and perceptual radius R.",
+    "The sign and role of the parameters are implicit in the paper but absent from the draft: d_i > 0, gamma_i >= 0, rho_{ij} >= 0, mu >= 0, beta >= 0; gamma_i governs movement away from conflict zones.",
+    "The top-hat kernel should be identified as the detection function from equation (2.3), i.e. uniform on the radius-R neighborhood and zero outside (in 1D, g_R(z)=1/(2R) for |z|<=R and 0 otherwise), with g_R -> delta as R -> 0+.",
+    "The domain should be specified as a bounded periodic domain Omega; for the time-dependent problem one should also say that initial data are prescribed for both u_i and k_i.",
+    "The paper asks 'in what sense do solutions exist,' so the solution concept itself is part of the problem; the refined question should leave open whether existence is classical, weak, strong, or mild.",
+    "In the exact paper formulation, the phrase 'what are the qualitative properties' refers to the spatially non-constant steady states, not to all time-dependent solutions.",
+    "The review notes that the motivating scenario 3 of Potts and Lewis (2019) is one-dimensional, while the open problem is stated more generally for a bounded periodic domain; that distinction is implicit in your draft.",
+    "No ambient ring/field, homogeneity, degree, or nilpotency condition is relevant here; the missing structural details are PDE-specific (domain, variables, operators, kernels, parameters, and quantification over i=1,...,n)."
+  ],
+  "refined_question": "For the n-population conflict-zone dynamic-memory model (2.13), with d_i > 0, gamma_i >= 0, rho_{ij} >= 0, mu >= 0, beta >= 0, unknowns u_i(x,t) and k_i(x,t) satisfying partial_t u_i = d_i Delta u_i + gamma_i div(u_i grad(k_i^{g,R})) and partial_t k_i = u_i sum_{j=1}^n rho_{ij} u_j - (mu + beta u_i) k_i for i=1,...,n on a bounded periodic domain Omega, where k_i^{g,R}(x,t)=integral_Omega k_i(y,t) g_R(x-y) dy and g_R is the top-hat detection kernel of perceptual radius R>0, in what sense do time-dependent solutions with admissible initial data exist, in what sense do spatially non-constant steady states exist, what qualitative properties do those spatially non-constant steady states possess, and do the solutions remain well defined in the local-perception limit R -> 0+?",
+  "equivalent_formulation": null,
+  "justification": "The draft is nearest to Open Problem 10 because Section 2.2.2 first introduces the conflict-zone cognitive map k_i, then defines the full n-population PDE system (2.13), and immediately states a single open problem asking exactly about four things: existence for the time-dependent problem, existence of spatially non-constant steady states, qualitative properties of those steady states, and well-definedness as R -> 0+. The neighboring later model (2.16) also involves conflict zones and a dynamic cognitive map, but it adds nonlocal conflict detection in the k_i-equation and its open problems (17-19) do not include the R -> 0+ clause, so it is not the nearest official match. Section 4.1.1 explains why the paper phrases the question as 'in what sense do solutions exist' rather than fixing a solution class a priori, Section 4.1.2 explains why periodic bounded domains are the main analytical setting for these nonlocal problems, and the later stability discussion records that for the closely related model (2.13) the limit R -> 0+ is delicate because arbitrarily high wavenumbers can appear and the problem becomes ill-posed in linearized analysis.",
+  "citations": [
+    {
+      "section": "2.1",
+      "label": "equations (2.3) and (2.5)",
+      "page": "8-10"
+    },
+    {
+      "section": "2.2.2",
+      "label": "equation (2.13)",
+      "page": "16"
+    },
+    {
+      "section": "2.2.2",
+      "label": "Open Problem 10",
+      "page": "16"
+    },
+    {
+      "section": "2.2.2",
+      "label": "equation (2.16) and Open Problems 17-19",
+      "page": "18"
+    },
+    {
+      "section": "4.1.1",
+      "label": "discussion of existence notions and well-posedness; model (2.13) becomes ill-posed as R tends to zero",
+      "page": "36-38"
+    },
+    {
+      "section": "4.1.2",
+      "label": "boundary-condition discussion and the focus on periodic bounded domains for Section 2.2.2 models",
+      "page": "40-41"
+    },
+    {
+      "section": "5.2.1",
+      "label": "pattern-formation trends closely related to model (2.13), including the R -> 0+ instability",
+      "page": "56-57"
+    }
+  ]
+}

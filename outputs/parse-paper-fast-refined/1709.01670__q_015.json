@@ -1,0 +1,49 @@
+{
+  "arxiv_id": "1709.01670",
+  "question_id": "q_015",
+  "original_question": "For the open-shop throughput problem O|p_ij=1, r_j|sum w_j U_j with unit-time operations and release dates, is the problem fixed-parameter tractable when parameterized by the number of machines?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 5544.68,
+  "target_in_paper": "Section 5.4, Open Problem 15: Is O|p_ij=1, r_j|∑ w_j U_j fixed-parameter tractable parameterized by the number of machines?",
+  "completeness_score": 8.5,
+  "correct_elements": "Your draft already identifies the correct machine environment (open shop), the correct restriction on processing times (p_ij=1), the correct additional constraint (release dates r_j), the correct objective notation (∑ w_j U_j), and the correct parameter (the number m of machines). It is very close to the paper’s official formulation in Section 5.4.",
+  "missing_details": [
+    "The paper states the problem in the weighted-number-of-tardy-jobs form; 'throughput' is equivalent terminology here, but the official formulation is minimizing ∑ w_j U_j.",
+    "Due dates d_j are implicit in the objective notation and should be stated explicitly in a stand-alone question.",
+    "U_j should be defined explicitly: if C_j is the completion time of job j, then U_j=0 when C_j≤d_j and U_j=1 otherwise.",
+    "The open-shop environment should be unpacked: each job has exactly one operation on each of the m machines, the order of a job’s operations is unrestricted, each machine processes at most one operation at a time, and each job is processed by at most one machine at a time.",
+    "Non-preemption is implicit because the qualifier pmtn is absent; making this explicit improves stand-alone clarity.",
+    "To be fully self-contained as a parameterized-complexity question, fixed-parameter tractability should be spelled out as the existence of an algorithm with running time f(m)·|I|^{O(1)}.",
+    "For paper-faithful scope, it helps to note that the surrounding context distinguishes this problem from the easier neighboring cases O|p_ij=1|∑ w_j U_j and O|p_ij=1, r_j|∑ U_j."
+  ],
+  "refined_question": "For the non-preemptive m-machine open-shop scheduling problem O|p_ij=1, r_j|∑ w_j U_j, where each job J_j has exactly one unit-time operation on each of the m machines, a release date r_j, a due date d_j, and a weight w_j, and where C_j denotes the completion time of J_j and U_j:=0 if C_j≤d_j and U_j:=1 otherwise, is there an algorithm running in f(m)·|I|^{O(1)} time that computes a schedule minimizing ∑_j w_j U_j (equivalently, maximizing weighted throughput)?",
+  "equivalent_formulation": "Equivalently, using the equivalence cited in Section 5.4, if one has m identical parallel machines and jobs of equal processing time m, each with release date r_j, due date d_j, and weight w_j, and preemption is allowed only at integer times, is minimizing ∑_j w_j U_j fixed-parameter tractable with respect to m?",
+  "justification": "The draft is already aimed at the exact open problem posed in the paper’s shop-scheduling section, namely Open Problem 15 in Section 5.4. The refinement only makes explicit the notation and assumptions that the paper leaves implicit through standard scheduling notation: the meaning of O, the role of due dates in the objective, the definition of U_j, the default non-preemptive convention, and the formal FPT quantifier. I did not broaden the question to job shop, flow shop, or the unweighted case, because Section 5.4 treats those as distinct neighboring variants. I included one alternate formulation because the paper explicitly states the equivalence to a parallel identical-machine problem with equal processing times and integer-time preemption.",
+  "citations": [
+    {
+      "section": "2.1.1",
+      "label": "Open shop scheduling definition",
+      "page": "254-255"
+    },
+    {
+      "section": "2.1.2",
+      "label": "Processing-time restriction p_ij=1; release dates r_j; default non-preemptive convention",
+      "page": "255"
+    },
+    {
+      "section": "2.1.3",
+      "label": "Weighted number of tardy jobs / throughput; definition of U_j",
+      "page": "255"
+    },
+    {
+      "section": "5.4",
+      "label": "Open Problem 15",
+      "page": "261"
+    },
+    {
+      "section": "5.4",
+      "label": "Context around Open Problem 15: neighboring known cases and the stated equivalence to a parallel-machine problem",
+      "page": "260-261"
+    }
+  ]
+}

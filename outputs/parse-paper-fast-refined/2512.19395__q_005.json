@@ -1,0 +1,54 @@
+{
+  "arxiv_id": "2512.19395",
+  "question_id": "q_005",
+  "original_question": "Fix r >= 1. For all sufficiently large m, must every B_{2,r+1}-free graph G with m edges satisfy lambda(G) <= sqrt(m), with equality only for complete bipartite graphs? Here B_{2,r+1} = K_2 \\/ ((r+1)K_1) is the book graph obtained from K_{2,r+1} by adding an edge between the two vertices of degree r+1.",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 12237.91,
+  "target_in_paper": "Conjecture 1.3 in Section 1.1, specialized to r = 2 (the ordinary book case B_{2,k}); the surrounding discussion of Conjecture 1.1 and Theorem 1.2 explains the motivation, but your draft is most directly targeting the r = 2 specialization of Conjecture 1.3.",
+  "completeness_score": 8.5,
+  "correct_elements": "Your draft already has the right asymptotic regime (fixed forbidden book, m sufficiently large), the correct spectral threshold in the ordinary book case (lambda(G) <= sqrt(m)), and the correct extremal family to expect in the r = 2 case (complete bipartite graphs). It is also correctly about forbidding a book graph rather than asking the broader generalized-book question.",
+  "missing_details": [
+    "The paper’s official notation is B_{r,k} = K_r join I_k, where I_k is an independent set of size k; your variable r is playing the role of k-1, so the notation conflicts with the paper’s use of r.",
+    "State explicitly that G is a simple undirected graph; this is the ambient graph class used in the paper.",
+    "Define lambda(G) as the adjacency spectral radius of G.",
+    "Replace 'for all sufficiently large m' by the quantified form: there exists m_0(k) such that the statement holds for all m >= m_0(k).",
+    "To match the paper’s exact form, write the bound as lambda(G)^2 <= m; this is the r = 2 specialization of lambda(G)^2 <= (1 - 1/r)·2m.",
+    "The equality clause is not written inside Conjecture 1.3 itself; it comes from the immediately preceding discussion of Nikiforov’s sharp K_{r+1}-free edge-spectral bound and its extremal graphs, whose r = 2 case gives complete bipartite graphs.",
+    "If you want full paper-faithfulness, allow k >= 1; your draft only covers k = r+1 >= 2."
+  ],
+  "refined_question": "Fix an integer k >= 1. Is there an integer m_0(k) such that every simple graph G with m >= m_0(k) edges and no copy of the generalized book B_{2,k} = K_2 join I_k (equivalently, no set of k triangles sharing a common edge) satisfies lambda(G)^2 <= m? Equivalently, does every such G satisfy lambda(G) <= sqrt(m), and if equality holds, must G be a complete bipartite graph?",
+  "equivalent_formulation": null,
+  "justification": "The draft is very close, but the nearest official statement in the paper is not Conjecture 1.1 itself. Conjecture 1.1 is a supersaturation statement saying that every m-edge Nosal graph has booksize bk(G) = Omega(sqrt(m)). Your draft instead asks for the forbidden-subgraph extremal form, and that is exactly the r = 2 specialization of Conjecture 1.3, where the paper defines the generalized book B_{r,k} = K_r join I_k and conjectures that every sufficiently large B_{r,k}-free graph with m edges satisfies lambda(G)^2 <= (1 - 1/r)·2m. Specializing to r = 2 gives lambda(G)^2 <= m, i.e. lambda(G) <= sqrt(m), which matches your threshold exactly. The complete-bipartite equality clause is consistent with the adjacent discussion of Nikiforov’s sharp K_{r+1}-free edge-spectral theorem recalled immediately before Conjecture 1.3; in the r = 2 case, the extremal graphs there are complete bipartite graphs.",
+  "citations": [
+    {
+      "section": "1.1 Books in Nosal graphs",
+      "label": "Definition of Nosal graph",
+      "page": 1
+    },
+    {
+      "section": "1.1 Books in Nosal graphs",
+      "label": "Conjecture 1.1",
+      "page": 1
+    },
+    {
+      "section": "1.1 Books in Nosal graphs",
+      "label": "Theorem 1.2",
+      "page": 1
+    },
+    {
+      "section": "1.1 Books in Nosal graphs",
+      "label": "Nikiforov’s K_{r+1}-free edge-spectral bound and extremal characterization",
+      "page": 1
+    },
+    {
+      "section": "1.1 Books in Nosal graphs",
+      "label": "Definition of generalized book B_{r,k} = K_r join I_k",
+      "page": 1
+    },
+    {
+      "section": "1.1 Books in Nosal graphs",
+      "label": "Conjecture 1.3",
+      "page": "1-2"
+    }
+  ]
+}

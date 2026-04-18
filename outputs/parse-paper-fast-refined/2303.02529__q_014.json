@@ -1,0 +1,66 @@
+{
+  "arxiv_id": "2303.02529",
+  "question_id": "q_014",
+  "original_question": "Let Lbar_n be the drawn length of the cladogram representation of DTCS(n), meaning the total vertical length in the standard cladogram drawing convention. Prove the correct asymptotic growth rate of Lbar_n, in particular the conjectured rough order n log^4 n.",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 177.3,
+  "target_in_paper": "Open Problem 11 in §7.1 of arXiv:2303.02529v2: determine the asymptotic growth of the expected drawn cladogram length DL_n:=E[dl(DTCS(n))], with the paper’s heuristic suggesting order n(log n)^4. In the current v3, this topic is retained only in condensed form in §9.4 as the final question about the total “drawn length”.",
+  "completeness_score": 6,
+  "correct_elements": "Your draft correctly identifies the right part of the paper: the cladogram-drawing statistic for DTCS(n), specifically the total vertical drawn length, and it correctly captures the paper’s heuristic prediction that the relevant quantity should have rough order n(log n)^4.",
+  "missing_details": [
+    "The paper’s official target is DL_n:=E[dl(DTCS(n))], the expectation of the drawn length, not an unspecified random variable Lbar_n itself.",
+    "DTCS(n) must be defined: for n>=2, one recursively splits each m-leaf clade into sizes i and m-i with probability q(m,i)=m/(2 h_{m-1} i(m-i)) for 1<=i<=m-1, where h_{m-1}=sum_{k=1}^{m-1} 1/k.",
+    "The “standard cladogram drawing convention” must be made precise via the paper’s recursive draw-height definition dh(γ)=0 for a leaf and dh(γ)=1+max(dh(γ_1),dh(γ_2)) for a split γ→(γ_1,γ_2).",
+    "The drawn length itself must be defined recursively as dl(γ_m)=dl(γ_i)+dl(γ_{m-i})+2+|dh(γ_{m-i})-dh(γ_i)| for a split γ_m→(γ_i,γ_{m-i}).",
+    "The asymptotic variable is n→∞, with n ranging over integers n>=2.",
+    "The phrase “rough order” should be sharpened mathematically, e.g. as DL_n=Theta(n(log n)^4), or equivalently via two-sided bounds for all sufficiently large n.",
+    "The logarithm should be written unambiguously as (log n)^4; in the PDF text extraction, superscripts are sometimes flattened.",
+    "To stay paper-faithful, the question should be kept separate from the neighboring but distinct cladogram width-profile problem (Open Problem 12).",
+    "The nearby heuristic context uses DH_n:=E[dh(DTCS(n))] and the earlier height problem suggesting DH_n is of order (log n)^2; this motivates the n(log n)^4 guess and should be reflected in the setup if the question is to be fully stand-alone."
+  ],
+  "refined_question": "For the discrete-time critical beta-splitting tree DTCS(n) on n>=2 leaves, where each m-leaf clade splits into subclades of sizes i and m-i with probability q(m,i)=m/(2 h_{m-1} i(m-i)) for 1<=i<=m-1 and h_{m-1}=sum_{k=1}^{m-1} 1/k, define the draw-height of a clade tree γ by dh(γ)=0 if γ is a leaf and dh(γ)=1+max{dh(γ_1),dh(γ_2)} if γ splits as γ→(γ_1,γ_2). Define the drawn length of its standard cladogram representation recursively by dl(γ_m)=dl(γ_i)+dl(γ_{m-i})+2+|dh(γ_{m-i})-dh(γ_i)| whenever γ_m splits as γ_m→(γ_i,γ_{m-i}), and set DL_n:=E[dl(DTCS(n))]. Is it true that DL_n has order n(log n)^4 as n→∞; equivalently, do there exist constants 0<c<C<∞ such that c n(log n)^4 <= DL_n <= C n(log n)^4 for all sufficiently large n? Here log denotes the natural logarithm.",
+  "equivalent_formulation": null,
+  "justification": "The draft clearly points to the drawn-cladogram discussion, not to the paper’s earlier foundational results: the recursive definitions of draw-height and drawn length are given in §7.1 just before the labeled open problem, and the explicit heuristic target n(log n)^4 appears there as Open Problem 11. The main correction is that the paper formulates the problem for the expectation DL_n=E[dl(DTCS(n))], not for an unnamed random variable. I therefore rewrote the question using the paper’s own notation, included the model and recursion defining the statistic, and made “grows roughly like” precise as a Theta-order question. I did not broaden it to the separate width-profile problem in Open Problem 12. Because your draft includes the n(log n)^4 heuristic, it matches the explicit v2 formulation most closely; v3 shortens this to the broader unlabeled question about total drawn length.",
+  "citations": [
+    {
+      "section": "§2",
+      "label": "equation (1), definition of DTCS(n)",
+      "page": 1
+    },
+    {
+      "section": "§4.3",
+      "label": "cladogram representation and identification of its height with tree height",
+      "page": "11-12"
+    },
+    {
+      "section": "§6.6",
+      "label": "Open Problem 7",
+      "page": 37
+    },
+    {
+      "section": "§7.1",
+      "label": "equation (114)",
+      "page": 57
+    },
+    {
+      "section": "§7.1",
+      "label": "equation (115)",
+      "page": 57
+    },
+    {
+      "section": "§7.1",
+      "label": "Open Problem 11",
+      "page": 58
+    },
+    {
+      "section": "§7.1",
+      "label": "Open Problem 12",
+      "page": 58
+    },
+    {
+      "section": "§9.4 (v3 HTML)",
+      "label": "final unlabeled question about the total “drawn length”",
+      "page": "HTML lines 843-852"
+    }
+  ]
+}

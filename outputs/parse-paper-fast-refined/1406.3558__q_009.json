@@ -1,0 +1,50 @@
+{
+  "arxiv_id": "1406.3558",
+  "question_id": "q_009",
+  "original_question": "Let C be a sparse sequence such as the squares, a fractional-power sequence, or values of a polynomial of degree at least 2. For fixed h >= 2, let D_h(C,N) be the minimum size of an h-basis A subset [N] whose h-fold sumset covers C(N), and let Gamma_h/C be the limit of |C(N)| / D_h(C,N)^h when that limit exists. Is Gamma_h/C equal to 0 whenever C is given by a polynomial of degree at least 2?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 3990.01,
+  "target_in_paper": "Section 2009.3.1 (Gang Yu): after defining C(N), h-bases of C(N), D_h(C,N), and Gamma_h/C in equations (2)-(3), the paper asks: Is Gamma_h(C)=0 for polynomial C (i.e., degree at least 2)?",
+  "completeness_score": 8.5,
+  "correct_elements": "Your draft captures the right problem almost exactly: fixed h >= 2; the minimization quantity D_h(C,N) over A subset [N] whose h-fold sumset covers C(N); the asymptotic ratio |C(N)|/D_h(C,N)^h; and the specific vanishing question for polynomial-value sequences of degree at least 2. It also reflects the motivating sparse examples listed immediately before the question (squares and fractional-power sequences), even though those are not themselves the final official question.",
+  "missing_details": [
+    "The paper first specifies that C is an infinite sequence contained in N.",
+    "It explicitly defines C(N) = C ∩ [N]; your draft uses C(N) without defining it.",
+    "It defines an h-basis of C(N) by the condition hA ⊃ C(N), where hA is the h-fold sumset {a_1 + ... + a_h : a_i in A}; your draft says this informally but does not define hA.",
+    "The paper leaves the convention for [N] slightly loose: [N] = {0, ..., N} or perhaps starts at 1. A stand-alone formulation should either fix one convention or note that this choice is inessential here.",
+    "The official target question is only the polynomial case. The squares and fractional-power sequences are presented as motivating interesting cases, not as part of the final question being asked.",
+    "To make polynomial C precise, one should say that C is the value sequence C = {f(n)} for a polynomial f; in the paper C itself is a sequence, not literally a polynomial.",
+    "The notation is inconsistent in the paper: the displayed definition uses Gamma_h/C, while the question line writes Gamma_h(C). A refined stand-alone version should choose one notation and stick to it.",
+    "There is a minor tension in the nearby text: the example list says C = {f(n)} where f is a degree 2 polynomial, but the actual question broadens this to polynomial C, i.e. degree at least 2. A faithful rewrite should preserve the latter as the actual target."
+  ],
+  "refined_question": "Let C = {f(n) : n in N}, where f is a polynomial of degree at least 2, and fix an integer h >= 2. For N >= 1, let C(N) = C ∩ [N], with [N] = {0,1,...,N} (equivalently, one may start at 1), and for A subset [N] write hA = {a_1 + ... + a_h : a_1,...,a_h in A}. Call A an h-basis of C(N) if hA ⊃ C(N), and define D_h(C,N) = min{|A| : A subset [N], hA ⊃ C(N)}. If the limit exists, set Gamma_h(C) = lim_{N to infinity} |C(N)| / D_h(C,N)^h. Must Gamma_h(C) = 0 for every polynomial-value sequence C of degree at least 2?",
+  "equivalent_formulation": null,
+  "justification": "The draft is clearly targeting Gang Yu's problem in Section 2009.3.1, not a broader neighboring sparse-basis problem. On that page the paper introduces exactly the quantities C(N), h-basis, D_h(C,N), and Gamma_h/C, and then asks exactly whether the corresponding asymptotic constant vanishes for polynomial C of degree at least 2. The nearby lines also show that the broader any-sequence variant is only an audience follow-up, while arithmetic progressions are mentioned only as a contrasting case where the quantity is bounded away from 0. So the sharp paper-faithful rewrite should focus only on polynomial-value sequences and should make the surrounding notation explicit.",
+  "citations": [
+    {
+      "section": "2009.3.1",
+      "label": "Gang Yu: C subset N infinite sequence; C(N) = C ∩ [N]; h-basis definition",
+      "page": 7
+    },
+    {
+      "section": "2009.3.1",
+      "label": "Equation (2): definition of Gamma_h/C",
+      "page": 7
+    },
+    {
+      "section": "2009.3.1",
+      "label": "Equation (3): definition of D_h(C,N)",
+      "page": 7
+    },
+    {
+      "section": "2009.3.1",
+      "label": "Question: Is Gamma_h(C) = 0 for polynomial C (ie, degree at least 2)?",
+      "page": 7
+    },
+    {
+      "section": "2009.3.1",
+      "label": "Audience/Gang follow-up: any sequence?; AP case bounded away from 0",
+      "page": 7
+    }
+  ]
+}

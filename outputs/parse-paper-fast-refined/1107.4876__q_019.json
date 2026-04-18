@@ -1,0 +1,42 @@
+{
+  "arxiv_id": "1107.4876",
+  "question_id": "q_019",
+  "original_question": "Let lambda=(lambda_1,...,lambda_n) be eigenvalues with divergent Brjuno-type sum sum_{k>=0} 2^{-k} log(1/Omega_lambda(2^{k+1}))=+infinity, where Omega_lambda(m)=min{|lambda_1^{k_1}...lambda_n^{k_n}-lambda_j|: 2<=k_1+...+k_n<=m, no resonance equality}. Does there exist a germ f in End(C^n,O) with diagonalizable differential having these eigenvalues that is formally linearizable but not holomorphically linearizable?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 1769.67,
+  "target_in_paper": "Conjecture 1.1, with Proposition 1.2 and Theorem 1.3 giving the paper’s precise proved special case in the setting of only level s resonances.",
+  "completeness_score": 6.5,
+  "correct_elements": "Your draft correctly identifies the paper’s central converse-to-Brjuno theme: failure of the relevant Brjuno-type arithmetic condition should force the existence of a germ with the prescribed spectrum that is formally linearizable but not holomorphically linearizable. It also correctly uses the resonant version of the small-divisor function (excluding exact resonances) and asks for a germ whose linear part is diagonalizable with eigenvalues \\(\\lambda_1,\\dots,\\lambda_n\\).",
+  "missing_details": [
+    "The paper formulates the problem for germs of holomorphic diffeomorphisms/biholomorphisms fixing the origin, not for an arbitrary germ in End(C^n,O). In particular the eigenvalues must lie in (C^*)^n.",
+    "The official arithmetic hypothesis is stated as failure of the reduced Brjuno condition, defined using the existence of some strictly increasing sequence \\(\\{p_\\nu\\}_{\\nu\\ge 0}\\) with \\(p_0=1\\), not primarily in the dyadic form appearing in your draft.",
+    "Formal linearizability should be spelled out as: there exists a formal change of coordinates tangent to the identity conjugating \\(f\\) to its linear part \\(\\operatorname{Diag}(\\lambda_1,\\dots,\\lambda_n)\\).",
+    "The paper’s proved result is narrower than your draft: Theorem 1.3 works under an additional resonance restriction ('only level s resonances'), so if you want the paper-faithful proved statement rather than the open conjecture, that restriction must be included.",
+    "In the proved special case one must split the spectrum as \\(\\lambda=(\\lambda_1,\\dots,\\lambda_s,\\mu_1,\\dots,\\mu_r)\\) with \\(1\\le s<n\\) and \\(r=n-s\\), and impose the paper’s exact 'only level s resonances' condition.",
+    "Proposition 1.2 is part of the nearby context because it reformulates the arithmetic hypothesis in the only-level-s-resonances setting; your draft does not mention that equivalence/reduction.",
+    "Theorem 1.3 uses a more specific divergence hypothesis on the first s nonresonant eigenvalues (via the corresponding small-divisor function) than the fully general conjectural failure of the reduced Brjuno condition.",
+    "The germ should be stated to fix the origin \\(O\\), and the differential should be specified as \\(df_O=\\operatorname{Diag}(\\lambda_1,\\dots,\\lambda_n)\\), not merely 'diagonalizable differential having these eigenvalues'.",
+    "The resonance exclusion in the minimum should be described using the paper’s resonance sets \\(\\operatorname{Res}_j(\\lambda)\\), i.e. one excludes multi-indices giving a resonance relative to the j-th coordinate.",
+    "If the target is the conjecture rather than the theorem, the quantifier is fully general in the spectrum: for every \\(\\lambda\\in (\\mathbb C^*)^n\\) failing the reduced Brjuno condition, does such a germ exist?"
+  ],
+  "refined_question": "Let \\(n\\ge 2\\) and let \\(\\lambda=(\\lambda_1,\\dots,\\lambda_n)\\in(\\mathbb C^*)^n\\). For \\(m\\ge 2\\), define\n\\[\\widetilde\\omega_\\lambda(m):=\\min_{1\\le j\\le n}\\;\\min_{\\substack{2\\le |Q|\\le m\\\\ Q\\notin \\operatorname{Res}_j(\\lambda)}} |\\lambda^Q-\\lambda_j|,\\]\nwhere \\(\\operatorname{Res}_j(\\lambda)=\\{Q\\in\\mathbb N^n:|Q|\\ge 2,\\ \\lambda^Q=\\lambda_j\\}\\). Suppose that \\(\\lambda\\) does not satisfy the reduced Brjuno condition, i.e. there is no strictly increasing sequence \\(\\{p_\\nu\\}_{\\nu\\ge 0}\\) with \\(p_0=1\\) such that\n\\[\\sum_{\\nu\\ge 0} p_\\nu^{-1}\\log \\widetilde\\omega_\\lambda(p_{\\nu+1})^{-1}<\\infty.\\]\nMust there exist a germ \\(f\\in\\operatorname{Diff}(\\mathbb C^n,0)\\) with \\(df_0=\\operatorname{Diag}(\\lambda_1,\\dots,\\lambda_n)\\) that is formally linearizable (by a formal change of coordinates tangent to the identity) but not holomorphically linearizable?",
+  "equivalent_formulation": null,
+  "justification": "The draft is aiming at the paper’s main open converse problem: whether failure of the reduced Brjuno condition forces the existence of a formally linearizable but non-holomorphically-linearizable germ with the prescribed diagonalizable linear part. That is the natural content of Conjecture 1.1. The nearby introductory results matter because Proposition 1.2 provides the resonance-adapted reformulation of the arithmetic hypothesis used in the paper’s special setting, and Theorem 1.3 then proves the conjectural phenomenon for spectra having only level s resonances. Your draft is mathematically close, but it omits the paper-critical restrictions distinguishing the open conjecture from the proved special case, and it uses End(C^n,O)/a dyadic sum instead of the paper’s official Diff(C^n,0)/sequence-based reduced Brjuno formulation.",
+  "citations": [
+    {
+      "section": "1",
+      "label": "Conjecture 1.1",
+      "page": "1"
+    },
+    {
+      "section": "1",
+      "label": "Proposition 1.2",
+      "page": "2"
+    },
+    {
+      "section": "1",
+      "label": "Theorem 1.3",
+      "page": "2"
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "arxiv_id": "1103.4093",
+  "question_id": "q_014",
+  "original_question": "What is the computational complexity of the Reidemeister-Schreier rewriting algorithm in free groups?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 1584.54,
+  "target_in_paper": "Section 11, Open Problems, under \"Complexity Analysis and Security,\" item 5: \"What is the complexity of the Reidemeister-Schreier rewriting algorithm in free groups?\"",
+  "completeness_score": 8.5,
+  "correct_elements": "Your draft identifies the correct topic, the correct algorithm, and the correct ambient setting. In fact, it is essentially the paper's exact official open problem statement: the paper asks, verbatim, \"What is the complexity of the Reidemeister-Schreier rewriting algorithm in free groups?\" in Section 11. The nearby Section 3 discussion confirms that the intended algorithm is the Reidemeister-Schreier rewriting process used to rewrite an element of a subgroup of a free group in terms of subgroup generators determined by a Schreier transversal.",
+  "missing_details": [
+    "The ambient object should be stated explicitly as a finitely generated free group F on a fixed free basis X, since Section 3 formulates the rewriting process for subgroups of a free group with specified free generators.",
+    "The subgroup data should be specified: a finitely generated subgroup H ≤ F, together with a Schreier transversal for H in F and the associated Schreier generating set produced by the Reidemeister-Schreier process.",
+    "The input should be made explicit: a reduced word w in the ambient generators X^{±1} representing an element of H.",
+    "The output should be made explicit: the word in the subgroup generators Y^{±1} (indeed the unique reduced word when Y is the chosen free basis coming from the Schreier process) representing the same element.",
+    "The complexity measure should be specified: whether one asks for worst-case time complexity, rather than generic-case or average-case complexity. This matters because Section 11 separately asks a generic-case complexity question for a different problem.",
+    "The size parameters should be specified: complexity as a function of the length |w| of the input word, and also of the description size of H / the Schreier transversal / the Schreier generators if these are not fixed in advance.",
+    "It should be clarified whether preprocessing is included: namely, whether the cost of constructing Schreier generators from the Schreier transversal is counted, or whether the question concerns only the subsequent rewriting step once the transversal and generators are already given.",
+    "The cryptographic Section 3 context also mentions a variant where one rewrites words lying in a right coset and stops after partial decoding; if one wants the question to be fully stand-alone and paper-faithful, one should say that the official open problem is the subgroup-element rewriting problem itself, not that partial-decoding variant.",
+    "No ambient ring, field, homogeneity, degree restriction, or nilpotency condition is involved here; the problem is purely group-theoretic, so the question should avoid importing such structures."
+  ],
+  "refined_question": "Determine the worst-case computational complexity of the Reidemeister-Schreier rewriting procedure for finitely generated subgroups of finitely generated free groups: if F = F(X) is a free group on a fixed finite basis X, H ≤ F is specified by a fixed Schreier transversal T for H in F and the associated Schreier generating set Y obtained from the Reidemeister-Schreier process, and w ∈ H is given as a reduced word over X^{±1}, what is the time complexity, as a function of |w| and of the description size of T (equivalently of Y or H, if these are not treated as fixed), of rewriting w as the corresponding reduced word over Y^{±1}?",
+  "equivalent_formulation": null,
+  "justification": "The draft is already aimed at the exact target in the paper. The nearest official formulation is not a theorem or conjecture but the open problem in Section 11, where the paper asks exactly: \"What is the complexity of the Reidemeister-Schreier rewriting algorithm in free groups?\" Section 3 supplies the necessary context for interpreting that sentence: the Reidemeister-Schreier rewriting process is described there as an algorithm that, given a Schreier transversal and the subgroup generators constructed from it, rewrites an element of a subgroup of a free group from the ambient free generators into the subgroup generators; the section also notes that the free-group cryptosystem's decryption depends on this procedure and that its complexity was under study. The refined version therefore stays completely faithful to the paper while making the hidden input/output model and complexity parameters explicit enough to be mathematically stand-alone.",
+  "citations": [
+    {
+      "section": "3",
+      "label": "The Fundamentals of Free Group Cryptography",
+      "page": "exact page not exposed in fetched HTML; journal version spans pp. 1-40"
+    },
+    {
+      "section": "3",
+      "label": "discussion of the Reidemeister-Schreier rewriting process and ongoing complexity study",
+      "page": "exact page not exposed in fetched HTML; journal version spans pp. 1-40"
+    },
+    {
+      "section": "11",
+      "label": "Open Problems, Complexity Analysis and Security, item 5",
+      "page": "exact page not exposed in fetched HTML; journal version spans pp. 1-40"
+    }
+  ]
+}

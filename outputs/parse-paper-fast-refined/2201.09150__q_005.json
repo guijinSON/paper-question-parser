@@ -1,0 +1,67 @@
+{
+  "arxiv_id": "2201.09150",
+  "question_id": "q_005",
+  "original_question": "Determine in what sense time-dependent solutions exist for the nonlocal multispecies advection-diffusion model under boundary conditions other than periodic ones, with special attention to how the detection kernel should be defined near the boundary.",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 7928.85,
+  "target_in_paper": "Open Problem 5 for the multispecies implicit dynamic-memory system (2.10), read together with the boundary-condition discussion in Sect. 4.1.2 and its later sharpening in Open Problems 39–40.",
+  "completeness_score": 7,
+  "correct_elements": "The draft correctly identifies the paper's focus on the time-dependent multispecies nonlocal advection-diffusion system, on boundary conditions other than the periodic case, and on the central technical obstruction emphasized by the authors: how to define the perceptual/detection kernel near the boundary of a bounded domain.",
+  "missing_details": [
+    "The exact PDE is not stated. The nearest target is model (2.10): for i = 1,...,n, partial_t u_i = d_i Delta u_i - div(u_i grad(sum_{j=1}^n gamma_{ij} (u_j)_{g,R})).",
+    "The draft does not define the nonlocal perception operator (u_j)_{g,R}(x,t), which in the paper comes from the spatial convolution a_{g,R}(x,t) = integral over Omega of a(y,t) g(x-y) dy, with kernel g and perceptual radius R.",
+    "It does not specify that the problem is posed on a bounded spatial domain Omega, with periodic boundary conditions used in the paper as the benchmark comparison because they avoid boundary-kernel issues.",
+    "It says only 'boundary conditions other than periodic ones,' but the nearby paper-faithful boundary types are zero-flux, homogeneous Neumann, and homogeneous Dirichlet; later Sect. 4.1.2 especially highlights homogeneous Neumann or Dirichlet together with a boundary-modified kernel.",
+    "It does not mention that the kernel issue is especially acute for finite-range kernels, particularly the top-hat detection function, which the paper treats as the most difficult and biologically interesting case.",
+    "It does not make explicit what 'in what sense' means: the open problem leaves open the appropriate notion of solution (weak, strong, or classical) and whether existence should be local or global in time.",
+    "It omits initial data and nonnegativity assumptions for the population densities, which are implicit in a stand-alone time-dependent PDE question.",
+    "It does not describe the specific near-boundary construction discussed in Sect. 4.1.2, namely truncating and renormalizing the perception window over the portion that remains inside the domain, as in formula (4.3).",
+    "It does not mention the comparison point supplied by the paper: how any non-periodic-boundary existence theory should relate to the periodic-boundary case.",
+    "This is a PDE problem over real-valued population densities on spatial domains; algebraic data such as ambient ring/field, homogeneity degree, or nilpotency conditions are not part of the paper's statement and should not be added."
+  ],
+  "refined_question": "For the bounded-domain time-dependent multispecies aggregation/segregation system (2.10), namely for nonnegative densities u_i = u_i(x,t), i = 1,...,n, satisfying partial_t u_i = d_i Delta u_i - div(u_i grad(sum_{j=1}^n gamma_{ij} (u_j)_{g,R})), where (u_j)_{g,R} denotes the nonlocal perception of u_j through a detection kernel g with perceptual radius R, under which non-periodic boundary conditions—especially zero-flux/homogeneous Neumann and homogeneous Dirichlet on a bounded domain—can one prove well-posedness of the time-dependent problem (in an appropriate weak, strong, or classical sense, locally or globally in time), and how should a finite-range detection kernel, particularly the top-hat kernel, be defined near the boundary (for example by truncating and renormalizing the perception window over the part that remains inside the domain, in the style of (4.3)) so that the nonlocal term is mathematically well defined, biologically reasonable, and comparable with the periodic-boundary setting?",
+  "equivalent_formulation": null,
+  "justification": "The draft is closest to Open Problem 5 because that is the paper's exact time-dependent question for the multispecies system (2.10), and it explicitly says that the main difficulty is 'appropriately defining the detection function near the boundary of the domain.' Sect. 4.1.2 then supplies the missing hidden assumptions and scope: it explains why periodic boundary conditions are easier, gives the boundary-truncated kernel construction (4.3), and restates the same issue in broader form as Open Problems 39 and 40. Sect. 5.1.1 confirms that smooth-kernel versions of (2.10) are comparatively tractable, so the unresolved core matching the draft is the non-periodic, boundary-sensitive, finite-range-kernel case.",
+  "citations": [
+    {
+      "section": "2.1",
+      "label": "(2.3) and (2.5)",
+      "page": "Pages 8-10 of 69"
+    },
+    {
+      "section": "2.2.2",
+      "label": "(2.10)",
+      "page": "Page 13 of 69"
+    },
+    {
+      "section": "2.2.2",
+      "label": "Open Problem 5",
+      "page": "Page 14 of 69"
+    },
+    {
+      "section": "4.1.2",
+      "label": "zero-flux condition (4.1) and discussion of homogeneous Neumann, Dirichlet, and periodic boundary conditions",
+      "page": "Pages 39-40 of 69"
+    },
+    {
+      "section": "4.1.2",
+      "label": "(4.3)",
+      "page": "Page 40 of 69"
+    },
+    {
+      "section": "4.1.2",
+      "label": "Open Problem 39",
+      "page": "Page 41 of 69"
+    },
+    {
+      "section": "4.1.2",
+      "label": "Open Problem 40",
+      "page": "Page 41 of 69"
+    },
+    {
+      "section": "5.1.1",
+      "label": "well-posedness discussion for model (2.10)",
+      "page": "Page 55 of 69"
+    }
+  ]
+}

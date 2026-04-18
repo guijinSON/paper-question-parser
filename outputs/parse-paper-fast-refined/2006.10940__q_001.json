@@ -1,0 +1,50 @@
+{
+  "arxiv_id": "2006.10940",
+  "question_id": "q_001",
+  "original_question": "In the adversarial contextual bandit setting with context space X, finite action space A = {1, ..., K}, horizon T, and a nested sequence of finite policy classes Π1 ⊂ Π2 ⊂ ⋯ ⊂ ΠM, does there exist an algorithm that simultaneously guarantees, for every m ∈ [M], expected regret to class Πm of order O(√(KT(log |Πm| + log m)))? Here regret to Πm means max over π ∈ Πm of E[Σ_t ℓt(at) − Σ_t ℓt(π(xt))].",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 7001.9,
+  "target_in_paper": "Section 2, Open Problem 1a (Equation (2)) in “The Model Selection Problem.”",
+  "completeness_score": 8.5,
+  "correct_elements": "Your draft already captures the paper’s main target almost exactly: the adversarial contextual bandit setting, a nested sequence of policy classes Π1 ⊂ Π2 ⊂ ⋯ ⊂ ΠM, the regret notion against a class Πm as max over π ∈ Πm of the expected cumulative loss difference, and the desired simultaneous rate O(√(KT(log |Πm| + log m))) for all m. This is precisely the guarantee asked for in Open Problem 1a.",
+  "missing_details": [
+    "The paper is explicitly in the adversarial contextual bandit protocol: on each round t, nature chooses a context xt ∈ X and a loss vector ℓt ∈ [0,1]^A, the learner observes xt, chooses at, and then observes only the single loss ℓt(at).",
+    "The adversary may be adaptive: xt and ℓt may depend on the past actions a1, ..., a_{t-1}.",
+    "The learner’s policies are functions π : X → A, and the sequence is written as Π1 ⊂ Π2 ⊂ ⋯ ⊂ ΠM = Π.",
+    "The algorithm is required to work for any context space X, any horizon T, any finite action set A = {1, ..., K}, and any finite nested sequence of policy classes.",
+    "The paper restricts to a finite sequence of classes for simplicity; this is stated explicitly in a footnote.",
+    "The expectation in the regret is the paper’s standard expected regret, i.e. over the learner’s internal randomization and the induced interaction with the adaptive adversary.",
+    "The paper phrases this as a design problem for one algorithm that simultaneously guarantees the bound for every m ∈ [M], not as a guarantee tuned to a single chosen class index m.",
+    "The nearby context explains that the extra + log m term is inherited from the known full-information model-selection guarantee Reg(Πm) ≤ O(√(T(log |Πm| + log m))); including that motivation makes the question more paper-faithful."
+  ],
+  "refined_question": "Does there exist a contextual bandit algorithm such that, for every horizon T, every context space X, every finite action set A = {1, ..., K}, every finite nested sequence of policy classes Π1 ⊂ Π2 ⊂ ⋯ ⊂ ΠM = Π ⊂ (X → A), and every adaptive adversary that at each round t chooses a context xt ∈ X and a loss vector ℓt ∈ [0,1]^A possibly as a function of the past actions a1, ..., a_{t-1}, if the learner observes xt, chooses an action at, and observes only ℓt(at), then for every m ∈ [M] the algorithm guarantees\nmax_{π ∈ Πm} E[Σ_{t=1}^T ℓt(at) - Σ_{t=1}^T ℓt(π(xt))] ≤ C√(KT(log |Πm| + log m))\nfor some universal constant C?",
+  "equivalent_formulation": null,
+  "justification": "The draft is targeting the paper’s primary adversarial model-selection question, not a weaker variant and not the stochastic realizable version. The match is exact because the draft uses the same nested-class setup, the same regret definition from the problem formulation, and the same target rate as Equation (2). In the paper, this is introduced as the “most basic variant” of the open problem and is motivated as the contextual-bandit analogue of the known full-information bound in Equation (1).",
+  "citations": [
+    {
+      "section": "1",
+      "label": "Introduction",
+      "page": 1
+    },
+    {
+      "section": "2",
+      "label": "Problem Formulation",
+      "page": 1
+    },
+    {
+      "section": "2",
+      "label": "Equation (1)",
+      "page": 2
+    },
+    {
+      "section": "2",
+      "label": "Open Problem 1a / Equation (2)",
+      "page": 2
+    },
+    {
+      "section": "2",
+      "label": "Footnote 1 (finite sequence restriction)",
+      "page": 2
+    }
+  ]
+}

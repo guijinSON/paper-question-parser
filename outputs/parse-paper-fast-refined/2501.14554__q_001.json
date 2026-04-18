@@ -1,0 +1,50 @@
+{
+  "arxiv_id": "2501.14554",
+  "question_id": "q_001",
+  "original_question": "Given a continuous graph Gamma=(V,E) and a radius r>0, does there always exist a finite predetermined discretization of points of Gamma, such as endpoints together with finitely many subdividing points on edges, that preserves the r-independence number alpha_r(Gamma) by guaranteeing that some maximum r-independent set can be chosen entirely from that finite point set?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 10361.56,
+  "target_in_paper": "Section 3.1 (“Maximum independent set”), specifically the paragraph headed “Discretization and tractability,” whose opening sentence asks: “Is there a discretization of the edge set of a continuous graph preserving the r-independence number?” The current arXiv version immediately says that this exact question has been answered affirmatively. ([arxiv.org](https://arxiv.org/pdf/2501.14554))",
+  "completeness_score": 8.5,
+  "correct_elements": "Your draft correctly homes in on the right local target in the paper: the Section 3.1 discretization question for the maximum r-independent set problem on a continuous graph, including the idea of a finite predetermined set of candidate points such as endpoints plus subdivision points, and the requirement that some optimal r-independent set be realizable entirely from that finite set. ([arxiv.org](https://arxiv.org/pdf/2501.14554))",
+  "missing_details": [
+    "The paper’s “continuous graph” is not an arbitrary topological graph: it starts from a finite endpoint set V, each edge is a unit-length continuous interval, and distances are measured by the induced shortest-path metric on the graph. ([arxiv.org](https://arxiv.org/pdf/2501.14554))",
+    "The points chosen for the independent set are points of the continuous graph, not just combinatorial vertices/endpoints. ([arxiv.org](https://arxiv.org/pdf/2501.14554))",
+    "An r-independent set must satisfy the exact metric condition d(p,q) ≥ 2r for every distinct pair p,q, not merely a qualitative nonadjacency condition. ([arxiv.org](https://arxiv.org/pdf/2501.14554))",
+    "The notation α_r(Γ) should be defined explicitly as the maximum cardinality of an r-independent set in Γ. ([arxiv.org](https://arxiv.org/pdf/2501.14554))",
+    "The universal quantifiers should be explicit: the question is whether this holds for every continuous graph Γ and every real radius r > 0. ([arxiv.org](https://arxiv.org/pdf/2501.14554))",
+    "The preservation requirement should be stated exactly as equality between α_r(Γ) and the maximum size of an r-independent subset of the finite discretization D. ([arxiv.org](https://arxiv.org/pdf/2501.14554))",
+    "“Predetermined” should be clarified to mean a finite set D chosen from the instance (Γ,r) before selecting the optimum set, not a universal grid that is independent of Γ or r. This is the role played by the paper’s wording “any predetermined finite set of points in Γ.” ([arxiv.org](https://arxiv.org/pdf/2501.14554))",
+    "For faithfulness to the current arXiv version, it should be noted that the paper no longer leaves this exact discretization question open: it reports that optimal solutions can be taken at rational distances from endpoints, with polynomially bounded numerators and denominators in the input encoding. ([arxiv.org](https://arxiv.org/pdf/2501.14554))"
+  ],
+  "refined_question": "For every continuous graph Γ=(V,E) in the sense of the paper—where V is finite, each edge in E is a unit-length continuous interval, and Γ is endowed with its shortest-path metric d—and for every real r>0, does there exist a finite predetermined set D=D(Γ,r) of points of Γ (for example, all endpoints together with finitely many additional subdivision points on the edges) such that α_r(Γ)=max{|I|: I⊆D and d(p,q)≥2r for all distinct p,q∈I}, equivalently, some maximum r-independent set of Γ can be chosen entirely from D? ([arxiv.org](https://arxiv.org/pdf/2501.14554))",
+  "equivalent_formulation": null,
+  "justification": "This is the closest paper-faithful sharpening of your draft because the draft is aimed at the first sentence of the “Discretization and tractability” paragraph in Section 3.1, not at the later questions in that paragraph about polynomial-time solvability versus NP-hardness as r varies. Definitions 1 and 3 supply the ambient model of a continuous graph and its metric, Definition 9 supplies the exact meaning of r-independence and α_r(Γ), and Proposition 1 is the nearby contextual result immediately preceding the discretization discussion. In the current arXiv version, the paper then states that this exact discretization question has already been solved affirmatively, with optimal solution points at rational distances from endpoints and polynomially bounded encodings; so your draft captures the right issue, but without that context it reads as if the paper still presents it as open. ([arxiv.org](https://arxiv.org/pdf/2501.14554))",
+  "citations": [
+    {
+      "section": "2 Preliminaries",
+      "label": "Definition 1",
+      "page": 2
+    },
+    {
+      "section": "2 Preliminaries",
+      "label": "Definition 3",
+      "page": 2
+    },
+    {
+      "section": "3.1 Maximum independent set",
+      "label": "Definition 9",
+      "page": 3
+    },
+    {
+      "section": "3.1 Maximum independent set",
+      "label": "Proposition 1",
+      "page": 4
+    },
+    {
+      "section": "3.1 Maximum independent set",
+      "label": "Discretization and tractability",
+      "page": 4
+    }
+  ]
+}

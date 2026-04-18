@@ -1,0 +1,54 @@
+{
+  "arxiv_id": "2505.15351",
+  "question_id": "q_013",
+  "original_question": "Can one design an efficient algorithm for solving the generic optimization problem that combines the forward operator with a model map and weighted regularization, prove convergence guarantees for that algorithm, and understand its robustness to different noise models and to bias from the generative approximation, including how the regularization parameter should be adjusted during the iterations when the signal-to-noise ratio is unknown?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 11048.85,
+  "target_in_paper": "Problem 5.7 in Section 5.3: the algorithmic open problem for the generic nonlinear objective (14), motivated by the unified classical/generative reconstruction framework of Section 5.1.4. ([ir.cwi.nl](https://ir.cwi.nl/pub/35739/35739.pdf))",
+  "completeness_score": 8.5,
+  "correct_elements": "Your draft captures the right official target: it asks for an efficient algorithm for the paper’s generic objective, with convergence guarantees, robustness to noise and generative-model bias, and adaptive tuning of the regularization parameter λ when the signal-to-noise ratio is unknown. ([ir.cwi.nl](https://ir.cwi.nl/pub/35739/35739.pdf))",
+  "missing_details": [
+    "The ambient spaces are complex: f,f0∈C^n, y,ε∈C^m, z∈C^k, and the generic optimization variable is x∈C^d. ([link.springer.com](https://link.springer.com/article/10.1007/s43670-025-00117-0))",
+    "The maps should be named explicitly: A:C^n→C^m is the measurement map, G:C^k→C^n is the generative model, and the generic problem uses B:C^d→C^n together with a weight vector w∈C^d and coordinatewise product w⊙x. ([link.springer.com](https://link.springer.com/article/10.1007/s43670-025-00117-0))",
+    "The exact optimization problem is min_{x∈C^d} ||A∘B(x)-y||_2^2 + λ^2 ||w⊙x||_2^2, not just an informal combination of a forward operator, a model map, and weighted regularization. ([link.springer.com](https://link.springer.com/article/10.1007/s43670-025-00117-0))",
+    "The nearby setup assumes additive noise y=A(f0)+ε, and the section explicitly says it does not cover Poisson shot noise. So “different noise models” is broader than the paper-faithful scope; the paper asks for robustness under different assumptions on ε within this additive-noise setting. ([link.springer.com](https://link.springer.com/article/10.1007/s43670-025-00117-0))",
+    "The hidden regularity assumptions from Section 5.1 matter: A and G are assumed injective and bi-Lipschitz with constants α,β≥1, A∘G has a more favorable bi-Lipschitz constant γ<α, and G is assumed well-conditioned with 0<β-1≪1. ([link.springer.com](https://link.springer.com/article/10.1007/s43670-025-00117-0))",
+    "The bias term should be defined exactly as G(z0)-f0, where z0:=argmin_z ||G(z)-f0||_2; this is the bias entering Lemma 5.3 and referenced again in Problem 5.7. ([link.springer.com](https://link.springer.com/article/10.1007/s43670-025-00117-0))",
+    "To make the question fully faithful to the unified formulation motivating Problem 5.7, one should state the special case of (14) used for the combined method: d=k+n, x=(x1,x2), B(x1,x2)=G(x1)+x2, w(t)=0 on the first k coordinates and w(t)=1 on the remaining n coordinates, with x1=z and x2=f-G(z). ([link.springer.com](https://link.springer.com/article/10.1007/s43670-025-00117-0))"
+  ],
+  "refined_question": "In the Section 5 framework of the paper, where y=A(f0)+ε with f0∈C^n and bounded additive ε∈C^m, A:C^n→C^m and G:C^k→C^n are assumed injective and bi-Lipschitz, A∘G is better conditioned than A, and phase retrieval is the special case A(f)=|Af|^2, can one design an efficient algorithm with provable convergence guarantees for the generic nonlinear optimization problem min_{x∈C^d} ||A∘B(x)-y||_2^2 + λ^2 ||w⊙x||_2^2 — in particular for the unified instance d=k+n, B(x1,x2)=G(x1)+x2, w(t)=0 on the first k coordinates and w(t)=1 on the remaining n coordinates — and prove robustness under assumptions on the additive noise ε and the generative-approximation bias G(z0)-f0, where z0:=argmin_z ||G(z)-f0||_2, including a principled rule for updating λ during the iterations when the signal-to-noise ratio is not known in advance? ([link.springer.com](https://link.springer.com/article/10.1007/s43670-025-00117-0))",
+  "equivalent_formulation": null,
+  "justification": "This is closer to Problem 5.7 than to any neighboring statement because your draft emphasizes algorithm design, convergence, robustness, and λ-updating under unknown SNR, which is exactly the focus of Problem 5.7; by contrast, Problem 5.6 is about improving reconstruction-error bounds for the unified approach (13). I kept the rewrite narrow by staying inside the paper’s Section 5 setup: the generic objective (14), the additive-noise model, and the bias term inherited from Lemma 5.3. I did not provide an alternate formulation because the paper only states that (11), (12), and (13) are partial cases of (14), not that Problem 5.7 is explicitly equivalent to another standalone statement. ([ir.cwi.nl](https://ir.cwi.nl/pub/35739/35739.pdf))",
+  "citations": [
+    {
+      "section": "5",
+      "label": "Eqs. (11)–(12) and setup",
+      "page": 13
+    },
+    {
+      "section": "5.1",
+      "label": "Bi-Lipschitz assumptions and Remark 5.1",
+      "page": 14
+    },
+    {
+      "section": "5.1.1",
+      "label": "Lemma 5.3",
+      "page": "14-15"
+    },
+    {
+      "section": "5.1.4",
+      "label": "Eq. (13) and Lemma 5.5",
+      "page": "16-17"
+    },
+    {
+      "section": "5.1.4",
+      "label": "Eq. (14) and its specialization to (11)–(13)",
+      "page": 17
+    },
+    {
+      "section": "5.3",
+      "label": "Problem 5.7",
+      "page": 19
+    }
+  ]
+}

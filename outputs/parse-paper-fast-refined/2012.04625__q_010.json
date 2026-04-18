@@ -1,0 +1,43 @@
+{
+  "arxiv_id": "2012.04625",
+  "question_id": "q_010",
+  "original_question": "Does every nonnegative integer eventually appear in the Recamán sequence a_0=0, a_n=a_{n-1}-n when that value is positive and new, and a_n=a_{n-1}+n otherwise?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 7365.09,
+  "target_in_paper": "Section 2.9 (\"The Recaman sequence\"), specifically the unnumbered statement: \"Sloane conjectured that each number will eventually appear in the sequence but this is not known.\"",
+  "completeness_score": 8.5,
+  "correct_elements": "Your draft is aimed at the correct passage in the paper: the Recaman sequence A005132 in Section 2.9 and the specific open question about whether every value eventually occurs. You also correctly include the initial term a_0 = 0 and the intended subtract-if-possible, otherwise add recursion.",
+  "missing_details": [
+    "The recursion should be stated as applying for every n >= 1 after the initial condition a_0 = 0.",
+    "The subtraction branch is used exactly when a_{n-1} > n and the candidate value a_{n-1} - n has not appeared earlier among a_0,...,a_{n-1}.",
+    "The phrase \"eventually appear\" should be made fully explicit as: for every m >= 0, there exists n >= 0 such that a_n = m.",
+    "The target set should be identified as the nonnegative integers, since the sequence is constructed to stay nonnegative.",
+    "The question is about occurrence at least once, not uniqueness; the paper explicitly notes that duplicates occur (for example, a_20 = a_24 = 42), so the issue is surjectivity rather than whether the sequence is a permutation.",
+    "No ambient ring, field, homogeneity, degree restriction, or nilpotency condition is relevant here; the missing precision is entirely in the indexing, quantifiers, and exact recurrence condition."
+  ],
+  "refined_question": "Let (a_n)_{n>=0} be Recaman's sequence A005132, defined by a_0 = 0 and, for each n >= 1, setting a_n = a_{n-1} - n if a_{n-1} > n and a_{n-1} - n is not equal to any earlier term a_0,...,a_{n-1}, and setting a_n = a_{n-1} + n otherwise. Is it true that every nonnegative integer occurs somewhere in this sequence; equivalently, for every m >= 0, does there exist n >= 0 such that a_n = m?",
+  "equivalent_formulation": null,
+  "justification": "This is the narrowest paper-faithful reformulation of your draft. In Section 2.9 the paper defines the Recaman sequence, records that it is not a permutation because duplicates occur, and then singles out exactly one open statement about the sequence itself: Sloane's conjecture that each number eventually appears. The refined question therefore keeps the focus on surjectivity onto the nonnegative integers and does not broaden the problem to the paper's separate graph-structure discussion. The abstract and introduction support reading this as one of the paper's intended open problems.",
+  "citations": [
+    {
+      "section": "Abstract",
+      "label": "unnumbered abstract statement that each listed sequence is an open problem",
+      "page": 1
+    },
+    {
+      "section": "Section 1.1 and Section 2",
+      "label": "unnumbered introduction and \"A List of Graphs, Sequences and Open Problems\" framing",
+      "page": "2-5"
+    },
+    {
+      "section": "Section 2, Table 1",
+      "label": "Table 1 entry identifying Section 2.9 with A005132",
+      "page": 5
+    },
+    {
+      "section": "Section 2.9",
+      "label": "\"The Recaman sequence\"",
+      "page": "11-12"
+    }
+  ]
+}

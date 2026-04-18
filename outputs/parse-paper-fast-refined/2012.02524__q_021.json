@@ -1,0 +1,47 @@
+{
+  "arxiv_id": "2012.02524",
+  "question_id": "q_021",
+  "original_question": "Let p_n be the probability that the zero solution of the random nth-order linear differential equation A_n x^(n) + ... + A_0 x = 0, with i.i.d. N(0,1) coefficients, is globally asymptotically stable. Determine the asymptotic expansion of p_n as n tends to infinity and decide whether the sequence p_n is strictly decreasing.",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 7320.3,
+  "target_in_paper": "Section 5.3, Problem 21 (\"Random linear differential or difference equations\").",
+  "completeness_score": 8.5,
+  "correct_elements": "The draft is already very close to the paper's exact Problem 21. It correctly identifies the quantity p_n, the n-th order homogeneous linear differential equation with i.i.d. N(0,1) coefficients, the property of global asymptotic stability of the zero solution, and the two tasks asked in the paper: asymptotics of p_n as n tends to infinity and whether the sequence (p_n) is strictly decreasing.",
+  "missing_details": [
+    "The paper states the equation explicitly as A_n x^{(n)}(t)+A_{n-1} x^{(n-1)}(t)+...+A_1 x'(t)+A_0 x(t)=0, with n >= 1 and A_0,...,A_n real i.i.d. N(0,1) random variables.",
+    "The equation is homogeneous and linear; stating that explicitly makes the question match equation (18) exactly.",
+    "The paper immediately gives the equivalent reformulation: p_n is the probability that every root of the random characteristic polynomial Q(lambda)=A_n lambda^n+A_{n-1} lambda^{n-1}+...+A_1 lambda+A_0 has negative real part.",
+    "To make the monotonicity question fully quantified, it should ask whether p_{n+1} < p_n for every n >= 1.",
+    "Nearby context from Theorem 5.1 explains why the Gaussian law is used: it is the i.i.d. law for which the normalized coefficient vector is uniformly distributed on the sphere. This is motivation rather than part of the problem statement, but it is part of the paper-faithful setup."
+  ],
+  "refined_question": "For each integer n >= 1, let A_0,...,A_n be independent identically distributed real random variables with law N(0,1), and consider the random homogeneous linear differential equation of order n\nA_n x^{(n)}(t)+A_{n-1} x^{(n-1)}(t)+...+A_1 x'(t)+A_0 x(t)=0.\nLet p_n denote the probability that the zero solution is globally asymptotically stable. Determine the asymptotic expansion of p_n as n tends to infinity, and decide whether the sequence (p_n)_{n>=1} is strictly decreasing.",
+  "equivalent_formulation": "Equivalently, with Q_n(lambda)=A_n lambda^n+A_{n-1} lambda^{n-1}+...+A_1 lambda+A_0, determine the asymptotic expansion as n tends to infinity of p_n = P(all roots of Q_n have negative real part), and decide whether p_{n+1} < p_n for every n >= 1.",
+  "justification": "The draft targets Section 5.3 almost verbatim. The paper first motivates the Gaussian choice through Theorem 5.1, then defines the random n-th order homogeneous linear differential equation in equation (18), then states that global asymptotic stability of the zero solution is equivalent to all roots of the characteristic polynomial having negative real part, and finally asks exactly in Problem 21 for the asymptotic expansion of p_n at infinity and whether (p_n) is strictly decreasing. The refined question therefore keeps the same coefficients, stability notion, and asymptotic/monotonicity tasks, without broadening to the neighboring difference-equation question.",
+  "citations": [
+    {
+      "section": "1",
+      "label": "Introduction",
+      "page": 2
+    },
+    {
+      "section": "5.3",
+      "label": "Theorem 5.1",
+      "page": 21
+    },
+    {
+      "section": "5.3",
+      "label": "Equation (18)",
+      "page": 21
+    },
+    {
+      "section": "5.3",
+      "label": "Paragraph after equation (18) (characteristic-polynomial reformulation)",
+      "page": "21-22"
+    },
+    {
+      "section": "5.3",
+      "label": "Problem 21",
+      "page": 22
+    }
+  ]
+}

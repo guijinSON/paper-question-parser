@@ -1,0 +1,42 @@
+{
+  "arxiv_id": "2305.10290",
+  "question_id": "q_024",
+  "original_question": "For every graph G of order n and every k in {1, 2, ..., n}, must the sum S_k(G) of the k largest Laplacian eigenvalues satisfy S_k(G) <= e(G) + binom(k+1, 2)?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 8733.53,
+  "target_in_paper": "Section 15, Conjecture 16 (Brouwer’s conjecture).",
+  "completeness_score": 9,
+  "correct_elements": "Your draft already matches the paper’s intended open problem very closely: it asks about all graphs of order n, quantifies over every k in {1,2,...,n}, uses the sum of the k largest Laplacian eigenvalues, and states exactly the conjectured upper bound e(G)+binom(k+1,2). This is essentially the inequality in the paper’s official formulation of Brouwer’s conjecture.",
+  "missing_details": [
+    "The paper works throughout with simple, undirected, unweighted graphs; that global assumption is implicit in your draft.",
+    "To make the question fully stand-alone, the Laplacian should be identified as the combinatorial Laplacian L(G)=D(G)-A(G).",
+    "The Laplacian eigenvalues should be named and ordered explicitly, e.g. mu_1(G) >= mu_2(G) >= ... >= mu_n(G).",
+    "The notation S_k(G) should be defined explicitly as S_k(G)=sum_{i=1}^k mu_i(G).",
+    "It is helpful to state n=|V(G)| and e(G)=|E(G)| explicitly, even though both are standard."
+  ],
+  "refined_question": "Let G be a simple, undirected, unweighted graph on n=|V(G)| vertices, let L(G)=D(G)-A(G) be its combinatorial Laplacian matrix with eigenvalues mu_1(G) >= mu_2(G) >= ... >= mu_n(G), and for each k with 1 <= k <= n define S_k(G)=sum_{i=1}^k mu_i(G). Is it always true that S_k(G) <= e(G) + binom(k+1,2) for every k in {1,2,...,n}?",
+  "equivalent_formulation": null,
+  "justification": "The draft is targeting Brouwer’s Laplacian spectrum conjecture as stated in Section 15 of the paper. In arXiv:2305.10290, the authors first define S_k(G) as the sum of the k largest Laplacian eigenvalues and then state Conjecture 16 with exactly the inequality in your draft. The only additions needed for a fully self-contained, paper-faithful version are the paper’s global graph assumptions and the explicit definition of the Laplacian and eigenvalue ordering. The nearby Conjecture 17 is a stronger 'full Brouwer’s conjecture' describing equality cases, so it should not replace your draft, which asks only for the inequality itself. Also, the prompt’s mention of Conjecture 1.1, Proposition 1.2, and Theorem 1.3 does not match the numbering of this particular paper; the nearest official formulation here is Section 15, Conjecture 16.",
+  "citations": [
+    {
+      "section": "Introduction",
+      "label": "Definitions and notation (global assumptions; Laplacian matrix and eigenvalue notation)",
+      "page": "1-2"
+    },
+    {
+      "section": "Section 15",
+      "label": "Definition of S_k(G) immediately before Conjecture 16",
+      "page": 14
+    },
+    {
+      "section": "Section 15",
+      "label": "Conjecture 16 (Brouwer’s conjecture)",
+      "page": 14
+    },
+    {
+      "section": "Section 15",
+      "label": "Conjecture 17 (Li–Guo, the full Brouwer’s conjecture)",
+      "page": 15
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "arxiv_id": "1112.5632",
+  "question_id": "q_006",
+  "original_question": "Let Psi_{2n} be the convex set of 2n x 2n symmetric doubly stochastic matrices with zero diagonal whose extreme points are the adjacency matrices of perfect matchings in K_{2n}. For each 2 <= k <= n, determine or give a good general lower bound for mu_{k,n} := min_{B in Psi_{2n}} haf_k(B), where haf_k(B) is the k-haffnian of B.",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 1977.43,
+  "target_in_paper": "Section 6 (Non-bipartite graphs), especially equations (6.2) and (6.3): the haffnian minimization problem on the Edmonds matching polytope Ψ_{2n}, together with the immediate caveat that the naive Tverberg-type formula is true for k=2 but fails for k=n for all sufficiently large n; Theorem 6.5 gives the paper's main proved lower bound under an extra spectral hypothesis.",
+  "completeness_score": 8,
+  "correct_elements": "Your draft correctly identifies the right object Ψ_{2n}, the quantity μ_{k,n}=min_{B∈Ψ_{2n}} haf_k(B), the relevant range 2≤k≤n, and the fact that the paper is asking for an exact value or at least a meaningful general lower bound. It also correctly treats haf_k as the k-haffnian and places the problem in the non-bipartite analog of van der Waerden/Tverberg-type minimization.",
+  "missing_details": [
+    "The paper works over real matrices: B is a real 2n×2n symmetric matrix with nonnegative entries, zero diagonal, and all row and column sums equal to 1.",
+    "To make Ψ_{2n} stand-alone, the Edmonds odd-cut characterization should be included: for every odd S⊂{1,…,2n} with 3≤|S|≤2n−3, one has ∑_{i,j∈S} b_{ij}≤|S|−1.",
+    "The paper's exact problem statement is not only 'give a lower bound' but 'find or give a good lower bound for μ_{k,n}'.",
+    "The nearby official conjectural refinement in the paper is the candidate exact formula μ_{k,n}=haf_k((2n−1)^{-1}A(K_{2n})), with equality only at (2n−1)^{-1}A(K_{2n}); your draft omits this intended extremizer.",
+    "The paper explicitly notes that the conjectural formula is true for k=2 but false for k=n when n is sufficiently large; that caveat is essential if the question is to remain paper-faithful rather than overstate a false conjecture.",
+    "To be fully self-contained, haf_k(B) should be defined as the sum of haffnians of all principal 2k×2k submatrices of B, equivalently the total weight of k-matchings in K_{2n} with edge weights b_{ij}.",
+    "The paper also isolates a proved partial result under an extra hypothesis: if B∈Ψ_{2n} has exactly one positive eigenvalue, then explicit lower bounds are given in Theorem 6.5. Your draft does not mention this sharpest in-paper partial answer.",
+    "No homogeneity, degree, characteristic, or nilpotency assumptions are part of this problem; those categories are not applicable here and should not be imported into the final formulation."
+  ],
+  "refined_question": "For integers n≥2 and 2≤k≤n, let Ψ_{2n} be the Edmonds matching polytope of K_{2n}, i.e. the set of all real 2n×2n symmetric doubly stochastic matrices B=[b_{ij}] with b_{ii}=0 such that, for every odd subset S⊂{1,…,2n} with 3≤|S|≤2n−3, one has ∑_{i,j∈S} b_{ij}≤|S|−1. Define μ_{k,n}:=min_{B∈Ψ_{2n}} haf_k(B), where haf_k(B) is the sum of the haffnians of all principal 2k×2k submatrices of B (equivalently, the total weight of k-matchings of K_{2n} with edge-weights b_{ij}). Determine μ_{k,n}, or obtain sharp general lower bounds for it; in particular, determine for which pairs (k,n) one has the van der Waerden/Tverberg-type identity μ_{k,n}=haf_k((2n−1)^{-1}A(K_{2n})) and whether equality can occur only at B=(2n−1)^{-1}A(K_{2n}).",
+  "equivalent_formulation": "Equivalently, minimize haf_k(B) over all B=[b_{ij}] in the real symmetric zero-diagonal doubly stochastic cone Ω_{2n,s,0} that satisfy Edmonds' odd-cut inequalities ∑_{i,j∈S} b_{ij}≤|S|−1 for every odd S⊂{1,…,2n} with 3≤|S|≤2n−3.",
+  "justification": "The draft is targeting the Section 6 haffnian-minimization problem, not the Introduction's Conjecture 1.1 about exponential growth of ω(n,n,r). In Section 6 the paper first defines the feasible set Ψ_{2n} through Edmonds' characterization (6.1), then states the exact optimization problem as μ_{k,n}=min_{B∈Ψ_{2n}} haf_k(B) for k=2,…,n in (6.2), and immediately records the natural Tverberg-type guess (6.3) with extremizer (2n−1)^{-1}A(K_{2n}). The same passage also gives the paper-critical correction that this conjectural formula is true for k=2 but false for k=n for all sufficiently large n, so a faithful stand-alone question should not present it as an unconditional conjecture. Theorem 6.5 is the main nearby positive result, supplying explicit lower bounds when B has exactly one positive eigenvalue. Because your draft already has the right optimization target but omits the intended extremizer, the Edmonds inequalities, and the built-in caveat about failure for k=n, the best refinement is to ask for the exact minimum or sharp lower bounds while explicitly naming the candidate value and asking when it is valid.",
+  "citations": [
+    {
+      "section": "§2",
+      "label": "(2.3)-(2.4)",
+      "page": "4"
+    },
+    {
+      "section": "§6",
+      "label": "(6.1)",
+      "page": "9"
+    },
+    {
+      "section": "§6",
+      "label": "(6.2)",
+      "page": "9"
+    },
+    {
+      "section": "§6",
+      "label": "(6.3)",
+      "page": "9"
+    },
+    {
+      "section": "§6",
+      "label": "Lemma 6.4",
+      "page": "9-10"
+    },
+    {
+      "section": "§6",
+      "label": "Theorem 6.5",
+      "page": "10"
+    }
+  ]
+}

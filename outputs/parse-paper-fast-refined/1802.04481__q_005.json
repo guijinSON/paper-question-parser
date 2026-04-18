@@ -1,0 +1,45 @@
+{
+  "arxiv_id": "1802.04481",
+  "question_id": "q_005",
+  "original_question": "For a binary linear word of length n, let MDL(n) be the minimum possible number of distinct abelian square factors. Is MDL(n) always equal to floor(n/4)? In addition, when n = 4k + 3, are the only binary words that attain exactly k distinct abelian squares the word a^(2k+1) b a^(2k+1) and its complement?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 5810.66,
+  "target_in_paper": "Conjecture 0.5 in the section \"The minimum numbers of distinct and non-equivalent abelian squares in words\" of arXiv:1802.04481, i.e. Simpson’s restatement of the Fici–Saarela conjecture on the minimum number of distinct abelian-square factors in binary linear words.",
+  "completeness_score": 9,
+  "correct_elements": "Your draft correctly identifies the exact problem family: binary linear words, distinct abelian-square factors (not occurrences, and not merely inequivalent ones), the conjectured value floor(n/4), and the special extremal-family statement for lengths n = 4k + 3. It also uses the same extremal word pattern a^(2k+1) b a^(2k+1) and its complement that appears in the paper’s nearby formulation.",
+  "missing_details": [
+    "A factor should be stated to mean a contiguous subword.",
+    "An abelian square should be defined explicitly: a factor x is an abelian square if x = uv with |u| = |v| and u,v having the same Parikh vector (equivalently, v is a permutation of u).",
+    "It should be explicit that 'distinct' means distinct factor words, not distinct occurrences and not distinct Parikh vectors.",
+    "The binary alphabet should be fixed, e.g. {a,b}.",
+    "Quantifiers should be made explicit: the first part is for all integers n >= 1, and the second part is for all integers k >= 0.",
+    "'Its complement' should be defined as the word obtained by swapping a and b throughout.",
+    "To stay paper-faithful, the scope should remain linear words only; the circular-word variant is a separate conjecture in the paper.",
+    "If the notation MDL(n) is introduced by you, it should be defined in-line, since the cited Dagstuhl source uses different notation for the same minimum problem."
+  ],
+  "refined_question": "For each integer n >= 1, let MDL(n) be the minimum, over all binary words w in {a,b}^n, of the number of distinct factors x of w such that x = uv with |u| = |v| and u and v have the same Parikh vector. Is it true that MDL(n) = floor(n/4) for every n >= 1? Moreover, for every integer k >= 0, are the only binary words of length 4k + 3 having exactly k distinct abelian-square factors the words a^(2k+1)ba^(2k+1) and b^(2k+1)ab^(2k+1) (equivalently, a^(2k+1)ba^(2k+1) and its complement)?",
+  "equivalent_formulation": null,
+  "justification": "This is the nearest official formulation to your draft in arXiv:1802.04481: the survey first separates the linear/circular and distinct/inequivalent counting problems, then states Conjecture 0.5 for the minimum number of distinct abelian squares in binary linear words. Your draft matches that conjecture essentially verbatim. The only stand-alone pieces missing are the formal definition of abelian square, the meaning of 'distinct factor', the binary alphabet/complement convention, and explicit quantifiers. The nearby Dagstuhl abstract cited by Simpson gives the hidden context behind this conjecture: it defines Abelian Square Minimal words and trivial abelian squares, proves the lower bound for words having only trivial abelian squares, and explains why the centered single-b construction yields floor(n/4). However, that source gives only a sufficient reduction to a different conjecture about ASM words; it does not prove an equivalent reformulation of Conjecture 0.5, so no alternate equivalent formulation should be supplied.",
+  "citations": [
+    {
+      "section": "The minimum numbers of distinct and non-equivalent abelian squares in words (arXiv:1802.04481)",
+      "label": "Conjecture 0.5",
+      "page": "not available in ar5iv HTML rendering; appears in the paragraph beginning \"In [7] Fici and Saarela made the following conjecture\""
+    },
+    {
+      "section": "The minimum numbers of distinct and non-equivalent abelian squares in words (arXiv:1802.04481)",
+      "label": "sentence immediately after Conjecture 0.5",
+      "page": "not available in ar5iv HTML rendering"
+    },
+    {
+      "section": "Section 3.4, \"On The Minimum Number of Abelian Squares in a Word\" (Dagstuhl Reports 4(3), cited as [7] in arXiv:1802.04481)",
+      "label": "Definition 1; Definition 2; Lemma 3; Conjecture 4",
+      "page": 34
+    },
+    {
+      "section": "Section 3.4, \"On The Minimum Number of Abelian Squares in a Word\" (Dagstuhl Reports 4(3), cited as [7] in arXiv:1802.04481)",
+      "label": "paragraph after Conjecture 4; Conjecture 5",
+      "page": 35
+    }
+  ]
+}

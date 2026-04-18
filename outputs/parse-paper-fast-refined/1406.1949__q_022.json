@@ -1,0 +1,48 @@
+{
+  "arxiv_id": "1406.1949",
+  "question_id": "q_022",
+  "original_question": "Find the asymptotic value of subset(n), the largest number such that every n-point set in the plane contains a subset of that size in which no positive distance occurs more than once.",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 3878.32,
+  "target_in_paper": "Section 6, Problem 22 (Erdős): find the asymptotic value of subset(n), after the paper defines subset(P) and subset(n) for planar point sets with no repeated distances.",
+  "completeness_score": 8.5,
+  "correct_elements": "Your draft correctly targets the planar 'subset with no repeated distances' problem, uses the paper’s notation subset(n), asks for its asymptotic determination, and already matches the paper’s equivalent guaranteed-subset interpretation ('the largest number such that every n-point set... contains a subset of that size').",
+  "missing_details": [
+    "The ambient space should be stated explicitly as the Euclidean plane R^2.",
+    "The paper first defines subset(P): for a finite point set P⊂R^2, subset(P) is the maximum size of a subset P'⊂P in which no positive distance is repeated.",
+    "The official definition of subset(n) is subset(n)=min_{|P|=n} subset(P); your wording is equivalent, but the min-over-all-n-point-sets formulation should be stated if the question is to be fully paper-faithful and stand-alone.",
+    "The non-repetition condition should be formalized as: if {a,b} and {c,d} are distinct unordered pairs of distinct points of P', then |ab|≠|cd|. This clarifies that shared-endpoint repetitions are also forbidden.",
+    "It should be explicit that 'n-point set' means a finite set of cardinality n.",
+    "The asymptotic question is about the growth of subset(n) as n→∞."
+  ],
+  "refined_question": "For a finite point set P⊂R^2, let subset(P) be the maximum cardinality of a subset P'⊂P such that for any two distinct unordered pairs {a,b},{c,d}⊂P' with a≠b and c≠d, one has |ab|≠|cd|; equivalently, every positive Euclidean distance determined by P' occurs at most once. Define subset(n):=min_{|P|=n} subset(P). Determine the asymptotic growth of subset(n) as n→∞.",
+  "equivalent_formulation": "Determine the largest integer m=m(n) such that every set of n points in the Euclidean plane contains an m-point subset in which no positive distance is spanned by more than one pair of points.",
+  "justification": "The draft matches the general planar problem introduced in Section 6. The paper first defines subset(P) and subset(n) immediately before stating the official open problem as Problem 22: 'Find the asymptotic value of subset(n).' The sentence 'In other words' in that same paragraph shows that your guaranteed-subset phrasing is explicitly equivalent to the min-over-all-point-sets definition. The nearby Theorem 6.1 and surrounding discussion provide the intended local context and confirm that this is the general planar problem, not the lattice special cases in Problems 23–24 or the higher-dimensional variant in Problem 25.",
+  "citations": [
+    {
+      "section": "Section 1",
+      "label": "Introduction, section overview identifying Section 6 as the section on subsets where no distance repeats more than once",
+      "page": "HTML lines 31-32; page not available in ar5iv HTML"
+    },
+    {
+      "section": "Section 6",
+      "label": "Definition paragraph immediately preceding Problem 22 (defines subset(P) and subset(n), and gives the equivalent guaranteed-subset formulation)",
+      "page": "HTML lines 233-236; page not available in ar5iv HTML"
+    },
+    {
+      "section": "Section 6",
+      "label": "Problem 22",
+      "page": "HTML line 236; page not available in ar5iv HTML"
+    },
+    {
+      "section": "Section 6",
+      "label": "Theorem 6.1 and surrounding discussion of current bounds",
+      "page": "HTML lines 237-250; page not available in ar5iv HTML"
+    },
+    {
+      "section": "Section 6",
+      "label": "Problems 23-25 (neighboring lattice and higher-dimensional variants)",
+      "page": "HTML lines 253-267; page not available in ar5iv HTML"
+    }
+  ]
+}

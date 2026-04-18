@@ -1,0 +1,51 @@
+{
+  "arxiv_id": "1103.3808",
+  "question_id": "q_019",
+  "original_question": "Suppose p1, ..., pℓ ∈ Z[t] are pairwise independent polynomials. Do there exist an integer d and Host–Kra factors Zd,T1, ..., Zd,Tℓ such that these factors are characteristic for the commuting-transformation averages (1/N) Σ T1^{p1(n)} f1 · ... · Tℓ^{pℓ(n)} fℓ?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 1450.36,
+  "target_in_paper": "Section 5.2.2, Problem 15: the open problem asking whether pairwise independent integer polynomials admit a common Host-Kra level d for which Z_{d,T1},...,Z_{d,Tℓ} are characteristic for the commuting polynomial ergodic averages.",
+  "completeness_score": 8,
+  "correct_elements": "The draft already matches the mathematical core of the paper very closely: it uses pairwise independent polynomials p1,...,pℓ in Z[t], asks for one integer d, identifies the intended factors as Z_{d,T1},...,Z_{d,Tℓ}, and asks whether these factors are characteristic for the averages (1/N) sum_{n=1}^N T1^{p1(n)} f1 ... Tℓ^{pℓ(n)} fℓ.",
+  "missing_details": [
+    "The ambient system is omitted: one must quantify over every probability space (X, X, μ).",
+    "The transformations must be stated to be commuting, invertible, and measure preserving, all acting on the same space.",
+    "The functions f1,...,fℓ should be quantified as belonging to L∞(μ).",
+    "The paper's notion of 'characteristic factors' is an L2(μ)-mean notion; the draft does not specify the mode of convergence.",
+    "The operator convention should be made explicit: T_i^{p_i(n)} f_i means f_i composed with T_i^{p_i(n)}.",
+    "'Pairwise independent' should be unpacked in the paper's sense: for every i ≠ j, no non-trivial linear combination of p_i and p_j is constant.",
+    "The universal quantifier structure should be explicit: after fixing the polynomial family p1,...,pℓ, the same d is intended to work for all systems and all bounded functions; this dependence is implicit from the surrounding context and the preceding single-transformation theorem.",
+    "The notation Z_{d,Ti} should be identified as the d-step Host-Kra factor of Ti.",
+    "It helps to say that the averages under discussion are exactly the commuting-transformation polynomial averages introduced in Section 5.2 (equation (17) in the current version)."
+  ],
+  "refined_question": "Let (X, X, μ) be a probability space, let T1,...,Tℓ : X -> X be commuting invertible measure-preserving transformations, let f1,...,fℓ belong to L∞(μ), and let p1,...,pℓ belong to Z[t] be pairwise independent in the sense that for every i ≠ j no non-trivial linear combination of p_i and p_j is constant. Must there exist d in N, depending only on the family p1,...,pℓ, such that the d-step Host-Kra factors Z_{d,T1},...,Z_{d,Tℓ} are characteristic factors, in the L2(μ)-mean sense, for the averages (1/N) sum_{n=1}^N (f1 o T1^{p1(n)})...(fℓ o Tℓ^{pℓ(n)})?",
+  "equivalent_formulation": "Equivalently, is there d in N such that for every such system and every f1,...,fℓ in L∞(μ), if E(fi | Z_{d,Ti}) = 0 for some i in {1,...,ℓ}, then (1/N) sum_{n=1}^N (f1 o T1^{p1(n)})...(fℓ o Tℓ^{pℓ(n)}) converges to 0 in L2(μ)?",
+  "justification": "The draft is targeting the paper's pairwise-independence characteristic-factor problem for commuting polynomial averages, not the neighboring rational-independence/Krat problem. In the current arXiv version this is Problem 15 in Section 5.2.2. Section 5.2 fixes the ambient hypotheses and the precise averages, Section 2.1 defines what it means for factors to be characteristic and gives the equivalent orthogonality criterion, and the preceding single-transformation theorem in Section 5.1.1 explains why the notation Z_{d,T} is the intended Host-Kra family and suggests that d should depend only on the polynomial family.",
+  "citations": [
+    {
+      "section": "2.1",
+      "label": "Characteristic factors, equation (3), and the equivalent orthogonality criterion",
+      "page": 4
+    },
+    {
+      "section": "5.1.1",
+      "label": "Theorem: existence of d(P) with Z_{d,T} characteristic for single-transformation polynomial averages",
+      "page": 20
+    },
+    {
+      "section": "5.2",
+      "label": "Ambient setup for commuting transformations and the averages (17)",
+      "page": 22
+    },
+    {
+      "section": "5.2.2",
+      "label": "Problem 15",
+      "page": "22-23"
+    },
+    {
+      "section": "5.2.2",
+      "label": "Special Case of Problem 15",
+      "page": 23
+    }
+  ]
+}

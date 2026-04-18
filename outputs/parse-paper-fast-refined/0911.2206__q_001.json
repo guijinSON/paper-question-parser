@@ -1,0 +1,50 @@
+{
+  "arxiv_id": "0911.2206",
+  "question_id": "q_001",
+  "original_question": "For the incompressible Jeffreys-type viscoelastic fluid model on a bounded domain Ω with motion equation ∂v/∂t + Σ_i v_i ∂v/∂x_i − Div σ + ∇p = f, incompressibility condition div v = 0, no-slip boundary condition v|∂Ω = 0, and constitutive law σ + λ1 Dσ/Dt = 2η(E + λ2 DE/Dt) where E is the strain-rate tensor and D/Dt is an objective derivative, does the initial-boundary value problem admit global-in-time strong solutions for arbitrary coefficients, external force, and initial data in every spatial dimension n ≥ 2?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 597.37,
+  "target_in_paper": "The review’s strong-solvability open problem for the bounded-domain incompressible Jeffreys/Oldroyd model: whether the local strong solution can be extended globally in time without the smallness assumptions under which global strong solvability is presently known.",
+  "completeness_score": 4,
+  "correct_elements": "The draft correctly identifies the relevant model class (incompressible Jeffreys-type viscoelastic fluid), the bounded-domain initial-boundary value setting, the velocity-pressure-stress formulation, incompressibility, no-slip boundary condition, and the fact that the real issue is global-in-time strong solvability rather than merely weak solvability.",
+  "missing_details": [
+    "The strong-solution discussion surveyed by the paper is not for arbitrary spatial dimension n >= 2; it is for bounded domains in n = 2 or 3.",
+    "The constitutive law in the relevant strong-solution result uses Oldroyd’s objective derivative D_a/Dt with parameter a in [-1,1], not an arbitrary unspecified objective derivative.",
+    "The paper’s strong-solution theorem is local in time; the paper does not pose or solve global strong solvability in the full generality stated in the draft.",
+    "For bounded domains, the available global strong-solution result requires smallness assumptions (on the transformed viscosity parameter and on the initial data/body force); the open issue is whether these smallness assumptions can be removed.",
+    "The exact strong-solution data class is omitted: the force is taken in L^2(0,T;H^1(Ω)^n) ∩ W^1_2(0,T;H^{-1}(Ω)^n), the initial velocity in H^2(Ω)^n ∩ V, and the initial stress variable in the corresponding H^2-type symmetric-tensor class.",
+    "The paper rewrites the stress equation using the transformed tensor tau = sigma - 2*gamma_1*E(u), where gamma_1 = eta*lambda_2/lambda_1 and mu_1 = eta - gamma_1; this equivalent formulation is part of the precise scope of the strong-solvability discussion.",
+    "The domain is not just bounded; it is assumed sufficiently regular/smooth in the strong-solution theorem.",
+    "The sharp paper-faithful open question is already nontrivial in two dimensions; phrasing it as 'in every dimension n >= 2' broadens the problem beyond the review’s actual focus."
+  ],
+  "refined_question": "Let Ω ⊂ R^n, with n = 2 or 3, be a sufficiently smooth bounded domain. Consider the incompressible homogeneous Jeffreys/Oldroyd initial-boundary value problem with no-slip boundary condition,\n\nu_t + (u·∇)u - Div sigma + ∇p = f_0, div u = 0, u|_{∂Ω} = 0,\n\nsigma + lambda_1 D_a sigma/Dt = 2 eta (E(u) + lambda_2 D_a E(u)/Dt),\n\nwhere 0 < lambda_2 < lambda_1, eta > 0, E(u) = (∇u + (∇u)^T)/2, and D_a/Dt is Oldroyd’s objective derivative with parameter a ∈ [-1,1]. For data in the strong-solution class used in the paper (in particular, f_0 ∈ L^2(0,T;H^1(Ω)^n) ∩ W^1_2(0,T;H^{-1}(Ω)^n), u_0 ∈ H^2(Ω)^n ∩ V, and the corresponding initial stress datum in the H^2-type symmetric-tensor class), local-in-time strong solvability is known, and global-in-time strong solvability is known only under smallness assumptions on the data and parameters. Is it true that this bounded-domain problem admits a global-in-time strong solution without any such smallness assumption, already in the case n = 2?",
+  "equivalent_formulation": "Equivalently, after setting gamma_1 = eta*lambda_2/lambda_1, mu_1 = eta - gamma_1, and tau = sigma - 2*gamma_1 E(u), one may ask for global-in-time strong solvability, without smallness assumptions, of the equivalent system\n\nu_t + (u·∇)u - gamma_1 Δu - Div tau + ∇p = f_0,\n\ntau + lambda_1(∂_t tau + (u·∇)tau + tau W(u) - W(u) tau - a(tau E(u) + E(u) tau)) = 2 mu_1 E(u),\n\ndiv u = 0, u|_{∂Ω} = 0,\n\nwith u(0) = u_0 and tau(0) = tau_0, where W(u) = (∇u - (∇u)^T)/2.",
+  "justification": "Your draft is clearly aiming at the review’s strong-solvability open problem, because it asks whether the bounded-domain incompressible Jeffreys system has global strong solutions. But in the paper-faithful formulation, the scope is narrower and sharper: the surveyed theorem gives only local strong solvability for the bounded-domain Jeffreys/Oldroyd system in dimensions 2 and 3, with Oldroyd’s derivative and specific Sobolev regularity hypotheses, while the bounded-domain global theory is only available under smallness assumptions. The unresolved point is therefore not 'arbitrary coefficients, external force, and initial data in every dimension n >= 2' in full generality, but whether one can remove the smallness assumptions and still obtain a global strong solution; the authors emphasize that this is open even in two dimensions. I therefore kept the question close to the paper’s actual intent by restricting to the exact model/scenario discussed in the strong-solution part and by phrasing the open problem at its sharpest point: global strong solvability beyond the small-data regime, already for n = 2.",
+  "citations": [
+    {
+      "section": "arXiv abstract",
+      "label": "paper abstract",
+      "page": "abstract"
+    },
+    {
+      "section": "Chapter 5, §5.1 of the authors’ detailed treatment summarized by the review",
+      "label": "Theorem 5.1.1",
+      "page": 104
+    },
+    {
+      "section": "Chapter 5, §5.1 of the authors’ detailed treatment summarized by the review",
+      "label": "Remark 5.1.3",
+      "page": 105
+    },
+    {
+      "section": "Chapter 1, §1.3",
+      "label": "constitutive law (1.3.32) and Oldroyd derivative (1.3.36)",
+      "page": 20
+    },
+    {
+      "section": "Preface",
+      "label": "discussion of local strong solvability and the open global problem",
+      "page": "vi-vii"
+    }
+  ]
+}

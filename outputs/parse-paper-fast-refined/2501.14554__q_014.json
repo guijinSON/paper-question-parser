@@ -1,0 +1,45 @@
+{
+  "arxiv_id": "2501.14554",
+  "question_id": "q_014",
+  "original_question": "For the minimum r-cover problem on continuous graphs, where one must cover every point of the graph by radius-r balls centered anywhere on the graph, what is the complexity when r is an algebraic real number? More specifically, if r is algebraic and not a unit fraction, must the problem be NP-hard?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 10403.02,
+  "target_in_paper": "Section 3.2 (\"Vertex cover\"), specifically the unnumbered paragraph under \"Discretization, tractability and r-certificates\" that asks about the complexity of the continuous minimum r-cover problem for algebraic real radii and records Hartmann et al.'s conjecture.",
+  "completeness_score": 8,
+  "correct_elements": "Your draft identifies the correct problem family: the continuous counterpart of minimum vertex cover, namely covering every point of a continuous graph by radius-r balls whose centers may lie anywhere on the graph. It also correctly targets the exact unresolved complexity regime singled out in the paper: fixed algebraic real radii r, especially the conjectured NP-hardness when r is not a unit fraction.",
+  "missing_details": [
+    "The paper's problem is defined on continuous graphs in the sense of Definitions 1–4: a finite endpoint set with unit-length continuous edges, equipped with the shortest-path metric.",
+    "A ball must be understood in the paper's metric-graph sense (Definition 8), not as a Euclidean ball in an ambient space.",
+    "The radius r is a fixed positive algebraic real constant; it is not part of the input instance.",
+    "To make the complexity question stand-alone, it should be phrased via the decision problem: given a continuous graph G and an integer k, does G admit an r-cover of size at most k?",
+    "The paper's nearby context states the known dichotomy for rational radii: for every rational r the problem is in NP; it is polynomial-time solvable for unit fractions and NP-hard for rational non-unit fractions.",
+    "The phrase \"unit fraction\" should be spelled out explicitly in a stand-alone version as \"of the form 1/q for some positive integer q.\"",
+    "The paper frames this as an open problem / conjecture, not as an already proved hardness theorem.",
+    "No ambient ring/field, homogeneity, degree, or nilpotency conditions are relevant here; the hidden assumptions are metric-graph assumptions instead."
+  ],
+  "refined_question": "Fix a positive algebraic real number r. Let G be a continuous graph with unit-length edges, endowed with its shortest-path metric, and let an r-cover of G mean a family of radius-r balls, centered at arbitrary points of G, whose union contains every point of G. What is the computational complexity of the decision problem \"given G and k, does G admit an r-cover of size at most k?\" In particular, is this problem NP-hard for every fixed algebraic real r that is not a unit fraction, i.e. not of the form 1/q for any positive integer q?",
+  "equivalent_formulation": null,
+  "justification": "This is the closest paper-faithful sharpening of your draft. Definition 10 gives exactly the continuous minimum r-cover problem, and the paragraph \"Discretization, tractability and r-certificates\" is the only place in the paper that isolates the algebraic-radius complexity question. That paragraph also states the surrounding rational-radius results and then formulates the precise conjectural extension to algebraic radii. I therefore kept the question narrowly on fixed algebraic r for general continuous graphs, without drifting into duality, approximation, or other sections.",
+  "citations": [
+    {
+      "section": "2",
+      "label": "Definition 3",
+      "page": "n/a"
+    },
+    {
+      "section": "2",
+      "label": "Definition 8",
+      "page": "n/a"
+    },
+    {
+      "section": "3.2",
+      "label": "Definition 10",
+      "page": "n/a"
+    },
+    {
+      "section": "3.2",
+      "label": "Discretization, tractability and r-certificates (unnumbered open-problem paragraph)",
+      "page": "n/a"
+    }
+  ]
+}

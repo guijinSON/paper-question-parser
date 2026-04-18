@@ -1,0 +1,54 @@
+{
+  "arxiv_id": "1806.04980",
+  "question_id": "q_18_9",
+  "original_question": "Let f (x) ∈ Fq [x] be\u0001 an (irreducible) polynomial, let g(x) ∈ Fq [x], and for each n ≥ 1, factor g f n (x) in Fq [x] as \u0001 g f n (x) = p1 (x)e1 p2 (x)e2 · · · pr (x)er with pi (x) irreducible in Fq [x]. (a) Describe the behavior, as n → ∞, of quantities such as X r r, ei , max ei , max deg pi (x). 1≤i≤r 1≤i≤r i=1 \u0001 (b) Describe or\u0001 predict the factorization of g f n+1 (x) from a given factorization of g f n (x) . (c) Answer the analogous questions for the iterates of a rational function f (x) ∈ Fq (x). Note that the exponents e1 , . . . , er may now Pbe both positiveP and neg- ative, and hence it may be more natural to study |ei | instead of ei , and max |ei | instead of max ei . Under the assumptions that q is odd, that f (x) is quadratic, that g(x) is irre- ducible of even degree, and that every iterate f n (x) is separable, Boston, Goksel, Jones, and Xia [96, 124] describe a conjectural multi-stage Markov model to explain.",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 6118.21,
+  "target_in_paper": "Question 18.9 in Section 18 (\"Dynamics over Finite Fields\"), together with the immediately following contextual sentence about the Boston-Goksel-Jones-Xia multistage Markov model in the odd-q quadratic case.",
+  "completeness_score": 9,
+  "correct_elements": "Your draft is already extremely close to the paper: it reproduces the exact three-part structure of Question 18.9, the finite-field setting F_q[x], the introduction of the auxiliary polynomial g(x), the irreducible-factor decomposition of g(f^n(x)), the asymptotic statistics r, sum e_i, max e_i, and max deg p_i, the step-to-step prediction problem from n to n+1, and the analogous rational-function variant with signed exponents. It also correctly includes the nearby contextual sentence about the special odd-q quadratic case and the Boston-Goksel-Jones-Xia multistage Markov model.",
+  "missing_details": [
+    "State explicitly that q is a prime power and F_q is the finite field with q elements.",
+    "Make the operator explicit: f^n denotes the nth iterate under composition, and the expression g f^n(x) means g(f^n(x)).",
+    "If the factorization is tracked as n varies, the data should be indexed by n, e.g. r_n, p_{i,n}, e_{i,n}.",
+    "Say explicitly that the factorization is taken in F_q[x], with the irreducible factors understood as the distinct irreducible factors up to ordering and multiplication by units.",
+    "In the rational-function analogue, specify that one factors the rational function g(f^n(x)) into irreducible polynomials in F_q[x] with integer exponents, so negative exponents can occur.",
+    "Note that the paper deliberately presents this as an intentionally broad/vague question because little is known in this generality; the special Markov-model discussion is nearby context, not part of the formal question.",
+    "Do not absorb the extra hypotheses q odd, f quadratic, g irreducible of even degree, and all iterates f^n separable into the main question; those hypotheses apply only to the cited special case immediately after Question 18.9."
+  ],
+  "refined_question": "Let q be a prime power, let F_q be the finite field with q elements, let f(x) in F_q[x] be an (irreducible) polynomial, and let g(x) in F_q[x]. For each n >= 1, write the composition g(f^n(x)) in F_q[x] as g(f^n(x)) = product_{i=1}^{r_n} p_{i,n}(x)^{e_{i,n}}, where the p_{i,n}(x) are irreducible over F_q. Determine, as n -> infinity, the behavior of factorization statistics such as r_n, sum_{i=1}^{r_n} e_{i,n}, max_{1<=i<=r_n} e_{i,n}, and max_{1<=i<=r_n} deg p_{i,n}(x); determine whether the factorization of g(f^{n+1}(x)) can be described or predicted from a given factorization of g(f^n(x)); and formulate the analogous problem when f(x) in F_q(x) is rational, factoring g(f^n(x)) as a product of irreducibles in F_q[x] with integer exponents, so that sum |e_{i,n}| and max |e_{i,n}| may be the more natural statistics.",
+  "equivalent_formulation": null,
+  "justification": "The draft is targeting Section 18, Question 18.9: the wording, the three subparts, and even the adjoining sentence about the Boston-Goksel-Jones-Xia Markov model agree essentially verbatim with that passage. The paragraph immediately before Question 18.9 says that very little is known \"in this generality\" and that the question is therefore \"somewhat vague,\" so a paper-faithful refinement should preserve that broad finite-field factorization scope rather than replace it by a narrower quadratic/Markov-model problem. Section 19 later points back to Question 18.9 when discussing maps over finite fields that are not eventually stable, which confirms that the intended target is the factorization-of-iterates question itself, not the later eventual-stability questions.",
+  "citations": [
+    {
+      "section": "2",
+      "label": "definition of iterates f^n := f o f o ... o f",
+      "page": "2-3"
+    },
+    {
+      "section": "3",
+      "label": "notation paragraph (\"We write F_q for a finite field with q elements\")",
+      "page": "3-4"
+    },
+    {
+      "section": "18",
+      "label": "introductory paragraph before Question 18.9 (\"In this generality ... somewhat vague\")",
+      "page": "52"
+    },
+    {
+      "section": "18",
+      "label": "Question 18.9",
+      "page": "52-53"
+    },
+    {
+      "section": "18",
+      "label": "paragraph immediately following Question 18.9 (Boston-Goksel-Jones-Xia multistage Markov model)",
+      "page": "52-53"
+    },
+    {
+      "section": "19",
+      "label": "paragraph after Question 19.11 (\"See Question 18.9\")",
+      "page": "56"
+    }
+  ]
+}

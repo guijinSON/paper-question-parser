@@ -1,0 +1,47 @@
+{
+  "arxiv_id": "math-9801061",
+  "question_id": "q_019_mod_powers_of_2",
+  "original_question": "Let f(n) denote the number of 1-factors (perfect matchings) of the n-dimensional cube. The paper reports a simple proof of the parity statement that f(n) has the same parity as n, and then states that similar but more complex reasoning should allow one to compute the enumerating sequence modulo any power of 2. Determine, in a self-contained explicit form, the value of f(n) modulo 2^m for arbitrary m ≥ 1.",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 13826.45,
+  "target_in_paper": "Section 4, Problem 19, together with its Progress note: \"Find a formula for the number of matchings of the n-cube,\" plus the remark that Lovasz's parity argument shows that the number of matchings of the n-cube has the same parity as n and that similar reasoning should allow computation of the sequence modulo any power of 2.",
+  "completeness_score": 3,
+  "correct_elements": "The draft correctly identifies the n-cube as the relevant graph family and correctly homes in on the specific progress remark about parity and possible extension to congruences modulo powers of 2. It also correctly recognizes that the paper is discussing an arithmetic refinement of a counting sequence attached to the cube.",
+  "missing_details": [
+    "The paper's parity statement and its suggested extension modulo powers of 2 concern the total number of matchings of the n-cube, not the number of 1-factors (perfect matchings).",
+    "The official nearby problem is Problem 19: \"Find a formula for the number of matchings of the n-cube\"; the modulo-2^m task is not stated as the official problem, but as a possible consequence of extending Lovasz's orbit-counting argument.",
+    "The graph should be defined explicitly as the n-dimensional cube graph Q_n with 2^n vertices.",
+    "A matching must be defined explicitly as a set of pairwise vertex-disjoint edges; it is not required to cover all vertices.",
+    "If notation is introduced, it should denote the total matching-count sequence, say a_n, rather than f(n); in the paper, f(n) is introduced only later in the same paragraph for the number of 1-factors in an unrelated asymptotic statement.",
+    "The arithmetic setting should be stated explicitly: the question is about congruence classes in Z/2^m Z.",
+    "The quantifiers should be explicit: for each fixed integer m >= 1, determine a_n modulo 2^m for all n >= 1.",
+    "The parity base case should be stated precisely as a_n ≡ n (mod 2).",
+    "The draft omits the paper's local context that the sequence under discussion begins 1, 2, 9, 272, 589185, ... for the numbers of matchings of Q_n.",
+    "The draft imports a stronger demand for a fully explicit closed form than the paper itself states; the paper only says that similar reasoning should allow computation modulo any power of 2."
+  ],
+  "refined_question": "Let a_n denote the number of matchings of the n-dimensional cube graph Q_n (that is, the number of subsets of edges of Q_n in which no two edges share a vertex). Lovasz's reflection-orbit argument gives the congruence a_n ≡ n (mod 2). Can one extend this argument to determine, for each fixed integer m >= 1, the residue class of a_n modulo 2^m for all n >= 1?",
+  "equivalent_formulation": null,
+  "justification": "The draft is trying to capture the Progress note attached to Problem 19, not the asymptotic statement about 1-factors. In that note, Propp first states the official problem as finding a formula for the number of matchings of the n-cube, then reports Lovasz's proof that this total matching count has the same parity as n, and finally says that similar reasoning should allow computation of the enumerating sequence modulo any power of 2. Only after that does the paper introduce f(n) for the number of 1-factors in the n-cube, in connection with an asymptotic formula due to Clark, George, and Porter. So the draft's central mismatch is that it replaces the paper's matching-count sequence by the 1-factor sequence. The refined question repairs that mismatch while keeping the exact arithmetic objective suggested by the paper's progress remark.",
+  "citations": [
+    {
+      "section": "Abstract / 1. Introduction",
+      "label": "article built around the original problems together with progress reports",
+      "page": 255
+    },
+    {
+      "section": "4. Miscellaneous",
+      "label": "Problem 19",
+      "page": 278
+    },
+    {
+      "section": "4. Miscellaneous",
+      "label": "Progress after Problem 19 (parity via reflection orbits; possible computation modulo powers of 2)",
+      "page": 278
+    },
+    {
+      "section": "4. Miscellaneous",
+      "label": "Progress after Problem 19 (f(n) introduced as the number of 1-factors in the n-cube for the asymptotic aside)",
+      "page": 278
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "arxiv_id": "1709.01670",
+  "question_id": "q_012",
+  "original_question": "For the three-machine job-shop makespan problem J3||C_max, is the problem fixed-parameter tractable when parameterized jointly by p_max, the maximum processing time, and n_max, the maximum number of operations in a job?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 5474.33,
+  "target_in_paper": "Section 5.1, Open Problem 12: \"Is J3||Cmax fixed-parameter tractable parameterized by the maximum processing time pmax and the maximum number nmax of operations per job?\"",
+  "completeness_score": 9,
+  "correct_elements": "Your draft identifies the exact open problem targeted in the paper: the three-machine job shop makespan problem J3||C_max, with the joint parameterization by p_max and n_max. It also keeps the scope narrow and paper-faithful, rather than drifting to a broader shop-scheduling or variable-machine variant.",
+  "missing_details": [
+    "The paper's parameters are defined on operations/jobs as p_max := max_{i,j} p_{ij}, the maximum processing time of any operation, and n_max := max_j n_j, where n_j is the number of operations in job j.",
+    "To be fully stand-alone, the question should state the job-shop model used in Section 2.1.1: each job j consists of n_j totally ordered operations o_{ij}; operation o_{ij} must be processed on a prescribed machine mu_{ij} for time p_{ij}; each job can be processed by at most one machine at a time; each machine can process at most one operation at a time.",
+    "The paper's job-shop definition allows several operations of the same job to require the same machine, and a job need not have an operation on every machine; this is implicit in the notation J3 and should be made explicit in a stand-alone formulation.",
+    "The number of machines is fixed to exactly 3; it is not an additional parameter of the question.",
+    "Preemption is absent by default in the paper's notation, so the intended question concerns the standard nonpreemptive J3||C_max problem.",
+    "To make 'fixed-parameter tractable' fully explicit, the question should ask whether there is an exact algorithm for J3||C_max running in f(p_max, n_max) · poly(|I|) time (equivalently, solving the corresponding decision version in such time).",
+    "The nearby context explains why the parameterization must be joint: parameterizing J3||C_max by p_max alone is already impossible in the intended sense because even J3|p_{ij}=1|C_max is NP-hard."
+  ],
+  "refined_question": "Given a nonpreemptive job-shop instance on exactly three machines, where each job j consists of n_j totally ordered operations o_{ij}, each operation o_{ij} must be processed on a prescribed machine mu_{ij} in {1,2,3} for an integer processing time p_{ij}, each job can be processed by at most one machine at a time, and each machine can process at most one operation at a time, let p_max := max_{i,j} p_{ij} and n_max := max_j n_j. Is the makespan minimization problem J3||C_max fixed-parameter tractable with respect to the joint parameter (p_max, n_max)?",
+  "equivalent_formulation": null,
+  "justification": "The draft is already very close to the paper's exact target: it matches Open Problem 12 in Section 5.1 almost verbatim. Section 5.1 first explains that p_max and n_max are the natural parameters for fixed-machine shop scheduling after earlier hardness results rely on an unbounded number of machines, and then it notes that p_max alone cannot work for J3 because J3|p_{ij}=1|C_max is NP-hard, which leads directly to Open Problem 12. Section 2.1.1 supplies the hidden notation needed to make the question fully stand-alone, especially the meanings of J3, n_j, p_{ij}, and the job-shop constraints.",
+  "citations": [
+    {
+      "section": "2.1.1",
+      "label": "Machine models / Shop scheduling problems / Job shop scheduling",
+      "page": 2
+    },
+    {
+      "section": "5.1",
+      "label": "Makespan context introducing pmax and nmax for fixed-number-of-machines shop scheduling",
+      "page": 6
+    },
+    {
+      "section": "5.1",
+      "label": "Remark after Open Problem 11: J3|pij=1|Cmax is NP-hard",
+      "page": "6-7"
+    },
+    {
+      "section": "5.1",
+      "label": "Open Problem 12",
+      "page": 7
+    }
+  ]
+}

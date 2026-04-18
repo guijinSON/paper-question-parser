@@ -1,0 +1,67 @@
+{
+  "arxiv_id": "2201.09150",
+  "question_id": "q_012",
+  "original_question": "Compare the solutions of the conflict-zone memory model with magnitude-based cognitive maps against the analogous model in which the cognitive map is formulated as a probability-like quantity, and determine what substantive differences this modeling choice creates.",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 7924.95,
+  "target_in_paper": "Open Problem 12 (Section 2.2.2): What are the key differences, if any, between solutions obtained for model (2.13) and solutions obtained for the same problem when the cognitive map is instead of the form described in (2.12)?",
+  "completeness_score": 6.5,
+  "correct_elements": "The draft correctly identifies the conflict-zone memory model in Section 2.2.2 and the paper’s specific unresolved comparison between the authors’ preferred magnitude-based cognitive-map formulation and the alternative probability-density formulation. It also correctly focuses on comparing resulting solutions/dynamics rather than asking for a new model or a broader theory.",
+  "missing_details": [
+    "The exact official target is Open Problem 12 in Section 2.2.2, not a generic comparison across all memory or cognitive-map models.",
+    "The paper’s comparison is tied to model (2.13) and the alternative memory law (2.12); the draft does not name these equations or specify the PDE system being compared.",
+    "The comparison is introduced first for two interacting populations, with population densities u1(x,t), u2(x,t) and conflict-zone memories k1(x,t), k2(x,t); the draft does not state the variables or that the explicit probability-density form is given in the two-population setting.",
+    "The movement equation must be included: for each population, the advective potential is ai(x,t)=γi(ki)g,R(x,t), so the population equation is ∂tui=diΔui+γi∇·(ui∇(ki)g,R).",
+    "The perception operator should be defined: fg,R(x,t)=∫Ω f(y,t)g(x−y)dy, where g is the detection kernel and R is the perceptual radius.",
+    "The meanings and sign restrictions of parameters are implicit in the draft but should be stated: di>0 is diffusion, γi≥0 is the repulsion strength from conflict zones, ρ≥0 is the encounter/conflict rate, μ≥0 is temporal memory decay, and β≥0 is the rate at which revisiting a safe site erodes the remembered conflict zone.",
+    "The phrase 'same problem' is ambiguous unless one fixes the same spatial domain Ω, the same boundary conditions, the same initial data, the same detection kernel/perceptual radius, and the same parameter values in both formulations.",
+    "The draft does not specify whether the comparison concerns time-dependent solutions, steady states, or both; nearby Open Problems 10 and 11 show that both evolution and steady-state questions, and the choice of boundary conditions, are part of the hidden setup.",
+    "The paper’s wording is 'probability density' (with a coin-flip-type interpretation through the factor 1−ki), not merely 'probability-like quantity'; this should be made paper-faithful.",
+    "If one wants a concrete canonical setting from the nearby discussion, the paper frequently has in mind a bounded domain with a top-hat detection function, especially for the scenario linked to model (2.13); the draft does not indicate whether such a concrete setting is intended."
+  ],
+  "refined_question": "Fix a bounded spatial domain Ω⊂R^d, a detection kernel g with perceptual radius R, the same boundary conditions and initial data, and the same parameters di>0, γi≥0, ρ, μ, β≥0. For two interacting populations u1,u2 with conflict-zone cognitive maps k1,k2, where perception is given by fg,R(x,t)=∫Ω f(y,t)g(x−y)dy and the movement law is ∂tui=diΔui+γi∇·(ui∇(ki)g,R) for i=1,2, compare the solutions of the magnitude-based conflict-memory model ∂tki=ρu1u2−(μ+βui)ki with those of the analogous probability-density formulation ∂tki=ρu1u2(1−ki)−(μ+βui)ki. Under otherwise identical choices of Ω, g, R, boundary conditions, initial data, and parameters, what key differences, if any, arise in the resulting time-dependent solutions and spatially non-constant steady states—equivalently, in the qualitative space-use dynamics—solely from treating ki as a relative magnitude versus a probability-density-type quantity?",
+  "equivalent_formulation": null,
+  "justification": "The draft is essentially a paraphrase of Open Problem 12. In Section 2.2.2, the paper first introduces the conflict-zone memory variable ki for population ui, explains the magnitude-based interpretation, then presents the alternative probability-density version (2.12), and finally states model (2.13) before asking exactly for the 'key differences, if any' between the two formulations. The nearby Open Problems 10 and 11 show that hidden setup issues include boundary conditions and whether one is discussing time-dependent or steady-state solutions. Section 5.2.1 later returns to this distinction by noting that the closest existing linear-stability results to model (2.13) actually come from Potts and Lewis (2016a), where ki is treated as a probability distribution rather than a magnitude. So the refined question should stay narrowly focused on this exact modeling-choice comparison and make the PDE, variables, operators, and fixed data explicit.",
+  "citations": [
+    {
+      "section": "2.1",
+      "label": "Eq. (2.5)",
+      "page": "10"
+    },
+    {
+      "section": "2.2.2",
+      "label": "discussion introducing conflict-zone memory and parameter meanings",
+      "page": "15"
+    },
+    {
+      "section": "2.2.2",
+      "label": "Eq. (2.12)",
+      "page": "15-16"
+    },
+    {
+      "section": "2.2.2",
+      "label": "Eq. (2.13)",
+      "page": "16"
+    },
+    {
+      "section": "2.2.2",
+      "label": "Open Problem 10",
+      "page": "16"
+    },
+    {
+      "section": "2.2.2",
+      "label": "Open Problem 11",
+      "page": "16"
+    },
+    {
+      "section": "2.2.2",
+      "label": "Open Problem 12",
+      "page": "16"
+    },
+    {
+      "section": "5.2.1",
+      "label": "discussion of Potts and Lewis (2016a) relative to model (2.13)",
+      "page": "57"
+    }
+  ]
+}

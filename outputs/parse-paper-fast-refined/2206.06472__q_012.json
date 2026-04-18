@@ -1,0 +1,38 @@
+{
+  "arxiv_id": "2206.06472",
+  "question_id": "q_012",
+  "original_question": "Let T112(a,b) count tilings of the (a,b)-benzel when both stone orientations are allowed and exactly two of the three bone orientations are allowed. Is it true that T112(n+2, 2n+1) equals the nth large Schroder number for every n >= 1?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 8359.58,
+  "target_in_paper": "Section 7 (“Both stones, two kinds of bones”), Problem 12: the conjecture that T112(n+2, 2n+1) is the nth large Schröder number for all n ≥ 1.",
+  "completeness_score": 9,
+  "correct_elements": "Your draft already identifies the exact target of the paper almost verbatim: it uses the correct tiling type T112, the correct benzel family (n+2, 2n+1), the correct comparison sequence (large Schröder numbers), and the correct quantifier n ≥ 1. It also stays narrowly focused on the intended peripheral diagonal problem in Section 7 rather than drifting to neighboring problems.",
+  "missing_details": [
+    "The paper-specific geometric definition of the (a,b)-benzel is omitted, so the draft is not fully stand-alone.",
+    "T112(a,b) should be explicitly tied to the Section 1 convention T_{ijk}(a,b): right stones allowed iff i=1, left stones allowed iff j=1, and exactly k of the three bone prototiles allowed.",
+    "It is implicit, but should be made explicit, that the choice of which two bone prototiles are allowed does not matter because the benzel has threefold rotational symmetry; only the number k=2 matters.",
+    "The indexing convention for the large Schröder numbers should be fixed to avoid ambiguity; in the paper this is OEIS A006318 indexed so that S1=2, S2=6, S3=22, ... .",
+    "To be fully paper-faithful, the question should state that this is an ordinary unweighted tiling count, not the later weighted variant T_{ijk}(a,b;3).",
+    "The admissibility conditions for benzels (2 ≤ a ≤ 2b and 2 ≤ b ≤ 2a in the paper’s basic setup) are implicit, even though they are automatically satisfied here when a=n+2 and b=2n+1."
+  ],
+  "refined_question": "Let ω = e^{2πi/3}. For integers a,b with 2 ≤ a ≤ 2b and 2 ≤ b ≤ 2a, let the (a,b)-benzel be the union of the unit hexagonal cells lying fully inside the hexagon with vertices aω+b, -aω^2-b, aω^2+bω, -a-bω, a+bω^2, and -aω-bω^2. Let T112(a,b) denote the number of unweighted tilings of this region by both stone prototiles (right and left stones) together with any fixed two of the three bone prototiles (vertical, rising, and falling); by the paper’s symmetry discussion, this depends only on the fact that exactly two bone types are allowed. Is it true that for every n ≥ 1, T112(n+2, 2n+1) = S_n, where S_n is the nth large Schröder number, indexed as in OEIS A006318 (so S1=2, S2=6, S3=22, ...)?",
+  "equivalent_formulation": null,
+  "justification": "The draft is aiming at Problem 12, not at the adjacent Problem 13: the paper’s exact peripheral-diagonal conjecture in Section 7 is T112(n+2, 2n+1), whereas Problem 13 concerns T112(n+2, 2n). Section 1 supplies the notation T_{ijk}(a,b), the meaning of type 112, and the reason the identity of the two allowed bone types is irrelevant. No proposition or theorem in the paper gives an equivalent reformulation of Problem 12, so the sharpest faithful rewrite is simply the official conjecture with the benzel and T112 notation made explicit and the Schröder indexing disambiguated.",
+  "citations": [
+    {
+      "section": "Section 1",
+      "label": "definition of the (a,b)-benzel",
+      "page": "2-3"
+    },
+    {
+      "section": "Section 1",
+      "label": "definition of T_{ijk}(a,b) and explanation that only the number of allowed bone prototiles matters",
+      "page": "5"
+    },
+    {
+      "section": "Section 7",
+      "label": "Problem 12",
+      "page": "10"
+    }
+  ]
+}

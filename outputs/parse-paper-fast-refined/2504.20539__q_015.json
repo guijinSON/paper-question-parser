@@ -1,0 +1,44 @@
+{
+  "arxiv_id": "2504.20539",
+  "question_id": "q_015",
+  "original_question": "Consider the Sherrington-Kirkpatrick model with interaction matrix J = beta W where W ~ GOE(n), with an arbitrary external field, and Glauber dynamics for sampling from the Gibbs measure on {+1,-1}^n. Does Glauber dynamics mix in polynomial time for all beta up to the replica-symmetry-breaking threshold beta* = 1?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 10831.92,
+  "target_in_paper": "Entry 7, Open Problem 15: whether Glauber dynamics for the Sherrington-Kirkpatrick model with arbitrary external field mixes in polynomial time up to the replica-symmetry-breaking threshold beta* = 1.",
+  "completeness_score": 8.5,
+  "correct_elements": "Your draft is already very close to the paper's exact target: it is about the Sherrington-Kirkpatrick model, uses the paper's parametrization J = beta W with W ~ GOE(n), keeps the external field arbitrary, asks specifically about Glauber dynamics rather than a different sampler, and identifies the same threshold beta* = 1 as the target regime.",
+  "missing_details": [
+    "The Gibbs measure should be written explicitly as mu_{J,h}(x) proportional to exp((1/2) x^T J x + h^T x) on {+1,-1}^n, with h in R^n.",
+    "The paper's Glauber dynamics is the discrete-time single-site chain: choose i uniformly from [n] and resample X_i from the conditional law mu_{J,h}( . | X_{-i}); your draft names the dynamics but does not spell out this update rule.",
+    "The surrounding context defines mixing via the total-variation mixing time T_epsilon, from any starting state, for fixed small epsilon; 'mix in polynomial time' should be tied to that notion to be fully paper-faithful.",
+    "All SK statements in Entry 7 are understood with high probability over the disorder W as n -> infinity; your draft omits this quantifier.",
+    "The question is specifically about Glauber dynamics itself, not about the existence of some polynomial-time sampling algorithm. This distinction matters because the same paragraph discusses non-Glauber algorithms and weaker Wasserstein guarantees without external field.",
+    "The paper leaves the precise GOE(n) normalization implicit, and your draft does too. To stay closest to the paper, it is better to keep the notation W ~ GOE(n) rather than insert a new normalization convention not stated there.",
+    "The phrase 'up to the threshold beta* = 1' is informal in the paper; a stand-alone version should indicate the intended asymptotic quantifier, e.g. for each fixed beta up to that threshold and all sufficiently large n."
+  ],
+  "refined_question": "For the Sherrington-Kirkpatrick Ising model on {+1,-1}^n with Gibbs measure mu_{J,h}(x) proportional to exp((1/2) x^T J x + h^T x), where h in R^n is arbitrary and J = beta W with W ~ GOE(n), consider the discrete-time single-site Glauber dynamics that at each step chooses i uniformly from [n] and resamples x_i from the conditional law mu_{J,h}( . | x_{-i}). Is it true that, with probability tending to 1 over the disorder W as n -> infinity, the total-variation mixing time T_epsilon of this chain is bounded by n^{O(1)} for every fixed epsilon in (0,1) and every inverse temperature beta up to the replica-symmetry-breaking threshold beta* = 1?",
+  "equivalent_formulation": null,
+  "justification": "The exact target in the paper is Open Problem 15 in Entry 7, not a broader question about arbitrary samplers. The preliminaries in Entry 7 define the Gibbs measure mu_{J,h}, specialize to J = beta W with W ~ GOE(n), state that the discussion is with high probability over the disorder W, and define the single-site Glauber chain and total-variation mixing time T_epsilon (Entry 7, p. 10). Open Problem 15 then asks whether this Glauber dynamics fast mixes, meaning polynomial-time mixing, up to the replica-symmetry-breaking threshold beta* = 1 in the presence of an arbitrary external field (Entry 7, Open Problem 15, p. 11). The nearby context also notes separate results for non-Glauber algorithms and weaker Wasserstein guarantees without external field, so the refined question should stay narrowly on total-variation polynomial mixing of Glauber dynamics itself rather than broaden to general polynomial-time sampling (Entry 7, p. 11).",
+  "citations": [
+    {
+      "section": "Entry 7",
+      "label": "Preliminaries: definition of mu_{J,h}, specialization J = beta W with W ~ GOE(n), and the 'with high probability on the disorder W' convention",
+      "page": 10
+    },
+    {
+      "section": "Entry 7",
+      "label": "Preliminaries: definition of single-site Glauber dynamics and total-variation mixing time T_epsilon",
+      "page": 10
+    },
+    {
+      "section": "Entry 7",
+      "label": "Open Problem 15",
+      "page": 11
+    },
+    {
+      "section": "Entry 7",
+      "label": "Context after Open Problem 15: non-Glauber/Wasserstein results without external field",
+      "page": 11
+    }
+  ]
+}

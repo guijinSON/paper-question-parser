@@ -1,0 +1,45 @@
+{
+  "arxiv_id": "2305.10290",
+  "question_id": "q_028",
+  "original_question": "If G is a graph on n vertices with independence number alpha, must the sum of the positive adjacency eigenvalues satisfy sum_{lambda_i(G) > 0} lambda_i(G) >= n - alpha?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 8830.42,
+  "target_in_paper": "Section 17, Conjecture 20 (\"Two lower bounds on graph energy\").",
+  "completeness_score": 9,
+  "correct_elements": "Your draft already matches the paper's actual target essentially exactly: it uses the same graph parameters n and alpha, asks about the sum of the positive adjacency eigenvalues, and states the same lower bound n - alpha. It also correctly avoids adding a connectedness assumption, which this conjecture does not have.",
+  "missing_details": [
+    "The paper works throughout with finite simple, undirected, unweighted graphs.",
+    "n should be identified explicitly as |V(G)|, the number of vertices of G.",
+    "alpha should be written as alpha(G), the independence number of G.",
+    "The lambda_i(G) are the eigenvalues of the adjacency matrix A(G), taken over R; since A(G) is real symmetric, these eigenvalues are real.",
+    "The sum over positive eigenvalues is taken with multiplicity.",
+    "For a fully stand-alone formulation, it helps to say that the eigenvalues may be ordered lambda_1(G) >= ... >= lambda_n(G).",
+    "The nearby context notes the equivalent energy formulation E(G) = sum_i |lambda_i(G)| = 2 sum_{lambda_i(G) > 0} lambda_i(G), so the conjecture is equivalently E(G) >= 2(n - alpha(G)).",
+    "It is worth stating explicitly that this is Conjecture 20, not the weaker neighboring consequence sum_{lambda_i(G) > 0} lambda_i(G) >= max{n_+, n_-} obtained later from the inertia bound."
+  ],
+  "refined_question": "Let G be a finite simple undirected unweighted graph with n = |V(G)|, independence number alpha(G), adjacency matrix A(G), and adjacency eigenvalues lambda_1(G) >= ... >= lambda_n(G) in R. Is it always true that sum_{i: lambda_i(G) > 0} lambda_i(G) >= n - alpha(G), where positive eigenvalues are counted with multiplicity?",
+  "equivalent_formulation": "Equivalently, is the graph energy E(G) = sum_{i=1}^n |lambda_i(G)| always at least 2(n - alpha(G))?",
+  "justification": "The draft is targeting Conjecture 20 in Section 17, not a neighboring problem from Section 1. The match is exact at the level of mathematical content: the paper states the same hypothesis (a graph on n vertices with independence number alpha) and the same inequality for the sum of positive adjacency eigenvalues. The introduction supplies the paper-wide conventions on graphs and eigenvalue notation, while the paragraph immediately after Conjecture 20 explains that the left-hand side equals E(G)/2, giving the energy reformulation. The same nearby discussion then derives a different, weaker conjectural inequality via Cvetkovic's inertia bound; because your draft asks for n - alpha rather than max{n_+, n_-}, the correct paper-faithful target is Conjecture 20 itself.",
+  "citations": [
+    {
+      "section": "Introduction",
+      "label": "paper-wide definitions and notation for graphs, adjacency matrix, and eigenvalues",
+      "page": "33"
+    },
+    {
+      "section": "17",
+      "label": "Conjecture 20",
+      "page": "50"
+    },
+    {
+      "section": "17",
+      "label": "paragraph immediately after Conjecture 20 (energy interpretation)",
+      "page": "50"
+    },
+    {
+      "section": "17",
+      "label": "equation (2) and following paragraph (related but different weaker conjectural consequence)",
+      "page": "50"
+    }
+  ]
+}

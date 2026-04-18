@@ -1,0 +1,53 @@
+{
+  "arxiv_id": "1907.04349",
+  "question_id": "q_011",
+  "original_question": "Are there 5-regular graphs that admit a signature attaining equality in Theorem 3.23, beyond the examples already constructed in the discussion leading up to Problem 3.24?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 6681.05,
+  "target_in_paper": "Problem 3.24 in Section 3.5: \"Are there any other 5-regular graphs attaining equality in Theorem 3.23?\"",
+  "completeness_score": 9,
+  "correct_elements": "Your draft correctly identifies the precise local target in the paper: the 5-regular case, the requirement that some signature attain equality in Theorem 3.23, and the fact that the question is about examples beyond those constructed immediately beforehand. It stays in the right section and does not drift into the broader Bilu-Linial conjecture or the general signature-minimization problem.",
+  "missing_details": [
+    "The draft should unpack what \"attaining equality in Theorem 3.23\" means: if a graph has average degree k, then for any signature sigma one has rho(G, sigma) >= sqrt(k); for a 5-regular graph this means rho(G, sigma) = sqrt(5).",
+    "It should define the basic notation used in the paper: a signature is a map sigma: E(G) -> {+1, -1}, A_sigma is the signed adjacency matrix, and rho(G, sigma) is the spectral radius of A_sigma.",
+    "Theorem 3.23 gives an equivalent equality criterion that is implicit in your draft: for a 5-regular graph, equality holds exactly when A_sigma is a symmetric weighing matrix of weight 5; since A_sigma is symmetric, this is equivalent to A_sigma^2 = 5I.",
+    "If you want the phrase \"beyond the examples already constructed\" to be stand-alone, it should identify those examples explicitly: the paper first notes the known 4-regular equality cases from McKee-Smyth, then uses the block construction B = [[A_s, I_N], [I_N, -A_s]] from a 4-regular signed adjacency matrix A_s with A_s^2 = 4I to build 5-regular examples with B^2 = 5I.",
+    "The official paper question is existential and narrow: it asks for any other 5-regular graphs with this property, not for a full classification of all equality cases in all degrees.",
+    "There is no ambient ring/field, homogeneity, nilpotency hypothesis, or \"for all sufficiently large m\" quantifier here; the hidden assumptions are graph-theoretic and matrix-theoretic instead."
+  ],
+  "refined_question": "Besides the 5-regular graphs obtained in the paragraph immediately preceding Problem 3.24 by starting from a 4-regular graph G with a signed adjacency matrix A_s satisfying A_s^2 = 4I and forming the block signed adjacency matrix B = [[A_s, I_N], [I_N, -A_s]] (so B^2 = 5I), do there exist any other 5-regular graphs H that admit a signature sigma: E(H) -> {+1, -1} such that the signed adjacency matrix A_sigma satisfies rho(H, sigma) = sqrt(5), i.e. such that H attains equality in Theorem 3.23?",
+  "equivalent_formulation": "Equivalently, beyond the examples constructed immediately before Problem 3.24, are there any other 5-regular graphs H with a signature sigma whose signed adjacency matrix A_sigma is a symmetric weighing matrix of weight 5 (equivalently A_sigma^2 = 5I)?",
+  "justification": "The draft is aiming at the paper's exact official open question in Section 3.5, not at the broader discussion of signatures minimizing spectral radius. Theorem 3.23 gives the lower bound rho(G, sigma) >= sqrt(k), where k is the average degree, and characterizes equality by regularity together with the signed adjacency matrix being a symmetric weighing matrix of weight k. Immediately after that theorem, the authors list known equality cases, explain that 4-regular equality cases are known from McKee-Smyth, show how to build 5-regular examples from them via a block construction, and then pose Problem 3.24 asking whether there are any other 5-regular graphs with this property. So the sharp stand-alone reformulation should keep the question restricted to additional 5-regular equality cases and should make explicit that, in this degree-5 setting, equality means existence of a signature with spectral radius exactly sqrt(5), equivalently a symmetric weighing matrix of weight 5.",
+  "citations": [
+    {
+      "section": "1",
+      "label": "Introduction (definition of signature and signed adjacency matrix)",
+      "page": 1
+    },
+    {
+      "section": "3.5",
+      "label": "Section 3.5 introductory definitions; spectral radius of a signing",
+      "page": 10
+    },
+    {
+      "section": "3.5",
+      "label": "Definition of weighing matrix",
+      "page": 11
+    },
+    {
+      "section": "3.5",
+      "label": "Theorem 3.23",
+      "page": 11
+    },
+    {
+      "section": "3.2",
+      "label": "Theorem 3.8",
+      "page": 6
+    },
+    {
+      "section": "3.5",
+      "label": "Discussion following Theorem 3.23 and Problem 3.24",
+      "page": 12
+    }
+  ]
+}

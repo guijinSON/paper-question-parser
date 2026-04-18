@@ -1,0 +1,45 @@
+{
+  "arxiv_id": "2003.03776",
+  "question_id": "q_002",
+  "original_question": "For a given class of optimization problems, how should the parameters of a nature-inspired algorithm be tuned so that the algorithm achieves its best performance, and how should those parameters be varied or controlled during the run to maximize performance?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 6886.69,
+  "target_in_paper": "Section 4.2, Open Problem 2 (Parameter Tuning), p. 12: the paper’s exact open problem about how to tune the parameters of a given algorithm for a given set of problems, and how to vary or control those parameters during the run to maximize performance.",
+  "completeness_score": 9,
+  "correct_elements": "Your draft captures the correct target almost exactly. It correctly focuses on parameter tuning for a nature-inspired algorithm, ties tuning to achieving the algorithm’s best performance on a specified problem family/set, and includes the second half of the paper’s formulation about varying or controlling parameters during the run. Those are precisely the two clauses of Open Problem 2 in Section 4.2.",
+  "missing_details": [
+    "The paper states the problem for 'a given algorithm' in the context of nature-inspired algorithms, and for 'a given set of problems'; your phrase 'a given class of optimization problems' is close, but the paper’s wording is slightly narrower.",
+    "Section 4.2 introduces the algorithm schematically as x_{k+1} = A(x_k | p_1, p_2, ..., p_m, ε_1, ..., ε_s), with parameter vector p_m = (p_1, ..., p_m), and then compactly as x_{k+1} = A(x_k, p_m); this notation is part of the nearby context that makes the question stand-alone.",
+    "The ε_1, ..., ε_s are random numbers, possibly drawn from different probability distributions; this stochastic setting is implicit in the open problem.",
+    "The paper distinguishes between parameter tuning before/during design and parameter variation/control during iterations; the latter is motivated by self-adaptive variants.",
+    "The paper explicitly notes that good parameter settings may be both algorithm-dependent and problem-dependent, and that settings tuned for one type of problem may not transfer to another.",
+    "The paper does not specify a single formal performance metric here; 'performance' is intentionally left broad, and performance measures are treated separately later in Open Problem 4.",
+    "The nearby context mentions self-tuning as a possible bi-objective framework, but this is presented as one possible avenue, not as an equivalent reformulation of the open problem.",
+    "No ambient ring/field, homogeneity, degree restriction, nilpotency condition, or 'for all sufficiently large m' quantifier is part of this paper’s formulation; those notions are not applicable here."
+  ],
+  "refined_question": "Given a nature-inspired optimization algorithm schematically written as x_{k+1} = A(x_k | p_1, p_2, ..., p_m, ε_1, ..., ε_s), equivalently x_{k+1} = A(x_k, p_m), where p_m = (p_1, ..., p_m) is its algorithm-dependent parameter vector and ε_1, ..., ε_s are iteratively drawn random variables, and given a specified set of optimization problems, how can one determine parameter values p_m so that the algorithm attains its best performance on that set of problems, and how should these parameters be varied or controlled during the iterations—rather than fixed once and for all after tuning—in order to maximize the algorithm’s performance?",
+  "equivalent_formulation": null,
+  "justification": "The draft is targeting Open Problem 2 because its two clauses match the paper’s official wording almost verbatim: first, how to tune the parameters of a given algorithm for a given set of problems; second, how to vary or control those parameters to maximize performance (Section 4.2, Open Problem 2, p. 12). The nearby context in the same subsection supplies the only formal notation attached to this question, namely the schematic update x_{k+1} = A(x_k | p_1, ..., p_m, ε_1, ..., ε_s) and its compact form x_{k+1} = A(x_k, p_m), with ε_i random draws and p_m the parameter vector (Section 4.2, Eqs. (40)–(41), p. 12). Section 4 frames parameter tuning as one of the five highlighted open problems of the paper (Section 4, p. 9), while the paper treats the choice of performance metrics separately in Open Problem 4, so a faithful rewrite should not add a specific metric that the paper itself does not fix (Section 4.4, Open Problem 4, p. 15). No explicit equivalent reformulation is proved in the paper.",
+  "citations": [
+    {
+      "section": "1",
+      "label": "Introduction",
+      "page": 2
+    },
+    {
+      "section": "4",
+      "label": "Challenges and Open Problems",
+      "page": 9
+    },
+    {
+      "section": "4.2",
+      "label": "Eqs. (40)–(41) and Open Problem 2",
+      "page": 12
+    },
+    {
+      "section": "4.4",
+      "label": "Open Problem 4",
+      "page": 15
+    }
+  ]
+}

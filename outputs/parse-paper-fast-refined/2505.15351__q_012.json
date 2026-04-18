@@ -1,0 +1,57 @@
+{
+  "arxiv_id": "2505.15351",
+  "question_id": "q_012",
+  "original_question": "For the unified reconstruction method that balances a measurement-fitting term with a penalty tying the reconstruction to a generative model, can one derive sharper theoretical error guarantees under realistic assumptions on the measurement map A, the generative model G, and the ground-truth signal f_0, including cases where A does not satisfy a global bi-Lipschitz property and cases involving specific learned or model-based generative models?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 10957.91,
+  "target_in_paper": "Problem 5.6 in Section 5.3, concerning the unified approach (13) introduced in Section 5.1.4 and the improvement of the reconstruction-error bounds from Lemmas 5.3 and 5.5.",
+  "completeness_score": 8.5,
+  "correct_elements": "Your draft already matches the paper's intended target very closely: it identifies the unified reconstruction method that combines a data-fidelity term with a penalty enforcing proximity to a generative model, asks for sharper theoretical reconstruction-error guarantees, and explicitly includes the two paper-specific directions singled out in Problem 5.6: (i) the case where the measurement map A lacks a global bi-Lipschitz property, and (ii) improvements for specific learned or model-based generative models G.",
+  "missing_details": [
+    "The exact optimization problem should be stated: minimize over z in C^k and f in C^n the objective ||A(f)-y||_2^2 + lambda^2 ||G(z)-f||_2^2, i.e. equation (13).",
+    "The measurement model in this section is y = A(f_0) + epsilon with bounded additive noise epsilon in C^m; the paper explicitly notes that this discussion does not cover Poisson shot noise.",
+    "The ambient spaces and maps are part of the setup: A : C^n -> C^m, G : C^k -> C^n with k < n; in the phase-retrieval specialization, A(f) = |Af|^2 for a matrix A in C^{m x n}.",
+    "The current theoretical assumptions behind the existing bounds should be made explicit: A and G are assumed injective and bi-Lipschitz with constants alpha, beta >= 1, and A o G is assumed bi-Lipschitz with constant gamma < alpha; moreover G is assumed well-conditioned in the sense 0 < beta - 1 << 1.",
+    "The bias term should be identified exactly through z_0 = arg min_z ||G(z)-f_0||_2, since Lemma 5.3 and the discussion of out-of-distribution error are written in terms of ||G(z_0)-f_0||_2.",
+    "To stay paper-faithful, the question should say that one seeks to improve the bounds in Lemmas 5.3 and 5.5, rather than asking generically for any new guarantee.",
+    "The role of the regularization parameter lambda should be included: lambda = 0 recovers the conventional formulation (11), while lambda -> infinity recovers the pure generative-prior formulation (12).",
+    "No homogeneity, polynomial degree, ring/characteristic, or nilpotency assumptions are part of this problem; importing such conditions would make the question less faithful to the paper.",
+    "The paper asks for sharper guarantees under 'appropriate assumptions' on A, G, and f_0; your wording 'realistic assumptions' is reasonable but slightly less exact than the paper's own phrasing.",
+    "The problem is strictly about reconstruction-error theory for the unified model; algorithm design, convergence guarantees, and adaptive tuning of lambda are separated out as Problem 5.7 and should not be folded into the refined question."
+  ],
+  "refined_question": "Let y = A(f_0) + epsilon be noisy measurements of an unknown signal f_0 in C^n, where A : C^n -> C^m is the measurement map and G : C^k -> C^n, k < n, is a generative model. For the unified estimator defined by equation (13), min over z in C^k and f in C^n of ||A(f)-y||_2^2 + lambda^2 ||G(z)-f||_2^2, which interpolates between the conventional reconstruction problem (11) when lambda = 0 and the pure generative-prior problem (12) as lambda -> infinity, can one obtain sharper reconstruction-error bounds for the resulting estimate f~ than those currently given by Lemmas 5.3 and 5.5, under appropriate assumptions on A, G, and f_0, in particular in regimes where A is not globally bi-Lipschitz and for specific learned or model-based classes of generative models G, with the bias quantified through z_0 = arg min_z ||G(z)-f_0||_2?",
+  "equivalent_formulation": "The paper explicitly rewrites (13) as a special case of the generic nonlinear optimization problem (14): minimize over x in C^d the objective ||A o B(x)-y||_2^2 + lambda^2 ||w ⊙ x||_2^2, where for the unified model one takes d = k + n, x = (x_1,x_2), B(x_1,x_2) = G(x_1) + x_2, x_1 = z, x_2 = f - G(z), and w is zero on the first k coordinates and one on the remaining n coordinates.",
+  "justification": "The paper's exact official target is Problem 5.6, which asks almost verbatim for improved theoretical guarantees on the reconstruction error for the unified approach (13), explicitly raises the case where A lacks a global bi-Lipschitz property, and explicitly asks how the bounds in Lemmas 5.3 and 5.5 can be improved for specific learned and model-based generative models. To make your draft fully stand-alone and faithful to the paper, the rewrite restores the precise objective (13), the additive-noise model y = A(f_0) + epsilon, the ambient complex spaces and operator domains, the baseline assumptions used in Section 5.1, and the exact bias term z_0 = arg min_z ||G(z)-f_0||_2 that appears in the existing bounds.",
+  "citations": [
+    {
+      "section": "5",
+      "label": "Equations (11) and (12)",
+      "page": "Page 14 of 40"
+    },
+    {
+      "section": "5.1",
+      "label": "Methods and Remark 5.1",
+      "page": "Page 15 of 40"
+    },
+    {
+      "section": "5.1.1",
+      "label": "Lemma 5.3",
+      "page": "Page 15 of 40"
+    },
+    {
+      "section": "5.1.4",
+      "label": "Equation (13)",
+      "page": "Page 17 of 40"
+    },
+    {
+      "section": "5.1.4",
+      "label": "Equation (14)",
+      "page": "Page 18 of 40"
+    },
+    {
+      "section": "5.3",
+      "label": "Problem 5.6",
+      "page": "Page 20 of 40"
+    }
+  ]
+}

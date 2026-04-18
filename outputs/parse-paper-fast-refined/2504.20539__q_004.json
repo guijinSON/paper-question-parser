@@ -1,0 +1,42 @@
+{
+  "arxiv_id": "2504.20539",
+  "question_id": "q_004",
+  "original_question": "Let A be an n x n random symmetric matrix with zero diagonal and off-diagonal entries independently equal to +1 with probability 1/2 + delta and -1 with probability 1/2 - delta, where delta >= (1 + epsilon)*sqrt((log n)/(2n)) for fixed epsilon > 0. Is A globally synchronizing with high probability as n -> infinity (in the sense that all local minima of E(theta) = (1/2) sum_{i,j=1}^n Aij(1 - cos(theta_i - theta_j)) are global minima at constant phases)?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 10780.98,
+  "target_in_paper": "Entry 2 (Global Synchronization), Conjecture 4: \"Global Synchrony with negative edges\"; its meaning depends on Definition 2.1 in the same section, and the paper later notes in Updates that Conjecture 4 was answered by McRae.",
+  "completeness_score": 9,
+  "correct_elements": "Your draft already captures the intended open problem essentially exactly: the biased ±1 zero-diagonal random matrix model, the threshold δ ≥ (1+ε)\\sqrt{(\\log n)/(2n)}, the Kuramoto energy \\(E(\\theta)=\\frac12\\sum_{i,j}A_{ij}(1-\\cos(\\theta_i-\\theta_j))\\), and the global-synchrony conclusion that all local minima are constant-phase global minima. This is the substance of Conjecture 4 once Definition 2.1 is unpacked.",
+  "missing_details": [
+    "Because the threshold depends on n, the asymptotic formulation is really about a sequence \\(\\delta_n\\) (or one choice of \\(\\delta\\) for each n) satisfying \\(\\delta_n \\ge (1+\\varepsilon)\\sqrt{(\\log n)/(2n)}\\); your draft treats \\(\\delta\\) as if it were fixed independently of n.",
+    "To be fully stand-alone, the probability statement should be quantified explicitly: the probability is over the draw of the random matrix and should tend to 1 as n \\to \\infty.",
+    "Definition 2.1 places the optimization over phase configurations modulo \\(2\\pi\\), i.e. \\(\\theta \\in [0,2\\pi)^n\\) (equivalently on the n-torus of phases), not over unconstrained \\(\\mathbb{R}^n\\).",
+    "The global minima singled out by the paper are exactly the constant-phase configurations \\(\\theta_i=c\\) for all i, understood modulo \\(2\\pi\\).",
+    "If the question is to be mathematically self-contained, the symmetry convention should be stated explicitly, e.g. for each \\(1\\le i<j\\le n\\), sample \\(A_{ij}=A_{ji}\\) independently and set \\(A_{ii}=0\\). The paper states the off-diagonal law but does not spell out this convention in the conjecture itself."
+  ],
+  "refined_question": "For every fixed \\(\\varepsilon>0\\), let \\((\\delta_n)_{n\\ge1}\\) satisfy \\(\\delta_n \\ge (1+\\varepsilon)\\sqrt{\\frac{\\log n}{2n}}\\). For each n, let \\(A^{(n)}\\) be the random symmetric matrix in \\(\\mathbb{R}^{n\\times n}\\) with \\(A^{(n)}_{ii}=0\\) and, independently for \\(1\\le i<j\\le n\\), \\(A^{(n)}_{ij}=A^{(n)}_{ji}=+1\\) with probability \\(\\frac12+\\delta_n\\) and \\(-1\\) with probability \\(\\frac12-\\delta_n\\). Is it true that, with probability tending to 1 as \\(n\\to\\infty\\), every local minimum \\(\\theta\\in[0,2\\pi)^n\\) of\n\\[E_n(\\theta)=\\frac12\\sum_{i,j=1}^n A^{(n)}_{ij}\\bigl(1-\\cos(\\theta_i-\\theta_j)\\bigr)\\]\nis a constant-phase configuration, i.e. \\(\\theta_1=\\cdots=\\theta_n\\) modulo \\(2\\pi\\)?",
+  "equivalent_formulation": null,
+  "justification": "The draft is aiming at the paper's Entry 2, Conjecture 4, not at a broader neighboring problem. The exact threshold, the biased \\(\\pm1\\) law, and the conclusion \"is globally synchronizing with high probability\" match Conjecture 4. To make the question stand alone and faithful to the paper, one must import the definition of \"globally synchronizing\" from Definition 2.1 and make the asymptotic quantifiers explicit. The paragraph immediately preceding Conjecture 4 also fixes the intended motivation: the Burer-Monteiro approach to community detection in the stochastic block model. Finally, the paper's Updates section records that Conjecture 4 was later answered by McRae, but the official in-paper target remains Conjecture 4.",
+  "citations": [
+    {
+      "section": "Entry 2 Global Synchronization",
+      "label": "Definition 2.1",
+      "page": 2
+    },
+    {
+      "section": "Entry 2 Global Synchronization",
+      "label": "paragraph immediately preceding Conjecture 4 (motivation from Burer-Monteiro/community detection)",
+      "page": 2
+    },
+    {
+      "section": "Entry 2 Global Synchronization",
+      "label": "Conjecture 4 (Global Synchrony with negative edges)",
+      "page": 2
+    },
+    {
+      "section": "Updates",
+      "label": "update noting that Conjecture 4 was answered by McRae in [McR25]",
+      "page": 11
+    }
+  ]
+}

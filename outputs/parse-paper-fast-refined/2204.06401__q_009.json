@@ -1,0 +1,40 @@
+{
+  "arxiv_id": "2204.06401",
+  "question_id": "q_009",
+  "original_question": "For a classical solution of the kinetic equation f_t + v · grad_x f = a_ij(t, x, v) partial_{v_i v_j} f on [0, 1] x B_1 x B_1 with uniformly elliptic coefficients lambda I <= {a_ij} <= Lambda I, does a Krylov-Safonov-type interior Holder estimate hold? In other words, must there exist alpha > 0 and C, depending only on dimension and ellipticity, such that ||f||_{C^alpha((1/2, 1) x B_{1/2} x B_{1/2})} <= C ||f||_{L^infinity([0, 1] x B_1 x B_1)}?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 8262.51,
+  "target_in_paper": "Section 8.2, Conjecture 8.1 (\"The kinetic Krylov-Safonov theorem\").",
+  "completeness_score": 8,
+  "correct_elements": "Your draft correctly identifies the exact nondivergence-form kinetic PDE under discussion, the classical-solution setting, the pointwise uniform ellipticity hypothesis, and the expected conclusion: an interior Hölder estimate with exponent and constant depending only on dimension and the ellipticity bounds. It is also correctly aimed at the open Krylov-Safonov-type question, rather than the proved divergence-form Hölder theorem.",
+  "missing_details": [
+    "The paper formulates this as an open conjecture, not as a proved theorem.",
+    "The paper's target is the local normalized interior problem in a unit cylinder (after translation/scaling), rather than your specific time slab [0,1] with interior subslab (1/2,1).",
+    "The coefficients are meant to be merely bounded/measurable aside from ellipticity; no continuity or smoother structure should be assumed.",
+    "Uniform ellipticity should be stated pointwise with full quantifiers: for every point in the cylinder and every vector xi in R^d, lambda|xi|^2 <= a_ij(t,x,v) xi_i xi_j <= Lambda|xi|^2.",
+    "The ambient variables should be explicit: t in R, x in R^d, v in R^d, and f is a real-valued bounded classical solution on the cylinder.",
+    "Conjecture 8.1 has no forcing term and no lower-order drift term; it is specifically the pure kinetic nondivergence equation with second derivatives only in v.",
+    "To be paper-faithful, the estimate should be stated as a local interior estimate on a smaller concentric cylinder with constants depending only on d, lambda, and Lambda, not on the specific solution or coefficient field.",
+    "Nearby context matters: Theorem 5.1 gives the divergence-form analogue that is already known, while Theorem 5.6 gives a nondivergence Schauder estimate under Hölder-continuous coefficients; your draft should signal that Conjecture 8.1 is exactly the rough-coefficient gap left open by those results."
+  ],
+  "refined_question": "Let d >= 1, and let f be a bounded classical solution of\n\\partial_t f + v\\cdot\\nabla_x f = \\sum_{i,j=1}^d a_{ij}(t,x,v)\\,\\partial_{v_i v_j}f\nin the unit kinetic cylinder Q_1 := (-1,0] x B_1 x B_1 \\subset R_t x R_x^d x R_v^d. Assume that the coefficient matrix A=(a_{ij}) is merely measurable and uniformly elliptic in the velocity variables, in the sense that for every (t,x,v) in Q_1 and every xi in R^d,\n\\lambda |xi|^2 <= \\sum_{i,j=1}^d a_{ij}(t,x,v) xi_i xi_j <= \\Lambda |xi|^2.\nDoes there exist an exponent alpha > 0 and a constant C = C(d,lambda,Lambda) such that the interior Hölder estimate\n\\|f\\|_{C^alpha(Q_{1/2})} <= C \\|f\\|_{L^\\infty(Q_1)}\nholds, where Q_{1/2} := (-1/2,0] x B_{1/2} x B_{1/2}?",
+  "equivalent_formulation": null,
+  "justification": "This is the nearest official formulation in the paper. In Section 8.2, the author explicitly introduces the open problem as the kinetic analogue of the classical Krylov-Safonov theorem and states it as Conjecture 8.1 for the nondivergence-form kinetic equation with uniformly elliptic measurable coefficients. The surrounding context is important: Section 5.1, Theorem 5.1 records the already-known divergence-form Hölder theory, while Section 5.2, Theorem 5.6 gives a Schauder estimate in the nondivergence setting under Hölder regularity of the coefficients. So your draft is already very close, but the paper-faithful sharpening is to present it as Conjecture 8.1 itself, with the normalized local cylinder, the full pointwise ellipticity quantifiers, and the explicit rough-coefficient/nondivergence scope that makes it open.",
+  "citations": [
+    {
+      "section": "8.2",
+      "label": "Conjecture 8.1",
+      "page": "not available in ar5iv HTML"
+    },
+    {
+      "section": "5.1",
+      "label": "Equation (5.1) and Theorem 5.1",
+      "page": "not available in ar5iv HTML"
+    },
+    {
+      "section": "5.2",
+      "label": "Theorem 5.6",
+      "page": "not available in ar5iv HTML"
+    }
+  ]
+}

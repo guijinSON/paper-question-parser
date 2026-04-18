@@ -1,0 +1,47 @@
+{
+  "arxiv_id": "1210.7320",
+  "question_id": "q_003",
+  "original_question": "Prove or refute that for every fixed inversion count k, the number of 1324-avoiding permutations of length n having exactly k inversions is an increasing function of n.",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 2608.62,
+  "target_in_paper": "Section 3 of arXiv:1210.7320 (pp. 245-246), where Steingrímsson summarizes the conjecture from [23] that the number of 1324-avoiders of length n with a fixed number k of inversions is increasing as a function of n; the fully formal formulation is [23], Section 3, Conjecture 13 ('Increasing columns').",
+  "completeness_score": 8,
+  "correct_elements": "Your draft correctly isolates the exact inversion-refined 1324-avoidance question discussed in Section 3, and it keeps the scope at the paper’s intended level: fixed inversion count k, varying length n, and monotonicity for 1324-avoiders rather than a broader class of patterns.",
+  "missing_details": [
+    "The paper’s conjecture is weak monotonicity, not necessarily strict monotonicity: the intended statement is S_n^k(1324) ≤ S_{n+1}^k(1324).",
+    "The quantifiers should be explicit: n and k are nonnegative integers, and the inequality is asserted for all such n and k.",
+    "The counting function should be defined explicitly, e.g. S_n^k(1324) = |{π ∈ S_n : π avoids the classical pattern 1324 and inv(π)=k}|.",
+    "The term inversion should be defined: inv(π) is the number of pairs (i,j) with 1 ≤ i < j ≤ n and π_i > π_j.",
+    "To be fully paper-faithful, one should note the nearby context: in the cited source [23], Proposition 15 shows that for fixed k the values are already constant once n ≥ k+2, so the genuinely nontrivial range is before that; Theorem 17 explains that this conjecture is posed because it would imply the upper bound L(1324) ≤ e^{π√(2/3)}."
+  ],
+  "refined_question": "Let S_n^k(1324) := |{π ∈ S_n : π avoids the classical pattern 1324 and inv(π)=k}|, where inv(π) is the number of pairs (i,j) with 1 ≤ i < j ≤ n and π_i > π_j. Prove or disprove that for all nonnegative integers n and k, S_n^k(1324) ≤ S_{n+1}^k(1324).",
+  "equivalent_formulation": null,
+  "justification": "The arXiv paper 1210.7320 is a survey, not the original source of the conjecture. In Section 3, it explicitly says that [23] conjectures that the number of 1324-avoiders of length n with a fixed number k of inversions is increasing as a function of n. The cited paper [23] gives the formal version as Conjecture 13 ('Increasing columns'), after defining inversions and the notation S_n^k(τ). Its nearby Proposition 15 supplies the important hidden context that for fixed k the column is already constant for n ≥ k+2, and Theorem 17 explains why this monotonicity matters by deriving the improved upper bound for L(1324) from it. So your draft is very close, but it should be sharpened to an explicit weak inequality with full notation and definitions.",
+  "citations": [
+    {
+      "section": "3 (arXiv:1210.7320)",
+      "label": "survey discussion of the fixed-inversion conjecture for 1324-avoiders",
+      "page": "245-246"
+    },
+    {
+      "section": "3 ([23] cited in arXiv:1210.7320)",
+      "label": "definition of inversions and of S_n^k(τ)",
+      "page": 6
+    },
+    {
+      "section": "3 ([23] cited in arXiv:1210.7320)",
+      "label": "Conjecture 13 (Increasing columns)",
+      "page": 9
+    },
+    {
+      "section": "3 ([23] cited in arXiv:1210.7320)",
+      "label": "Proposition 15",
+      "page": "9-10"
+    },
+    {
+      "section": "3 ([23] cited in arXiv:1210.7320)",
+      "label": "Theorem 17",
+      "page": 10
+    }
+  ]
+}

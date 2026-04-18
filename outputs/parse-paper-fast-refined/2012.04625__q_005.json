@@ -1,0 +1,41 @@
+{
+  "arxiv_id": "2012.04625",
+  "question_id": "q_005",
+  "original_question": "Fix a base b≥2 and define a_n by writing n=∑_k d_k b^k and then replacing b by -b, so a_n=∑_k d_k(-b)^k. After forming the associated 4-regular graph from the first N terms, explain why these sign-flipping sequences produce the intricate graph structures seen in the paper and whether those structures can be derived from, or otherwise explained by, the recurrence a_{bk+m}=(-b)a_k+m.",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 7503.3,
+  "target_in_paper": "No exact numbered conjecture or theorem in arXiv:2012.04625 appears to state your draft verbatim. The nearest official target is the paper-wide empirical open problem of explaining why certain explicitly given sequences produce unexpectedly structured graphs under the authors' graph construction from an ordered list of distinct real numbers. Your draft is closest to that general graph-structure problem, specialized to the base-(-b) sign-flip sequence n \\mapsto \\sum_k d_k(-b)^k, but this specialization does not appear in the paper's abstract as one of its official named sequence families.",
+  "completeness_score": 4,
+  "correct_elements": "Your draft correctly captures the paper's central phenomenon: start from a deterministic sequence of distinct real numbers, build the associated graph from the first N terms, and ask for a mathematical explanation of the unexpectedly intricate structure of the resulting graphs. It also correctly identifies the natural divide-and-conquer recurrence a_{bk+m}=(-b)a_k+m (for 0<=m<b) attached to the base-(-b) digit-interpretation sequence.",
+  "missing_details": [
+    "The graph construction itself is not stated explicitly: one must define the vertex set and exactly which pairs are connected. In the paper's setup, the graph is built from an ordered list of distinct real numbers by connecting neighbors in the original order and neighbors in the sorted-by-value order; if cyclic wrap-around is included, this is what makes the graph 4-regular.",
+    "The indexing convention is missing: the sequence can naturally be written with n starting at 0, while the paper's general notation for ordered lists uses a_1,...,a_n. A stand-alone question should fix one convention.",
+    "The hypothesis that the first N terms used to build the graph are distinct is implicit but necessary for the rank-order edges to be well defined without tie-breaking.",
+    "The quantifiers are incomplete: one should say whether b is fixed once and for all and the question is to be answered for all N, or whether one wants a uniform explanation valid for every integer base b>=2.",
+    "The recurrence needs its full range of parameters stated explicitly: a_{bk+m}=(-b)a_k+m for every k>=0 and every residue 0<=m<b.",
+    "The object of study should be stated precisely: is the goal to describe each finite graph G_N, to identify a self-similar decomposition, or to determine an asymptotic/limiting structure as N grows?",
+    "The phrase 'the intricate graph structures seen in the paper' is not self-contained; the question should specify whether one is asking for planarity, nestedness, self-similarity, component structure, embeddings, or some other structural invariant.",
+    "As written, the draft asks whether the graph structure can be 'derived from' the recurrence, but does not say what counts as an explanation. A paper-faithful version should ask whether the observed graph structure is a consequence of the divide-and-conquer recursion defining the sequence.",
+    "The draft is not fully paper-faithful because the paper's abstract names specific sequence families (Deutsch, Erdős-Freud-Hegyvári, Recamán, Quet, Zabolotskiy, Zizka), whereas your formulation introduces a broader base-(-b) family. A refined version should acknowledge that this is the nearest structural reformulation rather than an exact official wording from a numbered statement."
+  ],
+  "refined_question": "Fix an integer base b>=2, and for each n>=0 write n=\\sum_{k>=0} d_k b^k with digits d_k\\in\\{0,1,\\dots,b-1\\}. Define s_b(n):=\\sum_{k>=0} d_k(-b)^k, equivalently s_b(bk+m)=(-b)s_b(k)+m for every k>=0 and 0<=m<b. For each N such that s_b(0),s_b(1),\\dots,s_b(N-1) are distinct, let G_N be the graph on vertices \\{0,1,\\dots,N-1\\} obtained by joining consecutive indices cyclically and also joining those pairs of indices whose s_b-values are consecutive in the increasing ordering of \\{s_b(0),\\dots,s_b(N-1)\\}. Give a mathematical explanation for the highly structured graphs G_N observed in the paper for this sign-flip sequence, and determine whether that structure is a direct consequence of the divide-and-conquer recurrence s_b(bk+m)=(-b)s_b(k)+m.",
+  "equivalent_formulation": null,
+  "justification": "The paper's abstract says that its main purpose is to attach graphs to ordered lists of distinct real numbers and to record sequence-specific open problems asking why some of those graphs display unexpectedly rich structure. Your draft is clearly aiming at that explanatory task. However, the draft is not fully faithful to the paper's official framing because it packages the phenomenon as a general base-(-b) family together with a specific recurrence, whereas the paper presents empirical sequence-by-sequence problems and, in the abstract at least, does not advertise this family as a numbered conjecture. The refined question therefore stays close to your intent while making the graph construction, indexing, distinctness, and quantifiers explicit, and by narrowing the goal to the paper's actual style of problem: explain the observed structured graphs from the defining recursion of the sequence.",
+  "citations": [
+    {
+      "section": "Abstract",
+      "label": "paper-wide framing: graphs built from ordered lists of distinct real numbers; each sequence leads to an open problem",
+      "page": 251
+    },
+    {
+      "section": "Section 1",
+      "label": "setup of the graph construction from an ordered list of distinct real numbers",
+      "page": "251-252"
+    },
+    {
+      "section": "Abstract",
+      "label": "named sequence families explicitly listed in the paper's scope",
+      "page": 251
+    }
+  ]
+}

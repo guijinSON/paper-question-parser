@@ -1,0 +1,42 @@
+{
+  "arxiv_id": "math-0312440",
+  "question_id": "q_019",
+  "original_question": "For theta in (0, pi), let V_theta = {r e^{it} : r > 0, |t| > theta}. If L(V) denotes the Lehmer-Langevin constant of an open set V, compute L(V_theta) explicitly as a function of theta.",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 13159.78,
+  "target_in_paper": "§4.1 (Lehmer’s Problem), Problem 4.6: determine the Lehmer–Langevin constant L(V_theta) for the sector V_theta. ([imj-prg.fr](https://www.imj-prg.fr/preprints/282.pdf))",
+  "completeness_score": 7.5,
+  "correct_elements": "Your draft already isolates the exact local target of the paper. In §4.1, after defining the Lehmer–Langevin constant for an open set V ⊂ C, Waldschmidt asks in Problem 4.6: for θ ∈ (0, π), compute L(V_theta) in terms of θ. So the parameter range, the sector family, and the goal of determining the dependence on θ are all correct. ([imj-prg.fr](https://www.imj-prg.fr/preprints/282.pdf))",
+  "missing_details": [
+    "The draft does not define L(V). In the paper, for an open set V ⊂ C, one sets L(V) = inf M(α)^(1/[Q(α):Q]), where α ranges over nonzero algebraic numbers that are not roots of unity and whose conjugates all lie outside V. ([imj-prg.fr](https://www.imj-prg.fr/preprints/282.pdf))",
+    "It leaves M(α) implicit. §4 defines M(α) as the Mahler measure of the minimal polynomial of α over Z: if f(X)=a0∏(X-α_i), then M(f)=|a0|∏ max(1,|α_i|), and for an algebraic number α one puts M(α)=M(f). ([imj-prg.fr](https://www.imj-prg.fr/preprints/282.pdf))",
+    "It does not spell out the ambient arithmetic data: α should be taken in Qbar, [Q(α):Q] is the field degree over Q, and 'conjugates' means the conjugates of α over Q viewed in C. ([imj-prg.fr](https://www.imj-prg.fr/preprints/282.pdf))",
+    "To make V_theta stand-alone, one must fix an argument convention. As written in the paper, V_theta = {re^{it} : r > 0, |t| > θ}; this only makes precise sense for the intended sector problem after interpreting t via a chosen branch of argument, e.g. Arg z ∈ (-π, π). This is a hidden assumption that should be made explicit. ([imj-prg.fr](https://www.imj-prg.fr/preprints/282.pdf))",
+    "The draft reads slightly like a request for a known closed formula, whereas the paper presents this as an open research problem in §4.1. The refined wording should therefore ask to determine L(V_theta), not presuppose that an explicit formula is already available. ([imj-prg.fr](https://www.imj-prg.fr/preprints/282.pdf))"
+  ],
+  "refined_question": "For θ ∈ (0, π), let V_theta = { z ∈ C : z ≠ 0 and |Arg z| > θ }, where Arg z ∈ (-π, π). For an open set V ⊂ C, define its Lehmer–Langevin constant by L(V) = inf{ M(α)^(1/[Q(α):Q]) : α ∈ Qbar, α ≠ 0, α is not a root of unity, and every conjugate of α over Q lies outside V }, where, if f(X)=a0∏_{i=1}^d (X-α_i) ∈ Z[X] is the minimal polynomial of α, then M(α)=|a0|∏_{i=1}^d max(1,|α_i|). Determine L(V_theta) as a function of θ. ([imj-prg.fr](https://www.imj-prg.fr/preprints/282.pdf))",
+  "equivalent_formulation": null,
+  "justification": "The draft is already very close to the paper’s official formulation: the relevant target is not a neighboring conjecture but exactly Problem 4.6 in §4.1. The introduction says the paper includes open questions related to Mahler’s measure and logarithmic height, §4 then defines Mahler measure M(α) and logarithmic height h(α)=(1/[Q(α):Q])log M(α), and immediately afterward §4.1 introduces the Lehmer–Langevin constant L(V) and states the sector problem. The refined version therefore keeps the scope exactly where the paper places it and adds only the definitions and the implicit argument convention needed to make the question fully stand-alone. The nearby context also notes that only very few values were known at the time, including L(V_{π/2}) = 1.12..., which confirms that this is posed as an open problem rather than a routine exercise. ([imj-prg.fr](https://www.imj-prg.fr/preprints/282.pdf))",
+  "citations": [
+    {
+      "section": "§0",
+      "label": "Introduction",
+      "page": "P0"
+    },
+    {
+      "section": "§4",
+      "label": "Height (definitions of M(α) and h(α))",
+      "page": "P30"
+    },
+    {
+      "section": "§4.1",
+      "label": "unnumbered definition of the Lehmer–Langevin constant L(V)",
+      "page": "P31"
+    },
+    {
+      "section": "§4.1",
+      "label": "Problem 4.6",
+      "page": "P31"
+    }
+  ]
+}

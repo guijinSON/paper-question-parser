@@ -1,0 +1,39 @@
+{
+  "arxiv_id": "1204.6447",
+  "question_id": "q_009",
+  "original_question": "Is there a universal constant C such that every Boolean function f : {-1,1}^n -> {-1,1} satisfies H[\\hat{f}^2] <= C * I[f], where H[\\hat{f}^2] is the spectral entropy and I[f] is the total influence?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 2221.66,
+  "target_in_paper": "The problem titled 'Fourier Entropy–Influence Conjecture' in the main matter of the paper.",
+  "completeness_score": 9,
+  "correct_elements": "Your draft already matches the paper’s target almost verbatim: it asks for a universal constant C, quantifies over Boolean functions f : {-1,1}^n → {-1,1}, and relates the spectral entropy H[widehat{f}^2] to the total influence I[f]. This is exactly the open problem stated under 'Fourier Entropy–Influence Conjecture,' and you correctly did not add extra hypotheses such as monotonicity, symmetry, DNF structure, or read-once structure.",
+  "missing_details": [
+    "The paper states this as the named conjecture 'Fourier Entropy–Influence Conjecture,' not just as an informal question.",
+    "The paper gives the entropy explicitly: H[widehat{f}^2] = ∑_{S⊆[n]} widehat{f}(S)^2 log_2(1 / widehat{f}(S)^2).",
+    "The logarithm is base 2.",
+    "To be fully stand-alone, widehat{f}(S) should be identified as the Fourier–Walsh coefficients of f on the Boolean cube.",
+    "To be fully stand-alone, I[f] should be made explicit as the standard total influence on {-1,1}^n; a precise Fourier-side definition is I[f] = ∑_{S⊆[n]} |S| widehat{f}(S)^2.",
+    "The universality of C means that C is independent of both n and f.",
+    "The paper assumes standard Analysis of Boolean Functions notation from its front-matter note, so the uniform-cube Fourier setting is implicit and should be spelled out if the question must stand alone."
+  ],
+  "refined_question": "Is there a universal constant C > 0 such that for every integer n ≥ 1 and every Boolean function f : {-1,1}^n → {-1,1}, if f has Fourier–Walsh expansion f(x) = ∑_{S⊆[n]} widehat{f}(S) χ_S(x), then its spectral entropy H[widehat{f}^2] := ∑_{S⊆[n]} widehat{f}(S)^2 log_2(1 / widehat{f}(S)^2) satisfies H[widehat{f}^2] ≤ C · I[f], where I[f] := ∑_{S⊆[n]} |S| widehat{f}(S)^2 is the total influence of f?",
+  "equivalent_formulation": null,
+  "justification": "The paper’s exact target is the page-5 entry 'Fourier Entropy–Influence Conjecture,' whose statement is essentially your draft with the entropy formula written out explicitly. The only paper-faithful refinements needed are to make the Fourier–Walsh coefficients, the base-2 entropy formula, and the total-influence notation explicit so that the question is self-contained. This is especially appropriate because the paper’s title page says notation and definitions are taken from standard Analysis of Boolean Functions conventions rather than being fully redeclared in each problem. I did not supply an alternate formulation, because the nearby 'Min-Entropy–Influence Conjecture' is presented only as a weaker version, not as an equivalent reformulation.",
+  "citations": [
+    {
+      "section": "Front matter",
+      "label": "Notation note",
+      "page": "unnumbered title page"
+    },
+    {
+      "section": "Fourier Entropy–Influence Conjecture",
+      "label": "Statement",
+      "page": 5
+    },
+    {
+      "section": "Fourier Entropy–Influence Conjecture",
+      "label": "Remarks",
+      "page": 5
+    }
+  ]
+}

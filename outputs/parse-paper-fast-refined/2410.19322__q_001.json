@@ -1,0 +1,44 @@
+{
+  "arxiv_id": "2410.19322",
+  "question_id": "q_001",
+  "original_question": "A fullerene is a convex, 3-regular polytope consisting only of pentagonal and hexagonal facets. For a feasible integer n, meaning a positive even integer n >= 20 with n != 22, let C_n denote the set of all fullerenes with exactly n vertices, considered up to graph isomorphism as fullerene isomers. Can one design a computationally efficient procedure that samples uniformly from the fullerene isomers in C_n, so that every isomer in C_n is selected with the same probability?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 10284.41,
+  "target_in_paper": "Open Problem 1 in Section 3.3 (\"Face Spiral Acceptance-Rejection Algorithm\"), which the authors present as a reformulation of the Section 3 random-generation question.",
+  "completeness_score": 8,
+  "correct_elements": "Your draft correctly identifies the right part of the paper: the random-generation problem for fullerenes. It correctly states the fullerene class (convex, 3-regular, pentagonal/hexagonal facets only), the feasibility condition on n (even, n ≥ 20, n ≠ 22), the focus on isomorphism classes/isomers, and the goal of exact uniform sampling rather than approximate or biased generation. It also keeps the scope narrow and does not drift into the neighboring Stone-Wales or character problems. This is a graph-theoretic sampling problem, so ambient ring/field, homogeneity, degree, and nilpotency data are not relevant here.",
+  "missing_details": [
+    "The paper's nearest official formulation is not just a generic sampling question but Open Problem 1: one should develop a computationally efficient algorithm to generate a uniform distribution on fullerene isomers for all feasible n.",
+    "In the nearby Section 3 context, the problem is sharpened by introducing a random output X_n ranging over the indexed n-isomers and requiring exact uniformity, i.e. equal probability for every isomer.",
+    "The quantifier should be explicit: for each fixed feasible n, and in the summary formulation, for all feasible n.",
+    "Two crucial restrictions are part of the nearby context: the method should avoid explicitly generating the whole set of n-isomers, and it should not require knowing iso(n) in advance.",
+    "The paper introduces the counting notation iso(n) for the number of n-isomers/fullerenes under its convention; this is useful in the exact uniformity statement.",
+    "Your draft merges the paper's notation C_n with isomorphism classes. The paper defines C_n and then speaks of C_n-isomers / indexed isomers C_{n,j}; a fully paper-faithful stand-alone version should make clear that the sampling space is the set of isomorphism classes.",
+    "The phrase \"computationally efficient\" is intentionally left informal in the paper; one should not silently strengthen it to a specific complexity-theoretic requirement such as polynomial time."
+  ],
+  "refined_question": "For every feasible integer n (that is, n is even, n ≥ 20, and n ≠ 22), let C_n be the set of fullerene isomers with n vertices and let iso(n) = |C_n|. Does there exist a computationally efficient algorithm which, given such an n, outputs a random isomer X_n ∈ C_n satisfying P(X_n = F) = 1/iso(n) for every F ∈ C_n, while avoiding explicit generation of all elements of C_n and without assuming that iso(n) is known in advance?",
+  "equivalent_formulation": null,
+  "justification": "The draft is clearly targeting the paper's random-fullerene sampling problem in Section 3, not the later Stone-Wales or character questions. The closest official statement is Open Problem 1 in Section 3.3. To make the question fully stand-alone and faithful to the paper, one must import the notation and feasibility condition from Section 2, plus the sharper Section 3 formulation using a random variable X_n and the two restrictions that the whole isomer set should not first be generated and iso(n) should not be presupposed. I did not broaden the question beyond exact uniform sampling, and I did not replace the paper's informal efficiency language by a stronger complexity claim.",
+  "citations": [
+    {
+      "section": "Section 2",
+      "label": "Preliminaries (definitions of feasible n and C_n)",
+      "page": "page unavailable in accessed HTML/PMC version"
+    },
+    {
+      "section": "Section 3",
+      "label": "Random Fullerenes (section-opening question and precise X_n formulation)",
+      "page": "page unavailable in accessed HTML/PMC version"
+    },
+    {
+      "section": "Section 3.3",
+      "label": "Open Problem 1",
+      "page": "page unavailable in accessed HTML/PMC version"
+    },
+    {
+      "section": "Section 6",
+      "label": "Summary, open problems list item 1",
+      "page": "page unavailable in accessed HTML/PMC version"
+    }
+  ]
+}

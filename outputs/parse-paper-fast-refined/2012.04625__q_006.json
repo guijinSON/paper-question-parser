@@ -1,0 +1,40 @@
+{
+  "arxiv_id": "2012.04625",
+  "question_id": "q_006",
+  "original_question": "Let A133058 be the sequence with a_0=a_1=1 and, for n≥2, a_n=a_{n-1}+n+1 when gcd(a_{n-1},n)=1 and a_n=a_{n-1}/gcd(a_{n-1},n) otherwise; then remove duplicate values to obtain A339571. Explain the combinatorial or arithmetic reason that the associated 4-regular graphs of this de-duplicated GCD sequence exhibit the striking structure shown in the paper.",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 7443.8,
+  "target_in_paper": "The open problem in the Zizka-sequence section of the paper: explain the non-random, highly organized structure of the graph family obtained from the sequence A133058 after deleting repeated terms (OEIS A339571) and then applying the paper's graph-construction to initial segments of that distinct-term sequence.",
+  "completeness_score": 6,
+  "correct_elements": "The draft correctly identifies the underlying recurrence for A133058, correctly notes that repeated values must be removed to get A339571 before applying the paper's graph construction, and correctly focuses on the unexpectedly rigid 4-regular graphs attached to that de-duplicated sequence rather than on the raw recurrence alone.",
+  "missing_details": [
+    "The paper's graph construction must be stated explicitly: for an ordered list of N distinct real numbers b_1,...,b_N, the graph has vertex set {1,...,N}, one Hamiltonian cycle from the original order i~i+1 mod N, and a second Hamiltonian cycle from the order induced by sorting the values b_i.",
+    "It must be made explicit that A339571 is formed by keeping only the first occurrence of each value of A133058, in the order in which those first occurrences appear.",
+    "The vertices of the graph are positions in the de-duplicated sequence, not the integer values themselves.",
+    "The question should quantify over initial segments: for each N, one studies the graph G_N built from the first N terms of A339571.",
+    "The permutation pi defining the second cycle should be introduced precisely by b_{pi(1)}<...<b_{pi(N)}.",
+    "The reason the resulting graph is 4-regular should be made explicit: after de-duplication the list consists of distinct values, so each vertex lies on exactly two cyclic orderings.",
+    "The draft says 'the striking structure shown in the paper' but does not specify that the paper's actual problem is to explain or characterize that observed structure, not merely to restate the recurrence or prove eventual quasi-periodicity of A133058 itself.",
+    "The scope should stay tied to the paper's empirical open problem: explain the visible structural pattern in these graphs, rather than broaden to arbitrary gcd recurrences or arbitrary graph-theoretic invariants."
+  ],
+  "refined_question": "Let a(0)=a(1)=1 and, for n>=2, define a(n)=a(n-1)+n+1 when gcd(a(n-1),n)=1 and a(n)=a(n-1)/gcd(a(n-1),n) otherwise. Let b_1,b_2,... be the sequence obtained by deleting repeated values from (a(n)) and keeping only first occurrences, in their original order (so b is OEIS A339571). For each N>=1, form the graph G_N on vertices {1,...,N} by joining i to i+1 modulo N, and also joining pi(j) to pi(j+1) modulo N, where pi is the permutation such that b_{pi(1)}<b_{pi(2)}<...<b_{pi(N)}. Why do the graphs G_N exhibit the highly ordered structure observed in the paper? More specifically, can one give an arithmetic or combinatorial description of the distinct-term sequence A339571 that provably explains the resulting family of 4-regular graphs?",
+  "equivalent_formulation": null,
+  "justification": "The draft is clearly targeting the paper's Zizka-sequence example, not a broader neighboring problem. In the introduction the paper defines the graph attached to an ordered list of distinct reals and states that each example is meant as an open problem about unexpectedly structured graphs. In the Zizka section, the paper applies this construction to the sequence A133058 only after removing duplicate terms, thereby passing to A339571, and the natural question there is to explain the rigid visual pattern of the resulting graphs. The draft already points in the right direction, but it omits the graph construction itself, the role of initial segments, the first-occurrence convention in the de-duplication, and the fact that the graph is built on positions rather than on values.",
+  "citations": [
+    {
+      "section": "Introduction",
+      "label": "graph construction from an ordered list of distinct real numbers; examples framed as open problems",
+      "page": "251-252"
+    },
+    {
+      "section": "Section 2.7",
+      "label": "Zizka sequence A133058 and passage to the distinct-term sequence A339571 before graph construction",
+      "page": "264-265"
+    },
+    {
+      "section": "Section 2.7",
+      "label": "open problem/figure concerning the striking structured graph arising from the de-duplicated Zizka sequence",
+      "page": "265-266"
+    }
+  ]
+}

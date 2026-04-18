@@ -1,0 +1,58 @@
+{
+  "arxiv_id": "2201.09150",
+  "question_id": "q_035",
+  "original_question": "Determine in what sense solutions exist for the one-dimensional learning model in which a starvation-dependent switch turns foraging attraction on and off relative to home attraction, despite the presence of irregular higher-order coefficients.",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 7979.36,
+  "target_in_paper": "Open Problem 35 in Section 2.5 (Learning), concerning the existence of solutions for the one-dimensional model (2.38) built from the satisfaction variable s(x,t)=m(x,t)/u(x,t), the starvation switch ω̃(s), and den-site attraction. ([math.ualberta.ca](https://www.math.ualberta.ca/~hwang/WangSalmaniwReview.pdf))",
+  "completeness_score": 6.5,
+  "correct_elements": "Your draft correctly captures the main target: the paper is asking about existence of solutions 'in what sense' for a one-dimensional learning model in which starvation/satisfaction controls whether attraction toward resources is turned on or off, against a background den-site attraction. It also correctly reflects the paper's stated analytical obstacle, namely irregular coefficients appearing at higher order. ([math.ualberta.ca](https://www.math.ualberta.ca/~hwang/WangSalmaniwReview.pdf))",
+  "missing_details": [
+    "The draft does not name the exact target as Open Problem 35; without that, it can be confused with the adjacent Open Problem 37, which asks instead about pattern formation and biological consequences for the same model.",
+    "The actual PDE should be stated explicitly: ∂_t u = ∂_x(d ∂_x u - u ∂_x[ω̃(s)m + γ|x-x0|]).",
+    "The variables are not defined: u=u(x,t) is the density of foragers, m=m(x,t) is the local resource density, x is the one-dimensional spatial variable, t>0 is time, and x0∈Ω is the fixed den-site location.",
+    "The learning mechanism is not made precise: the satisfaction variable is s(x,t)=m(x,t)/u(x,t), obtained from the food-supply/food-demand ratio.",
+    "The starvation switch should be given exactly as ω̃(s)=γ+ for 0≤s<1 and ω̃(s)=0 for 1≤s<∞.",
+    "The parameter restriction 0<γ<γ+ is omitted; this is what encodes that movement toward resources has priority when hunger is high.",
+    "The draft says 'one-dimensional' but does not specify the ambient setting as a one-dimensional spatial domain Ω⊂ℝ; algebraic data such as ring, field, homogeneity, degree, and nilpotency are not relevant here.",
+    "The home-attraction term comes specifically from the den-site potential γ|x-x0|, inherited from the earlier den-site model; this is not stated explicitly.",
+    "The paper's formulation leaves initial and boundary conditions unspecified at this point, so a stand-alone question should either keep them unspecified or say 'for appropriate initial/boundary data' rather than impose new ones.",
+    "The draft does not note that the paper views the equation as potentially still linear in u; this is part of the nearby explanatory context for why the well-posedness question is interesting but perhaps more tractable than other models.",
+    "The draft should make clear that this is the local learning model (2.38), not the nonlocal-perception extension posed next in Open Problem 36."
+  ],
+  "refined_question": "Let Ω⊂ℝ be a one-dimensional spatial domain, let x0∈Ω be a fixed den site, let m=m(x,t) be a prescribed local resource density, and let u=u(x,t) denote the density of foragers. Define the satisfaction variable s(x,t)=m(x,t)/u(x,t) and the starvation-dependent switch ω̃(s)=γ+ for 0≤s<1 and ω̃(s)=0 for 1≤s<∞, where d>0 and 0<γ<γ+. For the learning model ∂_t u = ∂_x(d ∂_x u - u ∂_x[ω̃(s)m + γ|x-x0|]), which turns resource attraction on when the forager is hungry and otherwise leaves den attraction dominant, in what precise sense can one prove existence of solutions to problem (2.38) for appropriate initial and boundary data, given that the equation may remain linear in u but has irregular coefficients at higher order?",
+  "equivalent_formulation": null,
+  "justification": "The operative wording in your draft, namely determining 'in what sense solutions exist,' matches Open Problem 35 directly. The rest of your draft is drawn from the immediately preceding setup of model (2.38): the satisfaction ratio s(x,t)=m/u, the on/off starvation switch ω̃(s), and the competition between resource attraction and den-site attraction γ|x-x0|. The nearby Open Problem 37 is not the primary target, because it asks whether this switch generates nontrivial spatiotemporal dynamics and patterns and whether it benefits or impairs the species. Section 5.1.1 supplies the relevant well-posedness context: models with explicitly given smooth advective potential a(x,t) are standard, while the challenge here is that model (2.38) places irregular coefficients inside the higher-order term. ([math.ualberta.ca](https://www.math.ualberta.ca/~hwang/WangSalmaniwReview.pdf))",
+  "citations": [
+    {
+      "section": "2.2.1 Static memory",
+      "label": "Equation (2.6)",
+      "page": "11 of 69"
+    },
+    {
+      "section": "2.5 Learning",
+      "label": "Equations (2.35) and (2.36)",
+      "page": "30 of 69"
+    },
+    {
+      "section": "2.5 Learning",
+      "label": "Equations (2.37) and (2.38)",
+      "page": "31 of 69"
+    },
+    {
+      "section": "2.5 Learning",
+      "label": "Open Problem 35",
+      "page": "32 of 69"
+    },
+    {
+      "section": "2.5 Learning",
+      "label": "Open Problem 37",
+      "page": "32 of 69"
+    },
+    {
+      "section": "5.1.1 Implicit memory models",
+      "label": "Well-posedness discussion for models with explicit smooth a(x,t)",
+      "page": "54-55 of 69"
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "arxiv_id": "2410.09897",
+  "question_id": "q_013",
+  "original_question": "Let W be a Weyl group and let [u,v] be a Bruhat interval in W. Is the rank generating function of [u,v] always log-concave?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 10191.39,
+  "target_in_paper": "Section 2, Conjecture 2.11: \"Let W be a Weyl group, and u, v ∈ W. Then [u, v] is rank log-concave.\"",
+  "completeness_score": 8.5,
+  "correct_elements": "Your draft already matches the paper on the main mathematical content: it keeps the restriction to Weyl groups, focuses on a Bruhat interval [u,v], and asks for log-concavity of the interval's rank data, which is exactly what Conjecture 2.11 is about.",
+  "missing_details": [
+    "Make the quantifier explicit: the conjecture is for every Weyl group W and every pair u,v ∈ W with u ≤ v in Bruhat order.",
+    "Define the Bruhat interval explicitly as [u,v] := {x ∈ W : u ≤ x ≤ v}.",
+    "Specify the grading/rank function on [u,v]: the natural rank of x is ℓ(x) - ℓ(u), where ℓ is the Coxeter length and d := ℓ(v) - ℓ(u).",
+    "Define the rank numbers r_i := |{x ∈ [u,v] : ℓ(x) - ℓ(u) = i}| for 0 ≤ i ≤ d.",
+    "Define the rank generating polynomial as R_[u,v](t) := ∑_{i=0}^d r_i t^i.",
+    "Spell out log-concavity in this context: r_i^2 ≥ r_{i-1}r_{i+1} for every 1 ≤ i ≤ d-1.",
+    "Keep the Weyl-group restriction explicit; the paper immediately notes that the analogous statement is false for general finite Coxeter systems."
+  ],
+  "refined_question": "For every Weyl group W and every pair u,v ∈ W with u ≤ v in the Bruhat order, let [u,v] := {x ∈ W : u ≤ x ≤ v}, let d := ℓ(v) - ℓ(u), and let r_i := |{x ∈ [u,v] : ℓ(x) - ℓ(u) = i}| for 0 ≤ i ≤ d. Must the rank sequence (r_0,r_1,…,r_d) be log-concave; equivalently, is the rank generating polynomial ∑_{i=0}^d r_i t^i coefficientwise log-concave, i.e. does r_i^2 ≥ r_{i-1}r_{i+1} hold for all 1 ≤ i ≤ d-1?",
+  "equivalent_formulation": null,
+  "justification": "The draft is clearly aiming at Section 2, Conjecture 2.11, not at the Section 1 problems about rationality or Kazhdan-Lusztig polynomials. The paper's official formulation uses the shorthand \"[u,v] is rank log-concave,\" so to make the question stand-alone I unpacked that shorthand using the Bruhat-order and length notation fixed in Section 1 and the definition of log-concavity given at the start of Section 2. I kept the Weyl-group hypothesis exactly as in the paper and did not broaden to arbitrary finite Coxeter groups, because the paragraph immediately after Conjecture 2.11 states that the corresponding statement fails in that larger generality. No ambient ring/field, homogeneity, degree, or nilpotency assumptions are part of this conjecture.",
+  "citations": [
+    {
+      "section": "Section 1",
+      "label": "introductory definitions before Problem 1.1",
+      "page": 1
+    },
+    {
+      "section": "Section 2",
+      "label": "introductory paragraph defining log-concavity",
+      "page": 7
+    },
+    {
+      "section": "Section 2",
+      "label": "Conjecture 2.11",
+      "page": 10
+    },
+    {
+      "section": "Section 2",
+      "label": "paragraph following Conjecture 2.11",
+      "page": 10
+    }
+  ]
+}

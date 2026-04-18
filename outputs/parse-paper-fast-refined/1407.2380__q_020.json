@@ -1,0 +1,45 @@
+{
+  "arxiv_id": "1407.2380",
+  "question_id": "q_020",
+  "original_question": "Do there exist real numbers alpha and beta such that the two-dimensional Kronecker sequence (({n alpha}, {n beta}))_{n>=0} is a low-discrepancy sequence, meaning that its discrepancy satisfies D_N <= C (log N)^2 / N for all N?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 4178.62,
+  "target_in_paper": "Section 4, \"Miscellaneous problems\": the unnumbered question immediately after \"Another well-known example is:\" asking whether there exist alpha, beta such that the 2-dimensional Kronecker sequence is a low-discrepancy sequence.",
+  "completeness_score": 8.5,
+  "correct_elements": "The draft already identifies the correct target problem from the paper: it asks about existence of a pair of real numbers alpha, beta for which the 2-dimensional Kronecker sequence (({n alpha}, {n beta})) is low-discrepancy, and it uses the correct order (log N)^2 / N for dimension 2. It also correctly phrases the issue as an existence question, which is how the paper states it.",
+  "missing_details": [
+    "The paper's notion is the full discrepancy D_N of the first N points, not star discrepancy; this should be stated explicitly.",
+    "The discrepancy D_N should be defined stand-alone: D_N is the supremum over all axis-parallel subintervals B of [0,1)^2 of |(1/N) #{0 <= n < N : x_n in B} - lambda(B)|.",
+    "The notation {x} should be identified as the fractional part of x.",
+    "The sequence should be stated as taking values in [0,1)^2.",
+    "The constant C should be specified as positive and independent of N.",
+    "To make the logarithmic bound literally meaningful, one should specify N >= 2 (or an equivalent convention such as 'for all sufficiently large N').",
+    "The paper does not impose extra Diophantine hypotheses in the question itself; it is a bare existence/nonexistence question.",
+    "The nearby context in Section 2 explains why this is notable: although Beck proved metrical upper bounds for almost all Kronecker generators, the paper emphasizes that no concrete choice is known in dimensions s >= 2 satisfying that upper order."
+  ],
+  "refined_question": "Does there exist a pair (alpha, beta) in R^2 and a constant C > 0 such that, for the 2-dimensional Kronecker sequence x_n = ({n alpha}, {n beta}) in [0,1)^2 for n >= 0, where {t} denotes the fractional part of t, the discrepancy of its first N points,\nD_N(x_0,...,x_{N-1}) := sup_B | (1/N) # {0 <= n < N : x_n in B} - lambda(B) |,\nwith the supremum taken over all axis-parallel subintervals B of [0,1)^2, satisfies\nD_N(x_0,...,x_{N-1}) <= C (log N)^2 / N\nfor every N >= 2?",
+  "equivalent_formulation": null,
+  "justification": "The draft is already very close to the paper's actual target. Section 4 states essentially this question verbatim as an unnumbered open problem about the existence of a low-discrepancy 2-dimensional Kronecker sequence, and it only adds that the problem has a narrow connection with Littlewood's conjecture. Section 1 supplies the definitions needed to make the question stand-alone: discrepancy D_N, the meaning of low-discrepancy sequence, and the definition of a Kronecker sequence. Section 2 gives the immediate surrounding motivation by noting that, although Beck proved the desired upper order metrically for almost all generators, no concrete generator is known in dimensions s >= 2 with that property. Because the paper does not prove any equivalent reformulation here, the refined question should remain the direct existence question and should not be broadened into Littlewood's conjecture or any metrical variant.",
+  "citations": [
+    {
+      "section": "Section 1",
+      "label": "Introduction (definitions of discrepancy D_N, low-discrepancy sequence, and Kronecker sequence)",
+      "page": "171-172"
+    },
+    {
+      "section": "Section 2",
+      "label": "Theorem 2.1 and Theorem 2.2",
+      "page": "173-174"
+    },
+    {
+      "section": "Section 2",
+      "label": "Paragraph immediately following Theorem 2.2 (no concrete choice known in dimensions s >= 2)",
+      "page": "174"
+    },
+    {
+      "section": "Section 4",
+      "label": "Miscellaneous problems, unnumbered Kronecker-sequence question and the sentence on its connection to Littlewood's conjecture",
+      "page": "185-186"
+    }
+  ]
+}

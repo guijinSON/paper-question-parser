@@ -1,0 +1,48 @@
+{
+  "arxiv_id": "1112.5632",
+  "question_id": "q_003",
+  "original_question": "Let omega(k, n, r) be the minimum number of k-matchings among r-regular r-colorable multigraphs on 2n vertices. For each fixed r >= 3, does the perfect-matching minimum omega(n, n, r) grow exponentially in n?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 1927.8,
+  "target_in_paper": "Conjecture 1.1 in Section 1: omega(n,n,r) has an exponential growth in n for a fixed r >= 3.",
+  "completeness_score": 8.5,
+  "correct_elements": "Your draft already identifies the correct extremal function omega(k,n,r), the correct perfect-matching specialization k = n, the correct vertex count 2n, and the correct qualitative question of exponential growth for fixed r >= 3. It is also faithful to the paper's decision to work with the r-colorable subclass rather than all r-regular multigraphs.",
+  "missing_details": [
+    "The paper defines omega(k,n,r) via omega(k,n,r) := min{phi(k,G) : G in G_co,mult(2n,r)}, where phi(k,G) is the number of k-matchings in G; this should be stated explicitly.",
+    "The ambient class G_co,mult(2n,r) consists of undirected loopless r-regular multigraphs on 2n vertices, with multiple edges allowed.",
+    "In the paper's notation, 'r-colorable' is graph-coloring by edges: the relevant class is the class of r-edge-colorable r-regular multigraphs.",
+    "The nearby introduction explains that this restriction is essential because for r >= 3 a general r-regular multigraph on 2n vertices can fail to have any perfect matching at all.",
+    "The phrase 'grows exponentially in n' is informal in the paper; to make the question stand-alone, it should be quantified, e.g. by asking whether for each fixed r >= 3 there exist constants C_r > 0 and c_r > 1 such that omega(n,n,r) >= C_r c_r^n for all sufficiently large n.",
+    "No ambient ring, field, polynomial degree, homogeneity, or nilpotency data are relevant here; this is a purely graph-theoretic extremal-matching problem."
+  ],
+  "refined_question": "Let phi(k,G) denote the number of k-matchings in a loopless undirected multigraph G, and define omega(k,n,r) := min{phi(k,G) : G in G_co,mult(2n,r)}, where G_co,mult(2n,r) is the class of r-edge-colorable r-regular multigraphs on 2n vertices. For each fixed integer r >= 3, is it true that the perfect-matching minimum omega(n,n,r) grows exponentially with n; that is, do there exist constants C_r > 0 and c_r > 1 such that omega(n,n,r) >= C_r c_r^n for all sufficiently large n?",
+  "equivalent_formulation": null,
+  "justification": "The nearest official formulation is exactly Conjecture 1.1 in the introduction, which asks about omega(n,n,r) for fixed r >= 3. The notation omega(k,n,r) comes from the introductory extremal definitions, and the surrounding discussion explains why the conjecture is posed for the r-colorable subclass: unlike the bipartite case, general non-bipartite r-regular multigraphs may have no perfect matching when r >= 3. Section 4 clarifies that the paper's 'r-colorable' terminology is edge-colorability. Although Section 6 later mentions a broader open direction for omega(k,n,r) with k away from n, your draft is specifically about perfect matchings, so the faithful sharpened question should remain Conjecture 1.1 rather than that broader later variant.",
+  "citations": [
+    {
+      "section": "Section 1",
+      "label": "(1.1)-(1.5) and the notation paragraph defining G(2n,r), G_co,mult(2n,r), and omega(k,n,r)",
+      "page": 19
+    },
+    {
+      "section": "Section 1",
+      "label": "discussion after (1.10)-(1.12) and before (1.13)",
+      "page": 20
+    },
+    {
+      "section": "Section 1",
+      "label": "Conjecture 1.1",
+      "page": 20
+    },
+    {
+      "section": "Section 4",
+      "label": "(4.1) and preceding discussion",
+      "page": 23
+    },
+    {
+      "section": "Section 6",
+      "label": "discussion immediately after Theorem 6.3",
+      "page": 27
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "arxiv_id": "1103.3808",
+  "question_id": "q_017",
+  "original_question": "Let a(n) be one of the sequences p_n (the nth prime), [n^c] with c > 0, or 2^n. For every ergodic system (X, X, µ, T) and f0, ..., fℓ ∈ L∞(µ), does the correlation sequence ∫ f0 · T^{a(n)} f1 · ... · T^{ℓ a(n)} fℓ dµ always admit a decomposition ψ(a(n)) + e(n), where ψ is an ℓ-step nilsequence and the Cesàro average of |e(n)| tends to 0?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 1497.34,
+  "target_in_paper": "Section 5.1.4, Problem 13 (“Subsequences of multiple correlation sequences”), together with the immediately preceding theorem in the same subsection and the nilsequence notation from Section 2.4.2.",
+  "completeness_score": 8,
+  "correct_elements": "Your draft is very close to the paper’s actual target. It correctly singles out exactly the three subsequences that appear in the paper (the primes p_n, the Hardy-type sequence ⌊n^c⌋ with c>0, and 2^n), keeps the setting of a single ergodic transformation, uses general bounded test functions f_0, ..., f_ℓ, and asks for the same kind of nilsequence-plus-negligible-error decomposition that motivates Problem 13.",
+  "missing_details": [
+    "The paper’s question is specifically about sampling a multiple correlation sequence α(m) along a sparse subsequence r_n, not about an arbitrary exponent sequence a(n) in isolation. The sampled object should be written as α(r_n), where α(m) = ∫_X f_0 · T^m f_1 · T^{2m} f_2 · ... · T^{ℓ m} f_ℓ dμ.",
+    "The ambient system is a single invertible measure-preserving transformation T on a probability space (X, 𝓧, μ), and the paper assumes ergodicity in this subsection.",
+    "The quantifier over ℓ should be explicit: the question is for every integer ℓ ≥ 1.",
+    "The subsequence should be denoted separately, e.g. r_n ∈ {p_n, ⌊n^c⌋, 2^n}; this avoids confusing the ambient correlation sequence α(m) with the sparse sampling parameter n.",
+    "The nilsequence is a sequence on ℤ (in the sense of Section 2.4.2), and the decomposition is of the form α(r_n) = ψ(r_n) + e(n), not merely 'ψ(a(n)) + e(n)' without first defining the ambient correlation sequence.",
+    "The error term in this problem is a null sequence along n, i.e. lim_{N→∞} (1/N) Σ_{n=1}^N |e(n)| = 0. This is weaker than the 'uniform density' error from the preceding full-sequence decomposition theorem, and that distinction matters here.",
+    "To be fully stand-alone, the notation T^m f should be understood as f ∘ T^m, and the integration is over X with respect to μ.",
+    "The paper also records the author’s expectation: yes for the prime and ⌊n^c⌋ subsequences, and no for 2^n."
+  ],
+  "refined_question": "Fix an integer ℓ ≥ 1, and let r_n be one of the sequences p_n (the nth prime), ⌊n^c⌋ with c > 0, or 2^n. For every ergodic invertible measure-preserving system (X, 𝓧, μ, T) and every f_0, ..., f_ℓ ∈ L^∞(μ), define the multiple correlation sequence\nα(m) := ∫_X f_0 · T^m f_1 · T^{2m} f_2 · ... · T^{ℓ m} f_ℓ \\, dμ.\nMust the sampled sequence α(r_n) always admit a decomposition\nα(r_n) = ψ(r_n) + e(n)  for all n ∈ ℕ,\nwhere ψ is an ℓ-step nilsequence (in the sense of Section 2.4.2) and e is a null sequence, meaning\nlim_{N→∞} (1/N) Σ_{n=1}^N |e(n)| = 0?",
+  "equivalent_formulation": null,
+  "justification": "The draft is targeting Problem 13, not the more general structural problems in Section 4. The giveaway is the exact list of sparse subsequences p_n, ⌊n^c⌋, and 2^n, which appears only in Section 5.1.4. The nearby theorem states the full-sequence Bergelson–Host–Kra-type decomposition for ordinary multiple correlation sequences, and Problem 13 asks whether an analogous nilsequence-plus-small-error decomposition survives after restricting to those sparse subsequences. Section 2.4.2 supplies the paper’s notion of nilsequence. Your draft is therefore substantively correct, but it should be sharpened by explicitly defining the ambient correlation sequence α(m), distinguishing the subsequence variable r_n from the correlation parameter m, and stating the null-sequence error condition explicitly.",
+  "citations": [
+    {
+      "section": "1.2",
+      "label": "The general framework",
+      "page": "n/a"
+    },
+    {
+      "section": "2.4.2",
+      "label": "Nilsequences",
+      "page": "n/a"
+    },
+    {
+      "section": "5.1.4",
+      "label": "Theorem (immediately preceding Problem 13)",
+      "page": "n/a"
+    },
+    {
+      "section": "5.1.4",
+      "label": "Problem 13",
+      "page": "n/a"
+    },
+    {
+      "section": "5.1.4",
+      "label": "Author’s comment following Problem 13",
+      "page": "n/a"
+    }
+  ]
+}

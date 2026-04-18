@@ -1,0 +1,45 @@
+{
+  "arxiv_id": "math_9201271",
+  "question_id": "q_029",
+  "original_question": "Find a general property of a lifting family in the interval version of Thurston’s algorithm that guarantees convergence for arbitrary kneading sequences, not only preperiodic or periodic ones.",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 14051.91,
+  "target_in_paper": "§3, Question 4: \"Give a general property for the lifting family which will guarantee convergence of Thurston's algorithm for arbitrary kneading sequences.\"",
+  "completeness_score": 8,
+  "correct_elements": "Your draft correctly identifies the exact subsection (§3, the interval/real version of Thurston's algorithm), the right object to constrain (the lifting family used in place of polynomial lifts), and the right scope distinction: the target is the arbitrary-kneading-sequence version, not the neighboring preperiodic/periodic version. In substance, it is very close to Question 4 and also correctly echoes its contrast with Question 3.",
+  "missing_details": [
+    "The ambient space is not stated: P = P(n,μ), the space of piecewise monotone maps f:I=[0,1]→I with n laps and prescribed boundary map μ:{0,1}→{0,1}.",
+    "The draft does not define the interval Thurston iteration itself: starting from f0∈P, one chooses a lift p0 in P with the same critical values, in the same order, as f0, then a unique homeomorphism h0:[0,1]→[0,1] with p0∘h0=f0, and continues inductively.",
+    "It does not say explicitly that the lifting family is a family inside P used in place of the polynomial lifts p_k in that inductive construction.",
+    "It omits the ordered-critical-values condition, which is part of how the lift is selected.",
+    "It omits the conjugacy update f_{k+1}=h_k∘f_k∘h_k^{-1}, which is part of the algorithmic setup immediately preceding Question 4.",
+    "It does not quantify over the initial map f0 (or, equivalently in context, over all kneading sequences realized by maps in P(n,μ)).",
+    "It does not specify the normalization I=[0,1] and the boundary condition on {0,1}.",
+    "It leaves 'convergence' unattached to the actual iterative scheme; a stand-alone version should tie convergence to the Thurston iteration built from the chosen lifts, while remaining faithful to the paper's intentionally informal wording."
+  ],
+  "refined_question": "In the setting of §3, fix P=P(n,μ), the space of piecewise monotone maps f:I=[0,1]→I with n laps and prescribed boundary map μ:{0,1}→{0,1}. Starting from any f0∈P, run the interval Thurston algorithm but, instead of taking polynomial lifts, choose at each step a lift p_k from a fixed family F⊂P having the same critical values as f_k, encountered in the same order, and let h_k:[0,1]→[0,1] be the unique homeomorphism sending the critical points of f_k to those of p_k with p_k∘h_k=f_k, so that f_{k+1}=h_k∘f_k∘h_k^{-1}. What general property of the lifting family F is sufficient to guarantee convergence of this Thurston iteration for arbitrary kneading sequences, without restricting to the preperiodic or periodic case?",
+  "equivalent_formulation": null,
+  "justification": "This paper is a problem list, and the nearest official formulation matching your draft is not a theorem or conjecture but §3, Question 4 on page 9. The surrounding setup on pages 8-9 defines the real/interval version of Thurston's algorithm, including the ambient space P=P(n,μ), the polynomial lift p0 with the same ordered critical values as f0, the homeomorphisms h_k, and the inductive construction of f_{k+1}. The immediately preceding Question 3 is the preperiodic/periodic-kneading analogue, so your draft's contrast phrase is faithful; the refined version simply restores the paper's full setup and keeps the scope exactly at Question 4.",
+  "citations": [
+    {
+      "section": "§3",
+      "label": "Section heading and ambient space P = P(n,μ), I = [0,1]",
+      "page": 8
+    },
+    {
+      "section": "§3",
+      "label": "Definition of the interval Thurston iteration via p0, h0, and f_{k+1}",
+      "page": "8-9"
+    },
+    {
+      "section": "§3",
+      "label": "Question 3",
+      "page": 9
+    },
+    {
+      "section": "§3",
+      "label": "Question 4",
+      "page": 9
+    }
+  ]
+}

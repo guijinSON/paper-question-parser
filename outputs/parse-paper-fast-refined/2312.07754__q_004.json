@@ -1,0 +1,52 @@
+{
+  "arxiv_id": "2312.07754",
+  "question_id": "q_004",
+  "original_question": "For the higher-order Toeplitz-determinant polynomials P_n^r(z) built from a finite sequence {f_k}_{k=0}^n, if the polynomial sum_{k=0}^n f_k z^k has only real negative zeros, must P_n^r(z) also have only real negative zeros for every r >= 2?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 9508.96,
+  "target_in_paper": "Dmitrii Karp, section \"1. Toeplitz determinants of Pochhammers,\" Conjecture 2: the higher-order Toeplitz-determinant analogue of the preceding real-negative-zero conjecture.",
+  "completeness_score": 8,
+  "correct_elements": "Your draft correctly identifies the specific higher-order Toeplitz-determinant problem, keeps the right hypothesis (the finite generating polynomial sum_{k=0}^n f_k t^k has only real negative zeros), and keeps the intended conclusion (the associated higher-order polynomial should also have only real negative zeros for every integer r >= 2).",
+  "missing_details": [
+    "The paper’s target is specifically Conjecture 2 in Dmitrii Karp’s subsection, not the neighboring Conjecture 3 about Hurwitz stability for PF_r sequences.",
+    "P_n^r is not an arbitrary polynomial built from {f_k}; it is the coefficient polynomial coming from a higher-order Toeplitz determinant formed out of the rising-factorial generating series f(x;z)=sum_{k=0}^n f_k (x)_k z^k/k!.",
+    "The rising factorial notation must be stated explicitly: (x)_0=1 and (x)_k=x(x+1)...(x+k-1) for k>=1.",
+    "The determinant construction should be made explicit: F_r(x,z)=det[f(x+j-i;z)]_{i,j=1}^r, and P_n^r(x) is the coefficient of z^n/n! in this expansion.",
+    "To be stand-alone, the coefficient formula should be given: P_n^r(x)=sum_{k_1+...+k_r=n} (n!/(k_1!...k_r!)) f_{k_1}...f_{k_r} det[(x+j-i)_{k_j}]_{i,j=1}^r.",
+    "The variables should be separated: one variable for the ordinary generating polynomial sum f_k t^k, and another variable x for P_n^r(x). Using z for both obscures the paper’s setup.",
+    "The quantifiers should be explicit: for every nonnegative integer n, every finite real sequence {f_k}_{k=0}^n, and every integer r>=2.",
+    "The paper notes a degree issue for the higher-order polynomial (it should have degree n-r(r-1)); this should be acknowledged, since the real-zero claim is only substantive when the polynomial is nonzero.",
+    "The ambient coefficient domain should be real/numerical sequences, since the hypothesis about real negative zeros is a real-rootedness condition.",
+    "No homogeneity or nilpotency assumption belongs to this conjecture; adding such restrictions would move away from the paper."
+  ],
+  "refined_question": "Let n be a nonnegative integer and let {f_k}_{k=0}^n be a finite real sequence. Define f(x;z)=sum_{k=0}^n f_k (x)_k z^k/k!, where (x)_0=1 and (x)_k=x(x+1)...(x+k-1). For each integer r>=2, form the r x r Toeplitz determinant F_r(x,z)=det[f(x+j-i;z)]_{i,j=1}^r and expand it as F_r(x,z)=sum_{m>=0} P_m^r(x) z^m/m!; equivalently, P_n^r(x)=sum_{k_1+...+k_r=n} (n!/(k_1!...k_r!)) f_{k_1}...f_{k_r} det[(x+j-i)_{k_j}]_{i,j=1}^r. If the ordinary generating polynomial sum_{k=0}^n f_k t^k has only real negative zeros, must the coefficient polynomial P_n^r(x) also have only real negative zeros for every integer r>=2?",
+  "equivalent_formulation": null,
+  "justification": "The draft is clearly aiming at Karp’s higher-order Toeplitz-determinant conjecture. In the survey, Karp first states the second-order version and then immediately says that a similar conjecture can be stated for polynomials formed by higher-order Toeplitz determinants, followed by Conjecture 2 with exactly the same real-negative-zero hypothesis and conclusion for each r. Your draft preserves that mathematical core, but it leaves implicit the determinant/Pochhammer definition of P_n^r, the separation of variables, the coefficient-extraction nature of the construction, and the degree context noted in the paper. The rewritten version restores those hidden assumptions while staying as close as possible to the paper’s actual intent and scope.",
+  "citations": [
+    {
+      "section": "Dmitrii Karp, \"1. Toeplitz determinants of Pochhammers\"",
+      "label": "paragraph introducing the higher-order Toeplitz-determinant polynomials",
+      "page": "pp. 4-5"
+    },
+    {
+      "section": "Dmitrii Karp, \"1. Toeplitz determinants of Pochhammers\"",
+      "label": "Conjecture 2",
+      "page": "pp. 4-5"
+    },
+    {
+      "section": "Dmitrii Karp, \"1. Toeplitz determinants of Pochhammers\"",
+      "label": "sentence noting the expected degree of the higher-order polynomial",
+      "page": "p. 5"
+    },
+    {
+      "section": "Dmitrii Karp, \"1. Toeplitz determinants of Pochhammers\"",
+      "label": "sentence \"Further details can be found in [1]\"",
+      "page": "p. 5"
+    },
+    {
+      "section": "Reference [1] cited there: D. Karp, \"Positivity of Toeplitz determinants formed by rising factorial series and properties of related polynomials\"",
+      "label": "higher-order Toeplitz-determinant setup underlying P_n^r",
+      "page": "pp. 106-114"
+    }
+  ]
+}

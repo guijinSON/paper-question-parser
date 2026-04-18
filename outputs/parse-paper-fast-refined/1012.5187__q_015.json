@@ -1,0 +1,49 @@
+{
+  "arxiv_id": "1012.5187",
+  "question_id": "q_015",
+  "original_question": "Given the adjacency matrix of a segment visibility graph G, find a Hamiltonian cycle of G in polynomial time.",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 1024.0,
+  "target_in_paper": "Open Problem 15 in Section 3.2, “Hamiltonian Cycles in Visibility Graphs”: given a segment visibility graph G in adjacency matrix form, identify a Hamiltonian cycle in G in polynomial time. ([ar5iv.org](https://ar5iv.org/pdf/1012.5187))",
+  "completeness_score": 8.5,
+  "correct_elements": "Your draft already matches the paper’s intended target very closely: it asks for a Hamiltonian cycle, for a segment visibility graph G, from adjacency-matrix input, in polynomial time. It also correctly stays with the weaker goal of finding some Hamiltonian cycle, rather than asking for the stronger nearby notions of a Hamiltonian circuit or a circumscribing polygon. ([ar5iv.org](https://ar5iv.org/pdf/1012.5187))",
+  "missing_details": [
+    "The input is not an arbitrary graph; it is promised to be the segment visibility graph of some finite set S of pairwise disjoint line segments in the plane. ([ar5iv.org](https://ar5iv.org/pdf/1012.5187))",
+    "Vertices of G correspond to the endpoints of the segments in S, so the graph is built on the endpoint set of S. ([ar5iv.org](https://ar5iv.org/pdf/1012.5187))",
+    "Two vertices are adjacent exactly when either they correspond to the two endpoints of the same segment of S, or the straight segment joining the corresponding endpoints does not intersect any segment of S; this visibility definition also excludes passing through another endpoint or grazing along a segment. ([ar5iv.org](https://ar5iv.org/pdf/1012.5187))",
+    "Only the adjacency matrix of G is given; the geometric realization S and the embedded segment visibility graph G' are not part of the input. This omission is the paper’s explicit reason for posing the problem. ([ar5iv.org](https://ar5iv.org/pdf/1012.5187))",
+    "A Hamiltonian cycle is understood here as a cycle that visits every vertex exactly once. ([ar5iv.org](https://ar5iv.org/pdf/1012.5187))",
+    "The requested output is any Hamiltonian cycle of G; unlike Conjecture 8, the problem does not require the cycle to correspond to a non-self-intersecting Hamiltonian circuit in an embedded realization. ([ar5iv.org](https://ar5iv.org/pdf/1012.5187))",
+    "The complexity requirement is algorithmic: identify such a cycle in time polynomial in the size of the graph input. ([ar5iv.org](https://ar5iv.org/pdf/1012.5187))"
+  ],
+  "refined_question": "Given only the adjacency matrix of a graph G, under the promise that G is the segment visibility graph of some finite set S of pairwise disjoint line segments in the plane—where V(G) is the set of all segment endpoints, and two vertices are adjacent iff they are the two endpoints of the same segment of S or the straight segment joining the corresponding endpoints meets no segment of S (in particular, it neither passes through another endpoint nor grazes along a segment)—can one identify, in time polynomial in |V(G)|, a Hamiltonian cycle of G, i.e. a cycle that visits every vertex exactly once? ([ar5iv.org](https://ar5iv.org/pdf/1012.5187))",
+  "equivalent_formulation": null,
+  "justification": "This is the nearest official formulation because your draft matches Open Problem 15 essentially verbatim. The surrounding discussion in Section 3.2 defines the Hamiltonian-cycle notion being used, distinguishes it from the stronger notions of Hamiltonian circuits and circumscribing polygons in Conjectures 7–9, and explains why the adjacency-matrix-only version is open: Hoffmann and Tóth’s algorithm works when the segment set S (hence the embedded segment visibility graph G') is given, but the paper asks for an algorithm when only G is given, since no reconstruction algorithm is known. Open Problem 16 is a separate neighboring problem, not stated to be equivalent. ([ar5iv.org](https://ar5iv.org/pdf/1012.5187))",
+  "citations": [
+    {
+      "section": "1 Introduction",
+      "label": "Definition of segment visibility graph",
+      "page": "ar5iv HTML lines 18-19 (PDF page number not displayed)"
+    },
+    {
+      "section": "3.1 Visibility Graphs: Recognition, Characterization, and Reconstruction",
+      "label": "Open Problems 12-14 / reconstruction context",
+      "page": "ar5iv HTML lines 187-201 (PDF page number not displayed)"
+    },
+    {
+      "section": "3.2 Hamiltonian Cycles in Visibility Graphs",
+      "label": "Conjectures 7-9 and the distinction between Hamiltonian cycles and Hamiltonian circuits",
+      "page": "ar5iv HTML lines 203-218 (PDF page number not displayed)"
+    },
+    {
+      "section": "3.2 Hamiltonian Cycles in Visibility Graphs",
+      "label": "Open Problem 15",
+      "page": "ar5iv HTML lines 219-222 (PDF page number not displayed)"
+    },
+    {
+      "section": "3.2 Hamiltonian Cycles in Visibility Graphs",
+      "label": "Open Problem 16",
+      "page": "ar5iv HTML lines 223-225 (PDF page number not displayed)"
+    }
+  ]
+}

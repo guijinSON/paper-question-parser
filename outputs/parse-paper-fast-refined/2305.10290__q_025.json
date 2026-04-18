@@ -1,0 +1,40 @@
+{
+  "arxiv_id": "2305.10290",
+  "question_id": "q_025",
+  "original_question": "For every graph G of order n and every k in {1, 2, ..., n}, does S_k(G) <= e(G) + binom(k+1, 2) hold with equality exactly for the graphs G_{k,r,s} described by Li and Guo?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 8867.79,
+  "target_in_paper": "Section 15, Conjecture 17 of arXiv:2305.10290, labeled there as the Li–Guo “full Brouwer’s conjecture.”",
+  "completeness_score": 7,
+  "correct_elements": "Your draft correctly identifies the intended inequality as Brouwer’s Laplacian-spectrum bound with the Li–Guo equality characterization, and it correctly uses the extremal family G_{k,r,s}. It also correctly quantifies over a graph G of order n and a parameter k, and it captures that the main issue is not just the inequality S_k(G) <= e(G) + binom(k+1,2) but the exact equality case.",
+  "missing_details": [
+    "The paper works with finite simple undirected graphs; that ambient graph class should be stated explicitly.",
+    "S_k(G) must be defined: if mu_1(G) >= mu_2(G) >= ... >= mu_n(G) = 0 are the Laplacian eigenvalues of G, then S_k(G) = sum_{i=1}^k mu_i(G).",
+    "The size parameter e(G) should be identified as the number of edges of G, and n as |V(G)|.",
+    "The full Li–Guo version is stated for k in {1,2,...,n-1}, not up to k=n.",
+    "The conjecture is for all graphs G, not only connected graphs; the survey first recalls Brouwer’s original conjecture and then states the full Li–Guo version separately.",
+    "The extremal family G_{k,r,s} must be defined inside the question: its vertex set is partitioned into a k-clique and two independent sets of sizes r and s, with every vertex of the first independent set complete to the clique, and every vertex of the second independent set having the same neighborhood inside the clique and degree k-1.",
+    "The parameters r and s should be quantified explicitly, with n = k + r + s and the equality statement interpreted as existence of suitable r,s for which G is isomorphic to G_{k,r,s}.",
+    "The equality clause should be phrased as an isomorphism statement, not just 'the graphs G_{k,r,s} described by Li and Guo,' so that the question is stand-alone."
+  ],
+  "refined_question": "Let G be a finite simple undirected graph with n = |V(G)| and e(G) = |E(G)|, and let mu_1(G) >= mu_2(G) >= ... >= mu_n(G) = 0 be the Laplacian eigenvalues of G. For 1 <= k <= n-1, write S_k(G) := sum_{i=1}^k mu_i(G). For integers r,s >= 0 with n = k + r + s, let G_{k,r,s} be the graph whose vertex set is partitioned into a clique K of size k and two independent sets R and S of sizes r and s, such that every vertex of R is adjacent to every vertex of K, and every vertex of S has the same neighborhood in K and degree k-1. Is it true that for every graph G and every k in {1,2,...,n-1}, one has S_k(G) <= e(G) + binom(k+1,2), with equality if and only if G is isomorphic to G_{k,r,s} for some choice of r,s with n = k + r + s?",
+  "equivalent_formulation": null,
+  "justification": "The draft is aiming at the survey’s Section 15 discussion of Brouwer’s Laplacian spectrum conjecture and, more specifically, the Li–Guo strengthening that characterizes equality. The survey first defines S_k(G), recalls Brouwer’s original conjecture, then introduces the graph family G_{k,r,s}, and finally states Conjecture 17 as the full Li–Guo version. Your draft is already close, but it is not fully stand-alone because it omits the Laplacian-eigenvalue definition of S_k(G), the exact graph-theoretic ambient assumptions, the precise construction data for G_{k,r,s}, and the paper’s k-range. Since arXiv:2305.10290 presents the original Li–Guo formulation rather than an explicit equivalent restatement, the sharpest faithful rewrite is the original equality-characterization question with all notation unpacked.",
+  "citations": [
+    {
+      "section": "15",
+      "label": "opening paragraph defining S_k(G) and recalling Brouwer’s conjecture",
+      "page": "16"
+    },
+    {
+      "section": "15",
+      "label": "paragraph immediately preceding Conjecture 17 introducing G_{k,r,s}",
+      "page": "16"
+    },
+    {
+      "section": "15",
+      "label": "Conjecture 17 (Li–Guo, The full Brouwer’s conjecture)",
+      "page": "16"
+    }
+  ]
+}

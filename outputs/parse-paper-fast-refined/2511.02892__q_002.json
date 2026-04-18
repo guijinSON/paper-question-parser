@@ -1,0 +1,46 @@
+{
+  "arxiv_id": "2511.02892",
+  "question_id": "q_002",
+  "original_question": "Consider a random 4-regular graph G defined as the union of two uniformly random cycles on the same vertex set. Is G also a.a.s. 3-choosable, meaning that G is properly colorable for every assignment of lists of three allowed colors to its vertices?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 11646.45,
+  "target_in_paper": "Section 2, Problem 2.1, \"Alon-Tarsi number of random 4-regular graphs\": for a random 4-regular graph G defined as the union of two uniformly random cycles on the same vertex set, is the coefficient of the graph polynomial P_G = ∏_{uv∈E(G)} (u-v) at the monomial ∏_{v∈V(G)} v^2 asymptotically almost surely non-zero?",
+  "completeness_score": 6.5,
+  "correct_elements": "Your draft correctly identifies the random model from Section 2 (a random 4-regular graph obtained from two uniformly random cycles on the same vertex set), the asymptotic-probabilistic nature of the question (a.a.s.), and the motivating list-coloring interpretation of 3-choosability as proper colorability from arbitrary lists of size 3 at each vertex. It also matches the paper's opening motivation that such graphs are known to be a.a.s. 3-colorable and asks whether they are also a.a.s. 3-choosable.",
+  "missing_details": [
+    "The nearest official formulation in the paper is not the direct 3-choosability question, but Problem 2.1: whether a specific coefficient of the graph polynomial P_G is a.a.s. non-zero.",
+    "The graph polynomial must be defined explicitly as P_G = ∏_{uv∈E(G)} (u-v), with one commuting variable for each vertex.",
+    "The Alon-Tarsi context from Theorem 2.1 is needed: if the coefficient of P_G at ∏_{v∈V(G)} v^{f(v)} is non-zero for some f: V(G) → {0, ..., k-1}, then G is k-choosable.",
+    "The paper explains why, in the 4-regular setting, the only relevant monomial is ∏_{v∈V(G)} v^2: P_G is homogeneous of total degree |E(G)|, so any monomial with non-zero coefficient has that same total degree.",
+    "The asymptotic variable should be made explicit: the statement is about a sequence of random graphs on n vertices as n → ∞, and 'a.a.s.' means with probability tending to 1 as n grows.",
+    "The cycles in the model are spanning cycles on the full vertex set, i.e. Hamiltonian cycles; saying only 'random cycles' is slightly under-specified.",
+    "The paper adds a model caveat omitted in the draft: strictly speaking the union-of-two-cycles model is a multigraph if the two cycles share edges, but this does not affect the problem because the graph is simple with constant probability, and the usual uniformly random 4-regular graph model is a.a.s.-equivalent for this question.",
+    "The paper also records a nearby probabilistic detail missing from the draft: in the two-Hamiltonian-cycles model, the expected value of the relevant coefficient is zero, so proving the claim would require an anti-concentration argument, while disproving it would require showing concentration around zero.",
+    "The direct 3-choosability question is only the motivating consequence in Section 2; the paper's official problem is the stronger algebraic non-vanishing question, not an equivalent reformulation."
+  ],
+  "refined_question": "Let G_n be the random 4-regular graph considered in Section 2 of the paper, obtained by taking the union of two independent uniformly random Hamiltonian cycles on the same labeled n-vertex set (so formally this may be a multigraph if the cycles share edges). For the graph polynomial P_{G_n} = ∏_{uv∈E(G_n)} (u-v), where the variables are the vertices of G_n, is it true that as n → ∞ the coefficient of the monomial ∏_{v∈V(G_n)} v^2 is asymptotically almost surely non-zero?",
+  "equivalent_formulation": null,
+  "justification": "The draft captures the motivating sentence in Section 2, but the paper's actual open problem is sharper and more specific. Section 2 first states that a random 4-regular graph G formed from two uniformly random cycles is a.a.s. 3-colorable and asks whether it is also a.a.s. 3-choosable. It then introduces the Alon-Tarsi method in Theorem 2.1, defines the graph polynomial P_G, observes that in the 4-regular case the only relevant monomial is ∏ v^2, and finally states the official open problem as Problem 2.1 asking whether the coefficient of that monomial is a.a.s. non-zero. So the paper-faithful stand-alone question should be the coefficient non-vanishing problem, not the broader motivational paraphrase about 3-choosability. The footnote to Section 2 also clarifies the random model and its relation to simple uniformly random 4-regular graphs.",
+  "citations": [
+    {
+      "section": "2",
+      "label": "introductory paragraph before Theorem 2.1",
+      "page": 3
+    },
+    {
+      "section": "2",
+      "label": "Theorem 2.1",
+      "page": 3
+    },
+    {
+      "section": "2",
+      "label": "Problem 2.1",
+      "page": 3
+    },
+    {
+      "section": "2",
+      "label": "footnote 1",
+      "page": 3
+    }
+  ]
+}

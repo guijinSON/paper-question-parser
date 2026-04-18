@@ -1,0 +1,53 @@
+{
+  "arxiv_id": "1905.01736",
+  "question_id": "q_002",
+  "original_question": "For an irreducible Markov modulated Poisson process (MMPP), does the first inter-event time in the time-stationary version stochastically dominate the first inter-event time in the event-stationary version? In the paper's notation, if T_1^pi is the first inter-event time under time-stationary initialization and T_1^alpha is the first inter-event time under event-stationary initialization, must T_1^pi >=st T_1^alpha hold for every irreducible MMPP?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 6571.92,
+  "target_in_paper": "Conjecture 4.2 in the arXiv version of the paper (renumbered as Conjecture 3.9 in the published version): for an irreducible MMPP, T_1^π >=_st T_1^α. ([ar5iv.org](https://ar5iv.org/pdf/1905.01736))",
+  "completeness_score": 9.2,
+  "correct_elements": "Your draft already matches the paper's exact stochastic-order open problem rather than a broader neighboring question: it uses the right model class (irreducible MMPP), the right objects (T_1^π and T_1^α), the right direction of comparison, and the right universal quantifier over all irreducible MMPPs. It is therefore aimed at property (IV) from the introduction and the conjecture later stated explicitly for MMPPs. ([cambridge.org](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/B037C27C281FB3B22AA591EEB0B5CF99/S1446181122000013a.pdf/stationary-markovian-arrival-processes-results-and-open-problems.pdf))",
+  "missing_details": [
+    "State the model precisely as a finite-state irreducible MMPP, i.e. a MAP with Q = C + D, D = diag(lambda_1,...,lambda_p), lambda_i >= 0, and C = Q - D; the paper's open problem is for arbitrary order p, not just p = 2. ([cambridge.org](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/B037C27C281FB3B22AA591EEB0B5CF99/S1446181122000013a.pdf/stationary-markovian-arrival-processes-results-and-open-problems.pdf))",
+    "Define π as the stationary distribution of the background CTMC with generator Q, and α as the stationary distribution of the embedded chain P = (-C)^(-1) D; equivalently for an MMPP, alpha_i = (lambda_i / lambda^*) pi_i with lambda^* = π D 1. ([cambridge.org](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/B037C27C281FB3B22AA591EEB0B5CF99/S1446181122000013a.pdf/stationary-markovian-arrival-processes-results-and-open-problems.pdf))",
+    "Say explicitly that T_1^π and T_1^α are the first interarrival times of the same MMPP under initial phase distribution eta = π (time-stationary) and eta = α (event-stationary), respectively. ([cambridge.org](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/B037C27C281FB3B22AA591EEB0B5CF99/S1446181122000013a.pdf/stationary-markovian-arrival-processes-results-and-open-problems.pdf))",
+    "Spell out the stochastic order: T_1^π >=_st T_1^α means P(T_1^π > t) >= P(T_1^α > t) for every t >= 0. By Proposition 2.2, P(T_1 > t) = eta e^{Ct} 1, so the paper rewrites this as π e^{Ct} 1 >= α e^{Ct} 1 for all t >= 0. ([cambridge.org](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/B037C27C281FB3B22AA591EEB0B5CF99/S1446181122000013a.pdf/stationary-markovian-arrival-processes-results-and-open-problems.pdf))",
+    "If you want the question to be fully paper-faithful, note that the paper uses the term interarrival time rather than inter-event time, though the mathematical intent is the same here. ([cambridge.org](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/B037C27C281FB3B22AA591EEB0B5CF99/S1446181122000013a.pdf/stationary-markovian-arrival-processes-results-and-open-problems.pdf))",
+    "No ambient ring/field, homogeneity, degree, nilpotency, or 'sufficiently large m' conditions are relevant to this probability question; the hidden assumptions are instead those just listed about the MAP/MMPP structure and the two stationary initialisations. ([cambridge.org](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/B037C27C281FB3B22AA591EEB0B5CF99/S1446181122000013a.pdf/stationary-markovian-arrival-processes-results-and-open-problems.pdf))"
+  ],
+  "refined_question": "Let {(N(t), X(t)) : t >= 0} be a finite-state irreducible Markov-modulated Poisson process (MMPP) of arbitrary order p, written as a MAP with Q = C + D and D = diag(lambda_1,...,lambda_p), lambda_i >= 0. Let π be the stationary distribution of the background CTMC with generator Q, and let α be the stationary distribution of the embedded Markov chain P = (-C)^(-1) D (equivalently, alpha_i = (lambda_i / lambda^*) pi_i where lambda^* = π D 1). If T_1^π and T_1^α denote the first interarrival time when the initial phase distribution is eta = π (time-stationary initialisation) and eta = α (event-stationary initialisation), respectively, must T_1^π stochastically dominate T_1^α; that is, does P(T_1^π > t) >= P(T_1^α > t) hold for every t >= 0 for every irreducible MMPP? ([cambridge.org](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/B037C27C281FB3B22AA591EEB0B5CF99/S1446181122000013a.pdf/stationary-markovian-arrival-processes-results-and-open-problems.pdf))",
+  "equivalent_formulation": "Equivalently, using Proposition 2.2, does every irreducible MMPP satisfy the matrix inequality π e^{Ct} 1 >= α e^{Ct} 1 for all t >= 0? This is exactly the paper's formulation of property (IV). ([cambridge.org](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/B037C27C281FB3B22AA591EEB0B5CF99/S1446181122000013a.pdf/stationary-markovian-arrival-processes-results-and-open-problems.pdf))",
+  "justification": "The draft is already very close to the paper's official open problem, and the closest paper-faithful target is the stochastic-order conjecture itself, not the neighboring SCV conjecture c^2 >= 1. In the introduction the paper singles out property (IV), T_1^π >=_st T_1^α, and later states it explicitly for irreducible MMPPs as Conjecture 3.9 in the published version; the arXiv version numbers the same statement as Conjecture 4.2. Proposition 2.2 fixes exactly what T_1^π and T_1^α mean via the two stationary initialisations, while equation (2.9) gives the equivalent pointwise survival-function/matrix formulation. Lemma 2.1 explains the nearby context: establishing this stochastic order would imply the burstiness claim c^2 >= 1, which is why Conjecture 3.9/4.2 is the sharper target than the adjacent Conjecture 3.8/4.1. ([cambridge.org](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/B037C27C281FB3B22AA591EEB0B5CF99/S1446181122000013a.pdf/stationary-markovian-arrival-processes-results-and-open-problems.pdf))",
+  "citations": [
+    {
+      "section": "1 Introduction",
+      "label": "Property (IV)",
+      "page": "PDF p. 2"
+    },
+    {
+      "section": "2 Preliminaries",
+      "label": "Lemma 2.1",
+      "page": "PDF pp. 3-4"
+    },
+    {
+      "section": "2 Preliminaries",
+      "label": "Equation (2.1) and Proposition 2.2",
+      "page": "PDF pp. 4-5"
+    },
+    {
+      "section": "2 Preliminaries",
+      "label": "Equation (2.9)",
+      "page": "PDF p. 6"
+    },
+    {
+      "section": "3.1 Conjectures for MMPP",
+      "label": "Conjecture 3.9",
+      "page": "PDF p. 11"
+    },
+    {
+      "section": "4 Conjectures for MMPP (arXiv version)",
+      "label": "Conjecture 4.2",
+      "page": "ar5iv HTML lines 246-251"
+    }
+  ]
+}

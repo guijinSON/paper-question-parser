@@ -1,0 +1,43 @@
+{
+  "arxiv_id": "1204.6447",
+  "question_id": "q_001",
+  "original_question": "Does there exist an explicit function f : F2^n -> F2, computable in NP, such that for every F2-polynomial p : F2^n -> F2 of degree at most log_2 n, the correlation satisfies |E[(-1)^<f(x), p(x)>]| <= 1/n?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 2169.46,
+  "target_in_paper": "The draft is targeting the paper's first unnumbered open problem, \"Correlation Bounds for Polynomials.\" ([cs.cmu.edu](https://www.cs.cmu.edu/~odonnell/papers/aobf-open-problems.pdf))",
+  "completeness_score": 8.5,
+  "correct_elements": "Your draft already captures the core content of the paper's statement: the ambient field F_2, the function type f : F_2^n -> F_2, the explicitness requirement (glossed in the paper as \"in NP\"), the test class of all F_2-polynomials of degree at most log_2 n, and the target correlation bound 1/n. ([cs.cmu.edu](https://www.cs.cmu.edu/~odonnell/papers/aobf-open-problems.pdf))",
+  "missing_details": [
+    "Because n varies, the paper is really asking for an explicit family across all input lengths, not just a single fixed-n function; saying \"explicit (i.e., in NP)\" should be interpreted in that family/language sense. ([cs.cmu.edu](https://www.cs.cmu.edu/~odonnell/papers/aobf-open-problems.pdf))",
+    "The expectation is with respect to x chosen uniformly from F_2^n; the paper leaves this implicit in its correlation notation, so a stand-alone question should state it explicitly. ([cs.cmu.edu](https://www.cs.cmu.edu/~odonnell/papers/aobf-open-problems.pdf))",
+    "Your notation (-1)^<f(x), p(x)> is ambiguous for scalar-valued functions. To make the correlation stand-alone and standard, it should be written as (-1)^(f_n(x)+p(x)), with addition in F_2. ([cs.cmu.edu](https://www.cs.cmu.edu/~odonnell/papers/aobf-open-problems.pdf))",
+    "To remove ambiguity about the degree of a function p : F_2^n -> F_2, the question should specify that p is represented by a polynomial in F_2[x_1,...,x_n] of total degree at most floor(log_2 n), equivalently that its unique multilinear representative has total degree at most floor(log_2 n). This is an implicit clarification needed for a stand-alone formulation. ([cs.cmu.edu](https://www.cs.cmu.edu/~odonnell/papers/aobf-open-problems.pdf))",
+    "The quantifiers should be explicit: for every n and every such polynomial p. The paper does not weaken this to \"for infinitely many n\" or \"for all sufficiently large n.\" ([cs.cmu.edu](https://www.cs.cmu.edu/~odonnell/papers/aobf-open-problems.pdf))",
+    "There are no extra restrictions such as homogeneity, sparsity, or nilpotency: p ranges over all F_2-polynomials subject only to the degree bound. ([cs.cmu.edu](https://www.cs.cmu.edu/~odonnell/papers/aobf-open-problems.pdf))"
+  ],
+  "refined_question": "Does there exist an explicit family (f_n)_{n>=1}, where each f_n : F_2^n -> F_2 and the language L = { x in {0,1}^* : f_|x|(x) = 1 } lies in NP, such that for every n and every polynomial p : F_2^n -> F_2 whose unique multilinear representative in F_2[x_1,...,x_n] has total degree at most floor(log_2 n), one has |E_{x uniform in F_2^n}[(-1)^(f_n(x)+p(x))]| <= 1/n? ([cs.cmu.edu](https://www.cs.cmu.edu/~odonnell/papers/aobf-open-problems.pdf))",
+  "equivalent_formulation": null,
+  "justification": "This is the nearest official formulation because the paper states, as its first unnumbered problem, \"Find an explicit (i.e., in NP) function f : F_2^n -> F_2\" with correlation at most 1/n against every F_2-polynomial of degree at most log_2 n. The nearby remarks on the same page confirm that this exact quantitative target is the intended one: they note that the problem remains open even with 1/sqrt(n) replacing 1/n, and they situate it between Smolensky's mod_3 correlation bound up to degree c sqrt(n) and the Babai-Nisan-Szegedy / Viola-Wigderson bounds up to about 0.99 log_2 n. So the refined question should stay narrowly focused on this specific low-degree F_2-polynomial correlation problem, not broaden to neighboring circuit-lower-bound or pseudorandomness variants. ([cs.cmu.edu](https://www.cs.cmu.edu/~odonnell/papers/aobf-open-problems.pdf))",
+  "citations": [
+    {
+      "section": "Front matter",
+      "label": "Notation and definitions note",
+      "page": 1
+    },
+    {
+      "section": "Main matter (unnumbered problem list)",
+      "label": "Correlation Bounds for Polynomials — Statement",
+      "page": 2
+    },
+    {
+      "section": "Main matter (unnumbered problem list)",
+      "label": "Correlation Bounds for Polynomials — Remarks, bullet 1",
+      "page": 2
+    },
+    {
+      "section": "Main matter (unnumbered problem list)",
+      "label": "Correlation Bounds for Polynomials — Remarks, bullets 2–3",
+      "page": 2
+    }
+  ]
+}

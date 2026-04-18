@@ -1,0 +1,45 @@
+{
+  "arxiv_id": "0707.4558",
+  "question_id": "q_010",
+  "original_question": "For n = 5, which collections of almost-principal minors are representable by some matrix in PD_5 if one requires the collection to satisfy the gaussoid axioms? In the paper’s terminology, a gaussoid is a collection of almost-principal minors satisfying the four axioms (a)-(d) after relabeling and applying Schur complements, and it is representable if it is the set of vanishing almost-principal minors of some matrix in PD_n.",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 177.35,
+  "target_in_paper": "A Concrete Problem: Which sets of almost-principal minors can be zero for a positive definite symmetric 5×5-matrix?",
+  "completeness_score": 5,
+  "correct_elements": "Your draft correctly identifies the n = 5 case, the role of almost-principal minors, and the representability viewpoint via positive-definite matrices. It also correctly points toward Gaussian conditional independence structures, since vanishing almost-principal minors correspond to Gaussian conditional independence statements.",
+  "missing_details": [
+    "The paper states the problem directly for real positive definite symmetric 5×5 matrices, not in the later gaussoid language.",
+    "The ambient objects are covariance matrices of centered multivariate Gaussian distributions; equivalently, real symmetric positive-definite matrices.",
+    "The paper asks for all possible vanishing patterns of almost-principal minors, not only those collections that are first required to satisfy gaussoid axioms.",
+    "The paper does not phrase the question modulo relabeling, Schur complements, or any symmetry reduction.",
+    "The notation for an almost-principal minor needs to be defined: for distinct i, j and K ⊆ [5] \\ {i, j}, it is det(Σ_{iK, jK}).",
+    "The link between vanishing minors and conditional independence should be made explicit: det(Σ_{iK, jK}) = 0 iff variable i is independent of variable j given K in the Gaussian model.",
+    "The paper distinguishes the real positive-definite locus from the complex algebraic-geometric viewpoint; the concrete problem is about the real positive-definite locus.",
+    "The original paper does not use the terms PD_5, gaussoid, or representable in this formulation, so those should not replace the paper's own narrower wording if faithfulness is the goal."
+  ],
+  "refined_question": "Let Σ be a real symmetric positive-definite 5×5 matrix. For each pair of distinct indices i, j ∈ [5] and each subset K ⊆ [5] \\ {i, j}, let a_{ij|K} := det(Σ_{iK, jK}) be the corresponding almost-principal minor, where the row index set is {i} ∪ K and the column index set is {j} ∪ K. Which subsets S of the set {a_{ij|K} : i ≠ j, K ⊆ [5] \\ {i, j}} occur as the vanishing set {a_{ij|K} : a_{ij|K} = 0} of some real symmetric positive-definite 5×5 matrix Σ?",
+  "equivalent_formulation": "Equivalently, which collections of conditional independence statements (ij|K) among five jointly Gaussian random variables arise as the exact Gaussian conditional independence structure of some centered 5-variate Gaussian distribution?",
+  "justification": "In arXiv:0707.4558, the nearest official formulation is the slide labeled 'Gaussian CI Models', where the concrete open problem is stated verbatim as: 'Which sets of almost-principal minors can be zero for a positive definite symmetric 5×5-matrix?' The nearby slides define almost-principal minors and state the lemma identifying their vanishing with Gaussian conditional independence, and then place Gaussian CI models inside the cone of positive semidefinite matrices. Your draft points to the same classification problem, but it imports later terminology ('gaussoid', 'representable', closure under relabeling and Schur complements) that does not appear in this paper and also narrows the question by imposing gaussoid axioms in advance. The paper's actual intent is the broader and cleaner realizability question for vanishing patterns of almost-principal minors in the 5×5 positive-definite case.",
+  "citations": [
+    {
+      "section": "Gaussian CI Models",
+      "label": "A Concrete Problem",
+      "page": 11
+    },
+    {
+      "section": "Almost-Principal Minors",
+      "label": "Lemma",
+      "page": 12
+    },
+    {
+      "section": "Subvarieties of the PSD cone",
+      "label": "Definition/context",
+      "page": 13
+    },
+    {
+      "section": "Conclusion",
+      "label": "Concrete open problem 3",
+      "page": 16
+    }
+  ]
+}

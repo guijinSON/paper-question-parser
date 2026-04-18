@@ -1,0 +1,50 @@
+{
+  "arxiv_id": "2504.20539",
+  "question_id": "q_007",
+  "original_question": "Consider multi-frequency group synchronization over SO(2) or over a finite group, with signal elements sampled uniformly from the group and observed through L frequency channels. Determine a scaling L = L_n such that there exists a polynomial-time algorithm that reliably detects the signal as n -> infinity for all signal strengths lambda > lambda_comp,L with lambda_comp,L < 1.",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 10852.91,
+  "target_in_paper": "Entry 4, \"Detection in Multi-Frequency synchronization,\" specifically Open Problem 7 on page 6. ([anmaillard.github.io](https://anmaillard.github.io/assets/pdf/publications/bandeira2025randomstrasse.pdf))",
+  "completeness_score": 8.5,
+  "correct_elements": "Your draft is already very close to the paper's official formulation: it identifies the same two model classes (synchronization over SO(2) and over a finite group), keeps the uniform prior on the signal, asks for a scaling L = L_n of the number of frequencies, seeks a polynomial-time detection algorithm, and asks for success for all signal strengths λ > λ_comp,L with λ_comp,L < 1 as n → ∞. That is the substance of Open Problem 7. ([anmaillard.github.io](https://anmaillard.github.io/assets/pdf/publications/bandeira2025randomstrasse.pdf))",
+  "missing_details": [
+    "The paper is working in the dense all-pairs observation model with additive Gaussian noise; your draft does not say that measurements are available for every pair (j,k) or that the noise is Gaussian. Entry 4, page 5. ([anmaillard.github.io](https://anmaillard.github.io/assets/pdf/publications/bandeira2025randomstrasse.pdf))",
+    "For the SO(2) / U(1) case, the nearby context defines the L channels explicitly by Y_ℓ = (λ/n)x^(ℓ)(x^(ℓ))* + (1/√n)W^(ℓ) for ℓ = 1,...,L, with independent noise matrices W^(ℓ) and x^(ℓ) = (x_1^ℓ,...,x_n^ℓ). Entry 4, page 5. ([anmaillard.github.io](https://anmaillard.github.io/assets/pdf/publications/bandeira2025randomstrasse.pdf))",
+    "For finite groups, the paper interprets 'frequency channels' through the Peter-Weyl / irreducible-representation decomposition; your draft leaves this implicit. Entry 4, page 5. ([anmaillard.github.io](https://anmaillard.github.io/assets/pdf/publications/bandeira2025randomstrasse.pdf))",
+    "The benchmark being beaten is specifically the single-frequency spectral threshold λ* = 1 from the BBP/spiked-Wigner setting; your draft encodes this only indirectly through the condition λ_comp,L < 1. Entry 4, pages 5-6. ([anmaillard.github.io](https://anmaillard.github.io/assets/pdf/publications/bandeira2025randomstrasse.pdf))",
+    "The official wording asks to find a growth law L = L_n; to be fully stand-alone, the question should make clear that L may depend on n and that λ_comp,L is the resulting computational threshold associated with that choice of L. Open Problem 7, page 6. ([anmaillard.github.io](https://anmaillard.github.io/assets/pdf/publications/bandeira2025randomstrasse.pdf))",
+    "The entry uses the phrase 'detect the signal reliably' without restating a formal testing criterion. To make the question fully self-contained, one should specify the intended planted-vs-null detection notion rather than leaving 'reliably' implicit. Entry 4, pages 5-6. ([anmaillard.github.io](https://anmaillard.github.io/assets/pdf/publications/bandeira2025randomstrasse.pdf))",
+    "Open Problem 7 itself imposes no size restriction on the finite group, even though the preceding constant-L lower-bound discussion applies to SO(2) and finite groups of constant size; the refined version should not accidentally import an extra constant-size assumption. Entry 4, page 6. ([anmaillard.github.io](https://anmaillard.github.io/assets/pdf/publications/bandeira2025randomstrasse.pdf))",
+    "No ambient ring/field, homogeneity, degree restriction, or nilpotency condition is part of this problem; those categories are inapplicable here because the target is an asymptotic probabilistic detection problem, not an algebraic one. This is evident from the model/setup in Entry 4. ([anmaillard.github.io](https://anmaillard.github.io/assets/pdf/publications/bandeira2025randomstrasse.pdf))"
+  ],
+  "refined_question": "Consider the dense multi-frequency synchronization model with all pairwise measurements and additive Gaussian noise. In the SO(2) ≅ U(1) case, let x = (x_1,...,x_n) be sampled uniformly from U(1)^n and observe L channels Y_ℓ = (λ/n)x^(ℓ)(x^(ℓ))* + (1/√n)W^(ℓ), for ℓ = 1,...,L, where x^(ℓ) = (x_1^ℓ,...,x_n^ℓ) and W^(1),...,W^(L) are independent noise matrices; more generally, consider the analogous multi-frequency synchronization model over a finite group, with channels indexed by irreducible representations and the signal sampled uniformly over group elements. Find a scaling L = L_n of the number of frequencies for which there exists a polynomial-time algorithm that reliably detects the signal for every λ > λ_comp,L, for some computational threshold λ_comp,L < 1, as n → ∞. ([anmaillard.github.io](https://anmaillard.github.io/assets/pdf/publications/bandeira2025randomstrasse.pdf))",
+  "equivalent_formulation": null,
+  "justification": "This is the nearest official formulation in the paper. The draft is targeting Open Problem 7, not Open Problem 8: Open Problem 7 asks for a growth law L = L_n that permits polynomial-time detection below the spectral threshold 1, whereas Open Problem 8 fixes L independent of n and asks instead about sub-exponential-time detection in the hard regime λ ∈ (λ_stat, 1). The sharpened rewrite above only makes explicit the model ingredients that Entry 4 introduces immediately before stating Open Problem 7: the dense Gaussian observation model, the SO(2)/U(1) channel formula, and the representation-theoretic interpretation for general groups. Entry 4, pages 5-6. ([anmaillard.github.io](https://anmaillard.github.io/assets/pdf/publications/bandeira2025randomstrasse.pdf))",
+  "citations": [
+    {
+      "section": "Entry 4 Detection in Multi-Frequency synchronization",
+      "label": "model definition",
+      "page": 5
+    },
+    {
+      "section": "Entry 4 Detection in Multi-Frequency synchronization",
+      "label": "Open Problem 7",
+      "page": 6
+    },
+    {
+      "section": "Entry 4 Detection in Multi-Frequency synchronization",
+      "label": "Open Problem 8",
+      "page": 6
+    },
+    {
+      "section": "References",
+      "label": "[KBK24] Computational lower bounds for multi-frequency group synchronization",
+      "page": 12
+    },
+    {
+      "section": "References",
+      "label": "[PWBM16] Optimality and sub-optimality of PCA for spiked random matrices and synchronization",
+      "page": 13
+    }
+  ]
+}

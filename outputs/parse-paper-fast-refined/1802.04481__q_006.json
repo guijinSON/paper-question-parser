@@ -1,0 +1,46 @@
+{
+  "arxiv_id": "1802.04481",
+  "question_id": "q_006",
+  "original_question": "For a binary circular word of length n, let the count ignore abelian squares longer than the word itself, and let two abelian squares be considered distinct when they are different factor strings. Is the minimum number of distinct abelian square factors equal to (n - 1)/2 when n is odd and to (n - 2)/2 when n is even? Moreover, in the odd case are the only extremal circular words the conjugates and complements of a^n and a^(n-1)b, and in the even case are the only extremal circular words the conjugates and complements of a^k b^(n-k) with odd k?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 229.79,
+  "target_in_paper": "Conjecture 0.6 in the ar5iv HTML rendering of arXiv:1802.04481, in the section \"The minimum numbers of distinct and non-equivalent abelian squares in words\"; this is the conjecture on the minimum number of distinct abelian squares in binary circular words.",
+  "completeness_score": 8.5,
+  "correct_elements": "Your draft already identifies the right setting (binary circular words of length n), the right counting convention for circular words (do not count abelian squares longer than the word, i.e. no self-overlap around the circle), the right notion of distinctness (different factor words, not different occurrences), the correct odd/even formulas, and the intended extremal families up to conjugacy/complement.",
+  "missing_details": [
+    "It should explicitly define an abelian square: a factor xy with |x| = |y| and x and y having the same Parikh vector (equivalently, one half is a permutation of the other).",
+    "It should say that n ranges over all positive integers.",
+    "It should specify the alphabet, namely the binary alphabet {a,b} used in the paper's formulation.",
+    "It should make explicit that the minimum is taken over all circular binary words of length n, where factors may wrap around the end of a chosen linear representative.",
+    "Because circular words are conjugacy classes, the extremal words should be presented as representatives of circular words, with uniqueness only up to conjugacy and complement.",
+    "It should define complement as exchanging a and b.",
+    "In the even case, it should specify the parameter range 1 <= k < n with k odd.",
+    "For maximum faithfulness to the paper, it should be presented as a conjecture suggested by computer experiments, not as an already established theorem.",
+    "No ambient ring/field, homogeneity, degree restriction, or nilpotency hypothesis is relevant here; the missing information is entirely combinatorial."
+  ],
+  "refined_question": "For each integer n >= 1, let c_n be the minimum, over all circular words w on the binary alphabet {a,b} of length n, of the number of distinct abelian-square factors of w, where an abelian square is a factor xy with |x| = |y| and x and y having the same Parikh vector, factors of a circular word may wrap around the end, only factors of length at most n are counted, and \"distinct\" means distinct factor words rather than distinct occurrences. Is it true that c_n = (n-1)/2 when n is odd and c_n = (n-2)/2 when n is even, and that the extremal circular words are exactly, up to conjugacy and complement (swapping a and b), the words represented by a^n and a^(n-1)b when n is odd, and by a^k b^(n-k) when n is even with 1 <= k < n odd?",
+  "equivalent_formulation": null,
+  "justification": "The draft clearly targets the paper's circular distinct-square conjecture, not the neighboring linear-word conjectures. The introduction defines abelian squares, distinguishes total/distinct/non-equivalent counting, and states the circular-word convention that factors longer than the word are excluded. In the later section on minimum numbers, the paper first narrows to the binary case and then states exactly the odd/even minimum formulas together with the claimed extremal families for circular words. That is the nearest official formulation to your draft, so I retained its scope and only made the implicit definitions and quantifiers explicit.",
+  "citations": [
+    {
+      "section": "Introduction and notation",
+      "label": "introductory definitions of abelian square; distinction between total, distinct, and non-equivalent counting",
+      "page": "1-2"
+    },
+    {
+      "section": "Introduction and notation",
+      "label": "circular-word convention excluding abelian squares of length greater than the word length",
+      "page": "1"
+    },
+    {
+      "section": "The minimum numbers of distinct and non-equivalent abelian squares in words",
+      "label": "context paragraph for the binary case distinguishing distinct from non-equivalent counting",
+      "page": "5-6"
+    },
+    {
+      "section": "The minimum numbers of distinct and non-equivalent abelian squares in words",
+      "label": "Conjecture 0.6",
+      "page": "6-7"
+    }
+  ]
+}

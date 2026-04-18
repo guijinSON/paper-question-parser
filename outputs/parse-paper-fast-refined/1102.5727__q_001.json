@@ -1,0 +1,46 @@
+{
+  "arxiv_id": "1102.5727",
+  "question_id": "q_001",
+  "original_question": "For each positive integer n, determine C(n), the number of Costas arrays of order n. In particular, do Costas arrays exist for every order n > 0, and if not, which positive integers n satisfy C(n) = 0?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 1196.71,
+  "target_in_paper": "Section 4.1, Problem 1: the paper’s main existence-and-enumeration problem for Costas arrays, asking for the function C(n) and the set of orders with C(n)=0. ([arxiv.org](https://arxiv.org/pdf/1102.5727.pdf))",
+  "completeness_score": 9,
+  "correct_elements": "Your draft already matches the paper’s official formulation very closely: it asks for the exact count C(n) for each positive integer n, then isolates the existence subquestion C(n)>0 for all n>0, and finally asks for the exceptional orders where C(n)=0. That is exactly the three-part structure of §4.1, Problem 1. ([arxiv.org](https://arxiv.org/pdf/1102.5727.pdf))",
+  "missing_details": [
+    "The draft does not define “Costas array.” In the paper, an order-n Costas array is equivalently given by a bijection f:[n]→[n] such that all distance vectors (i-j, f(i)-f(j)) with 1≤j<i≤n are distinct. ([arxiv.org](https://arxiv.org/pdf/1102.5727.pdf))",
+    "To make the question stand-alone, define [n]={1,…,n} and say explicitly that n ranges over the positive integers. ([arxiv.org](https://arxiv.org/pdf/1102.5727.pdf))",
+    "The paper uses “Costas arrays” and “Costas permutations” interchangeably via the array-permutation correspondence; a self-contained version should fix one formulation or mention the equivalence. ([arxiv.org](https://arxiv.org/pdf/1102.5727.pdf))",
+    "Because §3.1 and Table 1 discuss symmetries and symmetric arrays separately, a stand-alone version should avoid ambiguity about whether C(n) counts actual arrays/permutations of order n rather than equivalence classes under rotations/reflections. ([arxiv.org](https://arxiv.org/pdf/1102.5727.pdf))"
+  ],
+  "refined_question": "For each positive integer n, with [n]={1,…,n}, let C(n) denote the number of Costas arrays of order n, equivalently the number of bijections f:[n]→[n] such that the vectors (i-j, f(i)-f(j)) are all distinct for 1≤j<i≤n. Determine C(n) for every n. In particular, is C(n)>0 for all n>0? If not, determine the set X={n>0 : C(n)=0}. ([arxiv.org](https://arxiv.org/pdf/1102.5727.pdf))",
+  "equivalent_formulation": "Equivalently, determine for each n>0 the number of Costas permutations f:[n]→[n] satisfying the distinct-differences condition f(i+k)-f(i)=f(j+k)-f(j) ⇒ i=j or k=0 whenever 1≤i,j,i+k,j+k≤n; then ask whether such a permutation exists for every positive n and, if not, determine the exceptional set X. ([arxiv.org](https://arxiv.org/pdf/1102.5727.pdf))",
+  "justification": "The draft is not aiming at the complexity question in Problem 2 or the asymptotic bound questions in §4.2; it is aimed directly at the official existence/enumeration problem stated as Problem 1 in §4.1. The only substantive omissions are the paper’s precise definition of a Costas array/permutation from §3.1 and the need to make the counting convention explicit enough to be stand-alone. The nearby context in §3.2.3 and §3.3 shows why the existence subquestion matters: at the time of the paper, Costas arrays were known through exhaustive search up to order 29, and the smallest orders for which no example was then known were 32 and 33. ([arxiv.org](https://arxiv.org/pdf/1102.5727.pdf))",
+  "citations": [
+    {
+      "section": "3.1",
+      "label": "Definition 1",
+      "page": 2
+    },
+    {
+      "section": "3.2.3",
+      "label": "Definition 6 and surrounding text on sporadic arrays / unknown existence orders",
+      "page": 5
+    },
+    {
+      "section": "3.3",
+      "label": "Table 1",
+      "page": 6
+    },
+    {
+      "section": "4.1",
+      "label": "Problem 1",
+      "page": 7
+    },
+    {
+      "section": "4.1",
+      "label": "Problem 2",
+      "page": 7
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "arxiv_id": "1511.08080",
+  "question_id": "q_001",
+  "original_question": "Let G = C_{n1} ⊕ ··· ⊕ C_{nr} be a finite abelian group with |G| >= 3 and 1 < n1 | ··· | nr. For a set of lengths A, let Delta(A) be the set of positive integers that occur as gaps between consecutive elements of A, and let Delta(G) be the union of these distance sets over all sets of lengths arising from G. Is the largest possible distance equal to max{nr - 2, -1 + sum_{i=1}^r floor(ni/2)}?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 4697.4,
+  "target_in_paper": "Conjecture 1.1 in Section 1: the conjectural exact formula for the maximum of the global set of distances Δ(G) attached to the system of sets of lengths over a finite abelian group G with invariant-factor decomposition G ≅ C_{n1} ⊕ ··· ⊕ C_{nr}, together with the nearby Section 1 context in Proposition 1.2 and Theorem 1.3.",
+  "completeness_score": 8,
+  "correct_elements": "Your draft already captures the core target very well: it uses the correct invariant-factor decomposition G ≅ C_{n1} ⊕ ··· ⊕ C_{nr} with 1 < n1 | ··· | nr, assumes |G| ≥ 3, asks about the global distance invariant Δ(G), and states the same candidate value max{nr - 2, -1 + Σ_{i=1}^r ⌊ni/2⌋} for the largest distance. It is also correctly phrased as an exact-value question rather than as a bound or asymptotic problem.",
+  "missing_details": [
+    "The paper works with the system of sets of lengths attached to G via the block monoid B(G) of zero-sum sequences over G (equivalently, via a Krull monoid H with class group G in which every class contains a prime divisor); this ambient object should be made explicit so the question is fully stand-alone.",
+    "The notation Δ(G) should be defined as Δ(G) = ⋃_{L ∈ ℒ(G)} Δ(L), where ℒ(G) = ℒ(B(G)); saying only 'sets of lengths arising from G' is slightly informal compared with the paper's setup.",
+    "The definition of Δ(A) should specify that A is a finite ordered subset A = {m1 < ··· < mk} of positive integers and that Δ(A) = {m_i - m_{i-1} : 2 ≤ i ≤ k}; implicitly, Δ(A) = ∅ when |A| ≤ 1.",
+    "It is helpful to identify nr with exp(G), since the paper regularly uses the exponent in nearby formulations.",
+    "To stay paper-faithful, the question should explicitly ask for max Δ(G), not just the 'largest possible distance' in prose, and should quantify over all finite abelian groups with the stated invariant-factor decomposition."
+  ],
+  "refined_question": "Let G ≅ C_{n1} ⊕ ··· ⊕ C_{nr} be a finite abelian group with |G| ≥ 3 and 1 < n1 | ··· | nr, and let ℒ(G) = ℒ(B(G)) be the system of sets of lengths of the block monoid B(G) of zero-sum sequences over G. For a finite set L = {m1 < ··· < mk} ⊂ N, define Δ(L) = {m_i - m_{i-1} : 2 ≤ i ≤ k}, and set Δ(G) = ⋃_{L ∈ ℒ(G)} Δ(L). Is it true that max Δ(G) = max{nr - 2, -1 + Σ_{i=1}^r ⌊ni/2⌋}?",
+  "equivalent_formulation": null,
+  "justification": "The draft is aiming at the paper’s opening conjectural problem about the exact value of the maximal distance in the global distance set Δ(G), not at the later problem on minimal distances Δ*(G) or at the characterization problem. The formula in your draft matches the conjectural expression attached to max Δ(G), while the missing ingredients are mainly the paper’s ambient setup—namely the passage from a finite abelian group G to the block monoid B(G) (or, equivalently, to Krull monoids with class group G and a prime divisor in every class)—and the explicit definition of Δ(G) as a union over ℒ(G). Proposition 1.2 and Theorem 1.3 are the immediate nearby Section 1 context used in the paper to frame this conjecture and record the corresponding precise reformulations/verified cases.",
+  "citations": [
+    {
+      "section": "Section 1",
+      "label": "Conjecture 1.1",
+      "page": "not available"
+    },
+    {
+      "section": "Section 1",
+      "label": "Proposition 1.2",
+      "page": "not available"
+    },
+    {
+      "section": "Section 1",
+      "label": "Theorem 1.3",
+      "page": "not available"
+    }
+  ]
+}

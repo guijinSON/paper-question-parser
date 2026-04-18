@@ -1,0 +1,41 @@
+{
+  "arxiv_id": "2501.17725",
+  "question_id": "q_024",
+  "original_question": "Does there exist a balanced ternary design BTD(12,26;3,5,13;6,5), meaning an arrangement of 12 elements into 26 blocks of cardinality 6 that can be represented by a 12 x 26 incidence matrix with entries in {0,1,2}, where each element appears with total multiplicity R = 13, appearing with multiplicity 1 in exactly 3 blocks and multiplicity 2 in exactly 5 blocks, and every pair of distinct elements appears together exactly 5 times?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 10428.04,
+  "target_in_paper": "Section 1, Table 1, Balanced Ternary Design row: the exact open-instance parameter set BTD(12,26;3,5,13;6,5), which the paper lists among the Handbook's smallest open instances and marks in the paper's results column as 'Doesn't Exist'.",
+  "completeness_score": 9,
+  "correct_elements": "Your draft already matches the paper's target very closely. It identifies the exact parameter tuple from the BTD row in Table 1, correctly unpacks V=12, B=26, p1=3, p2=5, R=13, K=6, and L=5, uses the paper's incidence-matrix viewpoint with entries in {0,1,2}, and correctly states that each element occurs with multiplicity 1 in exactly 3 blocks and multiplicity 2 in exactly 5 blocks.",
+  "missing_details": [
+    "The paper's official definition says the 26 blocks are multisets; 'cardinality 6' means total multiplicity 6 in each block, not necessarily 6 distinct elements.",
+    "The pair-balance condition should be stated in the paper's exact multiplicity-weighted form: for every distinct pair of points v != w, sum_{b=1}^{26} m_{vb} m_{wb} = 5.",
+    "To make the matrix formulation fully stand-alone, it helps to state explicitly that every row sum is 13 and every column sum is 6.",
+    "The question in the paper is a determination problem for this single exact parameter tuple from Table 1; it should stay scoped to BTD(12,26;3,5,13;6,5) rather than drifting into broader BTD existence questions."
+  ],
+  "refined_question": "Determine whether there exists a balanced ternary design BTD(12,26;3,5,13;6,5) in the sense of the paper: a collection of 26 multiset blocks, each of total cardinality 6, on a 12-point set, equivalently represented by a 12 x 26 incidence matrix M = (m_{vb}) with entries in {0,1,2}, such that each row sums to 13 and has exactly three entries equal to 1 and five entries equal to 2, each column sums to 6, and for every pair of distinct points v != w one has sum_{b=1}^{26} m_{vb} m_{wb} = 5; if no such design exists, prove nonexistence.",
+  "equivalent_formulation": null,
+  "justification": "The draft is clearly targeting the Balanced Ternary Design entry in Section 1, Table 1. The paper first gives its working definition of BTD(V,B;p1,p2,R;K,L) as an arrangement of V elements into B multiset blocks of cardinality K, represented by a V x B matrix over {0,1,2} with row sum R, column sum K, and multiplicity-weighted pair condition sum_b m_{vb} m_{wb} = L for all distinct v,w. It then lists the exact instance (12,26;3,5,13;6,5) among the smallest open instances and records the paper's outcome for that instance as 'Doesn't Exist'. Section 3.2 confirms that these parameter tuples are the existence questions under study. So the sharpest paper-faithful rewrite is the exact existence-determination problem for this one parameter set, with the multiset and multiplicity-counting conventions made explicit, and without broadening to neighboring BTD problems.",
+  "citations": [
+    {
+      "section": "1 Introduction",
+      "label": "Table 1, Balanced Ternary Design definition and parameter row",
+      "page": "page not available in arXiv HTML; lines 34-45"
+    },
+    {
+      "section": "1 Introduction",
+      "label": "Table 1 caption",
+      "page": "page not available in arXiv HTML; line 61"
+    },
+    {
+      "section": "3.2 Selection of Combinatorial Designs",
+      "label": "Open Instances description",
+      "page": "page not available in arXiv HTML; lines 143-156"
+    },
+    {
+      "section": "4 Results",
+      "label": "Tables 1 and 2 show the main results",
+      "page": "page not available in arXiv HTML; lines 208-214"
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "arxiv_id": "1204.6447",
+  "question_id": "q_026",
+  "original_question": "What is the least possible degree of a function f : {-1,1}^n -> [-1,-2/3] union [2/3,1] such that f(x) lies in [2/3,1] whenever sum_i x_i >= n/2 and lies in [-1,-2/3] whenever sum_i x_i <= -n/2?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 2238.88,
+  "target_in_paper": "Section 3 (Boolean functions), the standalone open problem titled \"Approximate Degree for Approximate Majority\" on page 13.",
+  "completeness_score": 9.5,
+  "correct_elements": "Your draft is already extremely close to the paper’s official formulation: it matches the domain {-1,1}^n, the codomain [-1,-2/3]∪[2/3,1], the upper-threshold condition sum_i x_i >= n/2, the lower-threshold condition sum_i x_i <= -n/2, and the fact that one asks for the least possible degree. Because you stated the full codomain restriction, your draft also already implies the paper’s remark that f must avoid (-2/3,2/3) even on the middle layers.",
+  "missing_details": [
+    "Specify what \"degree\" means: the total degree of the unique multilinear polynomial over R that agrees with f on {-1,1}^n (equivalently, the Fourier degree / real polynomial degree on the hypercube).",
+    "Make the quantifier explicit: for each fixed positive integer n, minimize over all such functions f, i.e. determine this minimum as a function of n.",
+    "State explicitly that f is real-valued; the output intervals live in R, so the ambient field/range is R.",
+    "If making the question fully stand-alone, note explicitly that no output in (-2/3,2/3) is allowed on any input, including those with -n/2 < sum_i x_i < n/2; the paper flags this in the remark even though it is implicit in the codomain."
+  ],
+  "refined_question": "For each positive integer n, determine the minimum possible degree deg(f) of a real-valued function f:{-1,1}^n -> [-1,-2/3]∪[2/3,1], where deg(f) denotes the total degree of the unique multilinear polynomial over R agreeing with f on {-1,1}^n, subject to the conditions that f(x) ∈ [2/3,1] whenever sum_{i=1}^n x_i >= n/2 and f(x) ∈ [-1,-2/3] whenever sum_{i=1}^n x_i <= -n/2.",
+  "equivalent_formulation": null,
+  "justification": "The draft is targeting the exact open problem in the paper, not a neighboring conjecture. The official formulation appears verbatim under the heading \"Approximate Degree for Approximate Majority\" in Section 3 on page 13. The only substantive sharpening needed to make the question fully stand-alone is to define \"degree\" in the paper’s standard sense, namely multilinear real-polynomial/Fourier degree, which is set up in Section 2 under \"Functions given by polynomials.\" The nearby remark on page 13 confirms that the codomain restriction applies on the middle layers as well. The paper does not provide a numbered equivalent reformulation here, so no alternate formulation should be added.",
+  "citations": [
+    {
+      "section": "2 Notations and Definitions",
+      "label": "Functions given by polynomials",
+      "page": "1-2"
+    },
+    {
+      "section": "3 Boolean functions",
+      "label": "Approximate Degree for Approximate Majority",
+      "page": 13
+    },
+    {
+      "section": "3 Boolean functions",
+      "label": "Remark under Approximate Degree for Approximate Majority",
+      "page": 13
+    }
+  ]
+}

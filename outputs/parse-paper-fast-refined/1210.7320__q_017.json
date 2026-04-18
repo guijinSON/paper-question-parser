@@ -1,0 +1,39 @@
+{
+  "arxiv_id": "1210.7320",
+  "question_id": "q_017",
+  "original_question": "Prove a general finite-check theorem for linear combinations of vincular patterns: if two such combinations have the same distribution on permutations of all lengths up to some bound depending only on the pattern lengths involved, then they have the same distribution for all lengths.",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 2612.32,
+  "target_in_paper": "Section 6, \"Other algebraic aspects\": the unnumbered open problem asking for a theorem that would make finite checking of equidistribution sufficient for linear combinations of vincular-pattern statistics, with the required bound depending only on pattern length.",
+  "completeness_score": 7.5,
+  "correct_elements": "Your draft captures the right phenomenon and the right level of specificity: the paper really does ask for a general finite-check principle for equidistribution of linear combinations of vincular patterns, where one checks finitely many permutation lengths and then concludes equality of distributions for all lengths.",
+  "missing_details": [
+    "The paper treats each vincular pattern as an integer-valued function on permutations, namely the function counting its occurrences; the relevant linear combinations are therefore naturally Z-linear combinations of these occurrence-counting functions.",
+    "The hypothesis has to be stated on each symmetric group S_n separately: the two statistics must have the same distribution on S_n for every n below the bound, not merely on the union of permutations of all those lengths.",
+    "The paper's wording and examples are about patterns of a fixed common length k (for example k = 3 and k = 4), so the finite-check bound should be quantified as a constant N(k) depending only on that common length, not on the specific coefficients or number of summands.",
+    "The phrase \"same distribution\" should be made explicit: for every integer t, the number of permutations pi in S_n with F(pi) = t must equal the number with G(pi) = t. Because coefficients in a linear combination may be negative, the value variable should range over Z rather than only over nonnegative integers.",
+    "The conclusion should be quantified as holding for every n, not merely for all sufficiently large n.",
+    "The draft does not explicitly say that the problem concerns all permutations, not avoiders or any other restricted permutation class.",
+    "No homogeneity, degree, nilpotency, or operator hypotheses belong here; unlike polynomial-operator problems, this question is formulated purely in terms of permutation statistics coming from occurrence counts."
+  ],
+  "refined_question": "Fix k >= 1. View each vincular pattern p of length k as the integer-valued statistic on permutations that counts occurrences of p. Does there exist a constant N(k), depending only on k, such that for any two Z-linear combinations F and G of length-k vincular-pattern statistics, if for every n < N(k) the statistics F and G have the same distribution on S_n (that is, for every t in Z, |{pi in S_n : F(pi) = t}| = |{pi in S_n : G(pi) = t}|), then F and G are equidistributed on S_n for every n?",
+  "equivalent_formulation": null,
+  "justification": "The draft clearly points to the Section 6 discussion of the ring of functions of vincular patterns, not to the paper's earlier open problems on avoidance or growth rates. In that Section 6 paragraph, Steingrimsson first identifies vincular patterns with integer-valued occurrence-counting functions and discusses linear combinations of them, then reports computer evidence that equality of distributions for all small n may force equality for all n, and finally says that a general theorem of this kind would be a major breakthrough. Section 2 supplies the paper's meaning of having the same distribution on S_n via the definition of strong Wilf equivalence: for each n and each statistic value, the two counting distributions agree. The rewrite makes those hidden definitions and quantifiers explicit while staying tightly aligned with the paper's actual intent.",
+  "citations": [
+    {
+      "section": "Section 6",
+      "label": "Other algebraic aspects; paragraph defining vincular patterns as integer-valued occurrence-counting functions and discussing linear combinations",
+      "page": 15
+    },
+    {
+      "section": "Section 6",
+      "label": "Other algebraic aspects; unnumbered open problem paragraph on finite checking of equidistribution, including the length-3 and length-4 computational evidence",
+      "page": 15
+    },
+    {
+      "section": "Section 2",
+      "label": "Definition of strong Wilf equivalence, giving the paper's meaning of having the same distribution on S_n",
+      "page": 4
+    }
+  ]
+}

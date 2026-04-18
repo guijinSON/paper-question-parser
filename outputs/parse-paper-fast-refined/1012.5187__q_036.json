@@ -1,0 +1,41 @@
+{
+  "arxiv_id": "1012.5187",
+  "question_id": "q_036",
+  "original_question": "Given the visibility graph G of a simple polygon P together with the Hamiltonian cycle of G corresponding to the boundary of P, determine a maximum hidden set of G, meaning a largest set of vertices no two of which are adjacent.",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 1104.74,
+  "target_in_paper": "Section 4.6, Open Problem 36 (\"Maximum Hidden Set in Visibility Graphs\")",
+  "completeness_score": 9.5,
+  "correct_elements": "Your draft is already extremely close to the paper's exact target. It correctly identifies the input as the visibility graph G of a simple polygon P, includes the Hamiltonian cycle corresponding to the boundary of P as part of the input, and asks for a largest set of pairwise nonadjacent vertices, which is exactly the paper's notion of a maximum hidden set.",
+  "missing_details": [
+    "Make the input cycle explicit by naming it as a Hamiltonian cycle C of G that corresponds to the boundary of P.",
+    "State explicitly that G is the vertex visibility graph of P, so the vertices of G correspond to the vertices of the polygon.",
+    "Phrase the task as computing a maximum-cardinality subset H ⊆ V(G), not just 'determine' informally.",
+    "Use the paper's exact terminology 'hidden vertex set' or explicitly note the paper's equivalence: hidden vertex set = independent set."
+  ],
+  "refined_question": "Given as input a graph G that is the vertex visibility graph of a simple polygon P and a Hamiltonian cycle C of G corresponding to the boundary of P, compute a maximum hidden vertex set of G; that is, find a subset H ⊆ V(G) of maximum cardinality such that no two vertices of H are adjacent in G.",
+  "equivalent_formulation": "Given as input the visibility graph G of a simple polygon P together with the Hamiltonian cycle C of G corresponding to the boundary of P, compute a maximum independent set of G.",
+  "justification": "The draft is targeting the paper's Open Problem 36 almost verbatim. In Section 4.6, the paper states: given the visibility graph of a simple polygon together with the Hamiltonian cycle corresponding to the boundary, determine the maximum hidden set. The surrounding text in Section 4.6 explicitly defines a hidden vertex set as an independent set, so the independent-set formulation is an exact paper-approved reformulation. The nearby context in Section 4.4 defines the Hamiltonian-cycle input and shows that supplying this cycle is a meaningful added-information variant, while Section 1 provides the definition of the polygon visibility graph itself. The paper also motivates this exact narrowing by noting that the unrestricted maximum hidden vertex set problem is NP-hard, whereas the complexity may change when the boundary Hamiltonian cycle is supplied, and that a special convex-fan case is already solvable in O(ne) time.",
+  "citations": [
+    {
+      "section": "1 Introduction",
+      "label": "definition of the vertex visibility graph of a polygon",
+      "page": 2
+    },
+    {
+      "section": "4.4 Hamiltonian Cycle in Visibility Graphs",
+      "label": "Open Problem 34",
+      "page": 26
+    },
+    {
+      "section": "4.6 Maximum Hidden Set in Visibility Graphs",
+      "label": "introductory paragraph defining hidden vertex sets and giving context",
+      "page": 27
+    },
+    {
+      "section": "4.6 Maximum Hidden Set in Visibility Graphs",
+      "label": "Open Problem 36",
+      "page": 27
+    }
+  ]
+}

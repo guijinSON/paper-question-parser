@@ -1,0 +1,43 @@
+{
+  "arxiv_id": "1802.04481",
+  "question_id": "q_002",
+  "original_question": "For binary words of length n, let XNL(n) denote the maximum possible number of pairwise non-equivalent abelian square factors, where an abelian square is a factor uv with matching Parikh vectors and two abelian squares are non-equivalent when their Parikh vectors differ. Is XNL(n) always bounded above by a constant multiple of n^1.5?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 5791.5,
+  "target_in_paper": "Conjecture 0.2 in the section \"The maximum number of abelian squares in a linear word\"; in the survey’s notation this is the upper-bound conjecture for XNL(n), i.e. the binary linear-word version of the conjecture attributed to [13].",
+  "completeness_score": 8.5,
+  "correct_elements": "The draft correctly identifies the binary setting, the extremal function XNL(n), the fact that one is counting nonequivalent abelian-square factors rather than occurrences, the use of Parikh vectors to define equivalence, and the intended asymptotic upper bound O(n^(3/2)).",
+  "missing_details": [
+    "The paper is about linear words here, not circular words; that distinction matters because the paper treats circular variants separately.",
+    "A factor should be stated to mean a contiguous subword.",
+    "XNL(n) is the maximum over all binary words of length n of the number of equivalence classes of abelian-square factors occurring in the word; this excludes multiplicity.",
+    "The big-O quantifier should be made explicit: there exists an absolute constant C such that XNL(n) <= C n^(3/2) for all positive integers n (or equivalently for all sufficiently large n).",
+    "The paper’s conjecture is presented in the context of the known lower bound immediately preceding it, so the question should be anchored to that same extremal function and notation.",
+    "The exact target is Conjecture 0.2 as attributed to reference [13]; the draft omits that paper-faithful provenance."
+  ],
+  "refined_question": "For each positive integer n, let XNL(n) be the maximum, over all binary linear words w of length n, of the number of equivalence classes of abelian-square factors occurring in w, where a factor means a contiguous subword, an abelian square is a factor uv with equal Parikh vectors, and two abelian-square factors are equivalent iff they have the same Parikh vector. Is there an absolute constant C such that XNL(n) <= C n^(3/2) for all n >= 1?",
+  "equivalent_formulation": null,
+  "justification": "This draft is aiming at the survey’s Conjecture 0.2 in the subsection on the maximum number of abelian squares in a linear word. The surrounding context first defines abelian squares, equivalence via Parikh vectors, and the notation XNL(n) for the binary linear-word extremal problem, then records a lower bound for XNL(n), and then states Conjecture 0.2. In the HTML extraction of the survey, the displayed formula of Conjecture 0.2 is dropped, but the survey explicitly identifies [13] as Kociumaka–Radoszewski–Rytter–Walén (DLT 2014), and that cited paper’s Conjecture 1 is precisely the upper-bound statement SQ'_Abel(n,2)=O(n^1.5), which translates into the survey’s notation as XNL(n)=O(n^(3/2)). So your draft is very close to the paper-faithful target; it mainly needs the linear/contiguous-factor scope and the quantifiers made explicit.",
+  "citations": [
+    {
+      "section": "Opening definitions and notation",
+      "label": "definitions of abelian square, Parikh-vector equivalence, and linear versus circular setting",
+      "page": "pp. 1-2"
+    },
+    {
+      "section": "The maximum number of abelian squares in a linear word",
+      "label": "Table 2 / XNL(n) notation",
+      "page": "p. 3"
+    },
+    {
+      "section": "The maximum number of abelian squares in a linear word",
+      "label": "Conjecture 0.2",
+      "page": "p. 3"
+    },
+    {
+      "section": "Reference [13]: Kociumaka–Radoszewski–Rytter–Walén, DLT 2014, concluding section",
+      "label": "Conjecture 1",
+      "page": "p. 226"
+    }
+  ]
+}

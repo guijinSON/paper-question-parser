@@ -1,0 +1,59 @@
+{
+  "arxiv_id": "2505.15351",
+  "question_id": "q_020",
+  "original_question": "Can the empirical success of the subspace-completion method in Wigner distribution deconvolution be justified by rigorous theory that proves when and why it reconstructs the signal correctly?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 10973.39,
+  "target_in_paper": "Section 8.1, Question 8.3: \"Can the performance of SC be theoretically justified?\"",
+  "completeness_score": 7,
+  "correct_elements": "Your draft correctly identifies the specific method (Subspace Completion, SC), the paper's emphasis on its strong empirical behavior, and the central gap the authors highlight: the lack of rigorous theory explaining when SC truly reconstructs the unknown object in the discrete Wigner Distribution Deconvolution (WDD) framework.",
+  "missing_details": [
+    "The paper's question is not about WDD in full generality; it is specifically about SC in the discrete ptychographic WDD setting of Section 8.1.",
+    "The ambient space is finite-dimensional and complex: the object and window are vectors f,w in C^n, not general continuous signals.",
+    "The measurements are discrete ptychographic intensities I_{xi,x} = |F(f ◦ S_x w)_{xi}|^2, where F is the unitary discrete Fourier transform, S_x is the cyclic shift operator, and ◦ is the coordinatewise product.",
+    "The relevant WDD identity is the discrete factorization (26), which requires that all scan positions are available, i.e. X = [n].",
+    "The standard favorable regime assumes a localized known window with supp(w) = [delta] for some delta < n/2.",
+    "SC arises precisely when the window factor in (26) has zeros (or effectively unusably small values), so some Fourier coefficients of the diagonals f ◦ S_xi conjugate(f) are missing.",
+    "The specific SC regime described in the paper is narrower than your draft states: there exists xi_0 in [delta] such that one diagonal f ◦ S_xi_0 conjugate(f) is completely recovered, while each remaining diagonal f ◦ S_xi conjugate(f) is missing at most one Fourier coefficient.",
+    "The recovery mechanism is important: SC estimates the missing coefficients by solving a specially constructed linear system that exploits the rank-one structure of f f^*.",
+    "In the paper, the exact unresolved issue is theoretical justification of SC's performance in that regime, not the broader neighboring questions of handling arbitrarily many missing coefficients (Question 8.2), imposing band-limit assumptions for symmetric windows (Question 8.4), or allowing non-full scanning patterns (Question 8.5).",
+    "The phrase \"reconstructs the signal correctly\" should be sharpened to a rigorous uniqueness/recovery guarantee for the SC procedure under explicit assumptions on the window and the missing-coefficient pattern.",
+    "A key motivating application case omitted in the draft is that symmetric windows, which are common in practice, force zeros in the relevant window Fourier coefficients and thereby motivate SC.",
+    "There is no asymptotic quantifier such as \"for all sufficiently large m\" in this question; the paper formulates it as a finite-dimensional exact-recovery/justification problem in terms of n, delta, the window, and the missing Fourier coefficients."
+  ],
+  "refined_question": "In the discrete ptychographic Wigner Distribution Deconvolution setting, let f,w be in C^n, let I_{xi,x} = |F(f ◦ S_x w)_{xi}|^2 for x in [n] and xi in [n], assume full scan positions X = [n], and let the known window be localized with supp(w) = [delta] for some delta < n/2. When zeros in the window factor F(conjugate(w) ◦ S_xi w) cause missing Fourier coefficients in the diagonals f ◦ S_xi conjugate(f), and specifically in the Subspace Completion regime where one diagonal f ◦ S_xi0 conjugate(f) is completely recovered for some xi0 in [delta] while each remaining diagonal f ◦ S_xi conjugate(f), xi in [delta], is missing at most one Fourier coefficient, can one rigorously justify SC by proving explicit conditions under which the linear-system completion step recovers the missing coefficients and thereby yields unique recovery of the object from the discrete WDD data?",
+  "equivalent_formulation": null,
+  "justification": "The draft is targeting Section 8.1's official open problem about Subspace Completion. The paper first sets up the discrete WDD model and the nonvanishing assumption behind standard recovery, then explains that symmetric windows and related practical cases create missing Fourier coefficients. It next describes SC in the precise one-fully-known-diagonal / at-most-one-missing-coefficient-per-other-diagonal regime, notes that its empirical performance appears strong, and immediately formulates the official question as Question 8.3: whether SC's performance can be theoretically justified. The refined version keeps exactly that scope, unpacking only the definitions and assumptions needed to make the question stand alone, while avoiding the broader adjacent problems in Questions 8.2, 8.4, and 8.5.",
+  "citations": [
+    {
+      "section": "1.2",
+      "label": "Organization of the Paper",
+      "page": 2
+    },
+    {
+      "section": "2",
+      "label": "Finite-dimensional setup and operator notation",
+      "page": 3
+    },
+    {
+      "section": "8",
+      "label": "Equations (22) and (23)",
+      "page": 29
+    },
+    {
+      "section": "8",
+      "label": "Equations (24), (25), (26), and (27)",
+      "page": 30
+    },
+    {
+      "section": "8.1",
+      "label": "Question 8.1 and the discussion of zeros/symmetric windows",
+      "page": 30
+    },
+    {
+      "section": "8.1",
+      "label": "SC setup and Questions 8.2–8.4, especially Question 8.3",
+      "page": 31
+    }
+  ]
+}

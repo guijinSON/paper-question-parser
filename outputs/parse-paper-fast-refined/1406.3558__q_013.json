@@ -1,0 +1,40 @@
+{
+  "arxiv_id": "1406.3558",
+  "question_id": "q_013",
+  "original_question": "Classify the sequences of odd integers d_1,d_2,... for which the set B = {d_i 2^i : i >= 0} yields unique finite {0,1}-subset-sum representations of all integers in the de Bruijn signed-binary setting described in the paper. Equivalently, which odd sequences are 'okay' in that representation problem?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 3990.17,
+  "target_in_paper": "The draft is targeting the open problem in §2010.1.1, 'Nathanson: Classical Problems in Additive Number Theory': after showing that any admissible set B must be of the form B = {d_i 2^i : i >= 0} with each d_i odd, the paper restates the problem as determining which sequences of odd integers are okay.",
+  "completeness_score": 8.5,
+  "correct_elements": "Your draft already captures the main mathematical content of the problem in §2010.1.1: the classification is over odd integers d_i, the relevant set is of the form B = {d_i 2^i}, the condition is unique finite {0,1}-subset-sum representation of every integer, and 'okay' is the paper's name for such odd sequences once the reduction from arbitrary B to one element in each 2-adic class has been made (pp. 11-12).",
+  "missing_details": [
+    "The problem is about an infinite sequence of odd integers, not a finite one.",
+    "The ambient structure is the additive group of all integers Z; the target of representation is every n in Z, not only nonnegative integers.",
+    "Uniqueness means: for each n in Z there exists exactly one finitely supported choice of coefficients epsilon_i in {0,1} such that n = sum_{i>=0} epsilon_i d_i 2^i.",
+    "The paper's term 'okay' needs to be defined explicitly: a sequence (d_i) is okay iff the associated family A_i = {0, d_i 2^i} gives a direct-sum decomposition of Z.",
+    "The equivalence between classifying such sequences and classifying sets B is not automatic from the draft; it uses the structural fact stated in §2010.1.1 that an admissible B has exactly one element with each 2-adic valuation i >= 0, hence can be written as {d_i 2^i} with d_i odd.",
+    "There is a small indexing ambiguity in the draft: it writes d_1, d_2, ... but also i >= 0. To match the paper's powers-of-2 normalization, one should use either (d_i)_{i>=0} with B = {d_i 2^i}, or (d_i)_{i>=1} with B = {d_i 2^{i-1}}.",
+    "The phrase 'in the de Bruijn signed-binary setting' is only motivational in the paper; the stand-alone question should spell out the representation property directly instead of relying on that phrase.",
+    "A nearby paper-faithful structural fact worth keeping in view is that if (d_1, d_2, d_3, ...) is okay, then its tail (d_2, d_3, d_4, ...) is also okay, and hence any finite initial segment may be discarded without affecting okayness."
+  ],
+  "refined_question": "Determine all infinite sequences of odd integers (d_i)_{i>=0} such that every integer n in Z has a unique finitely supported expansion n = sum_{i>=0} epsilon_i d_i 2^i with epsilon_i in {0,1}; equivalently, determine all odd sequences (d_i)_{i>=0} for which Z = ⊕_{i>=0} {0, d_i 2^i}.",
+  "equivalent_formulation": "Equivalently, determine all infinite sets B subseteq Z such that every n in Z has a unique representation n = sum_{b in B} epsilon_b b with epsilon_b in {0,1} and epsilon_b = 1 for only finitely many b; the paper explains that any such B must be writable as B = {d_i 2^i : i >= 0} with each d_i odd.",
+  "justification": "Section 2010.1.1 first states the set-based problem: classify infinite sets B of integers for which every n in Z has a unique finite {0,1}-subset-sum representation. The same discussion then derives the 2-adic structural reduction: there is exactly one element of B with each valuation i, so B can be written as {d_i 2^i} with d_i odd, and the problem is restated as asking which odd sequences are okay (p. 11). The continuation on p. 12 adds the only explicit structural theorem mentioned there, namely that okayness is unchanged by deleting any finite initial segment. Your draft is therefore very close, but it needed the quantifiers, the ambient set Z, the finite-support condition, the exact definition of okay, and a fixed indexing convention to be fully stand-alone and paper-faithful.",
+  "citations": [
+    {
+      "section": "2010.1.1",
+      "label": "Nathanson: Classical Problems in Additive Number Theory — unique representation problem for B",
+      "page": 11
+    },
+    {
+      "section": "2010.1.1",
+      "label": "Nathanson: Classical Problems in Additive Number Theory — reduction to B = {d_i 2^i} with d_i odd and reformulation as 'okay' sequences",
+      "page": 11
+    },
+    {
+      "section": "2010.1.1",
+      "label": "Nathanson: Classical Problems in Additive Number Theory — okayness is invariant under deleting a finite initial segment",
+      "page": 12
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "arxiv_id": "2012.04625",
+  "question_id": "q_007",
+  "original_question": "For the EKG sequence defined by a_1=1, a_2=2, and for n≥3 taking a_n to be the smallest unused positive integer with gcd(a_n,a_{n-1})≥2, determine the asymptotic structure of the associated 4-regular graphs. In particular, decide whether the observed cone/parabola-type geometry persists for large N and explain why the second eigenvalue stays suspiciously close to 4.",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 258.29,
+  "target_in_paper": "The unnumbered open problem in the EKG / Erdős-Freud-Hegyvari part of Section 2: to explain the large-scale structure of the graphs built from initial segments of the EKG sequence, including the experimentally observed cone/parabola-type geometry and the fact that the second adjacency eigenvalue is very close to 4.",
+  "completeness_score": 6,
+  "correct_elements": "Your draft correctly identifies the relevant sequence (the EKG sequence, equivalently the Erdős-Freud-Hegyvari permutation defined by taking the smallest unused integer with gcd greater than 1 with the previous term), correctly understands that the paper studies the 4-regular graph naturally associated to an initial segment of the sequence, and correctly isolates the two specific empirical phenomena emphasized there: the cone/parabola-type geometric picture and the unexpectedly small spectral gap, i.e. the second adjacency eigenvalue lying very near the trivial top eigenvalue 4.",
+  "missing_details": [
+    "The graph itself must be defined explicitly: it is the graph attached to the first N distinct terms of the sequence, with vertices corresponding to the points (n, a_n) (or equivalently the first N indices), and edges coming from consecutive order in the sequence together with consecutive order in value.",
+    "The question should specify that the graph is formed from the first N terms of the sequence, not from the full infinite permutation at once.",
+    "It should state what '4-regular' means here: essentially every interior vertex has degree 4, with boundary exceptions inherited from the two path structures.",
+    "It should identify the operator whose eigenvalue is being discussed: the adjacency matrix of the finite graph G_N.",
+    "It should say 'second largest adjacency eigenvalue' rather than just 'second eigenvalue'.",
+    "It should make the asymptotic quantifier explicit: as N tends to infinity, or for all sufficiently large N.",
+    "It should clarify what geometry is meant: the natural planar drawing coming from the points (n, a_n), not an arbitrary graph drawing.",
+    "It should preserve the paper's empirical/open-problem framing, rather than sounding like the paper already gives a formal asymptotic theorem."
+  ],
+  "refined_question": "Let (a_n) be the EKG sequence, defined by a_1 = 1, a_2 = 2, and for n >= 3 letting a_n be the smallest positive integer not used earlier such that gcd(a_n, a_{n-1}) > 1. For each N, form the finite graph G_N associated with the first N terms of the sequence in the paper's standard way: the vertices are the first N plotted points (n, a_n), with one family of edges joining consecutive terms in index order and the other joining points whose values are consecutive in the ordered set {a_1, ..., a_N}; thus G_N is a finite graph that is essentially 4-regular. Explain the large-N structure of the family (G_N): does the experimentally observed cone/parabola-type geometry in this natural drawing persist asymptotically as N -> infinity, and why is the second largest eigenvalue of the adjacency matrix of G_N empirically so close to the trivial top eigenvalue 4?",
+  "equivalent_formulation": null,
+  "justification": "The match is driven first by the exact sequence definition in your draft, which is the EKG sequence studied in the paper's list of sequence-specific open problems. The paper's abstract states both the general graph-construction framework and that each listed sequence gives rise to an open problem. The introduction supplies the graph construction from an ordered list of distinct real numbers. Your references to a 4-regular graph, a cone/parabola-type picture, and a second eigenvalue near 4 are not generic neighboring issues; they are the specific empirical features attached to the EKG / Erdős-Freud-Hegyvari example. So the closest paper-faithful rewrite is not a broad asymptotic classification problem, but a narrowly framed question about the finite graphs G_N coming from initial segments of the EKG sequence and the persistence/explanation of those two observed phenomena.",
+  "citations": [
+    {
+      "section": "Abstract",
+      "label": "scope statement; each listed sequence yields an open problem",
+      "page": 251
+    },
+    {
+      "section": "Introduction",
+      "label": "definition of the graph G = (V, E) built from an ordered list of distinct real numbers",
+      "page": "251-252"
+    },
+    {
+      "section": "Section 2 (EKG / Erdős-Freud-Hegyvari sequence)",
+      "label": "unnumbered open problem on the geometry and spectrum of the associated finite graphs",
+      "page": "not available from accessible metadata"
+    }
+  ]
+}

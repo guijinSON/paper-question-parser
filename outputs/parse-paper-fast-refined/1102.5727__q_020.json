@@ -1,0 +1,48 @@
+{
+  "arxiv_id": "1102.5727",
+  "question_id": "q_020",
+  "original_question": "For a fixed order n, determine the forbidden positions of Costas arrays: grid locations in the n x n board that are not occupied by a dot in any Costas array of that order. Solve this without relying on exhaustive enumeration.",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 1292.33,
+  "target_in_paper": "Problem 20 in Section 7.3 (\"Forbidden positions\"): \"Determine the forbidden positions for Costas arrays of a certain order without resorting to enumeration.\" ([arxiv.org](https://arxiv.org/pdf/1102.5727.pdf))",
+  "completeness_score": 9,
+  "correct_elements": "Your draft is already very close to the paper’s intended problem: it fixes an order n, asks for the forbidden positions in the n x n board, correctly interprets them as cells that are never occupied by a dot in any Costas array of that order, and keeps the paper’s key non-enumerative requirement. ([arxiv.org](https://arxiv.org/pdf/1102.5727.pdf))",
+  "missing_details": [
+    "To make the question fully stand-alone, it should define a Costas array in the paper’s terms: equivalently, a Costas permutation f:[n]->[n], where the associated array has dots at positions (f(i), i), exactly one dot in each row and column, and all distance vectors are distinct. ([arxiv.org](https://arxiv.org/pdf/1102.5727.pdf))",
+    "It should quantify n as a positive integer and ask for the entire forbidden-position set F_n subseteq [n] x [n], allowing that this set may be empty. ([arxiv.org](https://arxiv.org/pdf/1102.5727.pdf))",
+    "The phrase \"without relying on exhaustive enumeration\" should be aligned with the paper’s wording \"without resorting to enumeration,\" meaning one should not first completely enumerate all Costas arrays of order n and then read off the missing cells. ([arxiv.org](https://arxiv.org/pdf/1102.5727.pdf))",
+    "The immediate local motivation in the paper is the order-3 argument via the first row of the difference triangle, whose two entries are f(2)-f(1) and f(3)-f(2); equality forces f(2)=2, yielding the unique forbidden midpoint. This nearby context is part of the paper’s intended scope, even though it is not part of the formal statement of Problem 20. ([arxiv.org](https://arxiv.org/pdf/1102.5727.pdf))",
+    "A paper-faithful stand-alone version may also note the contextual facts recorded right next to the problem: there are no forbidden positions for 4<=n<=24 in the known data, forbidden positions reappear at n=25,26,27,29, and orders n=p-1 with p prime cannot have forbidden positions because the W1 construction is singly periodic. These are contextual constraints, not added hypotheses. ([arxiv.org](https://arxiv.org/pdf/1102.5727.pdf))",
+    "No ambient ring, field, homogeneity, degree restriction, or nilpotency condition belongs to this problem; the relevant variables are only the positive integer n, positions (r,c) in [n] x [n], and Costas permutations f:[n]->[n]. ([arxiv.org](https://arxiv.org/pdf/1102.5727.pdf))"
+  ],
+  "refined_question": "Fix a positive integer n. A Costas array of order n is the n x n array associated with a bijection f:[n]->[n] having the Costas property, i.e. all distance vectors (i-j, f(i)-f(j)) with 1<=j<i<=n are distinct; equivalently, the array has exactly one dot in each row and column, with dots at the cells (f(i), i). Determine the set F_n = {(r,c) in [n] x [n] : there exists no Costas permutation f of order n with f(c)=r}, namely the forbidden positions for Costas arrays of order n, by a method that does not first enumerate all Costas arrays of that order. ([arxiv.org](https://arxiv.org/pdf/1102.5727.pdf))",
+  "equivalent_formulation": "Equivalent formulation: for a given n in N*, determine all pairs (r,c) in [n]^2 such that no Costas permutation f:[n]->[n] satisfies f(c)=r. ([arxiv.org](https://arxiv.org/pdf/1102.5727.pdf))",
+  "justification": "The draft targets Section 7.3 exactly. The paper first defines forbidden positions by overlaying Costas arrays of a fixed order and looking for cells never occupied by a dot, then states Problem 20 with essentially the same demand: determine those positions without enumeration. The only substantive refinements needed are the paper’s formal Costas-permutation definition, the coordinate convention for where a dot sits, and the nearby context that motivates the problem through the order-3 difference-triangle argument and the W1 single-periodicity observation. ([arxiv.org](https://arxiv.org/pdf/1102.5727.pdf))",
+  "citations": [
+    {
+      "section": "3.1",
+      "label": "Definition 1",
+      "page": 3
+    },
+    {
+      "section": "3.2.1",
+      "label": "Theorem 1 (Exponential Welch construction W1)",
+      "page": 4
+    },
+    {
+      "section": "3.4",
+      "label": "The difference triangle",
+      "page": 7
+    },
+    {
+      "section": "7.3",
+      "label": "Forbidden positions",
+      "page": 14
+    },
+    {
+      "section": "7.3",
+      "label": "Problem 20",
+      "page": 15
+    }
+  ]
+}

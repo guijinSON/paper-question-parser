@@ -1,0 +1,50 @@
+{
+  "arxiv_id": "1507.08846",
+  "question_id": "q_001",
+  "original_question": "For the semilinear Dirichlet problem on an arbitrary open set Omega subset of R^d, given by -Delta u(x) = f(x, u(x), grad u(x)) for x in Omega and u(x) = 0 on the boundary of Omega, where f satisfies the coerciveness bound f(x, s, xi)s <= (lambda_1 - epsilon)s^2 + L|xi s| + h(x)|s| with epsilon > 0 and lambda_1 the optimal Poincare-Steklov constant, is the restriction L < L_max(epsilon, lambda_1) actually necessary for existence of weak solutions? Equivalently, if one allows L >= L_max(epsilon, lambda_1), must existence fail?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 4643.29,
+  "target_in_paper": "The draft is targeting the unnumbered open question in Section 6, immediately after the discussion of hypothesis (9) on the gradient coefficient L under the heading \"Can the bound for L be improved?\" This is the paper's explicit open sharpness question about whether the smallness condition on L in the real-valued existence theorem can be relaxed.",
+  "completeness_score": 6.5,
+  "correct_elements": "Your draft correctly identifies the main PDE studied in the paper, the arbitrary-open-set Dirichlet setting, the coerciveness inequality involving the optimal Poincare-Stekloff constant lambda_1, the role of the gradient coefficient L, and that the real issue is the sharpness/necessity of the paper's upper bound on L for existence of weak solutions.",
+  "missing_details": [
+    "The paper's target is not a theorem statement but an unnumbered open question in Section 6 about improving hypothesis (9).",
+    "The exact threshold from (9) is missing: L must satisfy L < L_max(epsilon, lambda_1), where L_max(epsilon, lambda_1) = epsilon/sqrt(lambda_1) if epsilon <= 2 lambda_1, and L_max(epsilon, lambda_1) = 2 sqrt(epsilon - lambda_1) if epsilon >= 2 lambda_1; equivalently L_max(epsilon, lambda_1) = sup_{0<=t<=1} 2 sqrt(t(epsilon - lambda_1 t)).",
+    "The paper asks about loss of the general existence theorem, so the relevant quantifier is existential: if the bound fails, does there exist some admissible real-valued problem with no weak solution? Your wording can be read as universal failure for every problem with L >= L_max, which is broader than the paper.",
+    "The weak-solution setting should be stated explicitly: u is sought in H_0^1(Omega), and lambda_1 is the optimal constant such that lambda_1 ||u||_{L_2(Omega)}^2 <= ||grad u||_{L_2(Omega)}^2 for all u in H_0^1(Omega).",
+    "The quantifiers in the coerciveness condition should be explicit: for a.e. x in Omega and for all s in R, xi in R^d.",
+    "The paper's existence theorem assumes the remaining Section 2.1 hypotheses as well, not just coerciveness: f is a real-valued Caratheodory nonlinearity satisfying the growth condition (8) and the accompanying integrability assumptions.",
+    "Section 6 makes clear that the unresolved question is for the real-valued problem; the nearby Theorem 7 only gives a nonexistence result for a related complex-valued problem, not for the real-valued theorem itself.",
+    "Omega may be arbitrary in the full sense used by the paper: possibly unbounded, nonsmooth, and disconnected."
+  ],
+  "refined_question": "Let Omega be an arbitrary open subset of R^d, let lambda_1 >= 0 be the optimal Poincare-Stekloff constant for H_0^1(Omega), and consider the real-valued Dirichlet problem -Delta u = f(x,u,grad u) in Omega with u in H_0^1(Omega). Assume f : Omega x R x R^d -> R is Caratheodory and satisfies all the other hypotheses of Section 2.1 of Stahn's existence theorem, in particular the growth assumptions there, and the coerciveness estimate f(x,s,xi)s <= (lambda_1 - epsilon)s^2 + L |xi| |s| + h(x)|s| for a.e. x in Omega and all s in R, xi in R^d, with epsilon > 0 and h as in Section 2.1. In Theorem 4 the paper assumes the smallness condition L < L_max(epsilon,lambda_1), where L_max(epsilon,lambda_1) = epsilon/sqrt(lambda_1) if epsilon <= 2 lambda_1 and L_max(epsilon,lambda_1) = 2 sqrt(epsilon - lambda_1) if epsilon >= 2 lambda_1. Is this condition on L actually necessary for the real-valued existence theory on arbitrary open sets? More precisely, if L >= L_max(epsilon,lambda_1), must there exist some open set Omega and some real-valued admissible nonlinearity f satisfying all the remaining hypotheses of Section 2.1 for which the above Dirichlet problem has no weak solution?",
+  "equivalent_formulation": null,
+  "justification": "Section 2.1 defines the problem (6), the coerciveness hypothesis (7), and the smallness restriction (9) on L; Section 2.2, Theorem 4 then proves existence under those assumptions. Section 6 returns exactly to that restriction and asks whether the bound on L can be improved. That is the closest official formulation to your draft. The draft is close, but it needs the exact threshold from (9), the weak-solution framework, the fact that all other Section 2.1 assumptions are still in force, and especially the correct quantifier: the open issue is whether violating (9) destroys the general existence theorem by producing counterexamples, not whether every problem with larger L must fail. Theorem 7 in the same section is important nearby context because it shows such nonexistence beyond the threshold only for a related complex-valued problem, leaving the real-valued question open.",
+  "citations": [
+    {
+      "section": "2.1",
+      "label": "Problem (6), coerciveness condition (7), and smallness condition (9)",
+      "page": "252-253"
+    },
+    {
+      "section": "2.2",
+      "label": "Theorem 4",
+      "page": "253"
+    },
+    {
+      "section": "4.1",
+      "label": "Proof of Theorem 1, especially estimate (22) explaining why (9) enters the H_0^1 a priori bound",
+      "page": "255-256"
+    },
+    {
+      "section": "6",
+      "label": "Unnumbered open question under the heading \"Can the bound for L be improved?\"",
+      "page": "259"
+    },
+    {
+      "section": "6",
+      "label": "Theorem 7",
+      "page": "259-260"
+    }
+  ]
+}

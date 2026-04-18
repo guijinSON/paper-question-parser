@@ -1,0 +1,55 @@
+{
+  "arxiv_id": "2312.07591",
+  "question_id": "q_011",
+  "original_question": "Among non-free arrangements of lines in P^2, what is the best possible lower bound for the global Tjurina number tau(C) in terms of the arrangement's degree and related combinatorial or homological invariants?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 9442.61,
+  "target_in_paper": "Section 6, the unnumbered open problem stated immediately after Corollary 6.3: after proving improved lower bounds for non-free line arrangements in Theorem 6.2 and Corollary 6.3, the paper concludes that 'it is an open question to find the best lower bound for the global Tjurina number of line arrangements.'",
+  "completeness_score": 6.5,
+  "correct_elements": "Your draft correctly identifies the relevant class of objects (non-free line arrangements in the projective plane) and the correct invariant to minimize/bound (the global Tjurina number tau(C)). It also correctly aims at an optimal lower bound rather than merely restating the general du Plessis-Wall bound, and it senses that additional invariants beyond the degree are relevant.",
+  "missing_details": [
+    "The paper works over the complex numbers: C : f = 0 is a reduced curve in P^2_C, with homogeneous defining equation f in S = C[x,y,z].",
+    "The scope is specifically arrangements of d >= 4 distinct lines, not arbitrary reduced plane curves.",
+    "The paper's hypothesis 'non-free' means non-free in the Jacobian-syzygy sense: the module D_0(f) of Jacobian relations is not a free S-module of rank 2.",
+    "The key homological invariant is r = mdr(f), the minimal degree of a nonzero homogeneous Jacobian relation a f_x + b f_y + c f_z = 0.",
+    "The baseline lower bound being improved is the general bound tau(d,r)_min = (d-1)(d-r-1) from Theorem 2.4.",
+    "The paper does not ask for an unspecified bound in terms of arbitrary 'related combinatorial or homological invariants'; the nearby precise bounds use the specific invariants r = mdr(f), m(C), and n(C).",
+    "You should define m(C) as the maximal multiplicity of a point of the arrangement.",
+    "You should define n(C) as the maximal multiplicity of a point of C \\ {p}, where p is a point of multiplicity m(C).",
+    "The immediate paper-faithful lower bounds are Theorem 6.2: tau(C) >= tau(d,r)_min + binom(r,2) + binom(n(C),2) + 1, and, if r != d - m(C), tau(C) >= tau(d,r)_min + binom(r,2) + binom(m(C),2) + 1.",
+    "The corollary singled out in the paper is that if r >= 3 and n(C) >= 3, then tau(C) >= tau(d,r)_min + binom(r,2) + 4 >= tau(d,r)_min + 7.",
+    "For line arrangements, tau(C) coincides with the global Milnor number mu(C) and equals sum_p (n(p)-1)^2 over all multiple points p; that explicit meaning of tau(C) is omitted in the draft.",
+    "The quantifier should be universal: the problem is to determine the optimal lower bound valid for all non-free line arrangements satisfying the stated hypotheses.",
+    "No nilpotency condition, positive-characteristic variant, or asymptotic clause such as 'for all sufficiently large ...' belongs to this paper's formulation; adding such features would broaden the question beyond the text."
+  ],
+  "refined_question": "Let C : f = 0 ⊂ P^2_C be a non-free arrangement of d >= 4 distinct lines, with f in S = C[x,y,z] homogeneous, and let r = mdr(f) >= 2 be the minimal degree of a nonzero homogeneous Jacobian relation a f_x + b f_y + c f_z = 0. If m(C) denotes the maximal multiplicity of a point of C and n(C) denotes the maximal multiplicity of a point of C \\ {p}, where p is a point of multiplicity m(C), then the general lower bound tau(C) >= tau(d,r)_min := (d-1)(d-r-1) is known not to be optimal for line arrangements, while Theorem 6.2 and Corollary 6.3 give the stronger bounds tau(C) >= tau(d,r)_min + binom(r,2) + binom(n(C),2) + 1 and, when r != d - m(C), tau(C) >= tau(d,r)_min + binom(r,2) + binom(m(C),2) + 1, hence in particular tau(C) >= tau(d,r)_min + binom(r,2) + 4 when r >= 3 and n(C) >= 3. What is the optimal universal lower bound for tau(C) for such non-free line arrangements?",
+  "equivalent_formulation": "Equivalent formulation (using formula (6.3) from the paper): determine the optimal lower bound, under the same hypotheses, for mu(C) = sum_p (n(p)-1)^2, since for line arrangements one has tau(C) = mu(C).",
+  "justification": "The draft is clearly targeting the part of Section 6 dealing with minimal, not maximal, Tjurina numbers. The paper first recalls the general du Plessis-Wall lower bound tau(d,r)_min in Theorem 2.4, then explains that this lower bound is effective for general reduced plane curves but is not optimal for line arrangements. It next states the sharper line-arrangement bounds in Theorem 6.2 and Corollary 6.3, using the invariants r = mdr(f), m(C), and n(C), and then ends that discussion with the explicit open problem of finding the best lower bound for the global Tjurina number of line arrangements. So the closest paper-faithful sharpening of your draft is not a broad question about arbitrary auxiliary invariants, but this specific Section 6 open problem, stated with the precise notation and hypotheses supplied there.",
+  "citations": [
+    {
+      "section": "1",
+      "label": "Introduction, discussion of Section 6",
+      "page": "130"
+    },
+    {
+      "section": "2",
+      "label": "Definition of D_0(f) and mdr(f)",
+      "page": "131-132"
+    },
+    {
+      "section": "2",
+      "label": "Theorem 2.4",
+      "page": "134"
+    },
+    {
+      "section": "6",
+      "label": "formula (6.3) and Theorem 6.2",
+      "page": "144"
+    },
+    {
+      "section": "6",
+      "label": "Corollary 6.3 and following unnumbered open question",
+      "page": "144-145"
+    }
+  ]
+}

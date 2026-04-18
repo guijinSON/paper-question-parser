@@ -1,0 +1,57 @@
+{
+  "arxiv_id": "2108.04241",
+  "question_id": "q_010",
+  "original_question": "How can time-fractional differential equations involving general fractional derivatives of arbitrary order be developed and analyzed so that they model processes that are intermediate between diffusion and wave propagation?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 7563.8,
+  "target_in_paper": "Section 2.4, open problem 10: \"Consider the time-fractional differential equations with the GFDs of arbitrary order to model, for instance, the processes intermediate between diffusion and wave propagation.\"",
+  "completeness_score": 8,
+  "correct_elements": "Your draft correctly identifies the right target: the paper’s open problem about time-fractional differential equations built from general fractional derivatives of arbitrary order, with the specific modeling motivation of phenomena intermediate between diffusion and wave propagation. It also stays close to the paper’s wording and does not drift into unrelated numerical or physical side topics.",
+  "missing_details": [
+    "The paper’s \"general fractional derivatives of arbitrary order\" are not arbitrary fractional operators in general; they are the specific GFDs introduced in Section 2.3 within the Sonine-kernel framework.",
+    "The relevant operators are built from a pair (κ,k) in L_n for some n in N, where κ in C_{-1}(0,∞), k in C_{-1,0}(0,∞), and (κ * k)(t) = {1}^{<n>}(t) = h_n(t) = t^(n-1)/(n-1)! for t > 0.",
+    "To make the question stand-alone, one should define the function classes appearing in the paper: C_{α,β}(0,∞) = {f : f(t) = t^p f_1(t), α < p < β, f_1 in C[0,∞)}, together with C_{-1}(0,∞) and C_{-1,0}(0,∞).",
+    "The paper distinguishes the Riemann-Liouville-type arbitrary-order GFD, D_(k)f(t) = d^n/dt^n ∫_0^t k(t-τ)f(τ)dτ, from the Caputo-type arbitrary-order GFD, *_D_(k)f(t) = D_(k)(f - Σ_{j=0}^{n-1} f^(j)(0) h_{j+1})(t), with h_{j+1}(t) = t^j/j!.",
+    "The natural time domain in the paper is the positive real semi-axis t > 0, not an unspecified interval.",
+    "The nearby context treats these operators as bona fide GFIs/GFDs because of the left-inverse and fundamental-theorem-type relations in Theorems 8 and 9; this is part of the scope that your draft leaves implicit.",
+    "If one intends the Caputo-type arbitrary-order equation, the built-in initial data are the values f^(j)(0), j = 0,...,n-1; your draft does not mention this operator-dependent initial-data structure.",
+    "The paper does not specify a concrete ODE/PDE, spatial operator, boundary condition, or well-posedness theorem here, so a faithful rewrite should not add such extra structure.",
+    "The phrase \"processes intermediate between diffusion and wave propagation\" is presented as motivation/example, not as a formally defined criterion; the refined question should preserve that status.",
+    "No ambient ring/field, homogeneity, degree restriction, or nilpotency condition is relevant here; the missing assumptions are functional-analytic and operator-theoretic instead."
+  ],
+  "refined_question": "Let n be a natural number, and let (κ,k) belong to L_n in the sense that κ in C_{-1}(0,∞), k in C_{-1,0}(0,∞), and (κ * k)(t) = h_n(t) = t^(n-1)/(n-1)! for t > 0, where C_{α,β}(0,∞) = {f : f(t) = t^p f_1(t), α < p < β, f_1 in C[0,∞)}. Define the associated general fractional integral and the arbitrary-order general fractional derivatives by I_(κ)f(t) = ∫_0^t κ(t-τ)f(τ)dτ, D_(k)f(t) = d^n/dt^n ∫_0^t k(t-τ)f(τ)dτ, and *_D_(k)f(t) = D_(k)(f - Σ_{j=0}^{n-1} f^(j)(0)h_{j+1})(t), with h_{j+1}(t) = t^j/j!. Within this Sonine-kernel framework, how can one formulate and study time-fractional differential equations on t > 0 with these GFDs of arbitrary order so that they can model, for instance, processes intermediate between diffusion and wave propagation?",
+  "equivalent_formulation": null,
+  "justification": "The draft is targeting the paper’s open problem 10 in Section 2.4 almost verbatim. To make it fully stand-alone and faithful to the paper, the question must import the definitions from Section 2.3 that specify what \"GFDs of arbitrary order\" means: first the kernel class L_n and its generalized Sonine condition, then the arbitrary-order GFI/GFD operators themselves, and finally the fundamental-theorem-type properties showing that these operators are the intended general fractional calculus objects. The paper does not narrow the problem further to a specific diffusion equation, wave equation, spatial operator, or boundary-value setting, so the refined question should remain at exactly that level of scope.",
+  "citations": [
+    {
+      "section": "2.3",
+      "label": "Definition 1",
+      "page": 3253
+    },
+    {
+      "section": "2.3",
+      "label": "Definition 2",
+      "page": 3254
+    },
+    {
+      "section": "2.3",
+      "label": "Definition 3",
+      "page": 3254
+    },
+    {
+      "section": "2.3",
+      "label": "Theorem 8",
+      "page": 3254
+    },
+    {
+      "section": "2.3",
+      "label": "Theorem 9",
+      "page": 3255
+    },
+    {
+      "section": "2.4",
+      "label": "Open problem 10",
+      "page": 3255
+    }
+  ]
+}

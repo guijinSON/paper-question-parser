@@ -1,0 +1,56 @@
+{
+  "arxiv_id": "2201.09150",
+  "question_id": "q_003",
+  "original_question": "Characterize the qualitative properties of spatially non-constant steady states in the nonlocal multispecies advection-diffusion model driven by kernel-based perception of population densities.",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 7867.3,
+  "target_in_paper": "Open Problem 3 in Section 2.2.2 (Dynamic memory), with notation and scope inherited from model (2.10) and Open Problem 2.",
+  "completeness_score": 7,
+  "correct_elements": "The draft correctly identifies the right model family: the multispecies nonlocal advection-diffusion system in which movement is biased by kernel-based perception of population densities. It also correctly focuses on spatially non-constant steady states and asks for their qualitative description rather than merely for time-dependent well-posedness or linear stability of constant states. This is very close to the paper’s Open Problem 3.",
+  "missing_details": [
+    "The paper’s exact target is Open Problem 3, which is conditional: it asks for the qualitative properties of the non-constant steady states 'whenever they exist.' That existential qualifier is inherited from Open Problem 2 and should be retained.",
+    "The governing system should be named explicitly as model (2.10): ∂_t u_i = d_iΔu_i − ∇·(u_i∇(Σ_{j=1}^n γ_{ij}u_j^{g,R})) for i = 1,…,n.",
+    "The unknowns are n interacting population densities u_i = u_i(x,t), one for each population; the draft does not specify the index range i = 1,…,n.",
+    "The nonlocal operator u_j^{g,R} should be defined as the perception of u_j through the detection/perceptual kernel g with perceptual range R; the draft mentions kernel-based perception but does not define the operator or the role of R.",
+    "The coefficients d_i and γ_{ij} are part of the model; in the nearby context, the sign of γ_{ij} determines attraction versus repulsion between species.",
+    "The spatial setting is a bounded domain; the draft does not state this and so is not fully stand-alone.",
+    "The relevant boundary conditions are specifically zero-flux, homogeneous Neumann, or periodic boundary conditions, because Open Problem 3 refers back to the steady states asked about in Open Problem 2.",
+    "The paper’s wording is narrower than a general pattern-formation problem across all models in the review; it is specifically about the non-constant steady states of model (2.10), not the broader classification problem of Section 4.4/Open Problem 48.",
+    "The phrase 'qualitative properties' is intentionally broad in the paper, but in this context it refers to describing/classifying the structure of the inhomogeneous steady-state profiles, not merely proving their existence."
+  ],
+  "refined_question": "For the n-species nonlocal advection-diffusion system (2.10) on a bounded domain Ω, given by ∂_t u_i = d_iΔu_i − ∇·(u_i∇(Σ_{j=1}^n γ_{ij}u_j^{g,R})) for i = 1,…,n, where u_i(x,t) denotes the density of the i-th population, d_i > 0, γ_{ij} ∈ ℝ encodes attraction or repulsion to the perceived density of population j, and u_j^{g,R} denotes the perception of u_j through a detection kernel g with perceptual range R, spatially constant steady states are evident. Assuming spatially non-constant steady states of the associated steady problem exist under zero-flux, homogeneous Neumann, or periodic boundary conditions, what qualitative properties do these inhomogeneous steady states possess?",
+  "equivalent_formulation": null,
+  "justification": "The draft is nearest to Open Problem 3, not to the broader pattern-formation questions later in the review. In Section 2.2.2 the paper first introduces the multispecies dynamic-memory/perception model (2.10), then asks in Open Problem 2 when spatially non-constant steady states exist under zero-flux, homogeneous Neumann, or periodic boundary conditions, and immediately follows with Open Problem 3 asking for the qualitative properties of 'these non-constant steady states, whenever they exist.' That dependency on Open Problem 2 is essential. The broader discussion in Section 4.4 and Section 5.2.1 confirms that the intended meaning is classification/description of possible inhomogeneous patterns or profiles for this specific model, rather than a general theory for all cognitive-movement PDEs in the paper.",
+  "citations": [
+    {
+      "section": "2.1 Perception",
+      "label": "equations (2.2)-(2.3) and hypotheses on the detection function g and perceptual range R",
+      "page": 8
+    },
+    {
+      "section": "2.2.2 Dynamic memory",
+      "label": "model (2.10)",
+      "page": 13
+    },
+    {
+      "section": "2.2.2 Dynamic memory",
+      "label": "Open Problem 2",
+      "page": 13
+    },
+    {
+      "section": "2.2.2 Dynamic memory",
+      "label": "Open Problem 3",
+      "page": 13
+    },
+    {
+      "section": "4.4 Pattern formation",
+      "label": "Open Problem 48",
+      "page": 50
+    },
+    {
+      "section": "5.2.1 Implicit memory models",
+      "label": "discussion of pattern types and recent progress for implicit-memory models, including Giunta et al. (2022)",
+      "page": 56
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "arxiv_id": "2511.08400",
+  "question_id": "q_problem_29",
+  "original_question": "Determine the number of garments when the total price is a given number of dirhams and the price of a single garment plus the square root of the number of garments equals another given number.",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 11852.58,
+  "target_in_paper": "Problem 29 in the paper’s list of thirty-three problems: the robe/dirham problem asking for robes of total value a given number of dirhams such that the price of one robe plus the square root of the number of robes is another given number.",
+  "completeness_score": 5,
+  "correct_elements": "Your draft correctly captures the core two-condition structure of the target problem: (1) a fixed total value in dirhams, and (2) a second relation tying the price of one garment to the square root of the number of garments. It also correctly treats the unknown of interest as the number of garments.",
+  "missing_details": [
+    "The paper-faithful formulation has two unknowns, not one: x = price of one robe and y = number of robes.",
+    "The official formulation is parameterized by two given quantities, usually written as a and b: total value a and target sum b.",
+    "The second relation is x + sqrt(y) = b; this should be stated explicitly.",
+    "The first relation is xy = a; this should be stated explicitly.",
+    "The intended setting is arithmetic/Diophantine: x is a positive rational (in fact then integral in this problem) price in dirhams, and y is a positive integer number of robes.",
+    "Because y is a count and x + sqrt(y) is required to equal the given rational/integer quantity b, the hidden stand-alone consequence is that y must be a perfect square.",
+    "If the question is made fully stand-alone, positivity constraints should be included: x > 0 and y > 0.",
+    "If only the number of garments is requested, the price variable x still has to be introduced, because it is part of the defining data of the problem and is recovered from x = a / y.",
+    "A paper-faithful sharpening may also note the equivalent algebraic reformulation y = (b - x)^2 and hence 0 < x < b.",
+    "The nearby arithmetic analysis rewrites the problem as a cubic in x; your draft omits this equivalent precise reformulation."
+  ],
+  "refined_question": "Given positive integers a and b, find all positive rational numbers x and positive integers y such that x is the price of one robe (in dirhams), y is the number of robes, the total value is xy = a, and the price of one robe plus the square root of the number of robes satisfies x + sqrt(y) = b. Equivalently: decide whether such robes exist for the given a and b, and if they do, determine both the number of robes y and the unit price x.",
+  "equivalent_formulation": "Equivalently, find all positive integer roots x of x^3 - 2bx^2 + b^2x - a = 0; then y = (b - x)^2.",
+  "justification": "The draft matches the historical robe problem rather than any neighboring item because it preserves exactly the two defining data of Problem 29: a total value in dirhams and a second condition involving the value of one robe plus the square root of the number of robes. The main incompleteness is that the original problem asks for the pair (price, number), not only the number, and it leaves implicit the domains, positivity, and the perfect-square consequence for the count. I could verify from the arXiv abstract that the paper studies Ibn al-Khawwam’s thirty-three problems, but the full arXiv body was not directly fetchable in the browser, so the exact historical wording and algebraic reformulation were matched against the standard scholarly presentation of Ibn al-Khawwam’s Problem 29.",
+  "citations": [
+    {
+      "section": "Abstract",
+      "label": "arXiv:2511.08400 abstract",
+      "page": "abs page"
+    },
+    {
+      "section": "Chapter III",
+      "label": "Problem 29",
+      "page": 153
+    },
+    {
+      "section": "Chapter III",
+      "label": "Problem 29 algebraic reformulation",
+      "page": 154
+    },
+    {
+      "section": "Chapter III",
+      "label": "summary classifying Problems 21, 29, and 33",
+      "page": 156
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "arxiv_id": "2602.05394",
+  "question_id": "q_024",
+  "original_question": "For a given $A ^n x n$, let $ V$ denote an approximate invariant subspace of dimension $d$ of $A$, in the sense that there exists some $d$-dimensional invariant subspace $ V$ of $A$ such that $ ( V, V)$ is small. Let $ W$ be some other subspace of dimension $r<n-d$. Suppose the columns of $Q$ form an orthonormal basis for the (generically) $d+r$ dimensional space $ Q = V + W$. Provide conditions that will ensure that $d$ eigenvalues of $Q*AQ$ approximate the $d$ eigenvalues of $A$ associated with the invariant subspace $ V$. Impose assumptions about the eigenvalues of $A$ corresponding to $ V$, as needed.",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 12407.47,
+  "target_in_paper": "Section 3.3, Problem 3.4 (\"Ritz values and approximate invariant subspaces\")",
+  "completeness_score": 9,
+  "correct_elements": "Your draft is already very close to the paper's official formulation. It correctly identifies the setup of an approximate d-dimensional invariant subspace V̂ near an exact d-dimensional invariant subspace V of A, an auxiliary subspace W of dimension r < n - d, an orthonormal basis Q for the combined space V̂ + W, and the goal of finding conditions under which d Ritz values of Q*AQ approximate the d eigenvalues of A associated with V. It also correctly preserves the paper's permission to impose extra assumptions on the relevant eigenvalues of A.",
+  "missing_details": [
+    "The ambient matrix class in the paper is A ∈ ℂ^{n×n}; the problem is not stated only for real, Hermitian, or normal matrices.",
+    "The paper distinguishes the approximate invariant subspace V̂ from the exact invariant subspace V; your draft reuses the same symbol in a way that blurs this distinction.",
+    "The approximation hypothesis is specifically that there exists a d-dimensional A-invariant subspace V such that the angle ∠(V, V̂) is small.",
+    "Q is an orthonormal basis for the space 𝒬 = V̂ + W, and the paper notes that this space is generically of dimension d + r.",
+    "The object Q*AQ is the Rayleigh-Ritz compression of A onto 𝒬; the paper is specifically asking about d eigenvalues of this compressed matrix, not all of them.",
+    "The target eigenvalues are the d eigenvalues of A associated with the invariant subspace V; this association should be stated explicitly.",
+    "Any additional assumptions are to be imposed on the eigenvalues of A corresponding to V, as needed; the paper deliberately leaves the exact spectral hypotheses open rather than fixing one.",
+    "The nearby context ties the problem to restarted Arnoldi, where d is the number of wanted eigenvalues and r is a buffer dimension; this explains why W is otherwise arbitrary."
+  ],
+  "refined_question": "Let A ∈ ℂ^{n×n}. Let V̂ ⊂ ℂ^n be a d-dimensional approximate invariant subspace of A in the sense that there exists a d-dimensional A-invariant subspace V with ∠(V, V̂) small. Let W ⊂ ℂ^n be any subspace of dimension r < n - d, and let Q ∈ ℂ^{n×(d+r)} have orthonormal columns spanning the (generically) d + r dimensional space 𝒬 = V̂ + W. What conditions guarantee that d eigenvalues of the Ritz matrix Q*AQ approximate the d eigenvalues of A associated with the invariant subspace V? You may impose additional assumptions on those eigenvalues of A, such as spectral separation, if needed.",
+  "equivalent_formulation": null,
+  "justification": "The draft is unmistakably targeting the paper's Problem 3.4: it reproduces the same objects, dimensions, and conclusion almost verbatim. The surrounding text in Section 3.3 confirms that the intended scope is Rayleigh-Ritz approximation from an approximate invariant subspace enlarged by an arbitrary r-dimensional buffer space, motivated by restarted Arnoldi. The paper does not supply a proposition or theorem giving an equivalent reformulation of this problem, so the most faithful rewrite is essentially the official Problem 3.4 with the ambient field, notation, and implicit distinctions made explicit.",
+  "citations": [
+    {
+      "section": "1",
+      "label": "Introduction (overview of Section 3 as addressing eigenvalue problems and Krylov/Ritz-value questions)",
+      "page": 3
+    },
+    {
+      "section": "3.3",
+      "label": "Problem 3.4",
+      "page": 23
+    },
+    {
+      "section": "3.3",
+      "label": "Motivation following Problem 3.4",
+      "page": "23-24"
+    }
+  ]
+}

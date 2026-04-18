@@ -1,0 +1,53 @@
+{
+  "arxiv_id": "2406.00790",
+  "question_id": "q_021",
+  "original_question": "If Gamma is an almost symmetric or nearly Gorenstein numerical semigroup, are there upper bounds for the Betti numbers b_i(R_Gamma) of its local semigroup ring R_Gamma that depend only on the embedding dimension edim(Gamma)?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 9847.88,
+  "target_in_paper": "Section 5, Problem 22 ([S18, Question 3.7]): \"Let Gamma be an almost symmetric or nearly Gorenstein numerical semigroup. Are there upper bounds for the Betti numbers b_i(R_Gamma) in terms of edim(Gamma)?\"",
+  "completeness_score": 9,
+  "correct_elements": "Your draft already matches the paper's target almost verbatim. It identifies the correct semigroup classes (almost symmetric and nearly Gorenstein), the correct ring (the local semigroup ring R_Gamma), the correct invariants (the Betti numbers b_i(R_Gamma)), and the correct controlling parameter (the embedding dimension edim(Gamma)). It also stays on the exact open problem stated in Section 5 rather than drifting to a broader boundedness question.",
+  "missing_details": [
+    "The paper works after fixing a field k; the local semigroup ring is R_Gamma = k[[tau^gamma : gamma in Gamma]].",
+    "The Betti numbers are defined via a minimal regular local presentation S -> R_Gamma by b_i(R_Gamma) = dim_k Tor_i^S(R_Gamma, k), and this independence from the choice of S is part of the setup.",
+    "The quantifier over i is implicit in the paper's wording; to make the question stand-alone, it should ask whether for each fixed i there is a bound depending only on e = edim(Gamma).",
+    "Since R_Gamma has embedding dimension e and projective dimension e - 1, the nontrivial range is 1 <= i <= e - 1; b_0(R_Gamma) = 1 is trivial.",
+    "If the question is to be self-contained, the defining conditions for 'almost symmetric' and 'nearly Gorenstein' should be stated, since these are paper-critical hypotheses.",
+    "The paper asks this specifically for the local semigroup ring R_Gamma, not for the associated graded ring G_Gamma or for more general one-dimensional local rings."
+  ],
+  "refined_question": "Fix a field k. Let Gamma subseteq N be a numerical semigroup with minimal generators g_1 < ... < g_e, Frobenius number Frob(Gamma), and set of pseudo-Frobenius numbers PF(Gamma). Assume that Gamma is either almost symmetric, meaning that for every x in Z \\ Gamma either Frob(Gamma) - x lies in Gamma or both x and Frob(Gamma) - x lie in PF(Gamma), or nearly Gorenstein, meaning that for every minimal generator g_i there exists p in PF(Gamma) such that g_i + p - q lies in Gamma for every q in PF(Gamma). Write R_Gamma = k[[tau^gamma : gamma in Gamma]], and for a minimal regular local presentation S -> R_Gamma define b_i(R_Gamma) = dim_k Tor_i^S(R_Gamma, k). Is it true that for every embedding dimension e and every 1 <= i <= e - 1 there exists a constant B_i(e) such that b_i(R_Gamma) <= B_i(e) for every almost symmetric or nearly Gorenstein numerical semigroup Gamma with edim(Gamma) = e?",
+  "equivalent_formulation": null,
+  "justification": "The draft is aiming at Section 5, Problem 22, and not at the earlier embedding-dimension or width problems. The surrounding context in Section 5 supplies the needed hypotheses: the definition of almost symmetric semigroup, then the definition of nearly Gorenstein semigroup and the fact that every almost symmetric semigroup is nearly Gorenstein. Section 1 supplies the precise meanings of R_Gamma and b_i(R_Gamma). The nearby discussion also explains why the i = 1 case is especially important: it generalizes Bresinsky's problem on bounding the number of relations, since rho(Gamma) = b_1(R_Gamma). Theorem 16 then shows that in embedding dimension 4, for almost symmetric semigroups, rho(Gamma) <= 7; together with equation (1), the paper notes that this bounds all Betti numbers in that special case. The analogue for nearly Gorenstein semigroups is explicitly said to be unknown, which confirms that Problem 22 is the sharp paper-faithful target.",
+  "citations": [
+    {
+      "section": "1",
+      "label": "definitions of R_Gamma and b_i(R); equation (1)",
+      "page": "3"
+    },
+    {
+      "section": "5",
+      "label": "definition of almost symmetric semigroup",
+      "page": "8"
+    },
+    {
+      "section": "5",
+      "label": "definition of nearly Gorenstein semigroup",
+      "page": "9"
+    },
+    {
+      "section": "5",
+      "label": "Problem 22",
+      "page": "9"
+    },
+    {
+      "section": "5",
+      "label": "Theorem 16",
+      "page": "9"
+    },
+    {
+      "section": "4",
+      "label": "Problem 17 and Theorem 11",
+      "page": "8"
+    }
+  ]
+}

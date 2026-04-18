@@ -1,0 +1,49 @@
+{
+  "arxiv_id": "1606_07891",
+  "question_id": "q_005",
+  "original_question": "Let u = (u^1, ..., u^{n+1}) ∈ W^{1,n}(Ω, R^{n+1}) be a weak solution of the H-system -div(|∇u|^{n-2}∇u) = H(u) J_u, where H: R^{n+1} -> R is bounded and Lipschitz. If exactly k of the coordinate functions of u are known to be bounded for some k in {1, 2, ..., n}, must u be continuous?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 4762.26,
+  "target_in_paper": "Section 3.2, Problem 3.4: the open question whether partial boundedness of coordinates of a weak solution to the higher-dimensional H-system forces continuity.",
+  "completeness_score": 8,
+  "correct_elements": "Your draft already captures the right equation, the correct Sobolev class W^{1,n}(Ω, R^{n+1}), the hypotheses that H is bounded and Lipschitz, the partial boundedness assumption involving k coordinate functions with k in {1, ..., n}, and the desired conclusion of continuity. This matches the paper's specific open problem much more closely than the broader main regularity problem.",
+  "missing_details": [
+    "The paper poses this in the higher-dimensional unresolved regime n > 2; for n = 2 the corresponding continuity question is already known to have a positive answer in the broader setting (Section 2.2, Problem 2.4).",
+    "Ω should be specified as an open subset of R^n; the paper's general setup for H-systems is local, and Problem 3.4 is stated on Ω rather than only on B^n.",
+    "J_u should be defined explicitly as J_u := ∂_{x_1}u × ··· × ∂_{x_n}u ∈ R^{n+1}, i.e. the vector whose components are the n × n minors of Du.",
+    "“Weak solution” should be made stand-alone by saying the equation holds in the sense of distributions (equivalently via the standard integral identity against compactly supported test functions).",
+    "The paper does not say “exactly k” coordinates are bounded. More faithfully: there exists an index set I ⊂ {1, ..., n+1} with |I| = k, for some k ∈ {1, ..., n}, such that u^i ∈ L^∞(Ω) for i ∈ I.",
+    "It helps to state boundedness as essential boundedness of the selected coordinate functions, i.e. u^i ∈ L^∞(Ω).",
+    "The nearby context matters: Theorem 3.3 gives continuity when all coordinates are bounded (u ∈ L^∞), and the remark immediately before Problem 3.4 explains that the open problem asks whether one can get continuity from boundedness of only some coordinates."
+  ],
+  "refined_question": "Let n > 2, let Ω ⊂ R^n be open, let H : R^{n+1} → R be bounded and Lipschitz, and let u = (u^1, ..., u^{n+1}) ∈ W^{1,n}(Ω, R^{n+1}) be a distributional solution of the H-system\n-div(|∇u|^{n-2}∇u) = H(u) J_u,\nwhere J_u := ∂_{x_1}u × ··· × ∂_{x_n}u ∈ R^{n+1}. Assume that there exists an index set I ⊂ {1, ..., n+1} with |I| = k for some k ∈ {1, ..., n} such that u^i ∈ L^∞(Ω) for every i ∈ I. Does it follow that u is continuous on Ω?",
+  "equivalent_formulation": null,
+  "justification": "The draft is aiming not at the broad continuity problem for all H-system solutions (Problem 2.4), but at the more specific follow-up open problem stated later in the paper: Problem 3.4. Its wording there is essentially the same question about whether boundedness of only k coordinate functions, with k between 1 and n, suffices for continuity. Definition 2.3 supplies the exact H-system notation and the meaning of J_u. Theorem 3.3 gives the known positive result when the whole map u is bounded, and Proposition 3.5 strengthens that all-coordinate-bounded case by allowing H to be merely Hölder continuous; this nearby context is exactly what motivates Problem 3.4.",
+  "citations": [
+    {
+      "section": "2.2",
+      "label": "Definition 2.3",
+      "page": 24
+    },
+    {
+      "section": "2.2",
+      "label": "Problem 2.4",
+      "page": 25
+    },
+    {
+      "section": "3.2",
+      "label": "Theorem 3.3",
+      "page": 30
+    },
+    {
+      "section": "3.2",
+      "label": "Problem 3.4",
+      "page": 31
+    },
+    {
+      "section": "3.4",
+      "label": "Proposition 3.5",
+      "page": "31-32"
+    }
+  ]
+}

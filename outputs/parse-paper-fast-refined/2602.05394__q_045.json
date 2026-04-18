@@ -1,0 +1,52 @@
+{
+  "arxiv_id": "2602.05394",
+  "question_id": "q_045",
+  "original_question": "What is the asymptotic error $epsilon_m*$ as a function of $m$ and $delta$?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 12630.29,
+  "target_in_paper": "Section 6.3, equation (21) and Problem 6.3 (Matrix sign function)",
+  "completeness_score": 5.5,
+  "correct_elements": "The draft identifies the exact quantity epsilon_m^* and the correct governing parameters m and delta, and it matches the paper's official wording in Problem 6.3 almost verbatim.",
+  "missing_details": [
+    "The draft does not define epsilon_m^* by the minimax formula in equation (21).",
+    "It omits the admissible class Pi_{2m}^*, namely the univariate polynomials whose corresponding matrix functions can be computed with m matrix-matrix multiplications plus arbitrarily many matrix additions and scalings.",
+    "It does not specify the approximation domain I = [-1,-delta] union [delta,1].",
+    "It does not state that the target function being approximated is the sign function.",
+    "It does not say that the error is measured in the uniform (L_infinity / max) norm over I.",
+    "It leaves the parameter ranges implicit: m is an integer multiplication budget, and delta is the gap parameter with 0 < delta < 1 so that the interval is nontrivial.",
+    "It does not make clear that the problem is restricted to the computational class Pi_{2m}^*, not to all degree-d polynomials.",
+    "It omits the matrix-function motivation: this is about approximating sign(A) under a fixed budget of matrix-matrix multiplications.",
+    "It does not clarify what asymptotic as a function of m and delta means operationally, namely determining asymptotically sharp dependence or upper/lower bounds in those two parameters.",
+    "The ambient coefficient field of the polynomials is left implicit; in context the problem is posed over a real interval and motivated by symmetric matrices."
+  ],
+  "refined_question": "For each integer m >= 0 and each gap parameter delta in (0,1), let I_delta = [-1,-delta] union [delta,1], and let Pi_{2m}^* be the set of real univariate polynomials p whose corresponding matrix functions p(A) can be computed using at most m matrix-matrix multiplications together with arbitrarily many matrix additions and scalar multiplications. Define epsilon_m^*(delta) := min_{p in Pi_{2m}^*} max_{x in I_delta} |p(x) - sign(x)|, where sign(x) = -1 for x < 0 and sign(x) = 1 for x > 0. Determine the asymptotic dependence of epsilon_m^*(delta) on m and delta.",
+  "equivalent_formulation": null,
+  "justification": "The nearest official formulation is exactly Section 6.3, where the paper first defines epsilon_m^* by equation (21) and then asks in Problem 6.3 for its asymptotic behavior as a function of m and delta. The introduction says that this part of the paper concerns approximation properties of matrix functions that can be computed with a fixed number of matrix-matrix products, which is precisely the role of Pi_{2m}^*. The nearby motivation explains that the intended application is approximation of the matrix sign function for symmetric matrices with spectrum in [-1,-delta] union [delta,1]. Because Problem 6.5 is a separate variant for a compositional subclass of polynomials, the refined question should stay with the unrestricted class Pi_{2m}^* and should not drift to that neighboring problem.",
+  "citations": [
+    {
+      "section": "1",
+      "label": "Introduction",
+      "page": 3
+    },
+    {
+      "section": "6.3",
+      "label": "equation (21)",
+      "page": 42
+    },
+    {
+      "section": "6.3",
+      "label": "Problem 6.3",
+      "page": 42
+    },
+    {
+      "section": "6.3",
+      "label": "Problem 6.5",
+      "page": "42-43"
+    },
+    {
+      "section": "6.3",
+      "label": "Motivation",
+      "page": 43
+    }
+  ]
+}

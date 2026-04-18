@@ -1,0 +1,48 @@
+{
+  "arxiv_id": "1611.01905",
+  "question_id": "q_001",
+  "original_question": "Let f: I -> R be a convex C^infinity function on an interval I, and for a < b in I define N(alpha, beta) = alpha(f(a) + f(b)) + beta f((a + b)/2) with 2alpha + beta = 1. Determine the best possible constants alpha* and beta* for which the upper Hermite-Hadamard-type inequality (1/(b - a)) integral_a^b f(t) dt <= N(alpha*, beta*) holds for every such smooth convex function and every choice of a < b in I. Equivalently, find the smallest universal endpoint weight alpha* such that alpha*(f(a) + f(b)) + (1 - 2alpha*) f((a + b)/2) always dominates the integral mean of every smooth convex function. The paper shows that N(1/4, 1/2) works for all convex integrable functions, and that the sharper candidate N(1/6, 2/3) is best possible only under the additional assumption that f'' is convex (equivalently, f^(4) >= 0), so the universal optimum for all smooth convex functions remains open.",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 5326.98,
+  "target_in_paper": "Section 1 (Introduction), the paper’s unnumbered \"Open Question\" asking for the best possible upper bound N(α*,β*) for all convex maps in C^∞(I), after equations (1.3)–(1.4), the definition of N, the universal bound N(1/4,1/2), and the discussion of the candidate N(1/6,2/3). ([imi.pmf.kg.ac.rs](https://imi.pmf.kg.ac.rs/kjm/pdf/accepted-finished/aef1c7edc49be8fd82020619d77c6530_2536_12152017_122908/kjm_42_3-3.pdf))",
+  "completeness_score": 9,
+  "correct_elements": "Your draft is already very close to the paper’s actual intent: it uses the correct upper-bound functional N(α,β), the necessary normalization 2α+β=1, the correct universal quantifiers over convex smooth functions and a<b, the proved universal bound N(1/4,1/2), and the paper’s sharper candidate N(1/6,2/3), together with the fact that this sharper pair is only proved best possible on the smaller class where the additional convexity condition on f'' is available. It also correctly recognizes that the remaining issue is the universal optimum for all convex C^∞ functions. ([imi.pmf.kg.ac.rs](https://imi.pmf.kg.ac.rs/kjm/pdf/accepted-finished/aef1c7edc49be8fd82020619d77c6530_2536_12152017_122908/kjm_42_3-3.pdf))",
+  "missing_details": [
+    "The ambient setting should be stated explicitly as in the paper: I is an interval in R, f:I→R, and a,b are arbitrary points of I with a<b.",
+    "To match the paper, the notation should be written as N_f(a,b;α,β)=α(f(a)+f(b))+β f((a+b)/2), with α,β positive real constants.",
+    "The paper derives the constraint 2α+β=1 from testing the inequality on nonzero affine functions f(t)=Ct; that necessity should be built into the stand-alone question, not left implicit.",
+    "The phrase \"best possible\" should be tied to the paper’s order structure: because N(α,β) is monotone increasing in α under 2α+β=1, the optimization is equivalently over the smallest admissible endpoint weight α* with β*=1-2α*.",
+    "The paper already narrows the unknown optimum to α*∈[0.18128,0.25] using the explicit convex example g(t)=4 t^(7/2)/35 - t^4/12 on [0,1]; that quantitative bracket is part of the nearby context. ([imi.pmf.kg.ac.rs](https://imi.pmf.kg.ac.rs/kjm/pdf/accepted-finished/aef1c7edc49be8fd82020619d77c6530_2536_12152017_122908/kjm_42_3-3.pdf))",
+    "The open problem is posed for all convex mappings in C^∞(I); the stricter assumption f''(t)>0 is used only in the asymptotic argument that motivates the candidate value 1/6, not as part of the final open question."
+  ],
+  "refined_question": "Let I⊂R be an interval, and for a,b∈I with a<b define N_f(a,b;α,β)=α(f(a)+f(b))+β f((a+b)/2), where α,β>0 and 2α+β=1. Find the best possible pair (α*,β*) such that (1/(b-a))∫_a^b f(t) dt ≤ N_f(a,b;α*,β*) for every convex function f∈C^∞(I) and every choice of a<b in I.",
+  "equivalent_formulation": "Equivalently, using 2α+β=1 and the paper’s monotonicity observation for N_f(a,b;α,β) in α, determine the smallest α* (hence β*=1-2α*)—in particular with α* lying in the paper’s range [0.18128,0.25]—for which (1/(b-a))∫_a^b f(t) dt ≤ α*(f(a)+f(b))+(1-2α*)f((a+b)/2) holds for every interval I⊂R, every convex f∈C^∞(I), and every a,b∈I with a<b.",
+  "justification": "The draft is targeting the paper’s main unresolved problem, not a neighboring generalization: the Introduction sets up the refined Hermite-Hadamard scheme (1.3), imposes the necessary normalization (1.4), defines N_f(a,b;α,β), proves a universal admissible pair via Theorem 2.1, explains why 1/6 is the natural candidate by the local ratio F_f(a,b)→1/6 for smooth strictly convex f, and then states the Open Question asking for the best possible universal bound N(α*,β*) for all convex maps in C^∞(I). Theorem 2.3 supplies the nearby partial resolution showing that N(1/6,2/3) is sharp only on the more restrictive subclass with the extra convexity condition on f''. ([imi.pmf.kg.ac.rs](https://imi.pmf.kg.ac.rs/kjm/pdf/accepted-finished/aef1c7edc49be8fd82020619d77c6530_2536_12152017_122908/kjm_42_3-3.pdf))",
+  "citations": [
+    {
+      "section": "1. Introduction",
+      "label": "equations (1.3)–(1.4) and definition of N(α,β)",
+      "page": 350
+    },
+    {
+      "section": "1. Introduction",
+      "label": "discussion of N(1/4,1/2), monotonicity in α, the limit F_f(a,b)→1/6, and the Open Question",
+      "page": 351
+    },
+    {
+      "section": "1. Introduction",
+      "label": "example g(t)=4t^(7/2)/35 - t^4/12 yielding α*>0.18128",
+      "page": 351
+    },
+    {
+      "section": "2. Results and Proofs",
+      "label": "Theorem 2.1",
+      "page": 351
+    },
+    {
+      "section": "2. Results and Proofs",
+      "label": "Theorem 2.3",
+      "page": "352-353"
+    }
+  ]
+}

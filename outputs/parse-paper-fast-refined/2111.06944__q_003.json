@@ -1,0 +1,64 @@
+{
+  "arxiv_id": "2111.06944",
+  "question_id": "q_003",
+  "original_question": "For subgraph centrality SC(i, beta) = [e^(beta A)]_ii, say that two vertices interlace at beta when SC(i, beta) = SC(j, beta). Given k in N, characterize the smallest graph or graphs that contain a pair of vertices with at least k interlacing values of subgraph centrality. Conversely, for a graph with n vertices, determine the largest possible number of interlacing values for a pair of vertices, decide whether there are graph classes for which the following bound is attained: if A has d distinct eigenvalues, then any two non-cospectral vertices have at most d - 1 interlacing values of subgraph centrality, and find simple constructions of graphs with many interlacing values.",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 7769.63,
+  "target_in_paper": "Section 3, Problem 2, together with the immediately following informal sentence about constructing graphs with many interlacing values.",
+  "completeness_score": 8.5,
+  "correct_elements": "Your draft is very close to the paper’s actual target. It correctly uses the paper’s subgraph-centrality notation SC(i,β) = [e^{βA}]_{ii}, correctly identifies interlacing as equality of two vertex subgraph centralities at a parameter value β, and it reproduces the three substantive parts of Section 3, Problem 2 almost verbatim: (i) for each k, find the smallest graph(s) with a pair of vertices having at least k interlacing values; (ii) for fixed n, maximize the number of interlacing values for a pair of vertices; and (iii) ask whether the d-1 upper bound can be attained. Your final clause about simple constructions also matches the paper’s immediately following informal related question.",
+  "missing_details": [
+    "The paper’s default ambient setting here is a simple undirected graph G with real symmetric adjacency matrix A; weighted/directed/signed variants are discussed separately later, and allowing them changes the problem qualitatively.",
+    "The parameter β is restricted to positive real numbers.",
+    "By Definition 2.6, interlacing is defined for two non-cospectral vertices i and j; this exclusion matters because cospectral vertices agree for all β and would trivialize the counting problem.",
+    "Interlacing values are equivalently the positive zeros of g_{ij}(β) = [e^{βA}]_{ii} - [e^{βA}]_{jj}; for non-cospectral vertices this zero set is discrete.",
+    "The quantity d in the bound d-1 is the number of distinct eigenvalues of the adjacency matrix A, exactly as in Theorem 2.9.",
+    "To make 'smallest graph(s)' stand alone, one should say smallest by order, i.e. by number of vertices; that is the meaning suggested by the surrounding brute-force search over all small graphs with n ≤ 10.",
+    "The paper’s numbered Problem 2 ends with the attainment question for the bound d-1; the request for a simple construction of graphs with many interlacing values is stated separately as a related, more informal problem."
+  ],
+  "refined_question": "Let G be a simple undirected graph with adjacency matrix A, and for β > 0 define the (exponential) subgraph centrality of vertex i by SC(i,β) = [e^{βA}]_{ii}. For two non-cospectral vertices i and j, call β an interlacing value if SC(i,β) = SC(j,β). Given k ∈ N, characterize the smallest graph(s), by number of vertices, that contain a pair of vertices with at least k interlacing values of subgraph centrality. Conversely, for an n-vertex graph, determine the largest possible number of interlacing values for a pair of vertices, and in particular decide whether there exist classes of graphs for which the general upper bound d-1 is attained, where d is the number of distinct eigenvalues of A.",
+  "equivalent_formulation": "Equivalently, for non-cospectral vertices i and j in a simple undirected graph G, study the positive zeros of g_{ij}(β) = [e^{βA}]_{ii} - [e^{βA}]_{jj}: given k ∈ N, characterize the smallest graph(s) for which g_{ij} has at least k positive zeros for some pair i,j; for fixed n, maximize the number of positive zeros of g_{ij}; and determine whether the upper bound d-1 from Theorem 2.9 can be attained.",
+  "justification": "The draft clearly targets Section 3, Problem 2 (p. 16), not the earlier conjectural material: the wording 'Given k ∈ N, characterize the smallest graph(s)... Conversely... what is the largest number... In particular, are there classes of graphs for which the bound d−1 is attained?' is essentially the paper’s Problem 2 verbatim. The nearby sentence 'is there a simple way to construct graphs with many interlacing values?' explains your last clause, but it is presented by the paper as a separate informal add-on rather than part of the numbered problem. To make the question fully stand-alone and faithful to the paper, one must import the default setup from Section 2.1 (simple undirected graph; adjacency matrix A; β > 0; SC(i,β) = [e^{βA}]_{ii}), the precise Definition 2.6 of interlacing for non-cospectral vertices, and the fact that interlacing values are the zeros of g(β). The bound d−1 comes from Theorem 2.9, while Proposition 2.13 gives the sharper sign-change version that the paper mentions as context but does not substitute for Problem 2.",
+  "citations": [
+    {
+      "section": "2.1",
+      "label": "Section setup: simple undirected graph with adjacency matrix A",
+      "page": 3
+    },
+    {
+      "section": "2.1",
+      "label": "Definition of subgraph centrality SC(i,β) = [e^{βA}]_{ii}",
+      "page": 4
+    },
+    {
+      "section": "2.2",
+      "label": "Definition 2.6",
+      "page": 7
+    },
+    {
+      "section": "2.2",
+      "label": "Remark after Definition 2.6 (interlacing values as zeros of g(β))",
+      "page": 7
+    },
+    {
+      "section": "2.3",
+      "label": "Theorem 2.9",
+      "page": 9
+    },
+    {
+      "section": "2.3",
+      "label": "Proposition 2.13",
+      "page": 10
+    },
+    {
+      "section": "3",
+      "label": "Problem 2",
+      "page": 16
+    },
+    {
+      "section": "3",
+      "label": "Informal related question following Problem 2",
+      "page": 16
+    }
+  ]
+}

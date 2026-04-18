@@ -1,0 +1,44 @@
+{
+  "arxiv_id": "2406.00790",
+  "question_id": "q_001",
+  "original_question": "Let Gamma be a numerical semigroup, let R_Gamma = k[[Gamma]] be its local semigroup ring, and let G_Gamma = gr(R_Gamma) be its associated graded ring. Is there a way to compute the Betti numbers b_i(G_Gamma) or the graded Betti numbers b_{i,j}(G_Gamma) by taking homology of simplicial complexes naturally attached to Gamma?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 9830.13,
+  "target_in_paper": "Section 1 (\"Generalities\"), Problem 1.",
+  "completeness_score": 8.5,
+  "correct_elements": "Your draft already isolates the right ring-theoretic object from the paper: the associated graded ring G_Γ of the local semigroup ring k[[Γ]]. It also asks about exactly the right invariants, namely total Betti numbers and graded Betti numbers, and it correctly frames the issue as whether these can be recovered from homology of simplicial complexes attached to Γ. This matches the paper’s first open problem and the immediately preceding discussion explaining that such a simplicial description is known for k[Γ] but unknown for the associated graded ring.",
+  "missing_details": [
+    "The ground field k should be fixed explicitly; the paper notes nearby that Betti numbers of semigroup rings can depend on the characteristic of k.",
+    "G_Γ should be defined as gr_m(k[[Γ]]) = ⊕_{q>=0} m^q/m^{q+1}, where m is the maximal ideal of k[[Γ]].",
+    "The Betti numbers should be identified as those taken over a minimal regular presentation S -> G_Γ, with S a standard graded polynomial ring over k.",
+    "For a self-contained version, one should specify S = k[x_1,...,x_e] when Γ = <n_1,...,n_e>, with x_i mapping to the initial form of t^{n_i} in G_Γ.",
+    "The graded Betti numbers should be spelled out as β_{i,j}^S(G_Γ) = dim_k Tor_i^S(G_Γ,k)_j, and the total Betti numbers as β_i^S(G_Γ) = dim_k Tor_i^S(G_Γ,k).",
+    "The quantifiers should be explicit: the question is asking for a simplicial-homological computation of these numbers for all homological degrees i, and for all internal degrees j in the graded case.",
+    "To stay paper-faithful, the question should make clear that this is an analogue for G_Γ of the known simplicial description for the semigroup ring k[Γ], not a question about k[Γ] itself."
+  ],
+  "refined_question": "Let Γ = <n_1,...,n_e> be a numerical semigroup, let k be a field, let R_Γ = k[[Γ]] ⊂ k[[t]] with maximal ideal m, and let G_Γ = gr_m(R_Γ) = ⊕_{q>=0} m^q/m^{q+1}. If S = k[x_1,...,x_e] is the standard graded polynomial ring mapping onto G_Γ by x_i ↦ in(t^{n_i}), is there a simplicial description for G_Γ analogous to the known one for k[Γ]; that is, do there exist simplicial complexes naturally attached to Γ whose homology over k computes, for every i and j, the total Betti numbers β_i^S(G_Γ) = dim_k Tor_i^S(G_Γ,k) and the graded Betti numbers β_{i,j}^S(G_Γ) = dim_k Tor_i^S(G_Γ,k)_j?",
+  "equivalent_formulation": null,
+  "justification": "The draft is targeting the paper’s Section 1 open problem exactly. In Section 1 the authors define the graded semigroup ring k[Γ], the local semigroup ring k[[Γ]], and the associated graded ring gr_m(k[[Γ]]), then define Betti numbers and graded Betti numbers via minimal regular presentations. Immediately before Problem 1, they recall that the Betti numbers of k[Γ] are computable through homology of simplicial complexes, and they state that what is unknown is whether an analogous simplicial description exists for the associated graded ring. Problem 1 then asks precisely whether the Betti numbers β_i or β_{i,j} can be computed via homology of appropriate simplicial complexes. So your draft is very close, but it needs the fixed field, the maximal ideal m, the presentation ring S, the exact Tor interpretation of β_i and β_{i,j}, and explicit quantification over all i and j to be fully stand-alone and faithful to the paper.",
+  "citations": [
+    {
+      "section": "Introduction",
+      "label": "Introduction",
+      "page": "365-366"
+    },
+    {
+      "section": "Section 1",
+      "label": "Definitions of k[Γ], k[[Γ]], G_Γ = gr_m(k[[Γ]]), Betti numbers, and graded Betti numbers",
+      "page": "366-367"
+    },
+    {
+      "section": "Section 1",
+      "label": "Paragraph immediately before Problem 1",
+      "page": "367"
+    },
+    {
+      "section": "Section 1",
+      "label": "Problem 1",
+      "page": "367"
+    }
+  ]
+}

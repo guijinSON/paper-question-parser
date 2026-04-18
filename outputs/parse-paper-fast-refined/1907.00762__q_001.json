@@ -1,0 +1,62 @@
+{
+  "arxiv_id": "1907.00762",
+  "question_id": "q_001",
+  "original_question": "What is the minimax memory-bounded first-order oracle complexity T_{L,B}(d,M,epsilon) for minimizing a convex L-Lipschitz function F:R^d->R over the Euclidean ball {x: ||x|| <= B} when there exists an optimizer x* with ||x*|| <= B, and an algorithm is allowed T exact first-order oracle calls that each reveal F(x) and a subgradient at x but only M bits of state may be stored between oracle accesses? Equivalently, which query-memory pairs (T,M) are possible or impossible for this problem, preferably up to constant factors and at worst up to polylogarithmic factors in T and M?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 6681.39,
+  "target_in_paper": "Section 4, Question 1, read together with Section 2's formal definition of T_{L,B}(d,M,epsilon) in Eq. (4) and the possible/impossible tradeoff language.",
+  "completeness_score": 8.5,
+  "correct_elements": "Your draft already captures almost all of the paper's actual target: the ambient space is R^d, the feasible region is the Euclidean ball, the objective class is convex and L-Lipschitz, an optimizer exists with norm at most B, the oracle returns an exact function value and a subgradient, only M bits of persistent state may be kept between oracle calls, and the goal is the minimax quantity T_{L,B}(d,M,epsilon) or equivalently the possible/impossible (T,M) tradeoff. It also matches the paper's preference for a complete characterization up to constants or at worst polylogarithmic factors. There are no extra algebraic hypotheses here such as degree, homogeneity, characteristic, or nilpotency; this is an optimization problem over Euclidean space.",
+  "missing_details": [
+    "The paper formalizes the algorithm class A_{M,T} as deterministic encoder/decoder/output triples: decoders phi_t:{0,1}^M->R^d, encoders psi_t:{0,1}^M x R x R^d->{0,1}^M, an output map zeta:{0,1}^M->R^d, blank initial memory mu_1=0, recursive updates x_t=phi_t(mu_t), mu_{t+1}=psi_t(mu_t,F(x_t),g_t), and output A(F)=zeta(mu_T).",
+    "The M-bit restriction applies only to the persistent state between oracle accesses; the encoding/decoding computations themselves may use arbitrary memory and real-number computation.",
+    "The official open problem is stated for deterministic algorithms only; randomized algorithms are mentioned only as an analogous variant, not as the main question.",
+    "The worst-case quantifier in Eq. (4) ranges not only over F in F^d_{L,B} but also over every valid subgradient choice used by the oracle when F is nondifferentiable at a queried point.",
+    "The paper defines F^d_{L,B} as all convex, L-Lipschitz functions F:R^d->R for which there exists x* in argmin_x F(x) with ||x*||_2<=B, and the error criterion is F(A(F)) - min_{||x||_2<=B} F(x) <= epsilon.",
+    "After introducing T_{L,B}(d,M,epsilon), the paper normalizes to L=B=1 and writes T(d,M,epsilon); this is the notation used in the official Question 1.",
+    "Section 3 says the nontrivial regime is d=O(1/epsilon^2); when d=Omega((1/epsilon^2) log(1/epsilon)), gradient descent is already optimal in both query and memory complexity.",
+    "Question 1 asks for a complete characterization of the entire tradeoff region, with a pair (T,M) declared possible iff T >= T(d,M,epsilon) and impossible iff T < T(d,M,epsilon).",
+    "The paper highlights as especially interesting the scale where d is larger than polylogarithmic in 1/epsilon but smaller than polynomial in 1/epsilon, so that linear-memory O(d log(1/epsilon)) is genuinely subquadratic while 1/epsilon^2 queries are not polynomial in d.",
+    "The Euclidean norm is used throughout: both the radius-B constraint and the Lipschitz condition are with respect to ||.||_2."
+  ],
+  "refined_question": "Let A_{M,T} be the class of deterministic first-order algorithms with an M-bit persistent-memory bottleneck between oracle calls: starting from mu_1=0, each round uses a decoder x_t=phi_t(mu_t), receives an exact oracle reply (F(x_t),g_t) with g_t in partial F(x_t), updates mu_{t+1}=psi_t(mu_t,F(x_t),g_t), and finally outputs A(F)=zeta(mu_T), where phi_t, psi_t, and zeta may otherwise use arbitrary real computation. For F^d_{L,B} := {F:R^d->R : F is convex and L-Lipschitz with respect to ||.||_2, and there exists x* in argmin_x F(x) with ||x*||_2<=B}, define T_{L,B}(d,M,epsilon) to be the least T in N such that some A in A_{M,T} guarantees, uniformly over all F in F^d_{L,B} and all valid subgradient choices along the queried trajectory, that F(A(F)) - min_{||x||_2<=B} F(x) <= epsilon. What is the complete characterization of T_{L,B}(d,M,epsilon), equivalently of the possible and impossible query-memory pairs (T,M), preferably up to constant factors and at worst up to polylogarithmic factors in T and M, especially in the nontrivial regime d=O((LB/epsilon)^2)?",
+  "equivalent_formulation": "After the paper's without-loss normalization L=B=1 and notation T(d,M,epsilon), give a complete characterization of the possible and impossible pairs (T,M), where a pair is possible iff T >= T(d,M,epsilon) and impossible iff T < T(d,M,epsilon), preferably up to constant factors and at worst up to polylogarithmic factors in T and M.",
+  "justification": "Your draft is aiming at the paper's main open problem, namely Section 4, Question 1, not the narrower boundary questions later in the same section. The formal quantity T_{L,B}(d,M,epsilon) and the equivalence to possible/impossible query-memory pairs come directly from Section 2, Eq. (4), together with the encoder/decoder model of A_{M,T}. Section 3 supplies the nearby context that makes Question 1 the right target: the only tradeoffs known in the paper are the two extremes, achieved by memory-bounded gradient descent and memory-bounded center-of-mass, together with the information-theoretic memory lower bound. So the faithful refinement is to keep your full-tradeoff formulation, but to make explicit the deterministic algorithm model, the adversarial choice of valid subgradients, the output/error criterion, and the paper's preferred nontrivial dimensional regime.",
+  "citations": [
+    {
+      "section": "2. Problem Formulation",
+      "label": "definition of A_{M,T}, Eqs. (2)-(4)",
+      "page": 2
+    },
+    {
+      "section": "2. Problem Formulation",
+      "label": "footnote 1 (deterministic algorithms)",
+      "page": 2
+    },
+    {
+      "section": "3. Current Knowledge",
+      "label": "discussion of the unknown tradeoff region and Figure 1",
+      "page": 3
+    },
+    {
+      "section": "4. Challenges",
+      "label": "Question 1",
+      "page": 4
+    },
+    {
+      "section": "Appendix A",
+      "label": "Theorem 1",
+      "page": 5
+    },
+    {
+      "section": "Appendix B",
+      "label": "Theorem 3",
+      "page": 7
+    },
+    {
+      "section": "Appendix C",
+      "label": "Theorem 5",
+      "page": 9
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "arxiv_id": "1408.0142",
+  "question_id": "q_002",
+  "original_question": "Consider a cyclic polling system with a fixed cyclic order of N queues and general renewal arrival processes at the queues. When the switch-over times are deterministic and all deterministic switch-over times grow without bound while their ratios remain fixed, provide a rigorous proof that the system converges to a deterministic cyclic system.",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 4104.96,
+  "target_in_paper": "Open problem 2, namely to provide a rigorous proof of Conjecture 4.2 in Section 4.2.",
+  "completeness_score": 8.0,
+  "correct_elements": "Your draft correctly identifies the paper's second open problem: a cyclic polling system with a fixed cyclic order of N queues, general renewal arrival processes, deterministic switch-over times that become large, and the goal of proving convergence to a deterministic cyclic system. Including the fixed-ratio growth of the switch-over times is also faithful to the nearby asymptotic regime used in the Poisson-arrival discussion.",
+  "missing_details": [
+    "The paper restricts this problem to the class of cyclic polling systems with N queues that admit a multi-type branching-process interpretation; equivalently, the service disciplines must be of branching type in the sense defined in Section 2.",
+    "The surrounding model includes the usual queueing assumptions: queue-specific service times Bi, switch-over times Si from Qi to Qi+1, and mutual independence of arrival, service, and switch-over processes; these assumptions are implicit in your draft.",
+    "The natural asymptotic parameter is the total switch-over time S = sum_i Si, and the nearby scaling is fluid scaling by S with S -> infinity while the proportions Si/S remain fixed.",
+    "The paper works in steady state and assumes the parameters are such that the relevant steady-state queue-length distributions exist; your draft does not state stability/existence of steady state.",
+    "The phrase 'converges to a deterministic cyclic system' should be unpacked: nearby context explains this as the fluid-scaled queue lengths at polling instants becoming deterministic, with correspondingly deterministic visit/intervisit times and continuous demand and service rates.",
+    "The official target is specifically a rigorous proof of Conjecture 4.2, i.e. an extension of the known large-switch-over deterministic behavior from the Poisson-arrival case to general renewal arrivals, rather than a broader fluid-limit problem.",
+    "No ambient ring/field, homogeneity, degree, nilpotency, or 'for all sufficiently large m' conditions are relevant here; the missing information is entirely in the queueing-model hypotheses and scaling conventions."
+  ],
+  "refined_question": "Let Q1, ..., QN be a single-server cyclic polling system visited in the fixed order Q1, Q2, ..., QN, Q1, ... , and assume the service disciplines are of branching type so that the model admits the multi-type branching-process interpretation of Section 2. Suppose the queues have general renewal arrival processes, queue-specific service times Bi, deterministic switch-over times Si from Qi to Qi+1, the usual mutual independence assumptions, and stable steady-state operation. Writing S = sum_i Si, consider the regime S -> infinity with the proportions Si/S held fixed. Prove Conjecture 4.2 (equivalently, solve Open problem 2): under this S-scaling, the polling system converges to a deterministic cyclic system, in the sense suggested by the Poisson-arrival large-switch-over asymptotics, namely that the fluid-scaled queue lengths at polling instants, and hence the associated visit and intervisit times, become deterministic and correspond to a cycle with continuous demand rates and deterministic service rates.",
+  "equivalent_formulation": null,
+  "justification": "The draft clearly targets the second open problem rather than the G/1-L problem of Section 3, because the paper's only statement involving general renewal arrivals, deterministic switch-over times tending to infinity, and a requested rigorous proof is Conjecture 4.2 together with Open problem 2 in Section 4.2. To make the question stand-alone and paper-faithful, the rewrite restores the scope restriction from Section 4 that the model belong to the branching-type class, imports the scaling regime from the Poisson-arrival asymptotics in Section 4.1 (total switch-over time S tending to infinity with fixed switch-over ratios), and spells out the paper's nearby informal meaning of 'deterministic cyclic system' via deterministic fluid-scaled queue lengths and cycle components.",
+  "citations": [
+    {
+      "section": "2",
+      "label": "Model and notation",
+      "page": "366-367"
+    },
+    {
+      "section": "4",
+      "label": "Open problem 2: switch-over time asymptotics",
+      "page": 369
+    },
+    {
+      "section": "4.1",
+      "label": "equation (7) and the scaling regime S -> infinity with fixed switch-over ratios",
+      "page": 370
+    },
+    {
+      "section": "4.2",
+      "label": "Conjecture 4.2",
+      "page": 371
+    },
+    {
+      "section": "4.2",
+      "label": "Open problem 2",
+      "page": 372
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "arxiv_id": "1102.5727",
+  "question_id": "q_006",
+  "original_question": "A pair of Costas permutations g1,g2:[n]->[n] is called twin when both are obtained from a Costas permutation f:[n]->[n] by shifting the graph of f one step and adding opposite corner points exactly as specified in Definition 7. Is the unique known example of a twin pair the only one, or do finitely or infinitely many twin Costas pairs exist? If more exist, can they be constructed systematically?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 1205.54,
+  "target_in_paper": "Section 4.3, Problem 6, read together with Definition 7: the open problem on the status of twin Costas arrays.",
+  "completeness_score": 8,
+  "correct_elements": "The draft correctly targets the paper’s twin-Costas question rather than the broader sporadic-array problem. It captures the three components of Problem 6: whether the only known example is unique, whether there are finitely or infinitely many such pairs, and whether further examples admit a systematic construction. It also correctly ties the notion of 'twin' to Definition 7’s operation of shifting a Costas permutation and adjoining corner points.",
+  "missing_details": [
+    "To be fully stand-alone, the question should define [n] = {1, ..., n}.",
+    "It should state what a Costas permutation is: a bijection h:[m]->[m] whose distance vectors (i-j, h(i)-h(j)) are all distinct.",
+    "It should give the exact Definition 7 formulas for the twins, not only the verbal description 'shift the graph one step and add opposite corner points.'",
+    "Definition 7, as printed, is internally inconsistent: it says g1,g2:[n]->[n] but then defines values for i=2,...,n+1 and at n+2. A self-contained reformulation must resolve this evident typo by taking g1,g2 to have order n+2.",
+    "The draft omits the paper’s contextual fact that the only known example is generated from a sporadic Costas array of order 21.",
+    "The quantifier should be explicit: the problem asks about all twin pairs arising from some Costas permutation f via Definition 7, not only about the currently known example."
+  ],
+  "refined_question": "Let [n] := {1, ..., n}, and call a bijection h:[m]->[m] a Costas permutation if the vectors (i-j, h(i)-h(j)) are pairwise distinct for 1 <= j < i <= m. Interpreting the evident size typo in Definition 7 in the natural way, let f:[n]->[n] be a Costas permutation and define g1,g2:[n+2]->[n+2] by g_j(i)=f(i-1)+1 for 2 <= i <= n+1, together with g1(1)=1, g1(n+2)=n+2, g2(1)=n+2, and g2(n+2)=1. If both g1 and g2 are Costas permutations, call {g1,g2} a twin Costas pair. Is the only known such pair—generated from a sporadic Costas array of order 21—the unique twin Costas pair, or do finitely many or infinitely many twin Costas pairs exist? If further pairs exist, can they be constructed systematically?",
+  "equivalent_formulation": null,
+  "justification": "The draft is aiming directly at Section 4.3’s Problem 6, not at the neighboring broader Problem 5 on sporadic Costas arrays. The paper first introduces twin Costas permutations in Definition 7 and then asks, essentially verbatim, whether the only known example is the only one, whether there are finitely or infinitely many such pairs, and whether they can be systematically constructed (Section 4.3, Definition 7 and Problem 6, p. 10). The nearby context also says that the only known example comes from a sporadic Costas array of order 21, so that fact belongs in a paper-faithful standalone version (Section 4.3, p. 10). To make the question self-contained, one must import the paper’s basic notation [n] and the definition of a Costas permutation from Section 3 and Definition 1 (pp. 3 and 10). Finally, Definition 7 as printed contains an evident notational inconsistency: it labels g1 and g2 as maps [n]->[n] while simultaneously specifying values at n+2 and for indices 2 through n+1. Since the displayed formulas clearly define permutations of order n+2, the refined question makes that implicit correction explicit while otherwise staying as close as possible to the paper’s intent.",
+  "citations": [
+    {
+      "section": "3",
+      "label": "notation [n]",
+      "page": 3
+    },
+    {
+      "section": "3.1",
+      "label": "Definition 1",
+      "page": 3
+    },
+    {
+      "section": "4.3",
+      "label": "Definition 7",
+      "page": 10
+    },
+    {
+      "section": "4.3",
+      "label": "Problem 6",
+      "page": 10
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "arxiv_id": "2505.15351",
+  "question_id": "q_007",
+  "original_question": "For the parametrized object model in which the object is expressed using feature weights, feature types, and feature locations, can one prove uniqueness and stability guarantees for recovering those parameters from phaseless measurements, and what sufficient assumptions would make such guarantees valid?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 10994.65,
+  "target_in_paper": "Section 4.1, Question 4.3: the open problem asking whether one can establish uniqueness and stability guarantees for the paper’s physics-informed parametrized object model with unknown feature weights, feature identities, and feature locations. Although Question 4.3 prints “model (7),” the immediately surrounding context shows that the intended target is the general parametrized model (5), whose parameter tuple is ((a_j, μ_j, t_j)) for 1 ≤ j ≤ N; Section 4.2 then revisits this through a simplified sparse-crystallography model (7). ([ir.cwi.nl](https://ir.cwi.nl/pub/35739/35739.pdf))",
+  "completeness_score": 8,
+  "correct_elements": "Your draft already captures the core content of Question 4.3 very well: it identifies the parametrized object model, the three unknown parameter classes (weights, feature types, locations), the goal of recovering them from phaseless data, and the paper’s emphasis on uniqueness, stability, and sufficient assumptions. That is exactly the substance of the Section 4.1 question. ([ir.cwi.nl](https://ir.cwi.nl/pub/35739/35739.pdf))",
+  "missing_details": [
+    "The exact object model is not stated: f is modeled as f = a0 λ + Σ_{j=1}^N a_j S_{t_j} μ_j(σ), not merely as an abstract feature expansion. Here λ is the Lebesgue-measure background term. ([ir.cwi.nl](https://ir.cwi.nl/pub/35739/35739.pdf))",
+    "The draft does not say that the “feature types” are represented by normalized, localized complex measures μ_j, with μ_j belonging to an admissible feature set E. ([ir.cwi.nl](https://ir.cwi.nl/pub/35739/35739.pdf))",
+    "The paper also records that the admissible feature family E is small relative to the number of features, written as |E| ≪ N, and that the measures μ_j may depend on an experimental parameter σ. ([ir.cwi.nl](https://ir.cwi.nl/pub/35739/35739.pdf))",
+    "The unknown parameter set should be named explicitly as ((a_j, μ_j, t_j)) for 1 ≤ j ≤ N; the draft refers to these informally but does not make the indexing and tuple structure explicit. ([ir.cwi.nl](https://ir.cwi.nl/pub/35739/35739.pdf))",
+    "The ambient mathematical setting is not fixed in the draft. Section 2 gives both finite-dimensional and infinite-dimensional notation, while Section 4.1 phrases the model in terms of complex-valued measures; so a stand-alone question should avoid silently collapsing the setting to only vectors unless one intentionally switches to the simplified Section 4.2 model. ([ir.cwi.nl](https://ir.cwi.nl/pub/35739/35739.pdf))",
+    "The draft does not note the paper’s internal cross-reference inconsistency: Question 4.3 says “model (7),” but the next sentence explains the parameters of model (5), and Section 4.2 explicitly says it discusses Question 4.3 for a simplified model. A paper-faithful rewrite should therefore target the general model (5) rather than the later simplification. ([ir.cwi.nl](https://ir.cwi.nl/pub/35739/35739.pdf))",
+    "The measurement side is left generic in Question 4.3; concrete ptychographic measurements A(f)(r, ξ) = |F(f · S_r w)(ξ)|^2 appear only later in Problem 4.4 for the simplified sparse-crystallography model. So a faithful rewrite should not silently hard-wire Problem 4.4 unless one intentionally switches to that simplified problem. ([ir.cwi.nl](https://ir.cwi.nl/pub/35739/35739.pdf))",
+    "The draft is slightly broader than the paper if read as asking for arbitrary reconstruction guarantees; the paper asks specifically for “reasonable sufficient conditions,” not for necessary-and-sufficient conditions or for algorithms. ([ir.cwi.nl](https://ir.cwi.nl/pub/35739/35739.pdf))"
+  ],
+  "refined_question": "Let f be modeled by the physics-informed parametrization f = a0 λ + Σ_{j=1}^N a_j S_{t_j} μ_j(σ), where λ is the Lebesgue-measure background, each μ_j belongs to an admissible set E of normalized, localized complex features, and the unknown parameter tuple is ((a_j, μ_j, t_j)) for 1 ≤ j ≤ N. Can one establish uniqueness and stability guarantees for recovering these parameters from phaseless measurements of f, and identify reasonable sufficient conditions under which such recovery holds? ([ir.cwi.nl](https://ir.cwi.nl/pub/35739/35739.pdf))",
+  "equivalent_formulation": null,
+  "justification": "This is the closest paper-faithful sharpening of your draft because Question 4.3 is the only nearby open problem that asks for uniqueness and stability of a parametrized object model with weights, feature identities, and locations. I did not replace it by Problem 4.4 or Questions 4.6–4.7, since those belong to Section 4.2 and deliberately simplify the model by fixing the feature type to a Dirac delta, so they no longer ask for recovery of μ_j. The surrounding text makes clear that Question 4.3 is really about the general model (5), despite the printed reference to “model (7).” ([ir.cwi.nl](https://ir.cwi.nl/pub/35739/35739.pdf))",
+  "citations": [
+    {
+      "section": "2.1-2.2",
+      "label": "Notation",
+      "page": "2-3"
+    },
+    {
+      "section": "4.1",
+      "label": "Equation (5)",
+      "page": "9-10"
+    },
+    {
+      "section": "4.1",
+      "label": "Question 4.3",
+      "page": 11
+    },
+    {
+      "section": "4.2",
+      "label": "Problem 4.4",
+      "page": 11
+    },
+    {
+      "section": "4.2",
+      "label": "Questions 4.6-4.7",
+      "page": 12
+    }
+  ]
+}

@@ -1,0 +1,62 @@
+{
+  "arxiv_id": "1204.1895",
+  "question_id": "q_009",
+  "original_question": "At the critical one-dimensional scaling regime δ = 1, Theorem 6.3 proves convergence to the running maximum of Brownian motion under the assumptions of i.i.d. cookie stacks, boundedly many non-placebo cookies per site, and weak ellipticity. If one instead assumes the broader condition (6.2) from Theorem 6.1 - namely stationary ergodic cookie stacks, nonnegative drift in the +1 direction, uniform ellipticity, and the additional integrability requirement stated there - does the same limit theorem remain true? If it does, can the positive-drift assumption also be removed?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 2153.95,
+  "target_in_paper": "Problem 6.4 in Section 6.1: \"Replace the assumptions (IID), (BD), and (WEL) of Theorem 6.3 by (6.2). Does the result of Theorem 6.3 remain true? If yes, can one also remove (POS1)?\"",
+  "completeness_score": 8.5,
+  "correct_elements": "Your draft is already very close to the paper’s exact target. It correctly identifies the critical regime δ = 1, the specific limit theorem in Theorem 6.3 (convergence to the running maximum of Brownian motion), the intended replacement of the hypotheses by the broader package (6.2) from Theorem 6.1, and the paper’s second follow-up question about removing the positivity assumption.",
+  "missing_details": [
+    "The paper’s question is about a one-dimensional nearest-neighbor excited random walk on Z in a cookie environment, started at 0.",
+    "The convergence is under the averaged law P0, not a quenched law.",
+    "The limit is functional convergence in the Skorokhod space D[0,∞) with the J1 topology.",
+    "The exact conclusion of Theorem 6.3 is that there exists a constant b > 0 such that X_[n·]/(b√(n log n)) converges to S(·), where S(t) = max_{s≤t} B(s) for a standard Brownian motion B.",
+    "The draft should define δ explicitly as the expected total drift per site, since δ = 1 is not otherwise self-contained.",
+    "The shorthand assumptions should be unpacked: (IID) means the cookie stacks are i.i.d.; (SE) means stationary and ergodic; (WEL) and (UEL) are weak and uniform ellipticity; (BD) means there is a deterministic M with M(z) ≤ M almost surely for every site z.",
+    "The condition (POS1) should be stated explicitly in dimension 1 as every cookie having nonnegative drift to +1.",
+    "The integrability clause in (6.2) should be written explicitly rather than referred to indirectly.",
+    "To stay exactly paper-faithful, the second sentence should remain conditional: only if the theorem still holds under (6.2) does the paper ask whether (POS1) can also be removed.",
+    "The paper’s nearby context explains that δ = 1 is the critical recurrent regime in dimension 1, so that context should be made explicit if the question is to stand alone."
+  ],
+  "refined_question": "For the one-dimensional nearest-neighbor excited random walk X = (X_n)_{n≥0} on Z started at 0 under the averaged law P0, let δ := E[∑_{i≥1} ∑_{e∈{-1,+1}} ω(0,e,i)e] be the expected total drift per site. In the critical case δ = 1, Theorem 6.3 shows that under (IID), (BD), and (WEL) there exists b > 0 such that X_[n·]/(b√(n log n)) converges in distribution in D[0,∞) with the J1 topology to S(·), where B is standard Brownian motion and S(t) := max_{s≤t} B(s). Does this same J1 functional limit theorem remain valid if one replaces (IID), (BD), and (WEL) by the hypothesis package (6.2), namely: stationary ergodic cookie stacks (SE), nonnegative drift of every cookie toward +1 (POS1), uniform ellipticity (UEL), and the integrability condition E[sup{i∈N : |ω(0,1,i) - 1/2| ≥ ε}] < ∞ for each ε > 0? If so, can the nonnegative-drift assumption (POS1) also be removed?",
+  "equivalent_formulation": null,
+  "justification": "The draft is targeting the paper’s official open problem almost verbatim: Problem 6.4 in Section 6.1 asks exactly whether the hypotheses of Theorem 6.3 can be replaced by (6.2), and then whether (POS1) can also be removed. The nearby context fixes the exact theorem being generalized: Theorem 6.3 is the δ = 1 functional limit theorem to the running maximum of Brownian motion, and Theorem 6.1 is the immediately preceding recurrent-regime theorem using the package (6.2). To make the question truly stand-alone, one must also import the model setup and notation from Sections 1, 3, and 6: what the ERW is, what δ means, that δ = 1 is the critical recurrent one-dimensional regime, that the law is P0, and that the convergence is J1-convergence in D[0,∞).",
+  "citations": [
+    {
+      "section": "1",
+      "label": "Model description; definitions (1.1), (1.2), and assumptions (SE), (WEL), (UEL), (POSℓ), (BD)",
+      "page": "2-4"
+    },
+    {
+      "section": "3.1",
+      "label": "Remark 3.8",
+      "page": 12
+    },
+    {
+      "section": "3.1",
+      "label": "Theorem 3.10",
+      "page": "12-13"
+    },
+    {
+      "section": "6.1",
+      "label": "setup before Theorem 6.1 (definition of D[0,∞) and J1 convergence)",
+      "page": 25
+    },
+    {
+      "section": "6.1",
+      "label": "Theorem 6.1",
+      "page": 25
+    },
+    {
+      "section": "6.1",
+      "label": "Theorem 6.3",
+      "page": 25
+    },
+    {
+      "section": "6.1",
+      "label": "Problem 6.4",
+      "page": 26
+    }
+  ]
+}

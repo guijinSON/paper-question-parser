@@ -1,0 +1,67 @@
+{
+  "arxiv_id": "2201.09150",
+  "question_id": "q_015",
+  "original_question": "For the conflict-zone memory model extended with a diffusive memory-smearing term, determine whether time-dependent solutions exist in a bounded periodic domain with a top-hat detection kernel.",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 7979.67,
+  "target_in_paper": "Open Problem 15 in Section 2.2.2: the time-dependent existence question for the memory-smearing extension (2.15) of the conflict-zone cognitive-map model (2.13), posed with periodic boundary conditions and a top-hat detection function on a bounded domain.",
+  "completeness_score": 7.5,
+  "correct_elements": "Your draft correctly identifies the right part of the paper: the conflict-zone memory model, its extension by a diffusive memory-smearing term, the focus on the time-dependent problem rather than steady states or travelling waves, and the setting of a bounded domain with periodic boundary conditions and a top-hat detection function.",
+  "missing_details": [
+    "The exact target is Open Problem 15, not the neighboring Open Problem 10 for the nondiffusive conflict-zone model (2.13), Open Problem 16 on the limit ε_i -> 0+, or Open Problems 17-19 for the nonlocal-conflict extension (2.16).",
+    "The full PDE system is missing: for i = 1, ..., n, the paper asks about solutions to model (2.15), not just an informal 'memory model with smearing.'",
+    "The unknowns should be named explicitly: u_i(x,t) are the interacting population densities and k_i(x,t) are the cognitive maps storing memory of conflict zones.",
+    "The nonlocal operator must be defined: k_i^{g,R} is obtained from the general perception operator a^{g,R}(x,t) = integral over the domain of a(y,t) g(x-y) dy, specialized here to the cognitive map.",
+    "The top-hat detection function itself is not defined in the draft; in the paper it is the normalized indicator of the perceptual ball/range of radius R (Eq. (2.3), with standard higher-dimensional analogue allowed).",
+    "The parameter set and restrictions are missing: d_i are diffusion rates, gamma_i are advection rates, rho_ij are encounter rates, mu and beta are decay/update parameters, and the memory-smearing coefficient satisfies 0 < ε_i << d_i.",
+    "The draft says only 'determine whether solutions exist,' but the paper asks more precisely 'in what sense do solutions exist,' i.e. the function-space and regularity level of existence (weak/strong/classical, local/global) is part of the question.",
+    "Initial data are implicit in the paper's phrase 'time-dependent problem' and should be made explicit in a stand-alone formulation.",
+    "For full stand-alone clarity, the bounded periodic domain should be interpreted as a bounded domain with periodic boundary conditions, equivalently a torus in higher dimensions.",
+    "The paper also notes that, because the k_i-equation now contains diffusion, one expects more regularity than in the nondiffusive model; that contextual expectation is absent from the draft."
+  ],
+  "refined_question": "Let Ω be a bounded spatial domain with periodic boundary conditions (equivalently, a torus in higher dimensions), let g_R be the periodic top-hat detection function of perceptual radius R > 0, and define the perception operator by f^{g,R} = g_R *_{per} f. For n interacting populations u_i(x,t) with conflict-zone cognitive maps k_i(x,t), consider the memory-smearing extension of the conflict-zone model given, for i = 1, ..., n, by ∂_t u_i = d_i Δu_i - γ_i ∇·(u_i ∇k_i^{g,R}) and ∂_t k_i = ε_i Δk_i + u_i Σ_{j=1}^n ρ_{ij}u_j - (μ + βu_i)k_i, with periodic initial data and 0 < ε_i << d_i. In what sense (for example, weak, strong, or classical; local or global in time) do time-dependent solutions to this bounded periodic top-hat problem exist?",
+  "equivalent_formulation": "Equivalently, in higher dimensions one may ask the same question with the system posed directly on a torus, since the paper states that periodic boundary conditions are equivalent to studying the problem on a torus.",
+  "justification": "The draft is clearly aiming at Open Problem 15 in Sect. 2.2.2, not at the earlier nondiffusive conflict-zone problem or the later nonlocal-conflict variant. The paper first introduces the conflict-zone cognitive-map model (2.13), where k_i records remembered conflict zones, then proposes a 'moderately simple generalization' in which the cognitive map itself diffuses to model 'memory smearing,' yielding (2.15) with 0 < ε_i << d_i. Immediately after writing that system, the paper asks: 'In what sense do solutions exist solving the time-dependent problem (2.15) subject to periodic boundary conditions and top-hat function in a bounded domain?' The needed notation for the nonlocal term comes from the general perception operator a^{g,R} in Sect. 2.1, and the top-hat kernel is defined there as the normalized indicator of the perceptual range. Later discussion of boundary conditions explains that periodic boundary conditions are the analytically easiest case and are equivalent to working on a torus in higher dimensions; the well-posedness discussion also emphasizes that top-hat kernels are analytically difficult because of their discontinuity.",
+  "citations": [
+    {
+      "section": "2.1",
+      "label": "Eq. (2.3)",
+      "page": 8
+    },
+    {
+      "section": "2.1",
+      "label": "Eq. (2.5)",
+      "page": 9
+    },
+    {
+      "section": "2.2.2",
+      "label": "Conflict-zone cognitive-map setup before Eq. (2.13)",
+      "page": "15-16"
+    },
+    {
+      "section": "2.2.2",
+      "label": "Eq. (2.13)",
+      "page": 16
+    },
+    {
+      "section": "2.2.2",
+      "label": "Eq. (2.15)",
+      "page": 18
+    },
+    {
+      "section": "2.2.2",
+      "label": "Open Problem 15",
+      "page": 18
+    },
+    {
+      "section": "4.1.2",
+      "label": "Periodic boundary condition discussion; torus equivalence",
+      "page": "39-40"
+    },
+    {
+      "section": "5.1.1",
+      "label": "Well-posedness discussion for smooth kernels vs. top-hat discontinuity",
+      "page": 54
+    }
+  ]
+}

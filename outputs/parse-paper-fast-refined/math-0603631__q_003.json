@@ -1,0 +1,42 @@
+{
+  "arxiv_id": "math-0603631",
+  "question_id": "q_003",
+  "original_question": "Let D be a bounded domain in R^3, for example a box or a ball, and let f in L^2(D) be nonzero. Define F(z) = integral over D of f(x) exp(i z . x) dx for z in C^3, so F is an entire function of exponential type. Let L_1 and L_2 be algebraic varieties given by polynomial equations L_j(z) = 0, and assume they are transversal in the sense stated in the paper. For j = 1, 2, let H_j = L^2(L_j, dm_j), where dm_j are smooth, rapidly decaying, strictly positive measures on L_j such that every exponential exp(i z . x) with x in R^3 belongs to H_j. Define a linear operator T from H_1 to H_2 by T h = integral over L_1 of h(u_1) F(u_1 + u_2) dm_1. Must T always have infinite-dimensional range, equivalently, is it true that T can never be a finite-rank operator under these assumptions?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 13520.23,
+  "target_in_paper": "Section 3.1, Problem 3.1 in Section 3, A problem in operator theory. The neighboring Problem 3.2 is presented only as a closely related second form, not as the exact finite-rank question stated in your draft. ([math.ksu.edu](https://www.math.ksu.edu/~ramm/papers/547.pdf))",
+  "completeness_score": 9,
+  "correct_elements": "Your draft already captures essentially all of the core data of Problem 3.1: the bounded domain D ⊂ R^3, the nonzero function f ∈ L^2(D), the entire function of exponential type F(z) = ∫_D f(x)e^{iz·x}dx, the two algebraic sets in C^3, the Hilbert spaces H_j = L^2(L_j, dm_j) built from smooth rapidly decaying strictly positive measures, the transversality assumption, the operator T with kernel F(u_1 + u_2), and the question whether T must fail to be finite-rank, equivalently whether its range must be infinite-dimensional. That is exactly the content of Problem 3.1. ([math.ksu.edu](https://www.math.ksu.edu/~ramm/papers/547.pdf))",
+  "missing_details": [
+    "The paper makes the defining equations more precise: for each j = 1, 2, one starts with a single polynomial L_j(z) of degree at least 1, deg L_j(z) ≥ 1, and then defines the variety by L_j := {z ∈ C^3 : L_j(z) = 0}. ([math.ksu.edu](https://www.math.ksu.edu/~ramm/papers/547.pdf))",
+    "Besides requiring each exponential e^{iz·x} to lie in H_j, the paper explicitly assumes that the measures dm_j decay so rapidly that for every h ∈ H_1 the output g = Th actually belongs to H_2; it gives decay like e^{-|z|^2} as an example. ([math.ksu.edu](https://www.math.ksu.edu/~ramm/papers/547.pdf))",
+    "To match the paper exactly, transversality should be stated in the paper’s concrete form: there exist two points, one on each variety, such that the union of bases of the tangent spaces at those points forms a basis of C^3. ([math.ksu.edu](https://www.math.ksu.edu/~ramm/papers/547.pdf))",
+    "The nearby context matters: Section 3 says the question is stated in two different forms as Problems 3.1 and 3.2 and that they are closely related, but it does not assert an equivalence between Problem 3.1 and Problem 3.2. So the refined question should stay with Problem 3.1 rather than switch to the translate-independence formulation of Problem 3.2. ([math.ksu.edu](https://www.math.ksu.edu/~ramm/papers/547.pdf))",
+    "For paper-faithful scope, it is worth retaining the remark that the hypothesis f ∈ L^2(D) is essential: if f is replaced by a delta-function, the answer to Problem 3.1 is negative, and the range can have dimension 1. ([math.ksu.edu](https://www.math.ksu.edu/~ramm/papers/547.pdf))"
+  ],
+  "refined_question": "Let D ⊂ R^3 be a bounded domain, for example a box or a ball, and let 0 ≠ f ∈ L^2(D). Define F(z) = ∫_D f(x)e^{iz·x}dx for z ∈ C^3. For j = 1, 2, let L_j(z) be a polynomial of degree at least 1 and set V_j := {z ∈ C^3 : L_j(z) = 0}. Let H_j = L^2(V_j, dm_j), where dm_j are smooth, strictly positive, rapidly decaying measures on V_j such that every exponential e^{iz·x}, x ∈ R^3, belongs to H_j, and assume moreover that the decay is strong enough that for every h ∈ H_1 the function (Th)(u_2) := ∫_{V_1} h(u_1)F(u_1 + u_2) dm_1(u_1) belongs to H_2. Assume that V_1 and V_2 are transversal in the sense that there exist points p_j ∈ V_j whose tangent-space bases together form a basis of C^3. Must the operator T : H_1 → H_2 defined above always be non-finite-rank? ([math.ksu.edu](https://www.math.ksu.edu/~ramm/papers/547.pdf))",
+  "equivalent_formulation": "Equivalently: under the same assumptions, must the range of T always be infinite-dimensional? ([math.ksu.edu](https://www.math.ksu.edu/~ramm/papers/547.pdf))",
+  "justification": "The draft is almost a direct paraphrase of Section 3.1. Section 3 first announces that the operator-theoretic question is given in two closely related forms, Problems 3.1 and 3.2. Problem 3.1 is exactly the finite-rank question for the integral operator T built from F(u_1 + u_2), while Problem 3.2 instead asks whether one can choose points p_m on the second variety so that finitely many translates F(z + p_m) are linearly independent on the first variety. Because the paper does not state those two problems as equivalent, the closest paper-faithful stand-alone rewrite is the sharpened version of Problem 3.1 above, with the explicit degree restriction on the defining polynomials and the explicit well-definedness hypothesis Th ∈ H_2 retained. The post-problem remark also shows that one should not weaken f ∈ L^2(D) to a distributional hypothesis. ([math.ksu.edu](https://www.math.ksu.edu/~ramm/papers/547.pdf))",
+  "citations": [
+    {
+      "section": "3",
+      "label": "introductory paragraph before Problems 3.1 and 3.2",
+      "page": 2
+    },
+    {
+      "section": "3.1",
+      "label": "Problem 3.1",
+      "page": "2-3"
+    },
+    {
+      "section": "3.1",
+      "label": "Remark after Problem 3.1",
+      "page": 3
+    },
+    {
+      "section": "3.2",
+      "label": "Problem 3.2",
+      "page": 3
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "arxiv_id": "1202.4539",
+  "question_id": "q_003",
+  "original_question": "Let BAD(alpha, beta, gamma; delta) be the set of xi = (theta_1, theta_2, theta_3) in [0,1]^3 such that inf_p max{p^alpha ||p theta_1||, p^beta ||p theta_2||, p^gamma ||p theta_3||} >= delta, and let BAD(alpha, beta, gamma) be the union of these sets over delta > 0, where alpha + beta + gamma = 1. For two distinct triples (alpha_1, beta_1, gamma_1) and (alpha_2, beta_2, gamma_2), is the intersection BAD(alpha_1, beta_1, gamma_1) ∩ BAD(alpha_2, beta_2, gamma_2) nonempty?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 2133.88,
+  "target_in_paper": "Conjecture 1.1 in Section 1: the higher-dimensional weighted Schmidt conjecture about intersections of weighted badly approximable sets, together with the nearby reformulation/context in Proposition 1.2 and Theorem 1.3.",
+  "completeness_score": 4.5,
+  "correct_elements": "Your draft correctly captures the weighted badly approximable condition, uses the right normalization on the weights (α+β+γ=1), and asks the Schmidt-type intersection question for different weight data. Also, your notation BAD(α,β,γ;δ) and the union over δ>0 is equivalent to the usual paper-style definition via the existence of a constant c>0, at least when all weights are strictly positive.",
+  "missing_details": [
+    "The paper formulates the problem in vector notation for arbitrary dimension n, using weight vectors r=(r_1,...,r_n) in R_n := {r_i \\ge 0, \\sum_i r_i = 1}, not just triples (α,β,γ).",
+    "The official formulation is not restricted to two weight vectors or to n=3; it is posed for any finite or countable set W of admissible weight vectors.",
+    "The paper's target conclusion is stronger than nonemptiness: it asks for full Hausdorff dimension, namely dim_H(\\bigcap_{r\\in W} Bad(r)) = n.",
+    "The paper allows zero weights r_i=0 and uses the convention ||qy_i||^{1/0} = 0; your draft implicitly excludes this case by requiring α,β,γ>0.",
+    "The ambient space in the paper is \\mathbb{R}^n (periodicity lets one restrict to [0,1]^n if desired, but that is not the official statement).",
+    "The paper defines Bad(r) directly by: there exists c(y)>0 such that max_i ||qy_i||^{1/r_i} \\ge c(y) q^{-1} for all q\\in\\mathbb{N}; it does not package the condition primarily through BAD(r;δ).",
+    "The distance symbol ||\\cdot|| must be stated explicitly as distance to the nearest integer, and the quantifier is over all positive integers q.",
+    "Relative to the paper, your draft captures only a special case of the conjecture rather than the exact official formulation."
+  ],
+  "refined_question": "Let n\\in\\mathbb{N}, let \\mathcal{R}_n := \\{\\mathbf r=(r_1,\\dots,r_n)\\in[0,\\infty)^n : r_1+\\cdots+r_n=1\\}, and for \\mathbf r\\in\\mathcal{R}_n define\nBad(\\mathbf r) := \\left\\{\\mathbf y=(y_1,\\dots,y_n)\\in\\mathbb{R}^n : \\exists c(\\mathbf y)>0\\ \\text{such that}\\ \\max_{1\\le i\\le n} \\|qy_i\\|^{1/r_i} \\ge c(\\mathbf y) q^{-1}\\ \\text{for all}\\ q\\in\\mathbb{N}\\right\\},\nwith the convention \\|qy_i\\|^{1/0}=0. Is it true that for every finite or countable subset W\\subset\\mathcal{R}_n one has\n\\dim_H\\!\\left(\\bigcap_{\\mathbf r\\in W} Bad(\\mathbf r)\\right)=n?",
+  "equivalent_formulation": null,
+  "justification": "The draft is a faithful positive-weight, two-weight-vector, n=3 special case of the higher-dimensional weighted Schmidt problem discussed at the start of the paper. However, the nearest official formulation in the paper is Conjecture 1.1 itself: it is stated for arbitrary admissible weight vectors in arbitrary dimension and asks for full Hausdorff dimension of arbitrary finite/countable intersections, not merely nonemptiness of one two-weight intersection in dimension 3. Proposition 1.2 and Theorem 1.3 are the nearby results the paper uses to sharpen/frame this conjectural picture in Section 1.",
+  "citations": [
+    {
+      "section": "1",
+      "label": "Conjecture 1.1",
+      "page": "2-3"
+    },
+    {
+      "section": "1",
+      "label": "Proposition 1.2",
+      "page": "2-3"
+    },
+    {
+      "section": "1",
+      "label": "Theorem 1.3",
+      "page": "3"
+    }
+  ]
+}

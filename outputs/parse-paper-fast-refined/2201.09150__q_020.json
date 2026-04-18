@@ -1,0 +1,64 @@
+{
+  "arxiv_id": "2201.09150",
+  "question_id": "q_020",
+  "original_question": "Determine in what sense solutions exist for the nonlocal conflict-generation memory model under zero-flux, homogeneous Neumann, or homogeneous Dirichlet boundary conditions in a bounded domain with a top-hat kernel.",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 7986.28,
+  "target_in_paper": "Open Problem 20 in Section 2.2.2 (Dynamic memory): the existence question for the time-dependent bounded-domain problem (2.16) with a top-hat detection function under zero-flux, homogeneous Neumann, or homogeneous Dirichlet boundary conditions.",
+  "completeness_score": 7.5,
+  "correct_elements": "Your draft correctly identifies the right model family, the correct mathematical task (an existence question), the bounded-domain setting, the top-hat/nonlocal perception mechanism, and the three boundary-condition types that appear in the paper’s official formulation. It is very close to Open Problem 20.",
+  "missing_details": [
+    "The exact target is the time-dependent problem associated with equation (2.16), not just a generic 'nonlocal conflict-generation memory model'.",
+    "The model should be identified as the nonlocal-conflict extension of the conflict-zone dynamic-memory system: the u_i-equation from (2.13) is retained, while the k_i-equation is replaced by the nonlocal encounter term in (2.16).",
+    "The variables and scope are implicit in the paper and should be stated: i = 1, ..., n interacting populations, population densities u_i(x,t), and conflict-zone cognitive maps k_i(x,t), on a bounded spatial domain Ω over time t > 0.",
+    "The parameter assumptions are omitted: d_i > 0, γ_i ≥ 0, encounter rates ρ_ij, memory-decay rate μ, and update rate β; the nearby context treats these as nonnegative rates/coefficients.",
+    "The perception operator must be defined: f_{g,R}(x,t) denotes the perceived version of f obtained by spatial convolution with the detection kernel g_R; for problem (2.16), both u_{i,g,R} and k_{i,g,R} appear.",
+    "The 'top-hat kernel' should be named as the paper does: a top-hat detection function/kernel with perceptual radius R, i.e. uniform on the radius-R ball (in 1D, g_R(z) = 1/(2R) for |z| ≤ R and 0 otherwise).",
+    "The paper assumes the same perceptual kernel and perceptual radius for each population in the model surrounding (2.16).",
+    "Because this is a time-dependent existence problem, suitable initial data for u_i and k_i are part of the implicit setup and should be mentioned.",
+    "'In what sense do solutions exist' is left unspecified in the draft; to make the question stand-alone, one should explicitly ask for the relevant notion(s) of solution, e.g. weak, strong, or classical, and whether existence is local or global in time.",
+    "In this paper, zero-flux and homogeneous Neumann are not automatically synonymous for nonlocal problems; Section 4.1.2 explains that zero-flux means vanishing normal movement flux, whereas homogeneous Neumann means ∂_n u_i = 0, and these may differ.",
+    "A bounded-domain nonlocal problem also requires saying how the top-hat kernel is handled near ∂Ω; Section 4.1.2 identifies this as a central hidden difficulty and discusses a cut-off style such as (4.3) as one biologically reasonable option.",
+    "No ambient ring/field, homogeneity, degree restriction, nilpotency condition, or 'for all sufficiently large m' quantifier is relevant here; this is a PDE existence question, not an algebraic one."
+  ],
+  "refined_question": "Let Ω ⊂ ℝ^d be a bounded domain, and for i = 1, …, n let u_i(x,t) denote the density of population i and k_i(x,t) its cognitive map of conflict zones. Consider the time-dependent nonlocal conflict-zone model from Section 2.2.2 obtained from (2.13) by keeping the movement equation ∂_t u_i = d_i Δu_i + γ_i ∇·(u_i ∇k_{i,g,R}) and replacing the memory equation by ∂_t k_i = u_{i,g,R} Σ_{j=1}^n ρ_ij u_j − (μ + βu_i)k_i, where d_i > 0, γ_i ≥ 0, μ, β ≥ 0, the populations share the same perceptual radius R and the same top-hat detection function g_R, and f_{g,R}(x,t) denotes the perceived version of f via the top-hat kernel (with a bounded-domain definition near ∂Ω chosen so the nonlocal terms are meaningful). For suitable nonnegative initial data, under which notions of solution—weak, strong, or classical, and local or global in time—can one prove existence for this time-dependent problem when Ω is endowed, respectively, with zero-flux, homogeneous Neumann, or homogeneous Dirichlet boundary conditions?",
+  "equivalent_formulation": null,
+  "justification": "The draft is closest to Open Problem 20 in Section 2.2.2 (page 19), and it tracks that statement almost verbatim. The nearby model context shows that (2.16) is not a generic memory PDE but the specific nonlocal-conflict extension of the conflict-zone model (2.13): conflicts may be experienced at a distance, so the growth of k_i uses the perceived density u_{i,g,R}. Section 2.1 supplies the definitions of the top-hat detection function and the perception operator. Section 4.1.2 adds two hidden assumptions needed to make the question stand alone: bounded-domain nonlocal kernels require a boundary-compatible definition near ∂Ω, and zero-flux is not automatically equivalent to homogeneous Neumann in this nonlocal setting. Section 5.1.1 explains why the top-hat case is especially difficult analytically: the kernel is discontinuous, so standard smooth-kernel well-posedness theory does not directly apply. No ambient ring/field, degree, homogeneity, nilpotency, or large-m quantifier is relevant here.",
+  "citations": [
+    {
+      "section": "1",
+      "label": "Introduction",
+      "page": "pp. 2-4"
+    },
+    {
+      "section": "2.1",
+      "label": "Equations (2.3) and (2.5)",
+      "page": "pp. 8-9"
+    },
+    {
+      "section": "2.2.2",
+      "label": "Equation (2.13)",
+      "page": "p. 15"
+    },
+    {
+      "section": "2.2.2",
+      "label": "Equation (2.16)",
+      "page": "p. 18"
+    },
+    {
+      "section": "2.2.2",
+      "label": "Open Problem 20",
+      "page": "p. 19"
+    },
+    {
+      "section": "4.1.2",
+      "label": "Equations (4.1), (4.2), (4.3) and Open Problem 39",
+      "page": "pp. 38-40"
+    },
+    {
+      "section": "5.1.1",
+      "label": "Well-posedness discussion for top-hat detection functions",
+      "page": "p. 54"
+    }
+  ]
+}

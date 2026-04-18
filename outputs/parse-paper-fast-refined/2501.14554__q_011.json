@@ -1,0 +1,56 @@
+{
+  "arxiv_id": "2501.14554",
+  "question_id": "q_011",
+  "original_question": "Does the severe inapproximability known for the chromatic number of combinatorial graphs persist for the 1/2-chromatic number of continuous graphs, or does allowing radius-1/2 balls on continuous edges make the problem asymptotically easier to approximate?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 10335.29,
+  "target_in_paper": "Section 3.3, open question in the paragraph 'Approximability and bounds': whether the classical NP-hardness of approximating chromatic number within n^(1-ε) for every ε>0 also holds for the 1/2-chromatic number χ_{1/2}(Γ) of a continuous graph.",
+  "completeness_score": 7.5,
+  "correct_elements": "Your draft correctly identifies the right part of the paper: the approximability question for the 1/2-chromatic number of continuous graphs. It also correctly captures the paper's motivation that allowing radius-1/2 balls with centers anywhere on continuous edges may change the approximation landscape relative to ordinary graph colouring.",
+  "missing_details": [
+    "The paper works with finite continuous graphs Γ=(V,E) in which each edge is a unit-length continuous interval, and distances are measured by the shortest-path metric on the continuous graph.",
+    "The relevant parameter is specifically the 1/2-chromatic number χ_{1/2}(Γ), not a general r-chromatic number.",
+    "A (1/2,c)-colouring means a 1/2-cover of Γ by radius-1/2 balls whose centers may lie anywhere on the edge set E, together with a colouring of those balls such that intersecting balls receive different colours.",
+    "The distinction from the classical chromatic number comes precisely from allowing ball centers anywhere in E rather than restricting them to the endpoint set V.",
+    "The benchmark hardness statement from classical graph colouring is exact: for every ε>0, approximating chromatic number within a factor n^(1-ε) is NP-hard.",
+    "The input-size parameter n should be made explicit; in context it is the number of endpoints/vertices of the underlying combinatorial graph G(Γ).",
+    "The algorithmic quantifier should be explicit: the question is about the existence or nonexistence of polynomial-time approximation algorithms with asymptotically better guarantees.",
+    "The paper's chromatic-number discussion is restricted to r=1/2 because this is the direct continuous analogue of ordinary graph colouring; the refined question should preserve that restriction.",
+    "The target problem is for general continuous graphs, not only for complete continuous graphs Γ(K_n) or continuous planar graphs, which are separate open questions earlier in the same section."
+  ],
+  "refined_question": "Let Γ=(V,E) be a finite continuous graph in the sense of the paper, with each edge realized as a unit-length interval and distance given by the shortest-path metric, and let n=|V|. Define χ_{1/2}(Γ) to be the minimum number c such that Γ admits a 1/2-cover by metric balls of radius 1/2, centered at arbitrary points of E, together with a colouring of those balls by c colours so that any two intersecting balls receive different colours. Is the classical hardness threshold for graph colouring preserved in this continuous setting—namely, for every ε>0, is it NP-hard to approximate χ_{1/2}(Γ) within a factor n^(1-ε)—or does allowing centers on continuous edges lead to strictly better polynomial-time approximation guarantees than in the combinatorial chromatic-number problem?",
+  "equivalent_formulation": null,
+  "justification": "The draft is aiming at the last open problem in Section 3.3, not at the earlier questions about complete graphs or planar graphs. The paper first defines continuous graphs, metric balls, and the r-chromatic number, then explicitly restricts the colouring discussion to r=1/2 as the direct analogue of ordinary graph colouring. The exact open question is stated in the 'Approximability and bounds' paragraph, where the authors cite the n^(1-ε) inapproximability of ordinary chromatic number and ask whether the same hardness persists for the 1/2-chromatic number on continuous graphs. Your draft captures that comparison, but it omits the formal definition of χ_{1/2}(Γ), the fact that ball centers may be anywhere in E, the role of n, and the exact quantifier 'for all ε>0'.",
+  "citations": [
+    {
+      "section": "2 Preliminaries",
+      "label": "Definition 3",
+      "page": 2
+    },
+    {
+      "section": "2 Preliminaries",
+      "label": "Definition 4",
+      "page": 2
+    },
+    {
+      "section": "2 Preliminaries",
+      "label": "Definition 8",
+      "page": 3
+    },
+    {
+      "section": "3.3 Chromatic number",
+      "label": "Definition 11",
+      "page": 8
+    },
+    {
+      "section": "3.3 Chromatic number",
+      "label": "paragraph beginning 'Unlike the previous sections, when dealing with colouring of continuous graphs, we focus solely on the case r = 1/2'",
+      "page": 8
+    },
+    {
+      "section": "3.3 Chromatic number",
+      "label": "paragraph beginning 'Approximability and bounds'",
+      "page": 10
+    }
+  ]
+}

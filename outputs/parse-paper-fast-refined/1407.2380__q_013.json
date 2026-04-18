@@ -1,0 +1,43 @@
+{
+  "arxiv_id": "1407.2380",
+  "question_id": "q_013",
+  "original_question": "For the concrete Halton-Kronecker sequence ((x_n, {n sqrt(2)}))_{n>=0}, where (x_n)_{n>=1} is the van der Corput sequence in base 2, can one prove a lower discrepancy bound D_N >= c (log N)^2 / N for some constant c > 0 and infinitely many N?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 4190.92,
+  "target_in_paper": "Section 3, Open Problem 10 (the first lower-bound special case extracted from the broader concrete Halton-Kronecker question in Open Problem 7).",
+  "completeness_score": 8.5,
+  "correct_elements": "Your draft already captures the right concrete 2-dimensional Halton-Kronecker example, the right discrepancy quantity D_N (not star-discrepancy), the intended lower-bound order (log N)^2 / N, and the correct quantifiers: existence of a constant c > 0 and validity for infinitely many N.",
+  "missing_details": [
+    "Define D_N explicitly as the discrepancy of the first N points of a sequence in [0,1)^2, with the supremum taken over all axis-parallel subintervals B ⊆ [0,1)^2.",
+    "Make the ambient space [0,1)^2 explicit and specify that the first N points are z_0,...,z_{N-1}.",
+    "Resolve the indexing inconsistency: the hybrid sequence is naturally written as (z_n)_{n>=0}, so x_n should also be indexed from n>=0 in the stand-alone statement.",
+    "State that x_n is the one-dimensional Halton sequence in base 2, equivalently the van der Corput sequence in base 2; for full self-containment, define it by binary digit reversal.",
+    "Specify that {t} denotes the fractional part of t.",
+    "State explicitly that the constant c may depend on the fixed sequence but is independent of N."
+  ],
+  "refined_question": "Let x_n = sum_{j>=0} a_j(n) 2^{-(j+1)} be the van der Corput sequence in base 2, where n = sum_{j>=0} a_j(n) 2^j with a_j(n) in {0,1}. Define the 2-dimensional Halton-Kronecker sequence z_n = (x_n, {n sqrt(2)}) in [0,1)^2 for n >= 0, where {t} denotes the fractional part of t. If D_N(z) denotes the discrepancy of the first N points z_0,...,z_{N-1}, i.e. D_N(z) = sup_B |(1/N) # {0 <= n < N : z_n in B} - lambda(B)| with the supremum over all axis-parallel boxes B ⊆ [0,1)^2, can one prove that there exists a constant c > 0 such that D_N(z) >= c (log N)^2 / N for infinitely many positive integers N?",
+  "equivalent_formulation": null,
+  "justification": "The draft is aiming at Section 3, Open Problem 10, not the broader Open Problem 7. In Section 3 the paper first states Theorem 3.1 giving an almost-everywhere upper bound for Halton-Kronecker sequences, then notes that no concrete low-discrepancy example is known, raises Open Problem 7 for concrete sequences, and finally isolates two lower-bound special cases, the first being Open Problem 10. Open Problem 10 asks for a discrepancy lower bound of order (log N)^2 / N for infinitely many N for the concrete van der Corput/Kronecker example singled out immediately above. The stand-alone rewrite therefore only adds the general definition of D_N from Section 1 and makes the indexing and fractional-part notation explicit. ([ar5iv.org](https://ar5iv.org/pdf/1407.2380))",
+  "citations": [
+    {
+      "section": "1",
+      "label": "Introduction (definition of discrepancy D_N)",
+      "page": "171-172"
+    },
+    {
+      "section": "3",
+      "label": "Theorem 3.1",
+      "page": "179-180"
+    },
+    {
+      "section": "3",
+      "label": "Open Problem 7",
+      "page": "180"
+    },
+    {
+      "section": "3",
+      "label": "Open Problem 10",
+      "page": "180-181"
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "arxiv_id": "2303.02529",
+  "question_id": "q_009",
+  "original_question": "Let N_m^(n) be the number of clades of size m in DTCS(n). Study the joint distribution of the vector (N_m^(n), 2 <= m <= n) in enough detail to compute covariances and derive central limit theorems for statistics built from these clade counts.",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 8521.84,
+  "target_in_paper": "Open Problem 2 in §4.4 (Properties of the fringe tree): for a fixed size-i clade χ in DTCS(n), prove that n^{-1} Var(N_n(χ)) converges to a limit σ^2(χ) and that the corresponding central limit theorem holds. ([storage.googleapis.com](https://storage.googleapis.com/arxiv-dataset/arxiv/arxiv/pdf/2303/2303.02529v2.pdf))",
+  "completeness_score": 4.5,
+  "correct_elements": "Your draft correctly identifies the paper’s interest in asymptotics of clade-count statistics in DTCS(n), and it correctly emphasizes second-order behavior and CLTs. That matches §4.4’s discussion of counts of copies of clades near the leaves, and it is also adjacent to §7.2, where the size-counts N_n(j) are used to form subtree-size statistics SS_n^(p). ([storage.googleapis.com](https://storage.googleapis.com/arxiv-dataset/arxiv/arxiv/pdf/2303/2303.02529v2.pdf))",
+  "missing_details": [
+    "The official open problem fixes one finite clade χ of fixed size i≥2; it does not ask for the full joint law of all size-counts (N_m^(n))_{2≤m≤n}. ([storage.googleapis.com](https://storage.googleapis.com/arxiv-dataset/arxiv/arxiv/pdf/2303/2303.02529v2.pdf))",
+    "You need the model definition: DTCS(n) is built by recursively splitting an m-leaf clade into sizes j and m−j with probability q(m,j)=m/[2 h_{m−1} j(m−j)], where h_{m−1}=Σ_{k=1}^{m−1}1/k. ([storage.googleapis.com](https://storage.googleapis.com/arxiv-dataset/arxiv/arxiv/pdf/2303/2303.02529v2.pdf))",
+    "You need to specify what a clade is in this paper: the set of leaves in a subtree/subinterval of the recursive interval-splitting construction. ([storage.googleapis.com](https://storage.googleapis.com/arxiv-dataset/arxiv/arxiv/pdf/2303/2303.02529v2.pdf))",
+    "The paper’s notation is N_n(χ), the number of copies of a specific size-i clade χ in DTCS(n); your N_m^(n) instead aggregates over all clade shapes of size m, which is broader than the stated problem. ([storage.googleapis.com](https://storage.googleapis.com/arxiv-dataset/arxiv/arxiv/pdf/2303/2303.02529v2.pdf))",
+    "The first-order normalization should be included: n^{-1} E[N_n(χ)] → p(χ)/i. This is part of the immediate context for Open Problem 2. ([storage.googleapis.com](https://storage.googleapis.com/arxiv-dataset/arxiv/arxiv/pdf/2303/2303.02529v2.pdf))",
+    "The meaning of p(χ) should be made explicit: it is the asymptotic fringe probability that a uniformly chosen leaf belongs to a clade equal to χ. Using §4.1 and §4.4 together, one may write p(χ)=a(i)·P(DTCS(i)=χ), where a(i)=6 h_{i−1}/[π^2(i−1)] for i≥2; this equality is an inference from the paper’s statements that a leaf is in some size-i clade with probability a(i) and that such a clade has DTCS(i) distribution. ([storage.googleapis.com](https://storage.googleapis.com/arxiv-dataset/arxiv/arxiv/pdf/2303/2303.02529v2.pdf))",
+    "The asymptotic regime must be quantified explicitly: fix i and χ first, then let n→∞. The paper does not ask for m growing with n. ([storage.googleapis.com](https://storage.googleapis.com/arxiv-dataset/arxiv/arxiv/pdf/2303/2303.02529v2.pdf))",
+    "If one wants size-counts N_n(m) or linear statistics built from them, that belongs to the neighboring discussion in §7.2/Open Problem 13, not to the exact CLT problem stated in §4.4. ([storage.googleapis.com](https://storage.googleapis.com/arxiv-dataset/arxiv/arxiv/pdf/2303/2303.02529v2.pdf))",
+    "No ambient ring/field, homogeneity, degree restriction, or nilpotency condition is relevant here; the missing precision is probabilistic/model-theoretic instead, namely the fixed-clade quantifiers and the exact normalizations. ([storage.googleapis.com](https://storage.googleapis.com/arxiv-dataset/arxiv/arxiv/pdf/2303/2303.02529v2.pdf))"
+  ],
+  "refined_question": "Fix an integer i≥2 and a specific rooted binary clade χ with i leaves, in the critical beta-splitting discrete-time tree DTCS(n), where each m-leaf clade is recursively split into sizes j and m−j with probability q(m,j)=m/[2 h_{m−1} j(m−j)] and h_{m−1}=Σ_{k=1}^{m−1}1/k. Let N_n(χ) be the number of copies of χ that occur as clades in DTCS(n). Let p(χ) denote the asymptotic fringe probability that a uniformly chosen leaf belongs to a clade equal to χ (equivalently, p(χ)=a(i)·P(DTCS(i)=χ), with a(i)=6 h_{i−1}/[π^2(i−1)] from Theorem 5). Since n^{-1}E[N_n(χ)]→p(χ)/i, prove that there exists a finite constant σ^2(χ) such that n^{-1}Var(N_n(χ))→σ^2(χ) as n→∞, and prove the corresponding central limit theorem, namely (N_n(χ)-E[N_n(χ)])/√n ⇒ N(0,σ^2(χ)). ([storage.googleapis.com](https://storage.googleapis.com/arxiv-dataset/arxiv/arxiv/pdf/2303/2303.02529v2.pdf))",
+  "equivalent_formulation": null,
+  "justification": "The draft blends two nearby themes from the paper: Open Problem 2 in §4.4, which explicitly asks for variance asymptotics and a CLT for counts of a fixed clade χ, and §7.2/Open Problem 13, which studies linear statistics built from the size-counts N_n(j). Because the paper’s only explicit clade-count CLT problem is Open Problem 2, the closest paper-faithful reformulation is the fixed-χ statement above, not a full joint-distribution problem for the vector of all size-counts. ([storage.googleapis.com](https://storage.googleapis.com/arxiv-dataset/arxiv/arxiv/pdf/2303/2303.02529v2.pdf))",
+  "citations": [
+    {
+      "section": "§2",
+      "label": "eq. (1) and definition of DTCS(n)",
+      "page": 1
+    },
+    {
+      "section": "§4.1",
+      "label": "eqs. (14)–(16) and Theorem 5",
+      "page": "9-10"
+    },
+    {
+      "section": "§4.2",
+      "label": "The (limit) fringe process",
+      "page": "10-11"
+    },
+    {
+      "section": "§4.4",
+      "label": "Open Problem 2",
+      "page": "16-17"
+    },
+    {
+      "section": "§7.2",
+      "label": "Open Problem 13",
+      "page": 59
+    }
+  ]
+}

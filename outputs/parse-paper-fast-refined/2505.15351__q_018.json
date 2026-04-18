@@ -1,0 +1,55 @@
+{
+  "arxiv_id": "2505.15351",
+  "question_id": "q_018",
+  "original_question": "In discrete Wigner distribution deconvolution for ptychographic phase retrieval, if the window ambiguity factors F[w · S_xi w] are allowed to vanish at some coefficients, how many such zero coefficients can be tolerated while still guaranteeing unique recovery of the underlying signal f?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 10998.43,
+  "target_in_paper": "Section 8.1, Question 8.1: \"How many zero coefficients F[conj(w) ∘ S_xi w]_x are allowed so that f may be recovered uniquely?\"",
+  "completeness_score": 7,
+  "correct_elements": "The draft correctly identifies the right part of the paper: the discrete Wigner Distribution Deconvolution (WDD) formulation for ptychographic phase retrieval, the obstruction caused by vanishing window-ambiguity coefficients, and the core goal of determining when uniqueness of recovering the object f is still possible despite such zeros.",
+  "missing_details": [
+    "The paper works in the finite-dimensional discrete setting: f,w ∈ C^n, [n] = {0,1,...,n-1}, with the unitary discrete Fourier transform F, cyclic shifts S_x, and Hadamard product ∘.",
+    "The relevant measurements are the discrete ptychographic data I_{xi,x} = |F[f ∘ S_x w]_{xi}|^2, with all scan positions available, i.e. X = [n].",
+    "The coefficients whose vanishing matters are exactly the discrete window ambiguity coefficients F[conj(w) ∘ S_xi w]_x appearing in the WDD factorization (26); the draft omits the complex conjugation and the fact that these coefficients are indexed by both x and xi.",
+    "The nearby uniqueness guarantee being relaxed assumes a localized window with supp(w) = [delta] for some delta < n/2, and the no-zero hypothesis is the nonvanishing condition in (27) on the coefficients used by WDD.",
+    "The paper's question concerns exact uniqueness in the discrete WDD deconvolution model with known window w; it is not primarily about noise robustness, truncation heuristics, or the design/analysis of Subspace Completion (those are Questions 8.2 and 8.3), nor about the extra bandlimited/symmetric-window assumptions of Question 8.4.",
+    "The draft phrases the issue as a pure count, but the surrounding discussion shows that the zero pattern/location matters: one isolated zero can still allow uniqueness, whereas losing all zero-frequency coefficients F[conj(w) ∘ S_xi w]_0 for xi ∈ [delta] causes ambiguities.",
+    "To be fully stand-alone, one should note the usual phase-retrieval gauge ambiguity: the paper writes 'recovered uniquely' tersely here, while later in Section 8 it explicitly discusses recovery up to global phase.",
+    "No homogeneity, polynomial degree, nilpotency, characteristic, or ring-theoretic hypotheses are part of this target question; it is a complex finite-dimensional signal-recovery question."
+  ],
+  "refined_question": "In the finite-dimensional discrete Wigner Distribution Deconvolution setting for ptychography, let f,w ∈ C^n, let [n] = {0,1,...,n-1}, and define the measurements by I_{xi,x} = |F[f ∘ S_x w]_{xi}|^2 for all scan positions x ∈ [n] and frequencies xi ∈ [n], where F is the unitary discrete Fourier transform, S_x is the cyclic shift, and ∘ is the coordinatewise product. Assume the window is known and localized, supp(w) = [delta] with delta < n/2, so that the discrete WDD identity (F^{-1}IF)_{xi,x} = F[f ∘ S_xi conj(f)]_x · conj(F[conj(w) ∘ S_xi w]_x) applies. If some of the window ambiguity coefficients F[conj(w) ∘ S_xi w]_x are allowed to vanish, how many such zero coefficients can be tolerated while still guaranteeing unique recovery of f from the discrete ptychographic measurements I (up to the unavoidable global phase)?",
+  "equivalent_formulation": null,
+  "justification": "The draft clearly targets Section 8 rather than the earlier parts of the paper: its terminology 'discrete Wigner distribution deconvolution', 'ptychographic phase retrieval', and vanishing 'window ambiguity factors' matches the setup introduced immediately before Question 8.1 in equations (26) and (27). The nearest official formulation is exactly Question 8.1. Broadening to Questions 8.2-8.4 would overshoot the paper's actual target: Question 8.2 asks about extending Subspace Completion to arbitrary missing coefficients, Question 8.3 asks for theoretical justification of SC, and Question 8.4 adds extra bandlimit/symmetric-window assumptions. The refined question therefore keeps the scope at the precise uniqueness problem posed in Question 8.1 while making the discrete model, notation, and hypotheses explicit from Section 2 and equations (26)-(27).",
+  "citations": [
+    {
+      "section": "2.1",
+      "label": "Finite-dimensional setup (definitions of [n], f, w, F, ∘, S_r)",
+      "page": "2-3"
+    },
+    {
+      "section": "8",
+      "label": "Equation (26)",
+      "page": 28
+    },
+    {
+      "section": "8",
+      "label": "Equation (27)",
+      "page": 28
+    },
+    {
+      "section": "8.1",
+      "label": "Question 8.1",
+      "page": 28
+    },
+    {
+      "section": "8.1",
+      "label": "Context after Question 8.1 (single-zero example, zero-frequency ambiguity, symmetric windows, SC, truncation, bandlimit link)",
+      "page": "28-29"
+    },
+    {
+      "section": "8.3",
+      "label": "Recovery up to a global phase",
+      "page": "30-31"
+    }
+  ]
+}

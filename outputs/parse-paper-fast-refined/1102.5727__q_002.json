@@ -1,0 +1,42 @@
+{
+  "arxiv_id": "1102.5727",
+  "question_id": "q_002",
+  "original_question": "Let E(n) be the decision problem that asks whether at least one Costas array of order n exists, equivalently whether C(n) > 0. What is the computational complexity of E(n) as a function of n, and in particular is this decision problem NP-complete?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 1180.57,
+  "target_in_paper": "Section 4.1, Problem 2: \"Let E(n) stand for the decision problem ‘Is C(n) > 0?’. What is the computational complexity of E(n) expressed in terms of n? In particular, is E NP-complete?\"",
+  "completeness_score": 9,
+  "correct_elements": "Your draft captures the exact open problem in the paper almost verbatim: it uses the same existence predicate C(n) > 0, treats the problem as a decision problem indexed by the order n, and asks the paper’s specific follow-up question about NP-completeness.",
+  "missing_details": [
+    "C(n) should be defined explicitly as the number of Costas arrays of order n; this notation is introduced in Problem 1 immediately before Problem 2.",
+    "To make the question stand-alone, one should define a Costas array of order n, or equivalently a Costas permutation f:[n] -> [n] whose distance vectors {(i-j, f(i)-f(j)) : 1 <= j < i <= n} are all distinct.",
+    "The parameter range should be stated explicitly: n is a positive integer.",
+    "The paper uses “Costas arrays” and “Costas permutations” interchangeably, so a stand-alone formulation should preserve that equivalence.",
+    "For full self-containment on the complexity side, one should say that complexity is being measured with respect to the order n, since the paper phrases the question informally in terms of n rather than fixing an input encoding."
+  ],
+  "refined_question": "Given a positive integer n, let C(n) denote the number of Costas arrays of order n, where equivalently a Costas array of order n is a bijection f:[n] -> [n] such that all distance vectors {(i-j, f(i)-f(j)) : 1 <= j < i <= n} are distinct. What is the computational complexity, as a function of the order n, of deciding whether C(n) > 0? In particular, is the resulting existence problem E NP-complete?",
+  "equivalent_formulation": "Equivalently: given n in N*, decide whether there exists a Costas permutation f:[n] -> [n], that is, a bijection satisfying f(i+k) - f(i) = f(j+k) - f(j) implies i = j or k = 0 whenever 1 <= i, j, i+k, j+k <= n.",
+  "justification": "The draft clearly targets Section 4.1, Problem 2, rather than a broader neighboring question. Problem 2 asks exactly for the complexity of the existence decision problem E(n): whether C(n) > 0. The notation C(n) is defined in Problem 1 in the same section, and the needed definition of a Costas array/permutation comes from Section 3.1, Definition 1. The paragraph immediately preceding Problem 2 supplies the paper’s intended complexity-theoretic framing: exhaustive search is essentially O(n!), while verification of a proposed Costas permutation is polynomial, specifically O(n^3), motivating the explicit question whether E is NP-complete.",
+  "citations": [
+    {
+      "section": "3.1",
+      "label": "Definition 1",
+      "page": 2
+    },
+    {
+      "section": "4.1",
+      "label": "Problem 1",
+      "page": 7
+    },
+    {
+      "section": "4.1",
+      "label": "paragraph immediately preceding Problem 2",
+      "page": 7
+    },
+    {
+      "section": "4.1",
+      "label": "Problem 2",
+      "page": 7
+    }
+  ]
+}

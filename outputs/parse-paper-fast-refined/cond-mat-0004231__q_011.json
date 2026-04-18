@@ -1,0 +1,43 @@
+{
+  "arxiv_id": "cond-mat-0004231",
+  "question_id": "q_011",
+  "original_question": "For Glauber dynamics at complex fugacity on finite graphs of maximum degree Delta, does there exist a complex domain D_Delta containing [0, 1/(Delta-1)) such that the spectral radius of the transition matrix P (on the quotient space modulo constants) satisfies spr(P)<1 for every such graph whenever w lies in D_Delta?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 12975.14,
+  "target_in_paper": "Section 2 of Sokal's paper, in the hard-core lattice-gas discussion: the unnumbered open problem on single-site Glauber dynamics at complex fugacity for finite graphs of maximum degree Delta, formulated via the nontrivial spectrum (equivalently, spectral radius on the quotient by constants), with nearby context explaining that such a statement would yield zero-freeness of the hard-core partition function.",
+  "completeness_score": 8.5,
+  "correct_elements": "Your draft already captures the paper's intended model and mechanism quite well: it is about the hard-core lattice gas (independent sets) on finite graphs of maximum degree Delta; it uses complex fugacity w; it asks for a domain D_Delta containing the Dobrushin interval [0, 1/(Delta-1)); it uses the single-step Glauber operator P rather than a partition-function-only reformulation; and it phrases the desired conclusion as strict contraction of the nonconstant sector, i.e. spr(P) < 1 on the quotient modulo constants, uniformly for all such graphs.",
+  "missing_details": [
+    "The paper's problem is specifically for the hard-core lattice gas / independent-set model; this should be named explicitly.",
+    "P should be identified as the single-site heat-bath Glauber matrix/operator for the hard-core model, not an arbitrary Glauber dynamics.",
+    "The state space should be made explicit: independent sets I(G) of the finite graph G.",
+    "The ambient vector space is over C: P acts on C^{I(G)} when w is complex.",
+    "The quotient 'modulo constants' should be spelled out as C^{I(G)} / <1>, where <1> is the span of the all-ones function (equivalently, constant functions on I(G)).",
+    "The quantifier structure should be explicit: for each integer Delta >= 2, there exists a domain D_Delta such that for every finite graph G with maximum degree at most Delta and every w in D_Delta, the conclusion holds.",
+    "The paper's intended D_Delta is a complex neighborhood/open domain, not merely an arbitrary subset containing the interval.",
+    "The role of the interval [0, 1/(Delta-1)) comes from the real-fugacity Dobrushin region and should be understood as part of the nearby context.",
+    "The nearby proposition-level context is that this spectral statement is being asked as a route to zero-freeness of the hard-core partition function; that motivation is implicit in your draft but not stated.",
+    "No extra hypotheses such as connectedness, regularity, or infinite-volume limits belong in the question; the paper is about all finite graphs with maximum degree bounded by Delta.",
+    "No homogeneity, nilpotency, characteristic, or formal-power-series assumptions are relevant here; the correct ambient setting is ordinary finite-dimensional complex linear algebra."
+  ],
+  "refined_question": "For each integer Delta >= 2, does there exist an open domain D_Delta subset C containing the real interval [0, 1/(Delta-1)) such that, for every finite graph G of maximum degree at most Delta, if I(G) is the set of independent sets of G and P_{G,w} is the single-site heat-bath Glauber operator for the hard-core lattice gas at fugacity w in C acting on C^{I(G)}, then for every w in D_Delta the induced operator on C^{I(G)} / <1> (where <1> is the one-dimensional space of constant functions) has spectral radius strictly less than 1?",
+  "equivalent_formulation": null,
+  "justification": "The draft is already very close to the paper's actual hard-core-model open problem on 'mixing at complex fugacity'. I therefore kept its narrow operator-theoretic focus and did not broaden it to a general zero-free-region question or to stronger mixing-time claims. The refinements only make explicit the model (hard-core / independent sets), the operator (single-site heat-bath Glauber), the state space and ambient field (C^{I(G)} over C), the meaning of 'modulo constants', and the exact quantifiers over Delta, G, and w. This matches the paper's intent as signaled by the abstract and by the nearby hard-core discussion where the spectral-radius condition is used as the precise complex-fugacity analogue of mixing and is connected to partition-function nonvanishing.",
+  "citations": [
+    {
+      "section": "Abstract",
+      "label": "paper scope includes the hard-core lattice gas and 'mixing at complex fugacity'",
+      "page": 21
+    },
+    {
+      "section": "§2 Hard-core lattice gas",
+      "label": "unnumbered open problem on single-site Glauber dynamics at complex fugacity",
+      "page": "27-28"
+    },
+    {
+      "section": "§2 Hard-core lattice gas",
+      "label": "nearby proposition/remark using the spectral-radius-on-the-quotient formulation and relating it to hard-core partition-function nonvanishing",
+      "page": "27-28"
+    }
+  ]
+}

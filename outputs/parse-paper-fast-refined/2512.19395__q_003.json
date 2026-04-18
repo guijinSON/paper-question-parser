@@ -1,0 +1,45 @@
+{
+  "arxiv_id": "2512.19395",
+  "question_id": "q_003",
+  "original_question": "Fix k >= 2 and an even integer m. Among all non-bipartite graphs with m edges that avoid every odd cycle C_3, C_5, ..., C_{2k+1}, which graph has the largest spectral radius?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 12344.36,
+  "target_in_paper": "Section 1’s even-size consecutive-odd-cycles problem, stated as Conjecture 1.1, reformulated in Proposition 1.2, and resolved for large even m in Theorem 1.3: the edge-spectral extremal problem for non-bipartite graphs with m edges and no C3,C5,...,C2k+1.",
+  "completeness_score": 5,
+  "correct_elements": "Your draft correctly identifies the core extremal class: fixed k>=2, even edge count m, non-bipartite graphs, forbidding all odd cycles C3,C5,...,C2k+1, and maximizing the adjacency spectral radius.",
+  "missing_details": [
+    "The paper’s formulation is only for sufficiently large even m; in the theorem-level form highlighted by the paper, the explicit threshold is m>=30k+45.",
+    "The paper works with finite simple undirected graphs; this should be stated explicitly.",
+    "The spectral radius is the adjacency spectral radius lambda(G), i.e. the largest eigenvalue of the adjacency matrix A(G), not a normalized, Laplacian, or signless-Laplacian quantity.",
+    "The paper’s graph class is typically taken without isolated vertices; your draft does not say this.",
+    "The answer is residue-class dependent: the extremal graph is different according to m-(2k-1) mod 3.",
+    "The exact candidate extremal graphs must be named/defined, not left as an open-ended 'which graph'.",
+    "One of the needed constructions is S_{2k-1}(K_{s,t}), meaning the graph obtained from K_{s,t} by replacing one edge with a path on 2k+1 vertices (equivalently, subdividing that edge by 2k-1 new vertices).",
+    "In the class m-(2k-1)≡1 mod 3, the extremal graph is obtained from S_{2k-1}(K_{2,(m-2k)/2}) by attaching a pendant edge at a maximum-degree vertex.",
+    "In the class m-(2k-1)≡2 mod 3, the extremal graph is not just 'some subdivision graph': it is the specific Y-type construction obtained from C_{2k+3} by blowing up one vertex to an independent set of size (m-2k-1)/3 and then adding one new vertex adjacent to all vertices of that blown-up part.",
+    "In the class m-(2k-1)≡0 mod 3, the extremal graph is the specific T-type/plain subdivision construction S_{2k-1}(K_{3,(m-2k+1)/3}).",
+    "The paper gives a unique extremal graph in each congruence class; your draft does not mention uniqueness.",
+    "Proposition 1.2 supplies an equivalent odd-girth reformulation, which your draft leaves implicit.",
+    "There is no ambient ring/field issue here beyond the real symmetric adjacency matrix over finite simple graphs; that operator-level specificity should be made explicit for a stand-alone question."
+  ],
+  "refined_question": "Fix an integer k>=2 and an even integer m>=30k+45. Among all finite simple undirected graphs G with m edges and no isolated vertices that are non-bipartite and contain no odd cycle C_{2i+1} for 1<=i<=k, determine the maximum possible adjacency spectral radius lambda(G) and characterize the unique extremal graph. More precisely, is the unique maximizer given by one of the following three constructions according to the residue of m-(2k-1) modulo 3: (i) if m-(2k-1)≡0 (mod 3), the graph S_{2k-1}(K_{3,(m-2k+1)/3}); (ii) if m-(2k-1)≡1 (mod 3), the graph obtained from S_{2k-1}(K_{2,(m-2k)/2}) by attaching a pendant edge to a vertex of maximum degree; and (iii) if m-(2k-1)≡2 (mod 3), the graph obtained from C_{2k+3} by blowing up one vertex to an independent set of size (m-2k-1)/3 and then adjoining one new vertex adjacent to every vertex of that blown-up set? Here S_{2k-1}(K_{s,t}) denotes the graph obtained from K_{s,t} by replacing one edge with a path on 2k+1 vertices.",
+  "equivalent_formulation": "Equivalently, for fixed k>=2 and even m>=30k+45, determine the unique m-edge graph of odd girth at least 2k+3 with maximum adjacency spectral radius; Proposition 1.2 identifies this as the same problem and yields the same three residue-class extremal graphs.",
+  "justification": "Your draft is clearly aimed at the paper’s Section 1 problem on even-size non-bipartite graphs avoiding consecutive short odd cycles. The draft already captures the forbidden-family condition and the extremal spectral objective, but it stops at the informal class description. The paper’s official formulation is sharper in two ways: first, it is residue-class sensitive in m-(2k-1) mod 3; second, the theorem-level statement is only for sufficiently large even m, with the introduction highlighting the concrete bound m>=30k+45. Proposition 1.2 also records the equivalent odd-girth reformulation, so the stand-alone version should either mention odd girth at least 2k+3 or keep the explicit forbidden-cycle language and note the equivalence. Because Theorem 1.3 is presented in the introduction as the confirmation of Conjecture 1.1, the closest paper-faithful rewrite is not the broad question 'which graph?' but the precise three-case extremal characterization above.",
+  "citations": [
+    {
+      "section": "1",
+      "label": "Conjecture 1.1",
+      "page": "not available in the accessed abstract/summary view"
+    },
+    {
+      "section": "1",
+      "label": "Proposition 1.2",
+      "page": "not available in the accessed abstract/summary view"
+    },
+    {
+      "section": "1",
+      "label": "Theorem 1.3",
+      "page": "not available in the accessed abstract/summary view"
+    }
+  ]
+}

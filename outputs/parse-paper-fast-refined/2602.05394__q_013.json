@@ -1,0 +1,43 @@
+{
+  "arxiv_id": "2602.05394",
+  "question_id": "q_013",
+  "original_question": "Find an interesting (nonselfdajoint resp. nonsymmetric) model problem, where the theoretical result on the eigenvalue distribution of the preconditioned matrix indeed corresponds to the actual convergence behavior of GMRES (e.g., $M^-1A$ has $m$ eigenvalue clusters and an acceptable approximate solution is obtained by GMRES in $ O(m)$ steps). Determine which particular properties of the problem implied this correspondence.",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 12492.35,
+  "target_in_paper": "Section 2.5, Problem 2.13 (\"Preconditioning and convergence of iterative solvers\").",
+  "completeness_score": 9,
+  "correct_elements": "Your draft is essentially a near-verbatim restatement of Problem 2.13. It correctly preserves the paper's focus on an interesting non-selfadjoint/nonsymmetric model problem, the left-preconditioned matrix M^{-1}A, the illustrative scenario of m eigenvalue clusters leading to O(m) GMRES steps, and the request to identify the properties responsible for that correspondence.",
+  "missing_details": [
+    "The paper places this question in the setting of nonsymmetric, more precisely nonnormal, linear algebraic systems solved by GMRES; that motivating context is only implicit in the draft.",
+    "The example in the paper is explicitly about the preconditioned coefficient matrix M^{-1}A, so a fully stand-alone version should name the underlying linear system Ax=b and the role of the preconditioner M.",
+    "Problem 2.13 is motivated by the observation that eigenvalue-clustering explanations for GMRES in nonsymmetric problems are often heuristic because convergence can also depend on quantities such as eigenvector conditioning, pseudospectra, or the field of values; this motivation is not stated in the draft.",
+    "The phrase \"acceptable approximate solution\" is left unspecified in the paper; a stand-alone question should either keep that wording or declare a chosen success criterion such as a residual or error tolerance.",
+    "The paper does not define precisely what counts as an \"eigenvalue cluster\" or what constants are hidden in O(m); the draft likewise leaves these implicit.",
+    "The ambient field is not fixed in the paper; if one wants maximal self-containment, one can say the linear system is over R or C."
+  ],
+  "refined_question": "Identify a concrete, interesting non-selfadjoint model problem (or, at the matrix level, a nonsymmetric linear system Ax=b) together with a preconditioner M such that the proven eigenvalue distribution of the left-preconditioned matrix M^{-1}A genuinely matches the actual convergence behavior of GMRES—for example, if M^{-1}A has m eigenvalue clusters, then GMRES reaches an acceptable approximate solution in O(m) iterations—and determine which specific properties of the model problem and preconditioner make this eigenvalue-distribution/convergence correspondence valid.",
+  "equivalent_formulation": null,
+  "justification": "The draft matches Problem 2.13 almost word for word, so that is the nearest official target. The nearby context shows that the paper is not asking the broader Question 2.12 about descriptive GMRES bounds for general nonnormal systems, and not yet the narrower Question 2.14 about the post-transient acceleration in an SUPG convection-diffusion example. Rather, Problem 2.13 isolates the specific challenge of finding a model problem where the usual eigenvalue-clustering narrative for preconditioned nonsymmetric systems can actually be made rigorous.",
+  "citations": [
+    {
+      "section": "2.5",
+      "label": "Preconditioning and convergence of iterative solvers",
+      "page": 14
+    },
+    {
+      "section": "2.5",
+      "label": "Problem 2.12",
+      "page": 16
+    },
+    {
+      "section": "2.5",
+      "label": "Problem 2.13",
+      "page": 16
+    },
+    {
+      "section": "2.5",
+      "label": "Problem 2.14",
+      "page": 16
+    }
+  ]
+}

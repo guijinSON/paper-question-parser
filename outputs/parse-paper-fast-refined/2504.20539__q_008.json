@@ -1,0 +1,46 @@
+{
+  "arxiv_id": "2504.20539",
+  "question_id": "q_008",
+  "original_question": "Consider synchronization over SO(2) or over a finite group, with signal elements sampled uniformly over group elements, and fix a number of frequencies L that does not depend on n. In the computationally hard regime lambda in (lambda_stat, 1), does there exist a sub-exponential-time detection algorithm, specifically running in time exp(n^delta) for some delta < 1, that can reliably detect the signal as n -> infinity?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 10864.69,
+  "target_in_paper": "Entry 4, Open Problem 8 — Detection in Multi-Frequency synchronization",
+  "completeness_score": 9,
+  "correct_elements": "Your draft already tracks the paper’s intended target very closely: it asks about the multi-frequency synchronization model over SO(2) or a finite group, with the signal sampled uniformly over group elements, in the fixed-L regime, in the computationally hard interval λ ∈ (λ_stat, 1), and it asks whether there is a sub-exponential detector of runtime exp(n^δ) with δ < 1 that succeeds reliably as n → ∞.",
+  "missing_details": [
+    "The paper’s model is the dense all-pairs observation model with additive Gaussian noise; this is implicit in your draft but should be stated explicitly to make the question stand-alone.",
+    "In the SO(2) formulation, the L channels are Y_ell = (λ/n)x^(ell)(x^(ell))* + n^(-1/2)W^(ell), with independent Gaussian noise matrices W^(1),...,W^(L) and x^(ell) = (x_1^ell,...,x_n^ell).",
+    "In the finite-group formulation, the 'frequencies' are representation-theoretic channels from the Peter-Weyl decomposition: Y_kj^ρ = (λ/n)ρ(g_k)ρ(g_j^(-1)) + n^(-1/2)W_kj^(ρ) for ρ in a fixed set Ψ of size L.",
+    "The paper is asking a detection problem, i.e. distinguishing the planted model from the corresponding null all-noise model; your draft says 'detect the signal' but does not state the null explicitly.",
+    "The quantifier over λ should be made explicit: the paper-faithful reading is for each fixed λ in the hard regime λ ∈ (λ_stat, 1), not merely for some unspecified λ in that interval.",
+    "The sentence immediately preceding Open Problem 8 suggests that the sub-exponential runtime may depend on the signal strength, so one should not silently require one uniform exponent δ for the entire interval unless that stronger version is intended.",
+    "Your draft does not explicitly say that measurements are available for all pairs (j, k), which is part of the setup in Entry 4.",
+    "The symbol λ_stat should be identified as the statistical/information-theoretic detection threshold of the corresponding multi-frequency model.",
+    "If one wants to match the nearby hardness discussion exactly, one should say whether the finite group is fixed as n grows; the motivation immediately before the open problem discusses SO(2) or finite groups of constant size."
+  ],
+  "refined_question": "Fix either G = SO(2) (equivalently U(1)) or a fixed finite group G. Consider the dense multi-frequency synchronization model from Entry 4, where measurements are available for every pair (j, k) and, for a fixed collection Ψ of L frequency/representation channels with L independent of n, the planted observation is Y_kj^ρ = (λ/n)ρ(g_k)ρ(g_j^(-1)) + n^(-1/2)W_kj^(ρ) for ρ in Ψ (in the SO(2) case, equivalently, Y_ell = (λ/n)x^(ell)(x^(ell))* + n^(-1/2)W^(ell) for ell = 1,...,L), with g = (g_1,...,g_n) sampled uniformly from G^n and Gaussian noise W. For every fixed signal-to-noise ratio λ in the computationally hard regime λ ∈ (λ_stat, 1), where λ_stat is the statistical detection threshold and 1 is the spectral threshold, does there exist a possibly λ-dependent algorithm running in time exp(n^δ) for some δ < 1 that distinguishes the planted model from the corresponding null all-noise model with error probability o(1) as n → ∞?",
+  "equivalent_formulation": null,
+  "justification": "The draft is essentially a paraphrase of Open Problem 8, not Open Problem 7. Open Problem 7 asks for a scaling L = L_n that would permit polynomial-time detection below the spectral threshold, whereas your draft fixes L and asks instead for sub-exponential detection in the hard regime. I therefore kept the scope exactly at Open Problem 8 and only inserted the paper’s implicit setup needed for a stand-alone formulation: the dense Gaussian multi-frequency observation model, the planted-versus-null meaning of detection, the representation-theoretic meaning of 'frequencies' for finite groups, and the fact that the runtime exponent may depend on the signal strength.",
+  "citations": [
+    {
+      "section": "Entry 4: Detection in Multi-Frequency synchronization",
+      "label": "model setup for SO(2) and compact-group frequency channels",
+      "page": 6
+    },
+    {
+      "section": "Entry 4: Detection in Multi-Frequency synchronization",
+      "label": "computational/statistical threshold discussion",
+      "page": 7
+    },
+    {
+      "section": "Entry 4: Detection in Multi-Frequency synchronization",
+      "label": "Open Problem 7",
+      "page": 7
+    },
+    {
+      "section": "Entry 4: Detection in Multi-Frequency synchronization",
+      "label": "Open Problem 8",
+      "page": 7
+    }
+  ]
+}

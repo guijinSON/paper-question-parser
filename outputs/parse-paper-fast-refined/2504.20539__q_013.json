@@ -1,0 +1,49 @@
+{
+  "arxiv_id": "2504.20539",
+  "question_id": "q_013",
+  "original_question": "Let H_k be the 2^k x 2^k Hadamard matrix from Sylvester's construction. For odd k, is the discrepancy equal to sqrt(2) * sqrt(2^k), i.e., disc(H_k) = sqrt(2) * sqrt(2^k)?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 10816.95,
+  "target_in_paper": "Entry 6 (“Did just a couple of deviations suffice all along?”), Hadamard matrices subsection, Conjecture 13. The draft is capturing that conjecture almost verbatim, though the Updates section later notes that Conjecture 13 is false.",
+  "completeness_score": 8.5,
+  "correct_elements": "The draft correctly identifies the exact subproblem in the paper: the Sylvester Hadamard family H_k, the odd-k case, and the claimed value disc(H_k) = √2·√(2^k). This is precisely the statement of Conjecture 13 in Entry 6.",
+  "missing_details": [
+    "The paper defines discrepancy explicitly as disc(A) := inf_{x ∈ {±1}^n} ||Ax||_∞; your draft assumes this definition but does not state it.",
+    "The Sylvester construction is given recursively in the paper: H_0 = (1) and H_k = H_1 ⊗ H_{k-1} = [[H_{k-1}, H_{k-1}], [H_{k-1}, -H_{k-1}]]. Saying only “from Sylvester’s construction” is slightly underspecified for a stand-alone question.",
+    "The quantifier should be explicit: the question is whether the equality holds for every odd positive integer k.",
+    "The ambient setting is over the reals: H_k is a real ±1 matrix, x ranges over {±1}^{2^k}, and ||·||_∞ is the usual ℓ_∞ norm on R^{2^k}.",
+    "The nearby paper context matters: the preceding argument constructs a specific sign vector x^♮_(k) giving the upper bound ||H_k x^♮_(k)||_∞ = √2·√(2^k) for odd k and √(2^k) for even k, so the intended question is whether that odd-k upper bound is actually optimal.",
+    "The paper positions this as a narrow Hadamard-matrix route toward Conjecture 12, namely proving that limsup_{n→∞} sup_{A ∈ {±1}^{n×n}} disc(A)/√n > 1; that motivation is implicit in your draft.",
+    "A paper-faithful caveat is missing: in the Updates section, the manuscript reports that Conjecture 13 is false, so the statement is recorded as the paper’s original conjecture rather than as a currently open problem within the compiled manuscript."
+  ],
+  "refined_question": "For each k ≥ 0, let H_0 = (1) and define the Sylvester Hadamard matrices recursively by H_k = [[H_{k-1}, H_{k-1}], [H_{k-1}, -H_{k-1}]], so that H_k is a 2^k × 2^k real ±1 matrix. For an n × n real matrix A, define its discrepancy by disc(A) := inf_{x ∈ {±1}^n} ||Ax||_∞. Is it true that for every odd positive integer k, disc(H_k) = √2·√(2^k) = 2^{(k+1)/2}?",
+  "equivalent_formulation": null,
+  "justification": "This is the nearest official formulation to the draft: it is exactly Conjecture 13 in the Hadamard-matrices part of Entry 6. The preceding text in Entry 6 supplies the definition of disc(A), the Sylvester recursion for H_k, and the explicit recursive sign vector x^♮_(k) that yields the candidate upper bound √2·√(2^k) when k is odd and shows why the odd case is singled out. Conjecture 12 gives the broader motivation, but your draft is not targeting that broader limsup statement; it is targeting the narrower Sylvester-Hadamard conjecture. A complete paper-faithful refinement should therefore state the discrepancy definition, the recursive construction of H_k, the quantifier “for every odd positive integer k,” and the real ℓ_∞ setting. One should also note, for accuracy about the paper as compiled, that the Updates section reports that Conjecture 13 is false.",
+  "citations": [
+    {
+      "section": "Entry 6: Did just a couple of deviations suffice all along?",
+      "label": "opening definition of discrepancy in Entry 6",
+      "page": 8
+    },
+    {
+      "section": "Entry 6: Did just a couple of deviations suffice all along?",
+      "label": "Conjecture 12",
+      "page": 8
+    },
+    {
+      "section": "Entry 6: Hadamard matrices subsection",
+      "label": "Sylvester construction of H_k and the preceding odd/even bound computation",
+      "page": 9
+    },
+    {
+      "section": "Entry 6: Hadamard matrices subsection",
+      "label": "Conjecture 13",
+      "page": 9
+    },
+    {
+      "section": "Updates",
+      "label": "update stating that Conjecture 13 is false",
+      "page": 11
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "arxiv_id": "0707.4558",
+  "question_id": "q_007",
+  "original_question": "For the DNA alignment example whose model M is the set of positive 4×4 matrices (pij) of rank at most 2 and whose likelihood function is L = (∏i pii)^4 · (∏i≠j pij)^2 · (∑i,j pij)^−40, is the matrix (1/40)·[[3,3,2,2],[3,3,2,2],[2,2,3,3],[2,2,3,3]] a global maximum of L?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 357.43,
+  "target_in_paper": "Section 3 (Maximum likelihood estimation), the specific concrete biology problem at the end of the section, commonly called the 100 Swiss Francs Problem.",
+  "completeness_score": 9,
+  "correct_elements": "Your draft already captures the paper's actual target very closely: it uses the correct model (positive 4x4 matrices of rank at most 2), the exact likelihood function used for the DNA-alignment example, the exact candidate matrix displayed in the paper, and the right optimization claim ('is this a global maximum?'). It also stays with the paper's narrow concrete problem rather than drifting to the broader ML-degree questions discussed earlier in Section 3.",
+  "missing_details": [
+    "The optimization domain is the positive real locus: the paper asks about positive 4x4 matrices, i.e. matrices with all entries in R_{>0}, not complex matrices or arbitrary real matrices.",
+    "The paper presents this as a concrete biology example coming from a fixed aligned pair of DNA sequences; the exponents 4 and 2 come from the observed alignment, where each match occurs four times and each mismatch occurs two times.",
+    "The paper phrases the question as a specific yes/no ('True or False') problem: whether the displayed matrix globally maximizes L over the stated model M.",
+    "For full stand-alone clarity, the indices i,j should be understood as ranging over the four nucleotide states / the four rows and columns of the 4x4 table.",
+    "The nearby Section 3 context explains that likelihoods are naturally viewed projectively, with the denominator making L well-defined on projective space; your draft uses the correct denominator but does not say this is why no separate normalization sum_{i,j} p_{ij}=1 is imposed in the paper's formulation.",
+    "No extra restrictions of the kind relevant in other papers (field characteristic, polynomial degree bounds beyond the displayed exponents, nilpotency, 'for all sufficiently large m', etc.) play any role here; this is a concrete real optimization problem."
+  ],
+  "refined_question": "In the concrete DNA-alignment example of Section 3 of Sturmfels' paper, let M be the set of all positive real 4x4 matrices P = (p_{ij}) of rank at most 2. For the observed alignment in which each match occurs four times and each mismatch occurs two times, consider the likelihood function\nL(P) = (product_{i=1}^4 p_{ii})^4 (product_{i != j} p_{ij})^2 (sum_{i=1}^4 sum_{j=1}^4 p_{ij})^{-40}.\nIs it true or false that the matrix\n(1/40) * [[3,3,2,2],[3,3,2,2],[2,2,3,3],[2,2,3,3]]\nis a global maximizer of L over M?",
+  "equivalent_formulation": "Equivalently, using the affine normalization discussed immediately after equation (3.1), one may restrict to positive rank-at-most-2 4x4 matrices with sum_{i,j} p_{ij} = 1 and ask whether the same matrix globally maximizes (product_{i=1}^4 p_{ii})^4 (product_{i != j} p_{ij})^2 on that normalized domain.",
+  "justification": "The introduction says that each section presents a 'specific problem' representing a broader agenda. Your draft is not aiming at the broader ML-degree-one characterization that opens Section 3; it is aiming at the later concrete determinantal-rank example that the paper singles out after noting that the first unresolved case for matrix rank models is m = n = 4, r = 2. The paper then introduces the DNA-alignment example from [24, Example 1.16], defines M as the positive 4x4 matrices of rank at most two, writes the exact likelihood with exponents 4 and 2, and asks whether the displayed matrix is the global maximum. So the nearest official formulation is this specific concrete problem itself, not the broader neighboring ML-degree questions. The refined version preserves that exact scope while making explicit the real-positivity domain, the DNA-alignment provenance of the exponents, and the quantifier 'global maximizer over M'.",
+  "citations": [
+    {
+      "section": "1",
+      "label": "Introduction",
+      "page": "351"
+    },
+    {
+      "section": "3",
+      "label": "Equation (3.1) and surrounding likelihood/setup definitions",
+      "page": "355-356"
+    },
+    {
+      "section": "3",
+      "label": "Determinantal-variety discussion; first unresolved case m = n = 4, r = 2",
+      "page": "356-357"
+    },
+    {
+      "section": "3",
+      "label": "Concrete biology example / 100 Swiss Francs Problem",
+      "page": "357"
+    }
+  ]
+}

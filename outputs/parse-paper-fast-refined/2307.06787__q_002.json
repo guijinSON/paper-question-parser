@@ -1,0 +1,50 @@
+{
+  "arxiv_id": "2307.06787",
+  "question_id": "q_002",
+  "original_question": "For the randomized numerical integration problem on the classical smoothness classes F_d^k = {f:[0,1]^d->R : ||D^alpha f||_infty <= 1 for all |alpha|<=k}, upper bounds of the form d^t n^{-k/d-1/2} are known. What is the smallest possible exponent t in the dimension factor d^t for such randomized upper bounds?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 8953.1,
+  "target_in_paper": "Section 2 (Lower Bounds), the unnumbered Open Problem immediately after equation (9) and Remark 5: determine the dimension dependence of the minimal randomized integration error on the classical smoothness classes F_d^k, specifically the optimal exponent t in bounds of the form d^t n^{-k/d-1/2}.",
+  "completeness_score": 8,
+  "correct_elements": "The draft correctly identifies the exact function class F_d^k on [0,1]^d, the randomized convergence rate n^{-k/d-1/2}, and the fact that the unresolved issue is the smallest possible exponent of the dimension factor d^t. It also stays on the cube, which matches the paper’s target here, rather than drifting to the earlier nearby open problem on general domains.",
+  "missing_details": [
+    "The paper asks about the minimal randomized worst-case integration error e_ran(n, F_d^k), not an unspecified family of randomized upper bounds.",
+    "The integration operator should be stated explicitly: S_d(f) = ∫_[0,1]^d f(x) dx.",
+    "The randomized error criterion is the worst-case expected absolute error: e_ran(A, F_d) = sup_{f in F_d} ∫_Ω^* |S_d(f) - A^ω(f)| dμ(ω), and e_ran(n, F_d) is the infimum over randomized algorithms A of cardinality at most n.",
+    "The quantifiers should be explicit: fix k in N, and ask for all d,n in N.",
+    "The hidden constant in the desired estimate should be independent of d and n for fixed k; otherwise the phrase 'dependence on the dimension' is not pinned down in the paper’s sense.",
+    "The currently available exponent from the paper’s context should be recorded: using results of Krieg, one may take t = (k + 1)/2.",
+    "Multi-index notation should be made explicit: α in N_0^d, |α| = α_1 + ... + α_d, and D^α is the corresponding mixed partial derivative.",
+    "The question is framed in the paper as the randomized analogue of the explicit dimension-dependent deterministic bound given in Theorem 2.1 / Theorem 1."
+  ],
+  "refined_question": "Fix k in N. For d in N, let F_d^k = {f:[0,1]^d -> R : ||D^α f||_∞ <= 1 for every multi-index α in N_0^d with |α| <= k}, and let e_ran(n, F_d^k) denote the minimal randomized worst-case error for approximating S_d(f) = ∫_[0,1]^d f(x) dx by algorithms that use at most n function values. Since e_ran(n, F_d^k) has the optimal rate n^{-k/d-1/2}, and results cited in the paper yield an upper bound of the form e_ran(n, F_d^k) <= C_k d^t n^{-k/d-1/2} with t = (k + 1)/2, what is the smallest exponent t = t(k) for which there exists a constant C_k < ∞, independent of d and n, such that e_ran(n, F_d^k) <= C_k d^{t(k)} n^{-k/d-1/2} for all d,n in N?",
+  "equivalent_formulation": null,
+  "justification": "The draft is clearly aiming at the Section 2 open problem on randomized algorithms, not the neighboring deterministic open problem on general domains. The decisive clues are the use of the classical smoothness classes F_d^k on [0,1]^d, the randomized Bakhvalov rate n^{-k/d-1/2}, and the explicit search for the optimal exponent t in a dimension factor d^t. The nearby context that makes the problem stand-alone is: the definition of S_d and the integration setting from Section 1; the definition of the class F_d^k and the deterministic dimension-dependent analogue in Theorem 2.1 / Theorem 1; the definition of the randomized minimal error e_ran(n, F_d); the randomized rate in equation (9); and finally the exact open problem stating that one may take t = (k + 1)/2 but the optimal smallest t is unknown.",
+  "citations": [
+    {
+      "section": "Section 1",
+      "label": "Equations (1)-(3): definition of S_d, e(n, F_d), and n(ε, F_d)",
+      "page": "105-107"
+    },
+    {
+      "section": "Section 2",
+      "label": "Definition of F_d^k and equation (4)",
+      "page": 107
+    },
+    {
+      "section": "Section 2",
+      "label": "Theorem 2.1 in the arXiv version / Theorem 1 in the published chapter, equation (5)",
+      "page": "107-108"
+    },
+    {
+      "section": "Section 2",
+      "label": "Definition of e_ran(A, F_d), e_ran(n, F_d), and equation (9)",
+      "page": 109
+    },
+    {
+      "section": "Section 2",
+      "label": "Remark 5 and the subsequent Open Problem on randomized dimension dependence",
+      "page": "109-110"
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "arxiv_id": "2303.00950",
+  "question_id": "q_001",
+  "original_question": "In fixed-budget best arm identification, a bandit instance mu belongs to the class S of instances with a unique best arm, the learner uses exactly n samples, and then outputs an estimate I_hat_n of the best arm; the resulting error probability is p_{mu,n} = P_mu(I_hat_n != I*(mu)), where I*(mu) is the unique arm with the largest mean. Is there a natural algorithm class A and a well-defined instance-dependent function Gamma*_fb: S -> R such that every algorithm in A satisfies lim inf_{n->infinity} n / log(1/p_{mu,n}) >= Gamma*_fb(mu), while some algorithm in A also satisfies the matching upper bound lim sup_{n->infinity} n / log(1/p_{mu,n}) <= Gamma*_fb(mu), so that Gamma*_fb exactly characterizes the asymptotic complexity of the fixed-budget setting?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 8493.23,
+  "target_in_paper": "Section 3, Open problem 1: whether there exists a desirable algorithm class A and a well-defined function Γ*_fb:S→R that yields matching instance-wise lower and upper asymptotic bounds on n/log(1/p_{μ,n}) in fixed-budget best-arm identification. ([proceedings.mlr.press](https://proceedings.mlr.press/v178/open-problem-qin22a/open-problem-qin22a.pdf))",
+  "completeness_score": 9,
+  "correct_elements": "Your draft already captures the core of the paper’s target almost verbatim: it is about the fixed-budget setting, the class S of instances with a unique best arm, the error probability p_{μ,n}=P_μ(I_hat_n≠I*(μ)), and the search for an instance-dependent complexity Γ*_fb characterized by a universal liminf lower bound over an algorithm class A together with a matching limsup upper bound achieved by some algorithm in A. That is exactly the substance of Open problem 1. ([proceedings.mlr.press](https://proceedings.mlr.press/v178/open-problem-qin22a/open-problem-qin22a.pdf))",
+  "missing_details": [
+    "To be fully stand-alone, the question should specify the ambient stochastic bandit model: a finite k-armed instance μ=(μ1,…,μk) with expectations θ=(θ1,…,θk), [k]={1,…,k}, and I*(μ)=argmax_{i∈[k]} θ_i under the standing assumption that the best arm is unique. ([proceedings.mlr.press](https://proceedings.mlr.press/v178/open-problem-qin22a/open-problem-qin22a.pdf))",
+    "It should state the sequential observation model: at each round t, the learner chooses an arm I_t based on the past and observes an independent sample Y_{t,I_t} drawn from μ_{I_t}. ([proceedings.mlr.press](https://proceedings.mlr.press/v178/open-problem-qin22a/open-problem-qin22a.pdf))",
+    "It should make explicit that, in the fixed-budget setting, an algorithm consists only of a sampling rule and a decision rule; unlike the fixed-confidence setting, there is no stopping rule. ([proceedings.mlr.press](https://proceedings.mlr.press/v178/open-problem-qin22a/open-problem-qin22a.pdf))",
+    "The nearby discussion clarifies an important hidden scope condition on A: Qin suggests that the class of merely consistent algorithms, meaning algorithms with p_{μ,n}→0 for every μ∈S, is probably too broad, and that the right class may need to be more restrictive and may even need rate control. ([proceedings.mlr.press](https://proceedings.mlr.press/v178/open-problem-qin22a/open-problem-qin22a.pdf))",
+    "A paper-faithful formulation should keep the quantifiers fully explicit: the lower bound must hold for every algorithm in A and every μ∈S, while the upper bound must be achieved by a single algorithm in A simultaneously for every μ∈S. ([proceedings.mlr.press](https://proceedings.mlr.press/v178/open-problem-qin22a/open-problem-qin22a.pdf))",
+    "Not applicable here: there are no ambient ring/field, homogeneity, degree, or nilpotency conditions; the relevant ambient structure is a finite-armed stochastic bandit model and the asymptotic ratio n/log(1/p_{μ,n}). ([proceedings.mlr.press](https://proceedings.mlr.press/v178/open-problem-qin22a/open-problem-qin22a.pdf))"
+  ],
+  "refined_question": "Let k be finite, let S be the class of k-armed bandit instances μ=(μ1,…,μk) with arm means θ=(θ1,…,θk) and a unique best arm I*(μ)=argmax_{i∈[k]} θ_i, and suppose that at each round t a fixed-budget algorithm adaptively chooses an arm I_t∈[k] from the past history and observes an independent sample Y_{t,I_t}∼μ_{I_t}. After exactly n samples, the algorithm outputs a recommendation I_hat_n, and its error probability is p_{μ,n}=P_μ(I_hat_n≠I*(μ)). Does there exist a desirable natural, possibly stricter-than-consistent, class A of fixed-budget algorithms and a well-defined instance-dependent function Γ*_fb:S→R such that: (i) for every algorithm in A and every μ∈S, liminf_{n→∞} n/log(1/p_{μ,n}) ≥ Γ*_fb(μ); and (ii) there exists a single algorithm in A such that for every μ∈S, limsup_{n→∞} n/log(1/p_{μ,n}) ≤ Γ*_fb(μ)? Equivalently, does fixed-budget best-arm identification admit an exact instance-dependent asymptotic complexity within an appropriate restricted algorithm class? ([proceedings.mlr.press](https://proceedings.mlr.press/v178/open-problem-qin22a/open-problem-qin22a.pdf))",
+  "equivalent_formulation": null,
+  "justification": "The draft is targeting Open problem 1 in Section 3, not Conjecture 1 or Conjecture 2. Its hallmark is the exact pair of asymptotic inequalities involving n/log(1/p_{μ,n}) and an unknown function Γ*_fb over a suitable algorithm class A. The introduction and the start of Section 3 provide the model definitions needed to make the question self-contained, while the discussion immediately after Open problem 1 explains that the main unresolved issue is not just the value of Γ*_fb but also identifying the right restricted class A, since the class of consistent algorithms may be too large. Open problem 2 is presented only as a possible route for choosing such a class, not as an equivalent reformulation. ([proceedings.mlr.press](https://proceedings.mlr.press/v178/open-problem-qin22a/open-problem-qin22a.pdf))",
+  "citations": [
+    {
+      "section": "1",
+      "label": "Introduction and problem formulation",
+      "page": "pdf p. 1"
+    },
+    {
+      "section": "2",
+      "label": "Definition of S and P_μ; Equations (1)–(4)",
+      "page": "pdf p. 2"
+    },
+    {
+      "section": "3",
+      "label": "Definition of the fixed-budget setting and p_{μ,n}",
+      "page": "pdf p. 2"
+    },
+    {
+      "section": "3",
+      "label": "Open problem 1",
+      "page": "pdf p. 3"
+    },
+    {
+      "section": "3",
+      "label": "Discussion on potential algorithm class; Open problem 2",
+      "page": "pdf p. 3"
+    }
+  ]
+}

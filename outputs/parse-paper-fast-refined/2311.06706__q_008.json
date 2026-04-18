@@ -1,0 +1,52 @@
+{
+  "arxiv_id": "2311.06706",
+  "question_id": "q_008",
+  "original_question": "Given a binary linear code Ker(A) defined by a matrix A in M_{m×n}(F2), consider the associated presentation of an elementary abelian 2-group with generators x_i, order-two relations x_i^2, commutation relations x_i x_j x_i^{-1} x_j^{-1}, and the linear relations induced by the rows of A. What can be proved about the homomorphism stability rate of this presentation when approximate homomorphisms are allowed to take values in arbitrary symmetric groups Sym(n), rather than being restricted to Sym(2)? In particular, for structured code families such as Reed-Muller codes or recently constructed good locally testable codes, do these presentations admit strong stability rates with permutation coefficients?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 9380.58,
+  "target_in_paper": "Problem 6.11 (\"Locally testable codes with permutation coefficients\") in §6.4, presented there as a more specific version of Problem 6.9 on efficient stability in permutations.",
+  "completeness_score": 8,
+  "correct_elements": "Your draft is very close to the paper's actual target. It correctly identifies the data A in M_{m×n}(F2), the associated abelian presentation with order-2, commutation, and row-induced linear relations, the passage from Sym(2) to arbitrary symmetric groups, and the fact that the paper explicitly points to Reed–Muller codes and recently constructed good locally testable codes as the main concrete families to study. It also correctly frames the issue as one about homomorphism stability with permutation coefficients rather than ordinary local testability alone.",
+  "missing_details": [
+    "The paper states explicitly that the presented group is F_2^k with k = n - rank(A), not just an unspecified elementary abelian 2-group.",
+    "The row relations are written concretely as product_{j=1}^n x_j^{A_{ij}} = 1 for each i in [m].",
+    "The exact stability notion is ρ-homomorphism stability in permutations, defined via the presentation complex by the cocycle-stability inequality d(α, Z_1(X_{<S|R>}, Sym)) <= ρ(||δα||); the draft does not state this formal definition.",
+    "The coefficient object is not a fixed Sym(n), but the collective Sym = disjoint union over N >= 2 of Sym(N), equipped with the normalized Hamming distance with errors, so approximate and exact solutions may live in different symmetric groups.",
+    "The paper's metric/tester setup is weighted: the stability rate depends on the probability distributions on generators and relations, and Problem 6.11 is tied to the matrix-tester sampling rather than an unweighted worst-case notion.",
+    "The official formulation is open-ended: it asks 'what can be said about the homomorphism stability rate' for such presentations. Your phrase 'strong stability rates' is broader and more ambitious than the paper's actual wording.",
+    "If one wants a benchmark for what counts as a 'good' rate, that benchmark comes from Problem 6.9: short presentations together with a rate of the form ρ(ε) = polyloglog(|G|) · ε^c for some c > 0 independent of |G|. Problem 6.11 itself does not build that quantitative target into its statement.",
+    "The code-side equivalence should be stated exactly: Ker(A) is ρ-locally testable under the matrix tester if and only if the above presentation is ρ-stable when assignments are restricted to Sym(2).",
+    "The paper treats the Hadamard-code case as essentially the multiplication-table presentation of F_2^k, which is already known to be stable but highly expansive; the real question is about more reasonably sized code families.",
+    "There are no homogeneity, polynomial-degree, or nilpotency hypotheses here; the omitted technical data are instead the field F2, the parameter k, the metric, the sampling distributions, and the quantification over all N >= 2 and all approximate assignments of the generators."
+  ],
+  "refined_question": "Let A be an m x n matrix over F_2, let k = n - rank(A), and let G_A ≅ F_2^k be given by the presentation with generators x_1, ..., x_n and relations x_i^2 = 1 for all i in [n], [x_i, x_j] = 1 for all i, j in [n], and product_{j=1}^n x_j^{A_{ij}} = 1 for all i in [m]. With the associated presentation complex and the presentation-complex notion of permutation-coefficient homomorphism stability from §2 (using the normalized Hamming distance with errors and allowing assignments into arbitrary Sym(N), N >= 2), what is the stability rate ρ of this presentation? Equivalently, beyond the Sym(2) regime that recovers ρ-local testability of Ker(A) under the matrix tester, can one determine this permutation-coefficient stability rate for natural code families such as Reed–Muller codes and the recently constructed good locally testable codes?",
+  "equivalent_formulation": "Equivalently, starting from the fact stated in Problem 6.11 that Ker(A) is ρ-locally testable under the matrix tester if and only if the above presentation is ρ-stable when assignments are restricted to Sym(2), ask for the extension of this Sym(2)-based local-testability question to arbitrary symmetric-group coefficients Sym = disjoint union over N >= 2 of Sym(N).",
+  "justification": "The draft is clearly targeting Problem 6.11 in §6.4, not the introduction-level results: the matrix A, the code Ker(A), the switch from Sym(2) to arbitrary Sym(n), and the named examples Reed–Muller and recent good LTCs all match the wording of Problem 6.11 on p. 25. The nearby context in §6.4 explains why this question is being asked: the paper is studying the tradeoff between short presentations and stability rates, notes that even for F_2^k short abelian presentations can have poor cocycle Cheeger behavior, and then formulates Problem 6.9 as a general efficient-stability challenge before specializing to the code-derived problem in Problem 6.11. To make the question stand-alone and faithful, one must also import the formal definition of ρ-homomorphism stability from §2, where it is phrased via the presentation complex, the cocycle-stability inequality d(α, Z_1) <= ρ(||δα||), and the normalized Hamming distance with errors on permutation coefficients. I therefore kept the question narrow: determine the permutation-coefficient stability rate of the code-derived presentation, especially for Reed–Muller and good LTC families, rather than broadening it into a generic request for 'strong stability' outside the paper's stated scope.",
+  "citations": [
+    {
+      "section": "§2",
+      "label": "Equations (2.6)-(2.9) and the paragraph defining ρ-homomorphism stability for a presentation via its presentation complex",
+      "page": "5-6"
+    },
+    {
+      "section": "§3.3",
+      "label": "Claim 3.11",
+      "page": "10-11"
+    },
+    {
+      "section": "§6.4",
+      "label": "discussion of short presentations of finite groups, including the F_2^k example and the shortness-vs-stability tradeoff",
+      "page": "23-24"
+    },
+    {
+      "section": "§6.4",
+      "label": "Problem 6.9 and Remark 6.10",
+      "page": 24
+    },
+    {
+      "section": "§6.4",
+      "label": "Problem 6.11 (Locally testable codes with permutation coefficients)",
+      "page": 25
+    }
+  ]
+}

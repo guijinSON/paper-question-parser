@@ -1,0 +1,58 @@
+{
+  "arxiv_id": "2201.09150",
+  "question_id": "q_031",
+  "original_question": "Determine how a dynamic cognitive map interacts with discrete or distributed time delays, how that combination changes space-use outcomes, and whether standard bootstrapping arguments can prove existence and uniqueness for bounded-domain problems that combine nonlocal perception with such delays.",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 8036.43,
+  "target_in_paper": "Open Problem 31 in Section 2.3.2 (page 27): coupling a dynamic cognitive map from Section 2.2 with discrete or distributed time delays, studying how that affects space-use outcomes, and asking whether a standard boot-strapping method can prove existence and uniqueness for bounded-domain problems with nonlocal perception and such delays.",
+  "completeness_score": 8.5,
+  "correct_elements": "Your draft is very close to the paper's actual target. It correctly identifies the three core components of Open Problem 31: a dynamic cognitive map, discrete versus distributed time delays, and the effect of that coupling on space-use outcomes. It also correctly captures the bounded-domain existence/uniqueness question and the paper's specific suggestion that a standard boot-strapping argument might be relevant.",
+  "missing_details": [
+    "The nearest official target is specifically Open Problem 31, not a broader neighboring question about delay PDEs or nonlocal movement models in general.",
+    "The dynamic map is not arbitrary: it is meant to be a cognitive-map mechanism of the kind introduced in Section 2.2, especially the dynamic-memory constructions in Section 2.2.2.",
+    "The paper's delay mechanisms come from Section 2.3: discrete delays from Section 2.3.1 and distributed delays from Section 2.3.2.",
+    "The distributed-delay framework is expressed through a spatiotemporal convolution operator: v_a(x,t) = ∫_{-∞}^t ∫_Omega G(d_3,x,y,t-s) K(t-s) a(y,s) dy ds in (2.31), together with the movement equation u_t = d_1 Delta u + d_2 div(u grad v_a) + f(u) in (2.32). The draft leaves this operator-level setup implicit.",
+    "For distributed delay, the paper explicitly singles out the weak and strong Gamma kernels G_w(t;tau) = tau^{-1} e^{-t/tau} and G_s(t;tau) = t tau^{-2} e^{-t/tau} from (2.27); it also notes that one may take the temporal kernel to be delta(t-tau) for a discrete delay.",
+    "The dynamic cognitive map may itself satisfy an auxiliary evolution equation from the chosen Section 2.2 model, so the combined problem may be a coupled system rather than a single PDE.",
+    "The intended comparison is between the delayed and non-delayed versions of the dynamic-map model, since the paper motivates this as a way to understand the effect of learning or waning memory on movement outcomes.",
+    "The existence/uniqueness part concerns time-dependent solutions in a bounded spatial domain, not merely steady states.",
+    "Open Problem 31 does not fix a specific bounded-domain boundary condition; handling nonlocal perception near the boundary is a hidden technical issue that the paper discusses separately.",
+    "The paper explicitly says this question is less well-defined than earlier open problems because even constructing a reasonable combined model would itself be new.",
+    "In this PDE setting there is no ambient ring/field, homogeneity, degree restriction, nilpotency condition, or phrase such as for all sufficiently large m to specify; the stand-alone missing details are instead the domain, kernels, unknowns, auxiliary map equation, and boundary data."
+  ],
+  "refined_question": "Can one formulate and analyze, on a bounded spatial domain Omega, a knowledge-based movement model in which a dynamic cognitive map a(x,t) of the type introduced in Section 2.2 (together with its own auxiliary evolution law from the chosen dynamic-map model) is coupled to nonlocal perception and an explicit temporal delay—either discrete, for example K(t) = delta(t-tau), or distributed via one of the weak/strong Gamma kernels in (2.27)—through the spatiotemporal convolution v_a(x,t) = ∫_{-∞}^t ∫_Omega G(d_3,x,y,t-s) K(t-s) a(y,s) dy ds, so that the population equation has the form u_t = d_1 Delta u + d_2 div(u grad v_a) + f(u); and, for such a bounded-domain model, how does the addition of the discrete or distributed delay change the resulting space-use outcomes relative to the corresponding no-delay dynamic-cognitive-map model, and can a standard boot-strapping argument of the kind used for simpler delay models establish existence and uniqueness of time-dependent solutions when nonlocal perception and delay are both present?",
+  "equivalent_formulation": null,
+  "justification": "The draft is essentially a paraphrase of Open Problem 31. The immediate context in Section 2.3.2 first defines the distributed-delay/spatiotemporal-kernel setting through (2.26), (2.27), (2.29), (2.31), and (2.32), then says that one should replace a(x,t)=u(x,t) by a more general cognitive map from Section 2.2 and compare the delayed and non-delayed cases. Section 2.2.2 supplies what the paper means by a dynamic cognitive map, Section 2.3.1 supplies the discrete-delay prototypes, and Section 5.1.2 explains why a standard boot-strapping method is a natural existence/uniqueness strategy for simpler delay models while leaving spatiotemporal-convolution models open. The only explicit equivalence result nearby is the Appendix's Lemma A.1 for the special weak-kernel distributed-delay model (2.28), not for Open Problem 31 itself, so no alternate equivalent formulation should be asserted.",
+  "citations": [
+    {
+      "section": "Section 2.2.2",
+      "label": "equations (2.11), (2.13), (2.15), (2.16), (2.18), (2.19)",
+      "page": "14-20"
+    },
+    {
+      "section": "Section 2.3.1",
+      "label": "equation (2.20), Open Problem 24, Open Problem 28",
+      "page": "21-24"
+    },
+    {
+      "section": "Section 2.3.2",
+      "label": "equations (2.26)-(2.32), Open Problem 30, Open Problem 31",
+      "page": "25-27"
+    },
+    {
+      "section": "Section 4.1.2",
+      "label": "boundary-condition discussion, equations (4.1)-(4.3), Open Problems 39-40",
+      "page": "39-41"
+    },
+    {
+      "section": "Section 5.1.2",
+      "label": "well-posedness discussion for delay models; Shi et al. (2019, Proposition 2.1) and related boot-strapping remarks",
+      "page": "56"
+    },
+    {
+      "section": "Appendix",
+      "label": "Lemma A.1",
+      "page": "65"
+    }
+  ]
+}

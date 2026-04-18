@@ -1,0 +1,50 @@
+{
+  "arxiv_id": "2602.05394",
+  "question_id": "q_037",
+  "original_question": "Sketch-and-solve: Let (A R^n x d ) be a full-rank matrix, (B R^n x p ) be a matrix, and let (Omega R^n x k ) be an oblivious subspace injection with dimension $d$ and injectivity (1-epsilon ). Let (~ X = (Omega^ -> p A)^+(Omega^ -> p B) R^d x p ) be the sketch-and-solve approximation to the ordinary least-squares solution $X = A^+B$. (Here, $^+$ denotes the Moore--Penrose pseudoinverse.) Prove or disprove: Does it necessarily hold that [ |A ~ X - B |_ F <= (1+O(epsilon)) _X R^d x p |AX - B |_ F? ]",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 12553.86,
+  "target_in_paper": "Section 5.1, Problem 5.1 (Sketch-and-solve).",
+  "completeness_score": 8.5,
+  "correct_elements": "Your draft is very close to the paper’s actual target. It correctly identifies the sketch-and-solve least-squares setting, the matrix shapes A in R^{n x d}, B in R^{n x p}, the use of an oblivious subspace injection with dimension d and injectivity 1-epsilon, the estimator X~ = (Omega^T A)^+ (Omega^T B), the ordinary least-squares solution X = A^+ B, and the precise relative-error question in Frobenius norm. In substance, it is essentially Problem 5.1.",
+  "missing_details": [
+    "The paper works over the real numbers R; the field is not left open.",
+    "For A in R^{n x d}, 'full-rank' means full column rank, i.e. rank(A)=d (so n >= d).",
+    "To be stand-alone, the term 'oblivious subspace injection' must be unpacked using Definition 5.1: isotropy E||Omega^T x||_2^2 = ||x||_2^2 for all x in R^n, plus injectivity on every fixed d-dimensional subspace V.",
+    "Because Omega is random, the OSI definition includes a failure probability delta; when delta is omitted, the paper treats it as some fixed small constant (for example delta = 0.01).",
+    "The transpose should be written explicitly as Omega^T; the paper is in the real setting, so no adjoint/conjugate-transpose ambiguity is intended.",
+    "The right-hand side is explicitly min_{X in R^{d x p}} ||AX-B||_F; although this equals ||A(A^+B)-B||_F because A has full column rank, the optimization form is part of the official statement.",
+    "The probabilistic mode of the conclusion is implicit in the paper’s shorthand wording; for a fully stand-alone question one should say that the claimed guarantee is to hold with the success probability associated with the OSI event.",
+    "The paper presents this as an open 'prove or disprove' problem, not as a claim already known to be true."
+  ],
+  "refined_question": "Let A in R^{n x d} have full column rank, let B in R^{n x p}, and let Omega in R^{n x k} be a random matrix that is an oblivious subspace injection for d-dimensional subspaces with injectivity 1-epsilon, in the sense that E||Omega^T x||_2^2 = ||x||_2^2 for every x in R^n, and for every fixed d-dimensional subspace V subseteq R^n one has (1-epsilon)||x||_2^2 <= ||Omega^T x||_2^2 for all x in V with probability at least 1-delta, where delta is some fixed small constant (suppressed in the paper when unspecified). Define the sketch-and-solve estimator X~ := (Omega^T A)^+ (Omega^T B) in R^{d x p}, and let X := A^+ B, equivalently the unique minimizer of min_{Y in R^{d x p}} ||AY-B||_F. Prove or disprove: does the OSI assumption alone force the relative-error bound ||AX~ - B||_F <= (1 + O(epsilon)) min_{Y in R^{d x p}} ||AY - B||_F (with the corresponding success probability over Omega)?",
+  "equivalent_formulation": null,
+  "justification": "The draft is targeting Problem 5.1 almost verbatim. The surrounding Section 5.1 discussion first defines OSE/OSI precisely in Definition 5.1, then frames a meta-problem asking for the weakest sketching assumption needed by a given algorithm, and then states Problem 5.1 exactly for sketch-and-solve least squares. The nearby context also explains why this problem is being asked: OSIs are already known to give constant-factor accuracy, and the open question is whether a higher-quality OSI (injectivity 1-epsilon) is enough for a (1+O(epsilon)) relative-error guarantee. The adjacent Problem 5.2 is only an analogue for randomized SVD, not an equivalent reformulation of Problem 5.1, so no alternate equivalent formulation should be added.",
+  "citations": [
+    {
+      "section": "1 Introduction",
+      "label": "paragraph describing Section 5 sketching and subspace injections",
+      "page": 3
+    },
+    {
+      "section": "5.1 Injections vs. embeddings",
+      "label": "Definition 5.1 (Subspace embeddings and injections)",
+      "page": 34
+    },
+    {
+      "section": "5.1 Injections vs. embeddings",
+      "label": "Meta-problem",
+      "page": 34
+    },
+    {
+      "section": "5.1 Injections vs. embeddings",
+      "label": "Problem 5.1 (Sketch-and-solve)",
+      "page": 35
+    },
+    {
+      "section": "5.1 Injections vs. embeddings",
+      "label": "paragraph following Problem 5.2 (constant-factor context and Musco partial result)",
+      "page": 35
+    }
+  ]
+}

@@ -1,0 +1,59 @@
+{
+  "arxiv_id": "2505.15351",
+  "question_id": "q_015",
+  "original_question": "For physically structured random measurement matrices built from Fourier transforms and random phase diffusers, such as A = F D F and A = F D_1 F D_2 ... F D_l, can one prove information-theoretic and algorithmic bounds for the weak-recovery threshold alpha_WR and the full-recovery threshold alpha_FR?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 11008.37,
+  "target_in_paper": "Section 6.2, Question 6.5: \"Can we derive (information theory and algorithmic) bounds on the threshold values alpha_WR and alpha_FR for the measurement matrices of the form A = FDF and A = F D_1 F D_2 ... F D_ell?\"",
+  "completeness_score": 8.0,
+  "correct_elements": "Your draft is already very close to the paper's official open problem. It correctly identifies the right section of the paper (structured random phase retrieval), the two physically motivated Fourier-diffuser architectures singled out in the paper, and the precise quantities of interest: information-theoretic and algorithmic bounds for the weak-recovery and full-recovery thresholds alpha_WR and alpha_FR.",
+  "missing_details": [
+    "The ambient space is complex: the object lives in C^n, not R^n.",
+    "The measurement model is the noiseless phaseless map y = A(f_0) = |A f_0|^2, where the modulus-square is taken coordinate-wise.",
+    "The ground-truth object is random and is assumed to be uniformly distributed on the complex unit sphere S^{n-1}.",
+    "The paper works in an asymptotic regime: m,n -> infinity with oversampling ratio alpha = m/n held fixed; it is not phrased as a finite-dimensional statement 'for all sufficiently large m'.",
+    "The thresholds alpha_WR and alpha_FR are defined through Bayes-optimal mean-squared error, not through an arbitrary algorithmic success criterion.",
+    "More precisely, if f~ is the Bayes-optimal estimator minimizing mean-squared error, then MMSE(alpha) = lim_{n->infinity} E||f~ - f_0||_2^2 and MMSE_0 = inf_{alpha>0} MMSE(alpha); these definitions are omitted in the draft.",
+    "Weak recovery means MMSE(alpha) < E||f_0||_2^2; full recovery means MMSE(alpha) = MMSE_0. The paper also notes that full recovery can be imperfect when MMSE_0 > 0.",
+    "The draft should specify F as the n x n unitary discrete Fourier transform matrix and D, D_k as diagonal phase-diffuser matrices.",
+    "In the multilayer model, the paper imposes ell >= 2 and D_k = diag(w_k) with w_k(j) = exp(i u_{k,j}) and u_{k,j} i.i.d. Unif.[0,2pi].",
+    "The paper's shorthand formulas A = FDF and A = F D_1 F D_2 ... F D_ell are the names of the structured ensembles under study inside the alpha = m/n asymptotic framework; the draft leaves this ambient setup implicit.",
+    "The paper keeps the prior fixed here (uniform on the sphere). Dependence on positivity/support/generative priors is a separate neighboring question, Question 6.6, and should not be folded into this one.",
+    "The paper explicitly distinguishes full recovery from injectivity and from algebraic identifiability; the draft does not mention that distinction, which matters for faithful scope."
+  ],
+  "refined_question": "In the probabilistic noiseless phase-retrieval model of Section 6, where the ground-truth object f_0 in C^n is uniformly distributed on the complex unit sphere S^{n-1}, the data are y = |A f_0|^2, and m,n -> infinity with fixed oversampling ratio alpha = m/n, let f~ be the Bayes-optimal estimator, define MMSE(alpha) = lim_{n->infinity} E||f~ - f_0||_2^2 and MMSE_0 = inf_{alpha>0} MMSE(alpha), and set alpha_WR = inf{alpha > 0 : MMSE(alpha) < E||f_0||_2^2} and alpha_FR = inf{alpha > 0 : MMSE(alpha) = MMSE_0}. For the physically implementable structured random Fourier-diffuser sensing ensembles considered in Section 6.2—denoted in the paper by A = FDF and A = F D_1 F D_2 ... F D_ell with ell >= 2, F the unitary discrete Fourier transform, D = diag(w), D_k = diag(w_k), and w_k(j) = exp(i u_{k,j}) with u_{k,j} i.i.d. Unif.[0,2pi]—can one derive information-theoretic and algorithmic bounds on the threshold values alpha_WR and alpha_FR?",
+  "equivalent_formulation": null,
+  "justification": "The draft is targeting the paper's official open problem Question 6.5 almost verbatim, not a broader neighboring problem. Question 6.2 sets up the general task of determining the smallest oversampling ratios for 'better than a random guess' recovery and for Bayes-optimal recovery, equations (16)-(19) formalize these as alpha_WR and alpha_FR via MMSE, and Section 6.2 then specializes that general threshold problem to the two structured Fourier-diffuser ensembles A = FDF and A = F D_1 F D_2 ... F D_ell. The surrounding context also fixes the probabilistic/noiseless/asymptotic setting and the diffuser law, and it separates object-prior dependence into Question 6.6, so a paper-faithful rewrite should include those assumptions but should not broaden to priors or to injectivity questions.",
+  "citations": [
+    {
+      "section": "2.1",
+      "label": "Notation (definition of F, D_x, and the phaseless map A(f)=|Af|^2)",
+      "page": "2-3"
+    },
+    {
+      "section": "6",
+      "label": "Question 6.2",
+      "page": 20
+    },
+    {
+      "section": "6",
+      "label": "Equations (16)-(19) and Remark 6.3",
+      "page": 21
+    },
+    {
+      "section": "6.1",
+      "label": "Gaussian baseline thresholds and algorithmic benchmark",
+      "page": 22
+    },
+    {
+      "section": "6.2",
+      "label": "Equation (20) and structured CDI/ptychography matrix form",
+      "page": 23
+    },
+    {
+      "section": "6.2",
+      "label": "Question 6.5 and the Fourier-diffuser ensembles A=FDF and A=F D_1 F D_2 ... F D_ell",
+      "page": 24
+    }
+  ]
+}

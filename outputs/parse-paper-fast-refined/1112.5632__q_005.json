@@ -1,0 +1,45 @@
+{
+  "arxiv_id": "1112.5632",
+  "question_id": "q_005",
+  "original_question": "Let omega(k, n, r) be the minimum number of k-matchings among r-regular r-colorable multigraphs on 2n vertices. For fixed r >= 2, fixed density p in (0, 2/3), and integers k in the range pn <= k <= 2n/3, does omega(k, n, r) grow exponentially in n, and can one prove a quantitatively good lower bound for that exponential growth?",
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 1997.73,
+  "target_in_paper": "Conjecture 1.1 in the introduction, restated in Section 6 immediately after Theorem 6.3: the conjecture that ω(k,n,r) grows exponentially with n for fixed r when k lies in the density window pn ≤ k ≤ 2n/3, with the surrounding Section 6 context explaining why the endpoint 2n/3 appears and why the challenge is to obtain a good explicit exponential lower bound.",
+  "completeness_score": 8.7,
+  "correct_elements": "Your draft identifies the right extremal quantity ω(k,n,r), the right graph class up to a needed clarification ('r-colorable' in the paper means r-edge-colorable), the correct asymptotic regime with fixed r and fixed density p in (0,2/3), the correct k-window pn ≤ k ≤ 2n/3, and the correct qualitative goal: exponential growth in n together with a meaningful quantitative lower bound on that growth. This is very close to the paper’s intended conjecture.",
+  "missing_details": [
+    "The paper’s class is the set G_{co,mult}(2n,r) of loopless r-regular multigraphs on 2n vertices that are r-edge-colorable; 'r-colorable' should be stated as 'r-edge-colorable' to avoid ambiguity.",
+    "ω(k,n,r) is defined as min{φ(k,G): G in G_{co,mult}(2n,r)}, where φ(k,G) is the number of k-matchings of G; this matching-count notation should be made explicit.",
+    "The interval condition should be stated with integer endpoints: k is an integer satisfying ceil(pn) ≤ k ≤ floor(2n/3).",
+    "'Grows exponentially in n' should be quantified explicitly, e.g. there exists c=c(r,p)>1 and n0 such that ω(k,n,r) ≥ c^n for all n ≥ n0 and all admissible k in the stated range.",
+    "The paper’s nearby context uses Theorem 6.3 to justify that ω(k,n,r)>0 only up to the 2n/3 threshold, so that upper endpoint is not arbitrary and should be retained exactly.",
+    "The conjecture is for fixed integer r ≥ 2 and fixed real p in (0,2/3); these quantifiers should be front-loaded in the stand-alone question.",
+    "Multiple edges are allowed but self-loops are not; this should be stated explicitly.",
+    "The paper phrases the 'good lower bound' as the real challenge following the conjecture, rather than as a separate broader problem; the refined question should preserve that narrow framing."
+  ],
+  "refined_question": "Let G_{co,mult}(2n,r) denote the set of loopless r-regular r-edge-colorable multigraphs on 2n vertices, and for G in G_{co,mult}(2n,r) let φ(k,G) be the number of k-matchings of G. Define\nω(k,n,r) := min{φ(k,G) : G in G_{co,mult}(2n,r)}.\nFix an integer r ≥ 2 and a real number p in (0,2/3). Is it true that there exists a constant c=c(r,p)>1 such that, for all sufficiently large n and every integer k with ceil(pn) ≤ k ≤ floor(2n/3), one has ω(k,n,r) ≥ c^n? If so, can one obtain a quantitatively good explicit lower bound for this exponential rate of growth?",
+  "equivalent_formulation": null,
+  "justification": "The draft is essentially aiming at the paper’s Conjecture 1.1, not a broader neighboring problem. The exact Section 6 restatement matches your density window and explicitly says: for any p in (0,2/3) and integer k in [pn,2n/3], ω(k,n,r) should have exponential growth in n for fixed r ≥ 2, and that the main challenge is a good lower bound for that growth. The definition of ω comes from the introductory notation for extremal matching counts over r-edge-colorable multigraphs. The nearby theorem in Section 6 explains why the upper endpoint 2n/3 is the natural one: it yields positivity of ω(k,n,r) in that range, so the conjecture is asking for much more than mere existence. Because the paper states this as a finite-graph extremal question about ω(k,n,r), the refined version should stay at that level and not drift into broader entropy or haffnian formulations.",
+  "citations": [
+    {
+      "section": "1",
+      "label": "equations (1.1)–(1.5) and surrounding notation defining ω(k,n,r) and the graph classes",
+      "page": "19"
+    },
+    {
+      "section": "1",
+      "label": "Conjecture 1.1",
+      "page": "20"
+    },
+    {
+      "section": "6",
+      "label": "Theorem 6.3",
+      "page": "28"
+    },
+    {
+      "section": "6",
+      "label": "paragraph immediately following Theorem 6.3 (restatement of the conjecture with p in (0,2/3) and k in [pn,2n/3])",
+      "page": "28"
+    }
+  ]
+}
