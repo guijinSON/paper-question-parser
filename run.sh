@@ -3,7 +3,7 @@ set -euo pipefail
 
 # Run this script from the project root.
 # Reads arXiv links from the last column of the filtered CSV.
-PAPERS_CSV_FILE="${PAPERS_CSV_FILE:-arxiv-op-papers-0418-filtered.csv}"
+PAPERS_CSV_FILE="${PAPERS_CSV_FILE:-arxiv-op-papers-validated.csv}"
 OPENCODE_AGENT="${OPENCODE_AGENT:-}"
 OUTPUT_DIR="${OUTPUT_DIR:-outputs/parse-paper}"
 SKIP_EXISTING="${SKIP_EXISTING:-1}"
@@ -32,7 +32,7 @@ extract_arxiv_output_file() {
   if [[ "$normalized_link" =~ ^https?://arxiv\.org/(abs|pdf)/(.+)$ ]]; then
     arxiv_id="${BASH_REMATCH[2]}"
     arxiv_id="${arxiv_id%.pdf}"
-    arxiv_id="${arxiv_id//\//-}"
+    arxiv_id="${arxiv_id//\//_}"
     printf '%s/%s.json\n' "$OUTPUT_DIR" "$arxiv_id"
     return 0
   fi
@@ -58,7 +58,7 @@ try:
 except Exception:
     raise SystemExit(1)
 
-required_keys = {"source", "accepted", "needs_review", "trace"}
+required_keys = {"accepted", "needs_review", "trace"}
 raise SystemExit(0 if isinstance(payload, dict) and required_keys.issubset(payload) else 1)
 PY
 }

@@ -1,0 +1,45 @@
+{
+  "id": "q_002",
+  "original_question": "Let A ⊂ Z be a set of n integers. Is there a set S ⊂ A of size (log n)100 with S+̂S disjoint from A?",
+  "context_brief": "Sum-free sets and product-free sets",
+  "is_solved": false,
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 97.47,
+  "target_in_source": "Section 1, \"Sum-free sets, product-free sets\", Problem 2 (page 3) in Ben Green's 100 Open Problems.",
+  "completeness_score": 8,
+  "correct_elements": "The draft reproduces the core statement of the source problem almost verbatim: the ambient domain is A ⊂ Z, the set A has size n, one seeks a subset S ⊂ A of size (log n)^100, and the forbidden condition is that S+^S be disjoint from A.",
+  "missing_details": [
+    "The notation S+^S is not stand-alone: in the source comments it is defined as the restricted sumset {s1+s2 : s1, s2 ∈ S, s1 ≠ s2}.",
+    "The problem is quantified over every finite set A ⊂ Z with |A| = n, not just for some such set.",
+    "The phrase \"size (log n)^100\" should be made integer-valued in a stand-alone formulation, e.g. as cardinality at least floor((log n)^100).",
+    "The draft does not spell out the combinatorial meaning of disjointness: no sum of two distinct elements of S is allowed to lie back in A.",
+    "The source context makes clear that the distinctness condition in the restricted sumset is essential; otherwise the problem becomes trivial on examples such as powers of 2.",
+    "The nearby context records known partial results: Sanders proved the existence of such an S with |S| at least (log n)^(1+c) for some absolute c>0, Green's 2025 update notes Beker showed c = 1/69 is admissible, and Ruzsa constructed examples showing one cannot in general hope for |S| larger than exp(C sqrt(log n)).",
+    "If one wants a completely stand-alone formulation, it is helpful to state the equivalent extremal-function language M(A) := max{|S| : S ⊂ A and (S+^S) ∩ A = ∅}, which is used in the primary source by Sanders."
+  ],
+  "refined_question": "For every finite set A of integers with |A| = n, does there always exist a subset S ⊂ A with |S| at least floor((log n)^100) such that no sum of two distinct elements of S lies in A; that is, such that {s1+s2 : s1, s2 ∈ S, s1 ≠ s2} is disjoint from A?",
+  "equivalent_formulation": "If M(A) := max{|S| : S ⊂ A and ({s1+s2 : s1, s2 ∈ S, s1 ≠ s2}) ∩ A = ∅}, is it true that M(A) ≥ (log |A|)^100 for every finite A ⊂ Z?",
+  "justification": "The source document states this exactly as Problem 2 in the section \"Sum-free sets, product-free sets\" and immediately defines the previously implicit notation S+^S as a restricted sumset using distinct summands. The primary source by Sanders confirms that this is the Erdős-Moser sum-free set problem in extremal-function form, defines M(A), explains why the restriction s1 ≠ s2 is necessary, and proves the currently best lower bound of the form M(A) = log^(1+Ω(1)) |A|. Green's comments also record the current benchmark bounds relevant to scope: a lower bound of shape (log n)^(1+c) (with Green's 2025 update noting Beker makes c = 1/69 admissible) and Ruzsa's upper-bound construction of size exp(O(sqrt(log n))). The refined question therefore keeps the problem exactly at the source's level of specificity, while adding only the notation and quantifiers needed to make it self-contained.",
+  "citations": [
+    {
+      "section": "1. Sum-free sets, product-free sets",
+      "label": "Problem 2",
+      "page": 3
+    },
+    {
+      "section": "1. Sum-free sets, product-free sets",
+      "label": "Comments following Problem 2",
+      "page": 3
+    },
+    {
+      "section": "1 Introduction",
+      "label": "Definition of the restricted sumset and of M(A)",
+      "page": 63
+    },
+    {
+      "section": "1 Introduction",
+      "label": "Theorem 1.2",
+      "page": 64
+    }
+  ]
+}

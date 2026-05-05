@@ -17,18 +17,18 @@ fi
 
 mkdir -p "$ERROR_LOG_DIR"
 
-while IFS=$'\t' read -r source title source_url; do
+while IFS=$'\t' read -r source title source_url <&3; do
   [[ -z "$source_url" ]] && continue
   echo "running: $source | $title | $source_url" >&2
   opencode_cmd=(opencode run)
   if [[ -n "$OPENCODE_AGENT" ]]; then
     opencode_cmd+=(--agent "$OPENCODE_AGENT")
   fi
-  if ! "${opencode_cmd[@]}" "/paper-question-parser $source_url" </dev/null; then
+  if ! "${opencode_cmd[@]}" "/paper-question-parser $source_url" </dev/null 3<&-; then
     echo "error occurred: $source | $title | $source_url" >> "$ERROR_LOG_FILE"
     continue
   fi
-done < <(
+done 3< <(
   python3 - "$OPEN_PROBLEMS_CSV_FILE" <<'PY'
 import csv
 import sys

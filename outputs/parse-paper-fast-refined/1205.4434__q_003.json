@@ -1,0 +1,33 @@
+{
+  "arxiv_id": "1205.4434",
+  "question_id": "q_003",
+  "original_question": "For correlated repeated actuation of a feedback controller, what is the precise relationship between the entropy-reduction results derived from the viewpoint of the controlled system and Zurek's algorithmic-complexity analysis of the combined system-plus-controller, especially regarding the minimum energetic cost of erasing the controller's stored measurement record and the resulting thermodynamic limits on the system's entropy reduction?",
+  "model": "openai/o4-mini",
+  "elapsed_s": 811.1,
+  "target_in_paper": "Section 3.1.1 open problem: precise relations between the entropy‐reduction results derived from the viewpoint of the controlled system (as in [13], Section 2.4) and Zurek’s algorithmic‐complexity analysis of the system‐plus‐controller perspective, including the minimum energetic cost for erasing the controller’s measurement record and the resulting thermodynamic constraints on the system’s entropy reduction.",
+  "completeness_score": 6,
+  "correct_elements": "The draft correctly identifies: correlated repeated actuation of a feedback controller; entropy‐reduction results from the system’s viewpoint; Zurek’s algorithmic complexity approach to memory erasure; focus on minimum energetic erasure cost and its thermodynamic constraint on entropy reduction.",
+  "missing_details": [
+    "Definition of correlated repeated actuation (no waiting for equilibration between control steps)",
+    "Precise entropy‐reduction formula ΔS_system=−k_B∑_{k=1}^M I(X_k;C_k|C^{k−1}) (nats) [Eq. (13)–(15) in [13]]",
+    "Definitions of variables: X_k (system macrostate at step k), C_k (control action at step k), M (number of control steps)",
+    "Explicit statement of Zurek’s result: minimum work W_erase≥k_B T ln2·K_U(σ) where σ is the concatenated measurement record and K_U its Kolmogorov complexity [Subsection 2.1]",
+    "Temperature T and Boltzmann constant k_B in Landauer’s bound context",
+    "Relation between algorithmic complexity K_U(σ) and the sequence of mutual informations needed to constrain ΔS_system"
+  ],
+  "refined_question": "Given a feedback controller operating at temperature T with Boltzmann constant k_B that performs M correlated repeated actuations on a system (i.e. without relaxation to equilibrium between steps), let X_k denote the system’s macrostate and C_k the control action at the k-th step. From the system’s viewpoint, the total entropy reduction is ΔS_system=−k_B∑_{k=1}^M I(X_k;C_k|C^{k−1}) (in nats) [Eq. (13)–(15) of [13], Section 2.4]. From the combined system-plus-controller viewpoint, Zurek’s algorithmic complexity analysis [6,7] establishes that the minimum work required to erase the full measurement record σ is W_erase≥k_B T ln2·K_U(σ) [Subsection 2.1]. What is the precise mathematical relationship between K_U(σ) and the sequence of conditional mutual informations {I(X_k;C_k|C^{k−1})} such that the Landauer‐bound work of memory erasure provides the exact upper limit on ΔS_system?",
+  "equivalent_formulation": null,
+  "justification": "We identified the draft’s topic as the open question posed in Section 3.1.1, which directly asks for the precise relation between the entropy‐reduction formula from [13] and Zurek’s algorithmic complexity erasure cost (Citation 3.1.1). The draft includes the main elements but omits the formal definitions of variables X_k, C_k, M, the explicit entropy formula from Eq. (13)–(15), and Zurek’s Kolmogorov‐complexity‐based Landauer bound from Subsection 2.1. The refined question incorporates these definitions and formulas to be fully self‐contained and faithful to the paper’s intent.",
+  "citations": [
+    {
+      "section": "3.1.1",
+      "label": "Correlated Repeated Actuation Open Problem",
+      "page": 843
+    },
+    {
+      "section": "2.1",
+      "label": "Zurek’s Algorithmic Complexity Erasure Cost",
+      "page": 835
+    }
+  ]
+}

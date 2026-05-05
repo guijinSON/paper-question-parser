@@ -1,0 +1,390 @@
+{
+  "source": {
+    "url": "https://arxiv.org/abs/2203.01387",
+    "resolved_locator": "/Users/jang-wongi/Desktop/WG/projects/paper-question-parser/.sisyphus/paper-question-parser/tmp/2203.01387.pdf",
+    "title": "A Survey on Offline Reinforcement Learning: Taxonomy, Review, and Open Problems",
+    "title_origin": "source_text"
+  },
+  "accepted": [
+    {
+      "id": "q_001",
+      "question_text": "How can offline reinforcement learning support a reliable end-to-end training workflow that selects hyperparameters, validates candidate policies during training, and decides when to stop training without any new interaction with the environment? In particular, the workflow must work from static logged data, avoid overfitting from repeatedly training on the same dataset, and replace the current practice of either depending on inaccurate off-policy evaluation or training for a fixed number of steps and evaluating the final policy online.",
+      "context_brief": "Reliable offline RL workflow",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 15,
+          "quote": "One of the biggest open problems in offline RL is hyperparameter tuning [8]. Determining the set of hyperparameters that yield the best possible policy in an offline manner is extremely valuable, allowing us to save valuable resources and avoid dangerous interactions from online interaction. OPE is the task of evaluating a policy only through previous experiences. Excessively training on the same offline dataset can lead to poor solutions due to overfitting. Hence, it is paramount to find good OPE methods that allow us to validate our policy during training [65]."
+        },
+        {
+          "page": 19,
+          "quote": "Currently, we either use inaccurate OPE methods for hyperparameter tuning or train for a fixed number of steps. These are both lackluster approaches since we are often left with a suboptimal policy that might have to overfit our data. Finding good ways to validate policies will also benefit training, allowing us to early stop training that exhibits degrading performance over time."
+        }
+      ]
+    },
+    {
+      "id": "q_002",
+      "question_text": "Which off-policy evaluation method can estimate or rank candidate offline reinforcement learning policies robustly enough to work across a wide variety of datasets, so that practitioners can trust it for policy evaluation or model selection instead of relying on environment rollouts?",
+      "context_brief": "Robust off-policy evaluation",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 15,
+          "quote": "Ultimately, in real-world settings, we often cannot roll out our policy to evaluate if it will work or not. This is a considerable barrier to the practical use of offline RL methods since we still rely too heavily on simulator rollouts to verify that a method works. Therefore, having robust OPE methods that work reliably across a wide variety of datasets is essential for advancing the field."
+        },
+        {
+          "page": 19,
+          "quote": "Levine et al. [8] argued that shifting toward off-policy selection instead of the evaluation was a promising direction for OPE methods. While we have seen this shift occur with the introduction of the DOPE benchmark, we still lack a method that can consistently outperform the others on most datasets."
+        }
+      ]
+    },
+    {
+      "id": "q_003",
+      "question_text": "How can an offline reinforcement learning algorithm dynamically modulate how conservative it is, so that it stays cautious in uncertain regions of the state-action space but relaxes its constraints when the data support confident generalization?",
+      "context_brief": "Dynamic conservatism",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 2,
+          "quote": "Open Problems: We also discuss our perspective on some of the open problems of the field, including off-policy evaluation (OPE) methods, a reliable offline RL workflow, and the ability to dynamically modulate the degree of conservatism of an algorithm."
+        },
+        {
+          "page": 7,
+          "quote": "Uncertainty-based offline RL methods allow us to switch between conservative and naive off-policy RL methods, based on how much we trust the generalization ability of our models. By estimating the uncertainty of our approximation (e.g., policy, value function, or model), we can relax the constraints on our learned policy in low-uncertainty regions."
+        }
+      ]
+    },
+    {
+      "id": "q_004",
+      "question_text": "How should offline reinforcement learning handle nonstationary datasets and then fine-tune the resulting offline policy online, especially in settings where the data distribution or environment changes over time and the method must adapt without discarding what was learned from the static dataset?",
+      "context_brief": "Nonstationarity and offline-to-online adaptation",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 19,
+          "quote": "Emerging areas in RL, like incremental RL [85], are being developed in parallel and are promising for offline RL’s future development. Incremental RL directly contributes to solving offline RL problems with nonstationary datasets and developing online fine-tuning strategies that use offline policies."
+        }
+      ]
+    },
+    {
+      "id": "q_005",
+      "question_text": "How can offline reinforcement learning be made safe in safety-critical applications not only by avoiding out-of-distribution states and actions, but also by avoiding unsafe states that are already present inside the training distribution, for example through explicitly risk-averse objectives such as conditional value-at-risk?",
+      "context_brief": "Safety-critical offline RL",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 19,
+          "quote": "Safety-critical RL is also an area we wish to see more people tackle and benchmark in the future. Strategies like uncertainty estimation and regularization have been used to avoid OOD states, but a few works take into account avoiding safety-critical in-distribution states. Toward this end, some works [86] use a conditional value-at-risk (CVaR [87]) objective to learn a risk-averse policy."
+        }
+      ]
+    },
+    {
+      "id": "q_006",
+      "question_text": "How can offline reinforcement learning use unsupervised reinforcement learning or related techniques to exploit large amounts of unlabeled experience when reward labels are scarce or expensive, while still producing effective downstream policies from static data?",
+      "context_brief": "Learning from unlabeled offline data",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 19,
+          "quote": "Finally, a promising future direction for the field is the use of unsupervised RL techniques to leverage large amounts of unlabeled data. In many cases, labeling large datasets with rewards may be costly, especially if these require human supervision [88]. Leveraging diverse unlabeled data in a simple yet effective manner is still an open problem."
+        }
+      ]
+    },
+    {
+      "id": "q_007",
+      "question_text": "Which data-collection strategies and data-processing methods can produce more exploratory offline datasets and make better use of unlabeled data, so that offline reinforcement learning becomes effective in a broader range of real-world domains rather than only in settings with narrowly curated logged data?",
+      "context_brief": "Exploratory data and unlabeled-data usage",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 19,
+          "quote": "Although a lot of focus has been placed on the development of new algorithms, these works show how the data we use to train these algorithms can be just as important for their performance. Finding new exploratory techniques to collect the data and novel ways to leverage unlabeled data can help extend offline RL’s applicability to even more real-world domains."
+        }
+      ]
+    },
+    {
+      "id": "q_008",
+      "question_text": "How should the community build offline reinforcement learning benchmarks and datasets that better reflect real deployment conditions by including stochastic dynamics, nonstationarity, risky biases in the data, and multiagent settings, so that algorithms can be evaluated on the kinds of failures and shifts that matter in practice?",
+      "context_brief": "Benchmark and dataset gaps",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 17,
+          "quote": "Current benchmarks still have insufficient datasets with stochastic dynamics in the environment (except for the Atari suite), common in real-world settings (e.g., economics, healthcare, education, and so on) and essential to evaluate. Environments that are nonstationary (i.e., change over time) are also very common in the real world and still have limited coverage in current benchmarks, only being present in the real-world RL suite. Furthermore, datasets designed to have risky biases are also important. For instance, if your driving data never shows a car crash, an offline RL algorithm should still be able to learn how to avoid car crashes. Finally, we have not found any offline RL datasets for multiagent environments, which may arise in settings like robot team navigation, smart grid operation, and control of mobile sensor networks [76]."
+        }
+      ]
+    }
+  ],
+  "needs_review": [],
+  "trace": [
+    {
+      "id": "source",
+      "stage": "map",
+      "notes": "Mapped the PDF and identified explicit open-problem regions in the Contributions section on page 2, the OPE section on page 15, the benchmark-gap discussion on page 17, and the Open Problems section on page 19.",
+      "evidence_refs": [
+        "p2",
+        "p15",
+        "p17",
+        "p19"
+      ]
+    },
+    {
+      "id": "sec_p2",
+      "stage": "extract_candidates",
+      "notes": "Extracted one survey-level open-problem candidate from the Contributions subsection: dynamic modulation of conservatism.",
+      "evidence_refs": [
+        "p2"
+      ]
+    },
+    {
+      "id": "sec_p15",
+      "stage": "extract_candidates",
+      "notes": "Extracted candidates about hyperparameter tuning, policy validation, early stopping, and the need for robust off-policy evaluation from the OPE discussion.",
+      "evidence_refs": [
+        "p15"
+      ]
+    },
+    {
+      "id": "sec_p17",
+      "stage": "extract_candidates",
+      "notes": "Extracted one benchmark-design candidate covering missing stochastic, nonstationary, risky-bias, and multiagent datasets.",
+      "evidence_refs": [
+        "p17"
+      ]
+    },
+    {
+      "id": "sec_p19",
+      "stage": "extract_candidates",
+      "notes": "Extracted candidates on unresolved OPE, nonstationary datasets, offline-to-online fine-tuning, safety-critical learning, unlabeled data, and exploratory data collection from the explicit Open Problems section.",
+      "evidence_refs": [
+        "p19"
+      ]
+    },
+    {
+      "id": "q_001",
+      "stage": "rewrite",
+      "notes": "Expanded the survey’s statements about hyperparameter tuning, validation, overfitting, and fixed-step training into a single self-contained workflow question.",
+      "evidence_refs": [
+        "p15",
+        "p19"
+      ]
+    },
+    {
+      "id": "q_002",
+      "stage": "rewrite",
+      "notes": "Rewrote the OPE discussion into a standalone question about reliable policy evaluation and ranking across datasets.",
+      "evidence_refs": [
+        "p15",
+        "p19"
+      ]
+    },
+    {
+      "id": "q_003",
+      "stage": "rewrite",
+      "notes": "Combined the explicit open-problem statement about conservatism with the uncertainty-estimation explanation that describes relaxing constraints in low-uncertainty regions.",
+      "evidence_refs": [
+        "p2",
+        "p7"
+      ]
+    },
+    {
+      "id": "q_004",
+      "stage": "rewrite",
+      "notes": "Rewrote the incremental-RL future direction as a self-contained question about nonstationary offline data and offline-to-online adaptation.",
+      "evidence_refs": [
+        "p19"
+      ]
+    },
+    {
+      "id": "q_005",
+      "stage": "rewrite",
+      "notes": "Expanded the safety-critical future direction into a question that distinguishes avoiding unsafe in-distribution states from merely avoiding OOD states.",
+      "evidence_refs": [
+        "p19"
+      ]
+    },
+    {
+      "id": "q_006",
+      "stage": "rewrite",
+      "notes": "Rewrote the unlabeled-data future direction as a standalone question about exploiting large static unlabeled datasets when reward labels are costly.",
+      "evidence_refs": [
+        "p19"
+      ]
+    },
+    {
+      "id": "q_007",
+      "stage": "rewrite",
+      "notes": "Rewrote the concluding data-centric future direction into a question about exploratory data collection and better unlabeled-data utilization.",
+      "evidence_refs": [
+        "p19"
+      ]
+    },
+    {
+      "id": "q_008",
+      "stage": "rewrite",
+      "notes": "Collapsed the benchmark-gap discussion into one self-contained question about realistic dataset and benchmark coverage.",
+      "evidence_refs": [
+        "p17"
+      ]
+    },
+    {
+      "id": "q_001",
+      "stage": "dedupe",
+      "notes": "Kept q_001 separate from q_002 because q_001 is about the full offline training workflow, while q_002 is specifically about the evaluation method itself.",
+      "evidence_refs": [
+        "p15",
+        "p19"
+      ]
+    },
+    {
+      "id": "q_002",
+      "stage": "dedupe",
+      "notes": "No merge applied; this candidate stays distinct from q_001 because its scope is the design of robust OPE estimators rather than the whole workflow.",
+      "evidence_refs": [
+        "p15",
+        "p19"
+      ]
+    },
+    {
+      "id": "q_003",
+      "stage": "dedupe",
+      "notes": "No near-duplicate candidate remained after combining the explicit page-2 problem statement with the supporting uncertainty-estimation explanation.",
+      "evidence_refs": [
+        "p2",
+        "p7"
+      ]
+    },
+    {
+      "id": "q_004",
+      "stage": "dedupe",
+      "notes": "No merge needed.",
+      "evidence_refs": [
+        "p19"
+      ]
+    },
+    {
+      "id": "q_005",
+      "stage": "dedupe",
+      "notes": "No merge needed.",
+      "evidence_refs": [
+        "p19"
+      ]
+    },
+    {
+      "id": "q_006",
+      "stage": "dedupe",
+      "notes": "No merge needed.",
+      "evidence_refs": [
+        "p19"
+      ]
+    },
+    {
+      "id": "q_007",
+      "stage": "dedupe",
+      "notes": "Kept separate from q_006 because q_007 focuses on exploratory data collection and data-pipeline design, while q_006 focuses on learning from unlabeled data once it exists.",
+      "evidence_refs": [
+        "p19"
+      ]
+    },
+    {
+      "id": "q_008",
+      "stage": "dedupe",
+      "notes": "Kept as one benchmark-design candidate instead of splitting into four because the survey presents these dataset gaps as a single missing-properties discussion.",
+      "evidence_refs": [
+        "p17"
+      ]
+    },
+    {
+      "id": "q_001",
+      "stage": "quality_gates",
+      "notes": "Passed self-containedness and evidence-coverage checks.",
+      "evidence_refs": [
+        "p15",
+        "p19"
+      ]
+    },
+    {
+      "id": "q_002",
+      "stage": "quality_gates",
+      "notes": "Passed self-containedness and evidence-coverage checks.",
+      "evidence_refs": [
+        "p15",
+        "p19"
+      ]
+    },
+    {
+      "id": "q_003",
+      "stage": "quality_gates",
+      "notes": "Passed self-containedness and evidence-coverage checks.",
+      "evidence_refs": [
+        "p2",
+        "p7"
+      ]
+    },
+    {
+      "id": "q_004",
+      "stage": "quality_gates",
+      "notes": "Passed self-containedness and evidence-coverage checks.",
+      "evidence_refs": [
+        "p19"
+      ]
+    },
+    {
+      "id": "q_005",
+      "stage": "quality_gates",
+      "notes": "Passed self-containedness and evidence-coverage checks.",
+      "evidence_refs": [
+        "p19"
+      ]
+    },
+    {
+      "id": "q_006",
+      "stage": "quality_gates",
+      "notes": "Passed self-containedness and evidence-coverage checks.",
+      "evidence_refs": [
+        "p19"
+      ]
+    },
+    {
+      "id": "q_007",
+      "stage": "quality_gates",
+      "notes": "Passed self-containedness and evidence-coverage checks.",
+      "evidence_refs": [
+        "p19"
+      ]
+    },
+    {
+      "id": "q_008",
+      "stage": "quality_gates",
+      "notes": "Passed self-containedness and evidence-coverage checks.",
+      "evidence_refs": [
+        "p17"
+      ]
+    },
+    {
+      "id": "persist",
+      "stage": "persist",
+      "notes": "Saved the exact JSON payload to outputs/parse-paper/2203.01387.json and updated outputs/latest.json.",
+      "evidence_refs": [
+        "outputs/parse-paper/2203.01387.json",
+        "outputs/latest.json"
+      ]
+    }
+  ]
+}
