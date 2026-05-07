@@ -1,0 +1,197 @@
+{
+  "source": {
+    "url": "https://zbmath.org/3982538",
+    "resolved_locator": "/home/gson/paper-question-parser/.sisyphus/paper-question-parser/tmp/open-problems-in-stringology-preview.pdf",
+    "title": "Open Problems in Stringology",
+    "title_origin": "source_text"
+  },
+  "accepted": [
+    {
+      "id": "q_001",
+      "question_text": "Let Σ be a finite alphabet, let $ be a separator symbol not in Σ, and let string matching mean: given a pattern x and a text y, find all positions where x occurs in y. Does there exist a one-way deterministic finite automaton with finitely many read heads that can perform string matching, equivalently recognize the language {x$uxv | u, x, v ∈ Σ*}, where the substring x that appears before $ occurs again later in the suffix uxv?",
+      "context_brief": "multihead automata for string matching",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 2,
+          "quote": "Question 1: Can a one-way multihead dfa perform string matching? More specifically, can such an automaton recognize the language {x$uxv|u, x, v E E*}."
+        },
+        {
+          "page": 1,
+          "quote": "The string matching problem is the following: given two strings, the pattern and the text, find all the occurrences of the pattern in the text."
+        }
+      ]
+    },
+    {
+      "id": "q_002",
+      "question_text": "For a fixed pattern x, consider the deterministic finite automaton suggested as a way to augment the Boyer-Moore string-search procedure so that it remembers which comparisons need not be repeated after a mismatch and shift. What is the exact number of states required by such a \"Boyer-Moore dfa\", or at least what are close upper and lower bounds on that state count as a function of the pattern?",
+      "context_brief": "state complexity of Boyer-Moore dfa",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 2,
+          "quote": "Question 2: The number of states in a \"Boyer-Moore dfa\". ... The question is to find the exact number, or alternatively close upper and lower bounds on the number of states such a dfa must have."
+        }
+      ]
+    },
+    {
+      "id": "q_003",
+      "question_text": "In parallel exact string matching, let p denote the number of processors, t the running time, and n the input length, so that an algorithm is called optimal when pt = O(n). A WRAM is a shared-memory collection of RAMs that allows simultaneous reads and writes with a conflict-resolution mechanism, while a PRAM allows simultaneous reads but not simultaneous writes. Is it possible to design optimal parallel string-matching algorithms for larger processor counts than were then known, for example up to p ≤ n on the WRAM or p ≤ n / log n on the PRAM?",
+      "context_brief": "optimal parallel string matching",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 2,
+          "quote": "Question 3: Parallel algorithms. Recently, optimal parallel algorithms (those with pt = O(n), where p = number of processors, t = time) were developed for string matching for a wide range of values of p: on the WRAM for p ≤ n / log n and on the PRAM (for p ≤ n / log² n) ... Is it possible to design optimal parallel algorithms with a larger number of processors (e.g. p ≤ n on the WRAM, p ≤ n/ log n on the PRAM)?"
+        },
+        {
+          "page": 2,
+          "quote": "Recall that a WRAM [PRAM] is a collection of RAM's that share a common memory and are allowed simultaneous reads and writes [only simultaneous reads]. In the case of WRAM's, there is in addition a mechanism for resolving write conflicts."
+        }
+      ]
+    }
+  ],
+  "needs_review": [
+    {
+      "id": "q_004_partial_source",
+      "reason": "partial_source_preview",
+      "question_text_raw": "The introduction announces four groups of open problems—string matching, generalizations of string matching, index construction, and miscellaneous—but the recovered Springer source is only a two-page preview, so any additional questions beyond the beginning of Section 1 could not be extracted from the same source artifact.",
+      "evidence": [
+        {
+          "page": 1,
+          "quote": "We list several open problems. We divide them into four groups: string matching, generalizations of string matching, index construction and miscellaneous."
+        }
+      ]
+    }
+  ],
+  "trace": [
+    {
+      "id": "source",
+      "stage": "map",
+      "notes": "Resolved the zbMATH record to the exact Springer chapter landing page and recovered a readable two-page preview PDF of the chapter. The preview contains the title page, introduction, and the beginning of Section 1 (Questions about String Matching).",
+      "evidence_refs": [
+        "p1",
+        "p2"
+      ]
+    },
+    {
+      "id": "q_001",
+      "stage": "extract_candidates",
+      "notes": "Extracted the explicit Question 1 block from page 2 and paired it with the page-1 definition of string matching to support a self-contained rewrite.",
+      "evidence_refs": [
+        "p1",
+        "p2"
+      ]
+    },
+    {
+      "id": "q_002",
+      "stage": "extract_candidates",
+      "notes": "Extracted the explicit Question 2 block from page 2.",
+      "evidence_refs": [
+        "p2"
+      ]
+    },
+    {
+      "id": "q_003",
+      "stage": "extract_candidates",
+      "notes": "Extracted the explicit Question 3 block from page 2, including the definitions of optimality, WRAM, and PRAM that appear in the same visible text span.",
+      "evidence_refs": [
+        "p2"
+      ]
+    },
+    {
+      "id": "q_001",
+      "stage": "rewrite",
+      "notes": "Expanded the formal-language formulation into a standalone string-matching question by inlining the page-1 definition of occurrence and the role of the separator symbol $.",
+      "evidence_refs": [
+        "p1",
+        "p2"
+      ]
+    },
+    {
+      "id": "q_002",
+      "stage": "rewrite",
+      "notes": "Kept the rewrite close to the source and only unpacked the role of the Boyer-Moore dfa as described in the surrounding paragraph.",
+      "evidence_refs": [
+        "p2"
+      ]
+    },
+    {
+      "id": "q_003",
+      "stage": "rewrite",
+      "notes": "Made the parallel-model question self-contained by inlining the definitions of p, t, optimality, WRAM, and PRAM that are present in the source text.",
+      "evidence_refs": [
+        "p2"
+      ]
+    },
+    {
+      "id": "q_001",
+      "stage": "dedupe",
+      "notes": "No duplicates found within the readable preview artifact.",
+      "evidence_refs": [
+        "p2"
+      ]
+    },
+    {
+      "id": "q_002",
+      "stage": "dedupe",
+      "notes": "No duplicates found within the readable preview artifact.",
+      "evidence_refs": [
+        "p2"
+      ]
+    },
+    {
+      "id": "q_003",
+      "stage": "dedupe",
+      "notes": "No duplicates found within the readable preview artifact.",
+      "evidence_refs": [
+        "p2"
+      ]
+    },
+    {
+      "id": "q_001",
+      "stage": "quality_gates",
+      "notes": "Accepted: self-contained rewrite backed by complete page-numbered evidence from the preview PDF.",
+      "evidence_refs": [
+        "p1",
+        "p2"
+      ]
+    },
+    {
+      "id": "q_002",
+      "stage": "quality_gates",
+      "notes": "Accepted: explicit open question with contiguous page-numbered evidence.",
+      "evidence_refs": [
+        "p2"
+      ]
+    },
+    {
+      "id": "q_003",
+      "stage": "quality_gates",
+      "notes": "Accepted: the visible source text contains a complete problem statement and the needed model definitions, even though the paragraph continues beyond the preview boundary.",
+      "evidence_refs": [
+        "p2"
+      ]
+    },
+    {
+      "id": "q_004_partial_source",
+      "stage": "quality_gates",
+      "notes": "Flagged for review because the exact source could only be recovered as a two-page preview, so later announced problem groups were not readable from the same artifact.",
+      "evidence_refs": [
+        "p1"
+      ]
+    },
+    {
+      "id": "source",
+      "stage": "persist",
+      "notes": "Saved exact JSON output to /home/gson/paper-question-parser/outputs/parse-paper/open-problems-in-stringology.json and updated /home/gson/paper-question-parser/outputs/latest.json.",
+      "evidence_refs": []
+    }
+  ]
+}

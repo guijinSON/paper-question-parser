@@ -1,0 +1,129 @@
+{
+  "source": {
+    "url": "https://zbmath.org/3883928",
+    "resolved_locator": "/home/gson/paper-question-parser/.sisyphus/paper-question-parser/tmp/two-open-problems-in-precedence-constrained-scheduling.pdf",
+    "title": "Two open problems in precedence constrained scheduling",
+    "title_origin": "source_text"
+  },
+  "accepted": [
+    {
+      "id": "q_001",
+      "question_text": "Determine the computational complexity of the following optimization problem. There are n jobs, all available at time 0, to be processed nonpreemptively on a single machine. Every job has unit processing time, and each job j has an integer due date d_j. The precedence constraints are chain-like: in the directed precedence graph on the jobs, each vertex has indegree at most one and outdegree at most one, so the graph is a disjoint union of directed chains. A feasible schedule is a permutation σ of the jobs that respects the precedence constraints, meaning σ(j) < σ(k) whenever (j,k) is a precedence arc. If job j is scheduled in position σ(j), then its tardiness is T_j = max(0, σ(j) - d_j). What is the complexity of finding a precedence-feasible schedule minimizing the total tardiness Σ_j T_j?",
+      "context_brief": "Single-machine unit-time scheduling with chain-like precedence constraints",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 5,
+          "quote": "It is not known, however, what the effect of chain-like precedence constraints is, and this is our first open problem:"
+        },
+        {
+          "page": 5,
+          "quote": "Given a directed graph G with vertex set { 1, ... ,n } in which each vertex j has an associated integer dj, indegree at most one and outdegree at most one, find a per\nmutation a of {1, ... ,n} satisfying o(j) < o(k) whenever (j,k) is an arc of G, such \nthat \"'2.J=1 max{O,o(j)-dj} is minimized."
+        }
+      ]
+    },
+    {
+      "id": "q_002",
+      "question_text": "Determine the computational complexity of the following optimization problem. The input is a directed precedence graph G on n unit-time jobs. The jobs must be scheduled nonpreemptively on three identical parallel machines, with at most three jobs processed in any time slot and with every precedence arc (j,k) requiring job j to be scheduled before job k. Equivalently, one seeks the minimum makespan C for which there exists a function σ from the jobs to the time slots {1, ..., C} such that σ(j) < σ(k) whenever (j,k) is an arc of G, and for every time slot t at most three jobs satisfy σ(j) = t. What is the complexity of finding this minimum makespan?",
+      "context_brief": "Three-machine unit-time precedence-constrained makespan scheduling",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 10,
+          "quote": "In particular, the case that m = 3 has withstood all attacks, and this is our second open problem:"
+        },
+        {
+          "page": 10,
+          "quote": "Given a directed graph G with vertex set { l, ... ,n }, find the minimum value of C \nfor which there exists a function a:{l, ... ,n} ~ {1, ... ,C} satisfying a(j) < a(k) \nwhenever (j ,k) is an arc of G and I U E { 1, ... ,n }: o(j) = t} I ~ 3 for all \nt E {l, ... ,C}."
+        }
+      ]
+    }
+  ],
+  "needs_review": [],
+  "trace": [
+    {
+      "id": "source",
+      "stage": "map",
+      "notes": "Resolved the zbMATH record to an exact-work PDF copy and mapped the article structure. The visible source title is 'TWO OPEN PROBLEMS IN PRECEDENCE CONSTRAINED SCHEDULING'. Major sections are Introduction, A Single Machine Problem, A Parallel Machine Problem, Concluding Remarks, and References. The likely open-problem pages are PDF page 5 for the first problem and PDF page 10 for the second.",
+      "evidence_refs": [
+        "p1",
+        "p5",
+        "p10"
+      ]
+    },
+    {
+      "id": "q_001",
+      "stage": "extract_candidates",
+      "notes": "Extracted the explicit first open problem from Section 2 after the sentence introducing it as the authors' first open problem.",
+      "evidence_refs": [
+        "p5"
+      ]
+    },
+    {
+      "id": "q_002",
+      "stage": "extract_candidates",
+      "notes": "Extracted the explicit second open problem from Section 3 after the sentence introducing it as the authors' second open problem.",
+      "evidence_refs": [
+        "p10"
+      ]
+    },
+    {
+      "id": "q_001",
+      "stage": "rewrite",
+      "notes": "Rewrote the problem into self-contained scheduling language by inlining the unit-time assumption, the chain-like precedence condition, the definition of tardiness, and the optimization objective, all supported by page-5 source text.",
+      "evidence_refs": [
+        "p5"
+      ]
+    },
+    {
+      "id": "q_002",
+      "stage": "rewrite",
+      "notes": "Rewrote the problem into self-contained scheduling language by inlining the three-machine setting, unit-time assumption, precedence-feasibility condition, per-slot capacity bound, and makespan objective, all supported by page-10 source text.",
+      "evidence_refs": [
+        "p10"
+      ]
+    },
+    {
+      "id": "q_001",
+      "stage": "dedupe",
+      "notes": "No duplicates found for the first open problem.",
+      "evidence_refs": [
+        "p5"
+      ]
+    },
+    {
+      "id": "q_002",
+      "stage": "dedupe",
+      "notes": "No duplicates found for the second open problem.",
+      "evidence_refs": [
+        "p10"
+      ]
+    },
+    {
+      "id": "q_001",
+      "stage": "quality_gates",
+      "notes": "Passed self-containedness, evidence coverage, evidence completeness, no-new-facts, source adequacy, and schema conformance gates.",
+      "evidence_refs": [
+        "p5"
+      ]
+    },
+    {
+      "id": "q_002",
+      "stage": "quality_gates",
+      "notes": "Passed self-containedness, evidence coverage, evidence completeness, no-new-facts, source adequacy, and schema conformance gates.",
+      "evidence_refs": [
+        "p10"
+      ]
+    },
+    {
+      "id": "persist",
+      "stage": "persist",
+      "notes": "Saved exact JSON payload to outputs/parse-paper/two-open-problems-in-precedence-constrained-scheduling.json and updated outputs/latest.json.",
+      "evidence_refs": []
+    }
+  ]
+}

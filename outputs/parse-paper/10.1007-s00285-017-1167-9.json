@@ -1,0 +1,146 @@
+{
+  "source": {
+    "url": "https://zbmath.org/6857920",
+    "resolved_locator": "/home/gson/paper-question-parser/.sisyphus/paper-question-parser/tmp/10.1007-s00285-017-1167-9.pdf",
+    "title": "The combinatorics of discrete time-trees: theory and open problems",
+    "title_origin": "source_text"
+  },
+  "accepted": [
+    {
+      "id": "q_001",
+      "question_text": "A discrete time-tree is a rooted binary phylogenetic tree on a fixed labeled leaf set in which every node is assigned a distinct non-negative integer time and each child has smaller time than its parent. The paper studies graph families on such trees, including DtTm, DtTum, RNNI, and RNNIu, where two trees are adjacent when one can be obtained from the other by one allowed local move such as changing the length of one event interval by 1, swapping the ranks of two nodes that bound a unit-length interval, or performing a nearest-neighbor interchange move on a unit-length interval, with graph-specific restrictions. Given two discrete time-trees in one of these graph families, what is the computational complexity of computing their graph distance, meaning the minimum number of allowed moves needed to transform one tree into the other?",
+      "context_brief": "Distance complexity in discrete time-tree graphs",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 4,
+          "quote": "A discrete time-tree is a tree such that all its nodes are assigned distinct times from the set of non-negative integers and every node has a smaller time than its parent"
+        },
+        {
+          "page": 5,
+          "quote": "Two trees T and R are adjacent in DtTm if R can be obtained from T by one of three operations: a length move performed on interval I, swapping the rank of two nodes x and y on interval I or an NNI move performed on interval I"
+        },
+        {
+          "page": 7,
+          "quote": "Problem 1 What is the complexity of computing the distance between two discrete time-trees?"
+        }
+      ]
+    },
+    {
+      "id": "q_002",
+      "question_text": "Consider any of the discrete time-tree graph families DtT, DtTu, RNNI, or RNNIu on a fixed leaf set. Suppose two trees T and R share a split, meaning that each tree has an edge whose removal induces the same bipartition of the leaves. Must every shortest path from T to R in the chosen graph stay entirely within trees that continue to display that shared split?",
+      "context_brief": "Split theorem for ranked and timed tree graphs",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 16,
+          "quote": "Hence, a natural question that would contribute to understanding Problem 1 is whether or not the Split Theorem holds in the RNNI graph and other time-tree graphs."
+        },
+        {
+          "page": 16,
+          "quote": "The latter claims were mainly based on the so-called Split Theorem which states the following: If a partition of leaves given by an edge is shared between two trees then there exists a shortest NNI path between the trees such that every tree on the path maintains the partition."
+        },
+        {
+          "page": 17,
+          "quote": "Conjecture 9 The following is true in all graphs DtT, DtTu, RNNI, and RNNIu, but not in NNI. If a partition of leaves given by an edge is presented in two trees T and R then the partition is presented in every tree on every shortest path between T and R."
+        }
+      ]
+    }
+  ],
+  "needs_review": [],
+  "trace": [
+    {
+      "id": "source",
+      "stage": "map",
+      "notes": "Resolved the zbMATH record through its DOI to an open Springer PDF and mapped the paper structure. The main open-problem region is Section 4 on pages 16-18, with Problem 1 first posed on page 7.",
+      "evidence_refs": [
+        "p1",
+        "p7",
+        "p16",
+        "p17"
+      ]
+    },
+    {
+      "id": "q_001",
+      "stage": "extract_candidates",
+      "notes": "Captured the explicitly labeled open problem about the complexity of computing distance between two discrete time-trees.",
+      "evidence_refs": [
+        "p7"
+      ]
+    },
+    {
+      "id": "q_001",
+      "stage": "rewrite",
+      "notes": "Expanded the statement by inlining the paper's definition of a discrete time-tree and the allowed local moves that define the graph-distance setting.",
+      "evidence_refs": [
+        "p4",
+        "p5",
+        "p7"
+      ]
+    },
+    {
+      "id": "q_001",
+      "stage": "dedupe",
+      "notes": "Kept a single canonical instance; no duplicate formulations of Problem 1 were extracted.",
+      "evidence_refs": [
+        "p7"
+      ]
+    },
+    {
+      "id": "q_001",
+      "stage": "quality_gates",
+      "notes": "Passed self-containedness and evidence-coverage checks using definition and move-description evidence from pages 4-5 plus the explicit problem statement on page 7.",
+      "evidence_refs": [
+        "p4",
+        "p5",
+        "p7"
+      ]
+    },
+    {
+      "id": "q_002",
+      "stage": "extract_candidates",
+      "notes": "Captured the explicit natural open question about whether the Split Theorem holds in ranked and timed tree graphs, together with the formal conjecture statement.",
+      "evidence_refs": [
+        "p16",
+        "p17"
+      ]
+    },
+    {
+      "id": "q_002",
+      "stage": "rewrite",
+      "notes": "Rewrote the conjecture as a standalone question by spelling out the shared-split condition as equality of the bipartitions induced by an edge in each tree.",
+      "evidence_refs": [
+        "p16",
+        "p17"
+      ]
+    },
+    {
+      "id": "q_002",
+      "stage": "dedupe",
+      "notes": "Merged the page-16 natural question and the page-17 conjecture into one canonical split-theorem question because they refer to the same unresolved issue.",
+      "evidence_refs": [
+        "p16",
+        "p17"
+      ]
+    },
+    {
+      "id": "q_002",
+      "stage": "quality_gates",
+      "notes": "Passed self-containedness and evidence-coverage checks; the accepted question is directly supported by the Split Theorem explanation and Conjecture 9.",
+      "evidence_refs": [
+        "p16",
+        "p17"
+      ]
+    },
+    {
+      "id": "persist",
+      "stage": "persist",
+      "notes": "Saved the exact JSON payload to outputs/parse-paper/10.1007-s00285-017-1167-9.json and outputs/latest.json.",
+      "evidence_refs": []
+    }
+  ]
+}

@@ -1,0 +1,251 @@
+{
+  "source": {
+    "url": "https://zbmath.org/5222931",
+    "resolved_locator": "/home/gson/paper-question-parser/.sisyphus/paper-question-parser/tmp/open_problems_in_efficient_semi_supervised_pac_learning.pdf",
+    "title": "Open Problems in Efficient Semi-Supervised PAC Learning",
+    "title_origin": "source_text"
+  },
+  "accepted": [
+    {
+      "id": "q_001",
+      "question_text": "Let C be a concept class, let χ be a compatibility notion for unlabeled data, and let D be a data distribution. For ε > 0, define C_{D,χ}(ε) = {h ∈ C : 1 − χ(h, D) ≤ ε}. Assuming the target hypothesis belongs to C and is fully compatible with D, unlabeled data can in principle shrink the search space from C to C_{D,χ}(ε), so that information-theoretically one would hope to learn using on the order of (1/ε)(log |C_{D,χ}(ε)| + log(1/δ)) labeled examples, or a quantity polynomial in this bound. The open question is whether, for interesting choices of C and χ, there exist computationally efficient semi-supervised learning algorithms that achieve labeled-sample complexity matching this bound up to polynomial factors.",
+      "context_brief": "General efficient semi-supervised PAC learning",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 2,
+          "quote": "For a given class C, compatibility notion χ, and distribution D, define CD,χ(ε) = {h ∈ C : 1 − χ(h, D) ≤ ε}. Under the assumption that the target belongs to C and is fully compatible, then given enough unlabeled data we can in principle reduce our search space from C down to CD,χ(ε). Thus, we should in principle need at most O(1/ε (log |CD,χ(ε)| + log 1/δ)) labeled examples to learn well."
+        },
+        {
+          "page": 2,
+          "quote": "The high-level question is whether for interesting classes C and notions of compatibility χ, one can learn with this many (or polynomial in this many) labeled examples by efficient algorithms."
+        }
+      ]
+    },
+    {
+      "id": "q_002",
+      "question_text": "Consider the semi-supervised PAC model for the class C of two-sided disjunctions over {0,1}^n. A hypothesis h is a pair of disjunctions (h+, h−), where only h+ is used for classification, and h is deemed compatible with the distribution D exactly when, for every example x, h+(x) = −h−(x), so the positive and negative classes are both representable by OR-functions. The open question is whether there is a computationally efficient semi-supervised learning algorithm for this class and compatibility notion that uses as few labeled examples as the compatibility-filtered search space suggests, up to polynomial factors.",
+      "context_brief": "Two-sided disjunctions",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 3,
+          "quote": "Two-sided disjunctions: This is a generalization of the example above where we now allow variables to be positive indicators, negative indicators, or irrelevant. Specifically, define a “two-sided disjunction” h to be a pair of disjunctions (h+, h−) where only h+ is used for classification, but h is compatible with D iff for all examples x, h+(x) = −h−(x). That is, D is such that both the positive and negative classes can be described by OR-functions."
+        },
+        {
+          "page": 2,
+          "quote": "We now instantiate this high-level question with a few specific classes and compatibility notions."
+        }
+      ]
+    },
+    {
+      "id": "q_003",
+      "question_text": "Suppose every variable is either a positive indicator or a negative indicator, and replace the strict compatibility condition from the monotone-disjunction example with a margin-style requirement: a positive example must contain at least 60% of the positive indicators and at most 40% of the negative indicators, while a negative example must satisfy the analogous reversed condition. The open question is whether this two-sided-majority-with-margins setting admits a computationally efficient semi-supervised PAC learning algorithm with labeled-sample complexity matching the small compatible-search-space intuition up to polynomial factors.",
+      "context_brief": "Two-sided majority with margins",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 3,
+          "quote": "Two-sided majority with margins: As a different generalization of the problem from Section 3.1, suppose that again every variable is either a positive or negative indicator, but we relax the margin condition a bit. In particular, say we require that x either contain at least 60% of the positive indicators and at most 40% of the negative indicators (for positive examples) or vice versa (for negative examples)."
+        },
+        {
+          "page": 2,
+          "quote": "The high-level question is whether for interesting classes C and notions of compatibility χ, one can learn with this many (or polynomial in this many) labeled examples by efficient algorithms."
+        }
+      ]
+    },
+    {
+      "id": "q_004",
+      "question_text": "Consider co-training in which the hypothesis class C is the class of disjunctions, each unlabeled example is a pair (x1, x2) of points in {0,1}^n, the classifier predicts using h(x1), and compatibility requires h(x1) = h(x2). Equivalently, each unlabeled pair is assumed to consist either of two positive examples or of two negative examples. The open question is whether there is a computationally efficient semi-supervised PAC learning algorithm for this co-training-with-disjunctions model that achieves labeled complexity close to the compatibility-based information-theoretic bound.",
+      "context_brief": "Co-training with disjunctions",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 3,
+          "quote": "Co-training with disjunctions: This is the “inverse” of the two-sided disjunction problem. Let C be the class of disjunctions, but an example x is a pair of points (x1, x2) in {0, 1}^n. Define h(x) = h(x1) but say that h is compatible with x iff h(x1) = h(x2). That is, under our compatibility assumption, each unlabeled example is either a pair of positive examples or a pair of negative examples. Note that D is now a distribution over pairs."
+        },
+        {
+          "page": 2,
+          "quote": "The high-level question is whether for interesting classes C and notions of compatibility χ, one can learn with this many (or polynomial in this many) labeled examples by efficient algorithms."
+        }
+      ]
+    },
+    {
+      "id": "q_005",
+      "question_text": "Consider the co-training setting in which the hypothesis h is a linear separator and each unlabeled example is a pair (x1, x2). Efficient algorithms are known in the special case where x1 and x2 are drawn independently conditional on their label, but the general consistency problem is NP-hard. The open question is whether one can relax the independence-given-the-label assumption in a nontrivial way and still obtain a computationally efficient algorithm for this class.",
+      "context_brief": "Co-training with linear separators",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 3,
+          "quote": "Co-training with linear separators: A generalization of the above problem is the case that h is a linear separator. It is known that the consistency problem is NP-hard [A. Flaxman, personal communication], however efficient algorithms are known for the special case that the elements x1 and x2 of the pair are drawn independently given their label [3, 1]. Even if one cannot solve the problem efficiently in general, a natural question is whether one can at least weaken the independence-given-the-label assumption in a nontrivial way and still get an efficient algorithm for this class."
+        }
+      ]
+    },
+    {
+      "id": "q_006",
+      "question_text": "Beyond the concrete cases listed in the note, the broader open problem is to identify additional concept classes C and compatibility notions χ in the semi-supervised PAC model for which unlabeled data can be exploited by computationally efficient algorithms to reduce labeled sample complexity in the sense suggested by the compatibility-filtered search space.",
+      "context_brief": "Other classes and compatibility notions",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 3,
+          "quote": "More generally, it would be interesting to consider other classes and notions of compatibility as well."
+        },
+        {
+          "page": 2,
+          "quote": "The high-level question is whether for interesting classes C and notions of compatibility χ, one can learn with this many (or polynomial in this many) labeled examples by efficient algorithms."
+        }
+      ]
+    }
+  ],
+  "needs_review": [],
+  "trace": [
+    {
+      "id": "source",
+      "stage": "map",
+      "notes": "Resolved the zbMATH record to a readable PDF hosted at TTIC. The document has Introduction, The model, The question, a non-open example, and Section 3.2 Specific open problems on page 3.",
+      "evidence_refs": [
+        "p1",
+        "p2",
+        "p3"
+      ]
+    },
+    {
+      "id": "q_001",
+      "stage": "extract_candidates",
+      "notes": "Captured the general open question from Section 3 as a distinct candidate before the specific instantiations.",
+      "evidence_refs": [
+        "p2"
+      ]
+    },
+    {
+      "id": "q_002",
+      "stage": "extract_candidates",
+      "notes": "Captured the first explicit item from Section 3.2 on two-sided disjunctions.",
+      "evidence_refs": [
+        "p3"
+      ]
+    },
+    {
+      "id": "q_003",
+      "stage": "extract_candidates",
+      "notes": "Captured the second explicit item from Section 3.2 on two-sided majority with margins.",
+      "evidence_refs": [
+        "p3"
+      ]
+    },
+    {
+      "id": "q_004",
+      "stage": "extract_candidates",
+      "notes": "Captured the third explicit item from Section 3.2 on co-training with disjunctions.",
+      "evidence_refs": [
+        "p3"
+      ]
+    },
+    {
+      "id": "q_005",
+      "stage": "extract_candidates",
+      "notes": "Captured the fourth explicit item from Section 3.2 on co-training with linear separators.",
+      "evidence_refs": [
+        "p3"
+      ]
+    },
+    {
+      "id": "q_006",
+      "stage": "extract_candidates",
+      "notes": "Captured the closing generalization sentence as an additional broad open direction.",
+      "evidence_refs": [
+        "p3"
+      ]
+    },
+    {
+      "id": "q_001",
+      "stage": "rewrite",
+      "notes": "Expanded the meaning of the compatibility-filtered search space and the target complexity goal using the notation defined on page 2.",
+      "evidence_refs": [
+        "p2"
+      ]
+    },
+    {
+      "id": "q_002",
+      "stage": "rewrite",
+      "notes": "Made the hypothesis class, role of h+, and compatibility condition explicit in the rewritten question.",
+      "evidence_refs": [
+        "p3",
+        "p2"
+      ]
+    },
+    {
+      "id": "q_003",
+      "stage": "rewrite",
+      "notes": "Expanded the margin-style condition into a standalone description of the positive and negative cases.",
+      "evidence_refs": [
+        "p3",
+        "p2"
+      ]
+    },
+    {
+      "id": "q_004",
+      "stage": "rewrite",
+      "notes": "Expanded the pair-valued example space and the compatibility condition h(x1)=h(x2) into a self-contained question.",
+      "evidence_refs": [
+        "p3",
+        "p2"
+      ]
+    },
+    {
+      "id": "q_005",
+      "stage": "rewrite",
+      "notes": "Kept the rewrite focused on the explicit question from the source: weakening the independence-given-the-label assumption while retaining efficiency.",
+      "evidence_refs": [
+        "p3"
+      ]
+    },
+    {
+      "id": "q_006",
+      "stage": "rewrite",
+      "notes": "Rephrased the closing sentence as a broad research direction while grounding it in the page-2 high-level objective.",
+      "evidence_refs": [
+        "p3",
+        "p2"
+      ]
+    },
+    {
+      "id": "dedupe",
+      "stage": "dedupe",
+      "notes": "Kept the general question and the four concrete instantiations separate because the source presents them as distinct research targets; also retained the final broad direction as a non-duplicate umbrella problem.",
+      "evidence_refs": [
+        "p2",
+        "p3"
+      ]
+    },
+    {
+      "id": "quality",
+      "stage": "quality_gates",
+      "notes": "All accepted items have direct verbatim evidence with numeric page citations, no unresolved cross-references, and no solved labels in the source.",
+      "evidence_refs": [
+        "p2",
+        "p3"
+      ]
+    },
+    {
+      "id": "persist",
+      "stage": "persist",
+      "notes": "Saved exact JSON to /home/gson/paper-question-parser/outputs/parse-paper/open_problems_in_efficient_semi_supervised_pac_learning.json and updated /home/gson/paper-question-parser/outputs/latest.json.",
+      "evidence_refs": []
+    }
+  ]
+}

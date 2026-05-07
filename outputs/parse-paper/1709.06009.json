@@ -1,0 +1,327 @@
+{
+  "source": {
+    "url": "https://zbmath.org/6865755",
+    "resolved_locator": "/home/gson/paper-question-parser/.sisyphus/paper-question-parser/tmp/1709.06009.pdf",
+    "title": "Revisiting the Arcade Learning Environment: Evaluation Protocols and Open Problems for General Agents",
+    "title_origin": "source_text"
+  },
+  "accepted": [
+    {
+      "id": "q_001",
+      "question_text": "How can an agent in the Arcade Learning Environment automatically learn a generic internal representation that works across many Atari 2600 games, while being much more sample-efficient than current DQN-like methods, avoiding heavy task-specific tuning, and coping with sparse-reward games such as Montezuma’s Revenge where current methods may occasionally encounter reward without learning to obtain it consistently?",
+      "context_brief": "Sample-efficient representation learning in ALE",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 18,
+          "quote": "The latter is obviously more desirable for the potential of discovering better representations while alleviating the burden of having handcrafted features."
+        },
+        {
+          "page": 18,
+          "quote": "However, reinforcement learning methods based on neural networks still have a high sample complexity, requiring at least dozens of millions of samples before achieving good performance, in part due to the need for learning this representation."
+        },
+        {
+          "page": 19,
+          "quote": "This suggests that there is still room for significant progress on effectively learning good representations in the ALE."
+        }
+      ]
+    },
+    {
+      "id": "q_002",
+      "question_text": "How can one learn and use a model of Atari 2600 games in the Arcade Learning Environment that stays accurate over long rollouts, is fast enough to be useful for planning rather than slower than the emulator itself, and still supports effective planning when the learned model is imperfect and errors compound over time?",
+      "context_brief": "Planning and learned models in ALE",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 19,
+          "quote": "so far, there has been no clear demonstration of successful planning with a learned model in the ALE."
+        },
+        {
+          "page": 20,
+          "quote": "In both cases, however, the models are much slower than the emulator itself; designing a fast, accurate model remains an open problem."
+        },
+        {
+          "page": 20,
+          "quote": "A related open problem is how to plan with an imperfect model."
+        }
+      ]
+    },
+    {
+      "id": "q_003",
+      "question_text": "How can a model-free reinforcement learning agent with function approximation explore the Arcade Learning Environment efficiently enough to discover rewards that are delayed, sparse, or initially negative, as in games such as Montezuma’s Revenge, Private Eye, Pitfall!, and Tennis, potentially by committing to temporally extended decisions at a higher level of abstraction than individual joystick moves and by using intrinsic motivation when scoring appears impossible?",
+      "context_brief": "Exploration under sparse or deceptive rewards",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 21,
+          "quote": "In several games such as Montezuma’s Revenge and Private Eye (see Figure 6) even obtaining any feedback is difficult because thousands of actions may be required before a first positive reward is seen."
+        },
+        {
+          "page": 21,
+          "quote": "However, despite successes in individual games, such as Bellemare et al.’s success in Montezuma’s Revenge, none of these approaches has been able to improve, in a meaningful way, agents’ performance in games such as Pitfall!, where the only successes to date involve some form of apprenticeship"
+        },
+        {
+          "page": 21,
+          "quote": "An aspect that still seems to be missing are agents capable of committing to a decision for extended periods of time, exploring in a different level of abstraction, something that humans frequently do."
+        },
+        {
+          "page": 21,
+          "quote": "Finally, for intrinsically difficult games, agents may need some form of intrinsic motivation (Oudeyer, Kaplan, & Hafner, 2007; Barto, 2013) to keep playing despite the apparent impossibility of scoring in the game."
+        }
+      ]
+    },
+    {
+      "id": "q_004",
+      "question_text": "How can an Arcade Learning Environment agent transfer knowledge across Atari games so as to reduce the number of samples needed to learn new games, including games that are only loosely analogous, while automatically determining when transfer is beneficial versus when it causes negative transfer, and while separating representation transfer from policy transfer instead of conflating both inside a single expert-pretrained neural-network approach?",
+      "context_brief": "Transfer learning across Atari games",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 22,
+          "quote": "We can expect knowledge transfer to reduce the required number of samples needed to learn to play similar games."
+        },
+        {
+          "page": 22,
+          "quote": "A more ambitious research question is how to leverage general video game experience, sharing knowledge across games that are not directly analogous."
+        },
+        {
+          "page": 22,
+          "quote": "It is not clear how this should be addressed in the ALE. Ideally one would like to have an algorithm automatically deciding which games are helpful and which ones are not."
+        },
+        {
+          "page": 22,
+          "quote": "Finally, current approaches are only based on the use of neural networks to perform transfer, conflating representation and policy transfer. It may be interesting to investigate how to transfer each one of these entities independently."
+        }
+      ]
+    },
+    {
+      "id": "q_005",
+      "question_text": "How can one obtain an off-policy reinforcement learning method for the Arcade Learning Environment that is both stable and practical under function approximation, has theory that actually explains its empirical behavior, can reliably reuse samples generated by policies very different from the current one, and does not depend on brittle heuristics such as replay buffers or target networks merely to avoid divergence?",
+      "context_brief": "Stable practical off-policy learning",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 23,
+          "quote": "Off-policy learning algorithms seem to be brittle when applied to the ALE."
+        },
+        {
+          "page": 23,
+          "quote": "However, besides a better theoretical understanding about convergence, stable (and practical) off-policy learning algorithms with function approximation are still an incomplete piece in the literature."
+        },
+        {
+          "page": 23,
+          "quote": "Addressing the aforementioned issues, either through a convincing demonstration of the efficacy of the current theoretically sound algorithms for off-policy learning, or through some of the improvements described above may free us from the increased complexity of using experience replay and/or target networks."
+        },
+        {
+          "page": 23,
+          "quote": "Also, this would allow us to better reuse samples from policies that are very different from the one being learned."
+        }
+      ]
+    }
+  ],
+  "needs_review": [],
+  "trace": [
+    {
+      "id": "source",
+      "stage": "map",
+      "notes": "Resolved the zbMATH record via its linked arXiv full text and mapped the dedicated open-problems section on pages 17-24, with subsection headings for representation learning, planning and model-learning, exploration, transfer learning, and off-policy learning.",
+      "evidence_refs": [
+        "p17",
+        "p18",
+        "p19",
+        "p20",
+        "p21",
+        "p22",
+        "p23",
+        "p24"
+      ]
+    },
+    {
+      "id": "q_001",
+      "stage": "extract_candidates",
+      "notes": "Extracted the representation-learning open problem from Section 7.1 as an unresolved research direction centered on generic learned representations, high sample complexity, and sparse-reward failure modes.",
+      "evidence_refs": [
+        "p18",
+        "p19"
+      ]
+    },
+    {
+      "id": "q_002",
+      "stage": "extract_candidates",
+      "notes": "Extracted the planning/model-learning candidate from Section 7.2, combining the explicit open problems about fast accurate models and planning with imperfect models.",
+      "evidence_refs": [
+        "p19",
+        "p20"
+      ]
+    },
+    {
+      "id": "q_003",
+      "stage": "extract_candidates",
+      "notes": "Extracted the exploration candidate from Section 7.3, focusing on sparse and deceptive reward settings plus the need for higher-level exploration and intrinsic motivation.",
+      "evidence_refs": [
+        "p21"
+      ]
+    },
+    {
+      "id": "q_004",
+      "stage": "extract_candidates",
+      "notes": "Extracted the transfer-learning candidate from Section 7.4, including cross-game transfer, negative transfer detection, and independent transfer of representations versus policies.",
+      "evidence_refs": [
+        "p22"
+      ]
+    },
+    {
+      "id": "q_005",
+      "stage": "extract_candidates",
+      "notes": "Extracted the off-policy-learning candidate from Section 7.5, centered on stable practical off-policy learning with function approximation and principled reuse of data from different behavior policies.",
+      "evidence_refs": [
+        "p23"
+      ]
+    },
+    {
+      "id": "q_001",
+      "stage": "rewrite",
+      "notes": "Expanded the research direction into a self-contained question by inlining the ALE setting, the representation-learning objective, the sample-efficiency requirement, and the sparse-reward failure mode.",
+      "evidence_refs": [
+        "p18",
+        "p19"
+      ]
+    },
+    {
+      "id": "q_002",
+      "stage": "rewrite",
+      "notes": "Rewrote the planning/model-learning item as one self-contained question that preserves both explicit open subproblems discussed in the paper.",
+      "evidence_refs": [
+        "p19",
+        "p20"
+      ]
+    },
+    {
+      "id": "q_003",
+      "stage": "rewrite",
+      "notes": "Rewrote the exploration item to make the sparse-reward and deceptive-reward setting explicit and to include the higher-abstraction and intrinsic-motivation ideas stated in the source.",
+      "evidence_refs": [
+        "p21"
+      ]
+    },
+    {
+      "id": "q_004",
+      "stage": "rewrite",
+      "notes": "Rewrote the transfer-learning item as a self-contained cross-game question while preserving the explicit concerns about non-analogous games, negative transfer, and disentangling representation from policy transfer.",
+      "evidence_refs": [
+        "p22"
+      ]
+    },
+    {
+      "id": "q_005",
+      "stage": "rewrite",
+      "notes": "Rewrote the off-policy-learning item to include stability, practicality, theory, and reuse of data from off-policy behavior, all grounded in the source text.",
+      "evidence_refs": [
+        "p23"
+      ]
+    },
+    {
+      "id": "q_001",
+      "stage": "dedupe",
+      "notes": "No near-duplicate representation-learning candidates required merging.",
+      "evidence_refs": [
+        "p18",
+        "p19"
+      ]
+    },
+    {
+      "id": "q_002",
+      "stage": "dedupe",
+      "notes": "Merged the two explicit model-related open problems into one canonical planning/model-learning question because the section treats them as one research direction and the merge preserves all evidence.",
+      "evidence_refs": [
+        "p19",
+        "p20"
+      ]
+    },
+    {
+      "id": "q_003",
+      "stage": "dedupe",
+      "notes": "No near-duplicate exploration candidates required merging.",
+      "evidence_refs": [
+        "p21"
+      ]
+    },
+    {
+      "id": "q_004",
+      "stage": "dedupe",
+      "notes": "Merged closely related transfer subquestions into one canonical transfer-learning question to avoid splitting one coherent research direction into overlapping items.",
+      "evidence_refs": [
+        "p22"
+      ]
+    },
+    {
+      "id": "q_005",
+      "stage": "dedupe",
+      "notes": "No near-duplicate off-policy-learning candidates required merging.",
+      "evidence_refs": [
+        "p23"
+      ]
+    },
+    {
+      "id": "q_001",
+      "stage": "quality_gates",
+      "notes": "Passed self-containedness, evidence coverage, evidence completeness, no-new-facts, and schema checks.",
+      "evidence_refs": [
+        "p18",
+        "p19"
+      ]
+    },
+    {
+      "id": "q_002",
+      "stage": "quality_gates",
+      "notes": "Passed self-containedness, evidence coverage, evidence completeness, no-new-facts, and schema checks.",
+      "evidence_refs": [
+        "p19",
+        "p20"
+      ]
+    },
+    {
+      "id": "q_003",
+      "stage": "quality_gates",
+      "notes": "Passed self-containedness, evidence coverage, evidence completeness, no-new-facts, and schema checks.",
+      "evidence_refs": [
+        "p21"
+      ]
+    },
+    {
+      "id": "q_004",
+      "stage": "quality_gates",
+      "notes": "Passed self-containedness, evidence coverage, evidence completeness, no-new-facts, and schema checks.",
+      "evidence_refs": [
+        "p22"
+      ]
+    },
+    {
+      "id": "q_005",
+      "stage": "quality_gates",
+      "notes": "Passed self-containedness, evidence coverage, evidence completeness, no-new-facts, and schema checks.",
+      "evidence_refs": [
+        "p23"
+      ]
+    },
+    {
+      "id": "source",
+      "stage": "persist",
+      "notes": "Saved JSON output to outputs/parse-paper/1709.06009.json and updated outputs/latest.json.",
+      "evidence_refs": [
+        "outputs/parse-paper/1709.06009.json",
+        "outputs/latest.json"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,389 @@
+{
+  "source": {
+    "url": "https://zbmath.org/5899043",
+    "resolved_locator": "/home/gson/paper-question-parser/.sisyphus/paper-question-parser/tmp/5899043.pdf",
+    "title": "Open Problems in Nonlinear Conjugate Gradient Algorithms for Unconstrained Optimization",
+    "title_origin": "source_text"
+  },
+  "accepted": [
+    {
+      "id": "q_001",
+      "question_text": "Consider the unconstrained optimization problem min_{x in R^n} f(x), where f: R^n -> R is continuously differentiable and bounded below. A nonlinear conjugate gradient method generates iterates x_{k+1} = x_k + alpha_k d_k with gradient g_k = grad f(x_k), displacement s_k = x_{k+1} - x_k, and search directions defined by d_{k+1} = -g_{k+1} + beta_k s_k. Why is it critical to choose the initial search direction as d_0 = -g_0? More specifically, for general nonlinear objectives rather than only convex quadratic functions, what theoretical or algorithmic explanation determines when using an arbitrary initial direction d_0 different from -g_0 preserves or degrades convergence and practical performance?",
+      "context_brief": "initial direction choice",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 3,
+          "quote": "Problem 1. Why is the initial search direction d0 = −g0 critical? ... Observe that all these remarks address only to the convex quadratic functions; for the general nonlinear function we have no results on this problem."
+        }
+      ]
+    },
+    {
+      "id": "q_002",
+      "question_text": "In nonlinear conjugate gradient methods for minimizing a continuously differentiable function f, with y_k = g_{k+1} - g_k and search direction d_{k+1}, the classical conjugacy condition is y_k^T d_{k+1} = 0, while a more general inexact-line-search condition proposed in the paper is y_k^T d_{k+1} = -t s_k^T g_{k+1} for some scalar t >= 0. What is the best conjugacy condition for practical and theoretical use, and in particular how should the parameter t be chosen optimally when inexact line searches are used?",
+      "context_brief": "conjugacy condition",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 4,
+          "quote": "Problem 2. What is the best conjugacy condition? The conjugacy condition is expressed as yTkdk+1 = 0. Recently, Dai and Liao [29] introduced the new conjugacy condition yTkdk+1 = −tsTk gk+1, where t ≥ 0 is a scalar. This is indeed very reasonable since in real computation the inexact line search is generally used. However, this condition is very dependent on the nonnegative parameter t, for which we do not know any formula to choose in an optimal manner."
+        }
+      ]
+    },
+    {
+      "id": "q_003",
+      "question_text": "In a nonlinear conjugate gradient method for minimizing a continuously differentiable function, why does the line-search step length sequence {alpha_k} often vary unpredictably and sometimes differ from 1 by as much as two orders of magnitude, depending on scaling and on the problem instance? Can this behavior be explained in a way that clarifies why conjugate gradient methods typically do not accept unit step lengths as consistently as Newton, quasi-Newton, or limited-memory quasi-Newton methods?",
+      "context_brief": "step length variability",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 4,
+          "quote": "Problem 3. Why does the sequence of step length {αk}tend to vary in a totally unpredictable manner and differ from 1 by two order of magnitude? Intensive numerical experiments with different variants of conjugate gradient algorithms proved that the step length may differ from 1 up to two orders of magnitude, being larger or smaller than 1, depending on how the problem is scaled. Moreover, the sizes of the step length tend to vary in a totally unpredictable way."
+        }
+      ]
+    },
+    {
+      "id": "q_004",
+      "question_text": "For nonlinear conjugate gradient algorithms applied to unconstrained optimization, how does the accuracy of the line-search procedure affect convergence speed, robustness, and overall performance? In particular, when step lengths are computed by exact line search, Wolfe conditions, approximate Wolfe conditions, or non-monotone line search conditions, which level and type of line-search accuracy is most effective, and is it possible to design competitive nonlinear conjugate gradient algorithms that avoid line search altogether without sacrificing reliability?",
+      "context_brief": "line search accuracy",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 5,
+          "quote": "Problem 4. What is the influence of the accuracy of line search procedure on the performances of conjugate gradient algorithms? ... In this context another interesting open question is whether the non-monotone line search [38] is more effective than the Wolfe line search. Another open problem, more interesting, is to design conjugate gradient algorithms without line search, the idea being to save computation."
+        }
+      ]
+    },
+    {
+      "id": "q_005",
+      "question_text": "In nonlinear conjugate gradient methods for minimizing a continuously differentiable objective f, formulas for the conjugate gradient parameter beta_k are usually built from gradient norms, differences y_k = g_{k+1} - g_k, displacements s_k = x_{k+1} - x_k, and related inner products. How can one use objective-function values such as f(x_k) and f(x_{k+1}) directly in the definition of beta_k to construct new conjugate gradient algorithms with good convergence and practical performance?",
+      "context_brief": "beta from function values",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 5,
+          "quote": "Problem 5. How can we use the function values in βk to generate new conjugate gradient algorithms? ... As we can see in the formula for βk the difference f(xk)−f(xk+1) is not used at all."
+        }
+      ]
+    },
+    {
+      "id": "q_006",
+      "question_text": "Suppose the unconstrained optimization objective is partially separable, meaning it can be written as a sum of element functions with large invariant subspaces. Can the structural information from this partial separability be exploited to define a partitioned or structure-aware update for the conjugate gradient parameter beta_k, so as to produce more effective nonlinear conjugate gradient algorithms for large-scale problems?",
+      "context_brief": "problem structure exploitation",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 6,
+          "quote": "Problem 6. Can we take advantage of problem structure to design more effective nonlinear conjugate gradient algorithms? ... The question is whether we can use this type of invariant subspace information to design new formula forβk."
+        }
+      ]
+    },
+    {
+      "id": "q_007",
+      "question_text": "How can second-order information be incorporated effectively into nonlinear conjugate gradient algorithms for unconstrained optimization? More specifically, can one use Hessian information or Hessian-vector products, possibly approximated by finite differences or secant-type conditions, to define the conjugate gradient parameter beta_k in a way that remains computationally practical for large-scale problems and avoids degeneracies such as cases where s_k lies in the kernel of the Hessian?",
+      "context_brief": "second-order information",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 6,
+          "quote": "Problem 7. How can we consider the second order information in conjugate gradient algorithms? ... For large-scale problems, choices for the update parameter that do not require the evaluation of the Hessian matrix are often preferred in practice to the methods that require the Hessian. ... Besides, what happens when sk ∈ Ker∇2f(xk+1)?"
+        }
+      ]
+    },
+    {
+      "id": "q_008",
+      "question_text": "In the scaled nonlinear conjugate gradient update d_{k+1} = -theta_{k+1} g_{k+1} + beta_k s_k, where theta_{k+1} is either a positive scalar or a symmetric positive definite matrix, what is the best choice of scaling strategy? Equivalently, which scaled conjugate gradient algorithm most effectively combines useful inverse-Hessian information with the conjugate-gradient term while still preserving strong descent and good practical performance?",
+      "context_brief": "scaled conjugate gradient",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 7,
+          "quote": "Problem 8. What is the best scaled conjugate gradient algorithm? This is the preconditioning of conjugate gradient algorithms, which is a very active area. Some authors suggested the search direction of the following form (2.12) dk+1 = −θk+1gk+1 + βksk, where θk+1 is a positive scalar or a symmetric and positive definite matrix [2, 25]."
+        }
+      ]
+    },
+    {
+      "id": "q_009",
+      "question_text": "Hybrid nonlinear conjugate gradient methods combine attractive features of several classical formulas, for example by projection or by convex combinations of methods such as Fletcher-Reeves, Polak-Ribiere-Polyak, Hestenes-Stiefel, Dai-Yuan, and related variants. Which hybrid conjugate gradient algorithm is best, or more generally how should one choose the combination strategy so as to obtain the strongest overall balance of convergence guarantees and computational performance?",
+      "context_brief": "hybrid methods",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 8,
+          "quote": "Problem 9. Which is the best hybrid conjugate gradient algorithm? ... But, finding the best convex combination of the classical conjugate gradient algorithms remains for further study."
+        }
+      ]
+    },
+    {
+      "id": "q_010",
+      "question_text": "Nonlinear conjugate gradient algorithms often use restart rules to reset the search direction, for example after a fixed number of iterations or when conditions involving gradients and directions indicate loss of conjugacy or insufficient descent. What is the most effective restart procedure for conjugate gradient algorithms, especially in large-scale settings where restarting every n or n+1 steps can be inefficient?",
+      "context_brief": "restart procedure",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 8,
+          "quote": "Problem 10. What is the most convenient restart procedure of conjugate gradient algorithms? ... Clearly, more sophisticated restarting procedures can be imagined, but which one is the best remains to be seen."
+        }
+      ]
+    },
+    {
+      "id": "q_011",
+      "question_text": "For a finite-precision nonlinear conjugate gradient method that seeks a local minimizer of a continuously differentiable function, what is the most suitable stopping criterion? In particular, among stopping rules based on infinity norms or Euclidean norms of the gradient, relative thresholds tied to the initial gradient, or function-decrease tests involving alpha_k g_k^T d_k, which criterion best balances correctness, efficiency, and suitability for large-scale versus small-scale problems?",
+      "context_brief": "stopping criterion",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 9,
+          "quote": "Problem 11. What is the most suitable criterion for stopping the conjugate gradient iterations? ... For large-scale problems k∇f(xk)k∞is more suitable to be used to stop the algorithm, but for small problems it is better to use k∇f(xk)k2."
+        }
+      ]
+    },
+    {
+      "id": "q_012",
+      "question_text": "Newton's method has the property that if some component functions of the gradient map grad f(x) are affine, then every Newton iterate solves those affine components exactly. Is there an analogous property for nonlinear conjugate gradient algorithms: if some components of grad f(x) are affine, do conjugate gradient iterates satisfy a corresponding exactness or invariance property for those components?",
+      "context_brief": "affine gradient components",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 9,
+          "quote": "Problem 12. Affine components of the gradient. The Newton method has a very nice property. If any component functions of the gradient ∇f(x) are affine, then each iterate generated by the Newton method will be a solution of these components ... Is there an equivalent property for conjugate gradient algorithms?"
+        }
+      ]
+    },
+    {
+      "id": "q_013",
+      "question_text": "What is the precise relationship between nonlinear conjugate gradient methods and quasi-Newton methods, including limited-memory quasi-Newton methods, in large-scale unconstrained optimization? More specifically, how can ideas from both families be combined to design efficient and robust algorithms that inherit desirable theoretical and computational properties from each?",
+      "context_brief": "CG and quasi-Newton relation",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 9,
+          "quote": "Problem 13. What is the interrelationship between conjugate gradient and quasi-Newton algorithms, including here the limited memory quasi-Newton algorithms? ... The question is that we don’t have any significant progress in designing efficient and robust algorithms for large-scale problems using concepts from both these two classes of algorithms."
+        }
+      ]
+    },
+    {
+      "id": "q_014",
+      "question_text": "Consider the bound-constrained optimization problem min { f(x) | l <= x <= u }, where l and u are given vectors in R^n. Can nonlinear conjugate gradient algorithms be extended so that they solve this simple bounded constrained optimization problem effectively, for example by adapting ideas from interior-point methods or by another mechanism that handles the bounds without destroying the low-memory character of conjugate gradient methods?",
+      "context_brief": "bound constraints",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 9,
+          "quote": "Problem 14. Can the nonlinear conjugate gradient algorithms be extended to solve simple bounded constrained optimization? Consider the problem (2.21) min x∈Rn {f(x)|l ≤ x ≤ u} ... How can we adapt the conjugate gradient algorithms to solve equation (2.21)?"
+        }
+      ]
+    }
+  ],
+  "needs_review": [],
+  "trace": [
+    {
+      "id": "source",
+      "stage": "map",
+      "notes": "Mapped the PDF structure and identified Section 2 on pages 321-327 as the open-problem region containing Problems 1-14.",
+      "evidence_refs": [
+        "p3",
+        "p4",
+        "p5",
+        "p6",
+        "p7",
+        "p8",
+        "p9"
+      ]
+    },
+    {
+      "id": "q_001",
+      "stage": "extract_candidates",
+      "notes": "Extracted Problem 1 from page 321-322.",
+      "evidence_refs": [
+        "p3"
+      ]
+    },
+    {
+      "id": "q_002",
+      "stage": "extract_candidates",
+      "notes": "Extracted Problem 2 from page 322.",
+      "evidence_refs": [
+        "p4"
+      ]
+    },
+    {
+      "id": "q_003",
+      "stage": "extract_candidates",
+      "notes": "Extracted Problem 3 from page 322.",
+      "evidence_refs": [
+        "p4"
+      ]
+    },
+    {
+      "id": "q_004",
+      "stage": "extract_candidates",
+      "notes": "Extracted Problem 4 from pages 322-323.",
+      "evidence_refs": [
+        "p4",
+        "p5"
+      ]
+    },
+    {
+      "id": "q_005",
+      "stage": "extract_candidates",
+      "notes": "Extracted Problem 5 from page 323.",
+      "evidence_refs": [
+        "p5"
+      ]
+    },
+    {
+      "id": "q_006",
+      "stage": "extract_candidates",
+      "notes": "Extracted Problem 6 from page 324.",
+      "evidence_refs": [
+        "p6"
+      ]
+    },
+    {
+      "id": "q_007",
+      "stage": "extract_candidates",
+      "notes": "Extracted Problem 7 from pages 324-325.",
+      "evidence_refs": [
+        "p6",
+        "p7"
+      ]
+    },
+    {
+      "id": "q_008",
+      "stage": "extract_candidates",
+      "notes": "Extracted Problem 8 from page 325.",
+      "evidence_refs": [
+        "p7"
+      ]
+    },
+    {
+      "id": "q_009",
+      "stage": "extract_candidates",
+      "notes": "Extracted Problem 9 from pages 325-326.",
+      "evidence_refs": [
+        "p7",
+        "p8"
+      ]
+    },
+    {
+      "id": "q_010",
+      "stage": "extract_candidates",
+      "notes": "Extracted Problem 10 from page 326.",
+      "evidence_refs": [
+        "p8"
+      ]
+    },
+    {
+      "id": "q_011",
+      "stage": "extract_candidates",
+      "notes": "Extracted Problem 11 from pages 326-327.",
+      "evidence_refs": [
+        "p8",
+        "p9"
+      ]
+    },
+    {
+      "id": "q_012",
+      "stage": "extract_candidates",
+      "notes": "Extracted Problem 12 from page 327.",
+      "evidence_refs": [
+        "p9"
+      ]
+    },
+    {
+      "id": "q_013",
+      "stage": "extract_candidates",
+      "notes": "Extracted Problem 13 from page 327.",
+      "evidence_refs": [
+        "p9"
+      ]
+    },
+    {
+      "id": "q_014",
+      "stage": "extract_candidates",
+      "notes": "Extracted Problem 14 from page 327.",
+      "evidence_refs": [
+        "p9"
+      ]
+    },
+    {
+      "id": "accepted_all",
+      "stage": "rewrite",
+      "notes": "Rewrote all fourteen problems into self-contained questions by inlining the unconstrained optimization setting, the nonlinear conjugate gradient recurrence, and notation such as g_k, s_k, y_k, alpha_k, beta_k, and theta_{k+1} when needed.",
+      "evidence_refs": [
+        "p2",
+        "p3",
+        "p4",
+        "p5",
+        "p6",
+        "p7",
+        "p8",
+        "p9"
+      ]
+    },
+    {
+      "id": "accepted_all",
+      "stage": "dedupe",
+      "notes": "Verified that Problems 1-14 are distinct and kept separate canonical ids q_001 through q_014.",
+      "evidence_refs": [
+        "p3",
+        "p4",
+        "p5",
+        "p6",
+        "p7",
+        "p8",
+        "p9"
+      ]
+    },
+    {
+      "id": "accepted_all",
+      "stage": "quality_gates",
+      "notes": "All accepted items have explicit source evidence with numeric PDF pages, remain grounded in the article text, and were expanded only with notation and assumptions stated in the source.",
+      "evidence_refs": [
+        "p2",
+        "p3",
+        "p4",
+        "p5",
+        "p6",
+        "p7",
+        "p8",
+        "p9"
+      ]
+    },
+    {
+      "id": "persist",
+      "stage": "persist",
+      "notes": "Saved JSON to /home/gson/paper-question-parser/outputs/parse-paper/5899043.json and updated /home/gson/paper-question-parser/outputs/latest.json.",
+      "evidence_refs": []
+    }
+  ]
+}
