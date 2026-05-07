@@ -1,27 +1,33 @@
 {
+  "source": {
+    "url": "https://arxiv.org/abs/1304.7181",
+    "resolved_locator": "/home/gson/paper-question-parser/.sisyphus/paper-question-parser/tmp/1304.7181.pdf",
+    "title": "On some open questions in bilinear quantum control",
+    "title_origin": "source_text"
+  },
   "accepted": [
     {
       "id": "q_001",
-      "question_text": "Consider a bilinear quantum control system (A, B) on a separable Hilbert space H that is k-weakly-coupled for every k > 0, and let (φ_j)_{j\\in\\mathbb{N}} be a Hilbert basis of eigenvectors of the skew-adjoint drift operator A. Starting from the first eigenstate φ_1, explicitly identify a target state ψ_b \\in H that is not colinear to φ_1 and for which there exist a control u \\in L^1(\\mathbb{R}, \\mathbb{R}) and a time T > 0 such that the propagator of the controlled system satisfies Υ^u_{T,0}φ_1 = ψ_b.",
-      "context_brief": "Reachable state beyond the first eigenstate",
+      "question_text": "Consider a bilinear quantum control system on a separable Hilbert space H of the form dψ/dt = (A + u(t)B)ψ, where (A,B) satisfies Assumption 1 from the paper: A is skew-adjoint with an eigenbasis (φ_k)_{k∈N}, A+uB is essentially skew-adjoint for admissible controls, and the control acts through the operator B. Assume moreover that (A,B) is k-weakly-coupled for every k > 0, so that the attainable set from any eigenvector is contained in the intersection of the domains D(|A|^k) over all k > 0. Give an explicit state ψ_b that is not colinear with the first eigenvector φ_1 and for which there exist a control u in L^1(R,R) and a time T > 0 such that the corresponding propagator satisfies Υ^u_{T,0} φ_1 = ψ_b.",
+      "context_brief": "Explicit reachable state for infinitely weakly-coupled systems",
       "meta": {
         "is_solved": false
       },
       "evidence": [
         {
           "page": 5,
-          "quote": "Question 1: Let (A, B) be k-weakly-coupled for every k > 0. Give (explicitly) a state ψb not colinear to φ1 such that there exist a control u in L1(R, R) and a time T > 0 for which ΥuT,0φ1 = ψb."
+          "quote": "Most of the bilinear quantum systems we encountered in the physics literature are k-weakly-coupled for every k > 0. We have already seen that if (A, B) is k-weakly-coupled for every k > 0, then the attainable set from any eigenvector of A is contained in ∩k>0D(|A|^k), the intersection of the domains of all the iterations of A."
         },
         {
           "page": 5,
-          "quote": "Most of the bilinear quantum systems we encountered in the physics literature are k-weakly-coupled for every k > 0."
+          "quote": "Question 1: Let (A, B) be k-weakly-coupled for every k > 0. Give (explicitly) a state ψb not colinear to φ1 such that there exist a control u in L1(R, R) and a time T > 0 for which ΥuT,0φ1 = ψb."
         }
       ]
     },
     {
       "id": "q_002",
-      "question_text": "Let (A, B) be a bilinear quantum control system satisfying Assumption 1, with A unbounded, B having no eigenvector, and (A, B) k-weakly-coupled for every k > 0. Assume (A, B) admits a non-degenerate chain of connectedness, so that the union of states reachable from the first eigenstate φ_1 is dense in H, and define ρ as the infimum of times T \\ge 0 such that the set of states reachable from φ_1 by piecewise constant controls during times 0 \\le t \\le T is all of H. Does there exist such a system for which this minimal time parameter satisfies ρ > 0?",
-      "context_brief": "Positive minimal time for weakly-coupled systems",
+      "question_text": "Let (A,B) satisfy Assumption 1 for the bilinear quantum system dψ/dt = (A + u(t)B)ψ, and suppose (A,B) admits a non-degenerate chain of connectedness, so the reachable set from φ_1 is dense in H. Define ρ to be the infimum of all T ≥ 0 such that the union of states reachable from φ_1 by piecewise-constant controls over times 0 ≤ t ≤ T is dense in H. Does there exist a system (A,B) that is k-weakly-coupled for every k > 0, whose drift operator A is unbounded, whose control operator B has no eigenvector, and for which the minimal approximate-controllability time satisfies ρ > 0?",
+      "context_brief": "Positive minimal time in infinite-dimensional approximate control",
       "meta": {
         "is_solved": false
       },
@@ -38,26 +44,26 @@
     },
     {
       "id": "q_003",
-      "question_text": "Fix a bilinear quantum control system (A, B) and suppose an upper bound on the L^1 norm of the control is prescribed. Under that L^1-budget constraint, what is the smallest transfer time required to steer the system from the first eigenstate of the drift operator A to the second eigenstate?",
-      "context_brief": "Time-optimal transfer under control-size constraint",
+      "question_text": "Fix a bilinear quantum system dψ/dt = (A + u(t)B)ψ with first and second eigenstates φ_1 and φ_2 of the drift operator A. Suppose one imposes an a priori upper bound on the L^1 norm of the control u. Under that control-budget constraint, what is the smallest possible transfer time needed to steer the system from the first eigenstate φ_1 to the second eigenstate φ_2?",
+      "context_brief": "Time-optimal transfer under an L1 control budget",
       "meta": {
         "is_solved": false
       },
       "evidence": [
         {
           "page": 5,
-          "quote": "Question 3: An upper bound on the L1 norm of the control being given, what is the smallest possible time needed to transfer a given system (A, B) from the first eigenstate of A to the second one?"
+          "quote": "For weakly-coupled systems, it can be easily proved (see [31]) that an a priori bound on the L1 norm of the control is not compatible with approximate controllability in arbitrarily small time."
         },
         {
           "page": 5,
-          "quote": "As previously said, large controls may, for some examples, allow approximate controllability in arbitrarily small time."
+          "quote": "Question 3: An upper bound on the L1 norm of the control being given, what is the smallest possible time needed to transfer a given system (A, B) from the first eigenstate of A to the second one?"
         }
       ]
     },
     {
       "id": "q_004",
-      "question_text": "Let (A, B) satisfy Assumption 1 and assume it admits a non-degenerate chain of connectedness. Then, for every target state ψ_b on the unit sphere of H and every ε > 0, there exists a piecewise constant control u_ε : [0, T_ε] \to {0,1} such that the propagated first eigenstate Υ^{u_ε}_{T_ε,0}φ_1 is within ε of ψ_b. Is it possible to choose such controls so that, as ε \to 0, the number of discontinuities grows strictly slower than 1/ε, that is, is of order o_{ε\to 0}(1/ε)?",
-      "context_brief": "Switch complexity of binary controls",
+      "question_text": "Let (A,B) satisfy Assumption 1 and admit a non-degenerate chain of connectedness. Then for every target state ψ_b on the unit sphere of H and every ε > 0, one can find a piecewise-constant control u_ε : [0,T_ε] → {0,1} such that the propagated first eigenstate Υ^{u_ε}_{T_ε,0} φ_1 is within ε of ψ_b. Existing constructions can produce such controls with a number of discontinuities of order 1/ε. Is it possible instead to construct controls u_ε whose number of discontinuities is little-o of 1/ε as ε → 0?",
+      "context_brief": "Reducing the switch complexity of approximate steering controls",
       "meta": {
         "is_solved": false
       },
@@ -68,25 +74,25 @@
         },
         {
           "page": 5,
-          "quote": "Question 4: Is it possible to build uε with a number of discontinuities of order oε→0(1/ε)?"
+          "quote": "Question 4: Is it possible to build uε with a number of discontinuities of order oε→0 (1/ε)?"
         }
       ]
     },
     {
       "id": "q_005",
-      "question_text": "Does there exist a bilinear quantum control system (A, B) in which the control operator B is unbounded, the pair (A, B) satisfies Assumption 1, the system is not k-weakly-coupled for any k > 0, and yet the infinite-dimensional dynamics can still be approximated by its Galerkin truncations uniformly with respect to the L^1 norm of the control?",
-      "context_brief": "Uniform Galerkin approximation beyond weak coupling",
+      "question_text": "Does there exist a bilinear quantum system dψ/dt = (A + u(t)B)ψ in which the control operator B is unbounded, the pair (A,B) satisfies Assumption 1, the system is not k-weakly-coupled for any k > 0, and nevertheless the infinite-dimensional dynamics can still be approximated uniformly by its Galerkin truncations with respect to the L^1 norm of the control? Here the intended uniform approximation is the same type discussed earlier in the paper for weakly-coupled systems, where for every control with bounded L^1 norm the Galerkin evolution stays uniformly close to the full evolution.",
+      "context_brief": "Good Galerkin approximations beyond weak coupling",
       "meta": {
         "is_solved": false
       },
       "evidence": [
         {
-          "page": 6,
-          "quote": "Question 5: Does it exist a system (A, B) with unbounded B that satisfies Assumption 1, is not k-weakly-coupled for any k > 0 and that can be approached, uniformly with respect of the L1 norm of the control, by its Galerkin approximations?"
+          "page": 3,
+          "quote": "Remark 1: Notice that, in Propositions 7 and 8, the upper bound of the |A|k/2 norm of the solution of (1) or the bound on the error between the infinite dimensional system and its finite dimensional approximation only depend on the L1 norm of the control, not on the time."
         },
         {
           "page": 6,
-          "quote": "The existence of Good Galerkin Approximations is of crucial interest for the theoretical analysis and the numerical simulation of bilinear quantum systems."
+          "quote": "Question 5: Does it exist a system (A, B) with unbounded B that satisfies Assumption 1, is not k-weakly-coupled for any k > 0 and that can be approached, uniformly with respect of the L1 norm of the control, by its Galerkin approximations?"
         }
       ]
     }
@@ -94,148 +100,120 @@
   "needs_review": [],
   "trace": [
     {
-      "id": "paper_1304.7181",
+      "id": "source",
       "stage": "map",
-      "notes": "Mapped the six-page paper and identified Section V, pages 5-6, as the dedicated open-questions region. The paper title is 'On some open questions in bilinear quantum control'.",
+      "notes": "Mapped the PDF and identified Section V 'FIVE OPEN QUESTIONS' on pages 5-6 as the primary open-problem region.",
       "evidence_refs": [
-        "p2",
+        "p1",
         "p5",
         "p6"
       ]
     },
     {
-      "id": "section_v",
+      "id": "q_001",
       "stage": "extract_candidates",
-      "notes": "Extracted five explicit items labeled Question 1 through Question 5 from Section V 'Five Open Questions'.",
+      "notes": "Extracted explicit Question 1 from Section V-A and retained surrounding context about attainable sets for systems that are k-weakly-coupled for every k > 0.",
+      "evidence_refs": [
+        "p5"
+      ]
+    },
+    {
+      "id": "q_002",
+      "stage": "extract_candidates",
+      "notes": "Extracted explicit Question 2 from Section V-B together with the paper's definition of the minimal-time quantity ρ.",
+      "evidence_refs": [
+        "p5"
+      ]
+    },
+    {
+      "id": "q_003",
+      "stage": "extract_candidates",
+      "notes": "Extracted explicit Question 3 from Section V-C and kept the L1-budget discussion needed to make the rewrite standalone.",
+      "evidence_refs": [
+        "p5"
+      ]
+    },
+    {
+      "id": "q_004",
+      "stage": "extract_candidates",
+      "notes": "Extracted explicit Question 4 from Section V-D and kept the preceding statement that existing constructions use O(1/ε) discontinuities.",
+      "evidence_refs": [
+        "p5"
+      ]
+    },
+    {
+      "id": "q_005",
+      "stage": "extract_candidates",
+      "notes": "Extracted explicit Question 5 from Section V-E and linked it to the earlier Good Galerkin Approximation discussion.",
+      "evidence_refs": [
+        "p3",
+        "p6"
+      ]
+    },
+    {
+      "id": "q_001",
+      "stage": "rewrite",
+      "notes": "Expanded the compressed source wording by inlining the system form, Assumption 1 context, and the meaning of the attainable-set restriction without adding facts beyond the cited text.",
+      "evidence_refs": [
+        "p5"
+      ]
+    },
+    {
+      "id": "q_002",
+      "stage": "rewrite",
+      "notes": "Made the question self-contained by spelling out the definition of ρ and the density premise supplied immediately before the question.",
+      "evidence_refs": [
+        "p5"
+      ]
+    },
+    {
+      "id": "q_003",
+      "stage": "rewrite",
+      "notes": "Rewrote the transfer-time question as a standalone control-budget problem from φ_1 to φ_2.",
+      "evidence_refs": [
+        "p5"
+      ]
+    },
+    {
+      "id": "q_004",
+      "stage": "rewrite",
+      "notes": "Inlined the approximation target, admissible controls {0,1}, and the currently known O(1/ε) switch count.",
+      "evidence_refs": [
+        "p5"
+      ]
+    },
+    {
+      "id": "q_005",
+      "stage": "rewrite",
+      "notes": "Expanded 'approached uniformly with respect of the L1 norm of the control' using the paper's earlier Galerkin-error discussion.",
+      "evidence_refs": [
+        "p3",
+        "p6"
+      ]
+    },
+    {
+      "id": "all",
+      "stage": "dedupe",
+      "notes": "No near-duplicate questions were found; the five explicit Section V questions are distinct.",
       "evidence_refs": [
         "p5",
         "p6"
       ]
     },
     {
-      "id": "q_001",
-      "stage": "rewrite",
-      "notes": "Expanded the question to state the ambient Hilbert-space setting, the eigenbasis, the starting state, and the exact reachability condition without source-pointing references.",
-      "evidence_refs": [
-        "p5"
-      ]
-    },
-    {
-      "id": "q_001",
-      "stage": "dedupe",
-      "notes": "No duplicate of Question 1 found among the extracted candidates.",
-      "evidence_refs": [
-        "p5"
-      ]
-    },
-    {
-      "id": "q_001",
+      "id": "all",
       "stage": "quality_gates",
-      "notes": "Passed self-containedness, evidence coverage, evidence completeness, no-new-facts, and schema checks.",
+      "notes": "All five items passed self-containedness, evidence coverage, evidence completeness, no-new-facts, source adequacy, and schema-conformance checks.",
       "evidence_refs": [
-        "p5"
-      ]
-    },
-    {
-      "id": "q_002",
-      "stage": "rewrite",
-      "notes": "Expanded the definition of the minimal-time parameter ρ and inlined the density hypothesis needed to understand the question.",
-      "evidence_refs": [
-        "p5"
-      ]
-    },
-    {
-      "id": "q_002",
-      "stage": "dedupe",
-      "notes": "No duplicate of Question 2 found among the extracted candidates.",
-      "evidence_refs": [
-        "p5"
-      ]
-    },
-    {
-      "id": "q_002",
-      "stage": "quality_gates",
-      "notes": "Passed self-containedness, evidence coverage, evidence completeness, no-new-facts, and schema checks.",
-      "evidence_refs": [
-        "p5"
-      ]
-    },
-    {
-      "id": "q_003",
-      "stage": "rewrite",
-      "notes": "Rewrote the problem as a transfer-time minimization question under an explicit L^1 control budget.",
-      "evidence_refs": [
-        "p5"
-      ]
-    },
-    {
-      "id": "q_003",
-      "stage": "dedupe",
-      "notes": "No duplicate of Question 3 found among the extracted candidates.",
-      "evidence_refs": [
-        "p5"
-      ]
-    },
-    {
-      "id": "q_003",
-      "stage": "quality_gates",
-      "notes": "Passed self-containedness, evidence coverage, evidence completeness, no-new-facts, and schema checks.",
-      "evidence_refs": [
-        "p5"
-      ]
-    },
-    {
-      "id": "q_004",
-      "stage": "rewrite",
-      "notes": "Expanded the binary-control setting, the approximation guarantee, and the asymptotic switch-count target o_{ε→0}(1/ε).",
-      "evidence_refs": [
-        "p5"
-      ]
-    },
-    {
-      "id": "q_004",
-      "stage": "dedupe",
-      "notes": "No duplicate of Question 4 found among the extracted candidates.",
-      "evidence_refs": [
-        "p5"
-      ]
-    },
-    {
-      "id": "q_004",
-      "stage": "quality_gates",
-      "notes": "Passed self-containedness, evidence coverage, evidence completeness, no-new-facts, and schema checks.",
-      "evidence_refs": [
-        "p5"
-      ]
-    },
-    {
-      "id": "q_005",
-      "stage": "rewrite",
-      "notes": "Rewrote the question to make explicit the simultaneous requirements on Assumption 1, unbounded control operator, failure of weak coupling, and uniform Galerkin approximation in L^1-control size.",
-      "evidence_refs": [
+        "p3",
+        "p5",
         "p6"
       ]
     },
     {
-      "id": "q_005",
-      "stage": "dedupe",
-      "notes": "No duplicate of Question 5 found among the extracted candidates.",
-      "evidence_refs": [
-        "p6"
-      ]
-    },
-    {
-      "id": "q_005",
-      "stage": "quality_gates",
-      "notes": "Passed self-containedness, evidence coverage, evidence completeness, no-new-facts, and schema checks.",
-      "evidence_refs": [
-        "p6"
-      ]
-    },
-    {
-      "id": "paper_1304.7181",
+      "id": "persist",
       "stage": "persist",
-      "notes": "Saved exact JSON to outputs/parse-paper/1304.7181.json and updated outputs/latest.json.",
+      "notes": "Saved exact JSON payload to /home/gson/paper-question-parser/outputs/parse-paper/1304.7181.json and updated /home/gson/paper-question-parser/outputs/latest.json.",
       "evidence_refs": []
     }
   ]

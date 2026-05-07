@@ -1,9 +1,15 @@
 {
+  "source": {
+    "url": "https://arxiv.org/abs/2603.00819",
+    "resolved_locator": "/home/gson/paper-question-parser/.sisyphus/paper-question-parser/tmp/2603.00819.pdf",
+    "title": "A short tour of operator learning theory: Convergence rates, statistical limits, and open questions",
+    "title_origin": "source_text"
+  },
   "accepted": [
     {
       "id": "q_001",
-      "question_text": "Let U and V be infinite-dimensional separable Hilbert spaces, let 𝒢: U → V be a target operator, and consider empirical risk minimization for neural operators of the form 𝒢̂ = 𝒟_q ◦ g ◦ ℰ_d trained from samples (u_i, v_i) with v_i = 𝒢(u_i) + e_i. When the target class is holomorphic and the network g is fully trainable rather than partially handcrafted, can empirical risk minimization achieve faster-than-Monte-Carlo generalization rates in the noise-free setting, meaning rates better than order n^{-1/2} as the sample size n grows?",
-      "context_brief": "Noise-free ERM with fully trainable neural operators",
+      "question_text": "Suppose one learns a holomorphic operator by empirical risk minimization using a neural operator whose trainable component is a fully trainable network, with particular interest in the noiseless case. Can such fully trainable ERM schemes achieve sample-complexity rates faster than the Monte Carlo rate, rather than being limited to roughly n^{-1/2} behavior?",
+      "context_brief": "Fully trainable ERM rates",
       "meta": {
         "is_solved": false
       },
@@ -11,39 +17,31 @@
         {
           "page": 10,
           "quote": "Based on the results presented in §2, it is natural to ask whether faster-than-Monte Carlo rates are possible when considering ERM with fully trainable networks, especially in the absence of noise."
-        },
-        {
-          "page": 10,
-          "quote": "Currently, an answer is elusive because the arguments used to prove Thms. 1 and 2 do not easily extend to such a setting."
         }
       ]
     },
     {
       "id": "q_002",
-      "question_text": "In the operator-learning setting where empirical risk minimization is analyzed under statistical noise, Theorem 1 gives a nonparametric error rate that is at best n^{-1/2}. Is that apparent Monte-Carlo barrier a real minimax limitation for noisy operator learning, or is it only an artifact of the current proof techniques used in the statistical-learning analysis?",
-      "context_brief": "Whether the n^{-1/2} ERM rate is intrinsic",
+      "question_text": "For empirical risk minimization in operator learning under statistical noise, Theorem 1 gives a nonparametric rate that is at best n^{-1/2}. Is this rate merely an artifact of the proof technique used in the statistical-learning analysis, or does it reflect a genuine minimax barrier for the noisy operator-learning problem?",
+      "context_brief": "Meaning of Theorem 1 rate",
       "meta": {
         "is_solved": false
       },
       "evidence": [
         {
           "page": 10,
-          "quote": "A remaining question is whether the nonparametric rate in Thm. 1 (which is at best 𝑛−1/2) is an artifact of the statistical learning analysis in the noisy setting, or a genuine minimax barrier."
+          "quote": "A remaining question is whether the nonparametric rate in Thm. 1 (which is at best n−1/2) is an artifact of the statistical learning analysis in the noisy setting, or a genuine minimax barrier."
         }
       ]
     },
     {
       "id": "q_003",
-      "question_text": "For operator learning with noisy observations, let s_n(K)_X denote the noise-free minimax reconstruction error over a target class K in a Banach space X, and let s̃^η_n(K; σ)_X denote the corresponding statistical nonlinear sampling n-width when each observation is perturbed by random noise of level σ. Can one obtain a noise-level-aware characterization of minimax rates for operator learning that describes how s̃^η_n(K; σ)_X depends jointly on the sample size n and the noise level σ, analogous to what is known in classical function approximation?",
-      "context_brief": "Noise-aware minimax rates for operator learning",
+      "question_text": "Let K be a class of target operators and compare the noiseless minimax sampling width s_n(K)_X with the noisy statistical nonlinear sampling width s̃_n^η(K; σ)_X for operator learning. Can one obtain a sharp characterization of operator-learning minimax rates that explicitly tracks the noise level σ, analogous to the known noise-aware theory for classical function approximation?",
+      "context_brief": "Noise-aware minimax rates",
       "meta": {
         "is_solved": false
       },
       "evidence": [
-        {
-          "page": 9,
-          "quote": "To address observations corrupted by random noise, e.g., as in Thm. 1, let 𝜂 be a centered probability measure on V and define the statistical nonlinear sampling 𝑛-width 𝑠˜η_n (𝐾; 𝜎)_X by"
-        },
         {
           "page": 10,
           "quote": "An open problem is to obtain a similar noise level aware characterization of minimax rates for operator learning."
@@ -52,8 +50,8 @@
     },
     {
       "id": "q_004",
-      "question_text": "Which classes of nonlinear operators arising in scientific applications are both practically relevant and sufficiently regular or structured to admit algebraic minimax sample complexity for operator learning, rather than only polylogarithmic worst-case rates?",
-      "context_brief": "Practical operator classes with algebraic minimax complexity",
+      "question_text": "Which classes of operators arising in scientific applications are both practically relevant and mathematically structured enough to admit algebraic minimax sample-complexity rates for operator learning?",
+      "context_brief": "Practical classes with algebraic rates",
       "meta": {
         "is_solved": false
       },
@@ -66,65 +64,71 @@
     },
     {
       "id": "q_005",
-      "question_text": "Let ρ be a probability measure on the input space U, let V be the output space, and let s̃^η_n(K; σ)_{L^2_ρ(U;V)} denote the statistical nonlinear sampling n-width associated with noisy observations. For the holomorphic operator classes studied in the paper—namely the classes underlying the empirical-risk results for holomorphic operators in Theorems 1 and 2—can one prove sharp upper and lower bounds for s̃^η_n(K; σ)_{L^2_ρ(U;V)}? In particular, can such bounds determine whether faster-than-Monte-Carlo rates are achievable under appropriate statistical noise models?",
-      "context_brief": "Sharp noisy minimax bounds for holomorphic classes",
-      "meta": {
-        "is_solved": false
-      },
-      "evidence": [
-        {
-          "page": 9,
-          "quote": "To address observations corrupted by random noise, e.g., as in Thm. 1, let 𝜂 be a centered probability measure on V and define the statistical nonlinear sampling 𝑛-width 𝑠˜η_n (𝐾; 𝜎)_X by"
-        },
-        {
-          "page": 11,
-          "quote": "First, can one prove sharp bounds on the statistical 𝑛-width 𝑠˜η_n (𝐾; 𝜎)_{L2_ϱ} (11) for 𝐾 the holomorphic classes considered in Thms. 1–2? This will help clarify whether faster-than-Monte Carlo rates are possible or not under suitable statistical noise models."
-        }
-      ]
-    },
-    {
-      "id": "q_006",
-      "question_text": "Let s_n(K)_X = inf_{M \\in Map_n(K;X)} sup_{f \\in K} ||f - M(f)||_X denote the minimax reconstruction error based on n samples. Is empirical risk minimization minimax-optimal, in this sense, for operator classes beyond holomorphic ones—for example for classes of infinitely differentiable operators or for operator families arising from specific parametric partial differential equations?",
-      "context_brief": "Minimax optimality of ERM beyond holomorphic classes",
-      "meta": {
-        "is_solved": false
-      },
-      "evidence": [
-        {
-          "page": 7,
-          "quote": "Based on this setup, define the minimax reconstruction error based on 𝑛 samples to be 𝑠_n (𝐾)_X := inf_{M∈Map_n (𝐾;X)} sup_{f ∈𝐾} ∥ f − M(f ) ∥_X."
-        },
-        {
-          "page": 11,
-          "quote": "Moreover, is ERM optimal in the minimax sense of (8) for target classes beyond holomorphic operators? Other sets of interest could include 𝐶∞ operators or those arising from specific parametric PDE problems."
-        }
-      ]
-    },
-    {
-      "id": "q_007",
-      "question_text": "For the Fourier neural operator approximation class K_FNO^α(K), Theorem 5 shows that the optimal algebraic minimax rate exponent β★ lies between (1/2)(1/(1+8/α)) and 1/2, and approaches 1/2 as α grows. Is the upper-bound exponent 1/2 actually sharp for this class, or can the minimax exponent be improved or more tightly characterized for finite α?",
-      "context_brief": "Sharpness of the FNO minimax exponent",
-      "meta": {
-        "is_solved": false
-      },
-      "evidence": [
-        {
-          "page": 9,
-          "quote": "Thm. 5 shows that the optimal algebraic minimax rate exponent is asymptotically 1/2 as 𝛼 → ∞. The gap between the upper and lower bound in (10) for finite 𝛼 is likely due to the ERM proof technique for the lower bound. It is of interest to determine whether the exponent 1/2 is sharp or not."
-        }
-      ]
-    },
-    {
-      "id": "q_008",
-      "question_text": "For operator learning under the L^2_ρ error metric, can one separate the sample complexity of holomorphic operator classes H(b) ◦ ι from that of architecture-defined classes K_FNO^α by proving nontrivial lower bounds for s_n(K_FNO^α)_{L^2_ρ}, or alternatively by showing that holomorphic operators in H(b) ◦ ι are well approximated by Fourier neural operators?",
-      "context_brief": "Separating holomorphic and FNO-based operator classes",
+      "question_text": "For the holomorphic operator classes studied in Theorems 1 and 2, can one prove sharp bounds for the statistical nonlinear sampling n-width s̃_n^η(K; σ) in L^2_ϱ? In particular, can such bounds determine whether suitably noisy operator-learning problems for these holomorphic classes still allow faster-than-Monte Carlo rates?",
+      "context_brief": "Sharp noisy widths for holomorphic classes",
       "meta": {
         "is_solved": false
       },
       "evidence": [
         {
           "page": 10,
-          "quote": "Taken together, the results in §2 and §3 imply that max{𝑠_n (H (𝑏) ◦ 𝜄)_{L2_ϱ}, 𝑠_n (𝐾^𝛼_FNO)_{L2_ϱ}} ≤ 𝑠_n (𝐾Lip)_{L2_ϱ}. A further separation of the left-hand side would require lower bounds on 𝑠_n (𝐾^𝛼_FNO)_{L2_ϱ} or showing that elements of H (𝑏) ◦ 𝜄 are well approximated by FNOs."
+          "quote": "First, can one prove sharp bounds on the statistical n-width s˜ηn (K;σ)L2ϱ (11) for K the holomorphic classes considered in Thms. 1–2? This will help clarify whether faster-than-Monte Carlo rates are possible or not under suitable statistical noise models."
+        }
+      ]
+    },
+    {
+      "id": "q_006",
+      "question_text": "Is empirical risk minimization minimax-optimal, in the sense of the noiseless sampling-width formulation, for operator classes beyond holomorphic ones? Examples singled out by the paper include infinitely Fréchet-differentiable operator classes and classes generated by specific parametric PDE problems.",
+      "context_brief": "ERM beyond holomorphic classes",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 11,
+          "quote": "Moreover, is ERM optimal in the minimax sense of (8) for target classes beyond holomorphic operators? Other sets of interest could include C∞ operators or those arising from specific parametric PDE problems."
+        }
+      ]
+    },
+    {
+      "id": "q_007",
+      "question_text": "Beyond classical operator classes defined by regularity assumptions such as smoothness or holomorphy, can one develop and analyze architecture-oriented classes of target operators whose definition is tied to approximation by specific neural-operator architectures, and use them as a mathematically meaningful alternative foundation for operator-learning theory?",
+      "context_brief": "Architecture-oriented operator classes",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 11,
+          "quote": "In addition, as suggested by the results in §3, an interesting alternative could be to consider architecture-oriented operator classes, in contrast to those based on more classical regularity assumptions."
+        }
+      ]
+    },
+    {
+      "id": "q_008",
+      "question_text": "Consider the class K_FNO^α of operators that can be approximated efficiently at rate α by Fourier neural operators, and let β★ denote the optimal algebraic minimax-rate exponent for learning that class in L^2_ϱ. The paper proves bounds showing β★ is at most 1/2 and approaches 1/2 as α grows. Is the exponent 1/2 actually sharp for these FNO-based operator classes, or can the true optimal exponent exceed the currently known upper-bound heuristic?",
+      "context_brief": "Sharpness of FNO exponent one-half",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 9,
+          "quote": "Thm. 5 shows that the optimal algebraic minimax rate exponent is asymptotically 1/2 as α → ∞. The gap between the upper and lower bound in (10) for finite α is likely due to the ERM proof technique for the lower bound. It is of interest to determine whether the exponent 1/2 is sharp or not."
+        }
+      ]
+    },
+    {
+      "id": "q_009",
+      "question_text": "For operator learning in L^2_ϱ, how can one further separate the minimax behavior of holomorphic classes H(b)∘ι from the architecture-based classes K_FNO^α? Concretely, can one either prove stronger lower bounds on the sampling widths of K_FNO^α or show that operators in H(b)∘ι are themselves well approximated by Fourier neural operators, thereby clarifying whether the two classes have genuinely different sample-complexity behavior?",
+      "context_brief": "Separating holomorphic and FNO classes",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 10,
+          "quote": "A further separation of the left-hand side would require lower bounds on sn(KαFNO)L2ϱ or showing that elements of H (b) ◦ ι are well approximated by FNOs."
         }
       ]
     }
@@ -132,48 +136,99 @@
   "needs_review": [],
   "trace": [
     {
-      "id": "doc_map",
+      "id": "source_map",
       "stage": "map",
-      "notes": "Mapped the paper from parsed PDF text. Major sections are Introduction, Error bounds for empirical risk minimization, Minimax analysis of operator learning, and Conclusions and open problems. Theorem references are Theorems 1-6, with open-problem concentration on pages 9-11, especially Section 4.",
+      "notes": "Mapped the PDF structure and identified §3 discussion and §4 conclusions/open problems as the main open-question regions.",
       "evidence_refs": [
-        "p1",
-        "p2",
         "p9",
         "p10",
         "p11"
       ]
     },
     {
-      "id": "sec_4",
+      "id": "q_001",
       "stage": "extract_candidates",
-      "notes": "Extracted explicit open questions from the Conclusions and open problems section on pages 10-11.",
+      "notes": "Extracted explicit open problem about faster-than-Monte Carlo rates for fully trainable ERM.",
       "evidence_refs": [
-        "p10",
+        "p10"
+      ]
+    },
+    {
+      "id": "q_002",
+      "stage": "extract_candidates",
+      "notes": "Extracted explicit question about whether Theorem 1's n^{-1/2} rate is an artifact or a genuine barrier.",
+      "evidence_refs": [
+        "p10"
+      ]
+    },
+    {
+      "id": "q_003",
+      "stage": "extract_candidates",
+      "notes": "Extracted explicit open problem on noise-aware minimax characterization for operator learning.",
+      "evidence_refs": [
+        "p10"
+      ]
+    },
+    {
+      "id": "q_004",
+      "stage": "extract_candidates",
+      "notes": "Extracted challenge of identifying practically relevant operator classes with algebraic minimax complexity.",
+      "evidence_refs": [
+        "p10"
+      ]
+    },
+    {
+      "id": "q_005",
+      "stage": "extract_candidates",
+      "notes": "Extracted explicit question on sharp statistical n-width bounds for the holomorphic classes from Theorems 1 and 2.",
+      "evidence_refs": [
+        "p10"
+      ]
+    },
+    {
+      "id": "q_006",
+      "stage": "extract_candidates",
+      "notes": "Extracted explicit question on minimax optimality of ERM beyond holomorphic classes.",
+      "evidence_refs": [
         "p11"
       ]
     },
     {
-      "id": "sec_3_discussion",
+      "id": "q_007",
       "stage": "extract_candidates",
-      "notes": "Extracted implicit open problems from the minimax-analysis discussion, including the FNO exponent sharpness question and the separation between holomorphic and FNO-based classes.",
+      "notes": "Extracted explicit proposal to study architecture-oriented operator classes as an alternative direction.",
       "evidence_refs": [
-        "p9",
+        "p11"
+      ]
+    },
+    {
+      "id": "q_008",
+      "stage": "extract_candidates",
+      "notes": "Extracted explicit open question on whether exponent 1/2 is sharp for FNO-based target classes.",
+      "evidence_refs": [
+        "p9"
+      ]
+    },
+    {
+      "id": "q_009",
+      "stage": "extract_candidates",
+      "notes": "Extracted explicit open direction on separating holomorphic and FNO-based classes.",
+      "evidence_refs": [
         "p10"
       ]
     },
     {
       "id": "q_001",
       "stage": "rewrite",
-      "notes": "Rewrote the page-10 question into a standalone ERM problem statement by inlining the neural-operator training setup from pages 3 and 10.",
+      "notes": "Expanded the question to specify ERM, fully trainable neural operators, and the noiseless setting.",
       "evidence_refs": [
-        "p3",
         "p10"
       ]
     },
     {
       "id": "q_002",
       "stage": "rewrite",
-      "notes": "Preserved the paper's distinction between a proof artifact and a genuine minimax barrier, while expanding the setting to noisy operator learning.",
+      "notes": "Expanded the rate question into a self-contained comparison between proof artifact and minimax barrier.",
       "evidence_refs": [
         "p10"
       ]
@@ -181,16 +236,15 @@
     {
       "id": "q_003",
       "stage": "rewrite",
-      "notes": "Expanded the random-noise open problem into a self-contained question by defining the noisy statistical n-width at a high level from Section 3.",
+      "notes": "Restated the noisy-width problem with the definitions s_n(K)_X and s̃_n^η(K;σ)_X in words.",
       "evidence_refs": [
-        "p9",
         "p10"
       ]
     },
     {
       "id": "q_004",
       "stage": "rewrite",
-      "notes": "Kept the question broad because the source presents it as a challenge to identify practically relevant operator classes with algebraic minimax rates.",
+      "notes": "Kept the question broad but self-contained by stating the desired algebraic minimax property explicitly.",
       "evidence_refs": [
         "p10"
       ]
@@ -198,127 +252,71 @@
     {
       "id": "q_005",
       "stage": "rewrite",
-      "notes": "Resolved the reference to equation (11) by restating the statistical n-width and clarifying that the target classes are the holomorphic classes behind Theorems 1 and 2.",
+      "notes": "Expanded the statistical n-width question to include its role in deciding faster-than-Monte Carlo behavior under noise.",
       "evidence_refs": [
-        "p9",
-        "p11"
+        "p10"
       ]
     },
     {
       "id": "q_006",
       "stage": "rewrite",
-      "notes": "Resolved the reference to equation (8) by restating the minimax error definition and preserved the examples of target classes named in the source.",
+      "notes": "Restated the ERM optimality question with examples beyond holomorphic classes taken from the source sentence.",
       "evidence_refs": [
-        "p7",
         "p11"
       ]
     },
     {
       "id": "q_007",
       "stage": "rewrite",
-      "notes": "Converted the informal sharpness remark into a self-contained question by inlining the minimax exponent bounds from Theorem 5.",
+      "notes": "Expanded the architecture-oriented-classes direction into a standalone research question.",
       "evidence_refs": [
-        "p9"
+        "p11"
       ]
     },
     {
       "id": "q_008",
       "stage": "rewrite",
-      "notes": "Turned the discussion sentence about separating sample complexities into a standalone research question without adding claims beyond the stated alternatives.",
+      "notes": "Inlined the definition context for the exponent β★ and the FNO-based class to make the sharpness question self-contained.",
+      "evidence_refs": [
+        "p9"
+      ]
+    },
+    {
+      "id": "q_009",
+      "stage": "rewrite",
+      "notes": "Expanded the separation remark into a precise either-or question about lower bounds versus FNO approximation of holomorphic classes.",
       "evidence_refs": [
         "p10"
       ]
     },
     {
-      "id": "q_001",
+      "id": "dedupe",
       "stage": "dedupe",
-      "notes": "Kept distinct from q_002 because q_001 asks about achievable noise-free faster-than-Monte-Carlo rates for fully trainable ERM, whereas q_002 asks whether the n^{-1/2} noisy rate is intrinsic.",
+      "notes": "Checked the extracted questions for overlap; retained all nine because each targets a distinct aspect of operator-learning theory.",
       "evidence_refs": [
-        "p10"
-      ]
-    },
-    {
-      "id": "q_003",
-      "stage": "dedupe",
-      "notes": "Kept distinct from q_005 because q_003 is a general noisy minimax question, while q_005 is specific to holomorphic classes from Theorems 1-2.",
-      "evidence_refs": [
+        "p9",
         "p10",
         "p11"
       ]
     },
     {
-      "id": "q_001",
+      "id": "quality_gates",
       "stage": "quality_gates",
-      "notes": "Passed self-containedness, evidence coverage, evidence completeness, and no-new-facts checks.",
-      "evidence_refs": [
-        "p3",
-        "p10"
-      ]
-    },
-    {
-      "id": "q_002",
-      "stage": "quality_gates",
-      "notes": "Passed self-containedness, evidence coverage, evidence completeness, and no-new-facts checks.",
-      "evidence_refs": [
-        "p10"
-      ]
-    },
-    {
-      "id": "q_003",
-      "stage": "quality_gates",
-      "notes": "Passed self-containedness, evidence coverage, evidence completeness, and no-new-facts checks.",
+      "notes": "Verified that all accepted questions are self-contained, evidence-backed, and do not rely on unresolved cross-references.",
       "evidence_refs": [
         "p9",
-        "p10"
-      ]
-    },
-    {
-      "id": "q_004",
-      "stage": "quality_gates",
-      "notes": "Passed self-containedness, evidence coverage, evidence completeness, and no-new-facts checks.",
-      "evidence_refs": [
-        "p10"
-      ]
-    },
-    {
-      "id": "q_005",
-      "stage": "quality_gates",
-      "notes": "Passed self-containedness, evidence coverage, evidence completeness, and no-new-facts checks.",
-      "evidence_refs": [
-        "p9",
+        "p10",
         "p11"
-      ]
-    },
-    {
-      "id": "q_006",
-      "stage": "quality_gates",
-      "notes": "Passed self-containedness, evidence coverage, evidence completeness, and no-new-facts checks.",
-      "evidence_refs": [
-        "p7",
-        "p11"
-      ]
-    },
-    {
-      "id": "q_007",
-      "stage": "quality_gates",
-      "notes": "Passed self-containedness, evidence coverage, evidence completeness, and no-new-facts checks.",
-      "evidence_refs": [
-        "p9"
-      ]
-    },
-    {
-      "id": "q_008",
-      "stage": "quality_gates",
-      "notes": "Passed self-containedness, evidence coverage, evidence completeness, and no-new-facts checks.",
-      "evidence_refs": [
-        "p10"
       ]
     },
     {
       "id": "persist",
       "stage": "persist",
-      "notes": "Saved exact JSON output to outputs/parse-paper/2603.00819.json and updated outputs/latest.json.",
-      "evidence_refs": []
+      "notes": "Saved exact JSON to outputs/parse-paper/2603.00819.json and updated outputs/latest.json.",
+      "evidence_refs": [
+        "outputs/parse-paper/2603.00819.json",
+        "outputs/latest.json"
+      ]
     }
   ]
 }

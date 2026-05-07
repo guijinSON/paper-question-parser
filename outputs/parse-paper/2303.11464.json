@@ -1,91 +1,117 @@
 {
+  "source": {
+    "url": "https://zbmath.org/7676351",
+    "resolved_locator": "/home/gson/paper-question-parser/.sisyphus/paper-question-parser/tmp/2303.11464.pdf",
+    "title": "Seven open problems in applied combinatorics",
+    "title_origin": "source_text"
+  },
   "accepted": [
     {
       "id": "q_001",
-      "question_text": "Given a weighted simple graph G = (V, E, omega) with geodesic distance d_G and a fixed epsilon > 0, what are the optimal upper and lower bounds on the cardinality of an epsilon-net L subseteq V for the metric space (V, d_G)? Here an epsilon-net means a landmark set that is both epsilon-sparse and an epsilon-sample of the graph.",
-      "context_brief": "epsilon-net size in metric graphs",
+      "question_text": "Let G=(V,E,ω) be a weighted simple graph, let d_G be the geodesic distance on V induced by G, and let ε>0. A subset L⊂V is an ε-net if (i) every vertex v∈V lies within distance ε of some landmark u∈L and (ii) every two distinct landmarks u_i,u_j∈L satisfy d_G(u_i,u_j)>ε. Determine optimal upper and lower bounds for the number of elements of an ε-net for G.",
+      "context_brief": "Dowker complexes and ε-nets on metric graphs",
       "meta": {
         "is_solved": false
       },
       "evidence": [
         {
           "page": 6,
-          "quote": "Open Problem 1.1. Given a weighted simple graph G = (V, E, omega) and epsilon > 0, determine optimal upper and lower bounds for the number of elements of an epsilon-net for G."
+          "quote": "Definition 1.5 (\u000f-net). Let (V, dG) be the finite metric space obtained from the weighted graph G = (V, E, ω). Given L = {u1, u2, . . . , ul} ⊂ V and \u000f ≥ 0 then: (i) The set L is an \u000f-sample of G if ... for any v ∈ V there exists uj ∈ L such that dG(v, uj ) ≤ \u000f. (ii) L is \u000f-sparse if for any two distinct points ui, uj ∈ L, their distance dG(ui, uj ) > \u000f. (iii) The set L is an \u000f-net of G if it is an \u000f-sample of G and is \u000f-sparse."
+        },
+        {
+          "page": 6,
+          "quote": "Open Problem 1.1. Given a weighted simple graph G = (V, E, ω) and \u000f > 0, determine optimal upper and lower bounds for the number of elements of an \u000f-net for G."
         }
       ]
     },
     {
       "id": "q_002",
-      "question_text": "Given a weighted simple graph G = (V, E, omega), design an algorithm that constructs an epsilon-net for G using fewer landmarks than the currently available methods while also running faster than those existing algorithms.",
-      "context_brief": "faster epsilon-net construction",
+      "question_text": "Let G=(V,E,ω) be a weighted simple graph. Construct an algorithm that computes an ε-net L⊂V for G and simultaneously improves on the existing ε-net algorithms by using fewer landmarks and running in less time than the currently available methods.",
+      "context_brief": "Improved ε-net construction algorithm",
       "meta": {
         "is_solved": false
       },
       "evidence": [
         {
           "page": 6,
-          "quote": "Three different methods to obtain epsilon-nets in metric graphs, namely, the greedy, iterative and SPT pruning algorithms, are proposed in [1]. These algorithms are experimentally compared with respect to the number of landmarks they produce for the same graph, including their execution time."
+          "quote": "Three different methods to obtain \u000f-nets in metric graphs, namely, the greedy, iterative and SPTpruning algorithms, are proposed in [1]. These algorithms are experimentally compared with respect to the number of landmarks they produce for the same graph, including their execution time."
         },
         {
           "page": 7,
-          "quote": "Open Problem 1.2. For a weighted simple graph G = (V, E, omega), propose an algorithm to construct an epsilon-net for G such that: (i) It is based on a lower number of landmarks than that of the existing algorithms; (ii) The time of execution of the algorithm is lower than the existing algorithms."
+          "quote": "Open Problem 1.2. For a weighted simple graph G = (V, E, ω), propose an algorithm to construct an \u000f-net for G such that: (i) It is based on a lower number of landmarks than that of the existing algorithms; (ii) The time of execution of the algorithm is lower than the existing algorithms."
         }
       ]
     },
     {
       "id": "q_003",
-      "question_text": "Let G = (V, E, omega) be a weighted simple graph, let W = V be the witness set, and let L subseteq V be an epsilon-net used to build the filtered Dowker complex Dow_alpha(W, L). Determine how to choose epsilon and how to select the epsilon-net L so that, for sufficiently large alpha, the one-dimensional persistence diagram PD_1(Dow_alpha(W, L)) has as many points as the genus of G. Assuming such an epsilon-net is given, bound the bottleneck distance between PD_1(VR_alpha(G)) and PD_1(Dow_alpha(W, L)) in terms of the cycle lengths of G and epsilon.",
+      "question_text": "Let G=(V,E,ω) be a weighted simple graph, let W=V be the witness set, and let L⊂V be an ε-net. The Dowker complex Dow_α(W,L) is the simplicial complex on the landmark set L whose simplices are the subsets σ⊂L for which there exists a witness w∈W satisfying d_G(w,l)≤α for every l∈σ. Determine how to choose ε and how to select the ε-net L so that, for sufficiently large α, the one-dimensional persistence diagram PD_1(Dow_α(W,L)) has cardinality equal to the genus of G. Assuming such an ε-net is given, find a bound for the bottleneck distance d_B(PD_1(VR_α(G)), PD_1(Dow_α(W,L))) in terms of the cycle lengths of G and ε.",
       "context_brief": "Dowker versus Vietoris-Rips persistence",
       "meta": {
         "is_solved": false
       },
       "evidence": [
         {
+          "page": 5,
+          "quote": "Definition 1.4 (Dowker Complex). Let G = (V, E, ω) be a weighted simple graph with induced geodesic distance dG, and let L, W ⊂ V. For α ∈ R≥0, let Dowα(W, L) be the abstract simplicial complex with set of vertices L and a simplex σ ∈ Dowα(W, L) if and only if there exists w ∈ W such that dG(w, l) ≤ α for all l ∈ σ."
+        },
+        {
           "page": 7,
-          "quote": "Open Problem 1.3. Let G = (V, E, omega) be weighted simple graph. Take the set of witnesses W = V. (i) Determine epsilon > 0 and the way to select an epsilon-net L subset V such that PD_1(Dow_alpha(W, L)) has cardinality equal to the genus of G, for a sufficiently large value alpha. (ii) Assuming that an epsilon-net for G satisfying (i) is given. Find a bound for d_B(PD_1(VR_alpha(G)), PD_1(Dow_alpha(W, L))), in terms of the lengths of cycles in G and epsilon, where d_B is the bottleneck distance in persistence diagrams."
+          "quote": "Open Problem 1.3. Let G = (V, E, ω) be weighted simple graph. Take the set of witnesses W = V. (i) Determine \u000f > 0 and the way to select an \u000f-net L ⊂ V such that PD1(Dowα(W, L)) has cardinality equal to the genus of G, for a sufficiently large value α. (ii) Assuming that an \u000f-net for G satisfying (i) is given. Find a bound for dB(PD1(VRα(G)), PD1(Dowα(W, L))), in terms of the lengths of cycles in G and \u000f, where dB is the bottleneck distance in persistence diagrams."
         }
       ]
     },
     {
       "id": "q_004",
-      "question_text": "Let G = (V, E, omega) be a weighted graph with landmark and witness sets L, W subseteq V, and let Dow_alpha(W, L) denote the associated Dowker complex filtration. If G' = (V, E, omega') has the same vertices and edges but a different weight function, how can one bound the bottleneck distance between the persistence diagrams of the Dowker complexes of G and G' in terms of the supremum distance between omega and omega'? Also, if L and L' are both epsilon-nets for G, what conditions on these landmark sets guarantee that Dow_alpha(W, L) and Dow_alpha(W, L') have the same homotopy type?",
-      "context_brief": "stability of Dowker complexes",
+      "question_text": "Let G=(V,E,ω) be a weighted graph with landmark set L⊂V and witness set W⊂V. For the Dowker complexes built from G, study stability in two directions. First, if G'=(V,E,ω') has the same vertices and edges as G but a different weight function ω', bound the bottleneck distance between the persistence diagrams of the Dowker complexes of G and G' in terms of the supremum distance between ω and ω'. Second, if L and L' are both ε-nets for G, find conditions under which Dow_α(W,L) and Dow_α(W,L') have the same homotopy type.",
+      "context_brief": "Stability of Dowker complexes",
       "meta": {
         "is_solved": false
       },
       "evidence": [
         {
           "page": 8,
-          "quote": "Open Problem 1.4. Let G = (V, E, omega) be a weighted graph and let L, W subset V be sets of landmarks and witnesses for G. (i) Let G' = (V, E, omega') be the metric graph with the same set of vertices and edges of G, but another weight function omega'. Find a bound for the bottleneck distance of the persistence diagrams corresponding to the Dowker complexes of G and G' in terms of the supremum distance between omega and omega'. (ii) If two sets of landmarks L and L' for G are epsilon-nets. Find conditions on the landmarks, such that Dow_alpha(W, L) and Dow_alpha(W, L') have the same homotopy type."
+          "quote": "Open Problem 1.4. Let G = (V, E, ω) be a weighted graph and let L, W ⊂ V be sets of landmarks and witnesses for G. (i) Let G' = (V, E, ω') be the metric graph with the same set of vertices and edges of G, but another weight function ω'. Find a bound for the bottleneck distance of the persistence diagrams corresponding to the Dowker complexes of G and G' in terms of the supremum distance between ω and ω'. (ii) If two sets of landmarks L and L' for G are \u000f-nets. Find conditions on the landmarks, such that Dowα(W, L) and Dowα(W, L') have the same homotopy type."
         }
       ]
     },
     {
       "id": "q_005",
-      "question_text": "Fix integers m and k with k <= m. Let A be an n x m binary matrix whose columns are distinct nonzero vectors a_1, ..., a_m in {0,1}^n, let x and y be independent uniformly random n x t binary matrices, and for each i define m_i^A(x) = sum_j <a_i, x_j>_2, the number of columns x_j whose parity on the subset encoded by a_i is odd. When A consists of all binary vectors of Hamming weight at most k, can one compute exactly the probability that m_i^A(x) = m_i^A(y) for every i?",
-      "context_brief": "binary parity-count probability",
+      "question_text": "Fix positive integers n and t, an integer m with 1≤m≤2^n−1, and an n×m binary matrix A whose columns a_1,…,a_m are distinct nonzero vectors in {0,1}^n. For an n×t binary matrix x=(x_1^T,…,x_t^T), define the i-th expressiveness indicator by m_i^A(x)=Σ_{j=1}^t <a_i,x_j>_2, where the inner product is taken in GF(2) and the outer sum is taken over the integers. If x and y are sampled uniformly at random, the computational problem asks for P((m_i(x)=m_i(y)) for all i). For fixed m and k≤m, determine this probability when A consists of all binary vectors of weight at most k.",
+      "context_brief": "Quantum-circuit expressiveness indicators",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 11,
+          "quote": "Fix n, t ∈ Z+ and let 1 ≤ m ≤ 2^n − 1. ... A = (aT1, . . . , aTm) where ai ∈ {0, 1}^n for 1 ≤ i ≤ m. Moreover, the {ai}mi=1 are non-zero and pairwise distinct."
+        },
+        {
+          "page": 11,
+          "quote": "Definition 2.2 (Expressiveness Indicator). Given A, x as above and 1 ≤ i ≤ m, we define the ith expressiveness indicator mAi (·) as: mAi (x) := Σ^t_j=1 <ai, xj>2 where the inner product <·, ·>2 is mod 2 but the outer sum is integral."
+        },
+        {
+          "page": 12,
+          "quote": "Computational Problem. Given A, let x and y be sampled uniformly at random. Compute: P ((mi(x) = mi(y)) ∀i)"
+        },
+        {
+          "page": 16,
+          "quote": "Open Problem 2.1. Fix m and k ≤ m. Can we answer Computational Problem when A consists of all vectors of weight at most k?"
+        }
+      ]
+    },
+    {
+      "id": "q_006",
+      "question_text": "With the same setup as the computational problem for the expressiveness indicators m_i^A(x), classify the families of nonzero binary column sets A for which the probability P((m_i(x)=m_i(y)) for all i), with x and y sampled uniformly at random, can be computed exactly, and classify the families A for which that probability can be computed efficiently.",
+      "context_brief": "Exact and efficient solvability by choice of A",
       "meta": {
         "is_solved": false
       },
       "evidence": [
         {
           "page": 12,
-          "quote": "Computational Problem. Given A, let x and y be sampled uniformly at random. Compute: P((m_i(x) = m_i(y)) forall i)."
+          "quote": "Computational Problem. Given A, let x and y be sampled uniformly at random. Compute: P ((mi(x) = mi(y)) ∀i)"
         },
-        {
-          "page": 16,
-          "quote": "Open Problem 2.1. Fix m and k <= m. Can we answer Computational Problem when A consists of all vectors of weight at most k?"
-        }
-      ]
-    },
-    {
-      "id": "q_006",
-      "question_text": "For the same Computational Problem in which one must evaluate the probability that m_i^A(x) = m_i^A(y) for all i, which families of binary-column sets A admit an exact solution, and which families of A admit an efficient algorithm for computing that probability?",
-      "context_brief": "which A admit exact computation",
-      "meta": {
-        "is_solved": false
-      },
-      "evidence": [
         {
           "page": 16,
           "quote": "Open Problem 2.2. For which choices of A can we answer Computational Problem exactly? For which choices of A can we answer Computational Problem efficiently?"
@@ -94,26 +120,34 @@
     },
     {
       "id": "q_007",
-      "question_text": "When the input consists of an arbitrary binary matrix A with distinct nonzero columns, is the Computational Problem of determining the probability that m_i^A(x) = m_i^A(y) for all i an NP-complete problem?",
-      "context_brief": "complexity of computational problem",
+      "question_text": "In the same computational problem where A is an n×m binary matrix with distinct nonzero columns and one must compute P((m_i(x)=m_i(y)) for all i) for uniformly random n×t binary matrices x and y, determine whether this computational problem is NP-complete when A is arbitrary.",
+      "context_brief": "Complexity of the expressiveness computation",
       "meta": {
         "is_solved": false
       },
       "evidence": [
         {
+          "page": 12,
+          "quote": "Computational Problem. Given A, let x and y be sampled uniformly at random. Compute: P ((mi(x) = mi(y)) ∀i)"
+        },
+        {
           "page": 16,
-          "quote": "To rephrase the second part of Open Problem 2.2, we ask: Open Problem 2.3. Is Computational Problem NP-Complete for arbitrary A?"
+          "quote": "Open Problem 2.3. Is Computational Problem NP-Complete for arbitrary A?"
         }
       ]
     },
     {
       "id": "q_008",
-      "question_text": "For which families of binary-column sets A can one efficiently approximate, rather than exactly compute, the probability in the Computational Problem that two independent random binary matrices x and y satisfy m_i^A(x) = m_i^A(y) for every i?",
-      "context_brief": "approximating computational problem",
+      "question_text": "In the same computational problem for the expressiveness indicators m_i^A, determine for which families of binary column sets A one can approximate the probability P((m_i(x)=m_i(y)) for all i) when x and y are sampled uniformly at random.",
+      "context_brief": "Approximation of the expressiveness computation",
       "meta": {
         "is_solved": false
       },
       "evidence": [
+        {
+          "page": 12,
+          "quote": "Computational Problem. Given A, let x and y be sampled uniformly at random. Compute: P ((mi(x) = mi(y)) ∀i)"
+        },
         {
           "page": 17,
           "quote": "Open Problem 2.4. For which choices of A can we approximate answers to Computational Problem?"
@@ -122,12 +156,16 @@
     },
     {
       "id": "q_009",
-      "question_text": "Consider the cardinality-based 4-uniform hypergraph s-t cut problem in which every 1-vs-3 hyperedge split has penalty w_1 = 1 and every 2-vs-2 split has penalty w_2. What is the computational complexity of this problem in the regime w_2 > 2?",
-      "context_brief": "4-uniform hypergraph cut complexity",
+      "question_text": "Let H=(V,E) be a 4-uniform hypergraph with source node s and sink node t. For a bipartition {S,̄S} with s∈S and t∈̄S, let ∂_i(S) be the set of hyperedges having exactly i vertices on the smaller side of the cut, and assign penalty w_i≥0 to each hyperedge in ∂_i(S), with w_0=0. The cardinality-based hypergraph s-t cut problem minimizes Σ_i w_i |∂_i(S)| subject to s∈S and t∈̄S. When w_1=1, determine the computational complexity of this problem in the regime w_2>2.",
+      "context_brief": "4-uniform hypergraph s-t cuts with convex split penalty",
       "meta": {
         "is_solved": false
       },
       "evidence": [
+        {
+          "page": 19,
+          "quote": "Edges with i nodes on the small side of the cut are denoted by ∂i(S) = {e ∈ E : min{|e∩S|, |e∩S¯|} = i}. ... The cardinality-based hypergraph s-t cut problem is given by (1) min_S⊆V Σ_i wi |∂i(S)|, subject to s ∈ S and t ∈ S¯."
+        },
         {
           "page": 20,
           "quote": "Open Problem 3.1. What is the complexity of the cardinality-based 4-uniform hypergraph s-t cut problem when w2 > 2 and w1 = 1?"
@@ -136,15 +174,15 @@
     },
     {
       "id": "q_010",
-      "question_text": "In a 4-uniform hypergraph with distinguished nodes s and t, suppose one must separate s from t while minimizing the number of 1-vs-3 hyperedge splits and forbidding every 2-vs-2 split; equivalently, consider the No-Even-Split 4-uniform s-t cut problem obtained as the limit w_2 -> infinity with w_1 = 1. What is the computational complexity of this problem?",
-      "context_brief": "No-Even-Split hypergraph cut",
+      "question_text": "Consider a 4-uniform hypergraph H=(V,E) with source node s and sink node t. In the No-Even-Split 4-uniform s-t cut problem, one must separate s and t while minimizing the number of 1-vs-3 hyperedge splits and forbidding any 2-vs-2 hyperedge splits. Determine the computational complexity of this problem.",
+      "context_brief": "No-Even-Split hypergraph s-t cut",
       "meta": {
         "is_solved": false
       },
       "evidence": [
         {
           "page": 20,
-          "quote": "A reasonable first step is to address the special case obtained by setting w1 = 1 and taking the limit as w2 -> infinity. This limit converges to the No-Even-Split 4-uniform s-t cut problem: minimize the number of 1-vs-3 hyperedge splits when separating s and t, without making any 2-vs-2 hyperedge splits."
+          "quote": "This limit converges to the No-Even-Split 4-uniform s-t cut problem: minimize the number of 1-vs-3 hyperedge splits when separating s and t, without making any 2-vs-2 hyperedge splits."
         },
         {
           "page": 20,
@@ -154,111 +192,127 @@
     },
     {
       "id": "q_011",
-      "question_text": "Given a directed acyclic graph G and an integer k >= 0, does there exist a complete sequence of front- and back-edge eliminations that transforms G into the required bipartite directed acyclic graph while incurring total elimination cost at most k?",
-      "context_brief": "edge elimination complexity",
+      "question_text": "Let G=(V,E) be a directed acyclic graph. In front-elimination of an edge (i,j), one removes that edge and adds edges from i to every successor of j; in back-elimination, one removes (i,j) and adds edges from every predecessor of i to j. A complete edge elimination sequence is a sequence of such eliminations that transforms G into the corresponding bipartite DAG representation of the Jacobian, and its cost is the sum of the individual elimination costs. Given G and an integer k≥0, determine whether there exists a complete edge elimination sequence whose total cost is at most k.",
+      "context_brief": "Edge elimination in DAGs",
       "meta": {
         "is_solved": false
       },
       "evidence": [
         {
           "page": 23,
-          "quote": "Open Problem 4.1 (Edge Elimination). Given a directed acyclic graph G and a positive integer k >= 0, is there a complete edge elimination sequence with cost less than or equal to k?"
+          "quote": "Definition 4.1 (Edge Elimination). Let G = (V, E) and (i, j) ∈ E. Front-elimination of (i, j) yields ... Back-elimination of (i, j) yields ... By the chain rule of differentiation, all complete edge elimination sequences transform G into a bipartite dag representing the Jacobian matrix of the underlying numerical program. The cost of an edge elimination sequence is the sum of the costs of the individual edge eliminations."
+        },
+        {
+          "page": 23,
+          "quote": "Open Problem 4.1 (Edge Elimination). Given a directed acyclic graph G and a positive integer k ≥ 0, is there a complete edge elimination sequence with cost less than or equal to k?"
         }
       ]
     },
     {
       "id": "q_012",
-      "question_text": "Given a directed acyclic graph G and an integer k >= 0, does there exist a complete sequence of vertex eliminations, where eliminating a vertex j adds all edges from each predecessor of j to each successor of j and costs |P_j| times |S_j|, whose total cost is at most k?",
-      "context_brief": "vertex elimination complexity",
+      "question_text": "Let G=(V,E) be a directed acyclic graph. Eliminating a vertex j removes j and adds every edge (i,k) with i a predecessor of j and k a successor of j; the cost of eliminating j is |P_j|·|S_j|. A complete vertex elimination sequence is a sequence of such eliminations that transforms G into the corresponding bipartite DAG representation of the Jacobian, and its cost is the sum of the individual elimination costs. Given G and an integer k≥0, determine whether there exists a complete vertex elimination sequence whose total cost is at most k.",
+      "context_brief": "Vertex elimination in DAGs",
       "meta": {
         "is_solved": false
       },
       "evidence": [
         {
           "page": 24,
-          "quote": "Definition 4.2 (Vertex Elimination). Let G = (V, E) and j in V. Elimination of j yields G - j equivalent to G' = (V', E') such that V' = V \\ j and E' = E union {(i, k) : i in P_j and k in S_j} at the cost of |P_j| * |S_j|."
+          "quote": "Definition 4.2 (Vertex Elimination). Let G = (V, E) and j ∈ V. Elimination of j yields ... at the cost of |Pj| · |Sj|. ... all complete vertex elimination sequences transform G into a bipartite dag representing the Jacobian matrix of the underlying numerical program. The cost of a vertex elimination sequence is the sum of the costs of the individual vertex eliminations."
         },
         {
           "page": 24,
-          "quote": "Open Problem 4.2 (Vertex Elimination). Given a directed acyclic graph G and a positive integer k >= 0, is there a complete vertex elimination sequence with cost less than or equal to k?"
+          "quote": "Open Problem 4.2 (Vertex Elimination). Given a directed acyclic graph G and a positive integer k ≥ 0, is there a complete vertex elimination sequence with cost less than or equal to k?"
         }
       ]
     },
     {
       "id": "q_013",
-      "question_text": "Given a directed acyclic graph G together with integers M >= n and O >= 0, can the graph be reversed using persistent memory at most M and computational cost at most O?",
-      "context_brief": "DAG reversal tradeoff",
+      "question_text": "Let G be a directed acyclic graph arising from a numerical program, and suppose one wants to reverse G while using persistent memory of size at most M and computational cost at most O, where persistent memory stores values that cannot be recomputed for free and computational cost counts the work needed to recover overwritten intermediate values during reversal. Given integers M≥n and O≥0, determine whether G can be reversed within persistent memory at most M and computational cost at most O.",
+      "context_brief": "DAG reversal under memory and cost constraints",
       "meta": {
         "is_solved": false
       },
       "evidence": [
         {
           "page": 27,
-          "quote": "Open Problem 5.1 (DAG Reversal). Given a DAG G and two integers M >= n and O >= 0 can G be reversed within persistent memory of size less than or equal to M with computational cost less than or equal to O?"
+          "quote": "The combinatorial DAG Reversal problem aims to minimize the computational cost of data flow reversal in limited (≪ O(p^2)) persistent memory."
+        },
+        {
+          "page": 27,
+          "quote": "Open Problem 5.1 (DAG Reversal). Given a DAG G and two integers M ≥ n and O ≥ 0 can G be reversed within persistent memory of size less than or equal to M with computational cost less than or equal to O?"
         }
       ]
     },
     {
       "id": "q_014",
-      "question_text": "Let M be a real n x n matrix with spectral radius lambda = rho(M) < 1, partitioned into an l x l block array, and let delta be a delay matrix with zero diagonal and entries in {0,1,...,k}. If M(delta) is the asynchronous-update operator induced by those communication delays, is it always true that rho(M(delta)) <= lambda^(1/(k+1))? If not, does there exist some universal bound f(lambda, k) in (0,1) such that rho(M(delta)) <= f(lambda, k)?",
-      "context_brief": "spectral price of asynchrony",
+      "question_text": "Let M be an n×n real matrix with spectral radius λ=ρ(M)<1, partitioned into an ℓ×ℓ array of blocks. For a delay matrix δ with zero diagonal, define the asynchronous update operator M^(δ) by allowing block i at the next step to depend on block j from δ_{ji} steps earlier. If every delay is bounded by k, is it always true that ρ(M^(δ))≤λ^(1/(k+1))? If not, does there nevertheless exist a function f:(0,1)×N→(0,1) such that ρ(M^(δ))≤f(λ,k)?",
+      "context_brief": "Spectral price of asynchronous delays",
       "meta": {
         "is_solved": false
       },
       "evidence": [
         {
-          "page": 32,
-          "quote": "Lemma 6.2. Let M be an n x n real matrix with rho(M) < 1 partitioned into an l x l array of blocks. Let delta be an element of N^(l x l) such that delta_ij = k for all non-zero blocks of M, then rho(M(delta)) = rho(M)^(1/(k+1))."
+          "page": 31,
+          "quote": "To build a simple model of asynchronous updates for M, we partition the matrix M into an ℓ × ℓ array of blocks and for each i ∈ [ℓ] define the update scheme x˜(k+1)_i = Σ_j Mij x˜(k−δji)_j."
         },
         {
           "page": 32,
-          "quote": "Open Problem 6.1. Let M be a n x n real matrix with p(M) = lambda < 1 partitioned into an l x l array of blocks. Is it the case that for all elements delta of [k]^(l x l) with zero diagonals, rho(M(delta)) <= lambda^(1/k+1)? If not, is there some function f : (0, 1) x N -> (0, 1) such that rho(M(delta)) <= f(lambda, k)?"
+          "quote": "Open Problem 6.1. Let M be a n × n real matrix with p(M) = λ < 1 partitioned into an ℓ×ℓ array of blocks. Is it the case that for all elements δ of [k]ℓ×ℓ with zero diagonals, ρ(M(δ)) ≤ λ^(1/k+1)? If not, is there some function f : (0, 1) × N → (0, 1) such that ρ(M(δ)) ≤ f(λ, k)?"
         }
       ]
     },
     {
       "id": "q_015",
-      "question_text": "For graphs that are close to trees, such as graphs with few cycles or sparse graphs of large diameter, is there a structural characterization of the minimum-cardinality (n-k)-contingent zero-forcing sets, meaning vertex sets that remain zero-forcing after any deletion of at most k edges?",
-      "context_brief": "structure of contingent zero-forcing",
+      "question_text": "Let G=(V,E) be a graph and let k≥0. A set Z⊂V is an (n−k)-contingent zero-forcing set if, for every set E' of at most k edges, Z remains a zero-forcing set for the graph (V,E\\E'). For sparse graphs resembling power-grid networks, determine whether one can give a structural characterization of the minimum-size (n−k)-contingent zero-forcing sets, in particular for graphs with few cycles or for sparse graphs of large diameter.",
+      "context_brief": "Structure of contingent zero-forcing sets",
       "meta": {
         "is_solved": false
       },
       "evidence": [
         {
           "page": 37,
-          "quote": "Definition 7.3 ((n - k)-contingent Zero Forcing). Given a graph G = (V, E), a set Z subseteq V is a (n - k)-contingent zero-forcing set if for every set of edges E' of size at most k, Z is a zero-forcing set for G' = (V, E - E')."
+          "quote": "Definition 7.3 ((n − k)-contingent Zero Forcing). Given a graph G = (V, E), a set Z ⊆ V is a (n − k)-contingent zero-forcing set if for every set of edges E0 of size at most k, Z is a zero-forcing set for G0 = (V, E − E0)."
         },
         {
           "page": 39,
-          "quote": "Open Problem 7.1. Is there a structural characterization of the minimal-sized (n - k)-contingent zero-forcing sets for graphs with few cycles? For sparse graphs with large diameter?"
+          "quote": "Open Problem 7.1. Is there a structural characterization of the minimal-sized (n − k)-contingent zero-forcing sets for graphs with few cycles? For sparse graphs with large diameter?"
         }
       ]
     },
     {
       "id": "q_016",
-      "question_text": "For graphs with few cycles or for sparse graphs with large diameter, is there an efficient algorithm for computing a minimum-cardinality (n-k)-contingent zero-forcing set?",
-      "context_brief": "algorithms for contingent zero-forcing",
+      "question_text": "Let G=(V,E) be a graph and let k≥0. A set Z⊂V is an (n−k)-contingent zero-forcing set if it remains a zero-forcing set after deletion of any set of at most k edges. Determine whether there is an efficient algorithm for finding a minimum-size (n−k)-contingent zero-forcing set for graphs with few cycles or, more generally, for sparse graphs with large diameter.",
+      "context_brief": "Algorithms for contingent zero-forcing",
       "meta": {
         "is_solved": false
       },
       "evidence": [
         {
+          "page": 37,
+          "quote": "Definition 7.3 ((n − k)-contingent Zero Forcing). Given a graph G = (V, E), a set Z ⊆ V is a (n − k)-contingent zero-forcing set if for every set of edges E0 of size at most k, Z is a zero-forcing set for G0 = (V, E − E0)."
+        },
+        {
           "page": 39,
-          "quote": "Open Problem 7.2. Is there an efficient algorithm to determine the minimal-sized (n - k)-contingent zero-forcing set for graphs with few cycles? For sparse graphs with large diameter?"
+          "quote": "Open Problem 7.2. Is there an efficient algorithm to determine the minimal-sized (n − k)-contingent zero-forcing set for graphs with few cycles? For sparse graphs with large diameter?"
         }
       ]
     },
     {
       "id": "q_017",
-      "question_text": "Among graphs that exhibit structural properties typical of power grids, what is the typical order of magnitude of the smallest (n-k)-contingent zero-forcing set as a function of the numbers of vertices and edges?",
-      "context_brief": "typical contingent zero-forcing size",
+      "question_text": "Let G be a graph with structural properties characteristic of power grids, and let k≥0. A set Z⊂V is an (n−k)-contingent zero-forcing set if it remains zero-forcing after deletion of any set of at most k edges. Determine the typical size of a minimum (n−k)-contingent zero-forcing set, expressed in terms of the numbers of vertices and edges, for graphs with power-grid-like structure.",
+      "context_brief": "Typical contingent zero-forcing size in power-grid-like graphs",
       "meta": {
         "is_solved": false
       },
       "evidence": [
         {
+          "page": 37,
+          "quote": "Definition 7.3 ((n − k)-contingent Zero Forcing). Given a graph G = (V, E), a set Z ⊆ V is a (n − k)-contingent zero-forcing set if for every set of edges E0 of size at most k, Z is a zero-forcing set for G0 = (V, E − E0)."
+        },
+        {
           "page": 40,
-          "quote": "Open Problem 7.3. What is the typical size, in terms of the number of vertices and edges, of the minimal (n - k)-contingent zero-forcing sets in graphs exhibiting structural properties characteristic of power grids?"
+          "quote": "Open Problem 7.3. What is the typical size, in terms of the number of vertices and edges, of the minimal (n − k)-contingent zero-forcing sets in graphs exhibiting structural properties characteristic of power grids?"
         }
       ]
     }
@@ -266,28 +320,18 @@
   "needs_review": [],
   "trace": [
     {
-      "id": "doc_map",
+      "id": "source",
       "stage": "map",
-      "notes": "Mapped seven problem sections from the parsed PDF text. Likely open-problem regions are pages 6-8, 16-17, 20, 23-24, 27, 32, and 39-40.",
+      "notes": "Resolved zbMATH record 7676351 to the exact paper via the zbMATH full-text links, selecting the arXiv PDF as the readable primary source.",
       "evidence_refs": [
-        "p6",
-        "p7",
-        "p8",
-        "p16",
-        "p17",
-        "p20",
-        "p23",
-        "p24",
-        "p27",
-        "p32",
-        "p39",
-        "p40"
+        "zbmath:7676351",
+        "arxiv:2303.11464"
       ]
     },
     {
       "id": "sec_1",
       "stage": "extract_candidates",
-      "notes": "Extracted four explicit open problems from the Dowker complexes section.",
+      "notes": "Mapped Section 1 'The Dowker Complex in Metric Graphs' and extracted Open Problems 1.1-1.4 from pages 6-8.",
       "evidence_refs": [
         "p6",
         "p7",
@@ -297,8 +341,10 @@
     {
       "id": "sec_2",
       "stage": "extract_candidates",
-      "notes": "Extracted four explicit open problems from the probabilistic combinatorics and quantum circuit expressiveness section.",
+      "notes": "Mapped Section 2 and extracted Open Problems 2.1-2.4, using the earlier definition of the computational problem and expressiveness indicators.",
       "evidence_refs": [
+        "p11",
+        "p12",
         "p16",
         "p17"
       ]
@@ -306,15 +352,16 @@
     {
       "id": "sec_3",
       "stage": "extract_candidates",
-      "notes": "Extracted two explicit open problems from the 4-uniform hypergraph s-t cut section.",
+      "notes": "Mapped Section 3 and extracted Open Problems 3.1-3.2 from the 'Open questions and motivation' subsection.",
       "evidence_refs": [
+        "p19",
         "p20"
       ]
     },
     {
       "id": "sec_4",
       "stage": "extract_candidates",
-      "notes": "Extracted two explicit open problems from the edge and vertex elimination section.",
+      "notes": "Mapped Section 4 and extracted Open Problems 4.1-4.2 together with their formal elimination definitions.",
       "evidence_refs": [
         "p23",
         "p24"
@@ -323,7 +370,7 @@
     {
       "id": "sec_5",
       "stage": "extract_candidates",
-      "notes": "Extracted one explicit open problem from the data flow reversal section.",
+      "notes": "Mapped Section 5 and extracted Open Problem 5.1 from the DAG reversal formal statement.",
       "evidence_refs": [
         "p27"
       ]
@@ -331,334 +378,64 @@
     {
       "id": "sec_6",
       "stage": "extract_candidates",
-      "notes": "Extracted one explicit open problem from the price of asynchrony section.",
+      "notes": "Mapped Section 6 and extracted Open Problem 6.1 with the asynchronous-update model from pages 31-32.",
       "evidence_refs": [
+        "p31",
         "p32"
       ]
     },
     {
       "id": "sec_7",
       "stage": "extract_candidates",
-      "notes": "Extracted three explicit open problems from the contingent zero-forcing section.",
+      "notes": "Mapped Section 7 and extracted Open Problems 7.1-7.3, using the contingent zero-forcing definition from page 37.",
       "evidence_refs": [
+        "p37",
         "p39",
         "p40"
       ]
     },
     {
-      "id": "q_001",
+      "id": "rewrite_all",
       "stage": "rewrite",
-      "notes": "Rewrote the paper's compressed open problem into a standalone question while preserving only evidence-supported definitions and conditions.",
-      "evidence_refs": []
-    },
-    {
-      "id": "q_002",
-      "stage": "rewrite",
-      "notes": "Rewrote the paper's compressed open problem into a standalone question while preserving only evidence-supported definitions and conditions.",
-      "evidence_refs": []
-    },
-    {
-      "id": "q_003",
-      "stage": "rewrite",
-      "notes": "Rewrote the paper's compressed open problem into a standalone question while preserving only evidence-supported definitions and conditions.",
-      "evidence_refs": []
-    },
-    {
-      "id": "q_004",
-      "stage": "rewrite",
-      "notes": "Rewrote the paper's compressed open problem into a standalone question while preserving only evidence-supported definitions and conditions.",
-      "evidence_refs": []
-    },
-    {
-      "id": "q_005",
-      "stage": "rewrite",
-      "notes": "Rewrote the paper's compressed open problem into a standalone question while preserving only evidence-supported definitions and conditions.",
-      "evidence_refs": []
-    },
-    {
-      "id": "q_006",
-      "stage": "rewrite",
-      "notes": "Rewrote the paper's compressed open problem into a standalone question while preserving only evidence-supported definitions and conditions.",
-      "evidence_refs": []
-    },
-    {
-      "id": "q_007",
-      "stage": "rewrite",
-      "notes": "Rewrote the paper's compressed open problem into a standalone question while preserving only evidence-supported definitions and conditions.",
-      "evidence_refs": []
-    },
-    {
-      "id": "q_008",
-      "stage": "rewrite",
-      "notes": "Rewrote the paper's compressed open problem into a standalone question while preserving only evidence-supported definitions and conditions.",
-      "evidence_refs": []
-    },
-    {
-      "id": "q_009",
-      "stage": "rewrite",
-      "notes": "Rewrote the paper's compressed open problem into a standalone question while preserving only evidence-supported definitions and conditions.",
-      "evidence_refs": []
-    },
-    {
-      "id": "q_010",
-      "stage": "rewrite",
-      "notes": "Rewrote the paper's compressed open problem into a standalone question while preserving only evidence-supported definitions and conditions.",
-      "evidence_refs": []
-    },
-    {
-      "id": "q_011",
-      "stage": "rewrite",
-      "notes": "Rewrote the paper's compressed open problem into a standalone question while preserving only evidence-supported definitions and conditions.",
-      "evidence_refs": []
-    },
-    {
-      "id": "q_012",
-      "stage": "rewrite",
-      "notes": "Rewrote the paper's compressed open problem into a standalone question while preserving only evidence-supported definitions and conditions.",
-      "evidence_refs": []
-    },
-    {
-      "id": "q_013",
-      "stage": "rewrite",
-      "notes": "Rewrote the paper's compressed open problem into a standalone question while preserving only evidence-supported definitions and conditions.",
-      "evidence_refs": []
-    },
-    {
-      "id": "q_014",
-      "stage": "rewrite",
-      "notes": "Rewrote the paper's compressed open problem into a standalone question while preserving only evidence-supported definitions and conditions.",
-      "evidence_refs": []
-    },
-    {
-      "id": "q_015",
-      "stage": "rewrite",
-      "notes": "Rewrote the paper's compressed open problem into a standalone question while preserving only evidence-supported definitions and conditions.",
-      "evidence_refs": []
-    },
-    {
-      "id": "q_016",
-      "stage": "rewrite",
-      "notes": "Rewrote the paper's compressed open problem into a standalone question while preserving only evidence-supported definitions and conditions.",
-      "evidence_refs": []
-    },
-    {
-      "id": "q_017",
-      "stage": "rewrite",
-      "notes": "Rewrote the paper's compressed open problem into a standalone question while preserving only evidence-supported definitions and conditions.",
-      "evidence_refs": []
-    },
-    {
-      "id": "q_001",
-      "stage": "dedupe",
-      "notes": "No near-duplicate accepted question found; kept one canonical item.",
-      "evidence_refs": []
-    },
-    {
-      "id": "q_002",
-      "stage": "dedupe",
-      "notes": "No near-duplicate accepted question found; kept one canonical item.",
-      "evidence_refs": []
-    },
-    {
-      "id": "q_003",
-      "stage": "dedupe",
-      "notes": "No near-duplicate accepted question found; kept one canonical item.",
-      "evidence_refs": []
-    },
-    {
-      "id": "q_004",
-      "stage": "dedupe",
-      "notes": "No near-duplicate accepted question found; kept one canonical item.",
-      "evidence_refs": []
-    },
-    {
-      "id": "q_005",
-      "stage": "dedupe",
-      "notes": "No near-duplicate accepted question found; kept one canonical item.",
-      "evidence_refs": []
-    },
-    {
-      "id": "q_006",
-      "stage": "dedupe",
-      "notes": "No near-duplicate accepted question found; kept one canonical item.",
-      "evidence_refs": []
-    },
-    {
-      "id": "q_007",
-      "stage": "dedupe",
-      "notes": "No near-duplicate accepted question found; kept one canonical item.",
-      "evidence_refs": []
-    },
-    {
-      "id": "q_008",
-      "stage": "dedupe",
-      "notes": "No near-duplicate accepted question found; kept one canonical item.",
-      "evidence_refs": []
-    },
-    {
-      "id": "q_009",
-      "stage": "dedupe",
-      "notes": "No near-duplicate accepted question found; kept one canonical item.",
-      "evidence_refs": []
-    },
-    {
-      "id": "q_010",
-      "stage": "dedupe",
-      "notes": "No near-duplicate accepted question found; kept one canonical item.",
-      "evidence_refs": []
-    },
-    {
-      "id": "q_011",
-      "stage": "dedupe",
-      "notes": "No near-duplicate accepted question found; kept one canonical item.",
-      "evidence_refs": []
-    },
-    {
-      "id": "q_012",
-      "stage": "dedupe",
-      "notes": "No near-duplicate accepted question found; kept one canonical item.",
-      "evidence_refs": []
-    },
-    {
-      "id": "q_013",
-      "stage": "dedupe",
-      "notes": "No near-duplicate accepted question found; kept one canonical item.",
-      "evidence_refs": []
-    },
-    {
-      "id": "q_014",
-      "stage": "dedupe",
-      "notes": "No near-duplicate accepted question found; kept one canonical item.",
-      "evidence_refs": []
-    },
-    {
-      "id": "q_015",
-      "stage": "dedupe",
-      "notes": "No near-duplicate accepted question found; kept one canonical item.",
-      "evidence_refs": []
-    },
-    {
-      "id": "q_016",
-      "stage": "dedupe",
-      "notes": "No near-duplicate accepted question found; kept one canonical item.",
-      "evidence_refs": []
-    },
-    {
-      "id": "q_017",
-      "stage": "dedupe",
-      "notes": "No near-duplicate accepted question found; kept one canonical item.",
-      "evidence_refs": []
-    },
-    {
-      "id": "q_001",
-      "stage": "quality_gates",
-      "notes": "Passed self-containedness, evidence coverage, no-new-facts, and schema checks.",
-      "evidence_refs": []
-    },
-    {
-      "id": "q_002",
-      "stage": "quality_gates",
-      "notes": "Passed self-containedness, evidence coverage, no-new-facts, and schema checks.",
-      "evidence_refs": []
-    },
-    {
-      "id": "q_003",
-      "stage": "quality_gates",
-      "notes": "Passed self-containedness, evidence coverage, no-new-facts, and schema checks.",
-      "evidence_refs": []
-    },
-    {
-      "id": "q_004",
-      "stage": "quality_gates",
-      "notes": "Passed self-containedness, evidence coverage, no-new-facts, and schema checks.",
-      "evidence_refs": []
-    },
-    {
-      "id": "q_005",
-      "stage": "quality_gates",
-      "notes": "Passed self-containedness, evidence coverage, no-new-facts, and schema checks.",
-      "evidence_refs": []
-    },
-    {
-      "id": "q_006",
-      "stage": "quality_gates",
-      "notes": "Passed self-containedness, evidence coverage, no-new-facts, and schema checks.",
-      "evidence_refs": []
-    },
-    {
-      "id": "q_007",
-      "stage": "quality_gates",
-      "notes": "Passed self-containedness, evidence coverage, no-new-facts, and schema checks.",
-      "evidence_refs": []
-    },
-    {
-      "id": "q_008",
-      "stage": "quality_gates",
-      "notes": "Passed self-containedness, evidence coverage, no-new-facts, and schema checks.",
-      "evidence_refs": []
-    },
-    {
-      "id": "q_009",
-      "stage": "quality_gates",
-      "notes": "Passed self-containedness, evidence coverage, no-new-facts, and schema checks.",
-      "evidence_refs": []
-    },
-    {
-      "id": "q_010",
-      "stage": "quality_gates",
-      "notes": "Passed self-containedness, evidence coverage, no-new-facts, and schema checks.",
-      "evidence_refs": []
-    },
-    {
-      "id": "q_011",
-      "stage": "quality_gates",
-      "notes": "Passed self-containedness, evidence coverage, no-new-facts, and schema checks.",
-      "evidence_refs": []
-    },
-    {
-      "id": "q_012",
-      "stage": "quality_gates",
-      "notes": "Passed self-containedness, evidence coverage, no-new-facts, and schema checks.",
-      "evidence_refs": []
-    },
-    {
-      "id": "q_013",
-      "stage": "quality_gates",
-      "notes": "Passed self-containedness, evidence coverage, no-new-facts, and schema checks.",
-      "evidence_refs": []
-    },
-    {
-      "id": "q_014",
-      "stage": "quality_gates",
-      "notes": "Passed self-containedness, evidence coverage, no-new-facts, and schema checks.",
-      "evidence_refs": []
-    },
-    {
-      "id": "q_015",
-      "stage": "quality_gates",
-      "notes": "Passed self-containedness, evidence coverage, no-new-facts, and schema checks.",
-      "evidence_refs": []
-    },
-    {
-      "id": "q_016",
-      "stage": "quality_gates",
-      "notes": "Passed self-containedness, evidence coverage, no-new-facts, and schema checks.",
-      "evidence_refs": []
-    },
-    {
-      "id": "q_017",
-      "stage": "quality_gates",
-      "notes": "Passed self-containedness, evidence coverage, no-new-facts, and schema checks.",
-      "evidence_refs": []
-    },
-    {
-      "id": "persist_2303_11464",
-      "stage": "persist",
-      "notes": "Saved exact JSON output to outputs/parse-paper/2303.11464.json and outputs/latest.json.",
+      "notes": "Rewrote each open problem into a standalone statement, inlining definitions only where supported by nearby source text and keeping solved-status false because the source presents all items as open problems.",
       "evidence_refs": [
-        "outputs/parse-paper/2303.11464.json",
-        "outputs/latest.json"
+        "p5",
+        "p6",
+        "p7",
+        "p8",
+        "p11",
+        "p12",
+        "p16",
+        "p17",
+        "p19",
+        "p20",
+        "p23",
+        "p24",
+        "p27",
+        "p31",
+        "p32",
+        "p37",
+        "p39",
+        "p40"
       ]
+    },
+    {
+      "id": "dedupe_all",
+      "stage": "dedupe",
+      "notes": "No near-duplicate open problems were merged; the paper presents seventeen distinct explicit open problems across seven sections.",
+      "evidence_refs": []
+    },
+    {
+      "id": "quality_all",
+      "stage": "quality_gates",
+      "notes": "All accepted items retained verbatim evidence with page numbers and passed the self-containedness and no-new-facts gates.",
+      "evidence_refs": []
+    },
+    {
+      "id": "persist",
+      "stage": "persist",
+      "notes": "Saved exact JSON output to /home/gson/paper-question-parser/outputs/parse-paper/2303.11464.json and updated /home/gson/paper-question-parser/outputs/latest.json.",
+      "evidence_refs": []
     }
   ]
 }
