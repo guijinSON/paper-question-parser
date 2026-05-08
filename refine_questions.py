@@ -13,10 +13,10 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-SYSTEM_PROMPT = "You are a mathematics research assistant that refines draft research questions by consulting the original arXiv paper."
+SYSTEM_PROMPT = "You are a science research assistant that refines draft research questions by consulting the original arXiv paper."
 
 USER_PROMPT_TEMPLATE = """\
-I will give you an arXiv paper ID and a draft mathematical question.
+I will give you an arXiv paper ID and a draft question.
 
 Your job is to read the paper itself and turn my draft into a highly complete, sharp, stand-alone research question that stays as close as possible to the paper's actual intent.
 
@@ -34,16 +34,15 @@ Instructions:
 
 2. Read the exact statement and the nearby context that defines notation, scope, and hidden assumptions.
    - Check the introduction first.
-   - Then check any proposition/theorem/remark that supplies equivalent hypotheses, notation, or a more precise reformulation.
-   - For this paper, prioritize Conjecture 1.1, Proposition 1.2, and Theorem 1.3 unless my draft clearly targets a different section.
+   - Then check any proposition/theorem/conjecture/remark/hypothesis that supplies equivalent conditions, notation, or a more precise reformulation.
 
 3. Evaluate how complete my draft question is on a 0 to 10 scale.
    - Say what is already correct.
    - List every missing or implicit detail needed to make it fully stand-alone and paper-faithful.
-   - Include ambient ring/field, variables, operator definitions, homogeneity, degree restrictions, nilpotency condition, quantifiers, and the exact meaning of phrases like "for all sufficiently large m".
+   - Include domain-specific definitions (e.g. variables, operators, experimental conditions, model assumptions, scope restrictions, quantifiers) that a reader outside the paper would need to understand and attempt the question.
 
 4. Rewrite the question as one refined research question that is:
-   - mathematically self-contained,
+   - self-contained (no unexplained symbols, jargon, or implicit scope),
    - tightly scoped,
    - as close as possible to the paper's original intent,
    - not broader than the paper,
@@ -54,10 +53,11 @@ Instructions:
    - Do not generalize unless the paper itself does so in the exact nearby discussion.
 
 6. Guardrails:
-   - Do not broaden a quartic homogeneous polynomial question into a general harmonic-polynomial question unless the paper explicitly does that as the main target.
-   - Do not drift into formal power series, positive characteristic, graph-theoretic conditions, or other side problems unless my draft explicitly asks for those variants.
-   - Do not add speculative assumptions or remove paper-critical restrictions such as homogeneity of degree 4.
+   - Do not broaden a specific narrow question into a more general problem unless the paper explicitly treats that generalization as its main target.
+   - Do not drift into side problems, variants, or adjacent subfields unless my draft explicitly asks for them.
+   - Do not add speculative assumptions or remove paper-critical restrictions (e.g. specific parameter ranges, experimental constraints, model assumptions).
    - Keep the result narrow.
+   - The "refined_question" field must contain only plain text. Do not include any URLs, hyperlinks, DOIs, PDF references, arXiv links, or citations of any kind inside the refined question itself.
 
 7. Support every nontrivial claim by citing the exact place in the paper:
    - section number,
@@ -161,7 +161,7 @@ def extract_text_from_response(response) -> str:
     output = _get(response, "output") or []
     for item in output:
         if _get(item, "type") == "message":
-            for part in (_get(item, "content") or []):
+            for part in _get(item, "content") or []:
                 if _get(part, "type") == "output_text":
                     return _get(part, "text") or ""
     return ""
@@ -192,17 +192,25 @@ async def refine_one(
             response = await litellm.aresponses(
                 model=model,
                 input=input_msgs,
-                tools=[{
-                    "type": "web_search_preview",
-                    "search_context_size": "medium",
-                }],
-                reasoning={"effort": "high"},
+                tools=[
+                    {
+                        "type": "web_search_preview",
+                        "search_context_size": "medium",
+                    }
+                ],
+                reasoning={"effort": "medium"},
             )
         except Exception as exc:
             elapsed = time.time() - t0
-            print(f"[{idx+1}/{total}] FAIL   {arxiv_id} / {question_id}  ({elapsed:.1f}s)")
+            print(
+                f"[{idx+1}/{total}] FAIL   {arxiv_id} / {question_id}  ({elapsed:.1f}s)"
+            )
             print(f"           {type(exc).__name__}: {exc}")
-            return {"arxiv_id": arxiv_id, "question_id": question_id, "_error": str(exc)}
+            return {
+                "arxiv_id": arxiv_id,
+                "question_id": question_id,
+                "_error": str(exc),
+            }
 
     raw = extract_text_from_response(response)
     elapsed = time.time() - t0
@@ -249,7 +257,8 @@ async def main() -> None:
     results = await asyncio.gather(*tasks)
 
     successes = sum(
-        1 for r in results
+        1
+        for r in results
         if isinstance(r, dict) and not r.get("_parse_error") and not r.get("_error")
     )
     errors = len(results) - successes

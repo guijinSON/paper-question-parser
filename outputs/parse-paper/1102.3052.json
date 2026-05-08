@@ -1,20 +1,26 @@
 {
+  "source": {
+    "url": "https://arxiv.org/abs/1102.3052",
+    "resolved_locator": "/Users/jang-wongi/Desktop/WG/projects/paper-question-parser/.sisyphus/paper-question-parser/tmp/1102.3052.pdf",
+    "title": "Bimagic Squares of Bimagic Squares and an Open Problem",
+    "title_origin": "source_text"
+  },
   "accepted": [
     {
       "id": "q_001",
-      "question_text": "Give a mathematical proof for the page-5 observation that, in the three displayed examples of bimagic squares of orders 256x256, 625x625, and 2401x2401, the first listed subgroup orders 64x64, 125x125, and 343x343 respectively have a common bimagic sum S2 within each case. Here S2 denotes the common sum of the squares of the entries in each row, each column, and the two principal diagonals of a bimagic square.",
-      "context_brief": "Equal S2 in first subgroups",
+      "question_text": "For the three tabulated families of bimagic squares — order 256×256 with listed subgroups 64×64, 16×16, and 4×4; order 625×625 with listed subgroups 125×125, 25×25, and 5×5; and order 2401×2401 with listed subgroups 343×343, 49×49, and 7×7 — prove mathematically the observed property stated by the source: for k = 4, 5, and 7, in the first sub-group the bimagic sum S2 is the same, summarized by the pattern k^4 → k^3 → k^2 → k^1.",
+      "context_brief": "Bimagic-sum invariance in nested square constructions",
       "meta": {
         "is_solved": false
       },
       "evidence": [
         {
-          "page": 1,
-          "quote": "Bimagic square is a magic square where the sum of square of each element of rows, columns and two principal diagonals are the same. For simplicity, let us write it as S2."
+          "page": 2,
+          "quote": "For more details see the table given at the end as an open problem to prove it mathematically."
         },
         {
-          "page": 5,
-          "quote": "We observe from the above table that in the first sub-group in each case the S2 is same, i.e., k 4 \u2192 k 3 \u2192 k 2 \u2192 k 1 , k = 4, 5 and 7. Now the question is to prove it mathematically?"
+          "page": 6,
+          "quote": "We observe from the above table that in the first sub-group in each case the S2 is same, i.e., k^4 → k^3 → k^2 → k^1, k = 4, 5 and 7. Now the question is to prove it mathematically?"
         }
       ]
     }
@@ -22,51 +28,54 @@
   "needs_review": [],
   "trace": [
     {
-      "id": "q_001",
+      "id": "source",
       "stage": "map",
-      "notes": "Mapped the paper structure and identified Section 5 'Open Problem' as the only explicit open-question region.",
+      "notes": "Mapped the PDF and identified Section 5 ('Open Problem') on pages 5-6 as the only explicit open-problem region; earlier sections describe constructions and numerical values.",
       "evidence_refs": [
-        "p5"
+        "p1",
+        "p2",
+        "p5",
+        "p6"
       ]
     },
     {
       "id": "q_001",
       "stage": "extract_candidates",
-      "notes": "Extracted one explicit open problem from Section 5 asking for a mathematical proof of the observed equal-S2 property in the first subgroup for k=4,5,7.",
+      "notes": "Extracted one explicit open question from Section 5 concerning a mathematical proof of the observed S2 pattern in the tabulated subgroup hierarchy.",
       "evidence_refs": [
-        "p5"
+        "p2",
+        "p6"
       ]
     },
     {
       "id": "q_001",
       "stage": "rewrite",
-      "notes": "Rewrote the question to inline the meaning of S2 and the three concrete displayed cases without adding unsupported generalization.",
+      "notes": "Expanded the source question into a standalone form by spelling out the three tabulated square families and preserving the source's statement of the S2 pattern without adding new mathematical claims.",
       "evidence_refs": [
-        "p1",
-        "p5"
+        "p6"
       ]
     },
     {
       "id": "q_001",
       "stage": "dedupe",
-      "notes": "No near-duplicate candidates were found.",
+      "notes": "No duplicate open questions were found elsewhere in the source.",
       "evidence_refs": [
-        "p5"
+        "p6"
       ]
     },
     {
       "id": "q_001",
       "stage": "quality_gates",
-      "notes": "Passed self-containedness, evidence coverage, evidence completeness, no-new-facts, and schema conformance checks after removing unsupported wording flagged in review.",
+      "notes": "Passed self-containedness, evidence coverage, no-new-facts, source adequacy, and schema conformance checks.",
       "evidence_refs": [
-        "p1",
-        "p5"
+        "p2",
+        "p6"
       ]
     },
     {
-      "id": "q_001",
+      "id": "persist",
       "stage": "persist",
-      "notes": "Saved JSON to outputs/parse-paper/1102.3052.json and outputs/latest.json.",
+      "notes": "Saved exact JSON output to outputs/parse-paper/1102.3052.json and outputs/latest.json.",
       "evidence_refs": []
     }
   ]

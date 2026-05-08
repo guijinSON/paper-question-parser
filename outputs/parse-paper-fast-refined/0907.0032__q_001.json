@@ -1,0 +1,47 @@
+{
+  "arxiv_id": "0907.0032",
+  "question_id": "q_001",
+  "original_question": "In the infinite-horizon Chow-Robbins fair-coin stopping game, a player repeatedly tosses a fair coin and may stop after any finite history with h heads and t tails, receiving the payoff h/(h+t) at the stopping time. The open problem is to determine the exact optimal stopping rule: for each state (h, t), decide rigorously whether stopping immediately is optimal or whether continuing yields a strictly larger expected payoff. In particular, the unresolved difficulty is proving that a given state is truly a STOP state rather than merely showing, by computation at some finite horizon, that continuing can be beneficial in other cases.",
+  "model": "openai/o4-mini",
+  "elapsed_s": 180.01,
+  "target_in_paper": "The exact stopping rule, i.e. the decision whether to stop or go, is still an open problem for (infinitely) many cases.",
+  "completeness_score": 6,
+  "correct_elements": "The draft correctly describes the infinite-horizon fair-coin sequential stopping game with payoff h/(h+t) at stopping and identifies that the main open problem is to determine, for each state (h,t), whether stopping immediately is optimal (Section 1).",
+  "missing_details": [
+    "Definition of the finite-horizon expected payoff f_N(h,t) via backward induction with boundary conditions (Equations (4.1)–(4.2)).",
+    "Existence of the limit F(h,t)=lim_{N→∞} f_N(h,t) (Equation (4.3)).",
+    "The decision criterion: stop if F(h,t)=h/(h+t), continue otherwise.",
+    "Clarification that F(h,t) is defined in terms of expectation and that proving STOP states requires rigorous upper bounds on f_N(h,t) valid for all N.",
+    "Specification of the state space (h,t)∈ℕ₀² and the assumption of a fair coin."
+  ],
+  "refined_question": "Let (h,t)∈ℕ₀² denote the current counts of heads and tails in a sequential fair-coin tossing game. For each finite horizon N, define f_N(h,t) by the boundary condition f_N(h,N−h)=max{h/N,1/2} for 0≤h≤N and by backward induction f_N(h,t)=max{h/(h+t), (f_N(h+1,t)+f_N(h,t+1))/2} for h+t<N. Let F(h,t)=lim_{N→∞} f_N(h,t), which exists. The optimal stopping rule is: stop if F(h,t)=h/(h+t) and continue otherwise. The open problem is to determine exactly for which (h,t)∈ℕ₀² one has F(h,t)=h/(h+t)—equivalently, to rigorously characterize the stopping region S={ (h,t): F(h,t)=h/(h+t) } by proving, for each (h,t) in S, that h/(h+t)≥(f_N(h+1,t)+f_N(h,t+1))/2 holds for all N.",
+  "equivalent_formulation": null,
+  "justification": "We selected the statement of the open problem verbatim from Section 1, then incorporated the finite-horizon recursion, the existence of the infinite limit, and the precise stopping criterion from Section 4 to form a fully self-contained question that mirrors the paper’s original formulation.",
+  "citations": [
+    {
+      "section": "1. When to Stop?",
+      "label": "The exact stopping rule, i.e. the decision whether to stop or go, is still an open problem for (infinitely) many cases.",
+      "page": "P0"
+    },
+    {
+      "section": "4. The Backward Induction Algorithm",
+      "label": "Boundary conditions and backward induction defining f_N(h,t) via Equations (4.1)–(4.2).",
+      "page": "P2"
+    },
+    {
+      "section": "4. The Backward Induction Algorithm",
+      "label": "Definition of F(h,t) as the N→∞ limit, F(h,t):=lim_{N→∞} f_N(h,t) (Equation (4.3)).",
+      "page": "P2"
+    },
+    {
+      "section": "4. The Backward Induction Algorithm",
+      "label": "Stopping rule: If F(h,t)=h/(h+t) then we stop; otherwise we go.",
+      "page": "P2"
+    },
+    {
+      "section": "4. The Backward Induction Algorithm",
+      "label": "The difficulty in proving STOP states requires rigorous upper bounds on f_N(h,t) valid for all N.",
+      "page": "P3"
+    }
+  ]
+}

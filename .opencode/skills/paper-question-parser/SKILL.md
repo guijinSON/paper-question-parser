@@ -1,6 +1,6 @@
 ---
 name: paper-question-parser
-description: "Parse one paper or scholarly open-problem source (local PDF path, arXiv URL, direct PDF URL, DOI URL, HAL/DBLP/zbMATH/OpenAlex/Crossref landing page, workshop page, or MathOverflow thread), resolve it to readable full text, extract open/unsolved questions, rewrite them into self-contained form with evidence, dedupe, quality-gate, and auto-save structured JSON. Triggers: 'parse paper questions', 'extract open problems', 'unsolved questions from paper', 'parse open-problem page'."
+description: "Parse one paper or scholarly open-problem source (local PDF path, arXiv URL, direct PDF URL, DOI URL, HAL/DBLP/zbMATH/OpenAlex/Crossref landing page, workshop page, MathOverflow thread, or domain-specific Q&A forum), resolve it to readable full text, extract open/unsolved questions, rewrite them into self-contained form with evidence, dedupe, quality-gate, and auto-save structured JSON. Triggers: 'parse paper questions', 'extract open problems', 'unsolved questions from paper', 'parse open-problem page'."
 ---
 
 # Paper Question Parser
@@ -56,8 +56,8 @@ You run a single-source workflow to extract open/unsolved research questions fro
         - use API metadata only to identify the exact work, discover candidate full-text URLs, and detect access restrictions; do not extract open problems from API metadata, abstracts, or resolver records
         - only follow candidate URLs from APIs when the destination still matches the same DOI or the same exact title
      4. If the URL is a workshop/problem-session/forum page whose own body contains the relevant problem statements, use the page itself as the primary source.
-        - examples: AIM pages, workshop problem-session pages, MathOverflow threads
-        - for MathOverflow, prefer the question body as the primary source; use answers/comments only for explicit resolution claims or clarifications that are needed and clearly attributable
+        - examples: AIM pages, workshop problem-session pages, MathOverflow threads, Stack Exchange sites (e.g., Physics SE, Biology SE, Cross Validated), domain-specific Q&A forums
+        - for Q&A forum sources, prefer the question body as the primary source; use answers/comments only for explicit resolution claims or clarifications that are needed and clearly attributable
      5. If direct fetching fails because of redirects, robots/SSL issues, transient HTML fetch failures, or citation-only landing pages, search for the same source by exact title, DOI, repository identifier, or trailing URL slug and recover a readable artifact for that same work/source. Do not switch to a different work.
    - If the resolved primary source is HTML rather than PDF, set:
      - `source_kind = "html"`
@@ -146,13 +146,13 @@ If input is invalid or cannot be downloaded, return:
 - If `source_kind = "pdf"`, use `look_at(file_path=paper_path, goal=...)` to extract:
 
   - section hierarchy (major sections and subsections)
-  - notation/definitions index
-  - theorem/proposition/lemma reference index (labels and where they appear)
+  - notation/terminology/definitions index
+  - key result/claim/finding reference index (theorems, propositions, lemmas, experiments, algorithms, models, case studies, and similar formal structures, with labels and where they appear)
   - likely "open problems/questions" regions
 
 - If `source_kind = "html"`, use the available web/page-reading tools on `source_locator` to extract:
   - section hierarchy or page structure (headings, numbered problem blocks, post/answer/comment blocks, list items)
-  - notation/definitions index when present
+  - notation/terminology/definitions index when present
   - likely "open problems/questions" regions
   - stable locators for later citation, such as section titles, numbered items, and HTML line spans
 
@@ -165,7 +165,7 @@ Iterate through all the sections in `doc_map` and extract ALL explicit and impli
 Extraction target:
 
 - include markers like "Question", "Problem", "Open", "Unknown whether", "Is it true that"
-- include bullet lists, numbered problem sessions, named open-problem blocks, and forum-style top-level question statements when they are clearly mathematical research questions
+- include bullet lists, numbered problem sessions, named open-problem blocks, and forum-style top-level question statements when they are clearly research questions in the field
 - include entries labeled as solved (e.g., `(Solved) problem ...`) and keep them in output
 - include implicit question statements that represent unresolved research problems
 - for forum-style sources, extract the main post and any explicitly separated subquestions; do not mine side comments or answers as separate research problems unless they clearly formulate one
@@ -183,13 +183,13 @@ For each candidate:
 
 - rewrite into a standalone question understandable without the source
 - `question_text` is the primary payload and must by itself be fully self-contained for a reader who has not seen the source or any other extracted question
-- `question_text` should be as long as needed to inline all definitions, notation, assumptions, ambient setting, competitor class, optimization objective, and other problem data required for a mathematically usable standalone statement
+- `question_text` should be as long as needed to inline all notation, terminology, definitions, assumptions, experimental conditions, datasets, models, evaluation metrics, domain context, and other problem data required for a fully usable standalone statement
 - for extracted questions, prefer a clearly longer rewrite than the original source wording whenever that wording is too compressed to stand alone; the goal is faithful expansion, not brevity
 - prefer over-explaining rather than under-explaining when deciding whether to inline definitions; if a careful reader could not start solving without source-specific terminology being unpacked, unpack it in `question_text`
 - `question_text` may be a multi-sentence or multi-paragraph JSON string, but it must still read as one self-contained question rather than disconnected notes
 - avoid source-pointing text in `question_text` such as "in the paper", "in this section", "as defined above", "the authors define", or similar phrasing that gestures at the source instead of stating the needed content directly
 - `context_brief` is only a short label and must never carry definitions that are required to understand the problem
-- resolve references like "Proposition 2.1", "Section 3", "Problem 4", or "the accepted answer" only using evidence in the chosen primary source artifact
+- resolve references like "Proposition 2.1", "Experiment 3", "Table 2", "Algorithm 1", "Figure 5", "Section 3", "Problem 4", or "the accepted answer" only using evidence in the chosen primary source artifact
 - if required context is missing in evidence, do NOT guess; move item to `needs_review`
 
 Add one `trace` entry per candidate with stage `rewrite`.
@@ -208,7 +208,7 @@ Run deterministic gates:
 
 1. Self-containedness gate:
    - no dangling references like "this", "above", "as discussed", "see Section X" unless expanded
-   - if a reader would need source-specific definitions, notation, setting details, competitor classes, or optimization criteria to understand the question, include them directly in `question_text` when supported by evidence
+   - if a reader would need source-specific notation, terminology, definitions, experimental conditions, datasets, evaluation criteria, or domain-specific context to understand the question, include them directly in `question_text` when supported by evidence
    - `question_text` must not rely on source-pointing language such as references to the paper, section, source text, or prior definitions instead of restating the content directly
 2. Evidence coverage gate:
    - accepted items must include at least one evidence quote with a page number or stable HTML locator
@@ -237,8 +237,8 @@ Add one `trace` entry per candidate with stage `quality_gates`.
 ## JSON_SERIALIZATION
 
 - The final payload must be valid JSON that parses without repair.
-- Escape every backslash inside JSON strings. This matters especially for TeX/LaTeX-rich HTML sources such as MathOverflow, arXiv HTML, and copied formulas.
-- In `question_text`, prefer plain-text or Unicode mathematical notation over raw TeX when either would be equally faithful.
+- Escape every backslash inside JSON strings. This matters especially for sources with domain-specific markup such as TeX/LaTeX (mathematics), chemical formulas, code snippets, pseudocode, or structured notation (e.g., MathOverflow, arXiv HTML, bioRxiv).
+- In `question_text`, prefer plain-text or Unicode notation over raw domain-specific markup (e.g., TeX/LaTeX, chemical notation, pseudocode) when either would be equally faithful.
 - In `evidence.quote`, keep the source text verbatim, but serialize it as a valid JSON string with required escaping.
 - Before returning and before saving, check that the exact payload would parse as JSON; if not, repair the escaping first.
 
@@ -254,7 +254,7 @@ Add one `trace` entry per candidate with stage `quality_gates`.
 
 Move candidate to `needs_review` when any of these hold:
 
-- unresolved cross-reference (proposition/section/theorem not recoverable from evidence)
+- unresolved cross-reference (proposition, theorem, experiment, figure, table, algorithm, or section not recoverable from evidence)
 - ambiguous pronoun/deixis with unclear antecedent
 - insufficient quote evidence for a rewritten claim
 - undefined source-specific terminology remains in `question_text`
@@ -289,7 +289,7 @@ Return exactly one JSON object:
   "accepted": [
     {
       "id": "q_001",
-      "question_text": "Fully self-contained open question text. It may be substantially longer than the original source wording when needed to include definitions, notation, assumptions, ambient setting, competitor class, and optimization objective required to understand the problem without the source.",
+      "question_text": "Fully self-contained open question text. It may be substantially longer than the original source wording when needed to include notation, terminology, definitions, assumptions, experimental conditions, datasets, evaluation criteria, and domain context required to understand the problem without the source.",
       "context_brief": "Short topic label only; not a place to hide required definitions.",
       "meta": {
         "is_solved": false
@@ -341,6 +341,7 @@ Before returning the final JSON to user:
    - `RUN_DIR`
 2. Generate output file name from the normalized source name:
    - `<source_name_sanitized>.json` (local PDF stem, arXiv id, DOI slug, or URL slug)
+   - Sanitization rule: replace every `/` with `_` and every remaining non-alphanumeric character except `-` and `.` with `_`; do not use `-` as a slash replacement
 3. Save the exact JSON output to:
    - `RUN_DIR/<source_name_sanitized>.json`
 4. Also write/update:

@@ -113,10 +113,47 @@ echo "Running refiner for range [${START_INDEX}, ${END_INDEX}) out of ${TOTAL_CO
 echo "Checkpoints: ${CHECKPOINT_DIR}"
 echo "Errors: ${ERROR_LOG_FILE}"
 
+_items_tmp=$(mktemp)
+python3 - "$INPUT_JSON" "$START_INDEX" "$END_INDEX" > "$_items_tmp" <<'PY'
+import json
+import re
+import sys
+from pathlib import Path
+
+path = Path(sys.argv[1])
+start = int(sys.argv[2])
+end = int(sys.argv[3])
+data = json.loads(path.read_text(encoding='utf-8'))
+
+def slugify(value: str) -> str:
+    lowered = value.lower()
+    slug = re.sub(r'[^a-z0-9._-]+', '-', lowered)
+    slug = re.sub(r'-+', '-', slug).strip('-')
+    return slug or 'item'
+
+for index in range(start, end):
+    item = data[index]
+    arxiv_id = item['arxiv_id']
+    question_id = item.get('question_id') or f'q_{index:05d}'
+    question_text = item['question_text']
+    marker_name = f"{index:05d}__{slugify(arxiv_id)}__{slugify(question_id)}"
+    print(json.dumps({
+        'index': index,
+        'arxiv_id': arxiv_id,
+        'question_id': question_id,
+        'question_text': question_text,
+        'marker_name': marker_name,
+        'payload': json.dumps({
+            'question': question_text,
+            'arxiv_id': arxiv_id,
+        }, ensure_ascii=False),
+    }, ensure_ascii=False))
+PY
+
 while IFS= read -r item_record; do
   [[ -z "$item_record" ]] && continue
-  mapfile -t item_fields < <(
-    python3 - <<'PY' "$item_record"
+  _fields_tmp=$(mktemp)
+  python3 - "$item_record" > "$_fields_tmp" <<'PY'
 import json
 import sys
 
@@ -127,7 +164,11 @@ print(record['question_id'])
 print(record['marker_name'])
 print(record['payload'])
 PY
-  )
+  item_fields=()
+  while IFS= read -r _line; do
+    item_fields+=("$_line")
+  done < "$_fields_tmp"
+  rm -f "$_fields_tmp"
 
   item_index="${item_fields[0]}"
   arxiv_id="${item_fields[1]}"
@@ -210,43 +251,8 @@ PY
     failed=$((failed + 1))
     continue
   fi
-done < <(
-  python3 - <<'PY' "$INPUT_JSON" "$START_INDEX" "$END_INDEX"
-import json
-import re
-import sys
-from pathlib import Path
-
-path = Path(sys.argv[1])
-start = int(sys.argv[2])
-end = int(sys.argv[3])
-data = json.loads(path.read_text(encoding='utf-8'))
-
-def slugify(value: str) -> str:
-    lowered = value.lower()
-    slug = re.sub(r'[^a-z0-9._-]+', '-', lowered)
-    slug = re.sub(r'-+', '-', slug).strip('-')
-    return slug or 'item'
-
-for index in range(start, end):
-    item = data[index]
-    arxiv_id = item['arxiv_id']
-    question_id = item.get('question_id') or f'q_{index:05d}'
-    question_text = item['question_text']
-    marker_name = f"{index:05d}__{slugify(arxiv_id)}__{slugify(question_id)}"
-    print(json.dumps({
-        'index': index,
-        'arxiv_id': arxiv_id,
-        'question_id': question_id,
-        'question_text': question_text,
-        'marker_name': marker_name,
-        'payload': json.dumps({
-            'question': question_text,
-            'arxiv_id': arxiv_id,
-        }, ensure_ascii=False),
-    }, ensure_ascii=False))
-PY
-)
+done < "$_items_tmp"
+rm -f "$_items_tmp"
 
 {
   echo "range=${RANGE_LABEL}"

@@ -1,0 +1,49 @@
+{
+  "id": "q_001",
+  "original_question": "Let A be a set of n positive integers. Does A contain a sum-free set of size at least n/3 + Ω(n), where Ω(n) → ∞ as n → ∞?",
+  "context_brief": "Sum-free sets and product-free sets",
+  "is_solved": true,
+  "model": "openai/gpt-5.4",
+  "elapsed_s": 102.21,
+  "target_in_source": "Ben Green, 100 Open Problems, Section 1 \"Sum-free sets, product-free sets\", Problem 1 (Solved), on PDF page 2; the nearby comments and the 2025 update continue onto PDF page 3. ([people.maths.ox.ac.uk](https://people.maths.ox.ac.uk/greenbj/papers/open-problems.pdf))",
+  "completeness_score": 8.5,
+  "correct_elements": "The draft already captures the exact core question in the source: A is a set of n positive integers, the sought object is a sum-free subset of A, and the target lower bound is n/3 plus an additive term that tends to infinity with n. It also preserves the original narrow scope of Green’s Problem 1 rather than drifting to one of the neighboring Fourier-analytic sufficient conditions. ([people.maths.ox.ac.uk](https://people.maths.ox.ac.uk/greenbj/papers/open-problems.pdf))",
+  "missing_details": [
+    "It should state explicitly that A is a finite subset of the positive integers with cardinality |A| = n, and that the claim is universal over every such A. ([people.maths.ox.ac.uk](https://people.maths.ox.ac.uk/greenbj/papers/open-problems.pdf))",
+    "It should define \"sum-free\": a subset S ⊂ A is sum-free if there do not exist x, y, z ∈ S such that x + y = z; no distinctness assumption is part of the definition. ([arxiv.org](https://arxiv.org/pdf/2502.08624))",
+    "The source notation \"n/3 + Ω(n), where Ω(n) → ∞\" is potentially ambiguous out of context; the primary source formalizes the intended meaning as: there exists a function ω(n) with ω(n) → ∞ such that every A contains a sum-free subset of size at least n/3 + ω(n). ([arxiv.org](https://arxiv.org/pdf/2502.08624))",
+    "For a fully stand-alone formulation, it helps to introduce the standard extremal notation S(A) for the largest sum-free subset of A and S(N) := min_{A ⊂ N, |A| = N} S(A), since Bedert states the problem in exactly that language as Problem 1.1. ([arxiv.org](https://arxiv.org/pdf/2502.08624))",
+    "Because the source marks the problem as solved, the surrounding context should record the resolution: Green’s 2025 update cites Bedert’s proof that every finite A ⊂ Z has a sum-free subset of size greater than |A|/3 + c log log |A| for some absolute constant c > 0, which is stronger than the original question and implies the positive-integer version. ([people.maths.ox.ac.uk](https://people.maths.ox.ac.uk/greenbj/papers/open-problems.pdf))",
+    "The nearby source context also notes the key earlier bounds: Bourgain had proved the lower bound (n + 2)/3, and Eberhard–Green–Manners / Eberhard supplied upper-bound constructions showing that, in general, one cannot hope for more than n/3 + o(n). These facts are not part of the question itself, but they are important for a source-faithful stand-alone presentation. ([people.maths.ox.ac.uk](https://people.maths.ox.ac.uk/greenbj/papers/open-problems.pdf))"
+  ],
+  "refined_question": "Does there exist a function ω: N → R with ω(n) → ∞ as n → ∞ such that, for every finite set A ⊂ N of cardinality n, there is a subset S ⊂ A with no solutions x + y = z in S (that is, no x, y, z ∈ S satisfy x + y = z) and with |S| ≥ n/3 + ω(n)?",
+  "equivalent_formulation": "If S(A) denotes the maximum size of a sum-free subset of A and S(N) := min{|S(A)| : A ⊂ N, |A| = N}, is there a function ω(N) → ∞ such that S(N) > N/3 + ω(N)?",
+  "justification": "Green’s source document states the problem exactly as Problem 1 in Section 1 and marks it solved; the comments immediately below it give the prior Bourgain lower bound and the near-matching upper constructions, and the 2025 update records Bedert’s solution. Bedert’s introduction is the cleanest primary-source formalization: it defines S(A) and S(N), restates the problem as Problem 1.1 with an explicit function ω(N) → ∞, and then proves a stronger theorem, namely S(A) > |A|/3 + c log log |A| for all finite A ⊂ Z. Accordingly, the refined question keeps the original positive-integer scope, makes the hidden quantifiers explicit, defines \"sum-free\" so that a nonexpert can parse it, and avoids broadening to Green’s auxiliary Fourier-analytic conditions (1.1) and (1.2), which Green presents only as sufficient routes to a positive solution, not as equivalent reformulations. ([people.maths.ox.ac.uk](https://people.maths.ox.ac.uk/greenbj/papers/open-problems.pdf))",
+  "citations": [
+    {
+      "section": "1. Sum-free sets, product-free sets",
+      "label": "Problem 1 (Solved)",
+      "page": "PDF p. 2"
+    },
+    {
+      "section": "1. Sum-free sets, product-free sets",
+      "label": "Comments following Problem 1; Update 2025",
+      "page": "PDF pp. 2-3"
+    },
+    {
+      "section": "1. Introduction",
+      "label": "Equation (1): definition of S(N); Problem 1.1",
+      "page": "p. 1"
+    },
+    {
+      "section": "1. Introduction",
+      "label": "Theorem 1.2",
+      "page": "p. 2"
+    },
+    {
+      "section": "1. Introduction",
+      "label": "Discussion of previous lower and upper bounds",
+      "page": "pp. 1-3"
+    }
+  ]
+}
