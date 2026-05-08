@@ -1,0 +1,424 @@
+{
+  "source": {
+    "url": "https://arxiv.org/abs/2111.06721",
+    "resolved_locator": "/home/gson/paper-question-parser-science-parser/.sisyphus/paper-question-parser/tmp/2111.06721.pdf",
+    "title": "Causal Multi-Agent Reinforcement Learning: Review and Open Problems",
+    "title_origin": "source_text"
+  },
+  "accepted": [
+    {
+      "id": "q_001",
+      "question_text": "How can graphical causal methods be explicitly integrated with multi-agent reinforcement learning (MARL), where multiple learning agents interact in a shared environment, so that causal reinforcement-learning methods that already support off-policy learning, data fusion, and counterfactual reasoning can address the additional complexities introduced by interacting agents?",
+      "context_brief": "Bridging graphical causality and MARL",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 1,
+          "quote": "This has been attempted with speciﬁc tasks in mind, such as off-policy learning (Buesing et al., 2018), data-fusion (Bareinboim and Pearl, 2016; Gasse et al., 2021; Forney et al., 2017), and counterfactual reasoning (Forney and Bareinboim, 2019). This paper considers extending causal RL methods to the multi-agent case, where additional complexities arise due to interacting agents."
+        },
+        {
+          "page": 4,
+          "quote": "While there has been some interest in merging ideas from causality with current single-agent methods, to the best of our knowledge no research explicitly looks at bridging (graphical) causal methods with MARL."
+        },
+        {
+          "page": 5,
+          "quote": "It is our belief that causal methods are especially well suited for dealing with the additional challenges and complexity in multi-agent problems."
+        }
+      ]
+    },
+    {
+      "id": "q_002",
+      "question_text": "How can model-based reinforcement learning, in which a learned model is used for planning, be merged with causal discovery, in which causal structure is learned from data, so that reinforcement-learning or multi-agent reinforcement-learning systems can learn a causal model and then use that model for identification and planning?",
+      "context_brief": "Model-based RL and causal discovery",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 4,
+          "quote": "The problem posed by causal discovery is related to problems posed in RL literature, where model-based approaches often propose learning a model before using it for planning (Moerland et al., 2020). Further, RL methods have been applied for causal structure learning (Zhu et al., 2019). The authors believe there is great opportunity for merging model-based RL and causal discovery methods."
+        },
+        {
+          "page": 8,
+          "quote": "As in model-based (MA)RL, it may be of interest to ﬁrst learn a causal model and then use it for identiﬁcation and planning. Recent causality literature usually frames this as causal discovery."
+        }
+      ]
+    },
+    {
+      "id": "q_003",
+      "question_text": "How can the causal-game concept of a causal Nash equilibrium, in which cooperative agents jointly optimize their actions while maintaining probabilistic beliefs about possible causal models of the environment, be applied to multi-agent reinforcement-learning problems?",
+      "context_brief": "Causal Nash equilibrium for MARL",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 5,
+          "quote": "The Bayesian approach leads to a rational decision making criterion, where agents hold probabilistic beliefs about possible causal models of the environment. The game theoretic approach leads to the concept of a causal Nash equilibrium, where cooperative agents jointly optimise their actions. The authors feel this is an unexplored and ripe opportunity for application to the MARL problem."
+        }
+      ]
+    },
+    {
+      "id": "q_004",
+      "question_text": "How can a decentralized partially observable Markov decision process (Dec-POMDP), a multi-agent model with states, joint actions, rewards, observations, transition probabilities, and observation probabilities, be reframed as a multi-agent causal model (MACM) with explicit shared variables between agents so that MARL methods can reason counterfactually about alternative state-observation-action trajectories?",
+      "context_brief": "Counterfactual reasoning with MACM-framed Dec-POMDPs",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 5,
+          "quote": "Deﬁnition 3.1 (Dec-POMDP) A Dec-POMDP is a multi-agent extension of a POMDP . It is a 7-tuple ⟨S, {Ai},T,R, {Ωi},O,γ ⟩, where S are states, {Ai} is the joint action set,T =P (s′ |s,a ) is the set of conditional transition probabilities between states,R is the reward function, {Ωi} is the joint observation set,O(s′,a,o ) =P (o |s′,a ) gives the conditional observation distribution, and γ ∈ [0, 1] is the discount factor."
+        },
+        {
+          "page": 5,
+          "quote": "The ability for the factored approach to build up an interaction model for the system means it is causally aware at the level of interventions L2. For the full realisation of causal RL beneﬁts, we really want agent models to be capable of counterfactual reasoning."
+        },
+        {
+          "page": 6,
+          "quote": "This motivates considering reframing common MARL models in terms of MACMs, perhaps allowing for methods that can reason about counterfactual trajectories."
+        },
+        {
+          "page": 6,
+          "quote": "We note that although this does not differ substantially from the SCM view of the Dec-POMDP, an MACM formulation handles the sharing of agent variables explicitly whereas an SCM does not."
+        }
+      ]
+    },
+    {
+      "id": "q_005",
+      "question_text": "How can causal inference be used to model and reduce non-stationarity in decentralized MARL when an individual agent has limited information about other agents' adapting policies and must treat their unknown behavior as a source of uncertainty or observation noise?",
+      "context_brief": "Causal treatment of MARL non-stationarity",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 7,
+          "quote": "Individual agents face a moving target problem when other agents simultaneously adapt their policies in response to observed outcomes. This non-stationarity arises from limited information about other-agent policies, which is fundamental to the multi-agent, decentralised paradigms (Papoudakis et al., 2019)."
+        },
+        {
+          "page": 7,
+          "quote": "Fundamentally, non-stationarity is a source of uncertainty for individual agents. Causal inference offers tools for modelling such uncertain scenarios, especially where agents have structural knowledge of how uncertainties are arising (Lee and Bareinboim, 2020; Jesson et al., 2021)."
+        },
+        {
+          "page": 7,
+          "quote": "For example, an agent may know that there is another agent in its vicinity, and it can therefore attribute (some of) the noise in its observations to the unknown behaviour policy of those agents."
+        }
+      ]
+    },
+    {
+      "id": "q_006",
+      "question_text": "Can MARL agents learn human-intelligible and interpretable communication protocols that communicate causal relationships between agents, and would such causal communication improve learning efficiency in decentralized tasks?",
+      "context_brief": "Interpretable causal communication",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 7,
+          "quote": "Such communication methods are often less natural than real-world emergent behaviour displayed by human communication, and there is room for research for emergent human intelligible and interpretable communication."
+        },
+        {
+          "page": 7,
+          "quote": "One can imagine that communicating causal relationships could greatly boost learning efﬁciency in decentralised tasks, similar to how Vanneste et al. (2020) improve credit assignment using counterfactual knowledge. This is potentially a fruitful direction for multi-agent, causal research."
+        }
+      ]
+    },
+    {
+      "id": "q_007",
+      "question_text": "In multi-agent knowledge sharing, when can causal imitation learning, causal transfer learning, and data fusion determine whether one agent can imitate or learn from a more knowledgeable teacher agent, which variables are important for imitation, and what performance should be expected?",
+      "context_brief": "Causal imitation and transfer in MARL",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 7,
+          "quote": "Another promising method of knowledge sharing is by applying transfer learning and imitation learning. In these settings, a more knowledgeable agent shares or teaches acquired knowledge to another agent (Pan and Yang, 2010)."
+        },
+        {
+          "page": 8,
+          "quote": "An exciting CRL research direction is that of causal imitation learning where a causal model of the environment can be used to determine when imitation is feasible, and what performance we can expect."
+        },
+        {
+          "page": 8,
+          "quote": "Reasoning causally has shown to aid in determining what variables are important for the imitation procedure (Zhang et al., 2020). Tying these ideas together with (causal) transfer learning and data-fusion opens room for exciting research avenues."
+        }
+      ]
+    },
+    {
+      "id": "q_008",
+      "question_text": "How can embedding a causal model inside a multi-agent reinforcement-learning framework enable decentralized reasoning for safety-critical applications, such as healthcare systems in which practitioners pool resources and optimize healthcare policies, or robotic applications?",
+      "context_brief": "Decentralized causal reasoning for safety-critical MARL",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 8,
+          "quote": "Embedding a causal model in the multi-agent framework opens opportunity for decentralised reasoning in safety critical applications such as healthcare and robotic applications."
+        },
+        {
+          "page": 8,
+          "quote": "For example, consider how healthcare practitioners can pool resources (Rieke et al., 2020) and optimise their healthcare policies aided by a safe and interactive MARL systems (Holzinger, 2016). Bridged with other beneﬁts of explicit causal methods already discussed, this presents a promising front for future research."
+        }
+      ]
+    },
+    {
+      "id": "q_009",
+      "question_text": "How can generalized off-policy or offline MARL learn from existing observational datasets when the data were collected under unknown mixed policies, multiple hidden decision-making agents influence the environment, and causal assumptions and uncertainties must be modeled to bound uncertainty in the learning process?",
+      "context_brief": "Generalized off-policy and offline MARL",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 8,
+          "quote": "The primary challenge with ofﬂine RL is that we are limited to observational data. Viewed from another angle, this problem comes down to learning structure from data collected under mixed policies and is subject to distribution shift (see Section 2). Explicitly modelling the assumptions and uncertainties can aid in bounding the uncertainties in the learning process (Rosenbaum and Rubin, 1983; MacLehose et al., 2005)."
+        },
+        {
+          "page": 8,
+          "quote": "The distribution shift problem is especially exacerbated in the multi-agent problem, where multiple agents with hidden decision policies are inﬂuencing the response of the environment (Yang et al., 2021; Levine et al., 2020; Papoudakis et al., 2019)."
+        },
+        {
+          "page": 8,
+          "quote": "This differs from conventional off-policy learning because we lack knowledge of how data was collected. MARL extends the difﬁculty of this generalised setting by involving more decision agents. We believe this is an interesting research direction."
+        }
+      ]
+    },
+    {
+      "id": "q_010",
+      "question_text": "Can MARL be used as a heuristic for learning causal structure by rewarding an agent for choosing actions that increase knowledge useful for causal structure learning, including learning the direction of causality, and how should the resulting causal model be used for identification and planning?",
+      "context_brief": "MARL as causal structure-learning heuristic",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 8,
+          "quote": "As in model-based (MA)RL, it may be of interest to ﬁrst learn a causal model and then use it for identiﬁcation and planning. Recent causality literature usually frames this as causal discovery."
+        },
+        {
+          "page": 8,
+          "quote": "This presents interesting opportunities for research in MARL where, for example, MARL could be used as a heuristic for learning direction of causality by rewarding an agent for correctly choosing actions so as to increase knowledge useful for structure learning."
+        }
+      ]
+    },
+    {
+      "id": "q_011",
+      "question_text": "How should causal MARL research incorporate causal modeling approaches beyond graphical structural causal models, such as potential outcomes, propensity scores, instrumental variables, and relationships between differential equations and causal models, while preserving the benefits of explicit causal assumptions for MARL?",
+      "context_brief": "Beyond graphical SCMs in causal MARL",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 8,
+          "quote": "The authors would like to point out that causal modelling approaches are not limited to graphical model literature, though we have mostly focused on these here as graphical methods are well suited to current approaches to computational sciences in addition to being easy to understand."
+        },
+        {
+          "page": 8,
+          "quote": "There exists extensive literature on potential outcomes and propensity scores (Rubin, 2005; Rosenbaum and Rubin, 1983). Instrumental variable (Becker, 2016) approaches are very common in practice, recently extended as a basis for CRL (Li et al., 2021)."
+        },
+        {
+          "page": 8,
+          "quote": "We also make note of relationships between differential equations and causal models, which are investigated in various settings (Mooij et al., 2013; Bongers and Mooij, 2018; Schölkopf, 2019)."
+        }
+      ]
+    }
+  ],
+  "needs_review": [],
+  "trace": [
+    {
+      "id": "source",
+      "stage": "input",
+      "notes": "Normalized arXiv abs URL to the corresponding arXiv PDF and downloaded it for page-number citation.",
+      "evidence_refs": [
+        "https://arxiv.org/pdf/2111.06721.pdf"
+      ]
+    },
+    {
+      "id": "source",
+      "stage": "map",
+      "notes": "Mapped title, abstract, sections 1 through 5, definitions for MDP, SCM, intervention, counterfactual, Dec-POMDP, and MACM, and likely open-problem regions on pages 1, 4, 5, 6, 7, and 8.",
+      "evidence_refs": [
+        "p1",
+        "p4",
+        "p5",
+        "p6",
+        "p7",
+        "p8"
+      ]
+    },
+    {
+      "id": "sec_1",
+      "stage": "extract_candidates",
+      "notes": "Introduction yielded the broad candidate of extending causal reinforcement-learning methods to the multi-agent case.",
+      "evidence_refs": [
+        "p1"
+      ]
+    },
+    {
+      "id": "sec_2",
+      "stage": "extract_candidates",
+      "notes": "Causal Reinforcement Learning section yielded the model-based RL and causal discovery candidate.",
+      "evidence_refs": [
+        "p4"
+      ]
+    },
+    {
+      "id": "sec_3",
+      "stage": "extract_candidates",
+      "notes": "Multi-Agent Case section yielded candidates on bridging graphical causal methods with MARL, causal Nash equilibrium, and counterfactual reasoning through MACM-style model reframing.",
+      "evidence_refs": [
+        "p4",
+        "p5",
+        "p6"
+      ]
+    },
+    {
+      "id": "sec_4",
+      "stage": "extract_candidates",
+      "notes": "Towards Causal Multi-Agent RL section yielded candidates on non-stationarity, causal communication, causal imitation and transfer, decentralized safety-critical reasoning, generalized off-policy MARL, and causal model learning.",
+      "evidence_refs": [
+        "p7",
+        "p8"
+      ]
+    },
+    {
+      "id": "sec_5",
+      "stage": "extract_candidates",
+      "notes": "Discussion yielded a broader methodological candidate about connecting causal MARL to non-graphical causal frameworks.",
+      "evidence_refs": [
+        "p8"
+      ]
+    },
+    {
+      "id": "q_001",
+      "stage": "rewrite",
+      "notes": "Expanded the source's broad bridging claim into a self-contained MARL integration question using introduction and Section 3 evidence.",
+      "evidence_refs": [
+        "p1",
+        "p4",
+        "p5"
+      ]
+    },
+    {
+      "id": "q_002",
+      "stage": "rewrite",
+      "notes": "Expanded model-based RL, causal discovery, and planning into a standalone question using Section 2 and model-learning evidence.",
+      "evidence_refs": [
+        "p4",
+        "p8"
+      ]
+    },
+    {
+      "id": "q_003",
+      "stage": "rewrite",
+      "notes": "Restated causal Nash equilibrium with its source definition and application gap for MARL.",
+      "evidence_refs": [
+        "p5"
+      ]
+    },
+    {
+      "id": "q_004",
+      "stage": "rewrite",
+      "notes": "Included the Dec-POMDP definition, the MACM reframing claim, and the counterfactual-trajectory motivation.",
+      "evidence_refs": [
+        "p5",
+        "p6"
+      ]
+    },
+    {
+      "id": "q_005",
+      "stage": "rewrite",
+      "notes": "Made the non-stationarity candidate self-contained by naming limited information about other-agent policies and uncertainty/noise attribution.",
+      "evidence_refs": [
+        "p7"
+      ]
+    },
+    {
+      "id": "q_006",
+      "stage": "rewrite",
+      "notes": "Merged the human-intelligible communication and causal-relationship communication statements into one communication-focused question.",
+      "evidence_refs": [
+        "p7"
+      ]
+    },
+    {
+      "id": "q_007",
+      "stage": "rewrite",
+      "notes": "Combined transfer learning, causal imitation learning, feasibility, expected performance, and variable-selection evidence.",
+      "evidence_refs": [
+        "p7",
+        "p8"
+      ]
+    },
+    {
+      "id": "q_008",
+      "stage": "rewrite",
+      "notes": "Grounded the decentralized reasoning question in the healthcare and robotics safety-critical examples.",
+      "evidence_refs": [
+        "p8"
+      ]
+    },
+    {
+      "id": "q_009",
+      "stage": "rewrite",
+      "notes": "Expanded generalized off-policy MARL into a standalone offline-data, unknown-policy, hidden-agent, uncertainty-bounding question.",
+      "evidence_refs": [
+        "p8"
+      ]
+    },
+    {
+      "id": "q_010",
+      "stage": "rewrite",
+      "notes": "Linked causal model learning, identification/planning, and reward-driven causal-direction learning in MARL.",
+      "evidence_refs": [
+        "p8"
+      ]
+    },
+    {
+      "id": "q_011",
+      "stage": "rewrite",
+      "notes": "Restated the discussion's non-graphical causal-methods note as an implicit methodological research question.",
+      "evidence_refs": [
+        "p8"
+      ]
+    },
+    {
+      "id": "q_001-q_011",
+      "stage": "dedupe",
+      "notes": "Kept q_002 and q_010 separate because q_002 concerns merging model-based RL with causal discovery generally, while q_010 concerns MARL as an action-selection heuristic for causal structure learning. Kept q_006 and q_007 separate because communication and imitation/transfer are distinct knowledge-sharing mechanisms.",
+      "evidence_refs": [
+        "p4",
+        "p7",
+        "p8"
+      ]
+    },
+    {
+      "id": "q_001-q_011",
+      "stage": "quality_gates",
+      "notes": "Accepted all eleven candidates after checking that each has page-numbered evidence, no source-pointing language in question_text, no unresolved cross-references, and is_solved=false because the source does not mark any item as solved.",
+      "evidence_refs": [
+        "p1",
+        "p4",
+        "p5",
+        "p6",
+        "p7",
+        "p8"
+      ]
+    },
+    {
+      "id": "persist",
+      "stage": "persist",
+      "notes": "Saved exact JSON payload to outputs/parse-paper/2111.06721.json and outputs/latest.json.",
+      "evidence_refs": [
+        "outputs/parse-paper/2111.06721.json",
+        "outputs/latest.json"
+      ]
+    }
+  ]
+}

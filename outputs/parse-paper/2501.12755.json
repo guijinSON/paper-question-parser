@@ -1,0 +1,310 @@
+{
+  "source": {
+    "url": "https://arxiv.org/abs/2501.12755",
+    "resolved_locator": "/home/gson/paper-question-parser-science-parser/.sisyphus/paper-question-parser/tmp/2501.12755.pdf",
+    "title": "Open questions on defining and computing the vapour-liquid surface tension by virial and test transformation approaches",
+    "title_origin": "source_text"
+  },
+  "accepted": [
+    {
+      "id": "q_001",
+      "question_text": "For molecular simulations of vapour-liquid interfaces using rigid multi-site molecular models, should the computed surface tension include an additional apparent kinetic or ideal-gas contribution when molecules have preferential orientation at the interface, and if so, under which mechanical formalism? In particular, should solvers that use rigid-unit centre-of-mass translation and rotation, rather than constrained interaction-site mechanics, add this kinetic contribution, or do previous planar-interface virial-route results remain valid because the kinetic and potential factors separate and the momentum contribution does not create a pressure-tensor anisotropy?",
+      "context_brief": "apparent kinetic contribution",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 1,
+          "quote": "This work addresses four problems in defining and computing the surface tension of vapour-liquid interfaces: (1) The apparent kinetic contribution to the surface tension, and what it is that makes it appear; (2) the problem of defining the local virial, which for some purposes appears to be necessary; (3) the disagreement between results for spherical interfaces when using different methods, specifically the virial and the test area method; (4) how the surface tension values obtained from these methods can be related to the definition of the surface tension from thermodynamics – since if they cannot, it is a meaningless exercise to compute them. At the end, all these problems remain unsolved: They are “open questions.”"
+        },
+        {
+          "page": 2,
+          "quote": "Moreover, even in the planar case, Segaet al.[6] argue that a kinetic contribution appears, and that this contribution would need to be added to that from the virial, which to date has not become common practice at all. Is this an indication that almost all molecular simulation data on the surface tension are wrong? In the case of water, for instance, the error due to neglecting the effect from the apparent kinetic contribution would amount to 15%, Segaet al.[6] find."
+        },
+        {
+          "page": 6,
+          "quote": "Does ls1 need to include the apparent kinetic energy contribution when computingγ? And are all the previous results on the surface tension of multi-site models using industry-standard molecular simulation solvers incorrect?"
+        },
+        {
+          "page": 7,
+          "quote": "The argument thatPp is the pressure tensor with a thermodynamic meaning, and notPΞ, would need to be developed from the partition function, which has not been done by Segaet al.[6] or any of the follow-up works."
+        }
+      ]
+    },
+    {
+      "id": "q_002",
+      "question_text": "For spherical vapour-liquid droplets and bubbles, how can one define, localize, or avoid the local virial or pressure tensor so that a surface tension computed from radial pressure profiles is unique, independent of the chosen scheme for assigning pair-interaction contributions to spatial locations, and has a direct thermodynamic interpretation? The difficulty is that a pair interaction between two molecules has no unique position in space: for planar interfaces the integral over the normal and tangential pressure profiles is unique even when the local profile is not, but for spherical interfaces the radial integral depends on the localization scheme.",
+      "context_brief": "local virial non-uniqueness",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 1,
+          "quote": "The local virial tensor (and pressure tensor) is always an underspecified quantity, but in the planar case, this does not matter because the volume integral over it yields a unique, well-defined result both for the overall pressure tensor and the surface tension. When integrating over the (virial as a function of the) radius in polar coordinates, this property disappears, and the surface tension is no longer well-defined."
+        },
+        {
+          "page": 8,
+          "quote": "When evaluating the virial and the pressure in a localized way, a non-uniqueness emerges from the way the potential energy of the system is given: As a sum over pairwise intermolecular interactions. Two interacting molecules i and j each have a well-defined position, but the interaction between them does not. Depending on how the virial from their interaction is distributed over the coordinate over which the profile is taken, results for the local pressure profile can differ."
+        },
+        {
+          "page": 8,
+          "quote": "For spherical interfaces, that is not the case. To begin with,there is no macromechanical expression that is independent of the scheme employed for localizing the contributions from each pairwise interaction."
+        },
+        {
+          "page": 8,
+          "quote": "For a spherical geometry, that is not the case. The result from integration over the profiles depends on the scheme for localizing the virial, and it does not have a direct thermodynamic interpretation."
+        }
+      ]
+    },
+    {
+      "id": "q_003",
+      "question_text": "What causes the disagreement between surface tensions of spherical vapour-liquid interfaces computed by the standard virial route and by the test-area or test-transformation method, and can an infinitesimal test-area limit that includes a second-order virial term make the two approaches agree? A self-contained resolution must explain whether spherical distortions require both the variance of the energy response and a contribution involving second derivatives of the pair potential, because ordinary virial-route methods for spheres account only for first derivatives of the potential.",
+      "context_brief": "spherical virial versus test-area discrepancy",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 1,
+          "quote": "Unfortunately, results for the surface tension of droplets and bubbles from the virial route are known to disagree both with results from test transformations (test area method) and with what is known about the Tolman length for the respective systems. In particular, the surface tension of Lennard-Jones nanodroplets is significantly smaller if computed by the virial route than by the test area method [1]; other thermodynamic methods tend to agree with the test area results [2]."
+        },
+        {
+          "page": 10,
+          "quote": "The results disagree with those from the virial route to such an extent that fixing the discrepancy just through the definition of the radius would lead to using an unreasonable dividing surface [1]. So, for our purposes, the main immediate aim is to figure out what makes the two methods disagree so much, and what else can be attempted in order to make them agree."
+        },
+        {
+          "page": 11,
+          "quote": "We can take the same limit for the spherical test area method; it will give us a virial expression that, by design, must agree with the test area method. Based on the above, we can expect it to contain a second-order expression that was absent for planar interfaces, and that is indeed the case."
+        },
+        {
+          "page": 12,
+          "quote": "The third term,β3(q, q′), contains a second derivative of the pair potential. This contribution has been overlooked by all virial-route methods for spheres so far, since through forces acting between moleculesi and j, withf ℓij = −∂uij/∂r ℓij, they were only accounting for first derivatives of uij. To be consistent with the test area method, however, we need to include a term that contains the derivative of the force."
+        }
+      ]
+    },
+    {
+      "id": "q_004",
+      "question_text": "How can surface-tension values produced by virial, test-area, test-transformation, or other derivative-based microscopic methods for spherical vapour-liquid interfaces be related to the thermodynamic target value at the Laplace dividing surface, where the absolute and total-differential surface tensions coincide as σ_L = γ_L? If a method instead computes a surface tension associated with another dividing-surface notion ν, radius R_ν, or micromechanical construction, what closure relation or formalism can connect R_ν and γ_ν to the Laplace radius R_L and Laplace surface tension γ_L so that the computed quantity is not thermodynamically useless?",
+      "context_brief": "relation of computed tensions to Laplace thermodynamics",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 1,
+          "quote": "This work addresses four problems in defining and computing the surface tension of vapour-liquid interfaces: (1) The apparent kinetic contribution to the surface tension, and what it is that makes it appear; (2) the problem of defining the local virial, which for some purposes appears to be necessary; (3) the disagreement between results for spherical interfaces when using different methods, specifically the virial and the test area method; (4) how the surface tension values obtained from these methods can be related to the definition of the surface tension from thermodynamics – since if they cannot, it is a meaningless exercise to compute them. At the end, all these problems remain unsolved: They are “open questions.”"
+        },
+        {
+          "page": 17,
+          "quote": "there can be no doubt what quantity we must be interested in obtaining: The surface tension for the Laplace dividing surface, where the absolute and total-differential definitions of the surface tension become equivalent,σL = γL. This is commonly understood, but it deserves pointing out that the above analysis only confirms it. Any method that computes a surface tension other than this must either permit relating it toγL, so that it can be determined indirectly, or it is from the standpoint of interfacialthermodynamics completely useless and can only play a role within a different formalism that can make proper use of the respectivemicromechanics."
+        },
+        {
+          "page": 18,
+          "quote": "So it is in fact possible to obtainγν as a free energy derivative for someν, just not forν = L. Together with some closure relation, it might be possible to connectRν to RL, and γν to γL."
+        }
+      ]
+    },
+    {
+      "id": "q_005",
+      "question_text": "How, if at all, can the Laplace surface tension γ_L = σ_L of a spherical vapour-liquid interface be expressed as a free-energy derivative? The obstruction is that the familiar derivative γ = (∂F/∂a) at fixed particle number N, volume V, and temperature T is rigorous for planar interfaces but becomes problematic for spherical interfaces because N, V, and T determine the area; in the thermodynamic variables developed for spherical dividing surfaces, the analogous derivative gives zero where a surface tension γ is expected.",
+      "context_brief": "Laplace surface tension as free-energy derivative",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 9,
+          "quote": "this, again, can be formulated stringently in the planar case, where we may writeF (N, V, T, a) for the two-phase system, and the four arguments are independent thermodynamic degrees of freedom. In the spherical case,N, V, andT determine a, and the above to some extent becomes an abuse of notation – it suggests a stronger basis of the method in thermodynamics than it actually has."
+        },
+        {
+          "page": 15,
+          "quote": "However, it becomes (∂F/∂aν)N,V,T = γν − Rν∆P/2 = 0; Sampayo et al.[1] explicitly require this to beγ, not zero."
+        },
+        {
+          "page": 18,
+          "quote": "First, it is not clear how we should express the Laplace surface tension as a free energy derivative. Since σL = γL, this could be done from any of the expressions for σν or for γν, but the development from Section 4 does not provide us with an obvious starting point. Instead, we found that Eq. (17) doesnot work within the system of variables developed here – we obtained a zero where we should have obtainedγ according to Sampayoet al. [1]."
+        }
+      ]
+    },
+    {
+      "id": "q_006",
+      "question_text": "Can a thermodynamic formalism be built in which an external-field-like distortion makes an ellipsoidal deformation of a spherical vapour-liquid interface an equilibrium shape, so that the test-transformation parameter χ becomes a thermodynamic boundary condition and test-area or second-order-virial free-energy derivatives acquire a proper theoretical foundation? This would amount to introducing an additional variable—the proposed “demon” action—analogous to an external field, rather than treating the distorted ellipsoid as an ordinary equilibrium state at fixed N, V, and T.",
+      "context_brief": "external-field formalism for distorted droplets",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 18,
+          "quote": "Or should we call on a demon to save us from our predicament? It might just work. Newton, the alchemist, popularized the idea of external entities intervening into bodies’ equations of motion when he argued that once planets threaten to leave their foreseen orbits, God ever so slightly pushes them back. But as we know well, one’s God is another’s demon."
+        },
+        {
+          "page": 18,
+          "quote": "The demon would distort the system in a way similar to the action of an external field, so that the ellipsoidal shape is theequilibrium shape. This would introduce an additional variable so that, e.g., χ could become athermodynamic boundary condition. It is plausible that the theory for this scenario can be developed from an analogy between the demon’s action and an electric field."
+        }
+      ]
+    }
+  ],
+  "needs_review": [],
+  "trace": [
+    {
+      "id": "doc_map",
+      "stage": "map",
+      "notes": "Resolved arXiv abs URL to PDF and mapped a 20-page paper with major sections: introduction and definitions, planar apparent kinetic contribution, spherical local-virial/test-area/second-order-virial analysis, thermodynamic basis, and conclusion with open questions.",
+      "evidence_refs": [
+        "p1",
+        "p2",
+        "p6",
+        "p8",
+        "p10",
+        "p13",
+        "p15",
+        "p17",
+        "p18"
+      ]
+    },
+    {
+      "id": "abstract_intro",
+      "stage": "extract_candidates",
+      "notes": "Extracted the four abstract-level unresolved problems and introduction statements on virial-route foundations, spherical-interface disagreement, and the apparent kinetic contribution.",
+      "evidence_refs": [
+        "p1",
+        "p2"
+      ]
+    },
+    {
+      "id": "section_2",
+      "stage": "extract_candidates",
+      "notes": "Extracted the apparent kinetic contribution question and the unresolved need for partition-function grounding of the pressure tensor with thermodynamic meaning.",
+      "evidence_refs": [
+        "p6",
+        "p7"
+      ]
+    },
+    {
+      "id": "section_3",
+      "stage": "extract_candidates",
+      "notes": "Extracted the local-virial non-uniqueness problem, the virial versus test-area disagreement for spherical interfaces, and the possible second-order virial route.",
+      "evidence_refs": [
+        "p8",
+        "p10",
+        "p11",
+        "p12"
+      ]
+    },
+    {
+      "id": "section_4",
+      "stage": "extract_candidates",
+      "notes": "Extracted the thermodynamic-target problem: computed surface tensions must be related to the Laplace dividing-surface value, and the usual Helmholtz free-energy derivative gives zero in the spherical variables considered.",
+      "evidence_refs": [
+        "p13",
+        "p15",
+        "p17"
+      ]
+    },
+    {
+      "id": "section_5",
+      "stage": "extract_candidates",
+      "notes": "Extracted the conclusion's two formulations of the free-energy-derivative problem, the missing theoretical grounding of test-area and second-order-virial methods, the possible closure relation, and the external-field/demon proposal.",
+      "evidence_refs": [
+        "p18"
+      ]
+    },
+    {
+      "id": "q_001",
+      "stage": "rewrite",
+      "notes": "Rewrote the apparent kinetic contribution issue as a standalone question about rigid multi-site molecular models, coordinate formalism, pressure-tensor anisotropy, and validity of previous planar-interface results.",
+      "evidence_refs": [
+        "p1",
+        "p2",
+        "p6",
+        "p7"
+      ]
+    },
+    {
+      "id": "q_002",
+      "stage": "rewrite",
+      "notes": "Rewrote the local virial problem as a standalone question about pair-interaction localization, uniqueness of radial profile integrals, and thermodynamic interpretation for spherical interfaces.",
+      "evidence_refs": [
+        "p1",
+        "p8"
+      ]
+    },
+    {
+      "id": "q_003",
+      "stage": "rewrite",
+      "notes": "Rewrote the method-disagreement problem as a standalone question about standard virial-route versus test-area results and the proposed second-order virial terms required by spherical distortions.",
+      "evidence_refs": [
+        "p1",
+        "p10",
+        "p11",
+        "p12"
+      ]
+    },
+    {
+      "id": "q_004",
+      "stage": "rewrite",
+      "notes": "Rewrote the thermodynamic relation problem as a standalone question about connecting microscopic method outputs to the Laplace-surface target γ_L = σ_L.",
+      "evidence_refs": [
+        "p1",
+        "p17",
+        "p18"
+      ]
+    },
+    {
+      "id": "q_005",
+      "stage": "rewrite",
+      "notes": "Rewrote the free-energy-derivative problem separately from the broader thermodynamic-relation problem because the conclusion explicitly poses it as its first formulation.",
+      "evidence_refs": [
+        "p9",
+        "p15",
+        "p18"
+      ]
+    },
+    {
+      "id": "q_006",
+      "stage": "rewrite",
+      "notes": "Rewrote the demon proposal as a standalone question about adding an external-field-like thermodynamic boundary condition for ellipsoidal distortions.",
+      "evidence_refs": [
+        "p18"
+      ]
+    },
+    {
+      "id": "dedupe_all",
+      "stage": "dedupe",
+      "notes": "Merged the abstract-level four-problem list with section-level restatements; kept q_004, q_005, and q_006 separate because they concern, respectively, relation to the Laplace target, expression of that target as a free-energy derivative, and a possible external-field formalism.",
+      "evidence_refs": [
+        "p1",
+        "p17",
+        "p18"
+      ]
+    },
+    {
+      "id": "quality_gates_all",
+      "stage": "quality_gates",
+      "notes": "All accepted items have explicit page-numbered evidence, no source-pointing language in question_text, solved-status metadata set to false because the source says the problems remain unsolved, and no unsupported definitions beyond quoted source context.",
+      "evidence_refs": [
+        "p1",
+        "p2",
+        "p6",
+        "p7",
+        "p8",
+        "p9",
+        "p10",
+        "p11",
+        "p12",
+        "p15",
+        "p17",
+        "p18"
+      ]
+    },
+    {
+      "id": "persist",
+      "stage": "persist",
+      "notes": "Saved exact JSON output to outputs/parse-paper/2501.12755.json and outputs/latest.json.",
+      "evidence_refs": []
+    }
+  ]
+}

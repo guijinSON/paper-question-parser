@@ -1,0 +1,490 @@
+{
+  "source": {
+    "url": "https://arxiv.org/abs/2005.01643",
+    "resolved_locator": "/home/gson/paper-question-parser-science-parser/.sisyphus/paper-question-parser/tmp/2005.01643.pdf",
+    "title": "Offline Reinforcement Learning: Tutorial, Review, and Perspectives on Open Problems",
+    "title_origin": "source_text"
+  },
+  "accepted": [
+    {
+      "id": "q_001",
+      "question_text": "In offline reinforcement learning, a learning algorithm receives only a fixed dataset D of transitions (state, action, next state, reward) collected by a behavior policy and cannot collect any additional environment interactions. What nontrivial, formally checkable sufficiency conditions on D guarantee that an offline reinforcement learning algorithm can recover an optimal or near-optimal policy, especially when high-reward regions of the state space may or may not be covered by the dataset?",
+      "context_brief": "Dataset sufficiency for offline RL guarantees",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 7,
+          "quote": "The offline reinforcement learning problem can be defined as a data-driven formulation of the reinforcement learning problem. The end goal is still to optimize the objective in Equation (1). However, the agent no longer has the ability to interact with the environment and collect additional transitions using the behavior policy. Instead, the learning algorithm is provided with a static dataset of transitions, D = {(sit, ait, sit+1, rit)}, and must learn the best policy it can using this dataset."
+        },
+        {
+          "page": 9,
+          "quote": "It is worth noting that defining this notion formally is itself an open problem, and to the best knowledge of the authors, there are no known non-trivial “sufficiency” conditions on D that allows us to formulate guarantees that any offline reinforcement learning algorithm will recover an optimal or near-optimal policy."
+        }
+      ]
+    },
+    {
+      "id": "q_002",
+      "question_text": "Can importance-sampling-based off-policy evaluation or policy-improvement methods be made reliable for fully offline reinforcement learning when the current learned policy differs substantially from the behavior policy, particularly in high-dimensional state and action spaces or long-horizon tasks? A satisfactory answer would avoid exponential variance blowup and degenerate importance weights while still permitting improvement beyond a suboptimal behavior policy from a fixed dataset.",
+      "context_brief": "Importance sampling reliability in fully offline RL",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": "15-16",
+          "quote": "Applying such methods in the fully offline setting poses a number of major challenges. First, importance sampling already suffer from high variance, and this variance increases dramatically in the sequential setting, since the importance weights at successive time steps are multiplied together (see, e.g., Equation (5)), resulting in exponential blowup. Approximate and marginalized importance sampling methods alleviate this issue to some degree by avoiding multiplication of importance weights over multiple time steps, but the fundamental issue still remains: when the behavior policy πβ is too different from the current learned policy πθ, the importance weights will become degenerate, and any estimate of the return or the gradient will have too much variance to be usable, especially in high-dimensional state and action spaces, or for long-horizon problems."
+        },
+        {
+          "page": 16,
+          "quote": "Thus, the maximum improvement that can be reliably obtained via importance sampling is limited by (i) the suboptimality of the behavior policy; (ii) the dimensionality of the state and action space; (iii) the effective horizon of the task."
+        }
+      ]
+    },
+    {
+      "id": "q_003",
+      "question_text": "Can the value-function estimators or state-marginal density-ratio estimators used to reduce the variance of importance-sampling methods be learned stably from a fully offline dataset, despite the out-of-distribution action queries introduced by dynamic programming? The setting is fixed-dataset offline reinforcement learning, where additional online data collection is unavailable and dynamic-programming corrections themselves may be unreliable outside the data distribution.",
+      "context_brief": "Stable density-ratio and value estimation offline",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 16,
+          "quote": "The second challenge is that the most effective of these off-policy policy gradient methods either requires estimating the value function, or the state-marginal density ratios via dynamic programming. As several prior works have shown, and as we will review in Section 4, dynamic programming methods suffer from issues pertaining to out-of-distribution queries in completely offline settings, making it hard to stably learn the value function without additional corrections."
+        }
+      ]
+    },
+    {
+      "id": "q_004",
+      "question_text": "How can offline approximate dynamic-programming methods that use high-capacity function approximators such as deep neural networks obtain calibrated epistemic uncertainty estimates for Q-functions, so that the algorithm can identify untrustworthy out-of-distribution actions without becoming either overly conservative or overly loose?",
+      "context_brief": "Calibrated Q-function uncertainty for offline dynamic programming",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 24,
+          "quote": "While such explicit uncertainty-based methods are conceptually attractive, it is often very hard to obtain calibrated uncertainty estimates to evaluate PD(Qˆπ) and Unc in practice, especially with modern high-capacity function approximators, such as deep neural networks."
+        },
+        {
+          "page": 25,
+          "quote": "In practice, imperfect uncertainty sets can give rise to either overly conservative estimates, which impedes learning, or overly loose estimates, which results in exploitation of out-of-distribution actions."
+        }
+      ]
+    },
+    {
+      "id": "q_005",
+      "question_text": "How can offline reinforcement learning impose policy constraints against the behavior represented in a dataset when that behavior is highly multimodal, without relying on an estimated behavior-policy model that averages across modes and thereby permits out-of-distribution actions?",
+      "context_brief": "Policy constraints under multimodal behavior data",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 25,
+          "quote": "This means that the performance of these algorithms is limited by the accuracy of estimation of the behavior policy, which may be hard in scenarios with highly multimodal behaviors, as is the case in practice with real-world problems. For example, if a unimodal Gaussian policy is used to model a highly multi-modal action distribution, averaging across different modes while fitting this behavior policy may actually be unable to prevent the learned policy, π, from choosing out-of-distribution actions. Methods that enforce the constraint implicitly, using only samples and without explicit behavior policy estimation, are a promising way to alleviate this limitation (Peng et al., 2019; Nair et al., 2020)."
+        }
+      ]
+    },
+    {
+      "id": "q_006",
+      "question_text": "How can offline dynamic-programming algorithms with neural-network value functions prevent brittle function-approximation errors, small-dataset overfitting, and accumulated Bellman-backup errors when there is no online data collection to provide corrective feedback?",
+      "context_brief": "Function-approximation error accumulation in offline dynamic programming",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 25,
+          "quote": "Even when the behavior policy can be estimated exactly, a number of these methods still suffer from the undesirable effects of function approximation. When neural networks are used to represent Q-functions, undesirable effects of function approximation may prevent the Q-function from learning meaningful values even when out-of-distribution actions are controlled for in the target values. For example, when the size of the dataset is limited, approximate dynamic programming algorithms tend to overfit on the small dataset, and this error is then accumulated via Bellman backups (Fu et al., 2019; Kumar et al., 2020a)."
+        },
+        {
+          "page": 25,
+          "quote": "Unlike online reinforcement learning, where accidental overestimation errors arising due to function approximation can be corrected via active data collection, these errors cumulatively build up and affect future iterates in an offline RL setting."
+        }
+      ]
+    },
+    {
+      "id": "q_007",
+      "question_text": "In conservative or pessimistic value-function methods for offline reinforcement learning, how can an algorithm dynamically choose the degree of conservatism so that it avoids overestimating out-of-distribution actions without unnecessarily rejecting unfamiliar actions that may be useful for improving over the behavior policy?",
+      "context_brief": "Adaptive conservatism in offline RL",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 25,
+          "quote": "Indeed, excessive pessimism may be one of the bigger issues preventing better performance on current benchmarks, and an important open question is how to dynamically modulate the degree of conservatism to balance the risks of overestimation against the downside of avoiding any unfamiliar action."
+        }
+      ]
+    },
+    {
+      "id": "q_008",
+      "question_text": "How should offline reinforcement learning algorithms account for the dataset state distribution dπβ(s) during training, especially when function approximation couples the Q-values of states that have very different densities under the behavior-policy data distribution and can therefore produce incorrect values at low-density states?",
+      "context_brief": "State-distribution effects under function approximation",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 25,
+          "quote": "A further issue that afflicts both constraint-based and conservative methods is that, while the Q-function is never evaluated on out-of-distribution states during training, the Q-function is still affected by the training set state distribution dπβ(s), and this is not accounted for in current offline learning methods. For instance, when function approximation couples the Q-value at two distinct states with very different densities under dπβ(s), dynamic programming with function approximation may give rise to incorrect solutions on the state that has a lower probability dπβ(s)."
+        }
+      ]
+    },
+    {
+      "id": "q_009",
+      "question_text": "Can practical offline approximate-dynamic-programming constraints trade off error accumulation against the suboptimality imposed by staying close to the behavior distribution in typical average-case Markov decision processes, while remaining easy to enforce and optimize with standard methods and without fitting additional behavior-policy function approximators?",
+      "context_brief": "Average-case constraints for offline dynamic programming",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": "25-26",
+          "quote": "Besides the worst-case dependence on the horizon, an open question that still remains is is the development of constraints that can effectively trade off error accumulation and suboptimality of the learned policy in most “average”-case MDP instances, and can be easily enforced and optimized in practice via standard optimization techniques without requiring additional function approximators to fit the behavior policy."
+        }
+      ]
+    },
+    {
+      "id": "q_010",
+      "question_text": "How can fully offline model-based reinforcement learning methods more accurately account for distributional shift by estimating model uncertainty or model error in a way that is reliable enough to guide policy learning from fixed data? The goal is to improve over current approaches that often rely on explicit uncertainty estimation such as bootstrap ensembles and still leave substantial room for better offline performance.",
+      "context_brief": "Model uncertainty and distribution shift in offline model-based RL",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 28,
+          "quote": "Although model-based reinforcement learning appears to be a natural fit for the offline RL problem setting, current methods for fully offline model-based reinforcement learning generally rely on explicit uncertainty estimation for the model to detect and quantify distributional shift, for example by using a bootstrap ensemble. Although uncertainty estimation for models is in some ways more straightforward than uncertainty estimation for value functions, current uncertainty estimation methods still leave much to be desired, and it seems likely that offline performance of model-based RL methods can be improved substantially by carefully accounting for distributional shift."
+        }
+      ]
+    },
+    {
+      "id": "q_011",
+      "question_text": "How can model-based reinforcement learning accurately model Markov decision processes with very high-dimensional image observations and long horizons for offline control, given that current predictive models struggle with long-horizon prediction? Possible solutions may include better long-horizon observation models or hybrid model-based/model-free methods that use short rollouts or avoid predicting full observations.",
+      "context_brief": "High-dimensional long-horizon model learning",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 28,
+          "quote": "Modeling MDPs with very high-dimensional image observations and long horizons is a major open problem, and current predictive modeling methods generally struggle with long-horizon prediction. Hybrid methods that combine model-based and model-free learning, for example by utilizing short rollouts (Sutton, 1991; Janner et al., 2019) or avoiding prediction of full observations (Dosovitskiy and Koltun, 2016; Oh et al., 2017; Kahn et al., 2020) offer some promise in this area."
+        }
+      ]
+    },
+    {
+      "id": "q_012",
+      "question_text": "Under nonlinear function approximation, can offline model-based reinforcement learning theoretically improve over offline model-free dynamic-programming methods, and what theoretical bounds characterize the optimal performance achievable by offline model-based reinforcement learning compared with offline dynamic programming? The question concerns whether learning future-state predictors yields fundamental advantages over predicting returns when both approaches are trained from the same fixed offline data.",
+      "context_brief": "Theory comparing offline model-based and dynamic-programming methods",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 28,
+          "quote": "It is also still an open theoretical question as to whether model-based RL methods even in theory can improve over model-free dynamic programming algorithms. The reasoning behind this question is that, although dynamic programming methods do not explicitly learn a model, they essentially utilize the dataset as a “non-parametric” model. Fundamentally, both dynamic programming methods and model-based RL methods are solving prediction problems, with the former predicting future returns, and the latter predicting future states."
+        },
+        {
+          "page": 29,
+          "quote": "In the linear function approximation case, it is known that model-based updates and fitted value iteration updates actually produce identical iterates (Vanseijen and Sutton, 2015; Parr et al., 2008), though it is unknown whether this relationship holds under non-linear function approximation. Therefore, exploring the theoretical bounds on the optimal performance of offline model-based RL methods under non-linear function approximation, as compared to offline dynamic programming methods, remains an open problem."
+        }
+      ]
+    },
+    {
+      "id": "q_013",
+      "question_text": "How should modern offline reinforcement learning be benchmarked so that evaluation datasets and simulations reflect the dataset statistics that make offline learning difficult, including concentration around particular trajectories, multimodal behavior policies, broad versus narrow behavior distributions, and compositional structure that allows transitive induction beyond any single trajectory in the dataset?",
+      "context_brief": "Benchmark design for offline RL",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 29,
+          "quote": "While individual application domains, such as recommender systems and healthcare, discussed below, have developed particular domain-specific evaluations, the general state of benchmarking for modern offline reinforcement learning research is less well established."
+        },
+        {
+          "page": 29,
+          "quote": "However, even this formulation does not fully evaluate capabilities of offline reinforcement learning methods, and the statistics of the training data have a considerable effect on the difficult of offline RL (Fu et al., 2020), including how concentrated the data distribution is around a specific set of trajectories, and how multi-modal the data is."
+        },
+        {
+          "page": "29-30",
+          "quote": "When we also consider the capacity of neural networks to generalize, we could imagine this sort of “transitive induction” taking place on a portion of the state variables, effectively inferring potentially optimal behavior from highly suboptimal components. This capability can be evaluated with benchmarks that explicitly provide data containing this structure, and the D4RL benchmark suite provides a range of tasks that exercise this capability (Fu et al., 2020)."
+        }
+      ]
+    },
+    {
+      "id": "q_014",
+      "question_text": "How can off-policy evaluation estimate the online performance of policies learned by offline reinforcement learning without explicit online interaction, especially when simulators are unavailable and real online evaluation has financial or safety consequences in domains such as advertising or healthcare?",
+      "context_brief": "Off-policy evaluation for offline RL deployment",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 30,
+          "quote": "Accurately evaluating the performance of offline RL algorithms can be difficult, because we are typically interested in maximizing the online performance of an algorithm. When simulators are available, online evaluations can be cheaply performed within the simulator order to benchmark the performance of algorithms. Off-policy evaluation (OPE) can also be used to estimate the performance of policies without explicit online interaction, but it is an active area of research as discussed in Section 3.1."
+        },
+        {
+          "page": 30,
+          "quote": "Nevertheless, OPE is a popular tool in areas such as online advertising (Li et al., 2010) or healthcare (Murphy et al., 2001) where online evaluation can have significant financial or safety consequences."
+        }
+      ]
+    }
+  ],
+  "needs_review": [
+    {
+      "id": "q_015",
+      "reason": "too_broad_to_self_contain_as_single_question",
+      "question_text_raw": "Use tools from causal inference, uncertainty estimation, density estimation/generative modeling, distributional robustness, invariance, trust regions, distribution constraints, and support estimation to address distributional shift and counterfactual inference in offline reinforcement learning.",
+      "evidence": [
+        {
+          "page": 33,
+          "quote": "Moving forward, we might expect that a variety of tools developed for addressing distributional shift and facilitating generalization may find use in offline RL algorithms, including techniques from causal inference (Schölkopf, 2019), uncertainty estimation (Gal and Ghahramani, 2016; Kendall and Gal, 2017), density estimation and generative modeling (Kingma et al., 2014), distributional robustness (Sinha et al., 2017; Sagawa et al., 2019) and invariance (Arjovsky et al., 2019). More broadly, methods that aim to estimate and address distributional shift, constrain distributions (e.g., various forms of trust regions), and evaluate distribution support from samples are all potentially relevant to developing improved methods for offline reinforcement learning."
+        }
+      ]
+    },
+    {
+      "id": "q_016",
+      "reason": "future_direction_without_specific_question_statement",
+      "question_text_raw": "Develop a new generation of data-driven reinforcement learning enabled by large, diverse, reusable datasets for real-world problems where active online collection is costly or unsafe.",
+      "evidence": [
+        {
+          "page": "33-34",
+          "quote": "In real-world applications, collecting large, diverse, representative, and well-labeled datasets is often far more important than utilizing the most advanced methods. In the standard active setting in which most reinforcement learning methods operate, collecting large and diverse datasets is often impractical, and in many applications, including safety-critical domains such as driving, and human-interactive domains such as dialogue systems, it is prohibitively costly in terms of time, money, and safety considerations. Therefore, developing a new generation of data-driven reinforcement learning may usher in a new era of progress in reinforcement learning, both by making it possible to bring it to bear on a range of real-world problems that have previously been unsuited for such methods, and by enabling current applications (e.g., in robotics or autonomous driving) to benefit from much larger, more diverse, and more representative datasets that can be reused effectively across experiments."
+        }
+      ]
+    }
+  ],
+  "trace": [
+    {
+      "id": "source_resolution",
+      "stage": "input",
+      "notes": "Normalized arXiv abs URL to the arXiv PDF and downloaded the PDF for page-number citation extraction.",
+      "evidence_refs": [
+        "https://arxiv.org/pdf/2005.01643.pdf",
+        "p1"
+      ]
+    },
+    {
+      "id": "doc_map",
+      "stage": "map",
+      "notes": "Mapped sections 1 through 7 plus references; likely open-question regions were Sections 2.4, 3.5, 4.6, 5.3, 6.1, and 7.",
+      "evidence_refs": [
+        "p1",
+        "p3",
+        "p9",
+        "p15",
+        "p24",
+        "p28",
+        "p29",
+        "p32"
+      ]
+    },
+    {
+      "id": "q_001",
+      "stage": "extract_candidates",
+      "notes": "Extracted explicit footnote open problem on formal sufficiency conditions for the fixed dataset D.",
+      "evidence_refs": [
+        "p7",
+        "p9"
+      ]
+    },
+    {
+      "id": "q_002_q_003",
+      "stage": "extract_candidates",
+      "notes": "Extracted Section 3.5 challenges on fully offline importance sampling and dynamic-programming-based variance-reduction estimators.",
+      "evidence_refs": [
+        "p15",
+        "p16"
+      ]
+    },
+    {
+      "id": "q_004_q_009",
+      "stage": "extract_candidates",
+      "notes": "Extracted Section 4.6 open problems on uncertainty, policy constraints, function approximation, conservative value functions, state-distribution effects, and average-case constraints.",
+      "evidence_refs": [
+        "p24",
+        "p25",
+        "p26"
+      ]
+    },
+    {
+      "id": "q_010_q_012",
+      "stage": "extract_candidates",
+      "notes": "Extracted Section 5.3 open problems on model uncertainty, high-dimensional long-horizon modeling, and model-based versus model-free theory.",
+      "evidence_refs": [
+        "p28",
+        "p29"
+      ]
+    },
+    {
+      "id": "q_013_q_014",
+      "stage": "extract_candidates",
+      "notes": "Extracted Section 6.1 implicit open problems on benchmarking and off-policy evaluation.",
+      "evidence_refs": [
+        "p29",
+        "p30"
+      ]
+    },
+    {
+      "id": "q_015_q_016",
+      "stage": "extract_candidates",
+      "notes": "Extracted broad Section 7 future directions but marked them for review because they were not specific self-contained research questions.",
+      "evidence_refs": [
+        "p33",
+        "p34"
+      ]
+    },
+    {
+      "id": "q_001",
+      "stage": "rewrite",
+      "notes": "Expanded D into a fixed transition dataset in offline RL and preserved the explicit sufficiency-conditions problem.",
+      "evidence_refs": [
+        "p7",
+        "p9"
+      ]
+    },
+    {
+      "id": "q_002",
+      "stage": "rewrite",
+      "notes": "Rewrote the importance-sampling challenge as a standalone reliability question covering variance, degenerate weights, dimensionality, horizon, and behavior-policy suboptimality.",
+      "evidence_refs": [
+        "p15",
+        "p16"
+      ]
+    },
+    {
+      "id": "q_003",
+      "stage": "rewrite",
+      "notes": "Separated the dynamic-programming estimator challenge from the general importance-sampling variance challenge.",
+      "evidence_refs": [
+        "p16"
+      ]
+    },
+    {
+      "id": "q_004",
+      "stage": "rewrite",
+      "notes": "Rewrote the Q-function uncertainty issue using only supported terms: calibrated uncertainty, high-capacity approximators, out-of-distribution actions, and conservative versus loose estimates.",
+      "evidence_refs": [
+        "p24",
+        "p25"
+      ]
+    },
+    {
+      "id": "q_005",
+      "stage": "rewrite",
+      "notes": "Converted the behavior-policy estimation limitation into a multimodal-policy-constraint question.",
+      "evidence_refs": [
+        "p25"
+      ]
+    },
+    {
+      "id": "q_006",
+      "stage": "rewrite",
+      "notes": "Converted function-approximation brittleness and accumulated Bellman errors into a standalone offline dynamic-programming question.",
+      "evidence_refs": [
+        "p25"
+      ]
+    },
+    {
+      "id": "q_007",
+      "stage": "rewrite",
+      "notes": "Preserved the source's explicit important open question about dynamic modulation of conservatism.",
+      "evidence_refs": [
+        "p25"
+      ]
+    },
+    {
+      "id": "q_008",
+      "stage": "rewrite",
+      "notes": "Expanded the state-distribution issue with the supported dπβ(s) notation and low-density-state failure mode.",
+      "evidence_refs": [
+        "p25"
+      ]
+    },
+    {
+      "id": "q_009",
+      "stage": "rewrite",
+      "notes": "Preserved the source's explicit average-case constraint problem and spelled out the optimization and behavior-policy-approximator requirements.",
+      "evidence_refs": [
+        "p25",
+        "p26"
+      ]
+    },
+    {
+      "id": "q_010",
+      "stage": "rewrite",
+      "notes": "Rewrote the model-based distribution-shift challenge as a question about reliable model uncertainty and error estimation from fixed data.",
+      "evidence_refs": [
+        "p28"
+      ]
+    },
+    {
+      "id": "q_011",
+      "stage": "rewrite",
+      "notes": "Preserved the explicit major open problem on high-dimensional image observations and long horizons, including supported hybrid-method context.",
+      "evidence_refs": [
+        "p28"
+      ]
+    },
+    {
+      "id": "q_012",
+      "stage": "rewrite",
+      "notes": "Merged the closely related theoretical questions on model-based improvement over dynamic programming and nonlinear-function-approximation performance bounds.",
+      "evidence_refs": [
+        "p28",
+        "p29"
+      ]
+    },
+    {
+      "id": "q_013",
+      "stage": "rewrite",
+      "notes": "Rewrote the benchmarking discussion into a concrete question about dataset statistics and transitive-induction structure.",
+      "evidence_refs": [
+        "p29",
+        "p30"
+      ]
+    },
+    {
+      "id": "q_014",
+      "stage": "rewrite",
+      "notes": "Rewrote the off-policy-evaluation discussion into a deployment-evaluation question for offline RL policies.",
+      "evidence_refs": [
+        "p30"
+      ]
+    },
+    {
+      "id": "dedupe",
+      "stage": "dedupe",
+      "notes": "Merged the model-based theoretical comparison and theoretical-bound candidates into q_012; retained distinct candidates where the source separated importance sampling, dynamic programming, model-based RL, benchmarking, and OPE concerns.",
+      "evidence_refs": [
+        "q_002",
+        "q_003",
+        "q_012"
+      ]
+    },
+    {
+      "id": "quality_gates",
+      "stage": "quality_gates",
+      "notes": "Accepted q_001 through q_014: each has page-located evidence, no solved label, and a self-contained question. Moved q_015 and q_016 to needs_review because the source evidence gives broad future directions rather than specific research question statements.",
+      "evidence_refs": [
+        "q_001-q_014",
+        "q_015",
+        "q_016"
+      ]
+    },
+    {
+      "id": "persist",
+      "stage": "persist",
+      "notes": "Saved exact JSON output to outputs/parse-paper/2005.01643.json and outputs/latest.json.",
+      "evidence_refs": [
+        "outputs/parse-paper/2005.01643.json",
+        "outputs/latest.json"
+      ]
+    }
+  ]
+}

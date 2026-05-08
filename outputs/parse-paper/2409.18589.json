@@ -1,0 +1,233 @@
+{
+  "source": {
+    "url": "https://arxiv.org/abs/2409.18589",
+    "resolved_locator": "/home/gson/paper-question-parser-science-parser/.sisyphus/paper-question-parser/tmp/2409.18589.pdf",
+    "title": "Towards Event-Triggered NMPC for Efficient 6G Communications: Experimental Results and Open Problems",
+    "title_origin": "source_text"
+  },
+  "accepted": [
+    {
+      "id": "q_001",
+      "question_text": "For networked control systems in which sensors, actuators, plants, and controllers communicate over wireless networks, how can event-triggered control be designed and evaluated so that it reduces energy consumption and extends battery life while preserving control performance? In particular, how can 5G Reduced Capability (RedCap) devices, which support lower data-rate communication and long power-saving inactive periods while retaining cell-side context for quick wake-up, be used so that a device stays inactive until a new control event occurs, and how should the controller and network be co-designed to optimize communication-resource utilization and minimize energy consumption?",
+      "context_brief": "Energy-aware event-triggered networked control with 5G RedCap",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 7,
+          "quote": "Even for the control benchmark of swinging up and stabilizing an inverted pendulum at its upper equilibrium, event-triggered control reduces communication demand to 61 % compared to periodic control while maintaining similar control performance."
+        },
+        {
+          "page": 7,
+          "quote": "Future work will investigate the impact of event-triggered control on energy consumption and battery life in networked control systems. This can be explored using 5G RedCap (Reduced Capability) devices, which enable efficient communication with lower data rate requirements, thereby extending battery life."
+        },
+        {
+          "page": 8,
+          "quote": "These devices are able to traverse into a power-saving state for a long time during a period of inactivity. Specifically, a device keeps its context on cell side and can quickly wake up for data transmission to transmit data without establishing a new connection. An event-triggered control strategy could leverage this feature by keeping the device in an inactive state until a new event occurs."
+        },
+        {
+          "page": 8,
+          "quote": "Ultimately, the co-design of the controller and the network should prioritize optimizing resource utilization, thereby minimizing energy consumption."
+        }
+      ]
+    },
+    {
+      "id": "q_002",
+      "question_text": "How well do event-triggered nonlinear model predictive control methods for networked control systems generalize beyond a Furuta pendulum controlled over a tailored O-RAN 6G research platform? The open validation problem is to run further experiments across diverse control applications and communication systems, rather than relying only on numerical simulations or a small number of hardware demonstrations, and to determine whether the control-performance and communication-resource benefits persist in those settings.",
+      "context_brief": "Experimental generalization across applications and networks",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 1,
+          "quote": "Despite an extensive theoretical analysis of event-triggered MPC and event-triggered control more broadly, most papers illustrate the proposed schemes via numerical simulations only."
+        },
+        {
+          "page": 1,
+          "quote": "As highlighted in [14], experimental studies are crucial for advancing research in NCS. They provide valuable insights into control performance and communication resource requirements for control applications in both current and future wireless networks."
+        },
+        {
+          "page": 1,
+          "quote": "Only a limited number of works explore real hardware implementations: [16], [17] implement their applications using wired experimental setups."
+        },
+        {
+          "page": 1,
+          "quote": "In this paper, we investigate the potential for co-design of model predictive control and network communication. To this end, we design and implement an event-triggered nonlinear model predictive controller for stabilizing a Furuta pendulum communicating over a tailored open radio access network 6G research platform."
+        },
+        {
+          "page": 8,
+          "quote": "Finally, further experiments with diverse control applications and communication systems are needed to advance networked control applications."
+        }
+      ]
+    },
+    {
+      "id": "q_003",
+      "question_text": "How can a sensor-side event-triggered nonlinear model predictive controller over a 5G or future-6G wireless network maintain stability when poor channel conditions cause significant packet errors, Hybrid Automatic Repeat Request retransmissions, variable uplink and downlink delays, and multiple correlated latency peaks? The controller must handle the fact that uplink retransmission delays can be measured and included in delay compensation, whereas downlink retransmission delays are not correctly compensated when downlink delay is assumed constant; experiments showed stability with some latency peaks above 100 ms but failure when several correlated peaks occurred.",
+      "context_brief": "Stability under retransmissions and correlated latency peaks",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 6,
+          "quote": "However, at −10 dB, increased channel interference leads to significant packet errors. If the receiver of a message cannot decode the packet, it sends a negative-acknowledgment to the transmitter of the message, which performs an HARQ retransmission."
+        },
+        {
+          "page": 6,
+          "quote": "From a control perspective, if such an HARQ retransmission occurs in the uplink direction, i.e., from the plant to the controller, the uplink delay increases and will be measured and accounted for by the delay compensation. Meanwhile, if the packet error occurs in the downlink direction from the controller to the actuator, the increased downlink delay is not being correctly compensated by the delay compensation, since the downlink delay is assumed constant."
+        },
+        {
+          "page": 6,
+          "quote": "Despite this, the system maintains stability even with latency peaks exceeding 100 ms. However, when multiple correlated latency peaks occur at around t=8 s, the controller fails to maintain stability, causing the pendulum arm to fall and leading to an increased closed-loop cost."
+        },
+        {
+          "page": 7,
+          "quote": "While the networked control system is robust to delays up to 100 ms, prolonged delays due to poor channel conditions can affect the stability of the control application."
+        }
+      ]
+    },
+    {
+      "id": "q_004",
+      "question_text": "How should the event-triggering threshold ε be selected for an event-triggered nonlinear model predictive controller so that the controller balances closed-loop cost against wireless communication demand for a given application and channel condition? In the reported Furuta-pendulum experiment, ε = 0 corresponds to periodic control with 100% communication demand, increasing ε makes recalculations less frequent and raises closed-loop cost while lowering transmissions, and ε = 0.4 was suitable for that benchmark; the broader design question is how to choose such thresholds systematically for other requirements.",
+      "context_brief": "Event-triggering threshold selection",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 5,
+          "quote": "A threshold of ε = 0 corresponds to periodic control and, therefore, a communication demand of 100 %. With increasing ε, the recalculation of the closed-loop solution becomes less frequent, and the open-loop control input is applied for a longer duration, resulting in a higher closed-loop cost, as illustrated in Figure 5."
+        },
+        {
+          "page": 5,
+          "quote": "On the other hand, this reduces the frequency of control signal transmissions over the wireless interface, thereby lowering the communication demand. Depending on the application requirements, we observe the best trade-off between control performance and communication demand."
+        },
+        {
+          "page": 5,
+          "quote": "For the Furuta pendulum, we consider ε = 0.4 as a suitable threshold. In this case, the communication demand is reduced to 55 % network traffic with a negligible impact on the control performance."
+        }
+      ]
+    }
+  ],
+  "needs_review": [],
+  "trace": [
+    {
+      "id": "source",
+      "stage": "input",
+      "notes": "Normalized arXiv abs URL to https://arxiv.org/pdf/2409.18589.pdf and downloaded the exact PDF artifact.",
+      "evidence_refs": []
+    },
+    {
+      "id": "source",
+      "stage": "map",
+      "notes": "Mapped an 8-page PDF with sections Abstract, Introduction, Problem Statement & Controller Design, Experiments, Conclusions & Outlook, and References; likely open-question regions were concentrated in the Introduction, Experimental Results, and Conclusions & Outlook.",
+      "evidence_refs": [
+        "p1",
+        "p5",
+        "p6",
+        "p7",
+        "p8"
+      ]
+    },
+    {
+      "id": "q_001",
+      "stage": "extract_candidates",
+      "notes": "Merged explicit future-work statements about energy consumption, battery life, RedCap devices, inactive states, and controller/network resource-utilization co-design.",
+      "evidence_refs": [
+        "p7",
+        "p8"
+      ]
+    },
+    {
+      "id": "q_002",
+      "stage": "extract_candidates",
+      "notes": "Extracted the broader experimental-validation problem from the Introduction and final sentence of the Outlook.",
+      "evidence_refs": [
+        "p1",
+        "p8"
+      ]
+    },
+    {
+      "id": "q_003",
+      "stage": "extract_candidates",
+      "notes": "Extracted the stability-under-poor-channel-conditions problem from experimental observations of HARQ retransmissions, variable delay compensation, and correlated latency peaks.",
+      "evidence_refs": [
+        "p6",
+        "p7"
+      ]
+    },
+    {
+      "id": "q_004",
+      "stage": "extract_candidates",
+      "notes": "Extracted the implicit threshold-selection problem from the measured trade-off between closed-loop cost and communication demand under varying ε.",
+      "evidence_refs": [
+        "p5"
+      ]
+    },
+    {
+      "id": "q_001",
+      "stage": "rewrite",
+      "notes": "Expanded RedCap, inactive-state behavior, and resource/energy co-design using only evidence from the Outlook.",
+      "evidence_refs": [
+        "p7",
+        "p8"
+      ]
+    },
+    {
+      "id": "q_002",
+      "stage": "rewrite",
+      "notes": "Expanded the validation problem with the specific demonstrated setting and the stated need for diverse control applications and communication systems.",
+      "evidence_refs": [
+        "p1",
+        "p8"
+      ]
+    },
+    {
+      "id": "q_003",
+      "stage": "rewrite",
+      "notes": "Expanded the delay-stability problem with supported details about SNR −10 dB, HARQ retransmissions, downlink-delay compensation, and correlated latency peaks.",
+      "evidence_refs": [
+        "p6",
+        "p7"
+      ]
+    },
+    {
+      "id": "q_004",
+      "stage": "rewrite",
+      "notes": "Expanded ε-threshold selection with supported details about periodic control at ε = 0, cost/communication trade-offs, and the reported Furuta-pendulum threshold.",
+      "evidence_refs": [
+        "p5"
+      ]
+    },
+    {
+      "id": "all",
+      "stage": "dedupe",
+      "notes": "Merged near-duplicate energy, RedCap, inactive-state, and resource-minimization candidates into q_001; kept validation, delay-stability, and threshold-selection as distinct problems.",
+      "evidence_refs": [
+        "q_001",
+        "q_002",
+        "q_003",
+        "q_004"
+      ]
+    },
+    {
+      "id": "all",
+      "stage": "quality_gates",
+      "notes": "Accepted items have source locators, verbatim evidence, self-contained question text, no solved labels in the source, and no unresolved cross-references required to understand the question.",
+      "evidence_refs": [
+        "q_001",
+        "q_002",
+        "q_003",
+        "q_004"
+      ]
+    },
+    {
+      "id": "all",
+      "stage": "persist",
+      "notes": "Saved exact JSON output to outputs/parse-paper/2409.18589.json and outputs/latest.json after schema and evidence-coverage validation.",
+      "evidence_refs": []
+    }
+  ]
+}

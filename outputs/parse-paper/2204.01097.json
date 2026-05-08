@@ -1,0 +1,177 @@
+{
+  "source": {
+    "url": "https://arxiv.org/abs/2204.01097",
+    "resolved_locator": "/home/gson/paper-question-parser-science-parser/.sisyphus/paper-question-parser/tmp/2204.01097.pdf",
+    "title": "Localizing the Vehicle’s Antenna: an Open Problem in 6G Network Sensing",
+    "title_origin": "source_text"
+  },
+  "accepted": [
+    {
+      "id": "q_001",
+      "question_text": "How can a 6G Vehicle-to-Infrastructure beam-management system accurately localize the millimeter-wave or sub-THz antenna of a moving Vehicular Equipment using sensing at a Base Station, especially when a Base-Station-mounted radar observes the vehicle as an extended target rather than a point target? The solution must identify or compensate for the bias and uncertainty between the radar back-scattering region and the true antenna position, including cases where the strongest scattering comes from double reflections with the ground or vehicle body, does not coincide with the antenna, and leaves residual angular uncertainty that increases beam-training time and beamforming-gain loss, so that radar-only beam management can select the correct narrow beam without excessive beam search.",
+      "context_brief": "Radar localization of a vehicle antenna for 6G V2I beam management",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 1,
+          "quote": "However, radio sensing should accurately localize the Vehicular Equipment (VE)’s antenna, which is not guaranteed in general."
+        },
+        {
+          "page": 1,
+          "quote": "Simulation results, supported by experimental evidence, show that the point target approximation of a traveling VE does not hold in practical V2I scenarios with radar-equipped BS. Therefore, the true antenna position has a residual uncertainty that is independent of radar’s resolution and implies 50 % more BM training time on average."
+        },
+        {
+          "page": 7,
+          "quote": "However, if the antenna is mounted on the VE’s rooftop, as indicated in [41], the impinging sensing wave tends to be specularly reflected by the metallic rooftop and the antenna contribution in the radar image may not be detectable. This means that, even in the ideal case where the angular resolution is infinite (i.e., Nrad → ∞, NBS → ∞) the identification of the strongest scattering point in the range-angle map does not provide the correct pointing direction."
+        },
+        {
+          "page": 13,
+          "quote": "Therefore, the accurate localization of the radar’s antenna in 6G network sensing is still an open problem, whose solution would tip the scales toward the usage of radar-only BM."
+        }
+      ]
+    },
+    {
+      "id": "q_002",
+      "question_text": "What is the practical impact, in very dense vehicular networks, of the control-channel overhead required by position-assisted beam management, where a Vehicular Equipment must continuously signal its position information to the Base Station so that the Base Station can use that side information to reduce the beam-search space?",
+      "context_brief": "Control overhead for position-assisted V2I beam management",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 2,
+          "quote": "Of course, the main drawback of sensor-assisted BM approaches is that VE’s position shall be continuously signaled to the BS by means of a proper control channel. Although this is currently considered for vehicular networks in the context of autonomous driving [24], the real impact of control overhead is yet to be determined for very dense vehicular networks."
+        }
+      ]
+    },
+    {
+      "id": "q_003",
+      "question_text": "How should the scalar fusion design parameter ω in a multi-technology beam-management estimator be selected dynamically from the freshness of radar and positioning measurements, instead of being fixed at 0.5, when the estimator combines the radar-based spherical position estimate of a vehicle antenna and the positioning-system estimate through covariance-weighted fusion matrices to define the beam-search uncertainty?",
+      "context_brief": "Freshness-aware fusion of radar and positioning estimates",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 6,
+          "quote": "In addition to position- and radar-assisted BM solutions, we propose a possible improvement that leverages both radar and positioning systems. The optimal statistical combination of the dual technologies VE’s estimated positions is ûMT = Kpos ûpos + Krad ûrad."
+        },
+        {
+          "page": 6,
+          "quote": "Parameter ω is a degree of freedom in the fusion design, herein we set ω = 0.5. But a possible improvement could be to set ω as function of the information freshness."
+        }
+      ]
+    }
+  ],
+  "needs_review": [],
+  "trace": [
+    {
+      "id": "source_resolution",
+      "stage": "input",
+      "notes": "Normalized arXiv abs URL to the PDF URL https://arxiv.org/pdf/2204.01097.pdf and downloaded it as the primary PDF artifact.",
+      "evidence_refs": []
+    },
+    {
+      "id": "doc_map",
+      "stage": "map",
+      "notes": "Mapped a 14-page PDF with sections: Introduction, System and Channel Model, Beam Management Schemes, Modeling the Experimented Radar Back-Scattering of VE, Numerical Results and Discussion, and Concluding Remarks. Likely question regions were found on pages 1, 2, 6, 7, 8, and 13.",
+      "evidence_refs": [
+        "p1",
+        "p2",
+        "p6",
+        "p7",
+        "p8",
+        "p13"
+      ]
+    },
+    {
+      "id": "section_intro",
+      "stage": "extract_candidates",
+      "notes": "Extracted the main antenna-localization open problem from the title, abstract, literature review, and contribution statements.",
+      "evidence_refs": [
+        "p1",
+        "p2",
+        "p3"
+      ]
+    },
+    {
+      "id": "section_methods",
+      "stage": "extract_candidates",
+      "notes": "Extracted a candidate about freshness-aware choice of the multi-technology fusion parameter ω from the Multi-Technology method section.",
+      "evidence_refs": [
+        "p6"
+      ]
+    },
+    {
+      "id": "section_backscatter",
+      "stage": "extract_candidates",
+      "notes": "Used the radar back-scattering section to ground why the point-target antenna-localization assumption fails and why the strongest radar spot may not identify the antenna direction.",
+      "evidence_refs": [
+        "p7",
+        "p8"
+      ]
+    },
+    {
+      "id": "section_conclusion",
+      "stage": "extract_candidates",
+      "notes": "Confirmed the main antenna-localization candidate as an explicitly stated open problem in the concluding remarks.",
+      "evidence_refs": [
+        "p13"
+      ]
+    },
+    {
+      "id": "q_001",
+      "stage": "rewrite",
+      "notes": "Expanded the title-level open problem into a standalone V2I beam-management question by inlining the roles of VE, BS, radar sensing, extended-target back-scattering, beam-training time, and beamforming-gain loss from source evidence.",
+      "evidence_refs": [
+        "p1",
+        "p7",
+        "p13"
+      ]
+    },
+    {
+      "id": "q_002",
+      "stage": "rewrite",
+      "notes": "Rewrote the unresolved control-overhead statement as a standalone question about dense vehicular networks and position-assisted BM signaling.",
+      "evidence_refs": [
+        "p2"
+      ]
+    },
+    {
+      "id": "q_003",
+      "stage": "rewrite",
+      "notes": "Rewrote the possible improvement to ω as a standalone question about freshness-aware fusion of radar and positioning estimates.",
+      "evidence_refs": [
+        "p6"
+      ]
+    },
+    {
+      "id": "dedupe_all",
+      "stage": "dedupe",
+      "notes": "Merged repeated antenna-localization statements from the abstract, back-scattering discussion, and conclusion into q_001; retained distinct control-overhead and fusion-freshness questions as q_002 and q_003.",
+      "evidence_refs": [
+        "q_001",
+        "q_002",
+        "q_003"
+      ]
+    },
+    {
+      "id": "quality_all",
+      "stage": "quality_gates",
+      "notes": "Accepted candidates passed self-containedness, evidence coverage, evidence completeness, no-new-facts, source adequacy, solved-status, and schema gates. No candidate was marked solved by the source.",
+      "evidence_refs": [
+        "q_001",
+        "q_002",
+        "q_003"
+      ]
+    },
+    {
+      "id": "persist_outputs",
+      "stage": "persist",
+      "notes": "Saved exact JSON to outputs/parse-paper/2204.01097.json and outputs/latest.json.",
+      "evidence_refs": []
+    }
+  ]
+}

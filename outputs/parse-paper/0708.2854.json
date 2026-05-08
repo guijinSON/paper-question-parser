@@ -1,14 +1,8 @@
 {
-  "source": {
-    "url": "https://zbmath.org/5302816",
-    "resolved_locator": "/home/gson/paper-question-parser/.sisyphus/paper-question-parser/tmp/0708.2854.pdf",
-    "title": "Algorithmic Semi-algebraic Geometry and Topology -- Recent Progress and Open Problems",
-    "title_origin": "source_text"
-  },
   "accepted": [
     {
       "id": "q_001",
-      "question_text": "Let S be a semi-algebraic subset of R^k defined by s polynomials whose degrees are at most d. Does there exist an algorithm for computing the entire sequence of Betti numbers of S whose running time is single-exponential in k? The paper explains that single-exponential-time algorithms are known for computing only the first ℓ Betti numbers when ℓ is fixed, and asks whether those ideas can be extended to compute all Betti numbers of an arbitrary semi-algebraic set.",
+      "question_text": "Let S be a semi-algebraic subset of R^k defined by s polynomial equalities and inequalities whose degrees are bounded by d. Is there an algorithm that computes all Betti numbers of S in time single exponential in k? More concretely, can the currently known single-exponential methods for computing only the first l Betti numbers for fixed l be extended to compute the full Betti sequence of S within a single-exponential running time in the ambient dimension?",
       "context_brief": "Single-exponential algorithms for all Betti numbers",
       "meta": {
         "is_solved": false
@@ -16,53 +10,65 @@
       "evidence": [
         {
           "page": 70,
-          "quote": "Computing Betti Numbers in Single Exponential Time ? Suppose S ⊂ R^k is a semi-\nalgebraic set defined in terms of s polynomials, of degrees bounded by d. One of\nthe most fundamental open questions in algorithmic semi-algebraic geometry, is\nwhether there exists a single exponential (in k) time algorithm for computing the\nBetti numbers of S. The best we can do so far is summarized in Theorem 6.10\nwhich gives the existence of single exponential time algorithms for computing the\nfirst ℓ Betti numbers of S for any constant ℓ. A big challenge is to extend these\nideas to design an algorithm for computing all the Betti numbers of S."
+          "quote": "Computing Betti Numbers in Single Exponential Time ? Suppose S subset R^k is a semi-algebraic set defined in terms of s polynomials, of degrees bounded by d. One of the most fundamental open questions in algorithmic semi-algebraic geometry, is whether there exists a single exponential (in k) time algorithm for computing the Betti numbers of S."
+        },
+        {
+          "page": 70,
+          "quote": "The best we can do so far is summarized in Theorem 6.10 which gives the existence of single exponential time algorithms for computing the first l Betti numbers of S for any constant l. A big challenge is to extend these ideas to design an algorithm for computing all the Betti numbers of S."
         }
       ]
     },
     {
       "id": "q_002",
-      "question_text": "Is there a complexity-theoretic hardness explanation for why the middle Betti numbers of a semi-algebraic set seem harder to compute than the lowest Betti numbers, the highest Betti numbers, or the Euler–Poincaré characteristic? More specifically, can one identify a complexity-theoretic analogue of the geometric phenomenon in which middle Betti numbers carry essentially all of the information, thereby explaining the observed difficulty of computing them?",
-      "context_brief": "Hardness of middle Betti numbers",
+      "question_text": "For semi-algebraic sets, are the middle Betti numbers intrinsically harder to compute than the lowest and highest Betti numbers or the Euler-Poincare characteristic? In particular, is there a complexity-theoretic hardness result that explains the apparent algorithmic gap, or an analogue of the phenomenon from smooth projective complex varieties in which the middle Betti numbers contain essentially all the information?",
+      "context_brief": "Complexity of middle Betti numbers",
       "meta": {
         "is_solved": false
       },
       "evidence": [
         {
           "page": 70,
-          "quote": "Are the Middle Betti Numbers Harder to Compute ? From the algorithm design per-\nspective it seems that computing the lowest (as well as the highest) Betti numbers\nof semi-algebraic sets, as well the Euler-Poincar´e characteristic of semi-algebraic\nsets, are easier than computing the \"middle\" Betti numbers. Is there a complexity-\ntheoretic hardness result that would justify this fact? In certain mathematical\ncontexts (for instance, the topology of smooth projective complex varieties) the\nmiddle Betti numbers contain all the information. Is there a complexity-theoretic\nanalogue of this phenomenon that would justify our experience that certain Betti\nnumbers are harder to compute than the others?"
+          "quote": "Are the Middle Betti Numbers Harder to Compute ? From the algorithm design perspective it seems that computing the lowest (as well as the highest) Betti numbers of semi-algebraic sets, as well the Euler-Poincare characteristic of semi-algebraic sets, are easier than computing the \"middle\" Betti numbers."
+        },
+        {
+          "page": 70,
+          "quote": "Is there a complexity-theoretic hardness result that would justify this fact? In certain mathematical contexts (for instance, the topology of smooth projective complex varieties) the middle Betti numbers contain all the information. Is there a complexity-theoretic analogue of this phenomenon that would justify our experience that certain Betti numbers are harder to compute than the others?"
         }
       ]
     },
     {
       "id": "q_003",
-      "question_text": "Consider a semi-algebraic set in R^k defined by ℓ quadratic inequalities. Is there an algorithm for counting its connected components with complexity k^{O(ℓ)}, or even k^{O(ℓ^2)}, instead of relying on the currently known more expensive general method? The problem is motivated by the fact that emptiness testing, sample-point computation, and Euler–Poincaré characteristic computation for this quadratic setting already admit algorithms with complexity k^{O(ℓ)}, but counting connected components still lacks an equally efficient algorithm.",
-      "context_brief": "Connected components in quadratic case",
+      "question_text": "Consider a semi-algebraic set in R^k defined by l quadratic inequalities. Can the number of connected components of such a set be computed by an algorithm with complexity k^O(l), or even k^O(l^2), rather than the currently best known k^(2^O(l)) type bound coming from the available all-Betti-number methods? Equivalently, is there a substantially more efficient algorithm for counting connected components in the quadratic case than the general-purpose approach currently provides?",
+      "context_brief": "Connected components for quadratic inequalities",
       "meta": {
         "is_solved": false
       },
       "evidence": [
         {
           "page": 70,
-          "quote": "More Efficient Algorithms for Computing the Number of Connected Components\nin the Quadratic Case ? For semi-algebraic sets in R^k defined by ℓ quadratic in-\nequalities, there are algorithms for deciding emptiness, as well as computing sample\npoints in every connected component whose complexity is bounded by k\nO(`)\n[3, 45].\nWe also have an algorithm [9] for computing the Euler-Poincar´e characteristic of\nsuch sets whose complexity is k\nO(`)\n. However, the best known algorithm for com-\nputing the number of connected components of such sets has complexity k\n2\nO(`)\n(as a"
+          "quote": "More Efficient Algorithms for Computing the Number of Connected Components in the Quadratic Case ? For semi-algebraic sets in R^k defined by l quadratic inequalities, there are algorithms for deciding emptiness, as well as computing sample points in every connected component whose complexity is bounded by k^O(l) [3, 45]. We also have an algorithm [9] for computing the Euler-Poincare characteristic of such sets whose complexity is k^O(l)."
         },
         {
-          "page": 71,
-          "quote": "special case of the algorithm for computing all the Betti numbers given in Theorem\n2.6). This raises the question whether there exists a more efficient algorithm with\ncomplexity k\nO(`) or even k\nO(`\n2\n)\nfor counting the number of connected components\nof such sets."
+          "page": 70,
+          "quote": "However, the best known algorithm for computing the number of connected components of such sets has complexity k^(2^O(l)) (as a special case of the algorithm for computing all the Betti numbers given in Theorem 2.6). This raises the question whether there exists a more efficient algorithm with complexity k^O(l) or even k^O(l^2) for counting the number of connected components of such sets."
         }
       ]
     },
     {
       "id": "q_004",
-      "question_text": "For a general semi-algebraic set, can roadmap algorithms for testing connectivity be improved so that the exponent in their complexity drops from O(k^2) to O(k)? Equivalently, can testing connectivity be made asymptotically as efficient as emptiness testing for general semi-algebraic sets by obtaining a substantially better complexity bound for roadmap construction?",
-      "context_brief": "Improve roadmap complexity for connectivity",
+      "question_text": "For a general semi-algebraic set, can the exponent O(k^2) in the complexity of roadmap algorithms be improved to O(k), so that testing connectivity has asymptotically the same complexity as testing emptiness? More broadly, can one design roadmap or connecting-path algorithms whose complexity improvement would also yield sharper effective bounds on the lengths of semi-algebraic connecting paths?",
+      "context_brief": "Improve roadmap complexity for general sets",
       "meta": {
         "is_solved": false
       },
       "evidence": [
         {
           "page": 71,
-          "quote": "More Efficient Algorithms for Computing the Number of Connected Components\nfor General Semi-algebraic Sets ? A very interesting open question is whether the\nexponent O(k\n2\n) in the complexity of roadmap algorithms (cf. Theorem 4.15) can be\nimproved to O(k), so that the complexity of testing connectivity becomes asymp-\ntotically the same as that of testing emptiness of a semi-algebraic set (cf. Theorem\n4.12)."
+          "quote": "More Efficient Algorithms for Computing the Number of Connected Components for General Semi-algebraic Sets ? A very interesting open question is whether the exponent O(k^2) in the complexity of roadmap algorithms (cf. Theorem 4.15) can be improved to O(k), so that the complexity of testing connectivity becomes asymptotically the same as that of testing emptiness of a semi-algebraic set (cf. Theorem 4.12)."
+        },
+        {
+          "page": 71,
+          "quote": "An improvement in the complexity of algorithms for constructing connecting paths (such as the roadmap algorithm) would also improve the bound on the length of connecting paths."
         }
       ]
     }
@@ -70,9 +76,20 @@
   "needs_review": [],
   "trace": [
     {
-      "id": "source_map",
+      "id": "paper_0708_2854",
       "stage": "map",
-      "notes": "Resolved the zbMATH record to the arXiv PDF 0708.2854 and mapped the document structure. The only explicit open-problem region is Section 9, 'Open Problems,' on pages 70-71.",
+      "notes": "Mapped the PDF at .sisyphus/paper-question-parser/tmp/0708.2854.pdf. The paper is 'Algorithmic Semi-algebraic Geometry and Topology - Recent Progress and Open Problems'. The table of contents places Section 9 'Open Problems' on page 70, followed by the acknowledgment on page 71 and references thereafter.",
+      "evidence_refs": [
+        "p1",
+        "p2",
+        "p70",
+        "p71"
+      ]
+    },
+    {
+      "id": "sec_9",
+      "stage": "extract_candidates",
+      "notes": "Extracted four explicit open-problem prompts from Section 9: single-exponential computation of all Betti numbers, hardness of middle Betti numbers, connected-components complexity in the quadratic case, and roadmap-complexity improvement for the general case.",
       "evidence_refs": [
         "p70",
         "p71"
@@ -80,92 +97,96 @@
     },
     {
       "id": "q_001",
-      "stage": "extract_candidates",
-      "notes": "Extracted the explicit open problem about whether all Betti numbers can be computed in single-exponential time.",
+      "stage": "rewrite",
+      "notes": "Rewrote the first open problem into a standalone algorithmic question by inlining the ambient setting S subset R^k, the defining input size parameters s and d, and the target of computing the full Betti sequence.",
       "evidence_refs": [
         "p70"
       ]
     },
     {
       "id": "q_002",
-      "stage": "extract_candidates",
-      "notes": "Extracted the explicit open problem asking for a hardness explanation for middle Betti numbers.",
+      "stage": "rewrite",
+      "notes": "Rewrote the second open problem as a self-contained complexity question comparing middle Betti numbers against low and high Betti numbers and the Euler-Poincare characteristic, while preserving the request for a hardness explanation or analogue.",
       "evidence_refs": [
         "p70"
       ]
     },
     {
       "id": "q_003",
-      "stage": "extract_candidates",
-      "notes": "Extracted the explicit open problem on faster connected-component counting for sets defined by quadratic inequalities.",
+      "stage": "rewrite",
+      "notes": "Rewrote the third open problem as a standalone complexity question for semi-algebraic sets in R^k defined by l quadratic inequalities, preserving the target bounds k^O(l) and k^O(l^2).",
       "evidence_refs": [
-        "p70",
-        "p71"
+        "p70"
       ]
     },
     {
       "id": "q_004",
-      "stage": "extract_candidates",
-      "notes": "Extracted the explicit open problem on improving the exponent in roadmap algorithms for general semi-algebraic sets.",
+      "stage": "rewrite",
+      "notes": "Rewrote the fourth open problem into a standalone question about improving roadmap complexity from O(k^2) in the exponent to O(k), and retained the motivation about connectivity testing and connecting-path lengths.",
       "evidence_refs": [
         "p71"
       ]
     },
     {
       "id": "q_001",
-      "stage": "rewrite",
-      "notes": "Rewrote the question to inline the ambient setting S ⊂ R^k, the input-size parameters s and d, and the contrast with known fixed-ℓ results.",
-      "evidence_refs": [
-        "p70"
-      ]
-    },
-    {
-      "id": "q_002",
-      "stage": "rewrite",
-      "notes": "Rewrote the question as a self-contained complexity-theoretic problem about middle Betti numbers, preserving the source's comparison with other invariants.",
-      "evidence_refs": [
-        "p70"
-      ]
-    },
-    {
-      "id": "q_003",
-      "stage": "rewrite",
-      "notes": "Rewrote the question to state the quadratic-inequality setting and the target complexity improvements explicitly, without relying on surrounding section context.",
-      "evidence_refs": [
-        "p70",
-        "p71"
-      ]
-    },
-    {
-      "id": "q_004",
-      "stage": "rewrite",
-      "notes": "Rewrote the question to make clear that the goal is to improve roadmap-based connectivity testing from exponent O(k^2) to O(k).",
-      "evidence_refs": [
-        "p71"
-      ]
-    },
-    {
-      "id": "all_questions",
       "stage": "dedupe",
-      "notes": "No near-duplicate open problems were found in Section 9; all four extracted items are distinct.",
-      "evidence_refs": [
-        "p70",
-        "p71"
-      ]
+      "notes": "No near-duplicate detected; kept as a separate item.",
+      "evidence_refs": []
     },
     {
-      "id": "all_questions",
+      "id": "q_002",
+      "stage": "dedupe",
+      "notes": "No near-duplicate detected; kept as a separate item.",
+      "evidence_refs": []
+    },
+    {
+      "id": "q_003",
+      "stage": "dedupe",
+      "notes": "No near-duplicate detected; kept as a separate item.",
+      "evidence_refs": []
+    },
+    {
+      "id": "q_004",
+      "stage": "dedupe",
+      "notes": "No near-duplicate detected; kept as a separate item.",
+      "evidence_refs": []
+    },
+    {
+      "id": "q_001",
       "stage": "quality_gates",
-      "notes": "All accepted items are explicit open problems with direct page-cited evidence from the resolved PDF and self-contained rewrites that do not rely on dangling references to surrounding sections.",
+      "notes": "Passed: the rewrite is self-contained, evidence-backed, and introduces no unsupported claims beyond the page-level source text.",
       "evidence_refs": [
-        "p70",
+        "p70"
+      ]
+    },
+    {
+      "id": "q_002",
+      "stage": "quality_gates",
+      "notes": "Passed: the rewrite preserves the paper's comparison and hardness framing, includes page-numbered evidence, and avoids unresolved references.",
+      "evidence_refs": [
+        "p70"
+      ]
+    },
+    {
+      "id": "q_003",
+      "stage": "quality_gates",
+      "notes": "Passed: the rewrite preserves the exact algorithmic targets and remains grounded in quoted evidence from the open-problems section.",
+      "evidence_refs": [
+        "p70"
+      ]
+    },
+    {
+      "id": "q_004",
+      "stage": "quality_gates",
+      "notes": "Passed: the rewrite is self-contained and uses only page-level evidence from the open-problems discussion and its stated motivation.",
+      "evidence_refs": [
         "p71"
       ]
     },
     {
-      "id": "persist",
+      "id": "paper_0708_2854",
       "stage": "persist",
-      "notes": "Saved JSON to outputs/parse-paper/0708.2854.json and updated outputs/latest.json.",
+      "notes": "Saved this exact JSON to outputs/parse-paper/0708.2854.json and mirrored it to outputs/latest.json.",
       "evidence_refs": []
     }
   ]

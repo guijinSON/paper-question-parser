@@ -1,0 +1,659 @@
+{
+  "source": {
+    "url": "https://arxiv.org/abs/1908.10195",
+    "resolved_locator": "/home/gson/paper-question-parser-science-parser/.sisyphus/paper-question-parser/tmp/1908.10195.pdf",
+    "title": "A Survey on LoRa Networking: Research Problems, Current Solutions and Open Issues",
+    "title_origin": "source_text"
+  },
+  "accepted": [
+    {
+      "id": "q_001",
+      "question_text": "For LoRa networks, where battery-powered Internet-of-Things end-devices collect information and send it to gateways that relay messages to network and application servers, how can one design a generic method for choosing the number and physical placement of multiple gateways for each category of application and each set of hardware constraints, so that scalability, interference reduction, coverage, energy use, and overall network performance are improved?",
+      "context_brief": "Optimal multi-gateway placement for LoRa deployments",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 3,
+          "quote": "A LoRa system comprises of end-devices, gateways, network and application servers. Figure 1 depicts the architecture of a typical LoRa system. end-devices collect information and send them to Gateways. Gateways relay messages between end-devices and network servers."
+        },
+        {
+          "page": 14,
+          "quote": "Some works, [38], [21], [66], [69] aiding scalability and interference use multiple gateways as a solution. Even though these techniques outperform existing results, using multiple gateways instigate to study the optimal gateway placements for LoRa deployments."
+        },
+        {
+          "page": 14,
+          "quote": "Optimal placement of gateways is always dependent on the application and constraints of the hardware used in the application. A generic solution for optimal placement of gateways according to the categories of applications will further improve the performance."
+        }
+      ]
+    },
+    {
+      "id": "q_002",
+      "question_text": "In LoRaWAN Class A operation, an end-device sends an uplink message and then opens two receive windows to receive a downlink acknowledgment from the network server. How can LoRaWAN provide a dynamic acknowledgment mechanism that prevents delayed or corrupted downlink acknowledgments from blocking later uplink packets or causing unnecessary retransmissions, especially when the gateway faces busy channels, overlapping frames, limited downlink opportunities, and no optimal data-rate policy for downlink acknowledgments?",
+      "context_brief": "Dynamic downlink ACK mechanisms",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 3,
+          "quote": "In Class A, after sending conﬁrmed messages, end-devices expect an acknowledgment (ACK) from the Network server during two pre-agreed time-slots known as ‘receive windows (RW)’ ."
+        },
+        {
+          "page": 10,
+          "quote": "The ﬁrst issue is whether the gateway should listen to the channel during the interval, T1, between frame reception and transmission of response. There arises a problem if the channel is busy with other scheduled transmissions in that speciﬁc interval T1. This might cause delay to the ACKs, leading to unwanted retransmissions."
+        },
+        {
+          "page": 10,
+          "quote": "The third issue is the limited interval for retransmission. Due to the above said factors, ACKs may take more time to reach an end-device which will increase the retransmission probability even for a successfully delivered message."
+        },
+        {
+          "page": 14,
+          "quote": "Some works like [39] and [64] state that downlink ACKs reduce network performance, as end devices are not able to transmit subsequent packets if downlink ACKs are delayed or corrupted. This gives rise to the need for developing a dynamic ACK mechanism to improve network performance."
+        }
+      ]
+    },
+    {
+      "id": "q_003",
+      "question_text": "How can LoRa networks set retransmission timers dynamically, across different deployment scenarios, so that end-devices do not retransmit messages that were already received correctly but whose acknowledgments were delayed or corrupted? A satisfactory policy should account for experimentally identified retransmission triggers, work on constrained LoRa hardware, and remain modular rather than depending necessarily on computationally expensive combinations of retransmission, channel coding, and compression.",
+      "context_brief": "Dynamic retransmission policies for constrained LoRa hardware",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 10,
+          "quote": "The third issue is the limited interval for retransmission. Due to the above said factors, ACKs may take more time to reach an end-device which will increase the retransmission probability even for a successfully delivered message."
+        },
+        {
+          "page": 10,
+          "quote": "Although the performance has been proved theoretically, its implementation with the required computational resource on real-time testbeds will be more helpful to understand the practical efﬁciency for real-world deployments."
+        },
+        {
+          "page": 14,
+          "quote": "Static retransmission policy degrades the network performance when the time taken by an ACK to reach the end node is larger than the retransmission time. This explains the need for dynamic retransmission policies."
+        },
+        {
+          "page": 14,
+          "quote": "A joint retransmission policy with channel coding and compression is theoretically studied, but the implementation of such computationally expensive techniques on constrained LoRa hardware must be considered in future. Besides, it has to be noted that a modular retransmission policy without any dependencies on other techniques is inevitable."
+        },
+        {
+          "page": 14,
+          "quote": "None of the techniques has addressed this problem of varying retransmission timers dynamically. The factors triggering retransmission, even in the case of correct reception, must be extensively studied through experiments for various scenarios and a dynamic policy must be devised to improve the performance of LoRa."
+        }
+      ]
+    },
+    {
+      "id": "q_004",
+      "question_text": "How can the reliable communication range of LoRa links be improved without heavy modifications to commercially available LoRa radio chips? The problem includes enabling gateways to make use of weak long-range signals that they may be able to detect but not decode, while avoiding approaches that depend on USRP radios, ambiguous commercial-chip implementation paths, backscatter-specific modifications, or other substantial hardware changes.",
+      "context_brief": "Long-range LoRa communication without heavy chip modifications",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 5,
+          "quote": "It has been noted that gateways can detect signals below a given threshold but cannot decode them. Devising a technique to decode these signals will improve communication range."
+        },
+        {
+          "page": 9,
+          "quote": "Programmable auxiliary hardware attached to the gateway improves the gateway’s ability to detect very weak signals which cannot be directly detected by gateways. Joint decoding algorithm uses a heuristic approach to select signals to be combined at the cloud. Results show that the range is improved 3 × and battery life is improved 4 × the standard LoRa technology."
+        },
+        {
+          "page": 14,
+          "quote": "Performance evaluations in [32]–[37] expound the need to provide reliable transmissions for long range LoRa links."
+        },
+        {
+          "page": 14,
+          "quote": "Choir [51] improves the range but its implementation on commercial radio chips is ambiguous as they were experimented on USRP radios and may require modifying the commercial radio."
+        },
+        {
+          "page": 14,
+          "quote": "NetScatter [55] leverages backscatter with distributed coding to enable concurrent transmission of 256 nodes which still needs some hardware modiﬁcations on commercial chips. Even though the above techniques Choir [51] and NetScatter [55] have improved the range, communication range still needs to be improved without heavy modiﬁcations of the commercially available chips ."
+        }
+      ]
+    },
+    {
+      "id": "q_005",
+      "question_text": "What security architecture, key-management mechanisms, and per-application security requirements are needed to secure LoRa networks against remaining attacks such as node impersonation, eavesdropping, black-hole attacks, wormhole attacks, jamming, replay attacks, beacon-synchronization attacks, traffic analysis, man-in-the-middle attacks, and compromised keys? In deployment scenarios where the application service provider and the network service provider are different organizations, how should the Application Session Key and Network Session Key be generated, updated, separated, and kept confidential from the inappropriate party?",
+      "context_brief": "Scenario-specific LoRa security and key management",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 6,
+          "quote": "Existing LoRa technology generates the key and never updates it. Hence, Key generation and Key update mechanism is a major concern. Third-party authorization is required when the application and network service providers are different. So, these applications require third-party authorization to ensure privacy and security [47], [75], [76]."
+        },
+        {
+          "page": 13,
+          "quote": "LoRa devices are susceptible to jamming attack, replay attack, beacon synchronization attack, trafﬁc analysis and man-in-the-middle attack."
+        },
+        {
+          "page": 13,
+          "quote": "The network server and application server can derive both Application and Network session keys which is not secure if two different organizations are involved. So, a trusted third-party key management architecture is proposed."
+        },
+        {
+          "page": 14,
+          "quote": "Security spans over a range of attacks like node impersonation, eavesdropping, Black hole attack, Wormhole attack, etc., as discussed by Zhou et al. [86]. Only few key management techniques have been discussed and proposed for LoRa. Several attacks still need to be addressed to secure LoRa networks."
+        },
+        {
+          "page": 14,
+          "quote": "Even though some techniques enhance the security of existing LoRa standard, security requirements of LoRa are not discussed based on the applications of LoRa. In the future, each application of LoRa will demand their own security needs."
+        },
+        {
+          "page": 14,
+          "quote": "For example, some applications may require Network and Application Session keys to be independent and Network Session Key should be conﬁdential from application server and vice-versa. Hence, the security needs of each deploying scenario have to be deeply investigated to mitigate vulnerabilities arising due to different application scenarios."
+        }
+      ]
+    },
+    {
+      "id": "q_006",
+      "question_text": "How can LoRa networking obtain mathematical models and systems for estimating link quality and communication coverage across diverse deployment environments, including open-air locations, concrete- or steel-obstructed locations, homes, hospitals, schools, forests, line-of-sight and non-line-of-sight conditions, signal attenuation, propagation losses, fading, and anisotropic coverage caused by dynamic and static obstacles in different directions?",
+      "context_brief": "LoRa link-quality and coverage estimation models",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 5,
+          "quote": "LoRa networking will be deployed in many scenarios such as homes, hospitals, schools, forest, etc. end-devices will be placed in the locations open to air, closed by concrete or steel, etc. Aiming such diverse deployment conditions, signal attenuation, propagation losses and fading have to be countered to improve signal penetration thus improving the coverage of LoRa networks [35], [32]."
+        },
+        {
+          "page": 5,
+          "quote": "Another important challenge is estimating the coverage of LoRa networks."
+        },
+        {
+          "page": 5,
+          "quote": "Demetri et al. [78] identiﬁed that LoRa’s signal coverage is anisotropic. This is because LoRa signals travel a longer distance and experience varying environments with dynamic and static obstacles in different directions. Mathematical models and systems for link quality estimation are still unexplored for LoRa."
+        },
+        {
+          "page": 12,
+          "quote": "It is also claimed that Bor’s model [21] need on-site measurements which is hard due to that most of the covered regions comprise of transitional links, which are deﬁned as links with dynamic temporal link qualities."
+        }
+      ]
+    },
+    {
+      "id": "q_007",
+      "question_text": "How can interference-cancellation techniques for LoRa recover data from collided signals at the scale required by dense LoRa deployments with thousands of end-devices connected to a single gateway, when existing channel coding cannot guarantee recovery for collisions and an existing distributed-coding/backscatter approach decodes 256 concurrent transmissions, which is still below the scale needed for some deployments?",
+      "context_brief": "Scalable LoRa interference cancellation",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 5,
+          "quote": "Even though channel coding aids error, they cannot guarantee error correction in the case of collided signals. Interference Cancellation will extend error correction by untangling and extracting data from collided signals."
+        },
+        {
+          "page": 5,
+          "quote": "Netscatter [55] can cancel collisions of 256 concurrent transmissions, which is not adequate to handle thousands of end-devices by a single gateway. For example, a large-scale temperature monitoring system requires all end-devices to transmit data at the same time [25]. Hence, Interference cancellation is still an open problem that should be addressed to improve the performance of LoRa Networking."
+        },
+        {
+          "page": 10,
+          "quote": "NetScatter [55] improves interference cancellation. It theoretically proves that Choir [51] can only decode 5-10 concurrently transmitting devices. A new distributed coding technique based on CSS is proposed to decode concurrent transmissions below noise ﬂoor in a single FFT operation."
+        },
+        {
+          "page": 10,
+          "quote": "Experimental results show that this technique can decode 256 concurrent transmissions with 14-62 × improvement in throughput and 15-67 × improvement in latency when compared with existing interference cancellation techniques."
+        }
+      ]
+    },
+    {
+      "id": "q_008",
+      "question_text": "How can LoRa use efficient channel-coding techniques to recover corrupted or lost data without the limitations of existing redundancy-based approaches, including inability to handle bursty packet loss, increased memory and decoding complexity, higher latency, and extra transmissions that increase interference and collisions?",
+      "context_brief": "Efficient LoRa channel coding for packet loss",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 5,
+          "quote": "Existing error correction schemes of LoRa networking, like hamming code, cannot aid data corruption or loss efﬁciently [56]."
+        },
+        {
+          "page": 5,
+          "quote": "DaRe is an application layer coding to retrieve lost data using redundant data. Sandell et al. [59] explain that this technique cannot aid bursty packet loss and has some limitations that bounds the performance."
+        },
+        {
+          "page": 10,
+          "quote": "The disadvantage is that previous data units should be buffered in the memory for computing redundant information. This makes the generator matrix banded thus inducing difﬁculty to create degree of distribution according to LT codes."
+        },
+        {
+          "page": 10,
+          "quote": "While DaRe uses a complex Gaussian elimination making the decoding process complex, an optimized decoding technique is proposed in [59]."
+        },
+        {
+          "page": 10,
+          "quote": "Finally, the paper concludes that data recovery through redundancy techniques increase number of transmissions and thus collision. So it cannot be used solely to aid packet loss."
+        },
+        {
+          "page": 10,
+          "quote": "Recently proposed channel coding technique, DaRe [56], and its analysis [59] shows that there is a heavy potential for characterizing efﬁcient channel coding techniques for LoRa to improve error correction, thus improving reception rate and network lifetime."
+        }
+      ]
+    },
+    {
+      "id": "q_009",
+      "question_text": "How should LoRa networks dynamically choose each end-device’s communication parameters, including spreading factor, transmission power, bandwidth, channel allocation, data rate, and frame repetition rate, so that scalability, packet reception, energy consumption, and reliability improve across indoor, outdoor, high-noise, temperature-varying, and other deployment environments? A complete answer should account for environmental factors that existing dynamic-parameter methods omit, such as ambient temperature reducing signal strength, and should avoid assuming that simply increasing spreading factor always improves communication performance.",
+      "context_brief": "Environment-aware dynamic communication-parameter selection",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 5,
+          "quote": "In LoRa technology, the transmission is controlled by the parameters Spreading Factor (SF), Transmission power (TP), Bandwidth (BW) and Channel. Varying these parameters result in different transmission qualities. This can be leveraged to improve concurrent transmissions. Dynamically allocating reasonable resources to end-devices based on the deployed environment improves multiple access and thus scalability [85]."
+        },
+        {
+          "page": 11,
+          "quote": "Finally, it is concluded that LoRa is highly robust to high noise levels and recommend further investigation by varying the ﬁxed parameters of this experiment."
+        },
+        {
+          "page": 11,
+          "quote": "Hakkenberg et al. [113] and Neumann et al. [114] evaluate the performance of LoRa in both indoor and outdoor environments and recommend that transmission parameters have to be varied according to the deployed environment."
+        },
+        {
+          "page": 11,
+          "quote": "Experimental result shows that a personalized communication parameter for each end-device will aid scalability."
+        },
+        {
+          "page": 11,
+          "quote": "Two suggested guidelines are to develop a protocol to decide communication parameters dynamically and to evaluate optimal gateway placement for better scalability."
+        },
+        {
+          "page": 12,
+          "quote": "It is shown that investing high energy for higher SF values does not always improve communication performance."
+        },
+        {
+          "page": 12,
+          "quote": "Network density can be scaled-up by adding more gateways and personalizing transmission parameters like data rate and channel allocation using ADR for each end-device [25], [66], [67], [69]."
+        },
+        {
+          "page": 12,
+          "quote": "Hence, varying transmission parameters based on indoor/outdoor deployed environment gives better performance [113], [114]."
+        },
+        {
+          "page": 14,
+          "quote": "Some solutions for choosing dynamic communication parameters consider most of the factors, but did not take into account the ambient temperature which plays a major role in reducing the signal strength [68]."
+        }
+      ]
+    }
+  ],
+  "needs_review": [
+    {
+      "id": "q_010",
+      "reason": "insufficient_context_for_standalone_question",
+      "question_text_raw": "p-CSMA is an important step to be taken for improving the scalability of LoRa networks but it has not been realized yet on real-world devices.",
+      "evidence": [
+        {
+          "page": 10,
+          "quote": "The performance comparison of p-CSMA and CSMA is conducted by Kouvelas et al. [102] for small scale networks expound that p-CSMA is an important step to be taken for improving the scalability of LoRa networks but it has not been realized yet on real-world devices."
+        }
+      ]
+    }
+  ],
+  "trace": [
+    {
+      "id": "source_map",
+      "stage": "map",
+      "notes": "Resolved arXiv abs URL to the downloaded PDF and mapped the survey structure: introduction, LoRa background, deployments, taxonomy of research problems, current solutions, open issues, conclusion, and references. Likely open-problem regions were Section IV taxonomy, Section V current-solution limitations, and Section VI Open Issues.",
+      "evidence_refs": [
+        "p1",
+        "p5",
+        "p10",
+        "p14"
+      ]
+    },
+    {
+      "id": "source_map",
+      "stage": "map",
+      "notes": "The visible title on PDF page 1 was used as the source title.",
+      "evidence_refs": [
+        "p1"
+      ]
+    },
+    {
+      "id": "section_iv",
+      "stage": "extract_candidates",
+      "notes": "Extracted open or unresolved challenges from Section IV: link-quality estimation, interference cancellation at dense scale, and efficient error correction/channel coding.",
+      "evidence_refs": [
+        "p5"
+      ]
+    },
+    {
+      "id": "section_v_b",
+      "stage": "extract_candidates",
+      "notes": "Extracted communication-range limitations involving weak signals, commercial-device ambiguity, and operation on LoRa devices.",
+      "evidence_refs": [
+        "p9",
+        "p14"
+      ]
+    },
+    {
+      "id": "section_v_c",
+      "stage": "extract_candidates",
+      "notes": "Extracted limitations of DaRe and NetScatter, including bursty packet loss, complexity, extra transmissions, and 256-transmission scale limits.",
+      "evidence_refs": [
+        "p10"
+      ]
+    },
+    {
+      "id": "section_v_d",
+      "stage": "extract_candidates",
+      "notes": "Extracted link coordination, p-CSMA realization, retransmission, and dynamic communication-parameter candidates.",
+      "evidence_refs": [
+        "p10",
+        "p11",
+        "p12"
+      ]
+    },
+    {
+      "id": "section_v_e",
+      "stage": "extract_candidates",
+      "notes": "Extracted security candidates involving key management, third-party authorization, attacks, and application-specific key separation requirements.",
+      "evidence_refs": [
+        "p6",
+        "p13",
+        "p14"
+      ]
+    },
+    {
+      "id": "section_vi",
+      "stage": "extract_candidates",
+      "notes": "Extracted the explicit Open Issues section: optimal gateway placement, dynamic ACK mechanisms, dynamic retransmission policies, long-range communication without heavy chip modification, and scenario-specific security needs.",
+      "evidence_refs": [
+        "p14"
+      ]
+    },
+    {
+      "id": "q_001",
+      "stage": "rewrite",
+      "notes": "Expanded the gateway-placement issue into a standalone LoRa deployment question using the source's architecture description and Section VI.A.",
+      "evidence_refs": [
+        "p3",
+        "p14"
+      ]
+    },
+    {
+      "id": "q_002",
+      "stage": "rewrite",
+      "notes": "Expanded the downlink ACK issue with Class A receive-window context and Bankov et al. issue descriptions.",
+      "evidence_refs": [
+        "p3",
+        "p10",
+        "p14"
+      ]
+    },
+    {
+      "id": "q_003",
+      "stage": "rewrite",
+      "notes": "Expanded dynamic retransmission policies with ACK-delay, constrained-hardware, modularity, and experiment requirements from Section VI.B.",
+      "evidence_refs": [
+        "p10",
+        "p14"
+      ]
+    },
+    {
+      "id": "q_004",
+      "stage": "rewrite",
+      "notes": "Merged weak-signal decoding, commercial-radio ambiguity, USRP dependence, and hardware-modification limitations into one range-improvement question.",
+      "evidence_refs": [
+        "p5",
+        "p9",
+        "p14"
+      ]
+    },
+    {
+      "id": "q_005",
+      "stage": "rewrite",
+      "notes": "Expanded security into a standalone question covering attacks, key management, provider separation, and application-specific security requirements.",
+      "evidence_refs": [
+        "p6",
+        "p13",
+        "p14"
+      ]
+    },
+    {
+      "id": "q_006",
+      "stage": "rewrite",
+      "notes": "Expanded the link-quality-estimation marker with deployment environments, anisotropic coverage, and on-site-measurement limitations stated in the source.",
+      "evidence_refs": [
+        "p5",
+        "p12"
+      ]
+    },
+    {
+      "id": "q_007",
+      "stage": "rewrite",
+      "notes": "Expanded the interference-cancellation open problem with dense-deployment scale and NetScatter/Choir limitations.",
+      "evidence_refs": [
+        "p5",
+        "p10"
+      ]
+    },
+    {
+      "id": "q_008",
+      "stage": "rewrite",
+      "notes": "Expanded efficient channel coding with source-supported limitations of DaRe and redundancy-based recovery.",
+      "evidence_refs": [
+        "p5",
+        "p10"
+      ]
+    },
+    {
+      "id": "q_009",
+      "stage": "rewrite",
+      "notes": "Expanded dynamic communication-parameter selection with SF, TP, BW, channel, data rate, environment, noise, and temperature factors from Sections IV, V, and VI.",
+      "evidence_refs": [
+        "p5",
+        "p11",
+        "p12",
+        "p14"
+      ]
+    },
+    {
+      "id": "q_010",
+      "stage": "rewrite",
+      "notes": "Kept the p-CSMA real-device realization marker as needs_review because the source gives too little standalone context about p-CSMA's protocol requirements and deployment assumptions.",
+      "evidence_refs": [
+        "p10"
+      ]
+    },
+    {
+      "id": "q_001",
+      "stage": "dedupe",
+      "notes": "Merged the Section V guideline about optimal gateway placement with the Section VI.A open issue.",
+      "evidence_refs": [
+        "p11",
+        "p14"
+      ]
+    },
+    {
+      "id": "q_002",
+      "stage": "dedupe",
+      "notes": "Kept dynamic ACK mechanisms distinct from retransmission timers because the source treats them as separate Link Co-ordination open issues.",
+      "evidence_refs": [
+        "p14"
+      ]
+    },
+    {
+      "id": "q_003",
+      "stage": "dedupe",
+      "notes": "Kept dynamic retransmission policies distinct from ACK mechanisms and included theoretical joint retransmission implementation concerns.",
+      "evidence_refs": [
+        "p10",
+        "p14"
+      ]
+    },
+    {
+      "id": "q_004",
+      "stage": "dedupe",
+      "notes": "Merged related commercial-device and hardware-modification communication-range candidates.",
+      "evidence_refs": [
+        "p9",
+        "p14"
+      ]
+    },
+    {
+      "id": "q_005",
+      "stage": "dedupe",
+      "notes": "Merged general unresolved attacks, key-management, and scenario-specific security requirements into one canonical security question.",
+      "evidence_refs": [
+        "p6",
+        "p13",
+        "p14"
+      ]
+    },
+    {
+      "id": "q_006",
+      "stage": "dedupe",
+      "notes": "Kept link-quality estimation separate from dynamic communication-parameter selection because it concerns coverage/modeling rather than resource assignment.",
+      "evidence_refs": [
+        "p5",
+        "p12"
+      ]
+    },
+    {
+      "id": "q_007",
+      "stage": "dedupe",
+      "notes": "Kept interference cancellation separate from channel coding because the source separates collided-signal recovery from coding for lost/corrupted packets.",
+      "evidence_refs": [
+        "p5",
+        "p10"
+      ]
+    },
+    {
+      "id": "q_008",
+      "stage": "dedupe",
+      "notes": "Kept channel coding separate from interference cancellation and retransmission policy because the source identifies specific coding limitations.",
+      "evidence_refs": [
+        "p5",
+        "p10"
+      ]
+    },
+    {
+      "id": "q_009",
+      "stage": "dedupe",
+      "notes": "Merged dynamic communication-parameter protocol, environment-aware parameter variation, and omitted temperature-factor candidates.",
+      "evidence_refs": [
+        "p5",
+        "p11",
+        "p12",
+        "p14"
+      ]
+    },
+    {
+      "id": "q_010",
+      "stage": "dedupe",
+      "notes": "Did not merge p-CSMA with the dynamic ACK/retransmission questions because it is a different MAC candidate but lacks enough source context for an accepted standalone rewrite.",
+      "evidence_refs": [
+        "p10"
+      ]
+    },
+    {
+      "id": "q_001",
+      "stage": "quality_gates",
+      "notes": "Accepted: self-contained LoRa architecture and gateway-placement objective are supported by page-level evidence; no solved label found.",
+      "evidence_refs": [
+        "p3",
+        "p14"
+      ]
+    },
+    {
+      "id": "q_002",
+      "stage": "quality_gates",
+      "notes": "Accepted: Class A ACK context, failure modes, and dynamic ACK need are supported by page-level evidence; no solved label found.",
+      "evidence_refs": [
+        "p3",
+        "p10",
+        "p14"
+      ]
+    },
+    {
+      "id": "q_003",
+      "stage": "quality_gates",
+      "notes": "Accepted: dynamic timer need, constrained-hardware concern, and experimental-factor requirement are explicitly supported; no solved label found.",
+      "evidence_refs": [
+        "p10",
+        "p14"
+      ]
+    },
+    {
+      "id": "q_004",
+      "stage": "quality_gates",
+      "notes": "Accepted: weak-signal range problem and commercial-chip modification limitation are supported by Section VI.C and earlier range discussion; no solved label found.",
+      "evidence_refs": [
+        "p5",
+        "p9",
+        "p14"
+      ]
+    },
+    {
+      "id": "q_005",
+      "stage": "quality_gates",
+      "notes": "Accepted: attack classes, key-management concerns, and application-specific requirements are supported by page-level evidence; no solved label found.",
+      "evidence_refs": [
+        "p6",
+        "p13",
+        "p14"
+      ]
+    },
+    {
+      "id": "q_006",
+      "stage": "quality_gates",
+      "notes": "Accepted: self-contained coverage/link-quality problem is supported by source statements about diverse deployments, anisotropy, and unexplored models; no solved label found.",
+      "evidence_refs": [
+        "p5",
+        "p12"
+      ]
+    },
+    {
+      "id": "q_007",
+      "stage": "quality_gates",
+      "notes": "Accepted: the open-problem marker and scale limitation are explicit; no solved label found.",
+      "evidence_refs": [
+        "p5",
+        "p10"
+      ]
+    },
+    {
+      "id": "q_008",
+      "stage": "quality_gates",
+      "notes": "Accepted: coding limitations and need for efficient LoRa channel coding are explicitly supported; no solved label found.",
+      "evidence_refs": [
+        "p5",
+        "p10"
+      ]
+    },
+    {
+      "id": "q_009",
+      "stage": "quality_gates",
+      "notes": "Accepted: resource-allocation variables, environmental dependence, scalability objective, and temperature omission are all supported; no solved label found.",
+      "evidence_refs": [
+        "p5",
+        "p11",
+        "p12",
+        "p14"
+      ]
+    },
+    {
+      "id": "q_010",
+      "stage": "quality_gates",
+      "notes": "Moved to needs_review because the source contains a short unresolved implementation marker but not enough self-contained technical context to rewrite it without importing outside facts.",
+      "evidence_refs": [
+        "p10"
+      ]
+    },
+    {
+      "id": "persist",
+      "stage": "persist",
+      "notes": "Saved final JSON to outputs/parse-paper/1908.10195.json and updated outputs/latest.json.",
+      "evidence_refs": [
+        "outputs/parse-paper/1908.10195.json",
+        "outputs/latest.json"
+      ]
+    }
+  ]
+}

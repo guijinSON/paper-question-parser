@@ -1,0 +1,163 @@
+{
+  "source": {
+    "url": "https://arxiv.org/abs/0802.1912",
+    "resolved_locator": "/home/gson/paper-question-parser-science-parser/.sisyphus/paper-question-parser/tmp/0802.1912.pdf",
+    "title": "Vectored route-length minimization – a heuristic and an open conjecture",
+    "title_origin": "source_text"
+  },
+  "accepted": [
+    {
+      "id": "q_001",
+      "question_text": "Given a finite partially connected network of N nodes embedded in a strictly Euclidean space of arbitrary dimension, with a pre-specified source node S0 and sink node SN, does Vectored Route-length Minimization Search (VeRMinS) necessarily and sufficiently identify a route from S0 to SN whose total Euclidean route length is minimum? In VeRMinS, a connectivity matrix encodes the available edges, route vectors indicate which nodes lie on each source-to-sink route, an ideal route is the straight line from source to sink, a weight vector records each node's Euclidean distance from that ideal route with source and sink weights equal to zero, Euclidean-dominance filtering removes any route vector that differs from another only by including an extra intermediate node, and the selected route is the remaining route minimizing the route-vector/weight-vector product. Can this procedure be proved correct for every such finite Euclidean network, or can one construct a counterexample in which a shorter route exists but is not selected by VeRMinS?",
+      "context_brief": "VeRMinS shortest-route conjecture",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 1,
+          "quote": "We have only presented a heuristic solution process with the hope that a formal proof will eventually emerge as the problem receives wider exposure within mathematical circles."
+        },
+        {
+          "page": 2,
+          "quote": "Given a partially connected network of N nodes in a strictly Euclidean space of any dimension, find a route through the network from a pre-specified source node S0 to a pre-specified sink node SN such that the overall route length (in terms of the total Euclidean distance) is minimum"
+        },
+        {
+          "page": 2,
+          "quote": "The Vectored Route-length Minimization Search (VeRMinS) is a heuristic search that aims to find the shortest route from a source node to a sink node in a network in Euclidean space of any dimension by identifying the linear-most connectivity between the source and sink nodes."
+        },
+        {
+          "page": 3,
+          "quote": "A finite number, say q, of route vectors Pt (with t = 1, 2 … q) can then be extricated from M such that P1 = [k10 k11 k12 … k1m], P2 = [k20 k21 k22 … k2m] … Pt = [kt0 kt1 kt2 … ktm] … Pq = [kq0 kq1 kq2 … kqm], where kqj = 1 if node j lies on the q-th route and kqj = 0 otherwise."
+        },
+        {
+          "page": 3,
+          "quote": "A (m x 1) weight vector W is defined as follows: W = [0 w1 w2 … wi, wm-1 0]T where wi is the vertical Euclidean distance of the i-th node from the ideal route (which is simply a hypothetical straight line connecting the source and sink nodes), as determined by its position vector with respect to the ideal route."
+        },
+        {
+          "page": 3,
+          "quote": "Then, Pq . W = ∑∑ (kqjwi) would yield the deciding criterion for the q-th route in terms of the vertical Euclidean distances of each of the nodes along the q-th route from the ideal route."
+        },
+        {
+          "page": 4,
+          "quote": "The route vector Pa exhibits Euclidean dominance over the route vector Pb (written henceforth as Pa ⊃ Pb) when at least one element of Pa is 0 with the corresponding element in Pb being 1 and all other elements being same for Pa and Pb."
+        },
+        {
+          "page": 4,
+          "quote": "So the property of Euclidean dominance may be used to effectively eliminate some of the q route vectors extricated from M. Assuming h route vectors are eliminated after applying Euclidean dominance, then the linear-most route is obtainable as Mint [P1.W, P2.W, …, Pt.W, …, P(q-h).W]."
+        },
+        {
+          "page": 6,
+          "quote": "VeRMinS is proposed at this stage as no more than a heuristic search procedure. We have not supplied a formal proof that the outlined search procedure is necessary and sufficient in obtaining the shortest route through a network of a finite number of nodes in any Euclidean space of unrestricted dimensionality."
+        },
+        {
+          "page": 7,
+          "quote": "or disproved via a counter-example that shows that a shorter route exists through a network in any strictly Euclidean space that is not picked by the outlined VeRMinS procedure."
+        }
+      ]
+    }
+  ],
+  "needs_review": [],
+  "trace": [
+    {
+      "id": "doc_map",
+      "stage": "map",
+      "notes": "Resolved the arXiv abs URL to the PDF and mapped the 7-page source. The explicit open-problem region is the section 'An open conjecture' on pages 6-7; supporting definitions for the route problem, VeRMinS route vectors, weight vector, and Euclidean dominance appear on pages 2-4.",
+      "evidence_refs": [
+        "p1",
+        "p2",
+        "p3",
+        "p4",
+        "p5",
+        "p6",
+        "p7"
+      ]
+    },
+    {
+      "id": "section_abstract",
+      "stage": "extract_candidates",
+      "notes": "The abstract contains the proof-hope statement supporting q_001 but does not state a separate open question beyond the later conjecture.",
+      "evidence_refs": [
+        "p1"
+      ]
+    },
+    {
+      "id": "section_background",
+      "stage": "extract_candidates",
+      "notes": "The historical-background section gives motivation and the finite Euclidean source-to-sink route-minimization problem statement; no separate open problem was extracted from this section.",
+      "evidence_refs": [
+        "p1",
+        "p2"
+      ]
+    },
+    {
+      "id": "section_mathematical_basis",
+      "stage": "extract_candidates",
+      "notes": "The mathematical-basis section defines VeRMinS, route vectors, the weight vector, and Euclidean dominance. These definitions support the rewrite of q_001 but do not form separate open questions.",
+      "evidence_refs": [
+        "p2",
+        "p3",
+        "p4"
+      ]
+    },
+    {
+      "id": "section_numerical_illustration",
+      "stage": "extract_candidates",
+      "notes": "The numerical illustration includes a caveat that no formal proof of necessity and sufficiency is supplied; it supports q_001 and was not treated as a distinct candidate.",
+      "evidence_refs": [
+        "p5",
+        "p6"
+      ]
+    },
+    {
+      "id": "section_open_conjecture",
+      "stage": "extract_candidates",
+      "notes": "Extracted q_001 from the explicit 'An open conjecture' section, which asks for proof of the VeRMinS correctness claim or disproof by counterexample.",
+      "evidence_refs": [
+        "p6",
+        "p7"
+      ]
+    },
+    {
+      "id": "q_001",
+      "stage": "rewrite",
+      "notes": "Expanded the conjecture into a standalone question by inlining the finite Euclidean network setting, source and sink nodes, route vectors, ideal route, weight vector, Euclidean dominance filtering, and the final minimum-weight criterion from pages 2-4.",
+      "evidence_refs": [
+        "p2",
+        "p3",
+        "p4",
+        "p6",
+        "p7"
+      ]
+    },
+    {
+      "id": "q_001",
+      "stage": "dedupe",
+      "notes": "Merged the abstract's proof-hope statement, the numerical-section proof caveat, and the formal 'An open conjecture' section into one canonical candidate.",
+      "evidence_refs": [
+        "p1",
+        "p5",
+        "p6",
+        "p7"
+      ]
+    },
+    {
+      "id": "q_001",
+      "stage": "quality_gates",
+      "notes": "Accepted: the rewritten question is self-contained, supported by page-numbered evidence, introduces no unsupported definitions, and is not explicitly marked solved in the source.",
+      "evidence_refs": [
+        "p2",
+        "p3",
+        "p4",
+        "p6",
+        "p7"
+      ]
+    },
+    {
+      "id": "0802.1912",
+      "stage": "persist",
+      "notes": "Saved exact JSON output to outputs/parse-paper/0802.1912.json and updated outputs/latest.json.",
+      "evidence_refs": []
+    }
+  ]
+}

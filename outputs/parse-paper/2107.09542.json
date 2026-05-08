@@ -1,0 +1,244 @@
+{
+  "source": {
+    "url": "https://arxiv.org/abs/2107.09542",
+    "resolved_locator": "/home/gson/paper-question-parser-science-parser/.sisyphus/paper-question-parser/tmp/2107.09542.pdf",
+    "title": "Open Problem: Is There an Online Learning Algorithm That Learns Whenever Online Learning Is Possible?",
+    "title_origin": "source_text"
+  },
+  "accepted": [
+    {
+      "id": "q_001",
+      "question_text": "Consider realizable binary online learning over a nonempty instance space X with measurable target concepts f*: X → {0,1}. At each time t, after observing the past labeled examples (X_s, f*(X_s)) for s < t and the current instance X_t, an online learning algorithm predicts a label in {0,1}; its mistakes are the times when the prediction differs from f*(X_t). For a possibly random instance sequence X independent of the learner's internal randomness, weak universal consistency under X means that, for every measurable f*, the expected number of mistakes through time T is o(T), while strong universal consistency under X means that, for every measurable f*, the number of mistakes through time T is o(T) almost surely. Universal online learning is possible under X if some online learning algorithm has the corresponding universal consistency property under X. Does there exist a single optimistically universal online learning algorithm, meaning a single algorithm that is weakly, respectively strongly, universally consistent under every instance sequence X for which weak, respectively strong, universal online learning is possible under X?",
+      "context_brief": "Optimistically universal online learning",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 1,
+          "quote": "One of the most classical topics in learning theory is online learning, wherein a learning algorithm observes a stream of data points X_t from a space X, and for each time t ∈ N it makes a prediction Ŷ_t ∈ {0,1}, after which it observes the target label Y_t ∈ {0,1}. The prediction Ŷ_t may depend on the past observations ((X_s,Y_s),s<t) and X_t, but nothing else: that is, Ŷ_t = f_t(X_{1:(t−1)},Y_{1:(t−1)},X_t) for a (possibly randomized) function f_t. The objective is to make few mistakes: that is, few times t for which Ŷ_t ≠ Y_t. In particular, we are most interested in achieving a number of mistakes among {(X_t,Y_t)}_{t≤T} growing sublinearly in T: that is, o(T) mistakes."
+        },
+        {
+          "page": 2,
+          "quote": "Definition 1 For a (possibly random) sequence X = {X_t}_{t∈N}, an online learning algorithm f_t : X^{t−1} × {0,1}^{t−1} × X → {0,1} (possibly randomized, independent of X) is weakly universally consistent under X if, for every (measurable) f* : X → {0,1}, E[∑_{t=1}^T 1[f_t(X_{1:(t−1)},f*(X_{1:(t−1)}),X_t) ≠ f*(X_t)]] = o(T), and is strongly universally consistent under X if, for every (measurable) f* : X → {0,1}, ∑_{t=1}^T 1[f_t(X_{1:(t−1)},f*(X_{1:(t−1)}),X_t) ≠ f*(X_t)] = o(T) (a.s.)."
+        },
+        {
+          "page": 2,
+          "quote": "Definition 2 For a (possibly random) sequence X, we say (weak/strong) universal online learning is possible under X if there exists an online learning algorithm that is (weakly/strongly) universally consistent under X."
+        },
+        {
+          "page": 2,
+          "quote": "Definition 3 An online learning algorithm is optimistically (weakly/strongly) universal if it is (weakly/strongly) universally consistent under every X such that (weak/strong) universal online learning is possible under X."
+        },
+        {
+          "page": 3,
+          "quote": "Open Problem 1 Does there exist an optimistically universal online learning algorithm? (in either the weak or strong sense)"
+        }
+      ]
+    },
+    {
+      "id": "q_002",
+      "question_text": "In realizable binary online learning with arbitrary measurable target concepts f*: X → {0,1}, say that weak universal online learning is possible under a possibly random instance sequence X if some online learning algorithm has expected total mistakes o(T) through time T for every measurable f*. Let C_w be the family of all possibly random sequences X = {X_t}_{t∈N} such that every disjoint sequence {A_i}_{i∈N} of measurable sets satisfies E[|{i ∈ N : {X_1,...,X_T} intersects A_i}|] = o(T). Is C_w exactly equal to the set of all instance sequences X such that weak universal online learning is possible under X?",
+      "context_brief": "Weak universal online learning characterization by C_w",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 2,
+          "quote": "Definition 1 For a (possibly random) sequence X = {X_t}_{t∈N}, an online learning algorithm f_t : X^{t−1} × {0,1}^{t−1} × X → {0,1} (possibly randomized, independent of X) is weakly universally consistent under X if, for every (measurable) f* : X → {0,1}, E[∑_{t=1}^T 1[f_t(X_{1:(t−1)},f*(X_{1:(t−1)}),X_t) ≠ f*(X_t)]] = o(T)."
+        },
+        {
+          "page": 2,
+          "quote": "Definition 2 For a (possibly random) sequence X, we say (weak/strong) universal online learning is possible under X if there exists an online learning algorithm that is (weakly/strongly) universally consistent under X."
+        },
+        {
+          "page": 3,
+          "quote": "Let C_w denote the family of all (possibly random) sequences X = {X_t}_{t∈N} such that every disjoint sequence {A_i}_{i∈N} of measurable sets satisfies E[|{i ∈ N : X_{1:T} ∩ A_i ≠ ∅}|] = o(T)."
+        },
+        {
+          "page": 3,
+          "quote": "Open Problem 2 • Is C_w equal to the set of all X such that weak universal online learning is possible under X?"
+        },
+        {
+          "page": 4,
+          "quote": "Thus, the case that remains open in Open Problem 2 concerns whether X ∈ C_w or X ∈ C_s are sufficient conditions for weak or strong, respectively, universal online learning to be possible under X for uncountable X and general (random) sequences X."
+        }
+      ]
+    },
+    {
+      "id": "q_003",
+      "question_text": "In realizable binary online learning with arbitrary measurable target concepts f*: X → {0,1}, say that strong universal online learning is possible under a possibly random instance sequence X if some online learning algorithm has total mistakes o(T) through time T almost surely for every measurable f*. Let C_s be the family of all possibly random sequences X = {X_t}_{t∈N} such that every disjoint sequence {A_i}_{i∈N} of measurable sets satisfies |{i ∈ N : {X_1,...,X_T} intersects A_i}| = o(T) almost surely. Is C_s exactly equal to the set of all instance sequences X such that strong universal online learning is possible under X?",
+      "context_brief": "Strong universal online learning characterization by C_s",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 2,
+          "quote": "Definition 1 For a (possibly random) sequence X = {X_t}_{t∈N}, an online learning algorithm f_t : X^{t−1} × {0,1}^{t−1} × X → {0,1} (possibly randomized, independent of X) is strongly universally consistent under X if, for every (measurable) f* : X → {0,1}, ∑_{t=1}^T 1[f_t(X_{1:(t−1)},f*(X_{1:(t−1)}),X_t) ≠ f*(X_t)] = o(T) (a.s.)."
+        },
+        {
+          "page": 2,
+          "quote": "Definition 2 For a (possibly random) sequence X, we say (weak/strong) universal online learning is possible under X if there exists an online learning algorithm that is (weakly/strongly) universally consistent under X."
+        },
+        {
+          "page": 3,
+          "quote": "Let C_s denote the family of all (possibly random) sequences X = {X_t}_{t∈N} such that every disjoint sequence {A_i}_{i∈N} of measurable sets satisfies |{i ∈ N : X_{1:T} ∩ A_i ≠ ∅}|= o(T) (a.s.)."
+        },
+        {
+          "page": 3,
+          "quote": "Open Problem 2 • Is C_s equal to the set of all X such that strong universal online learning is possible under X?"
+        },
+        {
+          "page": 4,
+          "quote": "Thus, the case that remains open in Open Problem 2 concerns whether X ∈ C_w or X ∈ C_s are sufficient conditions for weak or strong, respectively, universal online learning to be possible under X for uncountable X and general (random) sequences X."
+        }
+      ]
+    }
+  ],
+  "needs_review": [],
+  "trace": [
+    {
+      "id": "source",
+      "stage": "map",
+      "notes": "Resolved arXiv abs URL to the PDF, downloaded it, and mapped a five-page paper with sections Background, Open Problem 1, Open Problem 2, Connections to Related Settings, and References.",
+      "evidence_refs": [
+        "p1",
+        "p2",
+        "p3",
+        "p4",
+        "p5"
+      ]
+    },
+    {
+      "id": "section_background",
+      "stage": "extract_candidates",
+      "notes": "Background defines the online learning setting, weak and strong universal consistency, universal online learning possible under X, and optimistically universal algorithms; it introduces the two fundamental questions later stated as Open Problem 1 and Open Problem 2.",
+      "evidence_refs": [
+        "p1",
+        "p2"
+      ]
+    },
+    {
+      "id": "section_open_problem_1",
+      "stage": "extract_candidates",
+      "notes": "Section 2 contains one explicit open problem asking for the existence of an optimistically universal online learning algorithm in the weak or strong sense.",
+      "evidence_refs": [
+        "p3"
+      ]
+    },
+    {
+      "id": "section_open_problem_2",
+      "stage": "extract_candidates",
+      "notes": "Section 3 contains two explicit bullet questions: equality of C_w with the weak universal online learning family and equality of C_s with the strong universal online learning family.",
+      "evidence_refs": [
+        "p3",
+        "p4"
+      ]
+    },
+    {
+      "id": "section_connections",
+      "stage": "extract_candidates",
+      "notes": "Section 4 mentions that new techniques are needed for Open Problem 2 and Open Problem 1, but it does not state an additional distinct open problem beyond the earlier two problem blocks.",
+      "evidence_refs": [
+        "p4"
+      ]
+    },
+    {
+      "id": "q_001",
+      "stage": "rewrite",
+      "notes": "Expanded the optimistically universal online learning question with the online prediction protocol and weak/strong universal consistency definitions from pages 1 and 2.",
+      "evidence_refs": [
+        "p1",
+        "p2",
+        "p3"
+      ]
+    },
+    {
+      "id": "q_002",
+      "stage": "rewrite",
+      "notes": "Expanded the weak C_w characterization question with the weak universal consistency definition and the definition of C_w.",
+      "evidence_refs": [
+        "p2",
+        "p3",
+        "p4"
+      ]
+    },
+    {
+      "id": "q_003",
+      "stage": "rewrite",
+      "notes": "Expanded the strong C_s characterization question with the strong universal consistency definition and the definition of C_s.",
+      "evidence_refs": [
+        "p2",
+        "p3",
+        "p4"
+      ]
+    },
+    {
+      "id": "q_001",
+      "stage": "dedupe",
+      "notes": "Merged the background mention of the first fundamental question with the explicit Open Problem 1 statement.",
+      "evidence_refs": [
+        "p2",
+        "p3"
+      ]
+    },
+    {
+      "id": "q_002",
+      "stage": "dedupe",
+      "notes": "Kept the weak C_w bullet as a distinct question because it asks about expected-mistake weak universal consistency.",
+      "evidence_refs": [
+        "p2",
+        "p3",
+        "p4"
+      ]
+    },
+    {
+      "id": "q_003",
+      "stage": "dedupe",
+      "notes": "Kept the strong C_s bullet as a distinct question because it asks about almost-sure strong universal consistency.",
+      "evidence_refs": [
+        "p2",
+        "p3",
+        "p4"
+      ]
+    },
+    {
+      "id": "q_001",
+      "stage": "quality_gates",
+      "notes": "Accepted: the rewrite is self-contained, every source-specific term used in the question is defined from source evidence, and the item has page-specific quote evidence.",
+      "evidence_refs": [
+        "p1",
+        "p2",
+        "p3"
+      ]
+    },
+    {
+      "id": "q_002",
+      "stage": "quality_gates",
+      "notes": "Accepted: the rewrite inlines the definition of C_w and weak universal online learning, and the item has page-specific quote evidence.",
+      "evidence_refs": [
+        "p2",
+        "p3",
+        "p4"
+      ]
+    },
+    {
+      "id": "q_003",
+      "stage": "quality_gates",
+      "notes": "Accepted: the rewrite inlines the definition of C_s and strong universal online learning, and the item has page-specific quote evidence.",
+      "evidence_refs": [
+        "p2",
+        "p3",
+        "p4"
+      ]
+    },
+    {
+      "id": "source",
+      "stage": "persist",
+      "notes": "Saved exact JSON output to outputs/parse-paper/2107.09542.json and outputs/latest.json.",
+      "evidence_refs": []
+    }
+  ]
+}

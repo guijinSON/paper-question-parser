@@ -1,23 +1,91 @@
 {
+  "source": {
+    "url": "https://zbmath.org/6531350",
+    "resolved_locator": "/home/gson/paper-question-parser/.sisyphus/paper-question-parser/tmp/1406.1819.pdf",
+    "title": "Bootstrap Algebraic Multigrid: status report, open problems, and outlook",
+    "title_origin": "source_text"
+  },
   "accepted": [
     {
       "id": "q_001",
-      "question_text": "In bootstrap algebraic multigrid, how should one define a form of compatible relaxation together with a convergence-rate estimate derived from the compatible-relaxation factor rho_cr so that, for a chosen interpolation strategy, the estimate accurately predicts the performance of the resulting two-grid method?",
-      "context_brief": "Compatible relaxation prediction",
+      "question_text": "For a linear system Ax = b solved by bootstrap algebraic multigrid, what form of compatible relaxation and what convergence-rate estimate derived from the compatible-relaxation factor ρ_cr should be used so that, for a given interpolation strategy, the estimate accurately predicts the convergence of the resulting two-grid method?",
+      "context_brief": "compatible relaxation prediction",
       "meta": {
         "is_solved": false
       },
       "evidence": [
         {
-          "page": 8,
-          "quote": "The two main research questions in CR that require further investigation and with which we conclude our discussion of CR are: \u2022 How to define an appropriate form of CR and related convergence rate estimate from rho_cr that accurately predicts the performance of the resulting two-grid method for a given interpolation strategy?"
+          "page": "8-9",
+          "quote": "How to define an appropriate form of CR and related convergence rate estimate from ρc r that accurately predicts the performance of the resulting two-grid method for a given interpolation strategy?"
+        },
+        {
+          "page": 9,
+          "quote": "However, a precise relation between the convergence rate of a given CR iteration and the resulting two-grid convergence is not known in general."
+        }
+      ]
+    },
+    {
+      "id": "q_002",
+      "question_text": "Given a current set C of coarse variables for bootstrap algebraic multigrid, how should one choose the initial coarse set C0 and then make local additions, removals, or other modifications to C whenever compatible relaxation converges too slowly, so that the updated coarse space improves convergence without introducing unnecessary complexity?",
+      "context_brief": "coarse variable selection",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": "8-9",
+          "quote": "How to choose C0 and how to identify suitable local modifications to a given set of coarse variables whenever the CR convergence rate is slow?"
+        },
+        {
+          "page": 10,
+          "quote": "there is still no rigorous understanding of or justification for using pointwise errors of CR to determine the variables that will most effectively reduce the convergence rate of the CR process when added to C."
+        },
+        {
+          "page": 20,
+          "quote": "An efficient mechanism for updating coarse variable set C based on a local slowness of CR relaxation, see Section 2;"
         }
       ]
     },
     {
       "id": "q_003",
-      "question_text": "How can least-squares interpolation and the bootstrap setup used to compute test vectors be combined in a way that is simultaneously optimal and robust for defining algebraic multigrid interpolation?",
-      "context_brief": "Optimal robust BAMG integration",
+      "question_text": "When least-squares interpolation is built from a finite set of relaxed test vectors, how should one use randomized methods or range-approximation techniques to sample the dominant part of the error space that is not significantly reduced by the smoother, so that the sampled space yields reliably effective interpolation?",
+      "context_brief": "randomized test-vector sampling",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 14,
+          "quote": "Recently, randomized methods for range approximation have been given particular attention in data mining applications and further studies of the LS process along these lines are still needed."
+        }
+      ]
+    },
+    {
+      "id": "q_004",
+      "question_text": "For least-squares interpolation in bootstrap algebraic multigrid, how can one define appropriate local weights ωκ, and possibly corresponding local equations for computing test vectors, in a general algebraic setting so that a globally smooth test vector is not overemphasized in local regions where it has large residuals?",
+      "context_brief": "local LS weights",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 15,
+          "quote": "The related problem of determining appropriate local weights in the LS definition of interpolation is more complicated and has not been resolved in a general algebraic setting, except for finite element discretizations of elliptic boundary value problems."
+        },
+        {
+          "page": 15,
+          "quote": "The problem of determining local weights is also related to the question of deriving local equations for computing the test vectors, as in spectral AMG [22]."
+        },
+        {
+          "page": 20,
+          "quote": "A local procedure for finding weights ωκ in (3.1) – to prevent an emphasize on a globally smooth test vector, that will otherwise be heavily weighted everywhere, in the regions where it has large residuals; such approach will be a generalization of the LSR scheme which is now used concurrently with global weights, see Section 3;"
+        }
+      ]
+    },
+    {
+      "id": "q_005",
+      "question_text": "How should one combine least-squares interpolation, bootstrap setup cycles, and adaptive cycles for computing test vectors in bootstrap algebraic multigrid so that the resulting self-learning setup is both optimal in work and robust across problem classes?",
+      "context_brief": "combining bootstrap components",
       "meta": {
         "is_solved": false
       },
@@ -29,9 +97,37 @@
       ]
     },
     {
-      "id": "q_004",
-      "question_text": "For Hermitian positive definite problems, how should the compatible relaxation, algebraic distance, least-squares interpolation, test-vector generation, and related bootstrap algebraic multigrid components be integrated into a practical overall algorithm, validated on a carefully chosen and diverse collection of test problems including systems of partial differential equations, so that the method becomes a fast solver usable in practice?",
-      "context_brief": "Practical HPD BAMG integration",
+      "id": "q_006",
+      "question_text": "When computing the test vectors used by bootstrap algebraic multigrid, what balance between computational work and approximation accuracy should be targeted so that the vectors are accurate enough to define effective interpolation without making setup prohibitively expensive?",
+      "context_brief": "test-vector work accuracy tradeoff",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 20,
+          "quote": "A balance between work and accuracy when computing TVs, see Section 4;"
+        }
+      ]
+    },
+    {
+      "id": "q_007",
+      "question_text": "How can bootstrap algebraic multigrid incorporate all available information about a problem, especially geometric information when it exists, into coarsening, interpolation, and setup so that the resulting multigrid hierarchy uses that information effectively rather than relying only on algebraic heuristics?",
+      "context_brief": "use geometric information",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 20,
+          "quote": "A procedure for incorporating all available information about a given problem, in particular, its geometric information;"
+        }
+      ]
+    },
+    {
+      "id": "q_008",
+      "question_text": "For general Hermitian positive definite problems, how can the compatible-relaxation, algebraic-distance, least-squares-interpolation, and bootstrap test-vector components of bootstrap algebraic multigrid be integrated into an overall algorithm that is practical, easy to tune, and robust as a fast multigrid solver across a diverse set of test problems, including systems of partial differential equations?",
+      "context_brief": "integrated HPD BAMG solver",
       "meta": {
         "is_solved": false
       },
@@ -43,13 +139,17 @@
         {
           "page": 20,
           "quote": "Specifically, a systematic study of the BAMG processes for a carefully chosen and diverse set of test problems (that includes systems of PDEs) is needed."
+        },
+        {
+          "page": 20,
+          "quote": "An integration of all BAMG components to obtain an easy to tune and robust multigrid solver."
         }
       ]
     },
     {
-      "id": "q_005",
-      "question_text": "For non-Hermitian problems treated with Galerkin-based algebraic multigrid, how can one correctly characterize the algebraically smooth error, or near-kernel components, that restriction and interpolation must approximate on coarse levels when small-singular-vector information can fail to describe that near kernel unless the matrix is normal?",
-      "context_brief": "Non-Hermitian smooth error characterization",
+      "id": "q_009",
+      "question_text": "For non-Hermitian linear systems, which error components should restriction and interpolation approximate on coarse levels—in other words, how should algebraically smooth error be characterized when the matrix is nonnormal and the near kernel generally cannot be identified just by singular vectors or eigenvectors associated with small singular values?",
+      "context_brief": "non-Hermitian smooth error",
       "meta": {
         "is_solved": false
       },
@@ -65,9 +165,31 @@
       ]
     },
     {
-      "id": "q_006",
-      "question_text": "For indefinite, non-elliptic problems such as Helmholtz and Schroedinger operators in higher dimensions, how can bootstrap algebraic multigrid be developed so that several locally orthogonal prolongation operators and the resulting multiple Galerkin coarse-grid operators are constructed efficiently, and to what extent can those techniques be extended into fast solvers for general sparse matrix equations?",
-      "context_brief": "Non-elliptic BAMG extension",
+      "id": "q_010",
+      "question_text": "For non-Hermitian problems, how can restriction R and interpolation P be constructed and tied together locally so that the Galerkin coarse-grid matrix remains suitable for multigrid correction and does not become singular or cause divergence through overcorrection when small singular values or eigenvalues are underestimated on coarse levels?",
+      "context_brief": "stable non-Hermitian RAP",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 21,
+          "quote": "Thus, it is possible that the Galerkin coarse level operator can have a zero eigenvalue, even when the fine-level matrix does not."
+        },
+        {
+          "page": 21,
+          "quote": "We have observed in practice that in such cases, the resulting Galerkin method can diverge."
+        },
+        {
+          "page": 21,
+          "quote": "Thus, although the BAMG process provides techniques for constructing restriction R and interpolation P, each in their own setup scheme, these processes must be carefully tied together locally in order to obtain a suitable Galerkin coarse-grid matrix."
+        }
+      ]
+    },
+    {
+      "id": "q_011",
+      "question_text": "For indefinite or non-elliptic problems such as higher-dimensional Helmholtz and Schrödinger equations, how can one build a bootstrap algebraic multigrid method that uses several prolongation operators and multiple Galerkin coarse-grid operators, with the prolongation operators kept locally orthogonal, so that the many locally different low-eigenspace components are represented accurately at acceptable computational cost?",
+      "context_brief": "non-elliptic multiple prolongations",
       "meta": {
         "is_solved": false
       },
@@ -78,280 +200,112 @@
         },
         {
           "page": 21,
-          "quote": "To guarantee optimal computational costs, all prolongation operators have to be locally orthogonal, and achieving that generates additional computational difficulties."
+          "quote": "There and on all coarser scales several prolongation operators have to be employed, resulting in multiple-Galerkin approach with many coarse-grid operators."
         },
         {
           "page": 21,
+          "quote": "To guarantee optimal computational costs, all prolongation operators have to be locally orthogonal, and achieving that generates additional computational difficulties."
+        },
+        {
+          "page": "21-22",
+          "quote": "Two important future research topics are thus to continue to investigate developing BAMG solvers for these and other non-elliptic problems"
+        }
+      ]
+    },
+    {
+      "id": "q_012",
+      "question_text": "How far can bootstrap algebraic multigrid techniques developed for non-elliptic and other challenging sparse systems be extended so that they become genuinely fast solvers for general sparse matrix equations beyond the problem classes where BAMG-like methods have already been implemented?",
+      "context_brief": "extent of BAMG applicability",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 22,
           "quote": "Two important future research topics are thus to continue to investigate developing BAMG solvers for these and other non-elliptic problems and to determine how far these techniques can be extended as fast solvers for general sparse matrix equations."
         }
       ]
     }
   ],
-  "needs_review": [
-    {
-      "id": "q_002",
-      "reason": "incomplete_evidence_quote",
-      "question_text_raw": "How to choose C0 and how to identify suitable local modifications to a given set of coarse variables whenever the CR convergence rate is slow?",
-      "evidence": [
-        {
-          "page": 8,
-          "quote": "\u2022 How to choose C0 and how to identify suitable local modifications to a given set of"
-        },
-        {
-          "page": 9,
-          "quote": "coarse variables whenever the CR convergence rate is slow?"
-        }
-      ]
-    },
-    {
-      "id": "q_007",
-      "reason": "incomplete_evidence_quote",
-      "question_text_raw": "An efficient mechanism for updating coarse variable set C based on a local slowness of CR relaxation.",
-      "evidence": [
-        {
-          "page": 20,
-          "quote": "\u2022 An efficient mechanism for updating coarse variable set C based on a local slowness of CR relaxation, see Section 2;"
-        }
-      ]
-    },
-    {
-      "id": "q_008",
-      "reason": "incomplete_evidence_quote",
-      "question_text_raw": "A local procedure for finding weights omega_kappa in (3.1) that avoids overemphasizing globally smooth test vectors in regions where they have large residuals.",
-      "evidence": [
-        {
-          "page": 20,
-          "quote": "\u2022 A local procedure for finding weights omega_kappa in (3.1) - to prevent an emphasize on a globally smooth test vector, that will otherwise be heavily weighted everywhere, in the regions where it has large residuals; such approach will be a generalization of the LSR scheme which is now used concurrently with global weights, see Section 3;"
-        }
-      ]
-    },
-    {
-      "id": "q_009",
-      "reason": "incomplete_evidence_quote",
-      "question_text_raw": "A balance between work and accuracy when computing test vectors.",
-      "evidence": [
-        {
-          "page": 20,
-          "quote": "\u2022 A balance between work and accuracy when computing TVs, see Section 4;"
-        }
-      ]
-    },
-    {
-      "id": "q_010",
-      "reason": "incomplete_evidence_quote",
-      "question_text_raw": "A procedure for incorporating all available information about a given problem, in particular its geometric information.",
-      "evidence": [
-        {
-          "page": 20,
-          "quote": "\u2022 A procedure for incorporating all available information about a given problem, in particular, its geometric information;"
-        }
-      ]
-    },
-    {
-      "id": "q_011",
-      "reason": "incomplete_evidence_quote",
-      "question_text_raw": "An integration of all BAMG components to obtain an easy to tune and robust multigrid solver.",
-      "evidence": [
-        {
-          "page": 20,
-          "quote": "\u2022 An integration of all BAMG components to obtain an easy to tune and robust multigrid solver."
-        }
-      ]
-    }
-  ],
+  "needs_review": [],
   "trace": [
     {
-      "id": "doc_map",
+      "id": "map_001",
       "stage": "map",
-      "notes": "Mapped the paper as an overview/status-report article with open-problem material concentrated in the compatible-relaxation discussion on pages 8-9 and the future-directions section on pages 20-22.",
+      "notes": "Resolved the zbMATH record through its arXiv full-text link and mapped the PDF. High-yield open-problem regions were Section 2 (pp. 8-12), Section 3 (pp. 14-15), Section 4 (pp. 19-20), and Section 5 (pp. 20-22).",
       "evidence_refs": [
-        "p8",
-        "p9",
+        "p1",
+        "p6",
         "p20",
         "p21",
         "p22"
       ]
     },
     {
-      "id": "q_001",
+      "id": "extract_s2",
       "stage": "extract_candidates",
-      "notes": "Extracted an explicit research question from the CR section.",
-      "evidence_refs": [
-        "p8"
-      ]
-    },
-    {
-      "id": "q_001",
-      "stage": "rewrite",
-      "notes": "Expanded CR and rho_cr into a standalone question while preserving the original scope.",
-      "evidence_refs": [
-        "p8"
-      ]
-    },
-    {
-      "id": "q_001",
-      "stage": "quality_gates",
-      "notes": "Accepted: self-contained and supported by complete sentence-level evidence.",
-      "evidence_refs": [
-        "p8"
-      ]
-    },
-    {
-      "id": "q_003",
-      "stage": "extract_candidates",
-      "notes": "Extracted an implicit open problem from the preface to the future-directions section.",
-      "evidence_refs": [
-        "p20"
-      ]
-    },
-    {
-      "id": "q_003",
-      "stage": "rewrite",
-      "notes": "Recast the stated need for a systematic study as a self-contained research question.",
-      "evidence_refs": [
-        "p20"
-      ]
-    },
-    {
-      "id": "q_003",
-      "stage": "quality_gates",
-      "notes": "Accepted: evidence is explicit and complete.",
-      "evidence_refs": [
-        "p20"
-      ]
-    },
-    {
-      "id": "q_004",
-      "stage": "extract_candidates",
-      "notes": "Extracted the main HPD integration problem from the future-directions section.",
-      "evidence_refs": [
-        "p20"
-      ]
-    },
-    {
-      "id": "q_004",
-      "stage": "rewrite",
-      "notes": "Combined the practical-solver statement and the systematic-study requirement into one standalone question.",
-      "evidence_refs": [
-        "p20"
-      ]
-    },
-    {
-      "id": "q_004",
-      "stage": "quality_gates",
-      "notes": "Accepted using two complete supporting quotations from the same page.",
-      "evidence_refs": [
-        "p20"
-      ]
-    },
-    {
-      "id": "q_005",
-      "stage": "extract_candidates",
-      "notes": "Extracted the explicit unresolved issue for non-Hermitian Galerkin AMG.",
-      "evidence_refs": [
-        "p21"
-      ]
-    },
-    {
-      "id": "q_005",
-      "stage": "rewrite",
-      "notes": "Inlined the near-kernel caveat so the question stands without source references.",
-      "evidence_refs": [
-        "p21"
-      ]
-    },
-    {
-      "id": "q_005",
-      "stage": "quality_gates",
-      "notes": "Accepted: no dangling references and evidence directly supports the rewrite.",
-      "evidence_refs": [
-        "p21"
-      ]
-    },
-    {
-      "id": "q_006",
-      "stage": "extract_candidates",
-      "notes": "Extracted the future-research topic for non-elliptic problems from the closing discussion.",
-      "evidence_refs": [
-        "p21",
-        "p22"
-      ]
-    },
-    {
-      "id": "q_006",
-      "stage": "rewrite",
-      "notes": "Expanded the question to include the multiple-prolongation and local-orthogonality requirements stated in the source.",
-      "evidence_refs": [
-        "p21",
-        "p22"
-      ]
-    },
-    {
-      "id": "q_006",
-      "stage": "quality_gates",
-      "notes": "Accepted: supported by complete quotations that cover both the obstacle and the open direction.",
-      "evidence_refs": [
-        "p21",
-        "p22"
-      ]
-    },
-    {
-      "id": "q_002",
-      "stage": "quality_gates",
-      "notes": "Moved to needs_review because the explicit question is split across a page break and the extracted evidence is not a single complete sentence.",
+      "notes": "Extracted explicit compatible-relaxation questions and related unresolved coarse-variable-selection statements from Section 2.",
       "evidence_refs": [
         "p8",
-        "p9"
+        "p9",
+        "p10",
+        "p11"
       ]
     },
     {
-      "id": "q_007",
-      "stage": "quality_gates",
-      "notes": "Moved to needs_review because the item appears as a fragmentary bullet rather than complete sentence evidence.",
+      "id": "extract_s3",
+      "stage": "extract_candidates",
+      "notes": "Extracted least-squares-interpolation research directions from Section 3, including randomized sampling and local-weight questions.",
+      "evidence_refs": [
+        "p14",
+        "p15"
+      ]
+    },
+    {
+      "id": "extract_s4",
+      "stage": "extract_candidates",
+      "notes": "Extracted the open issue on optimally and robustly combining bootstrap components from Section 4.",
       "evidence_refs": [
         "p20"
       ]
     },
     {
-      "id": "q_008",
-      "stage": "quality_gates",
-      "notes": "Moved to needs_review because the item appears as a fragmentary bullet rather than complete sentence evidence.",
+      "id": "extract_s5",
+      "stage": "extract_candidates",
+      "notes": "Extracted the main future-direction list for HPD, non-Hermitian, and non-elliptic problems from Section 5.",
       "evidence_refs": [
+        "p20",
+        "p21",
+        "p22"
+      ]
+    },
+    {
+      "id": "dedupe_001",
+      "stage": "dedupe",
+      "notes": "Merged repeated future-direction statements across Sections 2-5 into canonical questions q_002, q_004, and q_005.",
+      "evidence_refs": [
+        "p8",
+        "p15",
         "p20"
       ]
     },
     {
-      "id": "q_009",
+      "id": "quality_001",
       "stage": "quality_gates",
-      "notes": "Moved to needs_review because the item appears as a fragmentary bullet rather than complete sentence evidence.",
+      "notes": "All accepted items were rewritten to be self-contained, retained explicit source-backed evidence, and did not require unresolved cross-references.",
       "evidence_refs": [
-        "p20"
+        "p8",
+        "p14",
+        "p20",
+        "p21",
+        "p22"
       ]
     },
     {
-      "id": "q_010",
-      "stage": "quality_gates",
-      "notes": "Moved to needs_review because the item appears as a fragmentary bullet rather than complete sentence evidence.",
-      "evidence_refs": [
-        "p20"
-      ]
-    },
-    {
-      "id": "q_011",
-      "stage": "quality_gates",
-      "notes": "Moved to needs_review because the item appears as a fragmentary bullet rather than complete sentence evidence.",
-      "evidence_refs": [
-        "p20"
-      ]
-    },
-    {
-      "id": "persist",
+      "id": "persist_001",
       "stage": "persist",
-      "notes": "Saved exact JSON output to outputs/parse-paper/1406.1819.json and outputs/latest.json.",
-      "evidence_refs": [
-        "outputs/parse-paper/1406.1819.json",
-        "outputs/latest.json"
-      ]
+      "notes": "Saved exact JSON output to outputs/parse-paper/1406.1819.json and updated outputs/latest.json.",
+      "evidence_refs": []
     }
   ]
 }

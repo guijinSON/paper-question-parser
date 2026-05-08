@@ -1,0 +1,221 @@
+{
+  "source": {
+    "url": "https://arxiv.org/abs/2407.06321",
+    "resolved_locator": "/home/gson/paper-question-parser-science-parser/.sisyphus/paper-question-parser/tmp/2407.06321.pdf",
+    "title": "Open Problem: Tight Bounds for Kernelized Multi-Armed Bandits with Bernoulli Rewards",
+    "title_origin": "source_text"
+  },
+  "accepted": [
+    {
+      "id": "q_001",
+      "question_text": "In a kernelized Bernoulli bandit, a learner sequentially chooses actions x_t from a decision set X contained in R^d and observes Bernoulli rewards y_t sampled with mean f(x_t), where the unknown function f: X -> [0,1] belongs to the reproducing kernel Hilbert space H_k induced by a kernel k, has known RKHS norm bound ||f||_{H_k} <= B, and satisfies k(x,x) <= 1 for every x in X. Given the history G_t = {(x_s, y_s)}_{s=1}^{t-1} of past action-reward pairs, can one construct an effective estimator of f(x) at a new point x in X that uses the kernel structure while producing estimates appropriate for Bernoulli mean parameters in [0,1]?",
+      "context_brief": "Estimation for RKHS-structured Bernoulli bandits",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 2,
+          "quote": "We consider the problem of sequentially maximizing a ﬁxed an d unknown function f :\nX Ñ r 0, 1s over a decision set X Ď Rd (also called action set). At every round t P /llbracketT /rrbracket:“\nt1, . . . , T u, being T P N the learning horizon, the algorithm A chooses an action xt P X based\non the history of past observations Gt :“ tp xs, y squsP/llbrackett´ 1/rrbracketand observes a random variable yt „\nBerpf pxtqq, where Ber ppq denotes a Bernoulli distribution with parameter p P r0, 1s."
+        },
+        {
+          "page": 2,
+          "quote": "Assumption 2.1 (Regularity Conditions) f belongs to the RKHS, i.e., f P Hk, and:\n• the function f has a bounded RKHS norm, i.e., }f }Hk ď B ă `8 (B is known);\n• the kernel function k is bounded, i.e., kpx, xq ď 1 for every x P X ."
+        },
+        {
+          "page": 2,
+          "quote": "Can we effectively estimate f pxq in a new point x P X based on the\nhistory of past observations Gt :“ tp xs, y squsP/llbrackett´ 1/rrbracketwhere ys are Bernoulli samples?"
+        },
+        {
+          "page": 3,
+          "quote": "This approach can be employed when yt „ Berpf pxtqq,\nsince a Bernoulli variable is 1{2-subgaussian. However, the\ndrawback is that µ tpxq is not guaranteed to lie in r0, 1s, al-\nthough the true f pxq P r 0, 1s, being the parameter of a\nBernoulli distribution (Figure 1)."
+        }
+      ]
+    },
+    {
+      "id": "q_002",
+      "question_text": "In a kernelized Bernoulli bandit with unknown f: X -> [0,1] in an RKHS H_k, ||f||_{H_k} <= B, k(x,x) <= 1, and observations y_t sampled from Ber(f(x_t)), can one define a suitable estimator mu_t(x) of f(x) and prove concentration guarantees for the deviation |f(x) - mu_t(x)| that are tight for Bernoulli observations rather than merely using the fact that Bernoulli rewards are 1/2-subgaussian? More specifically, can such guarantees capture the stronger Bernoulli KL-divergence concentration rates known for unstructured multi-armed bandits while handling the correlations among arms induced by the kernelized setting?",
+      "context_brief": "Bernoulli-specific concentration in kernelized bandits",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 3,
+          "quote": "Can we derive concentration guarantees for the deviation |f pxq ´ µ tpxq|\n(being µ tpxq a suitable estimator of f pxq) which is tight for the Bernoulli observations?"
+        },
+        {
+          "page": 4,
+          "quote": "Equation (2) holds for Bernoulli distributions too, being t hem subgaussian with λ “ 1{2.\nWhile Equation (2) is likely tight for subgaussian observat ions, it fails to capture the stronger\nconcentration rate that characterizes Bernoulli random va riables."
+        },
+        {
+          "page": 4,
+          "quote": "Equation (3) evaluates the distance u sing the KL-divergence dp¨ , ¨q between\nBernoulli parameters and, therefore, delivers a stronger c oncentration bound compared to that of\nEquation (2)."
+        },
+        {
+          "page": 4,
+          "quote": "The derivation of this result (Garivier and Ca ppé, 2011) makes use of a martingale-\nbased argument deeply depending on the moment-generating f unction of the Bernoulli distribution\nthat seems not to be easily extensible to the KB setting in whi ch correlation among arms is present."
+        }
+      ]
+    },
+    {
+      "id": "q_003",
+      "question_text": "For a finite-action kernelized Bernoulli bandit under the RKHS regularity conditions f in H_k, ||f||_{H_k} <= B, and k(x,x) <= 1, can one design regret-minimization algorithms whose regret grows logarithmically in the horizon T and whose instance-dependent dependence is governed by the Bernoulli KL divergence d(f(x), f(x*)) between each action's mean and the optimal mean f(x*)? Can such a logarithmic, KL-dependent guarantee be achieved in the kernelized setting where the kernel may encode correlations among arms, noting that the trivial kernel k(x,x') = 1{x = x'} reduces the finite kernelized bandit to an unstructured multi-armed bandit?",
+      "context_brief": "Logarithmic regret for finite kernelized Bernoulli bandits",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 4,
+          "quote": "Can we design regret minimization algorithms which achieve a log T regret guarantee,\nhighlighting the dependence on dpf pxq, f px‹ qq when X is ﬁnite?"
+        },
+        {
+          "page": 4,
+          "quote": "Here, instead, when X is ﬁnite, we are interested in understanding if achieving\nlog T regret is possible for KBs with Bernoulli observations. Ind eed, in the unstructured case (and\n|X | ă `8 ), the KL-UCB (Garivier and Cappé, 2011) achieves the tight instance-dependent bound:"
+        },
+        {
+          "page": 4,
+          "quote": "RT pKL-UCBq ď O\nˆ ÿ\nxPX\nlog T\ndpf pxq, f px‹ qq\n˙\n."
+        },
+        {
+          "page": 4,
+          "quote": "We perceive that this should be possible since, when |X | ă `8 , using the trivial kernel kpx, x1q “\n1tx “ x1u for every x, x1 P X , the KB reduces to an unstructured MAB. Furthermore, we conj ec-\nture that this possibility (at least for optimistic algorit hms) is strictly related to the open problem\nof Section 3.2."
+        }
+      ]
+    }
+  ],
+  "needs_review": [],
+  "trace": [
+    {
+      "id": "source",
+      "stage": "input",
+      "notes": "Normalized the arXiv abs URL to https://arxiv.org/pdf/2407.06321.pdf and downloaded the readable PDF artifact to the parser temporary directory.",
+      "evidence_refs": [
+        "p1"
+      ]
+    },
+    {
+      "id": "source",
+      "stage": "map",
+      "notes": "Mapped a 6-page PDF with title page, problem formulation, Section 3 Open Problems, and three explicit open-problem subsections: estimation, concentration, and regret minimization.",
+      "evidence_refs": [
+        "p1",
+        "p2",
+        "p3",
+        "p4"
+      ]
+    },
+    {
+      "id": "q_001",
+      "stage": "extract_candidates",
+      "notes": "Extracted the explicit Open Problem 1 question from Section 3.1 and supporting setting, RKHS-regularity, and estimator-range limitation evidence.",
+      "evidence_refs": [
+        "p2",
+        "p3"
+      ]
+    },
+    {
+      "id": "q_002",
+      "stage": "extract_candidates",
+      "notes": "Extracted the explicit Open Problem 2 question from Section 3.2 and supporting evidence contrasting subgaussian and Bernoulli KL concentration.",
+      "evidence_refs": [
+        "p3",
+        "p4"
+      ]
+    },
+    {
+      "id": "q_003",
+      "stage": "extract_candidates",
+      "notes": "Extracted the explicit Open Problem 3 question from Section 3.3 and supporting finite-action, KL-UCB, and trivial-kernel evidence.",
+      "evidence_refs": [
+        "p4"
+      ]
+    },
+    {
+      "id": "q_001",
+      "stage": "rewrite",
+      "notes": "Expanded the compressed estimation question with the sequential decision setting, Bernoulli observation model, RKHS norm and kernel boundedness assumptions, and the requirement that estimates be suitable for Bernoulli means.",
+      "evidence_refs": [
+        "p2",
+        "p3"
+      ]
+    },
+    {
+      "id": "q_002",
+      "stage": "rewrite",
+      "notes": "Expanded the concentration question with the Bernoulli bandit setting, estimator notation, subgaussian baseline, Bernoulli KL-rate target, and kernel-induced correlation obstacle.",
+      "evidence_refs": [
+        "p3",
+        "p4"
+      ]
+    },
+    {
+      "id": "q_003",
+      "stage": "rewrite",
+      "notes": "Expanded the regret-minimization question with finite-action assumptions, logarithmic-in-T target, KL-divergence dependence, and the reduction to unstructured MABs under the trivial kernel.",
+      "evidence_refs": [
+        "p4"
+      ]
+    },
+    {
+      "id": "q_001",
+      "stage": "dedupe",
+      "notes": "Kept as the canonical estimation open problem; abstract and table mentions of the broader Bernoulli-RKHS gap were treated as context rather than separate duplicate questions.",
+      "evidence_refs": [
+        "p1",
+        "p2",
+        "p3"
+      ]
+    },
+    {
+      "id": "q_002",
+      "stage": "dedupe",
+      "notes": "Kept as distinct from the estimation problem because it asks for Bernoulli-tight concentration guarantees for a suitable estimator.",
+      "evidence_refs": [
+        "p3",
+        "p4"
+      ]
+    },
+    {
+      "id": "q_003",
+      "stage": "dedupe",
+      "notes": "Kept as distinct from the concentration problem because it asks for logarithmic, instance-dependent regret algorithms, while noting the source's stated relation to Open Problem 2.",
+      "evidence_refs": [
+        "p4"
+      ]
+    },
+    {
+      "id": "q_001",
+      "stage": "quality_gates",
+      "notes": "Accepted: the rewrite is self-contained, does not point back to the source, includes page-numbered quote evidence, and adds no unsupported technical assumptions beyond cited evidence.",
+      "evidence_refs": [
+        "p2",
+        "p3"
+      ]
+    },
+    {
+      "id": "q_002",
+      "stage": "quality_gates",
+      "notes": "Accepted: the rewrite is self-contained, evidence covers the raw question and Bernoulli-specific concentration motivation, and no unresolved cross-reference remains.",
+      "evidence_refs": [
+        "p3",
+        "p4"
+      ]
+    },
+    {
+      "id": "q_003",
+      "stage": "quality_gates",
+      "notes": "Accepted: the rewrite is self-contained, evidence covers the raw regret question and finite unstructured comparison, and solved-status metadata is false because the source does not mark it solved.",
+      "evidence_refs": [
+        "p4"
+      ]
+    },
+    {
+      "id": "source",
+      "stage": "persist",
+      "notes": "Saved exact JSON payload to outputs/parse-paper/2407.06321.json and outputs/latest.json.",
+      "evidence_refs": []
+    }
+  ]
+}

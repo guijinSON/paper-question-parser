@@ -1,0 +1,268 @@
+{
+  "source": {
+    "url": "https://arxiv.org/abs/2201.05747",
+    "resolved_locator": "/home/gson/paper-question-parser-science-parser/.sisyphus/paper-question-parser/tmp/2201.05747.pdf",
+    "title": "Infrared tip-tilt sensing: on-sky experience, lessons learned and unsolved problems",
+    "title_origin": "source_text"
+  },
+  "accepted": [
+    {
+      "id": "q_001",
+      "question_text": "What spot-displacement and loop-control algorithms can make an infrared tip-tilt sensor produce stable, accurate tip-tilt estimates when the adaptive-optics correction gives only a low-Strehl, partially corrected point-spread function, especially for off-axis guide stars where anisoplanatism broadens the spot and a diffraction-limited core can break into multiple time-varying speckles? The algorithm must avoid the increased noise of reading larger detector regions for centroiding and avoid simply tracking the brightest speckle, because that speckle can change with time and yield an inaccurate tip-tilt estimate.",
+      "context_brief": "Low-Strehl partially corrected PSF centroiding",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 1,
+          "quote": "The second part of the paper deals with unresolved challenges for IR TTS. These include algorithms and loop stability in the low Strehl regime, using IR TTSs to measure higher-order modes and guiding on multiple guide stars with diﬀerent magnitudes."
+        },
+        {
+          "page": 11,
+          "quote": "Matters become complicated at modest Strehl ratios (below 10%), where the core can degenerate into two or more speckles (Fig. 7). The spot on the TTS becomes larger due to anisoplanatism, so a larger detector region is needed. Since reading more pixels increases the read noise on each pixel, and since the error in the centroid measurement increases with number of pixels even if the noise were the same, then it follows that the centroid algorithm will suﬀer from increased noise. However, peak ﬁnding algorithms, such as the correlation algorithm, will track the brightest speckle, which will change with time and lead to an inaccurate tip-tilt estimate. Optimal spot displacement algorithms for this régime are an open research problem."
+        },
+        {
+          "page": 13,
+          "quote": "There are still a number of unsolved research problems and these are listed here: – Measuring centroids from partially corrected PSFs ( e.g., oﬀ-axis stars)."
+        }
+      ]
+    },
+    {
+      "id": "q_002",
+      "question_text": "How can an infrared tip-tilt sensor accurately measure image displacement for faint, extended astronomical sources, rather than point-like guide stars, when conventional centroiding algorithms are not well suited to extended-object structure?",
+      "context_brief": "Centroiding faint extended sources",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 11,
+          "quote": "A related issue is optimal tip-tilt sensing with extended objects, for which conventional centroiding algorithms are not well suited."
+        },
+        {
+          "page": 13,
+          "quote": "There are still a number of unsolved research problems and these are listed here: – Measuring centroids from faint, extended sources."
+        }
+      ]
+    },
+    {
+      "id": "q_003",
+      "question_text": "How should a laser-guide-star adaptive-optics system combine two or more off-axis infrared tip-tilt measurements to estimate the on-axis tip-tilt when the guide stars have different magnitudes, are measured at different frame rates, and have different centroiding errors caused by both photon count and spot shape? The desired solution should go beyond a weighted average by using tomography or an equivalent controller or reconstructor that can work for single-conjugate adaptive optics or laser-tomography adaptive optics.",
+      "context_brief": "Multi-star multi-rate tip-tilt tomography",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 6,
+          "quote": "The LTAO design calls for the use of two or three tip-tilt stars in order to reduce the eﬀect of tip-tilt anisoplanatism. The capability to use multiple ROIs is already present; how to optimally combine the measurements is work in progress, and this is discussed in Section 5.2. Currently, the measurements from multiple stars can only be combined using a weighted average, 15 and an upgrade to real-time controller code is needed to support tomography."
+        },
+        {
+          "page": 12,
+          "quote": "The minimum variance reconstructor leads to optimal open-loop estimates, and this reconstructor can be used in closed-loop. However, it is not clear how to optimally combine tip-tilt measurements for the general case where two or more stars with very diﬀerent magnitudes are read at diﬀerent frame rates."
+        },
+        {
+          "page": 12,
+          "quote": "Further work on multi-rate controllers for single-conjugate adaptive optics systems is required. To be useful for NIR TTSs, these controllers should consider that measurements using oﬀ-axis stars are also have a centroiding error that depends on the shape of the spot on the detector, not just on the number of photons detected."
+        },
+        {
+          "page": 13,
+          "quote": "There are still a number of unsolved research problems and these are listed here: – Optimal on-axis tip-tilt estimates from two or more tip-tilt measurements at diﬀerent frame rates."
+        }
+      ]
+    },
+    {
+      "id": "q_004",
+      "question_text": "How can an infrared tip-tilt sensor measure focus and other low-order aberrations from a well-sampled point-spread function in real observing conditions, without requiring a second expensive near-infrared camera, when the same image elongations can also be caused by wind-shake, anisoplanatism for off-axis guide stars, laser-guide-star aberrations, calibration errors, or telescope phasing errors? Any solution must distinguish the intentionally introduced low-order signal, such as in a focal-plane wavefront-sensing method, from these confounding effects and operate with finer point-spread-function sampling than simple spot-displacement estimation.",
+      "context_brief": "Focus and low-order sensing from PSF images",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 13,
+          "quote": "In addition to tip-tilt measurements, focus measurements at a lower bandwidth are needed to track the changes in the sodium altitude, and some systems also measure quasi-static aberrations induced by LGS elongation. 1 A number of solutions to avoid the need for second expensive NIR camera have been proposed or implemented: 1. Use a visible light focus sensor operating on the same star as a visible light TTS. This solution, implemented on GeMS and on Keck I, requires a suﬃciently bright gude star in the visible, which partially negates the beneﬁts of a NIR TTS. 2. Use a 2 × 2 SH WFS to measure tip-tilt and focus, as implemented in IRLOS. 3. Use the pixel intensities in a well sampled spot to deduce low-order aberrations."
+        },
+        {
+          "page": 13,
+          "quote": "This technique has been “tested” in simulations and on test benches without atmospheric turbulence. However, there are multiple real-life eﬀects which also elongate the image including wind-shake, anisoplanatic eﬀect (for oﬀ-axis guide stars), so-called LGS aberrations,28 calibration errors and telescope phasing errors (for segmented telescopes). These risks need to be retired or mitigated. A possible solution would be to add dynamic rather than static aberrations. In addition, the use of LIFT requires the PSF to be sampled much more ﬁnely than what is required to estimate the spot displacement."
+        },
+        {
+          "page": 13,
+          "quote": "There are still a number of unsolved research problems and these are listed here: – Measuring focus and other low-order terms from PSF in real-life (e.g., in the presence of wind-shake, oﬀ-axis elongation, quasi-static aberrations) ."
+        }
+      ]
+    },
+    {
+      "id": "q_005",
+      "question_text": "How should next-generation infrared tip-tilt sensors be designed to keep the sensor wavefront quality high when non-common-path aberrations between the science detector and the tip-tilt sensor, and anisoplanatic residuals across the field, can degrade the point-spread function at the sensor? In particular, when should the tip-tilt sensor be placed inside the science instrument, when is a deformable mirror needed in the tip-tilt-sensor path, and how can deformable mirrors be characterized or operated in cryogenic sensor environments?",
+      "context_brief": "Non-common-path and anisoplanatic aberration mitigation",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 10,
+          "quote": "IR TTSs are sensitive to residual wavefront aberrations. For a diﬀraction-limited core, the sensitivity of the sensor is inversely proportional to the Strehl ratio. We have to optimize the performance not only on the science target, but on the NIR TTS as well."
+        },
+        {
+          "page": 10,
+          "quote": "However, any non-common path aberration between the science detector and the TTS will lead to wavefront errors at the TTS. To mitigate this, instruments under design include the TTS inside the science instrument. In addition, it may be necessary to to incorporate a DM in the path of the TTS, especially if we need to correct for anisoplanatism. Work is under way to chacterize the behavior of existing DMs in a cryogenic environment."
+        },
+        {
+          "page": 10,
+          "quote": "This section addresses issues which must be considered in the design of the next generation of IR TTSs."
+        }
+      ]
+    }
+  ],
+  "needs_review": [],
+  "trace": [
+    {
+      "id": "doc_map",
+      "stage": "map",
+      "notes": "Resolved arXiv abs URL to the PDF, downloaded it, extracted 14 pages of text, and mapped the paper title, sections, terminology, key claims, and likely open-question regions. The main extraction region is Section 5, with supporting explicit unsolved-problem lists in the abstract and conclusion.",
+      "evidence_refs": [
+        "p1",
+        "p10",
+        "p11",
+        "p12",
+        "p13"
+      ]
+    },
+    {
+      "id": "section_abstract",
+      "stage": "extract_candidates",
+      "notes": "The abstract explicitly identifies unresolved challenges: low-Strehl algorithms and loop stability, higher-order sensing with IR TTSs, and multiple guide stars with different magnitudes.",
+      "evidence_refs": [
+        "p1"
+      ]
+    },
+    {
+      "id": "section_3_4",
+      "stage": "extract_candidates",
+      "notes": "Keck/TRICK future-work material supplied supporting context for loss-of-control recovery, correlation-based displacement, and multi-star combination, but engineering-only checklist items were not emitted as separate research questions.",
+      "evidence_refs": [
+        "p6"
+      ]
+    },
+    {
+      "id": "section_5_1",
+      "stage": "extract_candidates",
+      "notes": "Section 5.1 yielded candidates on non-common-path aberration mitigation and low-Strehl or partially corrected PSF displacement algorithms; the explicit open-research-problem sentence anchors q_001.",
+      "evidence_refs": [
+        "p10",
+        "p11"
+      ]
+    },
+    {
+      "id": "section_5_2",
+      "stage": "extract_candidates",
+      "notes": "Section 5.2 yielded the multi-star, multi-rate tip-tilt combination problem, with covariance/tomography context and controller requirements.",
+      "evidence_refs": [
+        "p11",
+        "p12"
+      ]
+    },
+    {
+      "id": "section_5_3",
+      "stage": "extract_candidates",
+      "notes": "Section 5.3 yielded the focus and low-order sensing problem using pixel intensities or LIFT-like focal-plane methods under real observing confounders.",
+      "evidence_refs": [
+        "p13"
+      ]
+    },
+    {
+      "id": "section_6",
+      "stage": "extract_candidates",
+      "notes": "The conclusion explicitly lists four unsolved research problems, which were merged with more detailed Section 5 statements where appropriate.",
+      "evidence_refs": [
+        "p13"
+      ]
+    },
+    {
+      "id": "q_001",
+      "stage": "rewrite",
+      "notes": "Expanded the low-Strehl spot-displacement item into a self-contained question by inlining the source-supported conditions: Strehl below 10%, anisoplanatic broadening, larger detector regions, read-noise growth, speckle changes, and loop stability.",
+      "evidence_refs": [
+        "p1",
+        "p11",
+        "p13"
+      ]
+    },
+    {
+      "id": "q_002",
+      "stage": "rewrite",
+      "notes": "Rewrote the extended-object centroiding issue as a standalone question about faint, extended astronomical sources and conventional centroiding limitations.",
+      "evidence_refs": [
+        "p11",
+        "p13"
+      ]
+    },
+    {
+      "id": "q_003",
+      "stage": "rewrite",
+      "notes": "Expanded the multiple-guide-star item with the source-supported constraints: off-axis stars, different magnitudes, different frame rates, photon-count and spot-shape centroiding errors, weighted-average limitations, and tomography/controller context.",
+      "evidence_refs": [
+        "p6",
+        "p12",
+        "p13"
+      ]
+    },
+    {
+      "id": "q_004",
+      "stage": "rewrite",
+      "notes": "Expanded the focus and low-order sensing item with source-supported alternatives and confounders: avoiding a second NIR camera, pixel-intensity methods, wind-shake, anisoplanatism, LGS aberrations, calibration errors, telescope phasing errors, dynamic aberrations, and finer PSF sampling.",
+      "evidence_refs": [
+        "p13"
+      ]
+    },
+    {
+      "id": "q_005",
+      "stage": "rewrite",
+      "notes": "Converted the non-common-path and anisoplanatic aberration design issue into a self-contained open design question backed by Section 5.1 evidence.",
+      "evidence_refs": [
+        "p10"
+      ]
+    },
+    {
+      "id": "q_001",
+      "stage": "dedupe",
+      "notes": "Merged the abstract's low-Strehl algorithms and loop-stability challenge with the Section 5.1 optimal spot-displacement problem and the conclusion's partially corrected PSF centroiding item.",
+      "evidence_refs": [
+        "p1",
+        "p11",
+        "p13"
+      ]
+    },
+    {
+      "id": "q_003",
+      "stage": "dedupe",
+      "notes": "Merged the Keck/KAPA multiple-ROI work-in-progress statement, the Section 5.2 multi-rate controller discussion, and the conclusion's multi-measurement on-axis estimate item.",
+      "evidence_refs": [
+        "p6",
+        "p12",
+        "p13"
+      ]
+    },
+    {
+      "id": "quality_gates",
+      "stage": "quality_gates",
+      "notes": "Accepted questions q_001 through q_005 passed self-containedness, evidence coverage, evidence completeness, no-new-facts, source adequacy, solved-status, and schema-conformance checks. No candidate was marked solved by the primary source.",
+      "evidence_refs": [
+        "q_001",
+        "q_002",
+        "q_003",
+        "q_004",
+        "q_005"
+      ]
+    },
+    {
+      "id": "persist",
+      "stage": "persist",
+      "notes": "Saved the exact JSON payload to outputs/parse-paper/2201.05747.json and outputs/latest.json.",
+      "evidence_refs": []
+    }
+  ]
+}

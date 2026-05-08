@@ -1,0 +1,231 @@
+{
+  "source": {
+    "url": "https://arxiv.org/abs/2603.01957",
+    "resolved_locator": "/home/gson/paper-question-parser-science-parser/.sisyphus/paper-question-parser/tmp/2603.01957.pdf",
+    "title": "A note on the convergence of RED algorithms under minimal hypotheses and open questions",
+    "title_origin": "source_text"
+  },
+  "accepted": [
+    {
+      "id": "q_001",
+      "question_text": "Consider the inverse problem y = A x̂ + e, where x̂ belongs to a low-dimensional model set Σ, A is a linear measurement map, and e is noise. Let P_Σ be a generalized projection onto Σ with the restricted β-Lipschitz property: for every z, every x in Σ, and every u in P_Σ(z), ||u − x||₂ ≤ β ||z − x||₂. The modified RED iteration is z_n = (1 − λ)x_n + λP_Σ(x_n), followed by x_{n+1} = z_n − μAᵀ(Az_n − y). A convergence bound is known when Σ is proximinal and P_Σ is close to the orthogonal projection P_Σ^⊥, specifically ||P_Σ − P_Σ^⊥||₂ ≤ η. Can one prove convergence of this modified RED iteration to a stable solution when P_Σ is only a generic restricted-Lipschitz projection, without assuming orthogonality or approximate orthogonality of the projection, as in the generalized projected-gradient-descent setting?",
+      "context_brief": "Modified RED without orthogonality",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 2,
+          "quote": "In this note we show convergence of a slightly modified version of the RED algorithm under similar (stronger) hypotheses, and we ask open questions arising from these results."
+        },
+        {
+          "page": 2,
+          "quote": "Then P has the restricted β-Lipschitz property with respect to Σ iff for all z ∈ RN, x ∈ Σ, u ∈ P(z), we have ||u − x||2 ≤ β ||z − x||2."
+        },
+        {
+          "page": 3,
+          "quote": "We propose to look at the following modified RED algorithm, we keep the same definition of zn but calculate the gradient step in zn instead of xn: zn = (1 − λ)xn + λPΣ(xn) ∈ [xn, PΣ(xn)] xn+1 = zn − μAT(Azn − y)."
+        },
+        {
+          "page": 3,
+          "quote": "Suppose Σ is a proximinal set. Consider modified RED iterations (11) with ||PΣ − P⊥Σ||2 ≤ η. Let β = βΣ(PΣ) and δ = δΣ(μATA). Suppose r = (δβ + |1 − λ| ||I − μATA||op) < 1, then ||xn − x̂||2 ≤ rn||x0 − x̂||2 + 1/(1 − r)(|1 − λ| ||I − μATA||opη + μ ||ATe||2)."
+        },
+        {
+          "page": 4,
+          "quote": "It leaves the question of convergence to a stable solution with a generic restricted Lipschitz projection without orthogonality assumption (as for GPGD)."
+        }
+      ]
+    },
+    {
+      "id": "q_002",
+      "question_text": "Consider the same inverse problem y = A x̂ + e with x̂ in a model set Σ, and let P_Σ be a generalized projection onto Σ. Classical regularization by denoising (RED) uses the iteration x_{n+1} = x_n − μAᵀ(Ax_n − y) − λ(x_n − P_Σ(x_n)). Assume the measurement operator satisfies a restricted isometry condition on the secant set Σ − Σ, and assume P_Σ satisfies a restricted Lipschitz condition with respect to Σ. Is it possible to prove convergence of the classical RED iterations in this RIC-and-restricted-Lipschitz theoretical setup under conditions less restrictive than the quasi-non-expansiveness route discussed in the source, which in the orthogonal-projection and atomic-norm setting leads to a sufficient-looking condition of the form δ(μ/(λ+θ) AᵀA)β + (θ/(λ+θ))δ(μ/θ AᵀA)C_Σ ≤ 1?",
+      "context_brief": "Classical RED convergence under RIC and restricted Lipschitz hypotheses",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 1,
+          "quote": "Another question is to understand if another popular PnP scheme, regularization by denoising (RED) [9, 8, 10, 2] has convergence guarantees under the same minimal hypotheses. RED iterations are defined by xn+1 = xn − μAT(Axn − y) − λ(xn − PΣ(xn))."
+        },
+        {
+          "page": 2,
+          "quote": "The operator B has restricted isometry constant δ ∈ [0, 1) on the secant set Σ − Σ = {x1 − x2 : x1, x2 ∈ Σ} if for all x1, x2 ∈ Σ, ||(I − B)(x1 − x2)||2 ≤ δ||x1 − x2||2."
+        },
+        {
+          "page": 4,
+          "quote": "The main problem is that under the RIP we cannot generally bound w2 with a contractive term as u − PΣ(u) ∉ Σ − Σ. Moreover, without convexity of the model set Σ we cannot really hope to control the sign of the term ⟨u − PΣ(u), PΣ(u) − x̂⟩ if we were to develop the squared norm."
+        },
+        {
+          "page": 5,
+          "quote": "Hence quasi non-expansiveness would be achieved under the condition δ( μ/(λ + θ) ATA)β + θ/(λ + θ) δ( μ/θ ATA)CΣ ≤ 1."
+        },
+        {
+          "page": 5,
+          "quote": "This leads to following open questions. Is it possible to show convergence of the classical RED iterations with RIC and restricted Lipschitz conditions in this theoretical set-up, with less restrictive conditions?"
+        }
+      ]
+    },
+    {
+      "id": "q_003",
+      "question_text": "For inverse problems y = A x̂ + e with x̂ in a low-dimensional model set Σ, generalized projected gradient descent (GPGD) uses x_{n+1} = P_Σ(x_n) − μAᵀ(AP_Σ(x_n) − y) and can stably recover x̂ with a linear rate under restricted-isometry and restricted-Lipschitz hypotheses. Modified RED reduces to GPGD when λ = 1, while other admissible λ values are described as giving slower convergence and less identifiability; the classical RED convergence route also appears to require restrictive conditions. Under what theoretical setup would the use of a classical or modified RED scheme be warranted instead of GPGD, given that RED has worse convergence-rate and identifiability properties in the analyzed setting?",
+      "context_brief": "When RED is theoretically preferable to GPGD",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 1,
+          "quote": "the generalized projected gradient descent (GPGD) iterations xn+1 = PΣ(xn) − μAT(APΣ(xn) − y) stably recover x̂ with linear rate"
+        },
+        {
+          "page": 1,
+          "quote": "To the best of our knowledge, the RIP and restricted Lipschitz constants are the weakest known hypotheses leading to such convergence guarantees."
+        },
+        {
+          "page": 4,
+          "quote": "We see that if we chose λ = 1, we fall on GPGD iterations and obtain the same convergence rate with modified RED (under the additional orthogonality assumption of the projection). Other admissible λ lead to slower convergence (and less identifiability)."
+        },
+        {
+          "page": 5,
+          "quote": "Given the results of the previous Section, what theoretical set-up would warrant the use of a (classical or modified) RED scheme instead of GPGD as convergence rates and identifiability properties are worse than GPGD?"
+        }
+      ]
+    }
+  ],
+  "needs_review": [],
+  "trace": [
+    {
+      "id": "source",
+      "stage": "map",
+      "notes": "Resolved https://arxiv.org/abs/2603.01957 to the arXiv PDF and mapped a six-page paper with sections: Abstract; 1 Introduction; 2 Notations; 3 Convergence of a modified RED algorithm; 4 On the convergence of classical RED; References. Likely open-question regions were on pages 1, 4, and 5.",
+      "evidence_refs": [
+        "p1",
+        "p4",
+        "p5"
+      ]
+    },
+    {
+      "id": "q_001",
+      "stage": "extract_candidates",
+      "notes": "Extracted the post-Theorem 3.1 open question about convergence with a generic restricted-Lipschitz projection and no orthogonality assumption.",
+      "evidence_refs": [
+        "p3",
+        "p4"
+      ]
+    },
+    {
+      "id": "q_002",
+      "stage": "extract_candidates",
+      "notes": "Extracted the Section 4 open question about classical RED convergence under RIC and restricted Lipschitz conditions with less restrictive assumptions; retained the introduction's broader RED convergence question as supporting evidence.",
+      "evidence_refs": [
+        "p1",
+        "p4",
+        "p5"
+      ]
+    },
+    {
+      "id": "q_003",
+      "stage": "extract_candidates",
+      "notes": "Extracted the Section 4 open question asking when classical or modified RED is theoretically warranted instead of GPGD.",
+      "evidence_refs": [
+        "p1",
+        "p4",
+        "p5"
+      ]
+    },
+    {
+      "id": "q_001",
+      "stage": "rewrite",
+      "notes": "Expanded the question with the observation model, restricted-Lipschitz projection condition, modified RED update, and the orthogonality assumption used in Theorem 3.1.",
+      "evidence_refs": [
+        "p2",
+        "p3",
+        "p4"
+      ]
+    },
+    {
+      "id": "q_002",
+      "stage": "rewrite",
+      "notes": "Expanded the question with the classical RED update, RIC definition, the obstruction for bounding w2 under RIP, and the sufficient-looking quasi-non-expansiveness condition from Section 4.",
+      "evidence_refs": [
+        "p1",
+        "p2",
+        "p4",
+        "p5"
+      ]
+    },
+    {
+      "id": "q_003",
+      "stage": "rewrite",
+      "notes": "Expanded the question with the GPGD iteration and convergence comparison that motivates the RED-versus-GPGD theoretical-setup question.",
+      "evidence_refs": [
+        "p1",
+        "p4",
+        "p5"
+      ]
+    },
+    {
+      "id": "q_002",
+      "stage": "dedupe",
+      "notes": "Merged the broad Introduction candidate about RED convergence under the same minimal hypotheses into the more precise Section 4 classical-RED convergence question.",
+      "evidence_refs": [
+        "p1",
+        "p5"
+      ]
+    },
+    {
+      "id": "q_001",
+      "stage": "dedupe",
+      "notes": "No near-duplicate found; kept as a distinct modified-RED open question.",
+      "evidence_refs": [
+        "p4"
+      ]
+    },
+    {
+      "id": "q_003",
+      "stage": "dedupe",
+      "notes": "No near-duplicate found; kept as a distinct question about when RED is preferable to GPGD.",
+      "evidence_refs": [
+        "p5"
+      ]
+    },
+    {
+      "id": "q_001",
+      "stage": "quality_gates",
+      "notes": "Accepted: self-contained, source-backed, no source-pointing language, evidence includes complete statements and page locators, and no solved label appears.",
+      "evidence_refs": [
+        "p2",
+        "p3",
+        "p4"
+      ]
+    },
+    {
+      "id": "q_002",
+      "stage": "quality_gates",
+      "notes": "Accepted: self-contained, source-backed, merged with its broader duplicate, includes RIC/RED context needed to understand the problem, and no solved label appears.",
+      "evidence_refs": [
+        "p1",
+        "p2",
+        "p4",
+        "p5"
+      ]
+    },
+    {
+      "id": "q_003",
+      "stage": "quality_gates",
+      "notes": "Accepted: self-contained, source-backed, includes the GPGD comparison needed to understand the question, and no solved label appears.",
+      "evidence_refs": [
+        "p1",
+        "p4",
+        "p5"
+      ]
+    },
+    {
+      "id": "source",
+      "stage": "persist",
+      "notes": "Saved exact JSON output to outputs/parse-paper/2603.01957.json and outputs/latest.json.",
+      "evidence_refs": []
+    }
+  ]
+}
