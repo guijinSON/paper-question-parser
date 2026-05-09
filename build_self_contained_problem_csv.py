@@ -444,15 +444,34 @@ def load_question_records(
     return records
 
 
-def checkpoint_path(checkpoint_dir: Path, record: QuestionRecord) -> Path:
+def checkpoint_name_parts(record: QuestionRecord) -> tuple[str, str, str]:
     digest_input = f"{record.source_json}|{record.question_id}|{record.original_question}"
     digest = hashlib.sha1(digest_input.encode("utf-8")).hexdigest()[:12]
+    return (
+        slugify(record.paper_id.replace("/", "-")),
+        slugify(record.question_id),
+        digest,
+    )
+
+
+def checkpoint_path(checkpoint_dir: Path, record: QuestionRecord) -> Path:
+    paper_slug, question_slug, digest = checkpoint_name_parts(record)
     name = (
         f"{record.global_index:06d}__"
-        f"{slugify(record.paper_id.replace('/', '-'))}__"
-        f"{slugify(record.question_id)}__{digest}.json"
+        f"{paper_slug}__"
+        f"{question_slug}__{digest}.json"
     )
     return checkpoint_dir / name
+
+
+def existing_checkpoint_path(checkpoint_dir: Path, record: QuestionRecord) -> Path | None:
+    preferred = checkpoint_path(checkpoint_dir, record)
+    if preferred.exists():
+        return preferred
+
+    paper_slug, question_slug, digest = checkpoint_name_parts(record)
+    matches = sorted(checkpoint_dir.glob(f"*__{paper_slug}__{question_slug}__{digest}.json"))
+    return matches[0] if matches else None
 
 
 def compact_evidence(evidence: list[dict[str, Any]], max_items: int = 4) -> list[dict[str, str]]:
@@ -769,7 +788,8 @@ def main() -> None:
         ckp_path = checkpoint_path(args.checkpoint_dir, record)
         label = f"[{offset}/{len(records)} idx={record.global_index} {record.paper_id} {record.question_id}]"
 
-        if args.skip_existing and ckp_path.exists():
+        existing_ckp_path = existing_checkpoint_path(args.checkpoint_dir, record)
+        if args.skip_existing and existing_ckp_path is not None:
             print(f"{label} skip checkpoint")
             skipped += 1
             continue
