@@ -1,0 +1,71 @@
+{
+  "source": {
+    "url": "https://zbmath.org/683408",
+    "resolved_locator": "",
+    "title": "Frisch scheme identification: Results and open problems",
+    "title_origin": "resolver_metadata"
+  },
+  "accepted": [],
+  "needs_review": [
+    {
+      "id": "error_input",
+      "reason": "invalid_or_unreadable_input",
+      "question_text_raw": "",
+      "evidence": []
+    }
+  ],
+  "trace": [
+    {
+      "id": "source",
+      "stage": "input",
+      "notes": "Normalized the input as one zbMATH resolver URL with trailing identifier 683408.",
+      "evidence_refs": [
+        "https://zbmath.org/683408"
+      ]
+    },
+    {
+      "id": "source",
+      "stage": "resolve",
+      "notes": "Direct shell fetch of https://zbmath.org/683408 returned HTTP 403, classified as blocked_or_challenged. The zbMATH REST API resolved the identifier to Zbl 0925.93172, Guidorzi, R. P., 'Frisch scheme identification: Results and open problems,' in Systems and networks: mathematical theory and applications, MTNS '93, Volume II, Math. Res. 79, pages 177-182, 1994, with no DOI, arXiv identifier, or full-text link exposed.",
+      "evidence_refs": [
+        "https://api.zbmath.org/v1/document/683408",
+        "https://api.zbmath.org/v1/document/_search?search_string=an%3A683408&results_per_page=5"
+      ]
+    },
+    {
+      "id": "source",
+      "stage": "resolve",
+      "notes": "Citation matching confirmed the same exact zbMATH record, title, author, pagination, and 1994 proceedings source. This was used only as identity metadata, not as technical source text for extraction.",
+      "evidence_refs": [
+        "https://zbmath.org/citationmatching/match?q=R.%20P.%20Guidorzi%2C%20Frisch%20scheme%20identification%3A%20results%20and%20open%20problems%2C%20Proceedings%20of%20MTNS%2093%2C%20Vol.%20II%2C%20pp.%20177-182%2C%201994"
+      ]
+    },
+    {
+      "id": "error_input",
+      "stage": "resolve",
+      "notes": "Failure mode: metadata_only with blocked_or_challenged direct resolver access. Bounded exact-work recovery searched by exact title, exact title plus PDF, exact title plus author/source/pagination, and ISBN/proceedings identifiers. The University of Bologna author page and the Polimi publications PDF list only bibliographic entries; Crossref and OpenAlex returned no exact-work full-text record; Eindhoven, MTMT, LIBRIS, and bookseller pages describe the host proceedings or neighboring chapters only. No readable exact-work PDF or full HTML source containing the article text was recovered.",
+      "evidence_refs": [
+        "https://www.unibo.it/sitoweb/roberto.guidorzi/publications?tab=altre",
+        "https://www.deib.polimi.it/allegati/eventi/852/Guidorzi_publications.pdf",
+        "https://api.crossref.org/works?query.title=Frisch%20scheme%20identification%3A%20Results%20and%20open%20problems&rows=5",
+        "https://api.openalex.org/works?search=Frisch%20scheme%20identification%3A%20Results%20and%20open%20problems&per-page=5",
+        "https://libris.kb.se/bib/1854072"
+      ]
+    },
+    {
+      "id": "error_input",
+      "stage": "quality_gates",
+      "notes": "Source adequacy gate failed: the workflow forbids extracting open problems from zbMATH metadata, author publication lists, citation matching output, search snippets, or host-proceedings metadata when the problem statements themselves are not visible in a readable primary source artifact.",
+      "evidence_refs": []
+    },
+    {
+      "id": "persist",
+      "stage": "persist",
+      "notes": "Saved JSON result to outputs/parse-paper/683408.json and outputs/latest.json.",
+      "evidence_refs": [
+        "outputs/parse-paper/683408.json",
+        "outputs/latest.json"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,76 @@
+{
+  "source": {
+    "url": "https://zbmath.org/5910643",
+    "resolved_locator": "",
+    "title": "Open problems in logic and games",
+    "title_origin": "resolver_metadata"
+  },
+  "accepted": [],
+  "needs_review": [
+    {
+      "id": "error_input",
+      "reason": "invalid_or_unreadable_input",
+      "question_text_raw": "",
+      "evidence": []
+    }
+  ],
+  "trace": [
+    {
+      "id": "error_input",
+      "stage": "input",
+      "notes": "Normalized input as a zbMATH resolver URL for document id 5910643.",
+      "evidence_refs": [
+        "https://zbmath.org/5910643"
+      ]
+    },
+    {
+      "id": "error_input",
+      "stage": "resolve",
+      "notes": "Queried the zbMATH REST API for document 5910643. The record identifies Johan van Benthem, title 'Open problems in logic and games', year 2005, source pages 229-264, zbMATH identifier 1279.03059. The record has no usable full-text links and its editorial contribution reports that contents are unavailable due to conflicting licenses, so the API record was treated as resolver metadata only.",
+      "evidence_refs": [
+        "https://api.zbmath.org/v1/document/5910643"
+      ]
+    },
+    {
+      "id": "error_input",
+      "stage": "resolve",
+      "notes": "Queried OpenAlex by exact title and year. OpenAlex matched the same work as W174256166 and reported open_access.is_oa=false, no best open-access location, and candidate locations including CiteSeerX, UvA-DARE, DBLP, and a raw ILLC PDF string. These were used only as candidate full-text leads, not as extraction evidence.",
+      "evidence_refs": [
+        "https://openalex.org/W174256166"
+      ]
+    },
+    {
+      "id": "error_input",
+      "stage": "resolve",
+      "notes": "Tried to download the CiteSeerX PDF candidate with curl, but the run environment returned a DNS resolution failure for citeseerx.ist.psu.edu. Tried the ILLC PDF candidate from OpenAlex, but the run environment returned a DNS resolution failure for www.illc.uva.nl.",
+      "evidence_refs": [
+        "https://citeseerx.ist.psu.edu/document?doi=9d55dcb1398b9542e6e6b1211d0827b57f296442&repid=rep1&type=pdf",
+        "http://www.illc.uva.nl/lgc/papers/LO-GA-gabbay7.pdf"
+      ]
+    },
+    {
+      "id": "error_input",
+      "stage": "resolve",
+      "notes": "Tried to recover the exact work through UvA-DARE and Paperzz candidates. UvA-DARE provided metadata for the same title, but no readable full text was recovered. Paperzz and CiteSeerX appeared in search results with snippets, but the pages or PDF could not be opened or downloaded as a full readable source artifact in this run. Search snippets were rejected as a technical source under the source-adequacy rule.",
+      "evidence_refs": [
+        "https://dare.uva.nl/search?identifier=1592c20f-2246-428f-a37c-ed88ff623a1c",
+        "https://paperzz.com/doc/6968090/open-problems-in-logic-and-games"
+      ]
+    },
+    {
+      "id": "error_input",
+      "stage": "input",
+      "notes": "Input could not be normalized to a readable PDF or HTML full-text source. Failure modes: metadata_only for zbMATH/OpenAlex/DARE resolver records; network_or_dns_failure for direct PDF and HTML candidates; source_adequacy_failure for search-snippet-only content.",
+      "evidence_refs": []
+    },
+    {
+      "id": "error_input",
+      "stage": "persist",
+      "notes": "Saved result JSON to outputs/parse-paper/zbmath-5910643.json and outputs/latest.json.",
+      "evidence_refs": [
+        "outputs/parse-paper/zbmath-5910643.json",
+        "outputs/latest.json"
+      ]
+    }
+  ]
+}

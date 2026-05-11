@@ -1,0 +1,81 @@
+{
+  "source": {
+    "url": "https://zbmath.org/2005456",
+    "resolved_locator": "",
+    "title": "Time-delay systems: an overview of some recent advances and open problems",
+    "title_origin": "resolver_metadata"
+  },
+  "accepted": [],
+  "needs_review": [
+    {
+      "id": "error_input",
+      "reason": "invalid_or_unreadable_input",
+      "question_text_raw": "",
+      "evidence": []
+    }
+  ],
+  "trace": [
+    {
+      "id": "source",
+      "stage": "input",
+      "notes": "Normalized the input as a single zbMATH resolver URL for document id 2005456. Local resolver metadata in the workflow dataset identified the exact work as Time-delay systems: an overview of some recent advances and open problems, linked to DOI 10.1016/S0005-1098(03)00167-5.",
+      "evidence_refs": [
+        "https://zbmath.org/2005456",
+        "outputs/open-problems-0418-all.csv:189",
+        "outputs/shards/open-problems-shard-1.csv:89",
+        "https://doi.org/10.1016/S0005-1098(03)00167-5"
+      ]
+    },
+    {
+      "id": "error_input",
+      "stage": "source_resolution",
+      "notes": "failure_mode=paywalled_or_restricted. Direct local fetch of the zbMATH URL returned a Cloudflare challenge. Exact-work recovery used the DOI, Crossref metadata, OpenAlex metadata, the ScienceDirect article page, the HAL CV record hal-02560599v1, and the ISTEX fulltext endpoint exposed by HAL. The ScienceDirect page only exposed an article preview with abstract and section snippets and requested institutional access for the full text. OpenAlex confirmed open_access.is_oa=false, oa_status=closed, oa_url=null, any_repository_has_fulltext=false, and no best_oa_location. The ISTEX fulltext endpoint redirected to federated institutional authentication. HAL direct document access did not yield a readable PDF.",
+      "evidence_refs": [
+        "https://www.sciencedirect.com/science/article/pii/S0005109803001675",
+        "https://api.openalex.org/works?filter=doi:https://doi.org/10.1016/S0005-1098(03)00167-5",
+        "https://api.crossref.org/works/10.1016%2FS0005-1098(03)00167-5",
+        "https://hal.science/hal-02560599v1",
+        "https://api.istex.fr/ark:/67375/6H6-P0J5H4FV-X/fulltext.pdf?sid=hal"
+      ]
+    },
+    {
+      "id": "error_input",
+      "stage": "source_resolution",
+      "notes": "Bounded exact-work search attempts used the exact title plus PDF, exact DOI plus PDF, the PII S0005109803001675, and the HAL identifier hal-02560599. Search results and resolver pages identified the same work but did not provide a readable exact-work PDF or full HTML source. ResearchGate explicitly listed no full text. CiNii exposed Elsevier API links, but the Elsevier API returned unauthorized or invalid-input responses without usable full text.",
+      "evidence_refs": [
+        "exact title plus PDF",
+        "exact DOI plus PDF",
+        "S0005109803001675",
+        "hal-02560599",
+        "https://cir.nii.ac.jp/crid/1362544419344814208"
+      ]
+    },
+    {
+      "id": "error_input",
+      "stage": "map",
+      "notes": "No document map was produced because no readable exact-work PDF or full HTML artifact was available. The visible publisher page is an article preview, not the full technical source.",
+      "evidence_refs": []
+    },
+    {
+      "id": "error_input",
+      "stage": "extract_candidates",
+      "notes": "No candidates were extracted from the abstract or section snippets. The workflow source-adequacy gate forbids extracting open problems from abstracts, citation metadata, search snippets, or preview snippets when the full problem statements are not visible in the chosen source artifact.",
+      "evidence_refs": []
+    },
+    {
+      "id": "error_input",
+      "stage": "quality_gates",
+      "notes": "No questions were accepted because no candidate had complete verbatim problem-statement evidence with page numbers or stable full-text HTML locators from a readable primary source.",
+      "evidence_refs": []
+    },
+    {
+      "id": "source_2005456",
+      "stage": "persist",
+      "notes": "Saved exact JSON output to outputs/parse-paper/zbmath-2005456.json and updated outputs/latest.json.",
+      "evidence_refs": [
+        "outputs/parse-paper/zbmath-2005456.json",
+        "outputs/latest.json"
+      ]
+    }
+  ]
+}

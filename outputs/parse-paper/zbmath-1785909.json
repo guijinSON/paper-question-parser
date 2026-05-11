@@ -1,0 +1,69 @@
+{
+  "source": {
+    "url": "https://zbmath.org/1785909",
+    "resolved_locator": "",
+    "title": "Eighteen open problems in C_p-theory",
+    "title_origin": "resolver_metadata"
+  },
+  "accepted": [],
+  "needs_review": [
+    {
+      "id": "error_input",
+      "reason": "invalid_or_unreadable_input",
+      "question_text_raw": "",
+      "evidence": []
+    }
+  ],
+  "trace": [
+    {
+      "id": "error_input",
+      "stage": "input",
+      "notes": "Normalized the input as a zbMATH bibliographic resolver URL with trailing identifier 1785909.",
+      "evidence_refs": [
+        "https://zbmath.org/1785909"
+      ]
+    },
+    {
+      "id": "error_input",
+      "stage": "resolve",
+      "notes": "Direct local fetch of https://zbmath.org/1785909 returned an HTTP 403 Cloudflare challenge. Local shell fetches of api.zbmath.org and oai.zbmath.org failed with DNS resolution errors, while browser access to those API/OAI roots exposed only terms/challenge entry pages rather than record metadata.",
+      "evidence_refs": [
+        "https://zbmath.org/1785909",
+        "https://api.zbmath.org/document/1785909",
+        "https://oai.zbmath.org/"
+      ]
+    },
+    {
+      "id": "error_input",
+      "stage": "resolver_metadata",
+      "notes": "Local workflow shard metadata for the same zbMATH identifier records the title as 'Eighteen open problems in C_p-theory' and the year as 1997, but it does not provide a readable full-text link. This metadata was used only for title recovery, not technical extraction.",
+      "evidence_refs": [
+        "outputs/shards/open-problems-shard-1.csv:46",
+        "outputs/open-problems-0418-all.csv:100"
+      ]
+    },
+    {
+      "id": "error_input",
+      "stage": "bounded_recovery",
+      "notes": "Ran exact-work recovery attempts using the zbMATH identifier, exact title, exact title plus PDF, and exact title plus 1997. A Math-Net.Ru PDF was inspected because search surfaced it for related C_p-theory open-question text, but its visible source title is 'Some recent advances and open problems in general topology', not the exact recovered title, so it was rejected as an ambiguous/different work. Other recovered candidates were search snippets, unrelated numeric hits, or metadata-only pages.",
+      "evidence_refs": [
+        "https://www.mathnet.ru/php/getFT.phtml?jrnid=rm&option_lang=eng&paperid=884&what=fullteng"
+      ]
+    },
+    {
+      "id": "error_input",
+      "stage": "quality_gates",
+      "notes": "No readable exact-work PDF or full HTML source containing the problem statements was recovered. The workflow forbids extracting questions from resolver metadata, local shard rows, abstracts, search snippets, or a candidate whose visible title does not confirm the same exact source.",
+      "evidence_refs": []
+    },
+    {
+      "id": "error_input",
+      "stage": "persist",
+      "notes": "Saved final JSON to outputs/parse-paper/zbmath-1785909.json and outputs/latest.json.",
+      "evidence_refs": [
+        "outputs/parse-paper/zbmath-1785909.json",
+        "outputs/latest.json"
+      ]
+    }
+  ]
+}

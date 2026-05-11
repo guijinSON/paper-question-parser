@@ -1,0 +1,98 @@
+{
+  "source": {
+    "url": "https://zbmath.org/8180517",
+    "resolved_locator": "https://link.springer.com/content/pdf/10.1007/s10817-026-09752-1.pdf",
+    "title": "Applying Saturation-Based Theorem Proving to Open Problems in Positive Implicational Logic",
+    "title_origin": "source_text"
+  },
+  "accepted": [
+    {
+      "id": "q_001",
+      "question_text": "In positive (intuitionistic) implicational logic, with modus ponens as the only inference rule (from A and A -> B infer B), use the notation p(A) to mean that A is provable and i(A,B) to mean implication A -> B. Ulrich's fourth remaining 15-symbol candidate is the universally quantified formula p(i(i(i(X,Y),Z), i(i(Y,i(Z,U)), i(Y,U)))) for all X, Y, Z, and U. Is this formula a single axiom for positive implication? A negative answer would establish that the shortest single axioms for positive implication have length 17; an affirmative answer would produce a shorter single axiom.",
+      "context_brief": "positive implication single-axiom status",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 2,
+          "quote": "fof(u4,axiom, ![X,Y,Z,U]: p(i(i(i(X, Y), Z), i(i(Y, i(Z, U)), i(Y, U)))))."
+        },
+        {
+          "page": 4,
+          "quote": "the question of u4’s status as a single axiom for positive implication remains open."
+        }
+      ]
+    }
+  ],
+  "needs_review": [],
+  "trace": [
+    {
+      "id": "source_resolution",
+      "stage": "input",
+      "notes": "Normalized the single input as the zbMATH resolver URL https://zbmath.org/8180517. Local resolver metadata in outputs/shards/open-problems-shard-1.csv identified the exact work title and DOI 10.1007/s10817-026-09752-1. Local shell fetching failed because DNS resolution is unavailable in the sandbox, so extraction used the browser-readable open-access Springer PDF for the same DOI.",
+      "evidence_refs": [
+        "https://zbmath.org/8180517",
+        "outputs/shards/open-problems-shard-1.csv:350",
+        "https://doi.org/10.1007/s10817-026-09752-1",
+        "https://link.springer.com/content/pdf/10.1007/s10817-026-09752-1.pdf"
+      ]
+    },
+    {
+      "id": "doc_map",
+      "stage": "map",
+      "notes": "Mapped the PDF structure: title, abstract, and notation appear on page 1; the four length-15 candidate formulas appear on page 2; the u1 refutation spans pages 2-3; the u2/u3 refutations span pages 3-4; Section 4 on page 4 states the remaining open question about u4.",
+      "evidence_refs": [
+        "p1",
+        "p2",
+        "p3",
+        "p4"
+      ]
+    },
+    {
+      "id": "q_001",
+      "stage": "extract_candidates",
+      "notes": "Extracted the explicit remaining open problem from Section 4. The source explicitly resolves u1, u2, and u3 as not single axioms, so those resolved result statements were treated as background rather than current open-question payloads.",
+      "evidence_refs": [
+        "p2",
+        "p4"
+      ]
+    },
+    {
+      "id": "q_001",
+      "stage": "rewrite",
+      "notes": "Expanded u4 into a standalone TPTP-style formula and inlined the needed reading of p, i, and modus ponens from the PDF introduction.",
+      "evidence_refs": [
+        "p1",
+        "p2",
+        "p4"
+      ]
+    },
+    {
+      "id": "q_001",
+      "stage": "dedupe",
+      "notes": "No duplicate open-question candidates were found after reducing the paper's remaining open status question to the u4 single-axiom problem.",
+      "evidence_refs": [
+        "p4"
+      ]
+    },
+    {
+      "id": "q_001",
+      "stage": "quality_gates",
+      "notes": "Accepted: the question is self-contained, cites PDF pages, has explicit evidence for the u4 formula and open status, and does not add unsupported assumptions beyond the chosen source.",
+      "evidence_refs": [
+        "p2",
+        "p4"
+      ]
+    },
+    {
+      "id": "persist",
+      "stage": "persist",
+      "notes": "Saved exact JSON output to outputs/parse-paper/8180517.json and outputs/latest.json.",
+      "evidence_refs": [
+        "outputs/parse-paper/8180517.json",
+        "outputs/latest.json"
+      ]
+    }
+  ]
+}

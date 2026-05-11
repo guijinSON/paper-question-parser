@@ -1,0 +1,639 @@
+{
+  "source": {
+    "url": "https://zbmath.org/5374431",
+    "resolved_locator": "https://www.researchgate.net/publication/221523297_Ten_Open_Problems_in_Grammatical_Inference",
+    "title": "Ten Open Problems in Grammatical Inference",
+    "title_origin": "source_text"
+  },
+  "accepted": [
+    {
+      "id": "q_001",
+      "question_text": "In polynomial identification in the limit for grammatical inference, how should the size of a characteristic sample be measured? More specifically, if a learning algorithm is judged by the existence of polynomial characteristic sets, is it sound to measure the characteristic set by the number of strings rather than by the total number of bits or symbols needed to encode those strings, and are there grammar classes that become non-learnable under that alternative size measure?",
+      "context_brief": "Characteristic-set size in polynomial identification",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 35,
+          "quote": "Definition 4 (Polynomial characteristic sets). An algorithm a admits polynomial characteristic sets if there exists a polynomial p() such that ∀G ∈R(A) ∃W ⊂X : ∥W∥≤p(|G|) ∧W ⊂fn =⇒LA(a(fn)) = LA(G)."
+        },
+        {
+          "page": 36,
+          "quote": "Problem 1. Definition 4 of characteristic sets uses as size of the characteristic sets a measure related to the number of bits needed to encode."
+        },
+        {
+          "page": 36,
+          "quote": "Other authors (for instance [6]) propose to use the number of strings. Is this fair? Are there classes of grammars that are not learnable in this context?"
+        }
+      ]
+    },
+    {
+      "id": "q_002",
+      "question_text": "Given a finite positive-negative sample ⟨X+, X−⟩ over a ranked alphabet and an integer k, can one decide in polynomial time whether the sample is k-acceptable, meaning that there exists a k-edge deterministic finite-state automaton consistent with all positive and negative examples? A k-edge deterministic finite-state automaton is a DFA-like model over a partially ordered alphabet whose outgoing transitions from each state are specified by at most k ordered symbol intervals, with distinct transition intervals from the same state disjoint.",
+      "context_brief": "Polynomial recognition of k-acceptable samples",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 36,
+          "quote": "A ranked alphabet ⟨Σ, ≤⟩is an alphabet Σ with a relation ≤Σ which is a partial order (reflexive, antisymmetric and transitive) over Σ."
+        },
+        {
+          "page": 37,
+          "quote": "Definition 9. A sample ⟨X+, X−⟩is k-acceptable if there is a k-edge Dfa consistent with the data."
+        },
+        {
+          "page": 37,
+          "quote": "Problem 2. Given a sample ⟨X+, X−⟩, can we decide in polynomial time if a sample is k-acceptable?"
+        }
+      ]
+    },
+    {
+      "id": "q_003",
+      "question_text": "Can the class of k-edge deterministic finite-state automata over ranked alphabets be learned from an informant, where the informant supplies labeled positive and negative strings, under the polynomial characteristic-set learning criterion? Here the learner should eventually infer an equivalent automaton once a polynomial-size characteristic subset of the informant data has appeared.",
+      "context_brief": "Learning k-edge DFAs from informants",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 35,
+          "quote": "Informant={f:N→Σ∗× {0,1}:f(N) = L× {1} ∪ L× {0}}."
+        },
+        {
+          "page": 35,
+          "quote": "Definition 4 (Polynomial characteristic sets). An algorithm a admits polynomial characteristic sets if there exists a polynomial p() such that ∀G ∈R(A) ∃W ⊂X : ∥W∥≤p(|G|) ∧W ⊂fn =⇒LA(a(fn)) = LA(G)."
+        },
+        {
+          "page": 37,
+          "quote": "Problem 3. Learn k-edge Dfa from an informant, as in definition 4."
+        }
+      ]
+    },
+    {
+      "id": "q_004",
+      "question_text": "For languages recognized by k-edge deterministic finite-state automata over ranked alphabets, can one develop the usual formal-language theory: in particular, is there an appropriate pumping lemma, and what are the closure properties of these language classes under standard language operations?",
+      "context_brief": "Formal-language theory for k-edge DFAs",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 37,
+          "quote": "Clearly any k-edge Dfa is also a Dfa but the converse is not true. Moreover some regular languages cannot be represented by k-edge Dfa, for any k."
+        },
+        {
+          "page": 37,
+          "quote": "There are some accessory problems more in the line of general formal language theory: do we have a pumping lemma? what are the closure properties?"
+        }
+      ]
+    },
+    {
+      "id": "q_005",
+      "question_text": "Can one find an algorithm that learns regular languages over an alphabet Σ using context-free background knowledge in the polynomial learning-with-help sense? The setting is that the target language is L = L1 ∩ L2, where L1 is regular and L2 is context-free, and the learner receives labeled examples only from L2: positive examples from L and negative examples from L2 \\ L1. The algorithm should infer a regular hypothesis whose intersection with L2 equals L once a polynomial-size witness subset of the presentation has appeared.",
+      "context_brief": "Regular learning with context-free knowledge",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 38,
+          "quote": "The question would be to know if we could learn the intersection of a regular language L1 and a context-free language L2, given examples and counter-examples (of L1) only from L2."
+        },
+        {
+          "page": 38,
+          "quote": "A presentation of L with respect to L2 is a function f:N→Σ∗× {0,1}:f(N) = L× {1} ∪ L2\\L1× {0}."
+        },
+        {
+          "page": 38,
+          "quote": "Problem 4. Find an algorithm that learns REG(Σ) from CF(Σ)-knowledge in the sense of definition 10."
+        }
+      ]
+    },
+    {
+      "id": "q_006",
+      "question_text": "Given two finite samples drawn from stochastic deterministic finite automata A and B, can one design an algorithm, or prove that no such algorithm exists, that decides with high probability whether the two induced string distributions are equivalent or close? Formally, for a distance d between distributions and parameters ε, δ > 0, the algorithm should determine from samples whether d(DA, DB) < ε with probability at least 1 − δ, with sample size and running time polynomial in the automata sizes, 1/ε, and 1/δ.",
+      "context_brief": "Testing equivalence of SDFAs from samples",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 39,
+          "quote": "A stochastic language D is a probability distribution over Σ?."
+        },
+        {
+          "page": 39,
+          "quote": "Problem 5. Find an algorithm (or prove that it does not exist) that, given 2 samples extracted from Sdfa A and B, will tell us with high probability if A and B are equivalent (or close)."
+        },
+        {
+          "page": 39,
+          "quote": "given ϵ, δ > 0, find an algorithm that given 2 samples extracted from Sdfa A and B, will tell us if d(DA, DB) < ϵ with probability at least 1 −δ."
+        }
+      ]
+    },
+    {
+      "id": "q_007",
+      "question_text": "Are deterministic finite automata learnable in Angluin-style active learning when membership queries are only ε-correct but equivalence queries are still available? In this model, the teacher answers a membership query correctly with probability 1 − ε, but must answer consistently if the exact same query has already been submitted; equivalence queries ask whether a proposed DFA recognizes the target language and, when it does not, return a counterexample string.",
+      "context_brief": "DFA learning with noisy membership queries",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 40,
+          "quote": "The teacher has to answer two types of queries: membership queries - the teacher's answer is yes or no, depending if the submitted string belongs or not to the language and equivalence queries - the learner produces a Dfa A and asks whether L(A) = L."
+        },
+        {
+          "page": 40,
+          "quote": "Definition 11. Let ϵ > 0. An ϵ-correct membership query is made by giving the Oracle a string."
+        },
+        {
+          "page": 40,
+          "quote": "Problem 6. Are Dfa learnable from ϵ-correct membership queries and equivalence queries?"
+        }
+      ]
+    },
+    {
+      "id": "q_008",
+      "question_text": "What is the learnability theory for deterministic partially observable Markov decision processes? The source model has states Q, input alphabet Σ, initial state q0, a probabilistic transition function, and a probabilistic reward function; in the deterministic case, each state-action pair has a unique next state with probability 1. The open problem asks how such deterministic POMDPs can be learned, including whether identification in the limit with probability 1 or reinforcement-learning-style convergence criteria are appropriate.",
+      "context_brief": "Learning deterministic POMDPs",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 40,
+          "quote": "A Pomdp is defined by a set of states Q, an input alphabet Σ, an initial state q0 and 2 functions:"
+        },
+        {
+          "page": 40,
+          "quote": "A Pomdp is deterministic if function δ is deterministic, i.e. if ∀q∈Q, ∀a∈Σ, ∃q0∈Q such that δ(q, a, q0) = 1."
+        },
+        {
+          "page": 41,
+          "quote": "Problem 7. Study the learnability of deterministic Pomdp s."
+        }
+      ]
+    },
+    {
+      "id": "q_009",
+      "question_text": "What is the learnability theory for ordinary, non-deterministic partially observable Markov decision processes with probabilistic transitions and reward functions? The problem is to study learnability for the general POMDP model, not only the deterministic special case, and to clarify suitable success criteria such as identification in the limit with probability 1, regret-based convergence, or relations to strategy learning.",
+      "context_brief": "Learning ordinary POMDPs",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 40,
+          "quote": "Partialy Observable Markov Decision Processes are an extension of Markov Decision Processes, these being related to Hidden Markov Models."
+        },
+        {
+          "page": 41,
+          "quote": "Problem 8. Study the learnability of ordinary Pomdp s."
+        },
+        {
+          "page": 41,
+          "quote": "Identification in the limit with probability 1 is an issue. But using convergence criteria from reinforcement learning (such as regret) is probably a better idea."
+        }
+      ]
+    },
+    {
+      "id": "q_010",
+      "question_text": "In the negotiation model where two adversaries have regular languages L1 and L2 represented by deterministic finite automata and each wants to identify the common language L1 ∩ L2, what are good strategies for the general game? Each player may query the opponent only with strings from its own language, learns from yes/no answers, and is penalized by errors when a proposed string receives a negative answer. The open problem includes whether identification can be avoided, whether no-win situations exist, whether nearly identical lock-automata-like strategies force prohibitively long membership-query learning, and what happens when both players settle for a common stalemate language that is only a subset of the target.",
+      "context_brief": "General negotiation learning game",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 41,
+          "quote": "The goal for each is to learn the common language, i.e. language L1∩L2."
+        },
+        {
+          "page": 41,
+          "quote": "The rule is that each adversary can only query the opponent by asking questions from his own language."
+        },
+        {
+          "page": 42,
+          "quote": "Problem 9. Study the general problem. What is a good strategy? Can identification be avoided? Are there any “no win” situations?"
+        },
+        {
+          "page": 42,
+          "quote": "An intriguing question is: what happens if both opponents “agree” on a stalemate position, i.e. are satisfied with an identical language L which in fact is a subset of the target?"
+        }
+      ]
+    },
+    {
+      "id": "q_011",
+      "question_text": "Under the negotiation-game winning criterion, can one find a winning deterministic learning algorithm when the two players' regular languages L1 and L2 are represented by deterministic finite automata with the same number of states, n1 = n2? A player wins if it identifies L1 ∩ L2 in the limit and either the opponent fails to identify that intersection or, when both identify it, the player makes fewer negative-query errors.",
+      "context_brief": "Winning algorithm for equal-size negotiation",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 42,
+          "quote": "Definition 12. Given a game ⟨L1, L2⟩and 2 players A and B, A wins if A identifies L1 ∩L2 in the limit and if either B identifies L1 ∩L2 in the limit and |errors(A)| < |errors(B)| or if B does not identify L1 ∩L2 in the limit."
+        },
+        {
+          "page": 42,
+          "quote": "Problem 10. Using definition 12, find a winning algorithm, in the case where n1 = n2."
+        }
+      ]
+    }
+  ],
+  "needs_review": [],
+  "trace": [
+    {
+      "id": "source",
+      "stage": "input",
+      "notes": "Input URL normalized as zbMATH resolver record 5374431.",
+      "evidence_refs": [
+        "https://zbmath.org/5374431"
+      ]
+    },
+    {
+      "id": "source",
+      "stage": "resolve",
+      "notes": "zbMATH direct page did not fetch as readable full text in the browsing tool. Exact-identifier search recovered resolver metadata for title, DOI 10.1007/11872436_4, author Colin de la Higuera, and zbMATH Open document ID 1158.68419.",
+      "evidence_refs": [
+        "zbmath:5374431",
+        "doi:10.1007/11872436_4"
+      ]
+    },
+    {
+      "id": "source",
+      "stage": "resolve",
+      "notes": "Springer DOI landing page confirmed the exact title and proceedings pages 32-44 but exposed only subscription preview text. A public ResearchGate full-text page and an indexed proceedings PDF mirror matched the exact title and were used for extraction; shell curl download of the PDF mirror failed in the sandbox with DNS resolution error.",
+      "evidence_refs": [
+        "https://link.springer.com/chapter/10.1007/11872436_4",
+        "https://www.researchgate.net/publication/221523297_Ten_Open_Problems_in_Grammatical_Inference"
+      ]
+    },
+    {
+      "id": "source",
+      "stage": "map",
+      "notes": "Document map: Section 1 introduction; Section 2 notation and definitions for strings, languages, deterministic finite automata, presentations, informants, and identification in the limit; Section 3 polynomial identification; Section 4 ordered alphabets and k-edge DFAs; Section 5 regular learning with context-free knowledge; Section 6 stochastic deterministic finite automata; Section 7 noisy query learning; Section 8 POMDPs; Section 9 negotiation.",
+      "evidence_refs": [
+        "pp32-44",
+        "p35",
+        "p36",
+        "p37",
+        "p38",
+        "p39",
+        "p40",
+        "p41",
+        "p42"
+      ]
+    },
+    {
+      "id": "section_3",
+      "stage": "extract_candidates",
+      "notes": "Extracted the numbered open problem on how characteristic-set size should be measured for polynomial identification in the limit.",
+      "evidence_refs": [
+        "p35",
+        "p36"
+      ]
+    },
+    {
+      "id": "section_4",
+      "stage": "extract_candidates",
+      "notes": "Extracted two numbered problems on k-edge DFAs over ranked alphabets and one explicit accessory formal-language-theory question about pumping lemmas and closure properties.",
+      "evidence_refs": [
+        "p36",
+        "p37"
+      ]
+    },
+    {
+      "id": "section_5",
+      "stage": "extract_candidates",
+      "notes": "Extracted the problem of learning regular languages from context-free background knowledge.",
+      "evidence_refs": [
+        "p38"
+      ]
+    },
+    {
+      "id": "section_6",
+      "stage": "extract_candidates",
+      "notes": "Extracted the problem of testing equivalence or closeness of distributions represented by stochastic deterministic finite automata from samples.",
+      "evidence_refs": [
+        "p39"
+      ]
+    },
+    {
+      "id": "section_7",
+      "stage": "extract_candidates",
+      "notes": "Extracted the active-learning problem for DFAs with epsilon-correct membership queries and equivalence queries.",
+      "evidence_refs": [
+        "p40"
+      ]
+    },
+    {
+      "id": "section_8",
+      "stage": "extract_candidates",
+      "notes": "Extracted the two POMDP learnability problems: deterministic POMDPs and ordinary POMDPs.",
+      "evidence_refs": [
+        "p40",
+        "p41"
+      ]
+    },
+    {
+      "id": "section_9",
+      "stage": "extract_candidates",
+      "notes": "Extracted the general negotiation learning problem and the equal-state winning-algorithm problem.",
+      "evidence_refs": [
+        "p41",
+        "p42"
+      ]
+    },
+    {
+      "id": "q_001",
+      "stage": "rewrite",
+      "notes": "Expanded the raw Problem 1 statement with the polynomial characteristic-set criterion from Definition 4 and stated the alternative size measure explicitly.",
+      "evidence_refs": [
+        "p35",
+        "p36"
+      ]
+    },
+    {
+      "id": "q_002",
+      "stage": "rewrite",
+      "notes": "Expanded k-acceptable using Definition 9 and supplied the ranked-alphabet and k-edge DFA context needed to understand the decision problem.",
+      "evidence_refs": [
+        "p36",
+        "p37"
+      ]
+    },
+    {
+      "id": "q_003",
+      "stage": "rewrite",
+      "notes": "Resolved the reference to Definition 4 by inlining polynomial characteristic-set learning and described informants as labeled positive-negative string data.",
+      "evidence_refs": [
+        "p35",
+        "p37"
+      ]
+    },
+    {
+      "id": "q_004",
+      "stage": "rewrite",
+      "notes": "Rewrote the accessory questions as one formal-language-theory problem for k-edge DFA languages.",
+      "evidence_refs": [
+        "p37"
+      ]
+    },
+    {
+      "id": "q_005",
+      "stage": "rewrite",
+      "notes": "Expanded Definition 10 and the L1 ∩ L2 presentation into a standalone learning-with-help question.",
+      "evidence_refs": [
+        "p38"
+      ]
+    },
+    {
+      "id": "q_006",
+      "stage": "rewrite",
+      "notes": "Expanded the Sdfa equivalence question with the distribution-distance formulation and the high-probability parameters epsilon and delta.",
+      "evidence_refs": [
+        "p39"
+      ]
+    },
+    {
+      "id": "q_007",
+      "stage": "rewrite",
+      "notes": "Expanded epsilon-correct membership queries and equivalence queries so the active-learning setting is self-contained.",
+      "evidence_refs": [
+        "p40"
+      ]
+    },
+    {
+      "id": "q_008",
+      "stage": "rewrite",
+      "notes": "Expanded deterministic POMDP learnability using the source definition of POMDP and deterministic transition.",
+      "evidence_refs": [
+        "p40",
+        "p41"
+      ]
+    },
+    {
+      "id": "q_009",
+      "stage": "rewrite",
+      "notes": "Expanded ordinary POMDP learnability and included the source's discussion of identification in the limit and regret-style criteria.",
+      "evidence_refs": [
+        "p40",
+        "p41"
+      ]
+    },
+    {
+      "id": "q_010",
+      "stage": "rewrite",
+      "notes": "Expanded the general negotiation problem with the L1 and L2 setup, own-language query restriction, error counting, and discussion subquestions.",
+      "evidence_refs": [
+        "p41",
+        "p42"
+      ]
+    },
+    {
+      "id": "q_011",
+      "stage": "rewrite",
+      "notes": "Resolved Definition 12 by inlining the winning criterion and the equal-state assumption n1 = n2.",
+      "evidence_refs": [
+        "p42"
+      ]
+    },
+    {
+      "id": "q_001",
+      "stage": "dedupe",
+      "notes": "No duplicate found; broader Section 3 comparison questions were treated as context for the numbered characteristic-set-size problem.",
+      "evidence_refs": [
+        "p35",
+        "p36"
+      ]
+    },
+    {
+      "id": "q_002",
+      "stage": "dedupe",
+      "notes": "Kept separate from q_003 because q_002 is a polynomial decision problem for a given sample, while q_003 is an identification problem from an informant.",
+      "evidence_refs": [
+        "p37"
+      ]
+    },
+    {
+      "id": "q_003",
+      "stage": "dedupe",
+      "notes": "Kept separate from q_002 because the source lists it as a distinct learning problem.",
+      "evidence_refs": [
+        "p37"
+      ]
+    },
+    {
+      "id": "q_004",
+      "stage": "dedupe",
+      "notes": "Merged the pumping-lemma and closure-property prompts into one accessory formal-language-theory question about k-edge DFA languages.",
+      "evidence_refs": [
+        "p37"
+      ]
+    },
+    {
+      "id": "q_005",
+      "stage": "dedupe",
+      "notes": "No duplicate found.",
+      "evidence_refs": [
+        "p38"
+      ]
+    },
+    {
+      "id": "q_006",
+      "stage": "dedupe",
+      "notes": "No duplicate found.",
+      "evidence_refs": [
+        "p39"
+      ]
+    },
+    {
+      "id": "q_007",
+      "stage": "dedupe",
+      "notes": "No duplicate found.",
+      "evidence_refs": [
+        "p40"
+      ]
+    },
+    {
+      "id": "q_008",
+      "stage": "dedupe",
+      "notes": "Kept separate from q_009 because deterministic POMDPs are listed as a special case distinct from ordinary POMDPs.",
+      "evidence_refs": [
+        "p41"
+      ]
+    },
+    {
+      "id": "q_009",
+      "stage": "dedupe",
+      "notes": "Kept separate from q_008 because the source separately asks for ordinary POMDP learnability.",
+      "evidence_refs": [
+        "p41"
+      ]
+    },
+    {
+      "id": "q_010",
+      "stage": "dedupe",
+      "notes": "Merged the general strategy, identification, no-win, lock-automata, stalemate, and adversary-strategy prompts into the source's general negotiation problem.",
+      "evidence_refs": [
+        "p42"
+      ]
+    },
+    {
+      "id": "q_011",
+      "stage": "dedupe",
+      "notes": "Kept separate from q_010 because the source states it as a specialized equal-state winning-algorithm problem under Definition 12.",
+      "evidence_refs": [
+        "p42"
+      ]
+    },
+    {
+      "id": "q_001",
+      "stage": "quality_gates",
+      "notes": "Passed self-containedness, evidence coverage, evidence completeness, no-new-facts, source adequacy, and schema gates.",
+      "evidence_refs": [
+        "p35",
+        "p36"
+      ]
+    },
+    {
+      "id": "q_002",
+      "stage": "quality_gates",
+      "notes": "Passed self-containedness, evidence coverage, evidence completeness, no-new-facts, source adequacy, and schema gates.",
+      "evidence_refs": [
+        "p36",
+        "p37"
+      ]
+    },
+    {
+      "id": "q_003",
+      "stage": "quality_gates",
+      "notes": "Passed self-containedness, evidence coverage, evidence completeness, no-new-facts, source adequacy, and schema gates.",
+      "evidence_refs": [
+        "p35",
+        "p37"
+      ]
+    },
+    {
+      "id": "q_004",
+      "stage": "quality_gates",
+      "notes": "Passed self-containedness, evidence coverage, evidence completeness, no-new-facts, source adequacy, and schema gates.",
+      "evidence_refs": [
+        "p37"
+      ]
+    },
+    {
+      "id": "q_005",
+      "stage": "quality_gates",
+      "notes": "Passed self-containedness, evidence coverage, evidence completeness, no-new-facts, source adequacy, and schema gates.",
+      "evidence_refs": [
+        "p38"
+      ]
+    },
+    {
+      "id": "q_006",
+      "stage": "quality_gates",
+      "notes": "Passed self-containedness, evidence coverage, evidence completeness, no-new-facts, source adequacy, and schema gates.",
+      "evidence_refs": [
+        "p39"
+      ]
+    },
+    {
+      "id": "q_007",
+      "stage": "quality_gates",
+      "notes": "Passed self-containedness, evidence coverage, evidence completeness, no-new-facts, source adequacy, and schema gates.",
+      "evidence_refs": [
+        "p40"
+      ]
+    },
+    {
+      "id": "q_008",
+      "stage": "quality_gates",
+      "notes": "Passed self-containedness, evidence coverage, evidence completeness, no-new-facts, source adequacy, and schema gates.",
+      "evidence_refs": [
+        "p40",
+        "p41"
+      ]
+    },
+    {
+      "id": "q_009",
+      "stage": "quality_gates",
+      "notes": "Passed self-containedness, evidence coverage, evidence completeness, no-new-facts, source adequacy, and schema gates.",
+      "evidence_refs": [
+        "p40",
+        "p41"
+      ]
+    },
+    {
+      "id": "q_010",
+      "stage": "quality_gates",
+      "notes": "Passed self-containedness, evidence coverage, evidence completeness, no-new-facts, source adequacy, and schema gates.",
+      "evidence_refs": [
+        "p41",
+        "p42"
+      ]
+    },
+    {
+      "id": "q_011",
+      "stage": "quality_gates",
+      "notes": "Passed self-containedness, evidence coverage, evidence completeness, no-new-facts, source adequacy, and schema gates.",
+      "evidence_refs": [
+        "p42"
+      ]
+    },
+    {
+      "id": "source",
+      "stage": "persist",
+      "notes": "Saved JSON result to outputs/parse-paper/zbmath-5374431.json and updated outputs/latest.json.",
+      "evidence_refs": [
+        "outputs/parse-paper/zbmath-5374431.json",
+        "outputs/latest.json"
+      ]
+    }
+  ]
+}

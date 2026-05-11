@@ -1,0 +1,310 @@
+{
+  "source": {
+    "url": "https://zbmath.org/5989436",
+    "resolved_locator": "https://person.dibris.unige.it/bertero-mario/papers-PDF/IP_LINCNIRVANA.pdf",
+    "title": "Imaging with LINC-NIRVANA, the Fizeau interferometer of the Large Binocular Telescope: state of the art and open problems",
+    "title_origin": "source_text"
+  },
+  "accepted": [
+    {
+      "id": "q_001",
+      "question_text": "How can image reconstruction for LINC-NIRVANA, the Fizeau interferometer of the Large Binocular Telescope, be extended from a space-invariant point-spread-function model to a space-variant point-spread-function model? In this setting, multiple deconvolution combines several interferometric images of the same astronomical target; the point-spread function can change with baseline orientation, adaptive-optics correction, and position in the field of view. A self-contained solution should estimate point-spread-function variation across the field from available star images, partition the image into domains where each point-spread function can be treated as approximately space-invariant, correct boundary effects inside those domain reconstructions, and recombine the results into a mosaic.",
+      "context_brief": "Space-variant point-spread functions",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 27,
+          "quote": "space-variant PSFs must be considered"
+        }
+      ]
+    },
+    {
+      "id": "q_002",
+      "question_text": "For LINC-NIRVANA multiple-image deconvolution with Poisson data, what regularization methods based on sparse representations in an appropriate basis or frame can improve reconstruction of complex astronomical objects beyond the regularization functions already tested for simpler objects such as open star clusters, nebulae, distant galaxies, and planetary surfaces?",
+      "context_brief": "Sparse-representation regularization",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 27,
+          "quote": "sparse representation"
+        }
+      ]
+    },
+    {
+      "id": "q_003",
+      "question_text": "How can LINC-NIRVANA image reconstruction recover high-dynamic-range astronomical scenes in which bright point sources are superimposed on diffuse faint structure, such as a bright star lying on top of a diffuse cloud in young stellar object observations? Existing adaptive regularization handles separated bright and faint components only when there is a large brightness difference and angular separation, so the unresolved case is reconstruction when the bright source and diffuse emission overlap.",
+      "context_brief": "High-dynamic-range overlap",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 22,
+          "quote": "bright star over a diffuse cloud"
+        }
+      ]
+    },
+    {
+      "id": "q_004",
+      "question_text": "How can the iterative reconstruction algorithms used for LINC-NIRVANA multiple-image deconvolution be accelerated in a mathematically justified and computationally efficient way? The target algorithms include Richardson-Lucy and ordered-subsets expectation-maximization variants for large astronomical images, where sufficiently bright objects can require thousands of iterations and 2048 x 2048 pixel images can take hours; existing acceleration methods need convergence guarantees and better behavior in critical cases.",
+      "context_brief": "Efficient acceleration",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 28,
+          "quote": "open issue"
+        }
+      ]
+    },
+    {
+      "id": "q_005",
+      "question_text": "How can blind or myopic deconvolution for LINC-NIRVANA be made mathematically sound and computationally efficient when the point-spread functions are unknown or only partly known? The formulation should jointly estimate the astronomical object and the point-spread functions under physical constraints such as nonnegativity, band-limiting, and known Strehl-ratio information, and should exploit the relationship between this deconvolution problem and nonnegative matrix factorization to obtain convergence analysis and practical reconstruction algorithms.",
+      "context_brief": "Blind or myopic deconvolution",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 28,
+          "quote": "blind deconvolution is an interesting and basic problem"
+        }
+      ]
+    }
+  ],
+  "needs_review": [],
+  "trace": [
+    {
+      "id": "source",
+      "stage": "input",
+      "notes": "Normalized the single URL source https://zbmath.org/5989436 as a zbMATH resolver record with source name 5989436.",
+      "evidence_refs": [
+        "https://zbmath.org/5989436"
+      ]
+    },
+    {
+      "id": "source",
+      "stage": "resolve",
+      "notes": "Local source-index metadata identified zbMATH id 5989436 as the 2011 article with DOI 10.1088/0266-5611/27/11/113001. A local shell curl attempt to the zbMATH API failed with network_or_dns_failure because external DNS is unavailable in the shell sandbox. Exact-work web recovery found an author-posted PDF at person.dibris.unige.it whose visible title and DOI match the zbMATH record; that PDF was used as the primary readable full-text artifact. No extraction was performed from resolver metadata, abstracts, search snippets, or unrelated works.",
+      "evidence_refs": [
+        "outputs/shards/open-problems-shard-0.csv:332",
+        "doi:10.1088/0266-5611/27/11/113001",
+        "https://person.dibris.unige.it/bertero-mario/papers-PDF/IP_LINCNIRVANA.pdf"
+      ]
+    },
+    {
+      "id": "source",
+      "stage": "map",
+      "notes": "Mapped the PDF as a topical review with sections on the Large Binocular Telescope and LINC-NIRVANA, the image reconstruction model, iterative reconstruction and regularization methods, implementation issues, numerical experiments, blind or myopic deconvolution, and concluding open problems. Key terminology includes LINC-NIRVANA/LN, Large Binocular Telescope/LBT, point-spread function/PSF, field of view/FoV, adaptive optics/AO, Strehl ratio/SR, Richardson-Lucy/RL, ordered-subsets expectation-maximization/OSEM, Poisson data, and nonnegative matrix factorization. Likely open-problem regions were pages 21-22, 26-28.",
+      "evidence_refs": [
+        "p21",
+        "p22",
+        "p26",
+        "p27",
+        "p28"
+      ]
+    },
+    {
+      "id": "q_003",
+      "stage": "extract_candidates",
+      "notes": "Section 6.1.6 explicitly flags the unresolved high-dynamic-range case where a bright star overlaps diffuse emission in young stellar object imaging.",
+      "evidence_refs": [
+        "p22"
+      ]
+    },
+    {
+      "id": "q_005",
+      "stage": "extract_candidates",
+      "notes": "Section 7 frames blind and myopic deconvolution for LINC-NIRVANA as joint recovery of the object and point-spread functions, with physical constraints such as band-limiting and Strehl-ratio information.",
+      "evidence_refs": [
+        "p26",
+        "p27"
+      ]
+    },
+    {
+      "id": "q_001",
+      "stage": "extract_candidates",
+      "notes": "Section 8 item (i) identifies deconvolution with space-variant point-spread functions as a problem to be handled by estimating field variation and reconstructing domains as a mosaic.",
+      "evidence_refs": [
+        "p27"
+      ]
+    },
+    {
+      "id": "q_002",
+      "stage": "extract_candidates",
+      "notes": "Section 8 item (ii) identifies sparse-representation regularization as needed for complex astronomical objects beyond the simpler targets already tested.",
+      "evidence_refs": [
+        "p27"
+      ]
+    },
+    {
+      "id": "q_003",
+      "stage": "extract_candidates",
+      "notes": "Section 8 item (ii) repeats the high-dynamic-range bright-star-plus-diffuse-object reconstruction problem, confirming it as part of the concluding open-problem list.",
+      "evidence_refs": [
+        "p27"
+      ]
+    },
+    {
+      "id": "q_004",
+      "stage": "extract_candidates",
+      "notes": "Section 8 item (iii) identifies rigorous and efficient acceleration of the proposed iterative algorithms as unresolved, especially for bright objects and 2048 x 2048 images.",
+      "evidence_refs": [
+        "p27",
+        "p28"
+      ]
+    },
+    {
+      "id": "q_005",
+      "stage": "extract_candidates",
+      "notes": "Section 8 item (iv) identifies blind deconvolution, physical constraints on point-spread functions, and nonnegative matrix factorization as a central open direction.",
+      "evidence_refs": [
+        "p28"
+      ]
+    },
+    {
+      "id": "q_001",
+      "stage": "rewrite",
+      "notes": "Expanded the space-variant PSF item into a standalone LINC-NIRVANA reconstruction question, inlining the roles of PSFs, adaptive optics, field-of-view variation, domain decomposition, boundary correction, and mosaicking.",
+      "evidence_refs": [
+        "p27"
+      ]
+    },
+    {
+      "id": "q_002",
+      "stage": "rewrite",
+      "notes": "Expanded the sparse-regularization item into a standalone question about Poisson-data multiple-image deconvolution and complex astronomical objects.",
+      "evidence_refs": [
+        "p27"
+      ]
+    },
+    {
+      "id": "q_003",
+      "stage": "rewrite",
+      "notes": "Expanded the high-dynamic-range item into a standalone question about overlapping bright point sources and diffuse faint emission, using the source's young stellar object example.",
+      "evidence_refs": [
+        "p22",
+        "p27"
+      ]
+    },
+    {
+      "id": "q_004",
+      "stage": "rewrite",
+      "notes": "Expanded the acceleration item into a standalone question that states the relevant iterative methods, image size, iteration-count burden, and need for convergence-backed acceleration.",
+      "evidence_refs": [
+        "p27",
+        "p28"
+      ]
+    },
+    {
+      "id": "q_005",
+      "stage": "rewrite",
+      "notes": "Expanded the blind/myopic deconvolution item into a standalone question about joint object and point-spread-function estimation, nonnegativity, band-limiting, Strehl-ratio constraints, and nonnegative matrix factorization.",
+      "evidence_refs": [
+        "p26",
+        "p27",
+        "p28"
+      ]
+    },
+    {
+      "id": "q_001",
+      "stage": "dedupe",
+      "notes": "No near-duplicate found; kept as the canonical space-variant PSF question.",
+      "evidence_refs": [
+        "p27"
+      ]
+    },
+    {
+      "id": "q_002",
+      "stage": "dedupe",
+      "notes": "No near-duplicate found; kept as the canonical sparse-representation regularization question.",
+      "evidence_refs": [
+        "p27"
+      ]
+    },
+    {
+      "id": "q_003",
+      "stage": "dedupe",
+      "notes": "Merged the section 6.1.6 explicit open problem with its repeated mention in section 8 item (ii).",
+      "evidence_refs": [
+        "p22",
+        "p27"
+      ]
+    },
+    {
+      "id": "q_004",
+      "stage": "dedupe",
+      "notes": "No near-duplicate found; kept as the canonical acceleration question.",
+      "evidence_refs": [
+        "p28"
+      ]
+    },
+    {
+      "id": "q_005",
+      "stage": "dedupe",
+      "notes": "Merged the section 7 blind/myopic deconvolution discussion with section 8 item (iv), including the Strehl-ratio extension as part of the same problem cluster.",
+      "evidence_refs": [
+        "p26",
+        "p27",
+        "p28"
+      ]
+    },
+    {
+      "id": "q_001",
+      "stage": "quality_gates",
+      "notes": "Accepted: self-contained question text, source-backed definitions, page-located evidence, no solved label, and no unresolved source-pointing references.",
+      "evidence_refs": [
+        "p27"
+      ]
+    },
+    {
+      "id": "q_002",
+      "stage": "quality_gates",
+      "notes": "Accepted: self-contained question text, source-backed setting, page-located evidence, no solved label, and no unresolved source-pointing references.",
+      "evidence_refs": [
+        "p27"
+      ]
+    },
+    {
+      "id": "q_003",
+      "stage": "quality_gates",
+      "notes": "Accepted: self-contained question text, source-backed young-stellar-object context, page-located evidence, no solved label, and no unresolved source-pointing references.",
+      "evidence_refs": [
+        "p22",
+        "p27"
+      ]
+    },
+    {
+      "id": "q_004",
+      "stage": "quality_gates",
+      "notes": "Accepted: self-contained question text, source-backed computational burden, page-located evidence, no solved label, and no unresolved source-pointing references.",
+      "evidence_refs": [
+        "p28"
+      ]
+    },
+    {
+      "id": "q_005",
+      "stage": "quality_gates",
+      "notes": "Accepted: self-contained question text, source-backed constraints and formulation, page-located evidence, no solved label, and no unresolved source-pointing references.",
+      "evidence_refs": [
+        "p26",
+        "p27",
+        "p28"
+      ]
+    },
+    {
+      "id": "source",
+      "stage": "persist",
+      "notes": "Saved exact JSON output to /Users/songuijin/Documents/GitHub/paper-question-parser/outputs/parse-paper/5989436.json and /Users/songuijin/Documents/GitHub/paper-question-parser/outputs/latest.json.",
+      "evidence_refs": [
+        "outputs/parse-paper/5989436.json",
+        "outputs/latest.json"
+      ]
+    }
+  ]
+}

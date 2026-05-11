@@ -1,0 +1,71 @@
+{
+  "source": {
+    "url": "https://zbmath.org/5657180",
+    "resolved_locator": "",
+    "title": "Some open problems",
+    "title_origin": "resolver_metadata"
+  },
+  "accepted": [],
+  "needs_review": [
+    {
+      "id": "error_input",
+      "reason": "invalid_or_unreadable_input",
+      "question_text_raw": "",
+      "evidence": []
+    }
+  ],
+  "trace": [
+    {
+      "id": "error_input",
+      "stage": "input",
+      "notes": "Normalized the input as a zbMATH bibliographic resolver URL with trailing identifier 5657180.",
+      "evidence_refs": [
+        "https://zbmath.org/5657180"
+      ]
+    },
+    {
+      "id": "error_input",
+      "stage": "resolve",
+      "notes": "The zbMATH landing URL did not yield a readable full-text artifact through the available page reader. Local shell fetches of zbmath.org, api.zbmath.org, and candidate publisher hosts failed with DNS resolution errors in the sandbox, so direct local resolver and PDF downloads could not be completed.",
+      "evidence_refs": [
+        "https://zbmath.org/5657180",
+        "https://api.zbmath.org/v1/document/5657180"
+      ]
+    },
+    {
+      "id": "error_input",
+      "stage": "resolver_metadata",
+      "notes": "Local workflow shard metadata for the same zbMATH identifier records only the generic title 'Some open problems', year 2009, and no DOI or full-text link. This metadata was used only for source identity and title recovery, not for question extraction.",
+      "evidence_refs": [
+        "outputs/shards/open-problems-shard-0.csv:92",
+        "outputs/open-problems-0418-all.csv:166"
+      ]
+    },
+    {
+      "id": "error_input",
+      "stage": "bounded_recovery",
+      "notes": "Ran exact-work recovery attempts using the zbMATH identifier, exact title plus year, exact title plus PDF, exact title plus likely authors, DOI candidates from Crossref/OpenAlex rows with the same generic title and year, and publisher/repository candidates. Recovery was ambiguous: several distinct 2009 works have the exact title 'Some open problems', including candidates under DOI 10.1090/conm/485/09499, DOI 10.1007/978-3-0346-0000-2_8, and DOI 10.1007/978-3-540-85031-1_6. Because the zbMATH record itself was unreadable and the local metadata has no author, venue, DOI, or link, none of the readable or metadata-only candidates could be confirmed as the same exact source. Search snippets, table-of-contents pages, catalog pages, and candidate PDF mirrors were rejected as extraction sources.",
+      "evidence_refs": [
+        "https://doi.org/10.1090/conm/485/09499",
+        "https://doi.org/10.1007/978-3-0346-0000-2_8",
+        "https://doi.org/10.1007/978-3-540-85031-1_6",
+        "https://dspace.kpfu.ru/xmlui/handle/net/139517"
+      ]
+    },
+    {
+      "id": "error_input",
+      "stage": "quality_gates",
+      "notes": "No candidates were mapped, extracted, rewritten, or accepted because no readable full-text artifact could be confirmed as the same exact zbMATH source. The workflow forbids extracting questions from resolver metadata, abstracts, catalog pages, table-of-contents pages, search snippets, ambiguous candidate works, or mirrors whose identity cannot be tied back to the requested source.",
+      "evidence_refs": []
+    },
+    {
+      "id": "persist",
+      "stage": "persist",
+      "notes": "Saved final JSON to outputs/parse-paper/zbmath-5657180.json and outputs/latest.json.",
+      "evidence_refs": [
+        "outputs/parse-paper/zbmath-5657180.json",
+        "outputs/latest.json"
+      ]
+    }
+  ]
+}

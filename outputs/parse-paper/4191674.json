@@ -1,0 +1,69 @@
+{
+  "source": {
+    "url": "https://zbmath.org/4191674",
+    "resolved_locator": "",
+    "title": "Open problems",
+    "title_origin": "resolver_metadata"
+  },
+  "accepted": [],
+  "needs_review": [
+    {
+      "id": "error_input",
+      "reason": "invalid_or_unreadable_input",
+      "question_text_raw": "",
+      "evidence": [
+        {
+          "page": "zbMATH API document 4191674",
+          "quote": "Open problems"
+        }
+      ]
+    }
+  ],
+  "trace": [
+    {
+      "id": "input_001",
+      "stage": "input",
+      "notes": "Normalized the single input URL as the zbMATH resolver record https://zbmath.org/4191674.",
+      "evidence_refs": [
+        "https://zbmath.org/4191674"
+      ]
+    },
+    {
+      "id": "resolve_001",
+      "stage": "resolve",
+      "notes": "Direct shell fetching of zbmath.org initially failed because DNS resolution was unavailable in the sandbox; DNS-over-HTTPS plus curl --resolve allowed querying the zbMATH API. The API identified the exact record as Zbl 0723.05045, title Open problems, by H. Bielak, A. Benhocine, A. P. Wojda, and M. Borowiecki, in Graphs, hypergraphs and matroids III, Proceedings of the 7th Regional Scientific Session of Mathematicians, Kalsk, Poland, 1988, pages 187-191, 1989. The API exposed no full-text links.",
+      "evidence_refs": [
+        "https://api.zbmath.org/v1/document/4191674",
+        "Zbl 0723.05045"
+      ]
+    },
+    {
+      "id": "resolve_002",
+      "stage": "resolve",
+      "notes": "Bounded exact-work recovery searched by the zbMATH identifier, exact title with source title, exact page range, and listed authors. ResearchGate exposed only profile and article metadata; Google Books exposed bibliographic and snippet metadata for the proceedings volume but not readable pages 187-191; a Polish library catalog record stated that no electronic resource was available for the volume.",
+      "evidence_refs": [
+        "ResearchGate Borowiecki profile",
+        "Google Books: Graphs, Hypergraphs and Matroids III",
+        "wip.pbp.poznan.pl bibliographic record"
+      ]
+    },
+    {
+      "id": "error_input",
+      "stage": "quality_gates",
+      "notes": "Source adequacy gate failed. No readable exact-work PDF or full HTML source containing the problem statements was recovered, and metadata-only pages were not used for extraction.",
+      "evidence_refs": [
+        "metadata_only",
+        "missing_readable_full_text"
+      ]
+    },
+    {
+      "id": "persist_001",
+      "stage": "persist",
+      "notes": "Saved final JSON to outputs/parse-paper/4191674.json and updated outputs/latest.json.",
+      "evidence_refs": [
+        "outputs/parse-paper/4191674.json",
+        "outputs/latest.json"
+      ]
+    }
+  ]
+}

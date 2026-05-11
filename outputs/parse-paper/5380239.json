@@ -1,0 +1,56 @@
+{
+  "source": {
+    "url": "https://zbmath.org/5380239",
+    "resolved_locator": "",
+    "title": "Open problems in symbolic dynamics",
+    "title_origin": "source_text"
+  },
+  "accepted": [],
+  "needs_review": [
+    {
+      "id": "error_input",
+      "reason": "invalid_or_unreadable_input",
+      "question_text_raw": "",
+      "evidence": []
+    }
+  ],
+  "trace": [
+    {
+      "id": "source_resolution",
+      "stage": "input",
+      "notes": "Normalized the input as zbMATH document URL https://zbmath.org/5380239. Local source-index rows identify the record as Mike Boyle's 2008 source titled Open problems in symbolic dynamics, DOI 10.1090/conm/469/09161.",
+      "evidence_refs": [
+        "outputs/shards/open-problems-shard-0.csv:31",
+        "outputs/open-problems-0418-all.csv:57"
+      ]
+    },
+    {
+      "id": "source_resolution",
+      "stage": "input",
+      "notes": "Direct local curl to the zbMATH page returned a Cloudflare challenge or DNS failure. Exact-work search recovered the DOI landing page, Bowen Notebook metadata page, Mike Boyle's problem-tracking page, CiteSeerX candidate, and the exact-title University of Maryland PDF at https://www.math.umd.edu/~mboyle/papers/openfinalsub3nov2007.pdf.",
+      "evidence_refs": [
+        "zbmath-403-cloudflare",
+        "zbmath-dns-failure",
+        "doi:10.1090/conm/469/09161",
+        "https://www.math.umd.edu/~mboyle/papers/openfinalsub3nov2007.pdf"
+      ]
+    },
+    {
+      "id": "error_input",
+      "stage": "input",
+      "notes": "Failure mode: network_or_dns_failure. Repeated required Bash downloads of the exact-work PDF from both https://www.math.umd.edu/~mboyle/papers/openfinalsub3nov2007.pdf and http://www.math.umd.edu/~mboyle/papers/openfinalsub3nov2007.pdf failed with curl DNS resolution errors, so no local readable PDF artifact was available for the PDF extraction workflow. The DOI landing page redirected to AMS and then returned a Cloudflare 403. The CiteSeerX PDF candidate redirected through web.archive.org and returned 404. Extraction was not performed from zbMATH metadata, search snippets, or resolver pages.",
+      "evidence_refs": [
+        "curl-dns-www.math.umd.edu",
+        "curl-dns-math.umd.edu",
+        "ams-cloudflare-403",
+        "citeseerx-webarchive-404"
+      ]
+    },
+    {
+      "id": "persist",
+      "stage": "persist",
+      "notes": "Saved exact JSON payload to outputs/parse-paper/5380239.json and updated outputs/latest.json.",
+      "evidence_refs": []
+    }
+  ]
+}

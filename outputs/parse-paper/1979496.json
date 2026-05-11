@@ -1,0 +1,252 @@
+{
+  "source": {
+    "url": "https://zbmath.org/1979496",
+    "resolved_locator": "https://www.cs.kent.edu/~dragan/ISAAC2002.pdf",
+    "title": "Tree Spanners on Chordal Graphs: Complexity, Algorithms, Open Problems",
+    "title_origin": "source_text"
+  },
+  "accepted": [
+    {
+      "id": "q_001",
+      "question_text": "Given a connected graph G, a spanning tree T is a tree 3-spanner when every pair of vertices x and y has tree distance d_T(x, y) at most 3 times graph distance d_G(x, y). A graph is chordal when it has no chordless cycle of length at least four, and a graph is strongly chordal when it is chordal and has no induced k-sun for any k >= 3. Is there an efficient algorithm to decide whether a chordal graph, and in particular whether a strongly chordal graph, admits a tree 3-spanner?",
+      "context_brief": "Tree 3-spanners in chordal graphs",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 11,
+          "quote": "Can Tree 3-Spanner be decided efficiently"
+        }
+      ]
+    },
+    {
+      "id": "q_002",
+      "question_text": "For a chordal graph G, let r(G) be the radius of G and diam(G) be the diameter of G. Is there an efficient algorithm to decide, for chordal graphs satisfying diam(G) = 2r(G) - 2, whether G admits a tree (2r(G) - 1)-spanner, meaning a spanning tree T in which d_T(x, y) <= (2r(G) - 1)d_G(x, y) for every pair of vertices x and y?",
+      "context_brief": "Diameter-radius boundary case",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 11,
+          "quote": "be decided efficiently on chordal graphs"
+        }
+      ]
+    },
+    {
+      "id": "q_003",
+      "question_text": "For an integer t >= 3, what is the computational complexity of deciding whether a chordal graph G with diameter at most t admits a tree t-spanner, that is, a spanning tree preserving all graph distances up to multiplicative stretch t?",
+      "context_brief": "Chordal graphs of diameter at most t",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 11,
+          "quote": "What is the complexity of Tree t-Spanner"
+        }
+      ]
+    },
+    {
+      "id": "q_004",
+      "question_text": "A path graph is an intersection graph of paths in a tree. For fixed t >= 3, what is the complexity of deciding whether a path graph admits a tree t-spanner? In particular, what is the status for t = 3 on path graphs that are also strongly chordal?",
+      "context_brief": "Tree spanners in path graphs",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 2,
+          "quote": "Tree t-Spanner remains unresolved"
+        }
+      ]
+    }
+  ],
+  "needs_review": [],
+  "trace": [
+    {
+      "id": "source",
+      "stage": "input",
+      "notes": "Input normalized as the zbMATH resolver URL https://zbmath.org/1979496. Local shard metadata in outputs/shards/open-problems-shard-0.csv identifies zbMATH 1979496 as 'Tree spanners on chordal graphs: Complexity, algorithms, open problems' with DOI 10.1007/3-540-36136-7_15.",
+      "evidence_refs": [
+        "outputs/shards/open-problems-shard-0.csv:345"
+      ]
+    },
+    {
+      "id": "source",
+      "stage": "source_resolution",
+      "notes": "Failure modes for the original resolver were blocked_or_challenged and network_or_dns_failure: local curl to https://zbmath.org/1979496 returned a Cloudflare HTTP 403 challenge once and later DNS failures; local curl to api.zbmath.org also failed DNS resolution. Bounded exact-title and DOI recovery found an author-hosted PDF at https://www.cs.kent.edu/~dragan/ISAAC2002.pdf with the same title and authors; the page reader exposed the 12-page PDF text. Local shell download of that PDF failed DNS resolution, so extraction used the readable PDF URL as the resolved locator.",
+      "evidence_refs": [
+        "https://zbmath.org/1979496",
+        "https://doi.org/10.1007/3-540-36136-7_15",
+        "https://www.cs.kent.edu/~dragan/ISAAC2002.pdf"
+      ]
+    },
+    {
+      "id": "source",
+      "stage": "map",
+      "notes": "Mapped PDF structure: title/abstract and Introduction and Results on pages 1-3; NP-completeness construction on pages 4-7; smaller-diameter chordal-graph results on pages 7-8; chordal graphs of diameter 2 on pages 9-10; strongly chordal and k-split graph classes on pages 10-11; conclusion and explicit open questions on page 11. Definitions used in rewrites include tree t-spanner, Tree t-Spanner, chordal graph, radius, diameter, strongly chordal graph, path graph, and k-split graph.",
+      "evidence_refs": [
+        "p1",
+        "p2",
+        "p4",
+        "p8",
+        "p10",
+        "p11"
+      ]
+    },
+    {
+      "id": "q_001",
+      "stage": "extract_candidates",
+      "notes": "Extracted explicit conclusion question asking whether Tree 3-Spanner can be decided efficiently on chordal and strongly chordal graphs.",
+      "evidence_refs": [
+        "p11"
+      ]
+    },
+    {
+      "id": "q_002",
+      "stage": "extract_candidates",
+      "notes": "Extracted explicit conclusion question about deciding Tree (2r(G)-1)-Spanner on chordal graphs of diameter 2r(G)-2.",
+      "evidence_refs": [
+        "p11"
+      ]
+    },
+    {
+      "id": "q_003",
+      "stage": "extract_candidates",
+      "notes": "Extracted explicit conclusion question about the complexity of Tree t-Spanner on chordal graphs of diameter at most t; merged the earlier page-7 special case about testing tree 3-spanners on chordal graphs of diameter at most 3.",
+      "evidence_refs": [
+        "p7",
+        "p11"
+      ]
+    },
+    {
+      "id": "q_004",
+      "stage": "extract_candidates",
+      "notes": "Extracted open-problem statements from the introduction and conclusion saying Tree t-Spanner remains unresolved on path graphs, including the t = 3 case for path graphs that are strongly chordal.",
+      "evidence_refs": [
+        "p2",
+        "p11"
+      ]
+    },
+    {
+      "id": "q_001",
+      "stage": "rewrite",
+      "notes": "Expanded Tree 3-Spanner, chordal graph, and strongly chordal graph definitions using definitions in the same PDF.",
+      "evidence_refs": [
+        "p1",
+        "p2",
+        "p10",
+        "p11"
+      ]
+    },
+    {
+      "id": "q_002",
+      "stage": "rewrite",
+      "notes": "Expanded radius, diameter, and tree (2r(G)-1)-spanner notation using the PDF's definitions of radius, diameter, and tree t-spanners.",
+      "evidence_refs": [
+        "p1",
+        "p4",
+        "p8",
+        "p11"
+      ]
+    },
+    {
+      "id": "q_003",
+      "stage": "rewrite",
+      "notes": "Expanded the general Tree t-Spanner complexity question into a standalone decision problem for chordal graphs of diameter at most t.",
+      "evidence_refs": [
+        "p1",
+        "p4",
+        "p11"
+      ]
+    },
+    {
+      "id": "q_004",
+      "stage": "rewrite",
+      "notes": "Expanded path graph and strongly chordal path graph terminology using the definitions in the introduction and Section 5.",
+      "evidence_refs": [
+        "p2",
+        "p10",
+        "p11"
+      ]
+    },
+    {
+      "id": "q_001",
+      "stage": "dedupe",
+      "notes": "Kept as distinct from the path-graph question because it concerns the broader chordal and strongly chordal classes.",
+      "evidence_refs": [
+        "p11"
+      ]
+    },
+    {
+      "id": "q_002",
+      "stage": "dedupe",
+      "notes": "Kept as distinct because it concerns the radius-diameter boundary diam(G)=2r(G)-2 rather than the general diameter-at-most-t setting.",
+      "evidence_refs": [
+        "p11"
+      ]
+    },
+    {
+      "id": "q_003",
+      "stage": "dedupe",
+      "notes": "Merged the page-7 special case for t=3 and diameter at most 3 into the conclusion's more general chordal-graphs-of-diameter-at-most-t problem.",
+      "evidence_refs": [
+        "p7",
+        "p11"
+      ]
+    },
+    {
+      "id": "q_004",
+      "stage": "dedupe",
+      "notes": "Merged path-graph and strongly-chordal path-graph unresolved-status statements into one path-graph question with a highlighted t=3 subcase.",
+      "evidence_refs": [
+        "p2",
+        "p11"
+      ]
+    },
+    {
+      "id": "q_001",
+      "stage": "quality_gates",
+      "notes": "Accepted: question is self-contained, not source-pointing, and has page-located verbatim evidence from the primary PDF.",
+      "evidence_refs": [
+        "p11"
+      ]
+    },
+    {
+      "id": "q_002",
+      "stage": "quality_gates",
+      "notes": "Accepted: notation r(G), diam(G), and tree-spanner terminology are expanded without adding unsupported claims.",
+      "evidence_refs": [
+        "p11"
+      ]
+    },
+    {
+      "id": "q_003",
+      "stage": "quality_gates",
+      "notes": "Accepted: the question is stated as a standalone complexity problem and is grounded in the conclusion's explicit open-question list.",
+      "evidence_refs": [
+        "p11"
+      ]
+    },
+    {
+      "id": "q_004",
+      "stage": "quality_gates",
+      "notes": "Accepted: path graph terminology is inlined and the strongly chordal t=3 subcase is supported by the primary PDF.",
+      "evidence_refs": [
+        "p2",
+        "p11"
+      ]
+    },
+    {
+      "id": "persist",
+      "stage": "persist",
+      "notes": "Saved exact JSON output to outputs/parse-paper/1979496.json and updated outputs/latest.json.",
+      "evidence_refs": [
+        "outputs/parse-paper/1979496.json",
+        "outputs/latest.json"
+      ]
+    }
+  ]
+}

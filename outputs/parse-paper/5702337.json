@@ -1,0 +1,453 @@
+{
+  "source": {
+    "url": "https://zbmath.org/5702337",
+    "resolved_locator": "https://cs.lnu.se/isovis/pubs/docs/kerren-gd09a-postprint.pdf",
+    "title": "On Open Problems in Biological Network Visualization",
+    "title_origin": "source_text"
+  },
+  "accepted": [
+    {
+      "id": "q_001",
+      "question_text": "In biological network visualization, suppose a pathway or other biological network is represented as a graph G1=(V,E1), and correlation data over the same biological entities induces a weighted correlation graph G2=(V,E2) on the same node set V. The correlation edges should represent only statistically significant relationships, such as significant up- or down-regulation of co-expressed genes or proteins, and entities with multiple annotations may be treated as correlated when enough annotations correspond, for example by genotype, time value, or biological replicate number. How can one compute a layout that either draws the union of the two graphs or draws two aligned layouts with identical node coordinates, so that both the original network G1 and the correlation graph G2 are clearly displayed, the two edge sets E1 and E2 are visually distinguishable, and any pre-existing layout of G1 is preserved as closely as possible while the correlation structure is still emphasized?",
+      "context_brief": "correlation-aware biological network layouts",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 6,
+          "quote": "Investigators are then interested in a graphical representation that highlights the interrelation between the connectivity structure of pairs or subsets of nodes in the original network and their correlation."
+        },
+        {
+          "page": 6,
+          "quote": "We seek either a layout of the union graph G = (V,E1 ∪ E2), in which the given network G1 and the correlations are clearly displayed, or two disjoint layouts, in which the coordinates of the nodes in both layouts are identical."
+        },
+        {
+          "page": 6,
+          "quote": "In the first case, a challenging task is to provide a layout which clearly emphasizes the two different edge sets E1 and E2."
+        }
+      ]
+    },
+    {
+      "id": "q_002",
+      "question_text": "Given k structurally similar biological graphs G1,...,Gk, such as molecular subnetworks from different organisms or species, networks from diseased and healthy states, networks at different time points, or networks under different environmental conditions, how can one lay them out so that similarities or differences are highlighted? The layout method should support either a single layout of the union graph or k disjoint aligned layouts with common node coordinates, should draw common nodes and common edges identically when the stronger fixed-edge simultaneous-embedding setting is required, should preserve already given layouts or backbone structures when a mental map matters, should obey biological constraints for the relevant network type, and should handle large networks by hiding irrelevant parts while highlighting points of interest such as differences or main metabolic pathways.",
+      "context_brief": "comparison layouts for similar biological networks",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 7,
+          "quote": "Given a set of graphs G1,...,Gk with a high degree of similarity between each other, the task is to lay them out in a way so that the differences (or the similarities) are highlighted."
+        },
+        {
+          "page": 7,
+          "quote": "In the context of biological networks and pathways, the stronger simultaneous embedding problem with fixed edges occurs, which forces not only the nodes but also the edges occurring in two or more graphs to be drawn identically."
+        },
+        {
+          "page": 7,
+          "quote": "In any case, the layouts must obey the given biological constraints concerning the specific network type."
+        }
+      ]
+    },
+    {
+      "id": "q_003",
+      "question_text": "Given two biological networks that describe different functional aspects of the same cell, tissue, or organism, model each as a cluster graph C1=(G1,T1) and C2=(G2,T2) of cluster depth 2, with a mapping function Phi from clusters or entities in one network to clusters or entities in the other. The mapping may be 1:1, 1:n, or n:m, and the union layout should contain G1, G2, and the edges induced by the mapping. How can one generate a joint layout that reveals interactions between the networks, displays the mapping, respects the clusters and the conventional layout of each network, integrates disconnected components of one network into the layout of the other when appropriate, and balances preservation of a given layout or mental map for G1 against obtaining a better representation of G2?",
+      "context_brief": "integrated layouts for overlapping network types",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 8,
+          "quote": "We need a representation of combined networks in which the conventional layouts (there may be several different ones) of each of these networks need to be respected."
+        },
+        {
+          "page": 8,
+          "quote": "Moreover, some groups of nodes in one network may belong to groups of nodes in another network. This mapping (which may be a 1:1, 1 : n, or n : m mapping) needs to be displayed in the layout."
+        },
+        {
+          "page": 8,
+          "quote": "Generate a layout π(G) of the union graph G = G1 ∪ G2 ∪ G[F], where F denotes the edges induced by the mapping, respecting the clusters as well as the conventional layouts of each of these networks."
+        }
+      ]
+    },
+    {
+      "id": "q_004",
+      "question_text": "Given a biological network G=(V,E) whose nodes have subcellular-localization annotations, such as cytosol, nucleus, mitochondria, or plant chloroplasts, and whose localization data may come from experiments, external sources, or prediction, how can one compute an aesthetically pleasing layout that reflects the topographical and morphological information of the cell, conforms to the drawing conventions for the network type, and makes physical compartment structure evident? If the graph represents a flow of mass or information, the layout should also show the flow direction, for example with hierarchical layering, while avoiding the limitation that simple layered drawings let mass and information pass freely only between neighboring layers.",
+      "context_brief": "subcellular localization layouts",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 8,
+          "quote": "Given a network G = (V,E) and additional localization annotation for the nodes in V, we search for a layout that reflects the topographical information of G and that conforms to the drawing conventions for that type of network."
+        },
+        {
+          "page": 9,
+          "quote": "In a layout that is inspired by biological morphology, subgraphs of the network should be arranged according to their subcellular localization in such a fashion that the physical structure of the compartments delimiting these subgraphs becomes evident"
+        },
+        {
+          "page": 9,
+          "quote": "Using a layered drawing approach has the inherent flaw that mass and information may only pass freely between members of neighboring layers."
+        }
+      ]
+    },
+    {
+      "id": "q_005",
+      "question_text": "Given a biological network whose nodes or edges carry multiple attributes, including time-series data for studying dynamic biological behavior and mixtures of nominal, ordinal, scalar, categorized spatial, and uncertain data, how can one design a visual representation that lets investigators understand co-regulated elements and their connections within the network at large scale? The solution should find a readable combination of visual encodings for different data types and should determine when to use integrated node or edge encodings, preattentive visual features, or coordinated multiple views, while avoiding the failure mode in which small embedded graphics become too difficult to compare in a large graph and avoiding excessive spatial separation or cross-view linking burden.",
+      "context_brief": "multi-attribute biological network visualization",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 5,
+          "quote": "The data belongs to different data types, namely: nominal data such as sequence names or categories; ordinal data such as ontologies, rankings, or partly ordered information; scalar data such as comparisons or ratios; categorized spatial data"
+        },
+        {
+          "page": 9,
+          "quote": "The challenge here lies in finding a harmonic combination of visual representations for mixtures of different data types."
+        },
+        {
+          "page": 9,
+          "quote": "simple use of small visualizations that replace, for example, the node representations is most of the time not sufficient, as a visual comparison of such small graphics in a large graph becomes very quickly infeasible."
+        }
+      ]
+    },
+    {
+      "id": "q_006",
+      "question_text": "Given a potentially very large directed biological network such as a metabolic network, together with quantitative and qualitative edge-weight information describing mass or information flow, uncertainties, time-varying flow, and many possible paths, how can one compute static and dynamic visualizations that identify the main statistically significant paths carrying a considerable percentage of the total flow and the metabolites and reactions involved in them? The layout should reflect the hierarchical nature of the flow, preserve textbook layouts for subnetworks as closely as possible, follow general drawing conventions, focus on relevant paths, visually emphasize the main paths and the flux distribution, and use smooth animations for dynamic flow changes so that the user's mental map is preserved.",
+      "context_brief": "flow and path visualization in biological networks",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 10,
+          "quote": "Investigators are, in such cases, primarily interested in the main paths through the network, i.e., those paths that possess a statistically significant flow and transport a considerable percentage of the overall flow through the entire network"
+        },
+        {
+          "page": 10,
+          "quote": "For directed graphs such as metabolic networks, the layout must reflect the hierarchical nature of the flow, preserve layouts for subnetworks originating from textbook representations as closely as possibly, adhere to general drawing conventions, and, at the same time, focus on the relevant parts of the network"
+        },
+        {
+          "page": 10,
+          "quote": "If the dynamic change in the flow over time also needs to be visualized, smooth animations between layouts are required to preserve the user’s mental map."
+        }
+      ]
+    },
+    {
+      "id": "q_007",
+      "question_text": "Given a huge biological network with thousands of nodes and edges that is organized hierarchically into pathways and subpathways, and given selected subsets G1,...,Gk such as pathways that may overlap and may have pre-specified internal layouts or relative positions, how can one provide biologically meaningful visualization and navigation among the subsets and their interrelations? The method should support overview or backbone abstractions, interactive movement from one set of pathways to connected or related pathways, small layout changes after user interaction, appropriate context information, expand-and-collapse operations restricted to semantically meaningful structures such as pathways, preservation of drawing conventions and mental maps, and a clear treatment of duplicate biological components when overlapping subsets represent the same entity.",
+      "context_brief": "hierarchical pathway exploration",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 10,
+          "quote": "Given a huge biological network, methods for the biologically meaningful visualization of selected subsets G1,...,Gk (e.g., pathways) and their interrelations, as well as techniques for the navigation within the network are needed."
+        },
+        {
+          "page": 10,
+          "quote": "Expand-and-collapse mechanisms thus need to be incorporated into layout algorithms such that drawing conventions and the mental map are preserved."
+        },
+        {
+          "page": 11,
+          "quote": "The subsets G1,...,Gk do not need to be disjoint but may partially overlap. This poses an additional challenge for the visualization problem"
+        }
+      ]
+    }
+  ],
+  "needs_review": [],
+  "trace": [
+    {
+      "id": "source",
+      "stage": "input",
+      "notes": "Input normalized as one zbMATH resolver URL with trailing identifier 5702337.",
+      "evidence_refs": [
+        "https://zbmath.org/5702337"
+      ]
+    },
+    {
+      "id": "source",
+      "stage": "resolution",
+      "notes": "Direct shell fetching of zbMATH and its API failed because DNS resolution is unavailable in the local shell sandbox. Local shard metadata identified the exact work title, year 2010, and DOI 10.1007/978-3-642-11805-0_25.",
+      "evidence_refs": [
+        "outputs/shards/open-problems-shard-0.csv:383",
+        "doi:10.1007/978-3-642-11805-0_25"
+      ]
+    },
+    {
+      "id": "source",
+      "stage": "resolution",
+      "notes": "Exact-title and DOI recovery found a readable author-posted PDF with the same title and authors. Extraction used that PDF URL through the page-reading tool.",
+      "evidence_refs": [
+        "https://cs.lnu.se/isovis/pubs/docs/kerren-gd09a-postprint.pdf"
+      ]
+    },
+    {
+      "id": "source",
+      "stage": "map",
+      "notes": "Mapped the PDF: title and abstract; Section 1 introduction; Section 2 on biological network data, network types, and attributes; Section 3 use cases and related visualization problems with subsections 3.1 through 3.7; Section 4 conclusions. Likely open-problem regions are the seven Section 3 use-case problem formulations.",
+      "evidence_refs": [
+        "p1",
+        "p2",
+        "p5",
+        "p6",
+        "p7",
+        "p8",
+        "p9",
+        "p10",
+        "p11"
+      ]
+    },
+    {
+      "id": "q_001",
+      "stage": "extract_candidates",
+      "notes": "Extracted the Section 3.1 problem on laying out a biological network together with correlation data so both the network structure and correlation structure remain visible.",
+      "evidence_refs": [
+        "p6"
+      ]
+    },
+    {
+      "id": "q_002",
+      "stage": "extract_candidates",
+      "notes": "Extracted the Section 3.2 problem on comparing structurally similar biological networks using simultaneous or aligned layouts that preserve biologically meaningful constraints.",
+      "evidence_refs": [
+        "p7"
+      ]
+    },
+    {
+      "id": "q_003",
+      "stage": "extract_candidates",
+      "notes": "Extracted the Section 3.3 problem on integrated representation of multiple overlapping biological networks with inter-network mappings.",
+      "evidence_refs": [
+        "p8"
+      ]
+    },
+    {
+      "id": "q_004",
+      "stage": "extract_candidates",
+      "notes": "Extracted the Section 3.4 problem on graph layouts that reflect subcellular localization and biological morphology.",
+      "evidence_refs": [
+        "p8",
+        "p9"
+      ]
+    },
+    {
+      "id": "q_005",
+      "stage": "extract_candidates",
+      "notes": "Extracted the Section 3.5 problem on visualizing multiple heterogeneous attributes on biological networks.",
+      "evidence_refs": [
+        "p5",
+        "p9"
+      ]
+    },
+    {
+      "id": "q_006",
+      "stage": "extract_candidates",
+      "notes": "Extracted the Section 3.6 problem on visualizing flows and paths in large directed biological networks under uncertainty and temporal change.",
+      "evidence_refs": [
+        "p10"
+      ]
+    },
+    {
+      "id": "q_007",
+      "stage": "extract_candidates",
+      "notes": "Extracted the Section 3.7 problem on navigating hierarchical biological networks organized into pathways and subpathways.",
+      "evidence_refs": [
+        "p10",
+        "p11"
+      ]
+    },
+    {
+      "id": "q_001",
+      "stage": "rewrite",
+      "notes": "Expanded the candidate with the graph notation G1=(V,E1), G2=(V,E2), the statistically significant correlation setting, the two layout alternatives, edge-set distinction, and mental-map tradeoff using Section 3.1 evidence.",
+      "evidence_refs": [
+        "p6"
+      ]
+    },
+    {
+      "id": "q_002",
+      "stage": "rewrite",
+      "notes": "Expanded the candidate with the k-network comparison setting, fixed-edge simultaneous embedding requirement, biological constraints, mental-map preservation, and large-network highlighting requirements using Section 3.2 evidence.",
+      "evidence_refs": [
+        "p7"
+      ]
+    },
+    {
+      "id": "q_003",
+      "stage": "rewrite",
+      "notes": "Expanded the candidate with cluster-graph notation, 1:1/1:n/n:m mappings, mapping-induced edges, and the tradeoff between preserving a given layout and representing the second network using Section 3.3 evidence.",
+      "evidence_refs": [
+        "p8"
+      ]
+    },
+    {
+      "id": "q_004",
+      "stage": "rewrite",
+      "notes": "Expanded the candidate with examples of subcellular compartments, sources of localization data, morphology-aware arrangement, flow-direction display, and the limitation of layered drawings using Section 3.4 evidence.",
+      "evidence_refs": [
+        "p8",
+        "p9"
+      ]
+    },
+    {
+      "id": "q_005",
+      "stage": "rewrite",
+      "notes": "Expanded the candidate with the multiple-attribute and time-series setting, supported data-type categories, uncertainty, and the tradeoff between embedded graphics, preattentive features, and coordinated views using Sections 2.2 and 3.5 evidence.",
+      "evidence_refs": [
+        "p5",
+        "p9"
+      ]
+    },
+    {
+      "id": "q_006",
+      "stage": "rewrite",
+      "notes": "Expanded the candidate with mass/information flow, edge weights, uncertainty, time-varying paths, main-path identification, textbook-layout preservation, flux depiction, and smooth animation requirements using Section 3.6 evidence.",
+      "evidence_refs": [
+        "p10"
+      ]
+    },
+    {
+      "id": "q_007",
+      "stage": "rewrite",
+      "notes": "Expanded the candidate with selected subsets G1,...,Gk, pathway/subpathway hierarchy, navigation, overview/backbone abstractions, expand-collapse behavior, pre-specified layouts, and overlapping-subset duplicates using Section 3.7 evidence.",
+      "evidence_refs": [
+        "p10",
+        "p11"
+      ]
+    },
+    {
+      "id": "q_001",
+      "stage": "dedupe",
+      "notes": "No near-duplicate found among the seven Section 3 use-case problems.",
+      "evidence_refs": [
+        "p6"
+      ]
+    },
+    {
+      "id": "q_002",
+      "stage": "dedupe",
+      "notes": "No near-duplicate found; this remains distinct from q_003 because it concerns comparison of similar graphs rather than integrated representation of different overlapping network types.",
+      "evidence_refs": [
+        "p7"
+      ]
+    },
+    {
+      "id": "q_003",
+      "stage": "dedupe",
+      "notes": "No near-duplicate found; this remains distinct from q_002 because it focuses on mapped integration of different network types.",
+      "evidence_refs": [
+        "p8"
+      ]
+    },
+    {
+      "id": "q_004",
+      "stage": "dedupe",
+      "notes": "No near-duplicate found; subcellular localization is a separate morphology and compartment-layout problem.",
+      "evidence_refs": [
+        "p8",
+        "p9"
+      ]
+    },
+    {
+      "id": "q_005",
+      "stage": "dedupe",
+      "notes": "No near-duplicate found; multiple-attribute visual encoding is distinct from graph layout for network comparison, integration, and navigation.",
+      "evidence_refs": [
+        "p5",
+        "p9"
+      ]
+    },
+    {
+      "id": "q_006",
+      "stage": "dedupe",
+      "notes": "No near-duplicate found; flow and path visualization is distinct from hierarchical pathway exploration because it emphasizes quantitative and temporal flux behavior.",
+      "evidence_refs": [
+        "p10"
+      ]
+    },
+    {
+      "id": "q_007",
+      "stage": "dedupe",
+      "notes": "No near-duplicate found; hierarchical navigation and overlapping pathway subsets are distinct from flow/path visualization.",
+      "evidence_refs": [
+        "p10",
+        "p11"
+      ]
+    },
+    {
+      "id": "q_001",
+      "stage": "quality_gates",
+      "notes": "Accepted: self-contained, evidence-backed, supported by source text, and not explicitly marked solved.",
+      "evidence_refs": [
+        "p6"
+      ]
+    },
+    {
+      "id": "q_002",
+      "stage": "quality_gates",
+      "notes": "Accepted: self-contained, evidence-backed, supported by source text, and not explicitly marked solved.",
+      "evidence_refs": [
+        "p7"
+      ]
+    },
+    {
+      "id": "q_003",
+      "stage": "quality_gates",
+      "notes": "Accepted: self-contained, evidence-backed, supported by source text, and not explicitly marked solved.",
+      "evidence_refs": [
+        "p8"
+      ]
+    },
+    {
+      "id": "q_004",
+      "stage": "quality_gates",
+      "notes": "Accepted: self-contained, evidence-backed, supported by source text, and not explicitly marked solved.",
+      "evidence_refs": [
+        "p8",
+        "p9"
+      ]
+    },
+    {
+      "id": "q_005",
+      "stage": "quality_gates",
+      "notes": "Accepted: self-contained, evidence-backed, supported by source text, and not explicitly marked solved.",
+      "evidence_refs": [
+        "p5",
+        "p9"
+      ]
+    },
+    {
+      "id": "q_006",
+      "stage": "quality_gates",
+      "notes": "Accepted: self-contained, evidence-backed, supported by source text, and not explicitly marked solved.",
+      "evidence_refs": [
+        "p10"
+      ]
+    },
+    {
+      "id": "q_007",
+      "stage": "quality_gates",
+      "notes": "Accepted: self-contained, evidence-backed, supported by source text, and not explicitly marked solved.",
+      "evidence_refs": [
+        "p10",
+        "p11"
+      ]
+    },
+    {
+      "id": "persist",
+      "stage": "persist",
+      "notes": "Saved JSON result to outputs/parse-paper/5702337.json and outputs/latest.json.",
+      "evidence_refs": [
+        "outputs/parse-paper/5702337.json",
+        "outputs/latest.json"
+      ]
+    }
+  ]
+}

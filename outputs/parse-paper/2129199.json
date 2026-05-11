@@ -1,0 +1,78 @@
+{
+  "source": {
+    "url": "https://zbmath.org/2129199",
+    "resolved_locator": "",
+    "title": "The second order modulus again: some still (?) open problems.",
+    "title_origin": "resolver_metadata"
+  },
+  "accepted": [],
+  "needs_review": [
+    {
+      "id": "error_input",
+      "reason": "invalid_or_unreadable_input",
+      "question_text_raw": "",
+      "evidence": []
+    }
+  ],
+  "trace": [
+    {
+      "id": "error_input",
+      "stage": "input",
+      "notes": "Normalized the single input as a zbMATH bibliographic resolver URL with trailing identifier 2129199.",
+      "evidence_refs": [
+        "https://zbmath.org/2129199"
+      ]
+    },
+    {
+      "id": "error_input",
+      "stage": "resolver_metadata",
+      "notes": "Local workflow shard metadata identified the exact work as 'The second order modulus again: some still (?) open problems.' by Heiner Gonska, publication year 1998, with an exact EuDML link. Web search metadata for the same exact title matched EuDML doc 227245, General Mathematics 6 (1998), pages 17-18, and zbMATH author/profile snippets matched Zbl 1052.41504. This metadata was used only for title recovery and exact-work matching, not for extraction.",
+      "evidence_refs": [
+        "outputs/open-problems-0418-all.csv:532",
+        "outputs/shards/open-problems-shard-0.csv:265",
+        "https://eudml.org/doc/227245",
+        "https://zbmath.org/authors/gonska.heinz-h"
+      ]
+    },
+    {
+      "id": "error_input",
+      "stage": "resolve",
+      "notes": "Classified the primary zbMATH path as a metadata resolver. Local shell fetches could not resolve zbmath.org, api.zbmath.org, eudml.org, or the EMIS mirror hosts because outbound DNS is unavailable in the sandbox. Browser/page-reader access to the exact zbMATH URL and to the zbMATH API endpoint did not expose a readable full-text artifact; the API root exposed only the terms entry page.",
+      "evidence_refs": [
+        "curl_error:Could not resolve host: zbmath.org",
+        "curl_error:Could not resolve host: api.zbmath.org",
+        "curl_error:Could not resolve host: eudml.org",
+        "https://api.zbmath.org/v1/document/2129199"
+      ]
+    },
+    {
+      "id": "error_input",
+      "stage": "bounded_recovery",
+      "notes": "Ran exact-work recovery attempts using the zbMATH identifier, the exact recovered title, the exact title plus PDF/PS/full text, the EuDML identifier, and the General Mathematics volume page. The EuDML page exposed only bibliographic metadata and a 'Full (PS)' link label through search snippets, not a retrievable source file. The EMIS General Mathematics volume contents page listed this article with a 'full text' label, but the page reader did not expose the link target or the article body. The author's publication list confirmed the same item and an extended Duisburg report version, but did not expose readable text. A later 2023 Journal of Numerical Analysis and Approximation Theory article quoted one question from the 1998 work, but it is a different source and was rejected for extraction.",
+      "evidence_refs": [
+        "search:zbmath 2129199",
+        "search:The second order modulus again: some still (?) open problems",
+        "search:eudml.org/doc/227245",
+        "https://www2.math.ethz.ch/EMIS/journals/GM/vol6/cuprins6.html",
+        "https://www.maths.tcd.ie/EMIS/journals/GM/vol6/cuprins6.html",
+        "https://www.uni-due.de/mathematik/aggonska/gonska_publikationen75-99.php",
+        "https://ictp.acad.ro/jnaat/journal/article/view/1326/1459"
+      ]
+    },
+    {
+      "id": "error_input",
+      "stage": "quality_gates",
+      "notes": "No candidate question was extracted because no readable exact-work PDF, PostScript, or full HTML source containing the technical problem statements was recovered. The source adequacy gate forbids extraction from zbMATH/local shard metadata, bibliographic metadata, table-of-contents link labels, search snippets, or a different citing paper.",
+      "evidence_refs": []
+    },
+    {
+      "id": "persist",
+      "stage": "persist",
+      "notes": "Saved the exact JSON payload to outputs/parse-paper/2129199.json and outputs/latest.json.",
+      "evidence_refs": [
+        "outputs/parse-paper/2129199.json",
+        "outputs/latest.json"
+      ]
+    }
+  ]
+}

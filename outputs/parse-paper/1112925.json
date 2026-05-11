@@ -1,0 +1,74 @@
+{
+  "source": {
+    "url": "https://zbmath.org/1112925",
+    "resolved_locator": "",
+    "title": "Open problems session",
+    "title_origin": "resolver_metadata"
+  },
+  "accepted": [],
+  "needs_review": [
+    {
+      "id": "error_input",
+      "reason": "invalid_or_unreadable_input",
+      "question_text_raw": "",
+      "evidence": []
+    }
+  ],
+  "trace": [
+    {
+      "id": "error_input",
+      "stage": "input",
+      "notes": "Normalized the single input as a zbMATH resolver URL with trailing identifier 1112925.",
+      "evidence_refs": []
+    },
+    {
+      "id": "error_input",
+      "stage": "resolver_metadata",
+      "notes": "Local resolver metadata identified the exact work as 'Open problems session' with DOI 10.1142/S021812749500096X and publication year 1995. Independent catalog/search metadata matched the same title in International Journal of Bifurcation and Chaos 5(5), pages 1303-1305, with authors including M. Chas and S. Silberger.",
+      "evidence_refs": [
+        "outputs/open-problems-0418-all.csv:505",
+        "zbmath_id:1112925",
+        "doi:10.1142/S021812749500096X"
+      ]
+    },
+    {
+      "id": "error_input",
+      "stage": "recovery",
+      "notes": "Classified the access failure as metadata_only with network_or_dns_failure for local shell fetching. Local curl could not resolve zbmath.org. Web recovery attempts for the zbMATH ID, exact DOI, exact title plus journal, exact title plus authors, and World Scientific DOI patterns did not recover a readable exact-work PDF or full HTML source.",
+      "evidence_refs": [
+        "curl_error:Could not resolve host: zbmath.org",
+        "search:zbMATH 1112925",
+        "search:10.1142/S021812749500096X",
+        "search:Open problems session International Journal of Bifurcation and Chaos",
+        "search:M. Chas Open problems session"
+      ]
+    },
+    {
+      "id": "error_input",
+      "stage": "recovery",
+      "notes": "Rejected inspected candidates because they were not readable primary full text for the exact 1995 source: zbMATH and library results were bibliographic metadata only; the Academia profile listed the item but did not expose its text; ResearchGate showed a mixed bibliographic/snippet entry rather than the article text; and a later MDPI article quoted one Misiurewicz question while citing the source, but it is a different work and cannot serve as the technical source for this run.",
+      "evidence_refs": [
+        "candidate:zbMATH metadata",
+        "candidate:Univerzitna kniznica catalog metadata",
+        "candidate:Academia profile listing",
+        "candidate:ResearchGate listing",
+        "candidate:MDPI 10.3390/math10091487 citing article"
+      ]
+    },
+    {
+      "id": "error_input",
+      "stage": "quality_gates",
+      "notes": "No candidate question was extracted because the source adequacy gate forbids extraction from resolver metadata, citation metadata, search snippets, or a different citing paper when the chosen exact source text is not readable.",
+      "evidence_refs": []
+    },
+    {
+      "id": "error_input",
+      "stage": "persist",
+      "notes": "Saved final JSON to outputs/parse-paper/1112925.json and outputs/latest.json.",
+      "evidence_refs": [
+        "outputs/parse-paper/1112925.json",
+        "outputs/latest.json"
+      ]
+    }
+  ]
+}

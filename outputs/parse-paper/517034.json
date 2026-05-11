@@ -1,0 +1,73 @@
+{
+  "source": {
+    "url": "https://zbmath.org/517034",
+    "resolved_locator": "",
+    "title": "Inductive inference of optimal programs. A survey and open problems",
+    "title_origin": "resolver_metadata"
+  },
+  "accepted": [],
+  "needs_review": [
+    {
+      "id": "error_input",
+      "reason": "invalid_or_unreadable_input",
+      "question_text_raw": "",
+      "evidence": []
+    }
+  ],
+  "trace": [
+    {
+      "id": "error_input",
+      "stage": "input",
+      "notes": "Normalized the single input as a zbMATH resolver URL with trailing identifier 517034. Direct shell fetching of the zbMATH page returned a Cloudflare challenge rather than readable source text.",
+      "evidence_refs": [
+        "https://zbmath.org/517034",
+        "curl:https://zbmath.org/517034:HTTP_403_cf-mitigated_challenge"
+      ]
+    },
+    {
+      "id": "error_input",
+      "stage": "resolver_metadata",
+      "notes": "zbMATH API metadata identified the exact work as Thomas Zeugmann, \"Inductive inference of optimal programs. A survey and open problems,\" in Nonmonotonic and Inductive Logic, Lecture Notes in Computer Science 543, pages 208-222, Springer-Verlag, 1991, DOI 10.1007/BFb0023325. DOI resolution led to SpringerLink. Crossref confirmed the DOI, title, author, container, pages, and a Springer PDF candidate. OpenAlex confirmed the same DOI and title but reported the work as closed access with no best OA location, no PDF URL, and no repository full text.",
+      "evidence_refs": [
+        "https://api.zbmath.org/v1/document/_search?search_string=an%3A517034",
+        "https://doi.org/10.1007/BFb0023325",
+        "https://api.crossref.org/works/10.1007/BFb0023325",
+        "https://api.openalex.org/works?filter=doi:https://doi.org/10.1007/BFb0023325"
+      ]
+    },
+    {
+      "id": "error_input",
+      "stage": "recovery",
+      "notes": "Failure mode: blocked_or_challenged for the zbMATH browser-facing page, plus paywalled_or_restricted or metadata_only for the available Springer, bibliographic, author-publication, and preview pages. Bounded exact-work recovery tried the DOI landing page, Springer chapter and PDF endpoints, Crossref and OpenAlex metadata, DBLP metadata, the author's publication and abstract pages, and exact-title/DOI/book-title searches. Inspected candidates were Springer preview/TOC pages, the author's abstract-only page, DBLP and BibTeX records, Google Books preview/contents pages, Dandelon table-of-contents material, and papers or bibliographies that merely cite the target work. No candidate exposed a readable exact-work PDF or full HTML body containing the technical problem statements.",
+      "evidence_refs": [
+        "doi:10.1007/BFb0023325",
+        "candidate:https://link.springer.com/chapter/10.1007/BFb0023325",
+        "candidate:http://link.springer.com/content/pdf/10.1007/BFb0023325.pdf",
+        "candidate:https://dblp.org/rec/conf/nil/Zeugmann90.xml",
+        "candidate:https://www-alg.ist.hokudai.ac.jp/~thomas/publications/nil90zabstr.html",
+        "search:\"Inductive inference of optimal programs\"",
+        "search:\"Inductive inference of optimal programs\" PDF",
+        "search:\"10.1007/BFb0023325\"",
+        "candidate:Springer_book_table_of_contents",
+        "candidate:Google_Books_preview_contents",
+        "candidate:Dandelon_table_of_contents",
+        "candidate:citation_only_bibliographies"
+      ]
+    },
+    {
+      "id": "error_input",
+      "stage": "quality_gates",
+      "notes": "No candidate question was extracted because the source adequacy gate forbids extraction from resolver metadata, abstracts, search snippets, citation pages, author publication lists, table-of-contents pages, previews, or citing papers when the exact technical source text is not readable.",
+      "evidence_refs": []
+    },
+    {
+      "id": "error_input",
+      "stage": "persist",
+      "notes": "Saved exact JSON output to outputs/parse-paper/517034.json and updated outputs/latest.json.",
+      "evidence_refs": [
+        "outputs/parse-paper/517034.json",
+        "outputs/latest.json"
+      ]
+    }
+  ]
+}

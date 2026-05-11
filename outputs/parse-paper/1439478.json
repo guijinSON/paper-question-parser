@@ -1,0 +1,163 @@
+{
+  "source": {
+    "url": "https://zbmath.org/1439478",
+    "resolved_locator": "https://www.e-periodica.ch/digbib/view?pid=ens-001%3A1989%3A35%3A%3A129",
+    "title": "The Tower of Hanoi",
+    "title_origin": "source_text"
+  },
+  "accepted": [
+    {
+      "id": "q_001",
+      "question_text": "In the Tower of Hanoi problem, a state distributes finitely many differently sized discs among pegs, and a legal move transfers one top disc to another peg without placing a larger disc on a smaller disc; a perfect state has all discs stacked on one peg in legal order. For the four-peg Tower of Hanoi subproblem of moving n discs from a perfect state onto two different pegs in the shortest possible way, is the standard split strategy always optimal: choose a suitable division of the perfect tower into two parts, first solve the perfect-to-perfect Tower of Hanoi problem for the smaller discs using four pegs, then leave those smaller discs fixed, and solve the ordinary three-peg problem for the larger discs?",
+      "context_brief": "Four-peg Tower of Hanoi split hypothesis",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 289,
+          "quote": "No disc must ever be placed on a smaller one."
+        },
+        {
+          "page": 318,
+          "quote": "dividing the perfect state in a suitable way into two parts"
+        },
+        {
+          "page": 319,
+          "quote": "The validity of this hypothesis is the most interesting open problem about the TH."
+        }
+      ]
+    }
+  ],
+  "needs_review": [
+    {
+      "id": "q_002",
+      "reason": "unresolved_cross_reference",
+      "question_text_raw": "Although the number of cases for the less straightforward irregular-state shortest-path problem can be limited, it is not clear whether there are shortest path problems with even three different solutions.",
+      "evidence": [
+        {
+          "page": 318,
+          "quote": "it is not clear whether there are shortest path problems with even three different solutions."
+        }
+      ]
+    }
+  ],
+  "trace": [
+    {
+      "id": "source_resolution",
+      "stage": "input",
+      "notes": "Normalized the input as a zbMATH resolver URL. The record was identified as Zbl 0746.05035, Andreas M. Hinz, The Tower of Hanoi, L'Enseignement Mathematique 35 (1989), 289-321, DOI 10.5169/seals-57378. Local curl attempts to doi.org, e-periodica.ch, and api.zbmath.org failed with DNS resolution errors in the sandbox, so web-indexed E-Periodica OCR pages for the exact DOI and article were used as the readable source text.",
+      "evidence_refs": [
+        "https://zbmath.org/1439478",
+        "https://doi.org/10.5169/seals-57378",
+        "https://www.e-periodica.ch/digbib/view?pid=ens-001%3A1989%3A35%3A%3A129"
+      ]
+    },
+    {
+      "id": "doc_map",
+      "stage": "map",
+      "notes": "Mapped the article structure as: 0. Introduction, 1. Regular states, 2. Irregular states, 3. Open problems, and References. The terminology index includes Tower of Hanoi states, regular states, perfect states, legal moves, shortest paths, irregular states, and the four-peg split hypothesis. The likely open-problem region is Section 3, Open problems, on pages 318-319.",
+      "evidence_refs": [
+        "p289",
+        "p318",
+        "p319"
+      ]
+    },
+    {
+      "id": "section_0",
+      "stage": "extract_candidates",
+      "notes": "Introduction supplies Tower of Hanoi definitions and legal-move constraints, but no open question candidate.",
+      "evidence_refs": [
+        "p289"
+      ]
+    },
+    {
+      "id": "section_1",
+      "stage": "extract_candidates",
+      "notes": "Regular-states section was treated as background for algorithms and shortest paths; no standalone open question was accepted from this section.",
+      "evidence_refs": [
+        "p293"
+      ]
+    },
+    {
+      "id": "section_2",
+      "stage": "extract_candidates",
+      "notes": "Irregular-states section gives recursive shortest-path context that is referenced in the open-problems section; no independently self-contained open question was accepted from this section.",
+      "evidence_refs": [
+        "p309",
+        "p318"
+      ]
+    },
+    {
+      "id": "section_3",
+      "stage": "extract_candidates",
+      "notes": "Open-problems section yielded two candidates: the four-peg split hypothesis, and an ambiguous shortest-path multiplicity statement whose notation and problem class could not be fully resolved from the available OCR evidence.",
+      "evidence_refs": [
+        "p318",
+        "p319"
+      ]
+    },
+    {
+      "id": "q_001",
+      "stage": "rewrite",
+      "notes": "Expanded the four-peg hypothesis into a self-contained question by inlining the legal-move rule, the notion of a perfect state, and the split strategy described on page 318. The source marks the validity of the hypothesis as the open problem on page 319.",
+      "evidence_refs": [
+        "p289",
+        "p318",
+        "p319"
+      ]
+    },
+    {
+      "id": "q_002",
+      "stage": "rewrite",
+      "notes": "Kept the candidate raw and moved it to needs_review because the statement depends on unresolved notation and prior case labels from the irregular-state analysis.",
+      "evidence_refs": [
+        "p318"
+      ]
+    },
+    {
+      "id": "q_001",
+      "stage": "dedupe",
+      "notes": "No duplicate of the four-peg split-hypothesis question was found.",
+      "evidence_refs": [
+        "p318",
+        "p319"
+      ]
+    },
+    {
+      "id": "q_002",
+      "stage": "dedupe",
+      "notes": "No duplicate candidate was found, but the item remains separate from q_001 because it concerns multiplicity of shortest paths rather than optimality of the four-peg split hypothesis.",
+      "evidence_refs": [
+        "p318"
+      ]
+    },
+    {
+      "id": "q_001",
+      "stage": "quality_gates",
+      "notes": "Accepted. The rewritten question is self-contained, has page-located evidence, avoids source-pointing language, and does not introduce solved-status metadata beyond the source.",
+      "evidence_refs": [
+        "p289",
+        "p318",
+        "p319"
+      ]
+    },
+    {
+      "id": "q_002",
+      "stage": "quality_gates",
+      "notes": "Failed self-containedness because the OCR evidence leaves the referenced irregular-state problem class and notation unresolved.",
+      "evidence_refs": [
+        "p318"
+      ]
+    },
+    {
+      "id": "persist",
+      "stage": "persist",
+      "notes": "Saved exact JSON payload to outputs/parse-paper/1439478.json and outputs/latest.json.",
+      "evidence_refs": [
+        "outputs/parse-paper/1439478.json",
+        "outputs/latest.json"
+      ]
+    }
+  ]
+}

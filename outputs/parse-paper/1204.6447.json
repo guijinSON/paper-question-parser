@@ -1,8 +1,14 @@
 {
+  "source": {
+    "url": "https://zbmath.org/900139853",
+    "resolved_locator": "/Users/songuijin/Documents/GitHub/paper-question-parser/.sisyphus/paper-question-parser/tmp/1204.6447.pdf",
+    "title": "Open Problems in Analysis of Boolean Functions",
+    "title_origin": "source_text"
+  },
   "accepted": [
     {
       "id": "q_001",
-      "question_text": "Does there exist an explicit function f : F2^n -> F2, computable in NP, such that for every F2-polynomial p : F2^n -> F2 of degree at most log_2 n, the correlation satisfies |E[(-1)^<f(x), p(x)>]| <= 1/n?",
+      "question_text": "Does there exist an explicit function f : F2^n -> F2, computable in NP, such that for every F2-polynomial p : F2^n -> F2 of degree at most log_2 n, the correlation satisfies |E_x[(-1)^{f(x)+p(x)}]| <= 1/n?",
       "context_brief": "Correlation bounds for low-degree F2 polynomials",
       "meta": {
         "is_solved": false
@@ -226,7 +232,7 @@
     },
     {
       "id": "q_017",
-      "question_text": "Fix a possibly infinite collection of affine constraints {(M_1,sigma_1),(M_2,sigma_2),...} over F2. For each n, let P_n be the property that a function f : F2^n -> {0,1} is (M_i,sigma_i)-free for every i. Must there exist a one-sided-error constant-query property-testing algorithm for P_n?",
+      "question_text": "Fix a possibly infinite collection of affine constraints over F2, written as pairs (M_i, sigma_i) where each M_i is a matrix over F2 and sigma_i is a 0/1 pattern. For a single pair (M, sigma) with M in F2^{m x k} and sigma in {0,1}^k, say that f : F2^n -> {0,1} is (M, sigma)-free if there do not exist row vectors x^(1), ..., x^(k) in F2^n such that M X = 0 for X = (x^(1), ..., x^(k)) and f(x^(j)) = sigma_j for every j in [k]. For each n, let P_n be the property of functions f : F2^n -> {0,1} that are (M_i, sigma_i)-free for every i. Must P_n always have a one-sided-error, constant-query property-testing algorithm?",
       "context_brief": "Testing linear-invariant freeness properties",
       "meta": {
         "is_solved": false
@@ -254,7 +260,7 @@
     },
     {
       "id": "q_019",
-      "question_text": "Fix 0 <= rho <= 1. Among all partitions of R^n into q parts of equal Gaussian measure, where 3 <= q <= n+1, is the maximum noise stability at rho achieved by a standard simplex partition, and for -1 <= rho <= 0 does the standard simplex partition minimize the noise stability?",
+      "question_text": "Fix 0 <= rho <= 1. Among all partitions of R^n into q parts of equal Gaussian measure, where 3 <= q <= n+1, is the maximum noise stability at rho achieved by a standard simplex partition, meaning a partition A_1, ..., A_q satisfying A_i superseteq {x in R^n : <a_i,x> > <a_j,x> for every j != i} for unit vectors a_1, ..., a_q with <a_i,a_j> = -1/(q-1) whenever i != j? In addition, for -1 <= rho <= 0, does the standard simplex partition minimize noise stability at rho?",
       "context_brief": "Gaussian simplex partitions and noise stability",
       "meta": {
         "is_solved": false
@@ -268,7 +274,7 @@
     },
     {
       "id": "q_020",
-      "question_text": "For every Boolean function f : {-1,1}^n -> {-1,1}, is the sum of the absolute values of the linear Fourier coefficients bounded by sqrt(deg(f))?",
+      "question_text": "For every Boolean function f : {-1,1}^n -> {-1,1}, is the sum of its linear Fourier coefficients sum_{i=1}^n hat{f}(i) bounded above by sqrt(deg(f))?",
       "context_brief": "Linear Fourier mass versus degree",
       "meta": {
         "is_solved": false
@@ -324,7 +330,7 @@
     },
     {
       "id": "q_024",
-      "question_text": "Fix any epsilon > 0. Is every monotone Boolean function f : {-1,1}^n -> {-1,1} epsilon-close to a junta whose size is polynomial in deg(f)?",
+      "question_text": "Fix any epsilon > 0. Is every monotone Boolean function f : {-1,1}^n -> {-1,1} epsilon-close to a junta whose number of relevant coordinates is bounded by a polynomial in deg(f)?",
       "context_brief": "Monotone functions close to low-degree juntas",
       "meta": {
         "is_solved": true
@@ -385,6 +391,25 @@
   ],
   "needs_review": [],
   "trace": [
+    {
+      "id": "input_900139853",
+      "stage": "input",
+      "notes": "Normalized the input as the zbMATH resolver URL https://zbmath.org/900139853 with trailing identifier 900139853.",
+      "evidence_refs": [
+        "https://zbmath.org/900139853"
+      ]
+    },
+    {
+      "id": "resolve_900139853",
+      "stage": "resolve",
+      "notes": "Local shard metadata for the same zbMATH identifier mapped the source to title 'Open Problems in Analysis of Boolean Functions' and arXiv URL https://arxiv.org/abs/1204.6447. The arXiv landing page exposed the same title and a PDF link. Direct shell fetches of zbMATH were blocked by a Cloudflare challenge or DNS failure for API hosts, and the current shell curl to arxiv.org failed because sandbox DNS is disabled; a previously downloaded readable 18-page PDF artifact at the configured temp path was verified and used as the extraction source.",
+      "evidence_refs": [
+        "outputs/shards/open-problems-shard-1.csv:61",
+        "outputs/open-problems-0418-all.csv:136",
+        "https://arxiv.org/abs/1204.6447",
+        "/Users/songuijin/Documents/GitHub/paper-question-parser/.sisyphus/paper-question-parser/tmp/1204.6447.pdf"
+      ]
+    },
     {
       "id": "doc_map",
       "stage": "map",
@@ -650,7 +675,10 @@
       "id": "persist_1204_6447",
       "stage": "persist",
       "notes": "Saved exact JSON result to outputs/parse-paper/1204.6447.json and outputs/latest.json.",
-      "evidence_refs": []
+      "evidence_refs": [
+        "outputs/parse-paper/1204.6447.json",
+        "outputs/latest.json"
+      ]
     }
   ]
 }

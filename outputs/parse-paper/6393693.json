@@ -1,0 +1,205 @@
+{
+  "source": {
+    "url": "https://zbmath.org/6393693",
+    "resolved_locator": "/Users/songuijin/Documents/GitHub/paper-question-parser/.sisyphus/paper-question-parser/tmp/1201.5156.pdf",
+    "title": "Some open problems concerning the convergence of positive series",
+    "title_origin": "source_text"
+  },
+  "accepted": [
+    {
+      "id": "q_001",
+      "question_text": "Given an arbitrary series with positive terms, determine a general criterion or algorithm for deciding whether it converges or diverges. Is there any universal convergence test, or any structural pattern in convergence, for positive series?",
+      "context_brief": "universal criterion for positive-series convergence",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 1,
+          "quote": "Problem 1. What decides if a positive series is convergent or divergent? Is there any universal convergence test? Is there any pattern in convergence?"
+        },
+        {
+          "page": 9,
+          "quote": "Problem 2. Find an algorithm to determine whether a positive series is convergent or not."
+        }
+      ]
+    },
+    {
+      "id": "q_002",
+      "question_text": "Let A be a subset of the positive integers. For an increasing function phi: N -> (0, infinity) with phi(n) -> infinity, define the phi-weighted upper density of A by dbar_phi(A) = limsup as n -> infinity of |A intersect [1, n]| / phi(n). If dbar_{n/log n}(A) > 0, must the harmonic subseries sum_{n in A} 1/n diverge? More generally, for weights phi(n) = n / ((log n)(log log n)...(the k-fold iterated logarithm of n)) when these iterated logarithms are defined, does positive phi-weighted upper density force sum_{n in A} 1/n to diverge?",
+      "context_brief": "weighted-density criteria for divergent harmonic subseries",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 9,
+          "quote": "Problem 3. Given an increasing function \u03d5 : N \u2192(0, \u221e) with limn\u2192\u221e \u03d5(n) = \u221e, we define the upper density of weight \u03d5 by the formula d\u00af\u03d5(A) = lim sup |A \u2229 [1, n]| / \u03d5(n)."
+        },
+        {
+          "page": 10,
+          "quote": "Does every subset A \u2282 N with d\u00afn/ ln n (A) > 0 generate a divergent subseries \u2211_{n\u2208A} 1/n of the harmonic series?"
+        },
+        {
+          "page": 10,
+          "quote": "What about the case of other weights n/[(ln n) (ln ln n) \u00b7 \u00b7 \u00b7 (ln \u00b7 \u00b7 \u00b7 ln n)]?"
+        }
+      ]
+    },
+    {
+      "id": "q_003",
+      "question_text": "Let A be a set of integers such that the reciprocal series sum_{n in A} 1/n diverges. Is it true that A contains arithmetic progressions of arbitrarily large finite length? In particular, must A contain at least one arithmetic progression of length three?",
+      "context_brief": "Erdos reciprocal-sum progression conjecture",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 10,
+          "quote": "Conjecture 1. (P. Erd\u00f6s). If the sum of reciprocals of a set A of integers diverges, then that set contains arbitrarily long arithmetic progressions."
+        },
+        {
+          "page": 10,
+          "quote": "This conjecture is still open even if one only seeks a single progression of length three."
+        }
+      ]
+    }
+  ],
+  "needs_review": [],
+  "trace": [
+    {
+      "id": "source_6393693",
+      "stage": "input",
+      "notes": "Normalized the single input as the zbMATH resolver URL https://zbmath.org/6393693. Local resolver data identified the exact work title and links to arXiv 1201.5156 and a journal PDF.",
+      "evidence_refs": [
+        "https://zbmath.org/6393693",
+        "outputs/shards/open-problems-shard-1.csv:139",
+        "outputs/open-problems-0418-all.csv:277"
+      ]
+    },
+    {
+      "id": "source_6393693",
+      "stage": "resolution",
+      "notes": "Treated zbMATH as a bibliographic resolver and used the exact-work arXiv PDF already present in the configured temporary directory. A required bash curl attempt to refresh https://arxiv.org/pdf/1201.5156.pdf failed in the sandbox with DNS resolution unavailable, so extraction proceeded from the existing readable PDF artifact.",
+      "evidence_refs": [
+        "https://arxiv.org/abs/1201.5156",
+        "https://arxiv.org/pdf/1201.5156.pdf",
+        ".sisyphus/paper-question-parser/tmp/1201.5156.pdf"
+      ]
+    },
+    {
+      "id": "doc_map",
+      "stage": "map",
+      "notes": "Mapped an 11-page PDF. Page 1 contains the title, abstract, introduction, and Problem 1. Pages 2-8 develop historical and density-convergence background. Page 9 contains Problem 2, Section 5, Corollary 2, prime-number motivation, and the definition in Problem 3. Page 10 contains the main weighted-density questions, the Erdos conjecture, and related discussion of arithmetic progressions.",
+      "evidence_refs": [
+        "p1",
+        "p9",
+        "p10"
+      ]
+    },
+    {
+      "id": "section_introduction",
+      "stage": "extract_candidates",
+      "notes": "Extracted Problem 1, asking what decides convergence or divergence for positive series and whether a universal convergence test or pattern exists.",
+      "evidence_refs": [
+        "p1"
+      ]
+    },
+    {
+      "id": "section_5",
+      "stage": "extract_candidates",
+      "notes": "Extracted Problem 2 as a near-duplicate algorithmic version of Problem 1, Problem 3 on weighted upper density and divergent harmonic subseries, and the explicitly open Erdos conjecture on reciprocal sums and arithmetic progressions.",
+      "evidence_refs": [
+        "p9",
+        "p10"
+      ]
+    },
+    {
+      "id": "q_001",
+      "stage": "rewrite",
+      "notes": "Merged and rewrote Problem 1 and Problem 2 into a standalone question about criteria or algorithms for convergence of arbitrary positive series.",
+      "evidence_refs": [
+        "p1",
+        "p9"
+      ]
+    },
+    {
+      "id": "q_002",
+      "stage": "rewrite",
+      "notes": "Expanded Problem 3 by inlining the definition of weighted upper density, the n/log n weight, the harmonic subseries, and the iterated-log weight family using the source's page-9 and page-10 statements.",
+      "evidence_refs": [
+        "p9",
+        "p10"
+      ]
+    },
+    {
+      "id": "q_003",
+      "stage": "rewrite",
+      "notes": "Rewrote the Erdos conjecture as a self-contained question about sets of integers with divergent reciprocal sum and included the source's explicit length-three subcase.",
+      "evidence_refs": [
+        "p10"
+      ]
+    },
+    {
+      "id": "q_001",
+      "stage": "dedupe",
+      "notes": "Merged the universal-test formulation and the algorithm formulation because they ask for the same decision problem for arbitrary positive series.",
+      "evidence_refs": [
+        "p1",
+        "p9"
+      ]
+    },
+    {
+      "id": "q_002",
+      "stage": "dedupe",
+      "notes": "No near-duplicate candidate overlapped with the weighted-density harmonic-subseries question.",
+      "evidence_refs": [
+        "p9",
+        "p10"
+      ]
+    },
+    {
+      "id": "q_003",
+      "stage": "dedupe",
+      "notes": "No near-duplicate candidate overlapped with the Erdos reciprocal-sum progression conjecture.",
+      "evidence_refs": [
+        "p10"
+      ]
+    },
+    {
+      "id": "q_001",
+      "stage": "quality_gates",
+      "notes": "Passed self-containedness, evidence coverage, evidence completeness, no-new-facts, source adequacy, and schema checks. Marked unsolved because the chosen source labels it as a problem and gives no explicit resolution.",
+      "evidence_refs": [
+        "p1",
+        "p9"
+      ]
+    },
+    {
+      "id": "q_002",
+      "stage": "quality_gates",
+      "notes": "Passed self-containedness, evidence coverage, evidence completeness, no-new-facts, source adequacy, and schema checks. Marked unsolved because the chosen source labels it as a problem and gives no explicit resolution.",
+      "evidence_refs": [
+        "p9",
+        "p10"
+      ]
+    },
+    {
+      "id": "q_003",
+      "stage": "quality_gates",
+      "notes": "Passed self-containedness, evidence coverage, evidence completeness, no-new-facts, source adequacy, and schema checks. Marked unsolved because the chosen source explicitly says the conjecture is still open even for a single progression of length three.",
+      "evidence_refs": [
+        "p10"
+      ]
+    },
+    {
+      "id": "persist_001",
+      "stage": "persist",
+      "notes": "Saved exact JSON output to outputs/parse-paper/6393693.json and updated outputs/latest.json.",
+      "evidence_refs": [
+        "outputs/parse-paper/6393693.json",
+        "outputs/latest.json"
+      ]
+    }
+  ]
+}

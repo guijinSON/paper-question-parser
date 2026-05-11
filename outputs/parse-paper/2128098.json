@@ -1,0 +1,71 @@
+{
+  "source": {
+    "url": "https://zbmath.org/2128098",
+    "resolved_locator": "",
+    "title": "Status quo and open problems in the numerical construction of spacetimes",
+    "title_origin": "resolver_metadata"
+  },
+  "accepted": [],
+  "needs_review": [
+    {
+      "id": "error_input",
+      "reason": "invalid_or_unreadable_input",
+      "question_text_raw": "",
+      "evidence": []
+    }
+  ],
+  "trace": [
+    {
+      "id": "error_input",
+      "stage": "input",
+      "notes": "Normalized the input as a zbMATH resolver URL. The zbMATH API record for id 2128098 matched the requested source and supplied the title, authors Luis Lehner and Oscar Reula, publication year 2004, and book-chapter pages 205-229, but provided no DOI or full-text links. Metadata was used only for identity resolution and title recovery.",
+      "evidence_refs": [
+        "zbMATH API /v1/document/2128098"
+      ]
+    },
+    {
+      "id": "error_input",
+      "stage": "input",
+      "notes": "failure_mode=metadata_only/paywalled_or_restricted. The Springer chapter page at https://link.springer.com/chapter/10.1007/978-3-0348-7953-8_5 matched the exact title and authors, but exposed only the abstract, references, citation metadata, and a subscription-access notice. It was rejected as an abstract/metadata-only technical source.",
+      "evidence_refs": [
+        "Springer HTML lines 21-43",
+        "Springer HTML lines 342-352"
+      ]
+    },
+    {
+      "id": "error_input",
+      "stage": "input",
+      "notes": "failure_mode=network_or_dns_failure. The author publication page at https://www.famaf.unc.edu.ar/~reula/reula.publicaciones.html matched the exact title and authors and contained a PDF link for this work, but local download attempts for https://www.famaf.unc.edu.ar/~reula/lehnerreula.pdf failed with DNS/connectivity errors, including curl error 6 for host resolution and curl error 7 after DNS-over-HTTPS IP recovery. The PDF text was not recovered.",
+      "evidence_refs": [
+        "Author page line 50",
+        "curl error: could not resolve host www.famaf.unc.edu.ar",
+        "curl error: failed to connect after DNS-over-HTTPS IP recovery"
+      ]
+    },
+    {
+      "id": "error_input",
+      "stage": "input",
+      "notes": "Bounded exact-work recovery attempted queries for the exact title plus PDF, the exact title alone, the title plus authors, and exact-title terms related to boundary and Cauchy-characteristic content. Candidate pages were rejected because they were Springer paywall/abstract pages, bibliographic or abstract pages, author publication-list metadata without locally readable PDF text, non-source-authorized book mirrors, or pages that only referenced the work.",
+      "evidence_refs": [
+        "search: \"Status quo and open problems in the numerical construction of spacetimes\" PDF",
+        "search: \"Status quo and open problems in the numerical construction of spacetimes\"",
+        "search: \"Luis Lehner\" \"Oscar Reula\" \"Status quo\" spacetimes PDF"
+      ]
+    },
+    {
+      "id": "error_input",
+      "stage": "quality_gates",
+      "notes": "No readable full-text PDF or HTML artifact for the exact source was available. The source adequacy gate prevents extracting questions from resolver metadata, abstracts, search snippets, references, or link labels.",
+      "evidence_refs": []
+    },
+    {
+      "id": "error_input",
+      "stage": "persist",
+      "notes": "Saved exact JSON output to outputs/parse-paper/2128098.json and outputs/latest.json.",
+      "evidence_refs": [
+        "outputs/parse-paper/2128098.json",
+        "outputs/latest.json"
+      ]
+    }
+  ]
+}

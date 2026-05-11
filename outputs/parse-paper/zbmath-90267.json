@@ -1,0 +1,73 @@
+{
+  "source": {
+    "url": "https://zbmath.org/90267",
+    "resolved_locator": "",
+    "title": "The end structure of a graph: recent results and open problems",
+    "title_origin": "resolver_metadata"
+  },
+  "accepted": [],
+  "needs_review": [
+    {
+      "id": "error_input",
+      "reason": "invalid_or_unreadable_input",
+      "question_text_raw": "",
+      "evidence": []
+    }
+  ],
+  "trace": [
+    {
+      "id": "source",
+      "stage": "input",
+      "notes": "Normalized the single input as a zbMATH resolver URL with trailing identifier 90267. Local shard metadata in outputs/shards/open-problems-shard-1.csv identified the exact work as 'The end structure of a graph: Recent results and open problems' and supplied DOI 10.1016/0012-365X(92)90650-5.",
+      "evidence_refs": [
+        "https://zbmath.org/90267",
+        "outputs/shards/open-problems-shard-1.csv",
+        "10.1016/0012-365X(92)90650-5"
+      ]
+    },
+    {
+      "id": "error_input",
+      "stage": "input",
+      "notes": "failure_mode=blocked_or_challenged. Direct local fetch of https://zbmath.org/90267 returned a Cloudflare challenge/HTTP 403 rather than a readable technical source. The zbMATH page was treated as a bibliographic resolver, not as extraction evidence.",
+      "evidence_refs": [
+        "https://zbmath.org/90267",
+        "curl: HTTP/2 403 cf-mitigated: challenge"
+      ]
+    },
+    {
+      "id": "error_input",
+      "stage": "input",
+      "notes": "failure_mode=blocked_or_challenged. Exact-work DOI recovery reached the ScienceDirect landing page for PII 0012365X92906505, which exposed citation metadata and the abstract through search/browser snippets but local direct fetch returned HTTP 403. Because the visible content did not contain the paper's full problem statements, it was rejected as an extraction source.",
+      "evidence_refs": [
+        "https://www.sciencedirect.com/science/article/pii/0012365X92906505",
+        "https://doi.org/10.1016/0012-365X(92)90650-5",
+        "curl: HTTP/2 403"
+      ]
+    },
+    {
+      "id": "error_input",
+      "stage": "input",
+      "notes": "failure_mode=network_or_dns_failure. Exact-title recovery found the author-hosted DVI listing at the University of Hamburg page and the specific DVI link https://www.math.uni-hamburg.de/home/diestel/papers/End_structure.dvi. The available tools could not retrieve or convert that DVI into readable full text in this sandbox due repeated DNS/fetch failures, so it was not used for extraction.",
+      "evidence_refs": [
+        "https://www.math.uni-hamburg.de/home/diestel/papers/allpapers.html",
+        "https://www.math.uni-hamburg.de/home/diestel/papers/End_structure.dvi",
+        "curl: Could not resolve host: www.math.uni-hamburg.de"
+      ]
+    },
+    {
+      "id": "error_input",
+      "stage": "quality_gates",
+      "notes": "No accepted questions were produced because no readable exact-work PDF, DVI-converted text, or full HTML source containing the problem statements was recovered. Search snippets, bibliographic records, abstracts, and resolver metadata were not used as technical evidence.",
+      "evidence_refs": []
+    },
+    {
+      "id": "source",
+      "stage": "persist",
+      "notes": "Saved final JSON to outputs/parse-paper/zbmath-90267.json and updated outputs/latest.json.",
+      "evidence_refs": [
+        "outputs/parse-paper/zbmath-90267.json",
+        "outputs/latest.json"
+      ]
+    }
+  ]
+}
