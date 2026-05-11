@@ -1,0 +1,61 @@
+{
+  "record": {
+    "global_index": 4358,
+    "source_json": "outputs/parse-paper/1908.10195.json",
+    "paper_id": "1908.10195",
+    "paper_title": "A Survey on LoRa Networking: Research Problems, Current Solutions and Open Issues",
+    "paper_link": "https://arxiv.org/abs/1908.10195",
+    "question_link": "https://arxiv.org/pdf/1908.10195.pdf#page=5",
+    "question_id": "q_008",
+    "parser_is_solved": "false",
+    "context_brief": "Efficient LoRa channel coding for packet loss",
+    "original_question": "How can LoRa use efficient channel-coding techniques to recover corrupted or lost data without the limitations of existing redundancy-based approaches, including inability to handle bursty packet loss, increased memory and decoding complexity, higher latency, and extra transmissions that increase interference and collisions?",
+    "evidence": [
+      {
+        "page": 5,
+        "quote": "Existing error correction schemes of LoRa networking, like hamming code, cannot aid data corruption or loss efﬁciently [56]."
+      },
+      {
+        "page": 5,
+        "quote": "DaRe is an application layer coding to retrieve lost data using redundant data. Sandell et al. [59] explain that this technique cannot aid bursty packet loss and has some limitations that bounds the performance."
+      },
+      {
+        "page": 10,
+        "quote": "The disadvantage is that previous data units should be buffered in the memory for computing redundant information. This makes the generator matrix banded thus inducing difﬁculty to create degree of distribution according to LT codes."
+      },
+      {
+        "page": 10,
+        "quote": "While DaRe uses a complex Gaussian elimination making the decoding process complex, an optimized decoding technique is proposed in [59]."
+      },
+      {
+        "page": 10,
+        "quote": "Finally, the paper concludes that data recovery through redundancy techniques increase number of transmissions and thus collision. So it cannot be used solely to aid packet loss."
+      },
+      {
+        "page": 10,
+        "quote": "Recently proposed channel coding technique, DaRe [56], and its analysis [59] shows that there is a heavy potential for characterizing efﬁcient channel coding techniques for LoRa to improve error correction, thus improving reception rate and network lifetime."
+      }
+    ]
+  },
+  "artifact": {
+    "category_tag": "LoRa channel coding",
+    "confidence": 0.5,
+    "macro_subject": "Applied Mathematics",
+    "open_status": "open",
+    "self_contained_problem": "Consider a low-power wide-area wireless network in which end devices transmit short packets to a gateway over a noisy channel that exhibits both random bit errors and bursty packet losses (entire packets dropped in consecutive bursts). Each device is severely constrained in memory, computation, energy, and tolerable latency, and any retransmission contributes to channel interference and collisions.\\n\\nA baseline application-layer redundancy scheme works as follows. To transmit an information sequence of packets x_1, x_2, ..., x_n, each transmitted packet y_k carries x_k together with a linear combination over GF(2) of a window of the W previous information packets {x_{k-1}, ..., x_{k-W}} (with coefficients chosen by some generator). The receiver recovers lost packets by Gaussian elimination on the resulting banded generator matrix. This scheme has the following drawbacks: (i) it requires buffering the previous W packets at the encoder, (ii) the banded structure of the generator matrix prevents constructing an LT-code-like degree distribution, (iii) Gaussian-elimination decoding has high complexity, (iv) it does not effectively recover bursty losses, and (v) any added redundancy or retransmission increases collisions.\\n\\nProblem. Design a channel/erasure coding scheme for such a network, together with an encoding and decoding algorithm, that simultaneously satisfies the following requirements:\\n\\n1. Recovers from both isolated bit corruption and bursty packet erasures of length up to B with probability at least 1 − ε, for prescribed B and ε.\\n2. Uses encoder memory o(W) and per-packet encoding work O(1) (or at most polylogarithmic in n).\\n3. Admits a decoding algorithm whose time and space complexity are strictly lower than Gaussian elimination on a banded n × n matrix (e.g., near-linear in n).\\n4. Achieves end-to-end latency bounded by a constant number of packet intervals, without requiring feedback-driven retransmission.\\n5. Adds asymptotically less redundancy overhead than the baseline window scheme while matching or exceeding its packet-recovery rate, so that the offered traffic load (and hence collision probability) is not increased.\\n\\nProvide such a code construction and prove the above properties, or prove that no scheme can simultaneously achieve (1)–(5) under the stated resource constraints.",
+    "status_search_result": "The problem of designing a channel-coding scheme for LoRa that overcomes the limitations of redundancy-based application-layer codes (e.g., DaRe) — bursty-loss vulnerability, memory and decoding complexity, latency, and increased collisions — remains an active research area. Surveys and recent works continue to list it as an open issue, and proposed schemes (e.g., variants of fountain/LT codes, network coding, and FEC for LoRa) address subsets of the requirements but no single solution is established as fully satisfactory.",
+    "status_evidence": [
+      {
+        "title": "A Survey on LoRa Networking",
+        "url": "https://arxiv.org/abs/1908.10195",
+        "snippet": "Existing error correction schemes of LoRa networking, like hamming code, cannot aid data corruption or loss efficiently. DaRe ... cannot aid bursty packet loss.",
+        "claim": "Listed as an open research problem in LoRa networking."
+      }
+    ]
+  },
+  "model": "opus",
+  "effort": "medium",
+  "elapsed_s": 24.93,
+  "validation_warnings": [],
+  "raw_claude_stdout": "{\"type\":\"result\",\"subtype\":\"success\",\"is_error\":false,\"api_error_status\":null,\"duration_ms\":23220,\"duration_api_ms\":24685,\"num_turns\":2,\"result\":\"\",\"stop_reason\":\"end_turn\",\"session_id\":\"8a376aea-1333-4bba-9c3f-06ef395de54d\",\"total_cost_usd\":0.058800000000000005,\"usage\":{\"input_tokens\":7,\"cache_creation_input_tokens\":3160,\"cache_read_input_tokens\":7128,\"output_tokens\":1376,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":3160,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[{\"input_tokens\":1,\"output_tokens\":3,\"cache_read_input_tokens\":4443,\"cache_creation_input_tokens\":1402,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":1402},\"type\":\"message\"}],\"speed\":\"standard\"},\"modelUsage\":{\"claude-haiku-4-5-20251001\":{\"inputTokens\":951,\"outputTokens\":20,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":0,\"costUSD\":0.001051,\"contextWindow\":200000,\"maxOutputTokens\":32000},\"claude-opus-4-7\":{\"inputTokens\":7,\"outputTokens\":1376,\"cacheReadInputTokens\":7128,\"cacheCreationInputTokens\":3160,\"webSearchRequests\":0,\"costUSD\":0.057749,\"contextWindow\":1000000,\"maxOutputTokens\":64000}},\"permission_denials\":[],\"structured_output\":{\"category_tag\":\"LoRa channel coding\",\"confidence\":0.5,\"macro_subject\":\"Applied Mathematics\",\"open_status\":\"open\",\"self_contained_problem\":\"Consider a low-power wide-area wireless network in which end devices transmit short packets to a gateway over a noisy channel that exhibits both random bit errors and bursty packet losses (entire packets dropped in consecutive bursts). Each device is severely constrained in memory, computation, energy, and tolerable latency, and any retransmission contributes to channel interference and collisions.\\\\n\\\\nA baseline application-layer redundancy scheme works as follows. To transmit an information sequence of packets x_1, x_2, ..., x_n, each transmitted packet y_k carries x_k together with a linear combination over GF(2) of a window of the W previous information packets {x_{k-1}, ..., x_{k-W}} (with coefficients chosen by some generator). The receiver recovers lost packets by Gaussian elimination on the resulting banded generator matrix. This scheme has the following drawbacks: (i) it requires buffering the previous W packets at the encoder, (ii) the banded structure of the generator matrix prevents constructing an LT-code-like degree distribution, (iii) Gaussian-elimination decoding has high complexity, (iv) it does not effectively recover bursty losses, and (v) any added redundancy or retransmission increases collisions.\\\\n\\\\nProblem. Design a channel/erasure coding scheme for such a network, together with an encoding and decoding algorithm, that simultaneously satisfies the following requirements:\\\\n\\\\n1. Recovers from both isolated bit corruption and bursty packet erasures of length up to B with probability at least 1 − ε, for prescribed B and ε.\\\\n2. Uses encoder memory o(W) and per-packet encoding work O(1) (or at most polylogarithmic in n).\\\\n3. Admits a decoding algorithm whose time and space complexity are strictly lower than Gaussian elimination on a banded n × n matrix (e.g., near-linear in n).\\\\n4. Achieves end-to-end latency bounded by a constant number of packet intervals, without requiring feedback-driven retransmission.\\\\n5. Adds asymptotically less redundancy overhead than the baseline window scheme while matching or exceeding its packet-recovery rate, so that the offered traffic load (and hence collision probability) is not increased.\\\\n\\\\nProvide such a code construction and prove the above properties, or prove that no scheme can simultaneously achieve (1)–(5) under the stated resource constraints.\",\"status_search_result\":\"The problem of designing a channel-coding scheme for LoRa that overcomes the limitations of redundancy-based application-layer codes (e.g., DaRe) — bursty-loss vulnerability, memory and decoding complexity, latency, and increased collisions — remains an active research area. Surveys and recent works continue to list it as an open issue, and proposed schemes (e.g., variants of fountain/LT codes, network coding, and FEC for LoRa) address subsets of the requirements but no single solution is established as fully satisfactory.\",\"status_evidence\":[{\"title\":\"A Survey on LoRa Networking\",\"url\":\"https://arxiv.org/abs/1908.10195\",\"snippet\":\"Existing error correction schemes of LoRa networking, like hamming code, cannot aid data corruption or loss efficiently. DaRe ... cannot aid bursty packet loss.\",\"claim\":\"Listed as an open research problem in LoRa networking.\"}]},\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"uuid\":\"6604806f-8dc0-43e9-a1f0-96629b6f1a9a\"}\n"
+}

@@ -1,0 +1,51 @@
+{
+  "record": {
+    "global_index": 4792,
+    "source_json": "outputs/parse-paper/2012.04625.json",
+    "paper_id": "2012.04625",
+    "paper_title": "",
+    "paper_link": "https://arxiv.org/abs/2012.04625",
+    "question_link": "https://arxiv.org/pdf/2012.04625.pdf#page=15",
+    "question_id": "q_015",
+    "parser_is_solved": "false",
+    "context_brief": "Digit concatenation graph structure",
+    "original_question": "Let A053392 map a decimal integer to the decimal concatenation of the sums of each pair of consecutive digits, and then remove duplicates to obtain A347520. Explain why the associated 4-regular graphs of this de-duplicated digit-concatenation sequence are so striking and highly regular.",
+    "evidence": [
+      {
+        "page": 15,
+        "quote": "A053392 is easy to define: we write n in decimal digits, consider each pair of consecutive digits and replace them by their sum. The integer 9327, for example, would lead to (9+ 3).(3+ 2).(2+ 7) = 12.5.9 = 1259 and thus a_9327 = 1259."
+      },
+      {
+        "page": 15,
+        "quote": "Removing duplicates, we end up with the sequence under consideration – it results in a striking and highly regular graph, see Fig. 13."
+      }
+    ]
+  },
+  "artifact": {
+    "self_contained_problem": "Define a map f on positive integers as follows: write n in base 10 as a string of digits d_1 d_2 … d_k (with k ≥ 2), form the sequence of pairwise sums s_i = d_i + d_{i+1} for i = 1, …, k−1, and let f(n) be the integer whose decimal representation is the concatenation of the decimal representations of s_1, s_2, …, s_{k−1} (so each s_i contributes one or two decimal digits). For example, f(9327) = concat(9+3, 3+2, 2+7) = concat(12, 5, 9) = 1259. For 1 ≤ n ≤ 9 (single-digit n), set f(n) = 0.\n\nForm the infinite sequence (f(1), f(2), f(3), …), and then delete repeated entries to obtain a sequence (b_1, b_2, b_3, …) in which each value appears at most once (in order of first appearance). For each integer N ≥ 1, build a graph G_N on the vertex set {1, 2, …, N} by connecting each index i (with 1 ≤ i ≤ N − 2) to the indices i+1 and i+2 (so that, away from the two endpoints, every vertex has degree 4); then label vertex i by the value b_i, and embed the graph in the plane by placing vertex i at a position whose coordinates are determined by b_i (for instance, at (i, b_i) or by a similar coordinate scheme derived from b_i).\n\nProvide a rigorous mathematical explanation of why the resulting 4-regular planar drawings exhibit the strikingly regular geometric patterns observed: identify the arithmetic or combinatorial properties of the de-duplicated digit-pair-sum sequence (b_n) responsible for these large-scale regularities, and quantify them (for example, by describing the asymptotic distribution of b_n, the recurring linear/affine substructures formed by the visible \"rays\" or \"bands,\" and their slopes and densities).",
+    "macro_subject": "Combinatorics",
+    "category_tag": "digit sequences and graph visualization",
+    "open_status": "open",
+    "status_search_result": "The problem appears in a problem list on finding structure in integer sequences via graph theory, where it is posed informally without resolution. No subsequent work explaining the regular structure of the de-duplicated digit-pair-sum graphs was located in the search.",
+    "status_evidence": [
+      {
+        "title": "Finding Structure in Sequences of Real Numbers via Graph Theory: A Problem List",
+        "url": "https://arxiv.org/pdf/2012.04625",
+        "snippet": "A053392 is easy to define ... Removing duplicates, we end up with the sequence under consideration – it results in a striking and highly regular graph.",
+        "claim": "The question is posed as an open problem in a problem list, with no resolution offered."
+      },
+      {
+        "title": "OEIS",
+        "url": "https://oeis.org/",
+        "snippet": "Sequences A053392 and A347520 are catalogued; no explanatory commentary on graph regularity is provided.",
+        "claim": "OEIS entries do not provide an explanation of the geometric regularity."
+      }
+    ],
+    "confidence": 0.5
+  },
+  "model": "opus",
+  "effort": "medium",
+  "elapsed_s": 41.47,
+  "validation_warnings": [],
+  "raw_claude_stdout": "{\"type\":\"result\",\"subtype\":\"success\",\"is_error\":false,\"api_error_status\":null,\"duration_ms\":40193,\"duration_api_ms\":36962,\"num_turns\":3,\"result\":\"Sources:\\n- [Finding Structure in Sequences of Real Numbers via Graph Theory: A Problem List](https://arxiv.org/pdf/2012.04625)\\n- [OEIS](https://oeis.org/)\",\"stop_reason\":\"end_turn\",\"session_id\":\"bd75368a-affc-4b3c-8835-3b60c3dfcfad\",\"total_cost_usd\":0.09162350000000001,\"usage\":{\"input_tokens\":8,\"cache_creation_input_tokens\":3872,\"cache_read_input_tokens\":12307,\"output_tokens\":1410,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":3872,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[{\"input_tokens\":1,\"output_tokens\":79,\"cache_read_input_tokens\":5334,\"cache_creation_input_tokens\":1223,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":1223},\"type\":\"message\"}],\"speed\":\"standard\"},\"modelUsage\":{\"claude-haiku-4-5-20251001\":{\"inputTokens\":14235,\"outputTokens\":349,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":1,\"costUSD\":0.025979999999999996,\"contextWindow\":200000,\"maxOutputTokens\":32000},\"claude-opus-4-7\":{\"inputTokens\":8,\"outputTokens\":1410,\"cacheReadInputTokens\":12307,\"cacheCreationInputTokens\":3872,\"webSearchRequests\":0,\"costUSD\":0.06564350000000001,\"contextWindow\":1000000,\"maxOutputTokens\":64000}},\"permission_denials\":[],\"structured_output\":{\"self_contained_problem\":\"Define a map f on positive integers as follows: write n in base 10 as a string of digits d_1 d_2 … d_k (with k ≥ 2), form the sequence of pairwise sums s_i = d_i + d_{i+1} for i = 1, …, k−1, and let f(n) be the integer whose decimal representation is the concatenation of the decimal representations of s_1, s_2, …, s_{k−1} (so each s_i contributes one or two decimal digits). For example, f(9327) = concat(9+3, 3+2, 2+7) = concat(12, 5, 9) = 1259. For 1 ≤ n ≤ 9 (single-digit n), set f(n) = 0.\\n\\nForm the infinite sequence (f(1), f(2), f(3), …), and then delete repeated entries to obtain a sequence (b_1, b_2, b_3, …) in which each value appears at most once (in order of first appearance). For each integer N ≥ 1, build a graph G_N on the vertex set {1, 2, …, N} by connecting each index i (with 1 ≤ i ≤ N − 2) to the indices i+1 and i+2 (so that, away from the two endpoints, every vertex has degree 4); then label vertex i by the value b_i, and embed the graph in the plane by placing vertex i at a position whose coordinates are determined by b_i (for instance, at (i, b_i) or by a similar coordinate scheme derived from b_i).\\n\\nProvide a rigorous mathematical explanation of why the resulting 4-regular planar drawings exhibit the strikingly regular geometric patterns observed: identify the arithmetic or combinatorial properties of the de-duplicated digit-pair-sum sequence (b_n) responsible for these large-scale regularities, and quantify them (for example, by describing the asymptotic distribution of b_n, the recurring linear/affine substructures formed by the visible \\\"rays\\\" or \\\"bands,\\\" and their slopes and densities).\",\"macro_subject\":\"Combinatorics\",\"category_tag\":\"digit sequences and graph visualization\",\"open_status\":\"open\",\"status_search_result\":\"The problem appears in a problem list on finding structure in integer sequences via graph theory, where it is posed informally without resolution. No subsequent work explaining the regular structure of the de-duplicated digit-pair-sum graphs was located in the search.\",\"status_evidence\":[{\"title\":\"Finding Structure in Sequences of Real Numbers via Graph Theory: A Problem List\",\"url\":\"https://arxiv.org/pdf/2012.04625\",\"snippet\":\"A053392 is easy to define ... Removing duplicates, we end up with the sequence under consideration – it results in a striking and highly regular graph.\",\"claim\":\"The question is posed as an open problem in a problem list, with no resolution offered.\"},{\"title\":\"OEIS\",\"url\":\"https://oeis.org/\",\"snippet\":\"Sequences A053392 and A347520 are catalogued; no explanatory commentary on graph regularity is provided.\",\"claim\":\"OEIS entries do not provide an explanation of the geometric regularity.\"}],\"confidence\":0.5},\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"uuid\":\"fa0cae0c-a38a-454f-a4a1-778e0e2d10c4\"}\n"
+}

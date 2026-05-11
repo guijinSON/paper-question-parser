@@ -1,0 +1,53 @@
+{
+  "record": {
+    "global_index": 4615,
+    "source_json": "outputs/parse-paper/2006.10940.json",
+    "paper_id": "2006.10940",
+    "paper_title": "",
+    "paper_link": "https://arxiv.org/abs/2006.10940",
+    "question_link": "https://arxiv.org/pdf/2006.10940.pdf#page=4",
+    "question_id": "q_004",
+    "parser_is_solved": "false",
+    "context_brief": "Freund 2016 unresolved problem",
+    "original_question": "In full-information online learning, does there exist an algorithm such that for every ε > 0 it simultaneously achieves regret at most O(√(Σ_t Var_{π∼Pt}(ℓt(π(xt))) · log(1/ε))) against the top ε-quantile of policies, where Pt is the algorithm's distribution over policies at round t?",
+    "evidence": [
+      {
+        "page": 4,
+        "quote": "An unresolved COLT 2016 open problem of Freund (2016) asks whether there exists an algorithm for this setting with regret at most O( √ ∑ T t=1 Varπ∼Pt (ℓt(π(xt))) ⋅ log(1/ε)) against the top ε-quantile of policies for all ε > 0 simultaneously."
+      }
+    ]
+  },
+  "artifact": {
+    "self_contained_problem": "Consider the following full-information online learning setting. Let $\\Pi$ be a (possibly infinite) set of policies, where each policy $\\pi \\in \\Pi$ maps contexts $x \\in \\mathcal{X}$ to actions in some set $\\mathcal{A}$. Play proceeds in rounds $t = 1, 2, \\dots, T$. At each round $t$:\n\\begin{enumerate}\n\\item The learner chooses a probability distribution $P_t$ over $\\Pi$.\n\\item A context $x_t \\in \\mathcal{X}$ and a loss function $\\ell_t : \\mathcal{A} \\to [0,1]$ are revealed (chosen by an oblivious or adaptive adversary).\n\\item The learner samples $\\pi_t \\sim P_t$, plays $\\pi_t(x_t)$, and incurs loss $\\ell_t(\\pi_t(x_t))$. The full loss function $\\ell_t$ is observed.\n\\end{enumerate}\n\nFor a distribution $Q$ over $\\Pi$, define the $\\varepsilon$-quantile regret as\n\\[\nR_T(Q,\\varepsilon) \\;=\\; \\sum_{t=1}^{T} \\mathbb{E}_{\\pi \\sim P_t}[\\ell_t(\\pi(x_t))] \\;-\\; \\inf_{S \\subseteq \\Pi : Q(S) \\ge \\varepsilon} \\; \\sup_{\\pi \\in S} \\sum_{t=1}^{T} \\ell_t(\\pi(x_t)),\n\\]\ni.e., the cumulative loss of the algorithm minus the cumulative loss of the best policy among the top $\\varepsilon$-fraction (under a fixed prior $Q$) of policies. Let\n\\[\nV_T \\;=\\; \\sum_{t=1}^{T} \\mathrm{Var}_{\\pi \\sim P_t}\\bigl(\\ell_t(\\pi(x_t))\\bigr).\n\\]\n\n\\textbf{Question.} Does there exist an algorithm (specifying the sequence of distributions $P_t$) such that, simultaneously for every $\\varepsilon \\in (0,1)$,\n\\[\nR_T(Q,\\varepsilon) \\;=\\; O\\!\\left(\\sqrt{V_T \\cdot \\log(1/\\varepsilon)}\\right) ?\n\\]",
+    "macro_subject": "Theoretical Computer Science",
+    "category_tag": "online learning regret bounds",
+    "open_status": "open",
+    "status_search_result": "The question, posed as a COLT 2016 open problem, asks for a single algorithm achieving a second-order (variance-based) regret bound that simultaneously holds against the top ε-quantile of policies for every ε > 0. Searches turned up the original COLT 2016 open-problem write-up and related work (e.g., Squint / Koolen–Van Erven on second-order quantile methods), as well as later sources that still describe the problem as unresolved in this exact form. No publication claiming a full resolution was found.",
+    "status_evidence": [
+      {
+        "title": "Open Problem: Second order regret bounds based on scaling time (Freund, COLT 2016)",
+        "url": "http://proceedings.mlr.press/v49/freund16.html",
+        "snippet": "Freund proposes a second-order regret bound and conjectures it is satisfied by NormalHedge.",
+        "claim": "Original posing of the open problem at COLT 2016."
+      },
+      {
+        "title": "Second-order Quantile Methods for Experts and Combinatorial Games (Koolen, Van Erven)",
+        "url": "https://arxiv.org/abs/1502.08009",
+        "snippet": "First bounds that are simultaneously second-order and quantile-based (Squint algorithm), but not in the form Freund asks for.",
+        "claim": "Related partial progress on second-order quantile regret, predating and not resolving Freund's specific conjecture."
+      },
+      {
+        "title": "Open Problem: Model Selection for Contextual Bandits",
+        "url": "https://arxiv.org/abs/2006.10940",
+        "snippet": "References Freund (2016) as an unresolved COLT open problem.",
+        "claim": "As of 2020 the problem was still listed as unresolved."
+      }
+    ],
+    "confidence": 0.6
+  },
+  "model": "opus",
+  "effort": "medium",
+  "elapsed_s": 58.69,
+  "validation_warnings": [],
+  "raw_claude_stdout": "{\"type\":\"result\",\"subtype\":\"success\",\"is_error\":false,\"api_error_status\":null,\"duration_ms\":57375,\"duration_api_ms\":59497,\"num_turns\":5,\"result\":\"Sources:\\n- [Open Problem: Second order regret bounds based on scaling time (Freund, COLT 2016)](http://proceedings.mlr.press/v49/freund16.html)\\n- [Second-order Quantile Methods for Experts and Combinatorial Games](https://arxiv.org/abs/1502.08009)\\n- [Open Problem: Model Selection for Contextual Bandits](https://arxiv.org/abs/2006.10940)\",\"stop_reason\":\"end_turn\",\"session_id\":\"71288e8b-aded-49e9-88fc-21cd58137ec1\",\"total_cost_usd\":0.16883499999999999,\"usage\":{\"input_tokens\":271,\"cache_creation_input_tokens\":6386,\"cache_read_input_tokens\":19615,\"output_tokens\":2148,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":6386,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[{\"input_tokens\":1,\"output_tokens\":154,\"cache_read_input_tokens\":7129,\"cache_creation_input_tokens\":1942,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":1942},\"type\":\"message\"}],\"speed\":\"standard\"},\"modelUsage\":{\"claude-haiku-4-5-20251001\":{\"inputTokens\":38285,\"outputTokens\":1155,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":2,\"costUSD\":0.06406,\"contextWindow\":200000,\"maxOutputTokens\":32000},\"claude-opus-4-7\":{\"inputTokens\":271,\"outputTokens\":2148,\"cacheReadInputTokens\":19615,\"cacheCreationInputTokens\":6386,\"webSearchRequests\":0,\"costUSD\":0.10477499999999998,\"contextWindow\":1000000,\"maxOutputTokens\":64000}},\"permission_denials\":[],\"structured_output\":{\"self_contained_problem\":\"Consider the following full-information online learning setting. Let $\\\\Pi$ be a (possibly infinite) set of policies, where each policy $\\\\pi \\\\in \\\\Pi$ maps contexts $x \\\\in \\\\mathcal{X}$ to actions in some set $\\\\mathcal{A}$. Play proceeds in rounds $t = 1, 2, \\\\dots, T$. At each round $t$:\\n\\\\begin{enumerate}\\n\\\\item The learner chooses a probability distribution $P_t$ over $\\\\Pi$.\\n\\\\item A context $x_t \\\\in \\\\mathcal{X}$ and a loss function $\\\\ell_t : \\\\mathcal{A} \\\\to [0,1]$ are revealed (chosen by an oblivious or adaptive adversary).\\n\\\\item The learner samples $\\\\pi_t \\\\sim P_t$, plays $\\\\pi_t(x_t)$, and incurs loss $\\\\ell_t(\\\\pi_t(x_t))$. The full loss function $\\\\ell_t$ is observed.\\n\\\\end{enumerate}\\n\\nFor a distribution $Q$ over $\\\\Pi$, define the $\\\\varepsilon$-quantile regret as\\n\\\\[\\nR_T(Q,\\\\varepsilon) \\\\;=\\\\; \\\\sum_{t=1}^{T} \\\\mathbb{E}_{\\\\pi \\\\sim P_t}[\\\\ell_t(\\\\pi(x_t))] \\\\;-\\\\; \\\\inf_{S \\\\subseteq \\\\Pi : Q(S) \\\\ge \\\\varepsilon} \\\\; \\\\sup_{\\\\pi \\\\in S} \\\\sum_{t=1}^{T} \\\\ell_t(\\\\pi(x_t)),\\n\\\\]\\ni.e., the cumulative loss of the algorithm minus the cumulative loss of the best policy among the top $\\\\varepsilon$-fraction (under a fixed prior $Q$) of policies. Let\\n\\\\[\\nV_T \\\\;=\\\\; \\\\sum_{t=1}^{T} \\\\mathrm{Var}_{\\\\pi \\\\sim P_t}\\\\bigl(\\\\ell_t(\\\\pi(x_t))\\\\bigr).\\n\\\\]\\n\\n\\\\textbf{Question.} Does there exist an algorithm (specifying the sequence of distributions $P_t$) such that, simultaneously for every $\\\\varepsilon \\\\in (0,1)$,\\n\\\\[\\nR_T(Q,\\\\varepsilon) \\\\;=\\\\; O\\\\!\\\\left(\\\\sqrt{V_T \\\\cdot \\\\log(1/\\\\varepsilon)}\\\\right) ?\\n\\\\]\",\"macro_subject\":\"Theoretical Computer Science\",\"category_tag\":\"online learning regret bounds\",\"open_status\":\"open\",\"status_search_result\":\"The question, posed as a COLT 2016 open problem, asks for a single algorithm achieving a second-order (variance-based) regret bound that simultaneously holds against the top ε-quantile of policies for every ε > 0. Searches turned up the original COLT 2016 open-problem write-up and related work (e.g., Squint / Koolen–Van Erven on second-order quantile methods), as well as later sources that still describe the problem as unresolved in this exact form. No publication claiming a full resolution was found.\",\"status_evidence\":[{\"title\":\"Open Problem: Second order regret bounds based on scaling time (Freund, COLT 2016)\",\"url\":\"http://proceedings.mlr.press/v49/freund16.html\",\"snippet\":\"Freund proposes a second-order regret bound and conjectures it is satisfied by NormalHedge.\",\"claim\":\"Original posing of the open problem at COLT 2016.\"},{\"title\":\"Second-order Quantile Methods for Experts and Combinatorial Games (Koolen, Van Erven)\",\"url\":\"https://arxiv.org/abs/1502.08009\",\"snippet\":\"First bounds that are simultaneously second-order and quantile-based (Squint algorithm), but not in the form Freund asks for.\",\"claim\":\"Related partial progress on second-order quantile regret, predating and not resolving Freund's specific conjecture.\"},{\"title\":\"Open Problem: Model Selection for Contextual Bandits\",\"url\":\"https://arxiv.org/abs/2006.10940\",\"snippet\":\"References Freund (2016) as an unresolved COLT open problem.\",\"claim\":\"As of 2020 the problem was still listed as unresolved.\"}],\"confidence\":0.6},\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"uuid\":\"548c8122-5e03-4473-a963-2c9b7be1310a\"}\n"
+}

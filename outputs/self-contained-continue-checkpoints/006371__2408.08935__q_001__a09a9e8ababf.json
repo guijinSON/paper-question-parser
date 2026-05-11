@@ -1,0 +1,49 @@
+{
+  "record": {
+    "global_index": 6371,
+    "source_json": "outputs/parse-paper/2408.08935.json",
+    "paper_id": "2408.08935",
+    "paper_title": "",
+    "paper_link": "https://arxiv.org/abs/2408.08935",
+    "question_link": "https://arxiv.org/pdf/2408.08935.pdf#page=6",
+    "question_id": "q_001",
+    "parser_is_solved": "false",
+    "context_brief": "Power-Relaxed Greedy Algorithm in Hilbert spaces",
+    "original_question": "Let H be a Hilbert space and D be a dictionary in H. For f in A_1(D), where A_1(D) is the closure in H of the finite expansions f = sum_{k in Lambda} a_k g_k with g_k in D and sum_{k in Lambda} |a_k| <= 1, consider the Power-Relaxed Greedy Algorithm defined by T_0^r(f)=0, T_1^r(f)=G_1(f), and for m >= 2 by T_m^r(f) = (1 - 1/m^alpha) T_{m-1}^r(f) + (1/m^alpha) g(R_{m-1}^r(f)), where g(R_{m-1}^r(f)) is a dictionary element maximizing the inner product with the current residual. Does there exist some exponent alpha_0 > 1 such that for every f in A_1(D) one has ||f - T_m^r(f)|| <= C m^{-alpha_0/2} for all m, i.e. a decay rate strictly better than the m^{-1/2} scale obtained from the known alpha = 1 result?",
+    "evidence": [
+      {
+        "page": 6,
+        "quote": "Let H be a Hilbert space (over R) and D a dictionary in H. Related to this dictionary, we define A_tau(D), for tau > 0, as the clausure in H of the following set of functions: (f in H : f = sum_{k in Lambda} a_k g_k, g_k in D, |Lambda| < infinity and sum_{k in Lambda} |a_k|^tau <= 1)."
+      },
+      {
+        "page": 6,
+        "quote": "Power-Relaxed Greedy Algorithm: define R_0^r(f) = R_0^r(f, D) := f and T_0^r(f) = T_0^r(f, D) := 0. For m = 1, we set T_1^r(f) = T_1^r(f, D) := G_1(f) and R_1^r(f) = R_1^r(f, D) := R_1(f). Then, for m >= 2, T_m^r(f) = T_m^r(f, D) := (1 - 1/m^alpha) T_{m-1}^r(f) + 1/m^alpha g(R_{m-1}^r(f))."
+      },
+      {
+        "page": 9,
+        "quote": "Question 1. Is it possible to find alpha_0 > 1 such that ||f - T_m^r(f)|| . 1/m^{alpha_0/2}, m = 1, 2, .. for every f in A_1(D)?"
+      }
+    ]
+  },
+  "artifact": {
+    "self_contained_problem": "Let H be a real Hilbert space and let D ⊂ H be a dictionary, i.e. a set of unit-norm elements whose closed linear span equals H. For τ > 0, define A_τ(D) to be the closure in H of the set of all finite linear combinations f = Σ_{k ∈ Λ} a_k g_k with g_k ∈ D, |Λ| < ∞, and Σ_{k ∈ Λ} |a_k|^τ ≤ 1.\n\nFor f ∈ H and h ∈ H, let g(h) ∈ D denote a dictionary element maximizing the inner product ⟨h, g⟩ over g ∈ D (assume such a maximizer exists). Fix a real parameter α > 0. The Power-Relaxed Greedy Algorithm (PRGA) is defined as follows. Set R_0^r(f) := f, T_0^r(f) := 0, T_1^r(f) := ⟨f, g(f)⟩ g(f), and R_1^r(f) := f − T_1^r(f). For m ≥ 2, define\n   T_m^r(f) := (1 − 1/m^α) T_{m−1}^r(f) + (1/m^α) g(R_{m−1}^r(f)),\n   R_m^r(f) := f − T_m^r(f).\n\nWhen α = 1 it is known that for every f ∈ A_1(D) one has ||f − T_m^r(f)|| ≤ C m^{−1/2} for all m ≥ 1.\n\nQuestion: Does there exist an exponent α_0 > 1 and a constant C > 0 such that for every dictionary D in every Hilbert space H and every f ∈ A_1(D), the iterates of PRGA with parameter α = α_0 satisfy\n   ||f − T_m^r(f)|| ≤ C m^{−α_0/2}   for all m = 1, 2, 3, … ?",
+    "macro_subject": "Analysis",
+    "category_tag": "Greedy algorithms in Hilbert spaces",
+    "open_status": "solved",
+    "status_search_result": "A subsequent work resolves the question negatively: for any α > 1, the Power-Relaxed Greedy Algorithm fails to converge for some f ∈ A_1(D). Specifically, a counterexample is constructed in R^2 with the dictionary {±e_1, ±e_2} showing inf_m ||f − T_m^r(f)|| > 0, so no rate m^{−α_0/2} with α_0 > 1 can hold. Thus no such α_0 > 1 exists.",
+    "status_evidence": [
+      {
+        "title": "Convergence Analysis of Greedy Algorithms with Adaptive Relaxation in Hilbert Spaces",
+        "url": "https://arxiv.org/html/2602.01421",
+        "snippet": "Taking α>1 for the (PRGA), there exists an element f∈A_1(D) with D a particular dictionary of R^2 such that inf_m ||f − T_m^r(f)|| > 0.",
+        "claim": "For α > 1 the PRGA does not converge for some f in A_1(D), so no rate m^{-α_0/2} with α_0 > 1 is possible."
+      }
+    ],
+    "confidence": 0.8
+  },
+  "model": "opus",
+  "effort": "medium",
+  "elapsed_s": 74.0,
+  "validation_warnings": [],
+  "raw_claude_stdout": "{\"type\":\"result\",\"subtype\":\"success\",\"is_error\":false,\"api_error_status\":null,\"duration_ms\":72889,\"duration_api_ms\":61530,\"num_turns\":5,\"result\":\"Sources:\\n- [Convergence Analysis of Greedy Algorithms with Adaptive Relaxation in Hilbert Spaces (arXiv:2602.01421)](https://arxiv.org/abs/2602.01421)\\n- [Greedy algorithms: a review and open problems](https://link.springer.com/article/10.1186/s13660-025-03254-1)\",\"stop_reason\":\"end_turn\",\"session_id\":\"ca4e0585-76b9-4c13-add8-8fe766042618\",\"total_cost_usd\":0.15514624999999999,\"usage\":{\"input_tokens\":10,\"cache_creation_input_tokens\":5887,\"cache_read_input_tokens\":27863,\"output_tokens\":1846,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":5887,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[{\"input_tokens\":1,\"output_tokens\":127,\"cache_read_input_tokens\":7299,\"cache_creation_input_tokens\":1273,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":1273},\"type\":\"message\"}],\"speed\":\"standard\"},\"modelUsage\":{\"claude-haiku-4-5-20251001\":{\"inputTokens\":43451,\"outputTokens\":954,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":1,\"costUSD\":0.058220999999999995,\"contextWindow\":200000,\"maxOutputTokens\":32000},\"claude-opus-4-7\":{\"inputTokens\":10,\"outputTokens\":1846,\"cacheReadInputTokens\":27863,\"cacheCreationInputTokens\":5887,\"webSearchRequests\":0,\"costUSD\":0.09692525,\"contextWindow\":1000000,\"maxOutputTokens\":64000}},\"permission_denials\":[],\"structured_output\":{\"self_contained_problem\":\"Let H be a real Hilbert space and let D ⊂ H be a dictionary, i.e. a set of unit-norm elements whose closed linear span equals H. For τ > 0, define A_τ(D) to be the closure in H of the set of all finite linear combinations f = Σ_{k ∈ Λ} a_k g_k with g_k ∈ D, |Λ| < ∞, and Σ_{k ∈ Λ} |a_k|^τ ≤ 1.\\n\\nFor f ∈ H and h ∈ H, let g(h) ∈ D denote a dictionary element maximizing the inner product ⟨h, g⟩ over g ∈ D (assume such a maximizer exists). Fix a real parameter α > 0. The Power-Relaxed Greedy Algorithm (PRGA) is defined as follows. Set R_0^r(f) := f, T_0^r(f) := 0, T_1^r(f) := ⟨f, g(f)⟩ g(f), and R_1^r(f) := f − T_1^r(f). For m ≥ 2, define\\n   T_m^r(f) := (1 − 1/m^α) T_{m−1}^r(f) + (1/m^α) g(R_{m−1}^r(f)),\\n   R_m^r(f) := f − T_m^r(f).\\n\\nWhen α = 1 it is known that for every f ∈ A_1(D) one has ||f − T_m^r(f)|| ≤ C m^{−1/2} for all m ≥ 1.\\n\\nQuestion: Does there exist an exponent α_0 > 1 and a constant C > 0 such that for every dictionary D in every Hilbert space H and every f ∈ A_1(D), the iterates of PRGA with parameter α = α_0 satisfy\\n   ||f − T_m^r(f)|| ≤ C m^{−α_0/2}   for all m = 1, 2, 3, … ?\",\"macro_subject\":\"Analysis\",\"category_tag\":\"Greedy algorithms in Hilbert spaces\",\"open_status\":\"solved\",\"status_search_result\":\"A subsequent work resolves the question negatively: for any α > 1, the Power-Relaxed Greedy Algorithm fails to converge for some f ∈ A_1(D). Specifically, a counterexample is constructed in R^2 with the dictionary {±e_1, ±e_2} showing inf_m ||f − T_m^r(f)|| > 0, so no rate m^{−α_0/2} with α_0 > 1 can hold. Thus no such α_0 > 1 exists.\",\"status_evidence\":[{\"title\":\"Convergence Analysis of Greedy Algorithms with Adaptive Relaxation in Hilbert Spaces\",\"url\":\"https://arxiv.org/html/2602.01421\",\"snippet\":\"Taking α>1 for the (PRGA), there exists an element f∈A_1(D) with D a particular dictionary of R^2 such that inf_m ||f − T_m^r(f)|| > 0.\",\"claim\":\"For α > 1 the PRGA does not converge for some f in A_1(D), so no rate m^{-α_0/2} with α_0 > 1 is possible.\"}],\"confidence\":0.8},\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"uuid\":\"04cf6001-c7c1-42da-a886-caa7feeca9ff\"}\n"
+}

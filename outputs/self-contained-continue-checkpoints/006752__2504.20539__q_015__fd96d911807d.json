@@ -1,0 +1,47 @@
+{
+  "record": {
+    "global_index": 6752,
+    "source_json": "outputs/parse-paper/2504.20539.json",
+    "paper_id": "2504.20539",
+    "paper_title": "",
+    "paper_link": "https://arxiv.org/abs/2504.20539",
+    "question_link": "https://arxiv.org/pdf/2504.20539.pdf#page=12",
+    "question_id": "q_015",
+    "parser_is_solved": "false",
+    "context_brief": "Fast mixing up to beta*=1 in SK model",
+    "original_question": "Consider the Sherrington-Kirkpatrick model with interaction matrix J = beta W where W ~ GOE(n), with an arbitrary external field, and Glauber dynamics for sampling from the Gibbs measure on {+1,-1}^n. Does Glauber dynamics mix in polynomial time for all beta up to the replica-symmetry-breaking threshold beta* = 1?",
+    "evidence": [
+      {
+        "page": 12,
+        "quote": "Open Problem 15. Consider the SK-model with an arbitrary external field. Does Glauber Dynamics fast mix (meaning in polynomial time) up to the replica symmetry breaking threshold β∗ = 1?"
+      }
+    ]
+  },
+  "artifact": {
+    "self_contained_problem": "Let $n \\ge 1$ and let $W$ be an $n \\times n$ matrix drawn from the Gaussian Orthogonal Ensemble (i.e., $W$ is symmetric with $W_{ii} \\sim \\mathcal{N}(0,2/n)$ and $W_{ij} \\sim \\mathcal{N}(0,1/n)$ for $i < j$, all independent). Fix $\\beta > 0$ and an external field vector $h \\in \\mathbb{R}^n$, and define the Gibbs measure on the hypercube $\\{-1,+1\\}^n$ by\n$$\\mu(\\sigma) \\;=\\; \\frac{1}{Z}\\exp\\!\\Big(\\tfrac{\\beta}{2}\\,\\langle \\sigma, W\\sigma\\rangle + \\langle h,\\sigma\\rangle\\Big),$$\nwhere $Z$ is the normalizing partition function. The (single-site) Glauber dynamics is the discrete-time Markov chain on $\\{-1,+1\\}^n$ that at each step selects a coordinate $i \\in \\{1,\\ldots,n\\}$ uniformly at random and resamples $\\sigma_i$ from its conditional law under $\\mu$ given the remaining coordinates; this chain is reversible with respect to $\\mu$.\n\nThe replica-symmetry-breaking threshold of the Sherrington–Kirkpatrick model is $\\beta^* = 1$.\n\nQuestion: Is it true that for every $\\beta < 1$ and for every external field $h \\in \\mathbb{R}^n$, the mixing time of Glauber dynamics for $\\mu$ is bounded by a polynomial in $n$ (with high probability over $W$ as $n \\to \\infty$)?",
+    "macro_subject": "Probability",
+    "category_tag": "Glauber dynamics for spin glasses",
+    "open_status": "open",
+    "status_search_result": "The problem is open. The best known polynomial mixing-time bound for Glauber dynamics on the SK model holds only up to $\\beta < 0.295$ (Anari–Koehler–Vuong, 2024). Alternative samplers based on stochastic localization and Approximate Message Passing achieve sampling (in Wasserstein distance) up to $\\beta < 1/2$ (El Alaoui–Montanari–Sellke) and were recently extended by Celentano to all $\\beta < 1$, but these are not Glauber dynamics. Whether Glauber dynamics itself mixes in polynomial time up to $\\beta^*=1$ remains unresolved.",
+    "status_evidence": [
+      {
+        "title": "Sampling from the Sherrington-Kirkpatrick Model (problem 15) | Randomstrasse 101",
+        "url": "https://randomstrasse101.math.ethz.ch/posts/SKModel-Glauber/",
+        "snippet": "Glauber dynamics alone has only reached β < 0.295 in total variation distance ... fundamental question of whether Glauber dynamics specifically can achieve fast mixing up to β = 1 ... remains unsolved.",
+        "claim": "The problem remains open; best Glauber bound is β<0.295."
+      },
+      {
+        "title": "Exponentially slow mixing of the low temperature SK model",
+        "url": "https://arxiv.org/pdf/2511.22621",
+        "snippet": "Sellke shows exponentially slow mixing of Glauber dynamics for the SK model at low temperature.",
+        "claim": "Low-temperature (β large) Glauber dynamics is exponentially slow, consistent with the threshold being at most β*=1."
+      }
+    ],
+    "confidence": 0.9
+  },
+  "model": "opus",
+  "effort": "medium",
+  "elapsed_s": 43.22,
+  "validation_warnings": [],
+  "raw_claude_stdout": "{\"type\":\"result\",\"subtype\":\"success\",\"is_error\":false,\"api_error_status\":null,\"duration_ms\":41874,\"duration_api_ms\":35689,\"num_turns\":4,\"result\":\"Sources:\\n- [Sampling from the Sherrington-Kirkpatrick Model (problem 15) | Randomstrasse 101](https://randomstrasse101.math.ethz.ch/posts/SKModel-Glauber/)\\n- [Exponentially slow mixing of the low temperature SK model](https://arxiv.org/pdf/2511.22621)\\n- [Rapid Mixing of Glauber Dynamics up to Uniqueness via Contraction](https://arxiv.org/abs/2004.09083)\",\"stop_reason\":\"end_turn\",\"session_id\":\"e2995a73-7047-4378-b64b-59177f6bb6b7\",\"total_cost_usd\":0.127919,\"usage\":{\"input_tokens\":9,\"cache_creation_input_tokens\":5150,\"cache_read_input_tokens\":19185,\"output_tokens\":1925,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":5150,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[{\"input_tokens\":1,\"output_tokens\":178,\"cache_read_input_tokens\":6439,\"cache_creation_input_tokens\":1396,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":1396},\"type\":\"message\"}],\"speed\":\"standard\"},\"modelUsage\":{\"claude-haiku-4-5-20251001\":{\"inputTokens\":24159,\"outputTokens\":762,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":1,\"costUSD\":0.037969,\"contextWindow\":200000,\"maxOutputTokens\":32000},\"claude-opus-4-7\":{\"inputTokens\":9,\"outputTokens\":1925,\"cacheReadInputTokens\":19185,\"cacheCreationInputTokens\":5150,\"webSearchRequests\":0,\"costUSD\":0.08994999999999999,\"contextWindow\":1000000,\"maxOutputTokens\":64000}},\"permission_denials\":[],\"structured_output\":{\"self_contained_problem\":\"Let $n \\\\ge 1$ and let $W$ be an $n \\\\times n$ matrix drawn from the Gaussian Orthogonal Ensemble (i.e., $W$ is symmetric with $W_{ii} \\\\sim \\\\mathcal{N}(0,2/n)$ and $W_{ij} \\\\sim \\\\mathcal{N}(0,1/n)$ for $i < j$, all independent). Fix $\\\\beta > 0$ and an external field vector $h \\\\in \\\\mathbb{R}^n$, and define the Gibbs measure on the hypercube $\\\\{-1,+1\\\\}^n$ by\\n$$\\\\mu(\\\\sigma) \\\\;=\\\\; \\\\frac{1}{Z}\\\\exp\\\\!\\\\Big(\\\\tfrac{\\\\beta}{2}\\\\,\\\\langle \\\\sigma, W\\\\sigma\\\\rangle + \\\\langle h,\\\\sigma\\\\rangle\\\\Big),$$\\nwhere $Z$ is the normalizing partition function. The (single-site) Glauber dynamics is the discrete-time Markov chain on $\\\\{-1,+1\\\\}^n$ that at each step selects a coordinate $i \\\\in \\\\{1,\\\\ldots,n\\\\}$ uniformly at random and resamples $\\\\sigma_i$ from its conditional law under $\\\\mu$ given the remaining coordinates; this chain is reversible with respect to $\\\\mu$.\\n\\nThe replica-symmetry-breaking threshold of the Sherrington–Kirkpatrick model is $\\\\beta^* = 1$.\\n\\nQuestion: Is it true that for every $\\\\beta < 1$ and for every external field $h \\\\in \\\\mathbb{R}^n$, the mixing time of Glauber dynamics for $\\\\mu$ is bounded by a polynomial in $n$ (with high probability over $W$ as $n \\\\to \\\\infty$)?\",\"macro_subject\":\"Probability\",\"category_tag\":\"Glauber dynamics for spin glasses\",\"open_status\":\"open\",\"status_search_result\":\"The problem is open. The best known polynomial mixing-time bound for Glauber dynamics on the SK model holds only up to $\\\\beta < 0.295$ (Anari–Koehler–Vuong, 2024). Alternative samplers based on stochastic localization and Approximate Message Passing achieve sampling (in Wasserstein distance) up to $\\\\beta < 1/2$ (El Alaoui–Montanari–Sellke) and were recently extended by Celentano to all $\\\\beta < 1$, but these are not Glauber dynamics. Whether Glauber dynamics itself mixes in polynomial time up to $\\\\beta^*=1$ remains unresolved.\",\"status_evidence\":[{\"title\":\"Sampling from the Sherrington-Kirkpatrick Model (problem 15) | Randomstrasse 101\",\"url\":\"https://randomstrasse101.math.ethz.ch/posts/SKModel-Glauber/\",\"snippet\":\"Glauber dynamics alone has only reached β < 0.295 in total variation distance ... fundamental question of whether Glauber dynamics specifically can achieve fast mixing up to β = 1 ... remains unsolved.\",\"claim\":\"The problem remains open; best Glauber bound is β<0.295.\"},{\"title\":\"Exponentially slow mixing of the low temperature SK model\",\"url\":\"https://arxiv.org/pdf/2511.22621\",\"snippet\":\"Sellke shows exponentially slow mixing of Glauber dynamics for the SK model at low temperature.\",\"claim\":\"Low-temperature (β large) Glauber dynamics is exponentially slow, consistent with the threshold being at most β*=1.\"}],\"confidence\":0.9},\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"uuid\":\"b18f8410-5b68-4288-83fc-2e12d6b82bab\"}\n"
+}

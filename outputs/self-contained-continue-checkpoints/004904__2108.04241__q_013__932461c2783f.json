@@ -1,0 +1,69 @@
+{
+  "record": {
+    "global_index": 4904,
+    "source_json": "outputs/parse-paper/2108.04241.json",
+    "paper_id": "2108.04241",
+    "paper_title": "",
+    "paper_link": "https://arxiv.org/abs/2108.04241",
+    "question_link": "https://arxiv.org/pdf/2108.04241.pdf#page=22",
+    "question_id": "q_013",
+    "parser_is_solved": "false",
+    "context_brief": "Terminal value numerics",
+    "original_question": "For scalar Caputo terminal value problems of the form CD^alpha_{a+} y(t) = f(t, y(t)) with a terminal condition y(b) = y*, what numerical strategy is best for updating the unknown initial value y(a) inside shooting methods, and how do shooting, collocation, Galerkin, Nystrom, spectral, and spectral-element approaches compare in computational cost, convergence, and the design of basis functions that capture the endpoint singular behaviour of exact solutions?",
+    "evidence": [
+      {
+        "page": 22,
+        "quote": "A completely different but also potentially very relevant question with respect to which many open questions exist is also connected to the fractional differential equation CDalpha_a+y(t) = f(t, y(t))."
+      },
+      {
+        "page": 24,
+        "quote": "However, that proposal still leaves room for improvement in this direction, and numerous other questions remain open as well, most importantly the question what the best algorithm for selecting the initial value in the next iteration step is."
+      },
+      {
+        "page": 25,
+        "quote": "Similar studies for other approaches to the Fredholm equation (Galerkin, Nystrom, etc.) would be most welcome."
+      },
+      {
+        "page": 25,
+        "quote": "Such investigations should in particular include a discussion about a suitable set of basis functions that combines the ability to accurately model the asymptotic behaviour of the exact solution as t -> a, thus exactly capturing the singular behaviour of its derivatives, with a rapid convergence of the remaining part of the approximate solution to the smooth part of the exact solution."
+      },
+      {
+        "page": 25,
+        "quote": "This latter aspect in particular includes the task of applying the spectral or spectral element methods discussed in Subsection 3.2 to the general class of terminal value problems described in the present subsection."
+      }
+    ]
+  },
+  "artifact": {
+    "self_contained_problem": "Consider the scalar terminal value problem for a Caputo fractional differential equation of order α ∈ (0,1):\n  (CD^α_{a+} y)(t) = f(t, y(t)),  t ∈ [a,b],   y(b) = y*,\nwhere CD^α_{a+} denotes the Caputo fractional derivative based at a, f : [a,b] × ℝ → ℝ is a sufficiently smooth right-hand side, and y* ∈ ℝ is a prescribed terminal value. A shooting method reformulates this problem by guessing the unknown initial value y(a) = η, solving the resulting Caputo initial value problem forward to t = b, and iteratively updating η so that the computed value at b matches y*.\n\nAddress the following:\n\n(a) Determine the most efficient and accurate strategy for updating the guess η in the next iteration of such a shooting procedure (in comparison with bisection, secant, Newton, and related root-finding/proportional-type updates), including a rigorous convergence analysis and quantitative comparison of iteration counts and runtime.\n\n(b) The terminal value problem can equivalently be recast as a Fredholm integral equation of the second kind for y on [a,b]. Carry out a systematic comparison of shooting, collocation, Galerkin, Nyström, spectral, and spectral-element methods for solving this equation, addressing computational cost, rates of convergence, and stability.\n\n(c) Design a basis of approximating functions (for use in the Galerkin/collocation/spectral/spectral-element schemes) that simultaneously\n   (i) reproduces the typical endpoint singular behaviour of the exact solution and its derivatives as t → a (which generically involves non-integer powers of (t − a)), and\n   (ii) yields rapid (ideally spectral) convergence on the smooth component of the solution away from a.\nProve convergence rates for the resulting scheme.",
+    "macro_subject": "Numerical Analysis",
+    "category_tag": "fractional terminal value problems",
+    "open_status": "partially_solved",
+    "status_search_result": "Recent work has made progress on part (a): a \"proportional secting\" update for the shooting iterate has been proposed and shown numerically to outperform bisection by a factor of roughly 4–10, and shooting–Newton and shooting–secant variants have been studied. However, no consensus optimal strategy with a complete convergence theory has been established, and the broader comparative study of collocation/Galerkin/Nyström/spectral/spectral-element methods for the equivalent Fredholm formulation, together with the construction of singularity-adapted bases capturing the endpoint behaviour as t → a, remains largely open.",
+    "status_evidence": [
+      {
+        "title": "A New Approach to Shooting Methods for Terminal Value Problems of Fractional Differential Equations",
+        "url": "https://arxiv.org/abs/2303.15454",
+        "snippet": "A new proportional secting technique to select the required initial values that solves such shooting problems quickly and accurately... speedup factor of between 4 and 10 when compared to the standard bisection method.",
+        "claim": "Partial progress on the optimal initial-value update inside shooting methods for Caputo terminal value problems."
+      },
+      {
+        "title": "A shooting-Newton procedure for solving fractional terminal value problems",
+        "url": "https://arxiv.org/html/2312.08516",
+        "snippet": "Shooting procedure coupled with the Newton method for solving fractional terminal value problems.",
+        "claim": "Alternative shooting updates (Newton, secant) have been investigated, but no definitive best method established."
+      },
+      {
+        "title": "Increasing the efficiency of shooting methods for terminal value problems of fractional order",
+        "url": "https://www.sciencedirect.com/science/article/abs/pii/S0021999114007426",
+        "snippet": "Three separate methods, differing only in the guess of the second initial value, have been proposed and their respective performances shown to differ only slightly.",
+        "claim": "Comparisons of shooting variants show only slight differences, leaving the optimal-update question unresolved."
+      }
+    ],
+    "confidence": 0.7
+  },
+  "model": "opus",
+  "effort": "medium",
+  "elapsed_s": 49.34,
+  "validation_warnings": [],
+  "raw_claude_stdout": "{\"type\":\"result\",\"subtype\":\"success\",\"is_error\":false,\"api_error_status\":null,\"duration_ms\":48215,\"duration_api_ms\":47561,\"num_turns\":3,\"result\":\"Sources:\\n- [A New Approach to Shooting Methods for Terminal Value Problems of FDEs (arXiv:2303.15454)](https://arxiv.org/abs/2303.15454)\\n- [A shooting-Newton procedure for solving fractional terminal value problems](https://arxiv.org/html/2312.08516)\\n- [Increasing the efficiency of shooting methods for terminal value problems of fractional order](https://www.sciencedirect.com/science/article/abs/pii/S0021999114007426)\\n- [Shooting Methods for Fractional Dirichlet-Type BVPs of Order α∈(1,2)](https://arxiv.org/html/2402.03487)\",\"stop_reason\":\"end_turn\",\"session_id\":\"734da292-563d-403c-9b45-ce87d07e7cbf\",\"total_cost_usd\":0.11604924999999999,\"usage\":{\"input_tokens\":8,\"cache_creation_input_tokens\":4761,\"cache_read_input_tokens\":13130,\"output_tokens\":1881,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":4761,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[{\"input_tokens\":1,\"output_tokens\":233,\"cache_read_input_tokens\":5915,\"cache_creation_input_tokens\":1531,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":1531},\"type\":\"message\"}],\"speed\":\"standard\"},\"modelUsage\":{\"claude-haiku-4-5-20251001\":{\"inputTokens\":20253,\"outputTokens\":482,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":1,\"costUSD\":0.032663,\"contextWindow\":200000,\"maxOutputTokens\":32000},\"claude-opus-4-7\":{\"inputTokens\":8,\"outputTokens\":1881,\"cacheReadInputTokens\":13130,\"cacheCreationInputTokens\":4761,\"webSearchRequests\":0,\"costUSD\":0.08338625,\"contextWindow\":1000000,\"maxOutputTokens\":64000}},\"permission_denials\":[],\"structured_output\":{\"self_contained_problem\":\"Consider the scalar terminal value problem for a Caputo fractional differential equation of order α ∈ (0,1):\\n  (CD^α_{a+} y)(t) = f(t, y(t)),  t ∈ [a,b],   y(b) = y*,\\nwhere CD^α_{a+} denotes the Caputo fractional derivative based at a, f : [a,b] × ℝ → ℝ is a sufficiently smooth right-hand side, and y* ∈ ℝ is a prescribed terminal value. A shooting method reformulates this problem by guessing the unknown initial value y(a) = η, solving the resulting Caputo initial value problem forward to t = b, and iteratively updating η so that the computed value at b matches y*.\\n\\nAddress the following:\\n\\n(a) Determine the most efficient and accurate strategy for updating the guess η in the next iteration of such a shooting procedure (in comparison with bisection, secant, Newton, and related root-finding/proportional-type updates), including a rigorous convergence analysis and quantitative comparison of iteration counts and runtime.\\n\\n(b) The terminal value problem can equivalently be recast as a Fredholm integral equation of the second kind for y on [a,b]. Carry out a systematic comparison of shooting, collocation, Galerkin, Nyström, spectral, and spectral-element methods for solving this equation, addressing computational cost, rates of convergence, and stability.\\n\\n(c) Design a basis of approximating functions (for use in the Galerkin/collocation/spectral/spectral-element schemes) that simultaneously\\n   (i) reproduces the typical endpoint singular behaviour of the exact solution and its derivatives as t → a (which generically involves non-integer powers of (t − a)), and\\n   (ii) yields rapid (ideally spectral) convergence on the smooth component of the solution away from a.\\nProve convergence rates for the resulting scheme.\",\"macro_subject\":\"Numerical Analysis\",\"category_tag\":\"fractional terminal value problems\",\"open_status\":\"partially_solved\",\"status_search_result\":\"Recent work has made progress on part (a): a \\\"proportional secting\\\" update for the shooting iterate has been proposed and shown numerically to outperform bisection by a factor of roughly 4–10, and shooting–Newton and shooting–secant variants have been studied. However, no consensus optimal strategy with a complete convergence theory has been established, and the broader comparative study of collocation/Galerkin/Nyström/spectral/spectral-element methods for the equivalent Fredholm formulation, together with the construction of singularity-adapted bases capturing the endpoint behaviour as t → a, remains largely open.\",\"status_evidence\":[{\"title\":\"A New Approach to Shooting Methods for Terminal Value Problems of Fractional Differential Equations\",\"url\":\"https://arxiv.org/abs/2303.15454\",\"snippet\":\"A new proportional secting technique to select the required initial values that solves such shooting problems quickly and accurately... speedup factor of between 4 and 10 when compared to the standard bisection method.\",\"claim\":\"Partial progress on the optimal initial-value update inside shooting methods for Caputo terminal value problems.\"},{\"title\":\"A shooting-Newton procedure for solving fractional terminal value problems\",\"url\":\"https://arxiv.org/html/2312.08516\",\"snippet\":\"Shooting procedure coupled with the Newton method for solving fractional terminal value problems.\",\"claim\":\"Alternative shooting updates (Newton, secant) have been investigated, but no definitive best method established.\"},{\"title\":\"Increasing the efficiency of shooting methods for terminal value problems of fractional order\",\"url\":\"https://www.sciencedirect.com/science/article/abs/pii/S0021999114007426\",\"snippet\":\"Three separate methods, differing only in the guess of the second initial value, have been proposed and their respective performances shown to differ only slightly.\",\"claim\":\"Comparisons of shooting variants show only slight differences, leaving the optimal-update question unresolved.\"}],\"confidence\":0.7},\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"uuid\":\"19a22617-5f0e-407d-9ba1-aa02d45d9078\"}\n"
+}

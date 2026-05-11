@@ -1,0 +1,51 @@
+{
+  "record": {
+    "global_index": 8082,
+    "source_json": "outputs/parse-paper/canteaut06a.json",
+    "paper_id": "canteaut06a",
+    "paper_title": "Open Problems Related to Algebraic Attacks on Stream Ciphers",
+    "paper_link": "https://zbmath.org/5148493",
+    "question_link": "https://zbmath.org/5148493",
+    "question_id": "q_007",
+    "parser_is_solved": "false",
+    "context_brief": "Algorithms for augmented-function relations",
+    "original_question": "Let F_m:F_2^n→F_2^m be the augmented function associated with a stream cipher with linear transition L and Boolean filtering function f, defined by F_m(x) = (f(x), f(L(x)), …, f(L^{m-1}(x))). Find an algorithm that determines low-degree algebraic relations for this augmented function efficiently enough to support fast algebraic attacks when direct kernel computations become too large.",
+    "evidence": [
+      {
+        "page": 11,
+        "quote": "the attacker wants to find some low degree relations g between the inputs and outputs of Fm: Fn 2 → Fm 2 x ￿→ (f(x), f(L(x)),...,f(Lm−1(x))"
+      },
+      {
+        "page": 11,
+        "quote": "Open problem 7. Find an algorithm which determines the low-degree relations for the augmented function."
+      }
+    ]
+  },
+  "artifact": {
+    "self_contained_problem": "Let $n,m\\ge 1$ be integers and let $\\mathbb{F}_2=\\{0,1\\}$ denote the binary field. Fix:\n- a linear bijection $L:\\mathbb{F}_2^n\\to\\mathbb{F}_2^n$ (the state-update map of a binary stream cipher whose internal state evolves by $x\\mapsto L(x)$), and\n- a Boolean function $f:\\mathbb{F}_2^n\\to\\mathbb{F}_2$ (the filter).\n\nDefine the augmented function of length $m$\n$$F_m:\\mathbb{F}_2^n\\to\\mathbb{F}_2^m,\\qquad F_m(x)=\\bigl(f(x),\\,f(L(x)),\\,f(L^2(x)),\\,\\dots,\\,f(L^{m-1}(x))\\bigr).$$\n\nAn algebraic relation of degree $d$ for $F_m$ is a nonzero polynomial $R(X_1,\\dots,X_n;Y_1,\\dots,Y_m)\\in\\mathbb{F}_2[X,Y]/(X_i^2-X_i,Y_j^2-Y_j)$ of total degree at most $d$ in the variables $X_1,\\dots,X_n$ (allowing arbitrary monomials in $Y_1,\\dots,Y_m$) such that\n$$R\\bigl(x_1,\\dots,x_n;\\,F_m(x)_1,\\dots,F_m(x)_m\\bigr)=0\\quad\\text{for all }x\\in\\mathbb{F}_2^n.$$\nSuch relations are precisely the elements of the kernel of the evaluation map sending a polynomial $R$ to the vector $(R(x,F_m(x)))_{x\\in\\mathbb{F}_2^n}$, and they fuel fast algebraic attacks on the cipher.\n\nProblem. Devise an algorithm that, given $L$, $f$, and parameters $m$ and $d$, determines a basis of (or at least produces nontrivial) algebraic relations of degree at most $d$ for the augmented function $F_m$, with running time and memory significantly better than that of directly computing the kernel of the full evaluation matrix (whose size grows as $2^n$ rows by $\\binom{n}{\\le d}\\cdot 2^m$ columns), so that the procedure remains feasible in the regimes of $(n,m,d)$ relevant to fast algebraic attacks on real-world stream ciphers.",
+    "macro_subject": "Theoretical Computer Science",
+    "category_tag": "algebraic attacks on stream ciphers",
+    "open_status": "unknown",
+    "status_search_result": "Searches surface follow-up work on algebraic immunity of augmented functions (e.g., analyses for Trivium) and on algorithms for finding low-degree annihilators/multiples of a single Boolean function, but no source identified provides a definitive efficient algorithm dedicated to computing low-degree relations for the augmented function $F_m$ that supersedes direct kernel computation. The status of this specific problem could not be conclusively verified from the search results.",
+    "status_evidence": [
+      {
+        "title": "Algebraic Attacks and Decomposition of Boolean Functions (Eurocrypt 2004)",
+        "url": "https://www.iacr.org/archive/eurocrypt2004/30270469/finaleurocr.pdf",
+        "snippet": "Algorithms for deciding whether a Boolean function has low-degree multiples/annihilators, but for a single function f, not for the augmented function F_m.",
+        "claim": "Related algorithms exist for single Boolean functions but not specifically as a complete answer for augmented functions."
+      },
+      {
+        "title": "Improving algebraic attacks on stream ciphers (eprint 2015/495)",
+        "url": "https://eprint.iacr.org/2015/495.pdf",
+        "snippet": "Discusses algebraic immunity of augmented functions and improvements to algebraic attacks; suggests Trivium has some immunity against algebraic attacks on augmented functions.",
+        "claim": "Subsequent work studies algebraic immunity of augmented functions, indicating the problem remains an active research area without a settled efficient general algorithm."
+      }
+    ],
+    "confidence": 0.6
+  },
+  "model": "opus",
+  "effort": "medium",
+  "elapsed_s": 32.79,
+  "validation_warnings": [],
+  "raw_claude_stdout": "{\"type\":\"result\",\"subtype\":\"success\",\"is_error\":false,\"api_error_status\":null,\"duration_ms\":31731,\"duration_api_ms\":31012,\"num_turns\":3,\"result\":\"I have produced the dataset row.\\n\\nSources:\\n- [Algebraic Attacks and Decomposition of Boolean Functions (IACR)](https://www.iacr.org/archive/eurocrypt2004/30270469/finaleurocr.pdf)\\n- [Improving algebraic attacks on stream ciphers (ePrint 2015/495)](https://eprint.iacr.org/2015/495.pdf)\\n- [Open Problems Related to Algebraic Attacks on Stream Ciphers (Semantic Scholar)](https://www.semanticscholar.org/paper/Open-Problems-Related-to-Algebraic-Attacks-on-Canteaut/dacbc90cd325b818be47b807f181d99252626567)\",\"stop_reason\":\"end_turn\",\"session_id\":\"2fbaf23b-8887-4021-9359-7f2ffa17e767\",\"total_cost_usd\":0.1204855,\"usage\":{\"input_tokens\":8,\"cache_creation_input_tokens\":4728,\"cache_read_input_tokens\":12813,\"output_tokens\":1932,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":4728,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[{\"input_tokens\":1,\"output_tokens\":250,\"cache_read_input_tokens\":5827,\"cache_creation_input_tokens\":1586,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":1586},\"type\":\"message\"}],\"speed\":\"standard\"},\"modelUsage\":{\"claude-haiku-4-5-20251001\":{\"inputTokens\":23354,\"outputTokens\":567,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":1,\"costUSD\":0.036189000000000006,\"contextWindow\":200000,\"maxOutputTokens\":32000},\"claude-opus-4-7\":{\"inputTokens\":8,\"outputTokens\":1932,\"cacheReadInputTokens\":12813,\"cacheCreationInputTokens\":4728,\"webSearchRequests\":0,\"costUSD\":0.0842965,\"contextWindow\":1000000,\"maxOutputTokens\":64000}},\"permission_denials\":[],\"structured_output\":{\"self_contained_problem\":\"Let $n,m\\\\ge 1$ be integers and let $\\\\mathbb{F}_2=\\\\{0,1\\\\}$ denote the binary field. Fix:\\n- a linear bijection $L:\\\\mathbb{F}_2^n\\\\to\\\\mathbb{F}_2^n$ (the state-update map of a binary stream cipher whose internal state evolves by $x\\\\mapsto L(x)$), and\\n- a Boolean function $f:\\\\mathbb{F}_2^n\\\\to\\\\mathbb{F}_2$ (the filter).\\n\\nDefine the augmented function of length $m$\\n$$F_m:\\\\mathbb{F}_2^n\\\\to\\\\mathbb{F}_2^m,\\\\qquad F_m(x)=\\\\bigl(f(x),\\\\,f(L(x)),\\\\,f(L^2(x)),\\\\,\\\\dots,\\\\,f(L^{m-1}(x))\\\\bigr).$$\\n\\nAn algebraic relation of degree $d$ for $F_m$ is a nonzero polynomial $R(X_1,\\\\dots,X_n;Y_1,\\\\dots,Y_m)\\\\in\\\\mathbb{F}_2[X,Y]/(X_i^2-X_i,Y_j^2-Y_j)$ of total degree at most $d$ in the variables $X_1,\\\\dots,X_n$ (allowing arbitrary monomials in $Y_1,\\\\dots,Y_m$) such that\\n$$R\\\\bigl(x_1,\\\\dots,x_n;\\\\,F_m(x)_1,\\\\dots,F_m(x)_m\\\\bigr)=0\\\\quad\\\\text{for all }x\\\\in\\\\mathbb{F}_2^n.$$\\nSuch relations are precisely the elements of the kernel of the evaluation map sending a polynomial $R$ to the vector $(R(x,F_m(x)))_{x\\\\in\\\\mathbb{F}_2^n}$, and they fuel fast algebraic attacks on the cipher.\\n\\nProblem. Devise an algorithm that, given $L$, $f$, and parameters $m$ and $d$, determines a basis of (or at least produces nontrivial) algebraic relations of degree at most $d$ for the augmented function $F_m$, with running time and memory significantly better than that of directly computing the kernel of the full evaluation matrix (whose size grows as $2^n$ rows by $\\\\binom{n}{\\\\le d}\\\\cdot 2^m$ columns), so that the procedure remains feasible in the regimes of $(n,m,d)$ relevant to fast algebraic attacks on real-world stream ciphers.\",\"macro_subject\":\"Theoretical Computer Science\",\"category_tag\":\"algebraic attacks on stream ciphers\",\"open_status\":\"unknown\",\"status_search_result\":\"Searches surface follow-up work on algebraic immunity of augmented functions (e.g., analyses for Trivium) and on algorithms for finding low-degree annihilators/multiples of a single Boolean function, but no source identified provides a definitive efficient algorithm dedicated to computing low-degree relations for the augmented function $F_m$ that supersedes direct kernel computation. The status of this specific problem could not be conclusively verified from the search results.\",\"status_evidence\":[{\"title\":\"Algebraic Attacks and Decomposition of Boolean Functions (Eurocrypt 2004)\",\"url\":\"https://www.iacr.org/archive/eurocrypt2004/30270469/finaleurocr.pdf\",\"snippet\":\"Algorithms for deciding whether a Boolean function has low-degree multiples/annihilators, but for a single function f, not for the augmented function F_m.\",\"claim\":\"Related algorithms exist for single Boolean functions but not specifically as a complete answer for augmented functions.\"},{\"title\":\"Improving algebraic attacks on stream ciphers (eprint 2015/495)\",\"url\":\"https://eprint.iacr.org/2015/495.pdf\",\"snippet\":\"Discusses algebraic immunity of augmented functions and improvements to algebraic attacks; suggests Trivium has some immunity against algebraic attacks on augmented functions.\",\"claim\":\"Subsequent work studies algebraic immunity of augmented functions, indicating the problem remains an active research area without a settled efficient general algorithm.\"}],\"confidence\":0.6},\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"uuid\":\"aad1b364-f2b6-4025-9d60-2d946021d09c\"}\n"
+}

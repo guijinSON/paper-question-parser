@@ -1,0 +1,69 @@
+{
+  "record": {
+    "global_index": 4354,
+    "source_json": "outputs/parse-paper/1908.10195.json",
+    "paper_id": "1908.10195",
+    "paper_title": "A Survey on LoRa Networking: Research Problems, Current Solutions and Open Issues",
+    "paper_link": "https://arxiv.org/abs/1908.10195",
+    "question_link": "https://arxiv.org/pdf/1908.10195.pdf#page=5",
+    "question_id": "q_004",
+    "parser_is_solved": "false",
+    "context_brief": "Long-range LoRa communication without heavy chip modifications",
+    "original_question": "How can the reliable communication range of LoRa links be improved without heavy modifications to commercially available LoRa radio chips? The problem includes enabling gateways to make use of weak long-range signals that they may be able to detect but not decode, while avoiding approaches that depend on USRP radios, ambiguous commercial-chip implementation paths, backscatter-specific modifications, or other substantial hardware changes.",
+    "evidence": [
+      {
+        "page": 5,
+        "quote": "It has been noted that gateways can detect signals below a given threshold but cannot decode them. Devising a technique to decode these signals will improve communication range."
+      },
+      {
+        "page": 9,
+        "quote": "Programmable auxiliary hardware attached to the gateway improves the gateway’s ability to detect very weak signals which cannot be directly detected by gateways. Joint decoding algorithm uses a heuristic approach to select signals to be combined at the cloud. Results show that the range is improved 3 × and battery life is improved 4 × the standard LoRa technology."
+      },
+      {
+        "page": 14,
+        "quote": "Performance evaluations in [32]–[37] expound the need to provide reliable transmissions for long range LoRa links."
+      },
+      {
+        "page": 14,
+        "quote": "Choir [51] improves the range but its implementation on commercial radio chips is ambiguous as they were experimented on USRP radios and may require modifying the commercial radio."
+      },
+      {
+        "page": 14,
+        "quote": "NetScatter [55] leverages backscatter with distributed coding to enable concurrent transmission of 256 nodes which still needs some hardware modiﬁcations on commercial chips. Even though the above techniques Choir [51] and NetScatter [55] have improved the range, communication range still needs to be improved without heavy modiﬁcations of the commercially available chips ."
+      }
+    ]
+  },
+  "artifact": {
+    "self_contained_problem": "Consider the LoRa (Long Range) wireless communication system, in which low-power end devices transmit Chirp Spread Spectrum (CSS) modulated packets to gateways over distances of several kilometers. A LoRa gateway equipped with a commercially available LoRa transceiver chip can detect the presence of an incoming chirp packet whose received signal strength lies above its detection threshold but below the threshold needed to correctly demodulate and decode the payload; such packets are normally discarded.\n\nDesign a reliable communication scheme that extends the effective decoding range of LoRa uplinks under the following constraints:\n\n1. End devices use unmodified, commercially available LoRa radio chips and standard CSS-modulated transmissions (no custom backscatter hardware, no replacement of the chip's PHY-layer signal generation, and no use of software-defined radios such as USRPs at the end-device side).\n2. Gateways may be augmented only by lightweight, well-specified auxiliary processing (for example, additional digital signal processing in firmware/cloud, multi-antenna combining, or coordinated multi-gateway reception), but must not require replacing the commercial LoRa chip itself or rely on implementation paths whose realizability on commercial chips is unclear.\n3. The scheme must enable the recovery of payload bits from packets whose per-gateway SNR is below the standard LoRa decoding threshold, by exploiting weak-but-detectable signals (e.g., through joint/coherent combining across multiple gateways or antennas, denoising, or comparable techniques).\n\nSpecify the signal-processing and networking algorithm, prove or empirically establish that it strictly enlarges the decodable range compared with a single standard LoRa gateway, and quantify the achievable range gain and energy/battery-life impact while preserving compatibility with unmodified commercial LoRa end devices.",
+    "macro_subject": "Applied Mathematics",
+    "category_tag": "LoRa wireless communication and signal decoding",
+    "open_status": "partially_solved",
+    "status_search_result": "Several systems have substantially advanced this problem since it was posed. Charm performs coherent combining of weak signals across multiple gateways; MALoRa uses gateway antenna diversity to combine signals before standard LoRa demodulation; and SRLoRa applies neural super-resolution-style denoising across multiple gateways to decode signals well below the single-gateway SNR threshold. These approaches keep commercial LoRa end devices unmodified and report multi-fold range and battery improvements. However, several proposed gateway-side solutions still rely on SDR-based gateway prototypes (e.g., USRP N210), so a fully commercial-chip, end-to-end deployment satisfying all stated constraints remains only partially achieved.",
+    "status_evidence": [
+      {
+        "title": "SRLoRa: Neural-enhanced LoRa Weak Signal Decoding with Multi-gateway Super Resolution",
+        "url": "https://dl.acm.org/doi/10.1145/3565287.3610254",
+        "snippet": "SRLoRa fully utilizes spatial information from multiple gateways to decode extremely weak LoRa signals via interleaving denoising and merging layers.",
+        "claim": "Multi-gateway neural decoding can recover LoRa packets at SNRs below the standard decoding threshold."
+      },
+      {
+        "title": "Don't Miss Weak Packets: Boosting LoRa Reception with Antenna Diversities (MALoRa)",
+        "url": "https://ningning-hou.github.io/homepage/files/MALoRa_JPub.pdf",
+        "snippet": "MALoRa leverages multiple antennas of a gateway to coherently combine received signals, feeding SNR-enhanced signals into the standard LoRa demodulation and decoding pipeline.",
+        "claim": "Antenna-diversity combining at the gateway extends weak-signal reception while keeping end devices and demodulation standard."
+      },
+      {
+        "title": "LoRa Networking Techniques for Large-scale and Long-term IoT",
+        "url": "https://cse.msu.edu/~caozc/papers/csur22-li.pdf",
+        "snippet": "Survey discusses Charm and other multi-gateway coherent combining methods that decode weak LoRa signals undecodable at single gateways.",
+        "claim": "Multi-gateway coherent combining is a recognized technique for extending LoRa range without modifying end devices."
+      }
+    ],
+    "confidence": 0.6
+  },
+  "model": "opus",
+  "effort": "medium",
+  "elapsed_s": 49.42,
+  "validation_warnings": [],
+  "raw_claude_stdout": "{\"type\":\"result\",\"subtype\":\"success\",\"is_error\":false,\"api_error_status\":null,\"duration_ms\":47904,\"duration_api_ms\":41546,\"num_turns\":3,\"result\":\"Sources:\\n- [SRLoRa: Neural-enhanced LoRa Weak Signal Decoding with Multi-gateway Super Resolution](https://dl.acm.org/doi/10.1145/3565287.3610254)\\n- [Don't Miss Weak Packets: Boosting LoRa Reception with Antenna Diversities (MALoRa)](https://ningning-hou.github.io/homepage/files/MALoRa_JPub.pdf)\\n- [LoRa Networking Techniques for Large-scale and Long-term IoT](https://cse.msu.edu/~caozc/papers/csur22-li.pdf)\\n- [SRLoRa (preprint)](https://cse.msu.edu/~caozc/papers/mobihoc23-du.pdf)\",\"stop_reason\":\"end_turn\",\"session_id\":\"3769d848-efb6-4c81-b066-a3bfa103573d\",\"total_cost_usd\":0.1242935,\"usage\":{\"input_tokens\":8,\"cache_creation_input_tokens\":5020,\"cache_read_input_tokens\":13255,\"output_tokens\":2013,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":5020,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[{\"input_tokens\":1,\"output_tokens\":263,\"cache_read_input_tokens\":6055,\"cache_creation_input_tokens\":1650,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":1650},\"type\":\"message\"}],\"speed\":\"standard\"},\"modelUsage\":{\"claude-haiku-4-5-20251001\":{\"inputTokens\":23266,\"outputTokens\":532,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":1,\"costUSD\":0.035926,\"contextWindow\":200000,\"maxOutputTokens\":32000},\"claude-opus-4-7\":{\"inputTokens\":8,\"outputTokens\":2013,\"cacheReadInputTokens\":13255,\"cacheCreationInputTokens\":5020,\"webSearchRequests\":0,\"costUSD\":0.08836749999999999,\"contextWindow\":1000000,\"maxOutputTokens\":64000}},\"permission_denials\":[],\"structured_output\":{\"self_contained_problem\":\"Consider the LoRa (Long Range) wireless communication system, in which low-power end devices transmit Chirp Spread Spectrum (CSS) modulated packets to gateways over distances of several kilometers. A LoRa gateway equipped with a commercially available LoRa transceiver chip can detect the presence of an incoming chirp packet whose received signal strength lies above its detection threshold but below the threshold needed to correctly demodulate and decode the payload; such packets are normally discarded.\\n\\nDesign a reliable communication scheme that extends the effective decoding range of LoRa uplinks under the following constraints:\\n\\n1. End devices use unmodified, commercially available LoRa radio chips and standard CSS-modulated transmissions (no custom backscatter hardware, no replacement of the chip's PHY-layer signal generation, and no use of software-defined radios such as USRPs at the end-device side).\\n2. Gateways may be augmented only by lightweight, well-specified auxiliary processing (for example, additional digital signal processing in firmware/cloud, multi-antenna combining, or coordinated multi-gateway reception), but must not require replacing the commercial LoRa chip itself or rely on implementation paths whose realizability on commercial chips is unclear.\\n3. The scheme must enable the recovery of payload bits from packets whose per-gateway SNR is below the standard LoRa decoding threshold, by exploiting weak-but-detectable signals (e.g., through joint/coherent combining across multiple gateways or antennas, denoising, or comparable techniques).\\n\\nSpecify the signal-processing and networking algorithm, prove or empirically establish that it strictly enlarges the decodable range compared with a single standard LoRa gateway, and quantify the achievable range gain and energy/battery-life impact while preserving compatibility with unmodified commercial LoRa end devices.\",\"macro_subject\":\"Applied Mathematics\",\"category_tag\":\"LoRa wireless communication and signal decoding\",\"open_status\":\"partially_solved\",\"status_search_result\":\"Several systems have substantially advanced this problem since it was posed. Charm performs coherent combining of weak signals across multiple gateways; MALoRa uses gateway antenna diversity to combine signals before standard LoRa demodulation; and SRLoRa applies neural super-resolution-style denoising across multiple gateways to decode signals well below the single-gateway SNR threshold. These approaches keep commercial LoRa end devices unmodified and report multi-fold range and battery improvements. However, several proposed gateway-side solutions still rely on SDR-based gateway prototypes (e.g., USRP N210), so a fully commercial-chip, end-to-end deployment satisfying all stated constraints remains only partially achieved.\",\"status_evidence\":[{\"title\":\"SRLoRa: Neural-enhanced LoRa Weak Signal Decoding with Multi-gateway Super Resolution\",\"url\":\"https://dl.acm.org/doi/10.1145/3565287.3610254\",\"snippet\":\"SRLoRa fully utilizes spatial information from multiple gateways to decode extremely weak LoRa signals via interleaving denoising and merging layers.\",\"claim\":\"Multi-gateway neural decoding can recover LoRa packets at SNRs below the standard decoding threshold.\"},{\"title\":\"Don't Miss Weak Packets: Boosting LoRa Reception with Antenna Diversities (MALoRa)\",\"url\":\"https://ningning-hou.github.io/homepage/files/MALoRa_JPub.pdf\",\"snippet\":\"MALoRa leverages multiple antennas of a gateway to coherently combine received signals, feeding SNR-enhanced signals into the standard LoRa demodulation and decoding pipeline.\",\"claim\":\"Antenna-diversity combining at the gateway extends weak-signal reception while keeping end devices and demodulation standard.\"},{\"title\":\"LoRa Networking Techniques for Large-scale and Long-term IoT\",\"url\":\"https://cse.msu.edu/~caozc/papers/csur22-li.pdf\",\"snippet\":\"Survey discusses Charm and other multi-gateway coherent combining methods that decode weak LoRa signals undecodable at single gateways.\",\"claim\":\"Multi-gateway coherent combining is a recognized technique for extending LoRa range without modifying end devices.\"}],\"confidence\":0.6},\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"uuid\":\"93782eca-537b-447f-8ae7-6ef97769575e\"}\n"
+}

@@ -1,0 +1,51 @@
+{
+  "record": {
+    "global_index": 4427,
+    "source_json": "outputs/parse-paper/1910.11474.json",
+    "paper_id": "1910.11474",
+    "paper_title": "Toward epidemic thresholds on temporal networks: a review and open questions",
+    "paper_link": "https://arxiv.org/abs/1910.11474",
+    "question_link": "https://arxiv.org/pdf/1910.11474.pdf#page=8",
+    "question_id": "q_001",
+    "parser_is_solved": "false",
+    "context_brief": "Periodic boundary conditions in snapshot models",
+    "original_question": "In temporal-network epidemic models that compute the epidemic threshold from a repeated sequence of adjacency-matrix snapshots A_1, ..., A_T, one often imposes a periodic boundary condition A(T+t) = A_t so that the observed snapshot sequence repeats indefinitely. This repetition can create time-respecting transmission paths that did not exist in the original finite temporal network. Does imposing that periodic boundary condition change the epidemic threshold that is estimated for the original temporal contact network, and if so, how?",
+    "evidence": [
+      {
+        "page": 8,
+        "quote": "However, the approach of Valdano et al. assumes a period boundary condition, A(T+t) ≡ At, where the temporal network snapshots are repeated over time."
+      },
+      {
+        "page": 8,
+        "quote": "The authors note that this may result in time-respecting paths that are not present in the original temporal network, but whether this affects the estimated epidemic threshold is an open question."
+      }
+    ]
+  },
+  "artifact": {
+    "self_contained_problem": "Consider a discrete-time temporal network on a fixed set of $N$ nodes given by a finite sequence of adjacency-matrix snapshots $A_1, A_2, \\dots, A_T$, where $A_t \\in \\{0,1\\}^{N\\times N}$ records the contacts active during time step $t$. On this temporal network, run a discrete-time Markovian SIS spreading process with per-contact transmission probability $\\lambda$ and per-step recovery probability $\\mu$, and define the epidemic threshold $\\lambda_c$ as the smallest $\\lambda$ for which the disease-free state is unstable.\n\nA standard analytic approach computes $\\lambda_c$ by extending the snapshot sequence periodically, i.e., imposing the periodic boundary condition\n$$A_{t+T} \\equiv A_t \\quad \\text{for all } t \\in \\mathbb{Z},$$\nso that the network is treated as an infinitely repeated cycle of the original $T$ snapshots, and then analyzing the spectral radius of the product $\\prod_{t=1}^{T}\\bigl[(1-\\mu)I + \\lambda A_t\\bigr]$ (or an analogous transmission operator).\n\nRepeating the snapshot sequence can create time-respecting paths $(i_0, t_0) \\to (i_1, t_1) \\to \\cdots$ (with $t_0 < t_1 < \\cdots$ and $A_{t_k}(i_{k-1}, i_k) = 1$) that do not exist within the single original window $\\{1,\\dots,T\\}$.\n\nQuestion: Does imposing the periodic boundary condition $A_{t+T} \\equiv A_t$ change the epidemic threshold of the original finite temporal contact network $(A_1,\\dots,A_T)$ compared to the threshold one would obtain without periodic repetition? If so, characterize quantitatively how the threshold depends on $T$ and on the structure of the snapshots, and identify conditions (e.g., a minimum period length) under which the periodic-boundary threshold faithfully recovers the threshold of the non-repeated temporal network.",
+    "macro_subject": "Applied Mathematics",
+    "category_tag": "epidemic thresholds on temporal networks",
+    "open_status": "open",
+    "status_search_result": "Available reviews and follow-up work on temporal-network epidemic thresholds reiterate that the periodic-boundary assumption used by Valdano et al. may introduce additional time-respecting paths not present in the original finite temporal network, and explicitly state that whether this changes the estimated epidemic threshold remains unresolved. Numerical heuristics for an \"optimal minimum period length\" have been explored, but no general analytical resolution was found in the search.",
+    "status_evidence": [
+      {
+        "title": "Analytical computation of the epidemic threshold on temporal networks (Valdano et al.)",
+        "url": "https://arxiv.org/abs/1406.4815",
+        "snippet": "Introduces the threshold formula for periodic snapshot sequences A(T+t) ≡ A_t, the assumption whose effect on the threshold is in question.",
+        "claim": "Defines the periodic-boundary framework whose impact on the threshold is unresolved."
+      },
+      {
+        "title": "Toward epidemic thresholds on temporal networks: a review and open questions",
+        "url": "https://link.springer.com/article/10.1007/s41109-019-0230-4",
+        "snippet": "Notes that periodic repetition may produce time-respecting paths absent from the original network and that whether this affects the estimated threshold is an open question.",
+        "claim": "States the question is open as of the review."
+      }
+    ],
+    "confidence": 0.7
+  },
+  "model": "opus",
+  "effort": "medium",
+  "elapsed_s": 36.81,
+  "validation_warnings": [],
+  "raw_claude_stdout": "{\"type\":\"result\",\"subtype\":\"success\",\"is_error\":false,\"api_error_status\":null,\"duration_ms\":35453,\"duration_api_ms\":34314,\"num_turns\":3,\"result\":\"Sources:\\n- [Toward epidemic thresholds on temporal networks: a review and open questions](https://link.springer.com/article/10.1007/s41109-019-0230-4)\\n- [Analytical computation of the epidemic threshold on temporal networks](https://arxiv.org/abs/1406.4815)\",\"stop_reason\":\"end_turn\",\"session_id\":\"8a4d7876-151b-4635-af74-6ef5a07655e9\",\"total_cost_usd\":0.10893674999999997,\"usage\":{\"input_tokens\":8,\"cache_creation_input_tokens\":4487,\"cache_read_input_tokens\":12826,\"output_tokens\":1581,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":4487,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[{\"input_tokens\":1,\"output_tokens\":106,\"cache_read_input_tokens\":5789,\"cache_creation_input_tokens\":1383,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":1383},\"type\":\"message\"}],\"speed\":\"standard\"},\"modelUsage\":{\"claude-haiku-4-5-20251001\":{\"inputTokens\":22300,\"outputTokens\":523,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":1,\"costUSD\":0.034915,\"contextWindow\":200000,\"maxOutputTokens\":32000},\"claude-opus-4-7\":{\"inputTokens\":8,\"outputTokens\":1581,\"cacheReadInputTokens\":12826,\"cacheCreationInputTokens\":4487,\"webSearchRequests\":0,\"costUSD\":0.07402175,\"contextWindow\":1000000,\"maxOutputTokens\":64000}},\"permission_denials\":[],\"structured_output\":{\"self_contained_problem\":\"Consider a discrete-time temporal network on a fixed set of $N$ nodes given by a finite sequence of adjacency-matrix snapshots $A_1, A_2, \\\\dots, A_T$, where $A_t \\\\in \\\\{0,1\\\\}^{N\\\\times N}$ records the contacts active during time step $t$. On this temporal network, run a discrete-time Markovian SIS spreading process with per-contact transmission probability $\\\\lambda$ and per-step recovery probability $\\\\mu$, and define the epidemic threshold $\\\\lambda_c$ as the smallest $\\\\lambda$ for which the disease-free state is unstable.\\n\\nA standard analytic approach computes $\\\\lambda_c$ by extending the snapshot sequence periodically, i.e., imposing the periodic boundary condition\\n$$A_{t+T} \\\\equiv A_t \\\\quad \\\\text{for all } t \\\\in \\\\mathbb{Z},$$\\nso that the network is treated as an infinitely repeated cycle of the original $T$ snapshots, and then analyzing the spectral radius of the product $\\\\prod_{t=1}^{T}\\\\bigl[(1-\\\\mu)I + \\\\lambda A_t\\\\bigr]$ (or an analogous transmission operator).\\n\\nRepeating the snapshot sequence can create time-respecting paths $(i_0, t_0) \\\\to (i_1, t_1) \\\\to \\\\cdots$ (with $t_0 < t_1 < \\\\cdots$ and $A_{t_k}(i_{k-1}, i_k) = 1$) that do not exist within the single original window $\\\\{1,\\\\dots,T\\\\}$.\\n\\nQuestion: Does imposing the periodic boundary condition $A_{t+T} \\\\equiv A_t$ change the epidemic threshold of the original finite temporal contact network $(A_1,\\\\dots,A_T)$ compared to the threshold one would obtain without periodic repetition? If so, characterize quantitatively how the threshold depends on $T$ and on the structure of the snapshots, and identify conditions (e.g., a minimum period length) under which the periodic-boundary threshold faithfully recovers the threshold of the non-repeated temporal network.\",\"macro_subject\":\"Applied Mathematics\",\"category_tag\":\"epidemic thresholds on temporal networks\",\"open_status\":\"open\",\"status_search_result\":\"Available reviews and follow-up work on temporal-network epidemic thresholds reiterate that the periodic-boundary assumption used by Valdano et al. may introduce additional time-respecting paths not present in the original finite temporal network, and explicitly state that whether this changes the estimated epidemic threshold remains unresolved. Numerical heuristics for an \\\"optimal minimum period length\\\" have been explored, but no general analytical resolution was found in the search.\",\"status_evidence\":[{\"title\":\"Analytical computation of the epidemic threshold on temporal networks (Valdano et al.)\",\"url\":\"https://arxiv.org/abs/1406.4815\",\"snippet\":\"Introduces the threshold formula for periodic snapshot sequences A(T+t) ≡ A_t, the assumption whose effect on the threshold is in question.\",\"claim\":\"Defines the periodic-boundary framework whose impact on the threshold is unresolved.\"},{\"title\":\"Toward epidemic thresholds on temporal networks: a review and open questions\",\"url\":\"https://link.springer.com/article/10.1007/s41109-019-0230-4\",\"snippet\":\"Notes that periodic repetition may produce time-respecting paths absent from the original network and that whether this affects the estimated threshold is an open question.\",\"claim\":\"States the question is open as of the review.\"}],\"confidence\":0.7},\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"uuid\":\"735e0edd-2541-4d11-900e-b01849066e6b\"}\n"
+}

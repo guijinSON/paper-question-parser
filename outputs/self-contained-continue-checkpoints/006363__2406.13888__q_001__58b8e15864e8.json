@@ -1,0 +1,61 @@
+{
+  "record": {
+    "global_index": 6363,
+    "source_json": "outputs/parse-paper/2406.13888.json",
+    "paper_id": "2406.13888",
+    "paper_title": "",
+    "paper_link": "https://arxiv.org/abs/2406.13888",
+    "question_link": "https://arxiv.org/pdf/2406.13888.pdf#page=1",
+    "question_id": "q_001",
+    "parser_is_solved": "false",
+    "context_brief": "Anytime acceleration for gradient descent on smooth convex objectives",
+    "original_question": "Consider gradient descent on a convex function f: R^d -> R that is L-smooth, meaning that its gradient exists and is L-Lipschitz. Starting from an initial point x0 in R^d, the iterates are defined by x_{t+1} = x_t - eta_t nabla f(x_t), and f* = inf f with x* denoting a minimizer. What is the best anytime convergence rate for the individual-iterate error f(x_T) - f* that can be guaranteed uniformly over all such objectives by choosing a stepsize sequence (eta_t)_{t=0}^infinity? In particular, does there exist a stepsize sequence and an exponent alpha > 1 such that, for every horizon T in N and every L-smooth convex function f, the error f(x_T) - f* is bounded up to a universal constant factor by L ||x0 - x*||^2 / T^alpha, with the guarantee available in an anytime, monotonically decreasing form across all T?",
+    "evidence": [
+      {
+        "page": 1,
+        "quote": "Given a convex function f : R^d -> R which is L-smooth (i.e. nabla f exists and is L-Lipschitz), and an initial point x0 in R^d, the GD iterates with stepsizes (eta_t)^infinity_{t=0} are defined as x_{t+1} = x_t - eta_t nabla f(x_t)."
+      },
+      {
+        "page": 2,
+        "quote": "Open Problem 1 What is the best anytime convergence rate achievable by GD with some stepsize sequence (eta_t)^infinity_{t=0}, uniformly over L-smooth convex functions? In particular, is there any stepsize sequence and some alpha > 1, such that for all L-smooth convex f, f(x_T) - f* . L ||x0 - x*||^2 / T^alpha for all T in N?"
+      },
+      {
+        "page": 2,
+        "quote": "We remark that we seek an anytime, monotonically decreasing upper bound on the error: Indeed, with long steps, the errors themselves may not decrease monotonically."
+      }
+    ]
+  },
+  "artifact": {
+    "self_contained_problem": "Let f: R^d → R be a convex function that is L-smooth, i.e., differentiable with an L-Lipschitz gradient, and assume f attains its infimum f* = inf f at some minimizer x*. Fix an initial point x_0 ∈ R^d. Given a deterministic stepsize sequence (η_t)_{t=0}^∞ ⊂ (0, ∞) (chosen in advance, independently of f and of any stopping time), define the gradient descent iterates\n\n    x_{t+1} = x_t − η_t ∇f(x_t),  t = 0, 1, 2, … .\n\nDetermine the best anytime convergence rate of the individual-iterate error f(x_T) − f* that can be guaranteed uniformly over all such (L, f, x_0). Specifically:\n\n(a) Does there exist a stepsize sequence (η_t)_{t=0}^∞ and an exponent α > 1, together with a universal constant C > 0, such that for every L > 0, every L-smooth convex f: R^d → R with a minimizer x*, every x_0 ∈ R^d, and every horizon T ∈ N,\n\n    f(x_T) − f* ≤ C · L ‖x_0 − x*‖^2 / T^α ?\n\n(b) More generally, identify the largest exponent α (or, more finely, the optimal anytime function φ(T)) such that some stepsize sequence achieves f(x_T) − f* ≤ C · L ‖x_0 − x*‖^2 · φ(T) simultaneously for all T ∈ N, where the bound is required to be available in an anytime, monotonically decreasing form in T.",
+    "macro_subject": "Applied Mathematics",
+    "category_tag": "Convex optimization / gradient descent stepsize schedules",
+    "open_status": "partially_solved",
+    "status_search_result": "A subsequent work by Zhang and Jiang (2024/2025, \"Anytime Acceleration of Gradient Descent\") gives an affirmative answer to part (a): there is an explicit stepsize schedule based on the silver ratio achieving f(x_T) − f* ≤ O(L ‖x_0 − x*‖^2 / T^{1.119}) anytime, thus with α ≈ 1.119 > 1. However, the optimal exponent α and the precise best anytime rate remain unresolved; known upper bounds (around T^{−1.119}) do not match the known information-theoretic limit (around T^{−2} from accelerated methods), so the problem is only partially solved.",
+    "status_evidence": [
+      {
+        "title": "Anytime Acceleration of Gradient Descent",
+        "url": "https://arxiv.org/html/2411.17668",
+        "snippet": "stepsize schedule that allows gradient descent to achieve convergence guarantees of O(T^{-1.119}) for any stopping time T",
+        "claim": "An explicit silver-ratio-based stepsize sequence achieves an anytime rate with exponent α ≈ 1.119 > 1, affirmatively answering the existence question."
+      },
+      {
+        "title": "Open Problem: Anytime Convergence Rate of Gradient Descent",
+        "url": "https://proceedings.mlr.press/v247/kornowski24a.html",
+        "snippet": "Open problem posed at COLT 2024 asking for the best anytime convergence rate of GD on smooth convex functions.",
+        "claim": "The original problem was posed as an open problem at COLT 2024."
+      },
+      {
+        "title": "Acceleration by stepsize hedging: Silver Stepsize Schedule",
+        "url": "https://link.springer.com/article/10.1007/s10107-024-02164-2",
+        "snippet": "Silver stepsize schedule yields accelerated convergence for smooth convex optimization.",
+        "claim": "Silver-ratio stepsize schedules provide acceleration beyond the classical O(1/T) rate, supporting partial resolution of the problem."
+      }
+    ],
+    "confidence": 0.8
+  },
+  "model": "opus",
+  "effort": "medium",
+  "elapsed_s": 34.57,
+  "validation_warnings": [],
+  "raw_claude_stdout": "{\"type\":\"result\",\"subtype\":\"success\",\"is_error\":false,\"api_error_status\":null,\"duration_ms\":33136,\"duration_api_ms\":31783,\"num_turns\":3,\"result\":\"I've produced the dataset row. The problem asks for the best anytime convergence rate for gradient descent on L-smooth convex objectives with a preselected stepsize schedule, and whether an exponent α > 1 is achievable.\\n\\nStatus: **partially solved** — Zhang & Jiang (2024) gave an affirmative existence result with α ≈ 1.119 via a silver-ratio stepsize schedule, but the optimal anytime exponent remains open.\\n\\nSources:\\n- [Open Problem: Anytime Convergence Rate of Gradient Descent (Kornowski & Shamir, COLT 2024)](https://proceedings.mlr.press/v247/kornowski24a.html)\\n- [Anytime Acceleration of Gradient Descent (Zhang & Jiang)](https://arxiv.org/html/2411.17668)\\n- [Anytime Acceleration of Gradient Descent — PMLR](https://proceedings.mlr.press/v291/zhang25a.html)\\n- [Acceleration by stepsize hedging: Silver Stepsize Schedule](https://link.springer.com/article/10.1007/s10107-024-02164-2)\\n- [Acceleration by Stepsize Hedging: Silver Stepsize Schedule, JACM](https://dl.acm.org/doi/10.1145/3708502)\",\"stop_reason\":\"end_turn\",\"session_id\":\"f4899105-404b-454e-880e-11e1415466af\",\"total_cost_usd\":0.12198124999999999,\"usage\":{\"input_tokens\":8,\"cache_creation_input_tokens\":4853,\"cache_read_input_tokens\":13440,\"output_tokens\":2050,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":4853,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[{\"input_tokens\":1,\"output_tokens\":445,\"cache_read_input_tokens\":6052,\"cache_creation_input_tokens\":1486,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":1486},\"type\":\"message\"}],\"speed\":\"standard\"},\"modelUsage\":{\"claude-haiku-4-5-20251001\":{\"inputTokens\":21370,\"outputTokens\":454,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":1,\"costUSD\":0.033639999999999996,\"contextWindow\":200000,\"maxOutputTokens\":32000},\"claude-opus-4-7\":{\"inputTokens\":8,\"outputTokens\":2050,\"cacheReadInputTokens\":13440,\"cacheCreationInputTokens\":4853,\"webSearchRequests\":0,\"costUSD\":0.08834125000000001,\"contextWindow\":1000000,\"maxOutputTokens\":64000}},\"permission_denials\":[],\"structured_output\":{\"self_contained_problem\":\"Let f: R^d → R be a convex function that is L-smooth, i.e., differentiable with an L-Lipschitz gradient, and assume f attains its infimum f* = inf f at some minimizer x*. Fix an initial point x_0 ∈ R^d. Given a deterministic stepsize sequence (η_t)_{t=0}^∞ ⊂ (0, ∞) (chosen in advance, independently of f and of any stopping time), define the gradient descent iterates\\n\\n    x_{t+1} = x_t − η_t ∇f(x_t),  t = 0, 1, 2, … .\\n\\nDetermine the best anytime convergence rate of the individual-iterate error f(x_T) − f* that can be guaranteed uniformly over all such (L, f, x_0). Specifically:\\n\\n(a) Does there exist a stepsize sequence (η_t)_{t=0}^∞ and an exponent α > 1, together with a universal constant C > 0, such that for every L > 0, every L-smooth convex f: R^d → R with a minimizer x*, every x_0 ∈ R^d, and every horizon T ∈ N,\\n\\n    f(x_T) − f* ≤ C · L ‖x_0 − x*‖^2 / T^α ?\\n\\n(b) More generally, identify the largest exponent α (or, more finely, the optimal anytime function φ(T)) such that some stepsize sequence achieves f(x_T) − f* ≤ C · L ‖x_0 − x*‖^2 · φ(T) simultaneously for all T ∈ N, where the bound is required to be available in an anytime, monotonically decreasing form in T.\",\"macro_subject\":\"Applied Mathematics\",\"category_tag\":\"Convex optimization / gradient descent stepsize schedules\",\"open_status\":\"partially_solved\",\"status_search_result\":\"A subsequent work by Zhang and Jiang (2024/2025, \\\"Anytime Acceleration of Gradient Descent\\\") gives an affirmative answer to part (a): there is an explicit stepsize schedule based on the silver ratio achieving f(x_T) − f* ≤ O(L ‖x_0 − x*‖^2 / T^{1.119}) anytime, thus with α ≈ 1.119 > 1. However, the optimal exponent α and the precise best anytime rate remain unresolved; known upper bounds (around T^{−1.119}) do not match the known information-theoretic limit (around T^{−2} from accelerated methods), so the problem is only partially solved.\",\"status_evidence\":[{\"title\":\"Anytime Acceleration of Gradient Descent\",\"url\":\"https://arxiv.org/html/2411.17668\",\"snippet\":\"stepsize schedule that allows gradient descent to achieve convergence guarantees of O(T^{-1.119}) for any stopping time T\",\"claim\":\"An explicit silver-ratio-based stepsize sequence achieves an anytime rate with exponent α ≈ 1.119 > 1, affirmatively answering the existence question.\"},{\"title\":\"Open Problem: Anytime Convergence Rate of Gradient Descent\",\"url\":\"https://proceedings.mlr.press/v247/kornowski24a.html\",\"snippet\":\"Open problem posed at COLT 2024 asking for the best anytime convergence rate of GD on smooth convex functions.\",\"claim\":\"The original problem was posed as an open problem at COLT 2024.\"},{\"title\":\"Acceleration by stepsize hedging: Silver Stepsize Schedule\",\"url\":\"https://link.springer.com/article/10.1007/s10107-024-02164-2\",\"snippet\":\"Silver stepsize schedule yields accelerated convergence for smooth convex optimization.\",\"claim\":\"Silver-ratio stepsize schedules provide acceleration beyond the classical O(1/T) rate, supporting partial resolution of the problem.\"}],\"confidence\":0.8},\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"uuid\":\"aef06f26-d6ee-48d0-9218-791df70980fe\"}\n"
+}

@@ -1,0 +1,63 @@
+{
+  "record": {
+    "global_index": 4301,
+    "source_json": "outputs/parse-paper/1907.00762.json",
+    "paper_id": "1907.00762",
+    "paper_title": "",
+    "paper_link": "https://arxiv.org/abs/1907.00762",
+    "question_link": "https://arxiv.org/pdf/1907.00762.pdf#page=3",
+    "question_id": "q_004",
+    "parser_is_solved": "false",
+    "context_brief": "Intermediate unknown square",
+    "original_question": "Does there exist any query-memory tradeoff (T,M) for convex Lipschitz optimization with limited memory that lies polynomially inside the currently unknown region between the two known extremes, namely the gradient-descent regime with memory on the order of d log(LB/epsilon) bits and query complexity on the order of 1/epsilon^2, and the center-of-mass regime with query complexity on the order of d log(1/epsilon) and memory on the order of d^2 log^2(LB/epsilon)? Or is every tradeoff in that intermediate square impossible?",
+    "evidence": [
+      {
+        "page": 3,
+        "quote": "We do not know whether any trade-offs inside the \"?\" square are possible or not."
+      },
+      {
+        "page": 4,
+        "quote": "Question 4 ($100 or Michelin Bib Gourmand Meal) Resolve the possibility or impossibility of some trade-off (T, M) polynomially inside the unknown square in Figure 1."
+      }
+    ]
+  },
+  "artifact": {
+    "self_contained_problem": "Consider the problem of minimizing a convex 1-Lipschitz function f: B → ℝ on the unit ball B ⊂ ℝ^d (with respect to the Euclidean norm), to additive accuracy ε, using a first-order oracle that on query x ∈ B returns the pair (f(x), g) with g a subgradient of f at x. An algorithm is permitted T such oracle queries and may retain at most M bits of internal state between queries; it must output a point x̂ ∈ B with f(x̂) − inf_{x ∈ B} f(x) ≤ ε with high probability over its internal randomness.\n\nTwo known regimes for (T, M) are:\n(i) Gradient descent, achieving T = O(1/ε²) queries with M = O(d · log(LB/ε)) bits of memory (where L = 1 is the Lipschitz constant and B = 1 is the radius of the domain, kept symbolic to indicate scaling).\n(ii) Center-of-mass / cutting-plane methods, achieving T = O(d · log(1/ε)) queries with M = O(d² · log²(LB/ε)) bits of memory.\n\nQuestion: Does there exist any algorithm whose query-memory pair (T, M) lies polynomially strictly between these two extremes — that is, with T = poly(d, 1/ε) strictly larger (in the relevant scaling) than O(d log(1/ε)) and strictly smaller than O(1/ε²), and M correspondingly strictly between O(d log(LB/ε)) and O(d² log²(LB/ε)) — or, conversely, is every such intermediate tradeoff ruled out by an unconditional lower bound?",
+    "macro_subject": "Theoretical Computer Science",
+    "category_tag": "Memory-query tradeoffs in convex optimization",
+    "open_status": "partially_solved",
+    "status_search_result": "Substantial progress has been made. Marsden, Sharan, Sidford and Valiant (2022) showed any first-order algorithm needs either Ω(d^{2-δ}) memory or Ω(d^{1+δ/6-o(1)}) queries for quasi-polynomially small ε, ruling out part of the unknown region. Blanchard, Zhang and Jegelka (2023) gave memory-constrained cutting-plane algorithms achieving O(d²/p · log(1/ε)) bits with O((Cd/p · log(1/ε))^p) queries, providing nontrivial intermediate tradeoffs. Subsequent work (Blanchard et al., 2023) established quadratic memory is necessary for optimal query complexity, showing center-of-mass is Pareto-optimal in that regime. The full tradeoff curve across the entire intermediate square is not yet completely characterized.",
+    "status_evidence": [
+      {
+        "title": "Efficient Convex Optimization Requires Superlinear Memory",
+        "url": "https://arxiv.org/abs/2203.15260",
+        "snippet": "Any randomized first-order algorithm minimizing a d-dimensional 1-Lipschitz convex function must use Ω(d^{2-δ}) memory or Ω(d^{1+δ/6-o(1)}) queries.",
+        "claim": "Establishes lower bounds inside the previously unknown region, ruling out certain intermediate tradeoffs."
+      },
+      {
+        "title": "Memory-Constrained Algorithms for Convex Optimization via Recursive Cutting-Planes",
+        "url": "https://arxiv.org/abs/2306.10096",
+        "snippet": "Memory-constrained cutting-plane algorithms use O(d²/p ln(1/ε)) bits of memory and O((C d/p ln(1/ε))^p) oracle calls.",
+        "claim": "Provides nontrivial intermediate query/memory tradeoffs, partially answering the open question affirmatively."
+      },
+      {
+        "title": "Quadratic Memory Is Necessary for Optimal Query Complexity in Convex Optimization: Center of Mass Is Pareto Optimal",
+        "url": "https://pubsonline.informs.org/doi/10.1287/moor.2023.0208",
+        "snippet": "Quadratic memory is required to achieve optimal query complexity; center-of-mass is Pareto optimal.",
+        "claim": "Shows the center-of-mass regime cannot be improved without sacrificing memory."
+      },
+      {
+        "title": "Memory-Query Tradeoffs for Randomized Convex Optimization",
+        "url": "https://arxiv.org/html/2306.12534",
+        "snippet": "Establishes memory-query tradeoffs for randomized convex optimization.",
+        "claim": "Further refines the tradeoff in the intermediate region."
+      }
+    ],
+    "confidence": 0.8
+  },
+  "model": "opus",
+  "effort": "medium",
+  "elapsed_s": 48.17,
+  "validation_warnings": [],
+  "raw_claude_stdout": "{\"type\":\"result\",\"subtype\":\"success\",\"is_error\":false,\"api_error_status\":null,\"duration_ms\":46928,\"duration_api_ms\":46154,\"num_turns\":3,\"result\":\"Sources:\\n- [Efficient Convex Optimization Requires Superlinear Memory](https://arxiv.org/abs/2203.15260)\\n- [Memory-Constrained Algorithms for Convex Optimization via Recursive Cutting-Planes](https://arxiv.org/abs/2306.10096)\\n- [Memory-Query Tradeoffs for Randomized Convex Optimization](https://arxiv.org/html/2306.12534)\\n- [Quadratic Memory Is Necessary for Optimal Query Complexity (INFORMS)](https://pubsonline.informs.org/doi/10.1287/moor.2023.0208)\",\"stop_reason\":\"end_turn\",\"session_id\":\"2b35b32c-0b82-4cb9-a892-09a3747ed68e\",\"total_cost_usd\":0.12597925,\"usage\":{\"input_tokens\":8,\"cache_creation_input_tokens\":4973,\"cache_read_input_tokens\":12768,\"output_tokens\":2197,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":4973,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[{\"input_tokens\":1,\"output_tokens\":220,\"cache_read_input_tokens\":5760,\"cache_creation_input_tokens\":1898,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":1898},\"type\":\"message\"}],\"speed\":\"standard\"},\"modelUsage\":{\"claude-haiku-4-5-20251001\":{\"inputTokens\":20769,\"outputTokens\":556,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":1,\"costUSD\":0.033548999999999995,\"contextWindow\":200000,\"maxOutputTokens\":32000},\"claude-opus-4-7\":{\"inputTokens\":8,\"outputTokens\":2197,\"cacheReadInputTokens\":12768,\"cacheCreationInputTokens\":4973,\"webSearchRequests\":0,\"costUSD\":0.09243024999999999,\"contextWindow\":1000000,\"maxOutputTokens\":64000}},\"permission_denials\":[],\"structured_output\":{\"self_contained_problem\":\"Consider the problem of minimizing a convex 1-Lipschitz function f: B → ℝ on the unit ball B ⊂ ℝ^d (with respect to the Euclidean norm), to additive accuracy ε, using a first-order oracle that on query x ∈ B returns the pair (f(x), g) with g a subgradient of f at x. An algorithm is permitted T such oracle queries and may retain at most M bits of internal state between queries; it must output a point x̂ ∈ B with f(x̂) − inf_{x ∈ B} f(x) ≤ ε with high probability over its internal randomness.\\n\\nTwo known regimes for (T, M) are:\\n(i) Gradient descent, achieving T = O(1/ε²) queries with M = O(d · log(LB/ε)) bits of memory (where L = 1 is the Lipschitz constant and B = 1 is the radius of the domain, kept symbolic to indicate scaling).\\n(ii) Center-of-mass / cutting-plane methods, achieving T = O(d · log(1/ε)) queries with M = O(d² · log²(LB/ε)) bits of memory.\\n\\nQuestion: Does there exist any algorithm whose query-memory pair (T, M) lies polynomially strictly between these two extremes — that is, with T = poly(d, 1/ε) strictly larger (in the relevant scaling) than O(d log(1/ε)) and strictly smaller than O(1/ε²), and M correspondingly strictly between O(d log(LB/ε)) and O(d² log²(LB/ε)) — or, conversely, is every such intermediate tradeoff ruled out by an unconditional lower bound?\",\"macro_subject\":\"Theoretical Computer Science\",\"category_tag\":\"Memory-query tradeoffs in convex optimization\",\"open_status\":\"partially_solved\",\"status_search_result\":\"Substantial progress has been made. Marsden, Sharan, Sidford and Valiant (2022) showed any first-order algorithm needs either Ω(d^{2-δ}) memory or Ω(d^{1+δ/6-o(1)}) queries for quasi-polynomially small ε, ruling out part of the unknown region. Blanchard, Zhang and Jegelka (2023) gave memory-constrained cutting-plane algorithms achieving O(d²/p · log(1/ε)) bits with O((Cd/p · log(1/ε))^p) queries, providing nontrivial intermediate tradeoffs. Subsequent work (Blanchard et al., 2023) established quadratic memory is necessary for optimal query complexity, showing center-of-mass is Pareto-optimal in that regime. The full tradeoff curve across the entire intermediate square is not yet completely characterized.\",\"status_evidence\":[{\"title\":\"Efficient Convex Optimization Requires Superlinear Memory\",\"url\":\"https://arxiv.org/abs/2203.15260\",\"snippet\":\"Any randomized first-order algorithm minimizing a d-dimensional 1-Lipschitz convex function must use Ω(d^{2-δ}) memory or Ω(d^{1+δ/6-o(1)}) queries.\",\"claim\":\"Establishes lower bounds inside the previously unknown region, ruling out certain intermediate tradeoffs.\"},{\"title\":\"Memory-Constrained Algorithms for Convex Optimization via Recursive Cutting-Planes\",\"url\":\"https://arxiv.org/abs/2306.10096\",\"snippet\":\"Memory-constrained cutting-plane algorithms use O(d²/p ln(1/ε)) bits of memory and O((C d/p ln(1/ε))^p) oracle calls.\",\"claim\":\"Provides nontrivial intermediate query/memory tradeoffs, partially answering the open question affirmatively.\"},{\"title\":\"Quadratic Memory Is Necessary for Optimal Query Complexity in Convex Optimization: Center of Mass Is Pareto Optimal\",\"url\":\"https://pubsonline.informs.org/doi/10.1287/moor.2023.0208\",\"snippet\":\"Quadratic memory is required to achieve optimal query complexity; center-of-mass is Pareto optimal.\",\"claim\":\"Shows the center-of-mass regime cannot be improved without sacrificing memory.\"},{\"title\":\"Memory-Query Tradeoffs for Randomized Convex Optimization\",\"url\":\"https://arxiv.org/html/2306.12534\",\"snippet\":\"Establishes memory-query tradeoffs for randomized convex optimization.\",\"claim\":\"Further refines the tradeoff in the intermediate region.\"}],\"confidence\":0.8},\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"uuid\":\"4a30843f-d1ff-492d-80bb-e36b29a15f5e\"}\n"
+}

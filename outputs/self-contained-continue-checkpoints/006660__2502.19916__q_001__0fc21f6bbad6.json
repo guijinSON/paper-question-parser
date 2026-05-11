@@ -1,0 +1,61 @@
+{
+  "record": {
+    "global_index": 6660,
+    "source_json": "outputs/parse-paper/2502.19916.json",
+    "paper_id": "2502.19916",
+    "paper_title": "",
+    "paper_link": "https://arxiv.org/abs/2502.19916",
+    "question_link": "https://arxiv.org/pdf/2502.19916.pdf#page=1",
+    "question_id": "q_001",
+    "parser_is_solved": "false",
+    "context_brief": "HB acceleration in 1D",
+    "original_question": "For Polyak's heavy-ball method with update x_{t+1} = x_t - gamma*nabla f(x_t) + beta*(x_t - x_{t-1}), applied to scalar objective functions f: R -> R that are L-smooth and mu-strongly convex (the one-dimensional case of F_{mu,L}), does there exist a tuning of the step size gamma and momentum parameter beta that achieves acceleration, or is acceleration impossible even in dimension 1?",
+    "evidence": [
+      {
+        "page": 1,
+        "quote": "For convex differentiable function f : R^d -> R, for a step size gamma and a momentum parameter beta, the update writes: x_{t+1} = x_t - gamma nabla f(x_t) + beta(x_t - x_{t-1})."
+      },
+      {
+        "page": 2,
+        "quote": "Open problem 1. Does heavy-ball accelerate over scalar functions of F_{mu,L}?"
+      },
+      {
+        "page": 2,
+        "quote": "While this proves that HB does not accelerate over the set of d-dimensional smooth strongly-convex functions for any dimension d >= 2, the behavior of HB in dimension 1 therefore remains unknown."
+      }
+    ]
+  },
+  "artifact": {
+    "self_contained_problem": "Consider Polyak's heavy-ball method applied to a differentiable function f: R → R. Starting from x_0 = x_{-1} ∈ R, with step size γ > 0 and momentum parameter β ∈ R, the iteration is\n\n  x_{t+1} = x_t − γ f'(x_t) + β (x_t − x_{t-1}),  t ≥ 0.\n\nLet F_{μ,L} (with 0 < μ ≤ L) denote the class of differentiable functions f: R → R that are L-smooth (f' is L-Lipschitz) and μ-strongly convex (f − (μ/2)|·|² is convex), with unique minimizer x*.\n\nQuestion: Does there exist a choice of constants γ > 0 and β ∈ R (depending only on μ and L) and a constant ρ < 1 − c√(μ/L) (for some absolute c > 0, i.e. an \"accelerated\" rate strictly faster than the rate (1 − μ/L) attainable by gradient descent) such that for every f ∈ F_{μ,L} and every initialization x_0 ∈ R, the heavy-ball iterates satisfy\n\n  |x_t − x*| ≤ C ρ^t |x_0 − x*|  for all t ≥ 0,\n\nwhere C is a constant depending only on μ, L? Equivalently: does the heavy-ball method achieve accelerated convergence over the class of scalar L-smooth μ-strongly convex functions, or is acceleration impossible even in dimension one?",
+    "macro_subject": "Applied Mathematics",
+    "category_tag": "first-order optimization methods",
+    "open_status": "open",
+    "status_search_result": "The problem is explicitly posed as an open problem in a 2025 preprint on heavy-ball dynamics. Known counter-examples ruling out acceleration require dimension d ≥ 2 (cycles over K-th roots of unity), and the one-dimensional case remains unresolved. No published resolution was found as of May 2026.",
+    "status_evidence": [
+      {
+        "title": "Open Problem: Two Riddles in Heavy-Ball Dynamics",
+        "url": "https://arxiv.org/abs/2502.19916",
+        "snippet": "Open problem 1. Does heavy-ball accelerate over scalar functions of F_{mu,L}?",
+        "claim": "The 1D acceleration question is explicitly stated as an open problem."
+      },
+      {
+        "title": "Open Problem: Two Riddles in Heavy-Ball Dynamics (HTML)",
+        "url": "https://arxiv.org/html/2502.19916",
+        "snippet": "While this proves that HB does not accelerate over the set of d-dimensional smooth strongly-convex functions for any dimension d >= 2, the behavior of HB in dimension 1 therefore remains unknown.",
+        "claim": "Counter-examples require d ≥ 2; dimension 1 behavior unknown."
+      },
+      {
+        "title": "An accelerated Lyapunov function for Polyak's Heavy-ball on convex quadratics",
+        "url": "https://arxiv.org/abs/2301.05799",
+        "snippet": "Lyapunov function showing acceleration on convex quadratics.",
+        "claim": "Acceleration is known on quadratics but not for general 1D smooth strongly convex functions."
+      }
+    ],
+    "confidence": 0.9
+  },
+  "model": "opus",
+  "effort": "medium",
+  "elapsed_s": 32.65,
+  "validation_warnings": [],
+  "raw_claude_stdout": "{\"type\":\"result\",\"subtype\":\"success\",\"is_error\":false,\"api_error_status\":null,\"duration_ms\":31551,\"duration_api_ms\":31629,\"num_turns\":3,\"result\":\"Sources:\\n- [Open Problem: Two Riddles in Heavy-Ball Dynamics (arXiv)](https://arxiv.org/abs/2502.19916)\\n- [Open Problem: Two Riddles in Heavy-Ball Dynamics (HTML)](https://arxiv.org/html/2502.19916)\\n- [An Accelerated Lyapunov Function for Polyak's Heavy-Ball on Convex Quadratics](https://arxiv.org/abs/2301.05799)\",\"stop_reason\":\"end_turn\",\"session_id\":\"c32b3b60-4847-4c7c-999d-1631d825cacf\",\"total_cost_usd\":0.10102100000000001,\"usage\":{\"input_tokens\":8,\"cache_creation_input_tokens\":4298,\"cache_read_input_tokens\":12799,\"output_tokens\":1541,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":4298,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[{\"input_tokens\":1,\"output_tokens\":173,\"cache_read_input_tokens\":5706,\"cache_creation_input_tokens\":1277,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":1277},\"type\":\"message\"}],\"speed\":\"standard\"},\"modelUsage\":{\"claude-haiku-4-5-20251001\":{\"inputTokens\":17139,\"outputTokens\":411,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":1,\"costUSD\":0.029194,\"contextWindow\":200000,\"maxOutputTokens\":32000},\"claude-opus-4-7\":{\"inputTokens\":8,\"outputTokens\":1541,\"cacheReadInputTokens\":12799,\"cacheCreationInputTokens\":4298,\"webSearchRequests\":0,\"costUSD\":0.071827,\"contextWindow\":1000000,\"maxOutputTokens\":64000}},\"permission_denials\":[],\"structured_output\":{\"self_contained_problem\":\"Consider Polyak's heavy-ball method applied to a differentiable function f: R → R. Starting from x_0 = x_{-1} ∈ R, with step size γ > 0 and momentum parameter β ∈ R, the iteration is\\n\\n  x_{t+1} = x_t − γ f'(x_t) + β (x_t − x_{t-1}),  t ≥ 0.\\n\\nLet F_{μ,L} (with 0 < μ ≤ L) denote the class of differentiable functions f: R → R that are L-smooth (f' is L-Lipschitz) and μ-strongly convex (f − (μ/2)|·|² is convex), with unique minimizer x*.\\n\\nQuestion: Does there exist a choice of constants γ > 0 and β ∈ R (depending only on μ and L) and a constant ρ < 1 − c√(μ/L) (for some absolute c > 0, i.e. an \\\"accelerated\\\" rate strictly faster than the rate (1 − μ/L) attainable by gradient descent) such that for every f ∈ F_{μ,L} and every initialization x_0 ∈ R, the heavy-ball iterates satisfy\\n\\n  |x_t − x*| ≤ C ρ^t |x_0 − x*|  for all t ≥ 0,\\n\\nwhere C is a constant depending only on μ, L? Equivalently: does the heavy-ball method achieve accelerated convergence over the class of scalar L-smooth μ-strongly convex functions, or is acceleration impossible even in dimension one?\",\"macro_subject\":\"Applied Mathematics\",\"category_tag\":\"first-order optimization methods\",\"open_status\":\"open\",\"status_search_result\":\"The problem is explicitly posed as an open problem in a 2025 preprint on heavy-ball dynamics. Known counter-examples ruling out acceleration require dimension d ≥ 2 (cycles over K-th roots of unity), and the one-dimensional case remains unresolved. No published resolution was found as of May 2026.\",\"status_evidence\":[{\"title\":\"Open Problem: Two Riddles in Heavy-Ball Dynamics\",\"url\":\"https://arxiv.org/abs/2502.19916\",\"snippet\":\"Open problem 1. Does heavy-ball accelerate over scalar functions of F_{mu,L}?\",\"claim\":\"The 1D acceleration question is explicitly stated as an open problem.\"},{\"title\":\"Open Problem: Two Riddles in Heavy-Ball Dynamics (HTML)\",\"url\":\"https://arxiv.org/html/2502.19916\",\"snippet\":\"While this proves that HB does not accelerate over the set of d-dimensional smooth strongly-convex functions for any dimension d >= 2, the behavior of HB in dimension 1 therefore remains unknown.\",\"claim\":\"Counter-examples require d ≥ 2; dimension 1 behavior unknown.\"},{\"title\":\"An accelerated Lyapunov function for Polyak's Heavy-ball on convex quadratics\",\"url\":\"https://arxiv.org/abs/2301.05799\",\"snippet\":\"Lyapunov function showing acceleration on convex quadratics.\",\"claim\":\"Acceleration is known on quadratics but not for general 1D smooth strongly convex functions.\"}],\"confidence\":0.9},\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"uuid\":\"ef2c7c52-85f4-45da-882c-4c38d79a0af0\"}\n"
+}

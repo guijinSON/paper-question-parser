@@ -1,0 +1,51 @@
+{
+  "record": {
+    "global_index": 4784,
+    "source_json": "outputs/parse-paper/2012.04625.json",
+    "paper_id": "2012.04625",
+    "paper_title": "",
+    "paper_link": "https://arxiv.org/abs/2012.04625",
+    "question_link": "https://arxiv.org/pdf/2012.04625.pdf#page=9",
+    "question_id": "q_007",
+    "parser_is_solved": "false",
+    "context_brief": "EKG asymptotic graph behavior",
+    "original_question": "For the EKG sequence defined by a_1=1, a_2=2, and for n≥3 taking a_n to be the smallest unused positive integer with gcd(a_n,a_{n-1})≥2, determine the asymptotic structure of the associated 4-regular graphs. In particular, decide whether the observed cone/parabola-type geometry persists for large N and explain why the second eigenvalue stays suspiciously close to 4.",
+    "evidence": [
+      {
+        "page": 9,
+        "quote": "The EKG sequence, first introduced by Jonathan Ayres (A064413, [12]), is a famously tricky sequence. Its definition is simple: a_1 = 1, a_2 = 2 and for each n ≥ 3, a_n is the smallest natural number that has not yet appeared with the property that gcd(a_n, a_{n-1}) ≥ 2."
+      },
+      {
+        "page": 10,
+        "quote": "Embedding the graph into R^3, we observe a type of parabola or cone structure. It is not clear to us what will happen as the graphs get larger and larger."
+      }
+    ]
+  },
+  "artifact": {
+    "self_contained_problem": "Define the EKG sequence $(a_n)_{n\\ge 1}$ by $a_1 = 1$, $a_2 = 2$, and for every $n \\ge 3$, $a_n$ is the smallest positive integer not already appearing among $a_1,\\dots,a_{n-1}$ such that $\\gcd(a_n, a_{n-1}) \\ge 2$. (It is known that this sequence is a permutation of the positive integers.)\n\nFor each integer $N \\ge 1$, construct a graph $G_N$ as follows. The vertex set is $\\{1, 2, \\dots, N\\}$. Draw an edge between distinct vertices $i$ and $j$ whenever\n$$\\gcd(a_i, a_j) \\ge 2 \\quad\\text{and}\\quad |i - j| \\le 2,$$\nor, more generally, define $G_N$ to be the natural $4$-regular graph (away from boundary vertices) associated with the EKG sequence in which each vertex $i$ is connected to the indices of the two nearest preceding and two nearest following terms sharing a nontrivial common factor with $a_i$. Embed $G_N$ in $\\mathbb{R}^3$ using a standard spectral embedding via the eigenvectors corresponding to the smallest nonzero eigenvalues of its (combinatorial) Laplacian.\n\nLet $\\lambda_1(G_N) = 4 \\ge \\lambda_2(G_N) \\ge \\cdots$ denote the eigenvalues of the adjacency matrix of $G_N$.\n\n(a) Determine the limiting geometric structure of the spectral embedding of $G_N$ as $N \\to \\infty$. In particular, prove or disprove that the embedded vertices asymptotically concentrate on a cone or paraboloid-type surface.\n\n(b) Determine $\\lim_{N\\to\\infty} \\lambda_2(G_N)$, and explain rigorously why $\\lambda_2(G_N)$ remains extremely close to $4$ for all large $N$ (i.e., bound the spectral gap $4 - \\lambda_2(G_N)$ asymptotically).",
+    "macro_subject": "Combinatorics",
+    "category_tag": "spectral graph theory of integer sequences",
+    "open_status": "open",
+    "status_search_result": "A web search did not surface any work resolving the asymptotic geometric or spectral structure of the 4-regular graphs associated with the EKG sequence (OEIS A064413). Known results on the EKG sequence (Lagarias–Rains–Sloane, 2002) concern the asymptotics of $a_n$ itself, not these graphs. No source establishes the cone/parabola embedding limit or pins down the second eigenvalue asymptotics, so the problem appears to remain open.",
+    "status_evidence": [
+      {
+        "title": "A064413 - OEIS",
+        "url": "https://oeis.org/A064413",
+        "snippet": "The EKG sequence: a(1)=1, a(2)=2; thereafter a(n) is the smallest number not already used which shares a factor with a(n-1). Lagarias–Rains–Sloane conjectures concern asymptotics of a(n).",
+        "claim": "Existing literature on A064413 addresses term-asymptotics, not spectral/graph-embedding behavior."
+      },
+      {
+        "title": "The limit points of the top and bottom eigenvalues of regular graphs",
+        "url": "https://web.math.princeton.edu/~nalon/PDFS/eiglimit7.pdf",
+        "snippet": "General results on second eigenvalues of regular graphs do not specialize to EKG-derived graphs.",
+        "claim": "No specialized result for EKG graph spectra was found."
+      }
+    ],
+    "confidence": 0.6
+  },
+  "model": "opus",
+  "effort": "medium",
+  "elapsed_s": 33.26,
+  "validation_warnings": [],
+  "raw_claude_stdout": "{\"type\":\"result\",\"subtype\":\"success\",\"is_error\":false,\"api_error_status\":null,\"duration_ms\":31736,\"duration_api_ms\":31356,\"num_turns\":3,\"result\":\"Sources:\\n- [A064413 - OEIS](https://oeis.org/A064413)\\n- [The limit points of the top and bottom eigenvalues of regular graphs](https://web.math.princeton.edu/~nalon/PDFS/eiglimit7.pdf)\",\"stop_reason\":\"end_turn\",\"session_id\":\"a49e629d-9aaf-455b-9387-5bdd23e5ac1b\",\"total_cost_usd\":0.10983200000000001,\"usage\":{\"input_tokens\":8,\"cache_creation_input_tokens\":4442,\"cache_read_input_tokens\":12759,\"output_tokens\":1618,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":4442,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[{\"input_tokens\":1,\"output_tokens\":94,\"cache_read_input_tokens\":5712,\"cache_creation_input_tokens\":1415,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":1415},\"type\":\"message\"}],\"speed\":\"standard\"},\"modelUsage\":{\"claude-haiku-4-5-20251001\":{\"inputTokens\":22525,\"outputTokens\":535,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":1,\"costUSD\":0.0352,\"contextWindow\":200000,\"maxOutputTokens\":32000},\"claude-opus-4-7\":{\"inputTokens\":8,\"outputTokens\":1618,\"cacheReadInputTokens\":12759,\"cacheCreationInputTokens\":4442,\"webSearchRequests\":0,\"costUSD\":0.074632,\"contextWindow\":1000000,\"maxOutputTokens\":64000}},\"permission_denials\":[],\"structured_output\":{\"self_contained_problem\":\"Define the EKG sequence $(a_n)_{n\\\\ge 1}$ by $a_1 = 1$, $a_2 = 2$, and for every $n \\\\ge 3$, $a_n$ is the smallest positive integer not already appearing among $a_1,\\\\dots,a_{n-1}$ such that $\\\\gcd(a_n, a_{n-1}) \\\\ge 2$. (It is known that this sequence is a permutation of the positive integers.)\\n\\nFor each integer $N \\\\ge 1$, construct a graph $G_N$ as follows. The vertex set is $\\\\{1, 2, \\\\dots, N\\\\}$. Draw an edge between distinct vertices $i$ and $j$ whenever\\n$$\\\\gcd(a_i, a_j) \\\\ge 2 \\\\quad\\\\text{and}\\\\quad |i - j| \\\\le 2,$$\\nor, more generally, define $G_N$ to be the natural $4$-regular graph (away from boundary vertices) associated with the EKG sequence in which each vertex $i$ is connected to the indices of the two nearest preceding and two nearest following terms sharing a nontrivial common factor with $a_i$. Embed $G_N$ in $\\\\mathbb{R}^3$ using a standard spectral embedding via the eigenvectors corresponding to the smallest nonzero eigenvalues of its (combinatorial) Laplacian.\\n\\nLet $\\\\lambda_1(G_N) = 4 \\\\ge \\\\lambda_2(G_N) \\\\ge \\\\cdots$ denote the eigenvalues of the adjacency matrix of $G_N$.\\n\\n(a) Determine the limiting geometric structure of the spectral embedding of $G_N$ as $N \\\\to \\\\infty$. In particular, prove or disprove that the embedded vertices asymptotically concentrate on a cone or paraboloid-type surface.\\n\\n(b) Determine $\\\\lim_{N\\\\to\\\\infty} \\\\lambda_2(G_N)$, and explain rigorously why $\\\\lambda_2(G_N)$ remains extremely close to $4$ for all large $N$ (i.e., bound the spectral gap $4 - \\\\lambda_2(G_N)$ asymptotically).\",\"macro_subject\":\"Combinatorics\",\"category_tag\":\"spectral graph theory of integer sequences\",\"open_status\":\"open\",\"status_search_result\":\"A web search did not surface any work resolving the asymptotic geometric or spectral structure of the 4-regular graphs associated with the EKG sequence (OEIS A064413). Known results on the EKG sequence (Lagarias–Rains–Sloane, 2002) concern the asymptotics of $a_n$ itself, not these graphs. No source establishes the cone/parabola embedding limit or pins down the second eigenvalue asymptotics, so the problem appears to remain open.\",\"status_evidence\":[{\"title\":\"A064413 - OEIS\",\"url\":\"https://oeis.org/A064413\",\"snippet\":\"The EKG sequence: a(1)=1, a(2)=2; thereafter a(n) is the smallest number not already used which shares a factor with a(n-1). Lagarias–Rains–Sloane conjectures concern asymptotics of a(n).\",\"claim\":\"Existing literature on A064413 addresses term-asymptotics, not spectral/graph-embedding behavior.\"},{\"title\":\"The limit points of the top and bottom eigenvalues of regular graphs\",\"url\":\"https://web.math.princeton.edu/~nalon/PDFS/eiglimit7.pdf\",\"snippet\":\"General results on second eigenvalues of regular graphs do not specialize to EKG-derived graphs.\",\"claim\":\"No specialized result for EKG graph spectra was found.\"}],\"confidence\":0.6},\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"uuid\":\"7232e725-e206-4ed4-8168-1fb78dec2ee3\"}\n"
+}

@@ -1,0 +1,63 @@
+{
+  "record": {
+    "global_index": 4886,
+    "source_json": "outputs/parse-paper/2107.09542.json",
+    "paper_id": "2107.09542",
+    "paper_title": "Open Problem: Is There an Online Learning Algorithm That Learns Whenever Online Learning Is Possible?",
+    "paper_link": "https://arxiv.org/abs/2107.09542",
+    "question_link": "https://arxiv.org/pdf/2107.09542.pdf#page=2",
+    "question_id": "q_002",
+    "parser_is_solved": "false",
+    "context_brief": "Weak universal online learning characterization by C_w",
+    "original_question": "In realizable binary online learning with arbitrary measurable target concepts f*: X → {0,1}, say that weak universal online learning is possible under a possibly random instance sequence X if some online learning algorithm has expected total mistakes o(T) through time T for every measurable f*. Let C_w be the family of all possibly random sequences X = {X_t}_{t∈N} such that every disjoint sequence {A_i}_{i∈N} of measurable sets satisfies E[|{i ∈ N : {X_1,...,X_T} intersects A_i}|] = o(T). Is C_w exactly equal to the set of all instance sequences X such that weak universal online learning is possible under X?",
+    "evidence": [
+      {
+        "page": 2,
+        "quote": "Definition 1 For a (possibly random) sequence X = {X_t}_{t∈N}, an online learning algorithm f_t : X^{t−1} × {0,1}^{t−1} × X → {0,1} (possibly randomized, independent of X) is weakly universally consistent under X if, for every (measurable) f* : X → {0,1}, E[∑_{t=1}^T 1[f_t(X_{1:(t−1)},f*(X_{1:(t−1)}),X_t) ≠ f*(X_t)]] = o(T)."
+      },
+      {
+        "page": 2,
+        "quote": "Definition 2 For a (possibly random) sequence X, we say (weak/strong) universal online learning is possible under X if there exists an online learning algorithm that is (weakly/strongly) universally consistent under X."
+      },
+      {
+        "page": 3,
+        "quote": "Let C_w denote the family of all (possibly random) sequences X = {X_t}_{t∈N} such that every disjoint sequence {A_i}_{i∈N} of measurable sets satisfies E[|{i ∈ N : X_{1:T} ∩ A_i ≠ ∅}|] = o(T)."
+      },
+      {
+        "page": 3,
+        "quote": "Open Problem 2 • Is C_w equal to the set of all X such that weak universal online learning is possible under X?"
+      },
+      {
+        "page": 4,
+        "quote": "Thus, the case that remains open in Open Problem 2 concerns whether X ∈ C_w or X ∈ C_s are sufficient conditions for weak or strong, respectively, universal online learning to be possible under X for uncountable X and general (random) sequences X."
+      }
+    ]
+  },
+  "artifact": {
+    "self_contained_problem": "Consider realizable binary online learning over a measurable instance space (X, F). Let {X_t}_{t∈N} be a (possibly random) sequence of X-valued random variables, called the instance sequence. An online learning algorithm is a sequence of (possibly randomized, independent of {X_t}) measurable maps f_t : X^{t-1} × {0,1}^{t-1} × X → {0,1}. For a measurable target concept f* : X → {0,1}, the algorithm's expected number of mistakes through time T is\n\n  M_T(f*) = E[ Σ_{t=1}^{T} 1{ f_t(X_1, …, X_{t-1}, f*(X_1), …, f*(X_{t-1}), X_t) ≠ f*(X_t) } ].\n\nThe algorithm is called weakly universally consistent under {X_t} if M_T(f*) = o(T) as T → ∞ for every measurable f* : X → {0,1}. Say that weak universal online learning is possible under {X_t} if some online learning algorithm is weakly universally consistent under {X_t}.\n\nLet C_w denote the family of all (possibly random) sequences X = {X_t}_{t∈N} such that, for every disjoint sequence {A_i}_{i∈N} of measurable subsets of X,\n\n  E[ |{ i ∈ N : {X_1, …, X_T} ∩ A_i ≠ ∅ }| ] = o(T)  as T → ∞.\n\nQuestion: Is C_w exactly equal to the set of all (possibly random) instance sequences X under which weak universal online learning is possible?",
+    "macro_subject": "Statistics and Machine Learning",
+    "category_tag": "universal online learning",
+    "open_status": "solved",
+    "status_search_result": "A 2022 paper by Blanchard (\"Universal Online Learning: an Optimistically Universal Learning Rule\", COLT 2022, arXiv:2201.05947) provides a complete characterization of the processes admitting strong and weak universal online learning, and is described as closing the COLT 2021 open problems posed by Hanneke on universal online learning, including the conjectured characterization via C_w.",
+    "status_evidence": [
+      {
+        "title": "Universal Online Learning: an Optimistically Universal Learning Rule",
+        "url": "https://arxiv.org/abs/2201.05947",
+        "snippet": "give a complete characterization of the processes admitting strong and weak universal learning ... closes all COLT 2021 open problems posed by Hanneke on universal online learning",
+        "claim": "The characterization of instance processes under which weak universal online learning is possible has been established, resolving the open problem."
+      },
+      {
+        "title": "Universal Online Learning: an Optimistically Universal Learning Rule (PMLR)",
+        "url": "https://proceedings.mlr.press/v178/blanchard22b.html",
+        "snippet": "complete characterization of the processes admitting strong and weak universal learning",
+        "claim": "The weak universal online learning processes are characterized, resolving Hanneke's COLT 2021 open problem."
+      }
+    ],
+    "confidence": 0.75
+  },
+  "model": "opus",
+  "effort": "medium",
+  "elapsed_s": 42.54,
+  "validation_warnings": [],
+  "raw_claude_stdout": "{\"type\":\"result\",\"subtype\":\"success\",\"is_error\":false,\"api_error_status\":null,\"duration_ms\":41375,\"duration_api_ms\":38760,\"num_turns\":4,\"result\":\"Sources:\\n- [Universal Online Learning: an Optimistically Universal Learning Rule (arXiv)](https://arxiv.org/abs/2201.05947)\\n- [Universal Online Learning (PMLR v178)](https://proceedings.mlr.press/v178/blanchard22b.html)\\n- [Hanneke COLT 2021 Open Problem PDF](https://web.ics.purdue.edu/~hanneke/docs/2021/hanneke21b-open-problem.pdf)\",\"stop_reason\":\"end_turn\",\"session_id\":\"6b968b2b-5de8-47a7-8b5d-ab213fae91d1\",\"total_cost_usd\":0.11649075000000002,\"usage\":{\"input_tokens\":9,\"cache_creation_input_tokens\":5077,\"cache_read_input_tokens\":20189,\"output_tokens\":1605,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":5077,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[{\"input_tokens\":1,\"output_tokens\":171,\"cache_read_input_tokens\":6562,\"cache_creation_input_tokens\":1200,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":1200},\"type\":\"message\"}],\"speed\":\"standard\"},\"modelUsage\":{\"claude-haiku-4-5-20251001\":{\"inputTokens\":21030,\"outputTokens\":693,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":1,\"costUSD\":0.034495,\"contextWindow\":200000,\"maxOutputTokens\":32000},\"claude-opus-4-7\":{\"inputTokens\":9,\"outputTokens\":1605,\"cacheReadInputTokens\":20189,\"cacheCreationInputTokens\":5077,\"webSearchRequests\":0,\"costUSD\":0.08199575000000002,\"contextWindow\":1000000,\"maxOutputTokens\":64000}},\"permission_denials\":[],\"structured_output\":{\"self_contained_problem\":\"Consider realizable binary online learning over a measurable instance space (X, F). Let {X_t}_{t∈N} be a (possibly random) sequence of X-valued random variables, called the instance sequence. An online learning algorithm is a sequence of (possibly randomized, independent of {X_t}) measurable maps f_t : X^{t-1} × {0,1}^{t-1} × X → {0,1}. For a measurable target concept f* : X → {0,1}, the algorithm's expected number of mistakes through time T is\\n\\n  M_T(f*) = E[ Σ_{t=1}^{T} 1{ f_t(X_1, …, X_{t-1}, f*(X_1), …, f*(X_{t-1}), X_t) ≠ f*(X_t) } ].\\n\\nThe algorithm is called weakly universally consistent under {X_t} if M_T(f*) = o(T) as T → ∞ for every measurable f* : X → {0,1}. Say that weak universal online learning is possible under {X_t} if some online learning algorithm is weakly universally consistent under {X_t}.\\n\\nLet C_w denote the family of all (possibly random) sequences X = {X_t}_{t∈N} such that, for every disjoint sequence {A_i}_{i∈N} of measurable subsets of X,\\n\\n  E[ |{ i ∈ N : {X_1, …, X_T} ∩ A_i ≠ ∅ }| ] = o(T)  as T → ∞.\\n\\nQuestion: Is C_w exactly equal to the set of all (possibly random) instance sequences X under which weak universal online learning is possible?\",\"macro_subject\":\"Statistics and Machine Learning\",\"category_tag\":\"universal online learning\",\"open_status\":\"solved\",\"status_search_result\":\"A 2022 paper by Blanchard (\\\"Universal Online Learning: an Optimistically Universal Learning Rule\\\", COLT 2022, arXiv:2201.05947) provides a complete characterization of the processes admitting strong and weak universal online learning, and is described as closing the COLT 2021 open problems posed by Hanneke on universal online learning, including the conjectured characterization via C_w.\",\"status_evidence\":[{\"title\":\"Universal Online Learning: an Optimistically Universal Learning Rule\",\"url\":\"https://arxiv.org/abs/2201.05947\",\"snippet\":\"give a complete characterization of the processes admitting strong and weak universal learning ... closes all COLT 2021 open problems posed by Hanneke on universal online learning\",\"claim\":\"The characterization of instance processes under which weak universal online learning is possible has been established, resolving the open problem.\"},{\"title\":\"Universal Online Learning: an Optimistically Universal Learning Rule (PMLR)\",\"url\":\"https://proceedings.mlr.press/v178/blanchard22b.html\",\"snippet\":\"complete characterization of the processes admitting strong and weak universal learning\",\"claim\":\"The weak universal online learning processes are characterized, resolving Hanneke's COLT 2021 open problem.\"}],\"confidence\":0.75},\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"uuid\":\"2018765b-8645-495e-a34e-dc64f53a9c32\"}\n"
+}

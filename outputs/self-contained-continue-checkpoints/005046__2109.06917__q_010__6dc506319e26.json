@@ -1,0 +1,55 @@
+{
+  "record": {
+    "global_index": 5046,
+    "source_json": "outputs/parse-paper/2109.06917.json",
+    "paper_id": "2109.06917",
+    "paper_title": "Open Problems Related to Quantum Query Complexity",
+    "paper_link": "https://arxiv.org/abs/2109.06917",
+    "question_link": "https://arxiv.org/pdf/2109.06917.pdf#page=6",
+    "question_id": "q_010",
+    "parser_is_solved": "false",
+    "context_brief": "Glued-trees path-finding lower bound",
+    "original_question": "In the glued-trees graph problem, where a quantum walk can get from the leftmost to the rightmost vertex of an exp(n)-sized graph in polynomial time with inverse-polynomial success probability while randomized algorithms need exponentially many queries to an oracle encoding the graph, does a quantum computer nevertheless need 2^Ω(n) queries to actually find a path from left to right?",
+    "evidence": [
+      {
+        "page": 6,
+        "quote": "In 2002, Childs et al. [25] gave a celebrated quantum walk algorithm that, informally, gets from the leftmost to the rightmost vertex in the following exp ( n)-sized graph, in only poly (n) time and with 1/poly(n) success probability:"
+      },
+      {
+        "page": 6,
+        "quote": "By contrast, they showed that a randomized algorithm needs 2Ω(n) queries to an oracle encoding the graph to solve the same problem (improved by Fenner and Zhang [31] to ˜Ω(2n/2))."
+      },
+      {
+        "page": 6,
+        "quote": "Problem 10 Suppose, however, that we actually want to find a path from left to right. Does even a quantum computer need 2Ω(n) queries for that task?"
+      }
+    ]
+  },
+  "artifact": {
+    "self_contained_problem": "Define the glued-trees graph $G_n$ as follows. Take two complete binary trees of depth $n$, with roots called the entrance vertex $s$ and the exit vertex $t$, and connect their $2^n$ leaves by a random cycle that alternates between leaves of the two trees (so every leaf has degree 3 in $G_n$, while $s$ and $t$ have degree 2 and all internal tree vertices have degree 3). Vertices are labeled by random distinct strings, and the graph is presented via an adjacency-list oracle: given a vertex label, the oracle returns the labels of its neighbors. Only the labels of $s$ and $t$ are given for free; any other vertex can be probed only if its label has already been discovered through previous oracle queries.\n\nIt is known that a quantum walk algorithm can output the label of $t$, given the label of $s$, using $\\mathrm{poly}(n)$ oracle queries with success probability at least $1/\\mathrm{poly}(n)$, while any classical randomized algorithm requires $2^{\\Omega(n)}$ queries to do so.\n\nQuestion: In the same oracle model, must any quantum algorithm that outputs an entire path (a sequence of labels of vertices forming a path in $G_n$) from $s$ to $t$ with probability at least $1/\\mathrm{poly}(n)$ make $2^{\\Omega(n)}$ queries to the adjacency-list oracle? Either prove such a $2^{\\Omega(n)}$ quantum query lower bound, or give a quantum algorithm that finds an $s$–$t$ path using only $2^{o(n)}$ queries.",
+    "macro_subject": "Theoretical Computer Science",
+    "category_tag": "Quantum query complexity",
+    "open_status": "solved",
+    "status_search_result": "The problem was resolved in the negative by Jin-Peng Li, \"Exponential speedup of quantum algorithms for the pathfinding problem\" (arXiv:2307.12492, published 2025 in Quantum Information Processing). The work gives an efficient (polynomial-time) quantum algorithm that finds an entrance–exit path in the welded/glued-trees graph in the adjacency-list oracle model, while showing the classical task remains exponentially hard. Hence a quantum computer does not need $2^{\\Omega(n)}$ queries to find a left-to-right path.",
+    "status_evidence": [
+      {
+        "title": "Exponential speedup of quantum algorithms for the pathfinding problem",
+        "url": "https://arxiv.org/abs/2307.12492",
+        "snippet": "We provide an efficient quantum algorithm to find an x-y path in the graph G [based on welded trees], and prove that no classical algorithm can find an x-y path in subexponential time with high probability.",
+        "claim": "A polynomial-time quantum algorithm finds an s-t path in the glued/welded-trees graph in the adjacency-list oracle model, refuting the conjectured 2^Ω(n) quantum lower bound."
+      },
+      {
+        "title": "Exponential speedup of quantum algorithms for the pathfinding problem (Quantum Inf. Process., 2025)",
+        "url": "https://link.springer.com/article/10.1007/s11128-025-04689-7",
+        "snippet": "An efficient quantum algorithm is provided to find an x-y path in the welded tree graph, while no classical algorithm can find such a path in subexponential time.",
+        "claim": "Peer-reviewed publication confirming an efficient quantum pathfinding algorithm for the glued-trees problem."
+      }
+    ],
+    "confidence": 0.85
+  },
+  "model": "opus",
+  "effort": "medium",
+  "elapsed_s": 55.51,
+  "validation_warnings": [],
+  "raw_claude_stdout": "{\"type\":\"result\",\"subtype\":\"success\",\"is_error\":false,\"api_error_status\":null,\"duration_ms\":54396,\"duration_api_ms\":50487,\"num_turns\":5,\"result\":\"Sources:\\n- [Exponential speedup of quantum algorithms for the pathfinding problem (arXiv)](https://arxiv.org/abs/2307.12492)\\n- [Exponential speedup of quantum algorithms for the pathfinding problem (Springer)](https://link.springer.com/article/10.1007/s11128-025-04689-7)\",\"stop_reason\":\"end_turn\",\"session_id\":\"f4182b36-cefc-4e0a-a4fd-362ba44b99a7\",\"total_cost_usd\":0.17788425,\"usage\":{\"input_tokens\":10,\"cache_creation_input_tokens\":6193,\"cache_read_input_tokens\":26474,\"output_tokens\":2012,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":6193,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[{\"input_tokens\":1,\"output_tokens\":120,\"cache_read_input_tokens\":7511,\"cache_creation_input_tokens\":1367,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":1367},\"type\":\"message\"}],\"speed\":\"standard\"},\"modelUsage\":{\"claude-haiku-4-5-20251001\":{\"inputTokens\":50741,\"outputTokens\":970,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":2,\"costUSD\":0.075591,\"contextWindow\":200000,\"maxOutputTokens\":32000},\"claude-opus-4-7\":{\"inputTokens\":10,\"outputTokens\":2012,\"cacheReadInputTokens\":26474,\"cacheCreationInputTokens\":6193,\"webSearchRequests\":0,\"costUSD\":0.10229325,\"contextWindow\":1000000,\"maxOutputTokens\":64000}},\"permission_denials\":[],\"structured_output\":{\"self_contained_problem\":\"Define the glued-trees graph $G_n$ as follows. Take two complete binary trees of depth $n$, with roots called the entrance vertex $s$ and the exit vertex $t$, and connect their $2^n$ leaves by a random cycle that alternates between leaves of the two trees (so every leaf has degree 3 in $G_n$, while $s$ and $t$ have degree 2 and all internal tree vertices have degree 3). Vertices are labeled by random distinct strings, and the graph is presented via an adjacency-list oracle: given a vertex label, the oracle returns the labels of its neighbors. Only the labels of $s$ and $t$ are given for free; any other vertex can be probed only if its label has already been discovered through previous oracle queries.\\n\\nIt is known that a quantum walk algorithm can output the label of $t$, given the label of $s$, using $\\\\mathrm{poly}(n)$ oracle queries with success probability at least $1/\\\\mathrm{poly}(n)$, while any classical randomized algorithm requires $2^{\\\\Omega(n)}$ queries to do so.\\n\\nQuestion: In the same oracle model, must any quantum algorithm that outputs an entire path (a sequence of labels of vertices forming a path in $G_n$) from $s$ to $t$ with probability at least $1/\\\\mathrm{poly}(n)$ make $2^{\\\\Omega(n)}$ queries to the adjacency-list oracle? Either prove such a $2^{\\\\Omega(n)}$ quantum query lower bound, or give a quantum algorithm that finds an $s$–$t$ path using only $2^{o(n)}$ queries.\",\"macro_subject\":\"Theoretical Computer Science\",\"category_tag\":\"Quantum query complexity\",\"open_status\":\"solved\",\"status_search_result\":\"The problem was resolved in the negative by Jin-Peng Li, \\\"Exponential speedup of quantum algorithms for the pathfinding problem\\\" (arXiv:2307.12492, published 2025 in Quantum Information Processing). The work gives an efficient (polynomial-time) quantum algorithm that finds an entrance–exit path in the welded/glued-trees graph in the adjacency-list oracle model, while showing the classical task remains exponentially hard. Hence a quantum computer does not need $2^{\\\\Omega(n)}$ queries to find a left-to-right path.\",\"status_evidence\":[{\"title\":\"Exponential speedup of quantum algorithms for the pathfinding problem\",\"url\":\"https://arxiv.org/abs/2307.12492\",\"snippet\":\"We provide an efficient quantum algorithm to find an x-y path in the graph G [based on welded trees], and prove that no classical algorithm can find an x-y path in subexponential time with high probability.\",\"claim\":\"A polynomial-time quantum algorithm finds an s-t path in the glued/welded-trees graph in the adjacency-list oracle model, refuting the conjectured 2^Ω(n) quantum lower bound.\"},{\"title\":\"Exponential speedup of quantum algorithms for the pathfinding problem (Quantum Inf. Process., 2025)\",\"url\":\"https://link.springer.com/article/10.1007/s11128-025-04689-7\",\"snippet\":\"An efficient quantum algorithm is provided to find an x-y path in the welded tree graph, while no classical algorithm can find such a path in subexponential time.\",\"claim\":\"Peer-reviewed publication confirming an efficient quantum pathfinding algorithm for the glued-trees problem.\"}],\"confidence\":0.85},\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"uuid\":\"4b881e24-04cd-4dc4-8103-521f2fbe3f9a\"}\n"
+}

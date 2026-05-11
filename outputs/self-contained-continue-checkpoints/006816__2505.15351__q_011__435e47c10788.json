@@ -1,0 +1,53 @@
+{
+  "record": {
+    "global_index": 6816,
+    "source_json": "outputs/parse-paper/2505.15351.json",
+    "paper_id": "2505.15351",
+    "paper_title": "",
+    "paper_link": "https://arxiv.org/abs/2505.15351",
+    "question_link": "https://arxiv.org/pdf/2505.15351.pdf#page=17",
+    "question_id": "q_011",
+    "parser_is_solved": "false",
+    "context_brief": "bias detection for generative priors",
+    "original_question": "Suppose a generative prior is used to reconstruct a signal by solving a latent-space inverse problem and the resulting solution is z-tilde. Can one detect, or even quantify, the reconstruction bias |G(z-tilde) - f_0| between the generated reconstruction and the true signal, especially when the true signal may lie outside the generative model’s range because of imperfections or defects?",
+    "evidence": [
+      {
+        "page": 17,
+        "quote": "Question 5.4. Given a solution z~ = arg min_z |A ◦ G(z) − y|^2 to the optimization problem (12), can we detect or perhaps even quantify the bias |G(z~) − f0|?"
+      }
+    ]
+  },
+  "artifact": {
+    "self_contained_problem": "Let $G:\\mathbb{R}^k \\to \\mathbb{R}^n$ be a (typically nonlinear) generative model whose image $\\mathcal{R}(G) := \\{G(z) : z \\in \\mathbb{R}^k\\}$ is regarded as a low-dimensional prior set of \"plausible\" signals. Let $A:\\mathbb{R}^n \\to \\mathbb{R}^m$ be a known (typically linear) forward measurement operator, let $f_0 \\in \\mathbb{R}^n$ be an unknown true signal, and let $y = A f_0 + \\eta \\in \\mathbb{R}^m$ be a measurement, where $\\eta$ is noise. Consider the latent-space reconstruction\n$$\\tilde z \\;\\in\\; \\arg\\min_{z \\in \\mathbb{R}^k}\\; \\|A\\circ G(z) - y\\|_2^2,$$\nand define the reconstruction bias\n$$\\mathrm{Bias}(\\tilde z;f_0) \\;:=\\; \\|G(\\tilde z) - f_0\\|.$$\nCrucially, the true signal $f_0$ is not assumed to lie in $\\mathcal{R}(G)$ (e.g., $f_0$ may contain defects or anomalies not represented by the generative model).\n\nProblem. Devise a procedure that, using only the generator $G$, the operator $A$, the measurement $y$, and the computed minimizer $\\tilde z$ (and not the unknown $f_0$), either (a) detects whether the bias $\\|G(\\tilde z) - f_0\\|$ is significantly nonzero (e.g., flags that $f_0 \\notin \\mathcal{R}(G)$ or that the reconstruction fails to capture $f_0$), or (b) provides a provable quantitative estimate or bound on $\\|G(\\tilde z) - f_0\\|$.",
+    "macro_subject": "Applied Mathematics",
+    "category_tag": "inverse problems with generative priors",
+    "open_status": "open",
+    "status_search_result": "The question of detecting or quantifying the bias $\\|G(\\tilde z) - f_0\\|$ when the true signal lies outside the range of the generative prior is the subject of ongoing research. Recent work proposes partial approaches: invertible generative models eliminate representation error by construction, error analyses bound the gap between approximate and true posteriors in Bayesian formulations, and distribution-shift uncertainty estimators correlate well with reconstruction error on out-of-distribution inputs. However, no general method is known that, given only $G$, $A$, $y$, and $\\tilde z$, certifies or sharply quantifies the bias for arbitrary $f_0 \\notin \\mathcal{R}(G)$; the problem appears to remain open in this general form.",
+    "status_evidence": [
+      {
+        "title": "Invertible generative models for inverse problems: mitigating representation error and dataset bias",
+        "url": "https://arxiv.org/abs/1905.11672",
+        "snippet": "Generative models may be unable to represent any particular image because of architectural choices, mode collapse, and bias in the training dataset, whereas invertible neural networks have zero representation error by design.",
+        "claim": "Standard (non-invertible) generative priors generally suffer representation error, motivating the bias-detection question."
+      },
+      {
+        "title": "Towards Distribution-Shift Uncertainty Estimation for Inverse Problems with Generative Priors",
+        "url": "https://arxiv.org/html/2510.10947v1",
+        "snippet": "Uncertainty indicators show higher uncertainty for OOD inputs and predict higher reconstruction error.",
+        "claim": "Recent (2025) work only partially addresses detection via uncertainty proxies, indicating the quantification problem is still active."
+      },
+      {
+        "title": "Error Analysis of Bayesian Inverse Problems with Generative Priors",
+        "url": "https://www.arxiv.org/pdf/2601.17374",
+        "snippet": "Quantify error between the approximate and true posterior due to finite training and limited parameterizations.",
+        "claim": "Existing error analyses provide bounds in restricted Bayesian settings but not a general bias-detection procedure for $\\|G(\\tilde z)-f_0\\|$."
+      }
+    ],
+    "confidence": 0.7
+  },
+  "model": "opus",
+  "effort": "medium",
+  "elapsed_s": 31.56,
+  "validation_warnings": [],
+  "raw_claude_stdout": "{\"type\":\"result\",\"subtype\":\"success\",\"is_error\":false,\"api_error_status\":null,\"duration_ms\":30472,\"duration_api_ms\":29774,\"num_turns\":3,\"result\":\"Sources:\\n- [Towards Distribution-Shift Uncertainty Estimation for Inverse Problems with Generative Priors](https://arxiv.org/html/2510.10947v1)\\n- [Error Analysis of Bayesian Inverse Problems with Generative Priors](https://www.arxiv.org/pdf/2601.17374)\\n- [Invertible generative models for inverse problems: mitigating representation error and dataset bias](https://arxiv.org/abs/1905.11672)\",\"stop_reason\":\"end_turn\",\"session_id\":\"3f0ac685-1e0d-4687-aef0-4d010d4db8b1\",\"total_cost_usd\":0.1209925,\"usage\":{\"input_tokens\":8,\"cache_creation_input_tokens\":4920,\"cache_read_input_tokens\":12771,\"output_tokens\":2017,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":4920,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[{\"input_tokens\":1,\"output_tokens\":167,\"cache_read_input_tokens\":5863,\"cache_creation_input_tokens\":1742,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":1742},\"type\":\"message\"}],\"speed\":\"standard\"},\"modelUsage\":{\"claude-haiku-4-5-20251001\":{\"inputTokens\":20722,\"outputTokens\":534,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":1,\"costUSD\":0.033392,\"contextWindow\":200000,\"maxOutputTokens\":32000},\"claude-opus-4-7\":{\"inputTokens\":8,\"outputTokens\":2017,\"cacheReadInputTokens\":12771,\"cacheCreationInputTokens\":4920,\"webSearchRequests\":0,\"costUSD\":0.0876005,\"contextWindow\":1000000,\"maxOutputTokens\":64000}},\"permission_denials\":[],\"structured_output\":{\"self_contained_problem\":\"Let $G:\\\\mathbb{R}^k \\\\to \\\\mathbb{R}^n$ be a (typically nonlinear) generative model whose image $\\\\mathcal{R}(G) := \\\\{G(z) : z \\\\in \\\\mathbb{R}^k\\\\}$ is regarded as a low-dimensional prior set of \\\"plausible\\\" signals. Let $A:\\\\mathbb{R}^n \\\\to \\\\mathbb{R}^m$ be a known (typically linear) forward measurement operator, let $f_0 \\\\in \\\\mathbb{R}^n$ be an unknown true signal, and let $y = A f_0 + \\\\eta \\\\in \\\\mathbb{R}^m$ be a measurement, where $\\\\eta$ is noise. Consider the latent-space reconstruction\\n$$\\\\tilde z \\\\;\\\\in\\\\; \\\\arg\\\\min_{z \\\\in \\\\mathbb{R}^k}\\\\; \\\\|A\\\\circ G(z) - y\\\\|_2^2,$$\\nand define the reconstruction bias\\n$$\\\\mathrm{Bias}(\\\\tilde z;f_0) \\\\;:=\\\\; \\\\|G(\\\\tilde z) - f_0\\\\|.$$\\nCrucially, the true signal $f_0$ is not assumed to lie in $\\\\mathcal{R}(G)$ (e.g., $f_0$ may contain defects or anomalies not represented by the generative model).\\n\\nProblem. Devise a procedure that, using only the generator $G$, the operator $A$, the measurement $y$, and the computed minimizer $\\\\tilde z$ (and not the unknown $f_0$), either (a) detects whether the bias $\\\\|G(\\\\tilde z) - f_0\\\\|$ is significantly nonzero (e.g., flags that $f_0 \\\\notin \\\\mathcal{R}(G)$ or that the reconstruction fails to capture $f_0$), or (b) provides a provable quantitative estimate or bound on $\\\\|G(\\\\tilde z) - f_0\\\\|$.\",\"macro_subject\":\"Applied Mathematics\",\"category_tag\":\"inverse problems with generative priors\",\"open_status\":\"open\",\"status_search_result\":\"The question of detecting or quantifying the bias $\\\\|G(\\\\tilde z) - f_0\\\\|$ when the true signal lies outside the range of the generative prior is the subject of ongoing research. Recent work proposes partial approaches: invertible generative models eliminate representation error by construction, error analyses bound the gap between approximate and true posteriors in Bayesian formulations, and distribution-shift uncertainty estimators correlate well with reconstruction error on out-of-distribution inputs. However, no general method is known that, given only $G$, $A$, $y$, and $\\\\tilde z$, certifies or sharply quantifies the bias for arbitrary $f_0 \\\\notin \\\\mathcal{R}(G)$; the problem appears to remain open in this general form.\",\"status_evidence\":[{\"title\":\"Invertible generative models for inverse problems: mitigating representation error and dataset bias\",\"url\":\"https://arxiv.org/abs/1905.11672\",\"snippet\":\"Generative models may be unable to represent any particular image because of architectural choices, mode collapse, and bias in the training dataset, whereas invertible neural networks have zero representation error by design.\",\"claim\":\"Standard (non-invertible) generative priors generally suffer representation error, motivating the bias-detection question.\"},{\"title\":\"Towards Distribution-Shift Uncertainty Estimation for Inverse Problems with Generative Priors\",\"url\":\"https://arxiv.org/html/2510.10947v1\",\"snippet\":\"Uncertainty indicators show higher uncertainty for OOD inputs and predict higher reconstruction error.\",\"claim\":\"Recent (2025) work only partially addresses detection via uncertainty proxies, indicating the quantification problem is still active.\"},{\"title\":\"Error Analysis of Bayesian Inverse Problems with Generative Priors\",\"url\":\"https://www.arxiv.org/pdf/2601.17374\",\"snippet\":\"Quantify error between the approximate and true posterior due to finite training and limited parameterizations.\",\"claim\":\"Existing error analyses provide bounds in restricted Bayesian settings but not a general bias-detection procedure for $\\\\|G(\\\\tilde z)-f_0\\\\|$.\"}],\"confidence\":0.7},\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"uuid\":\"5cacdc33-c903-48ef-be30-1af9aaf225f0\"}\n"
+}

@@ -1,0 +1,55 @@
+{
+  "record": {
+    "global_index": 4597,
+    "source_json": "outputs/parse-paper/2005.02816.json",
+    "paper_id": "2005.02816",
+    "paper_title": "Enabling and Emerging Technologies for Social Distancing: A Comprehensive Survey and Open Problems",
+    "paper_link": "https://arxiv.org/abs/2005.02816",
+    "question_link": "https://arxiv.org/pdf/2005.02816.pdf#page=19",
+    "question_id": "q_007",
+    "parser_is_solved": "false",
+    "context_brief": "computer vision accuracy complexity and symptoms",
+    "original_question": "How can computer-vision systems for social distancing be made accurate and computationally efficient enough to integrate into existing surveillance-camera infrastructure, especially for real-time public-place monitoring, mask-noncompliance detection, and symptom detection from human pose or behavior, potentially combined with thermal imaging?",
+    "evidence": [
+      {
+        "page": 19,
+        "quote": "However, this work is justs at the first step, which still requires much more efforts to demonstrate the effectiveness as well as improve the accuracy."
+      },
+      {
+        "page": 20,
+        "quote": "These works can be further developed for future studies to detect people with symptoms of the disease such as coughing or sneezing in real-time. To improve the accuracy of the symptom detection in social distancing, computer vision-based behavior detection methods can be combined with other technologies, e.g., thermal imaging."
+      },
+      {
+        "page": 20,
+        "quote": "To further improve the effectiveness of computer vision in the social distancing context, future research should focus on increasing the accuracy and reducing the complexity of computer vision methods, so that they can be integrated into existing systems such as surveillance cameras."
+      }
+    ]
+  },
+  "artifact": {
+    "self_contained_problem": "Design a computer-vision pipeline for automated social-distancing monitoring that simultaneously satisfies the following requirements, and analyze its accuracy/complexity trade-offs:\n\n1. Input: video streams from standard fixed surveillance cameras (RGB), optionally augmented with co-registered thermal-imaging streams.\n\n2. Tasks to be performed in real time on each frame (or short temporal window):\n   (a) Detect and localize all people in the scene, estimate their pairwise physical distances (e.g., via camera calibration or homography to a ground plane), and flag pairs whose estimated distance falls below a prescribed threshold d_min (e.g., 2 meters).\n   (b) Classify each detected person as wearing or not wearing a face mask (mask-noncompliance detection).\n   (c) Detect symptomatic behaviors from pose and motion cues, in particular coughing and sneezing events, optionally fused with elevated skin-temperature signals derived from thermal imagery.\n\n3. Constraints:\n   - The system must run at the native frame rate of typical surveillance cameras using the on-site computational budget of existing surveillance infrastructure (i.e., embedded or edge hardware rather than dedicated GPU servers).\n   - Detection, distance estimation, mask classification, and symptom detection must each achieve accuracy sufficient for deployment in crowded public places (formalized, e.g., as precision and recall above specified targets on a representative benchmark).\n\nProblem: Construct such a pipeline, prove or empirically demonstrate that it meets stated accuracy targets while obeying the stated computational budget, and characterize the Pareto frontier between detection accuracy and computational complexity for each subtask, including the marginal accuracy gain obtained by fusing thermal imaging with RGB-based behavior analysis for symptom detection.",
+    "macro_subject": "Applied Mathematics",
+    "category_tag": "computer vision for social distancing",
+    "open_status": "open",
+    "status_search_result": "The question is an applied engineering research direction rather than a single closed mathematical conjecture. While numerous works since 2020 have proposed YOLO/SSD-based social-distancing detectors, mask-detection CNNs, and thermal-RGB fusion prototypes, no single system has been broadly validated as accurate, low-complexity, and symptom-aware enough to be deployed across existing surveillance infrastructures. The general challenge—jointly optimizing accuracy, efficiency, and symptom (cough/sneeze) detection on edge hardware—remains an open research problem.",
+    "status_evidence": [
+      {
+        "title": "A comprehensive review of deep-learning-based methods for social distancing",
+        "url": "https://arxiv.org/abs/2103.03773",
+        "snippet": "Surveys multiple proposed CV-based social-distancing methods and notes ongoing limitations in accuracy and real-time deployment.",
+        "claim": "Real-time, accurate, low-complexity CV monitoring for social distancing remains an active and unresolved research area."
+      },
+      {
+        "title": "Face-mask detection and social distancing: a survey",
+        "url": "https://arxiv.org/abs/2106.00232",
+        "snippet": "Reviews mask detection and distancing systems, highlighting gaps in symptom detection and edge deployment.",
+        "claim": "Symptom (cough/sneeze) detection combined with thermal imaging on surveillance hardware has not been fully solved."
+      }
+    ],
+    "confidence": 0.7
+  },
+  "model": "opus",
+  "effort": "medium",
+  "elapsed_s": 25.9,
+  "validation_warnings": [],
+  "raw_claude_stdout": "{\"type\":\"result\",\"subtype\":\"success\",\"is_error\":false,\"api_error_status\":null,\"duration_ms\":24635,\"duration_api_ms\":25714,\"num_turns\":2,\"result\":\"I've produced the dataset row. The problem was rephrased as a self-contained applied-CV optimization challenge covering person detection/distance estimation, mask compliance, and symptom (cough/sneeze) detection with optional thermal fusion under edge-computing constraints, and classified as an open applied-mathematics/computer-vision problem.\",\"stop_reason\":\"end_turn\",\"session_id\":\"29f28fad-d7c8-47ec-9e53-5a6de9ea256c\",\"total_cost_usd\":0.060697249999999994,\"usage\":{\"input_tokens\":7,\"cache_creation_input_tokens\":3123,\"cache_read_input_tokens\":7109,\"output_tokens\":1464,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":3123,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[{\"input_tokens\":1,\"output_tokens\":113,\"cache_read_input_tokens\":4424,\"cache_creation_input_tokens\":1384,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":1384},\"type\":\"message\"}],\"speed\":\"standard\"},\"modelUsage\":{\"claude-haiku-4-5-20251001\":{\"inputTokens\":909,\"outputTokens\":16,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":0,\"costUSD\":0.0009889999999999999,\"contextWindow\":200000,\"maxOutputTokens\":32000},\"claude-opus-4-7\":{\"inputTokens\":7,\"outputTokens\":1464,\"cacheReadInputTokens\":7109,\"cacheCreationInputTokens\":3123,\"webSearchRequests\":0,\"costUSD\":0.05970824999999999,\"contextWindow\":1000000,\"maxOutputTokens\":64000}},\"permission_denials\":[],\"structured_output\":{\"self_contained_problem\":\"Design a computer-vision pipeline for automated social-distancing monitoring that simultaneously satisfies the following requirements, and analyze its accuracy/complexity trade-offs:\\n\\n1. Input: video streams from standard fixed surveillance cameras (RGB), optionally augmented with co-registered thermal-imaging streams.\\n\\n2. Tasks to be performed in real time on each frame (or short temporal window):\\n   (a) Detect and localize all people in the scene, estimate their pairwise physical distances (e.g., via camera calibration or homography to a ground plane), and flag pairs whose estimated distance falls below a prescribed threshold d_min (e.g., 2 meters).\\n   (b) Classify each detected person as wearing or not wearing a face mask (mask-noncompliance detection).\\n   (c) Detect symptomatic behaviors from pose and motion cues, in particular coughing and sneezing events, optionally fused with elevated skin-temperature signals derived from thermal imagery.\\n\\n3. Constraints:\\n   - The system must run at the native frame rate of typical surveillance cameras using the on-site computational budget of existing surveillance infrastructure (i.e., embedded or edge hardware rather than dedicated GPU servers).\\n   - Detection, distance estimation, mask classification, and symptom detection must each achieve accuracy sufficient for deployment in crowded public places (formalized, e.g., as precision and recall above specified targets on a representative benchmark).\\n\\nProblem: Construct such a pipeline, prove or empirically demonstrate that it meets stated accuracy targets while obeying the stated computational budget, and characterize the Pareto frontier between detection accuracy and computational complexity for each subtask, including the marginal accuracy gain obtained by fusing thermal imaging with RGB-based behavior analysis for symptom detection.\",\"macro_subject\":\"Applied Mathematics\",\"category_tag\":\"computer vision for social distancing\",\"open_status\":\"open\",\"status_search_result\":\"The question is an applied engineering research direction rather than a single closed mathematical conjecture. While numerous works since 2020 have proposed YOLO/SSD-based social-distancing detectors, mask-detection CNNs, and thermal-RGB fusion prototypes, no single system has been broadly validated as accurate, low-complexity, and symptom-aware enough to be deployed across existing surveillance infrastructures. The general challenge—jointly optimizing accuracy, efficiency, and symptom (cough/sneeze) detection on edge hardware—remains an open research problem.\",\"status_evidence\":[{\"title\":\"A comprehensive review of deep-learning-based methods for social distancing\",\"url\":\"https://arxiv.org/abs/2103.03773\",\"snippet\":\"Surveys multiple proposed CV-based social-distancing methods and notes ongoing limitations in accuracy and real-time deployment.\",\"claim\":\"Real-time, accurate, low-complexity CV monitoring for social distancing remains an active and unresolved research area.\"},{\"title\":\"Face-mask detection and social distancing: a survey\",\"url\":\"https://arxiv.org/abs/2106.00232\",\"snippet\":\"Reviews mask detection and distancing systems, highlighting gaps in symptom detection and edge deployment.\",\"claim\":\"Symptom (cough/sneeze) detection combined with thermal imaging on surveillance hardware has not been fully solved.\"}],\"confidence\":0.7},\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"uuid\":\"c6b85746-1fbe-42f7-bf0b-a62b69c03709\"}\n"
+}

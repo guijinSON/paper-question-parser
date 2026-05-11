@@ -1,0 +1,65 @@
+{
+  "record": {
+    "global_index": 4333,
+    "source_json": "outputs/parse-paper/1907.07471.json",
+    "paper_id": "1907.07471",
+    "paper_title": "",
+    "paper_link": "https://arxiv.org/abs/1907.07471",
+    "question_link": "https://arxiv.org/pdf/1907.07471.pdf#page=2",
+    "question_id": "q_001",
+    "parser_is_solved": "false",
+    "context_brief": "Asymptotic lower bound for computing X_alpha",
+    "original_question": "In the linear model where an algorithm for a transformation is a product of matrices R_t and each step R_t is block diagonal with n-2 identity blocks and one 2x2 unitary block acting on only two coordinates, let F be the normalized n x n Fourier transform, let G = [[0, F], [-F^*, 0]], and define X_alpha = (cos alpha) Id + (sin alpha) G on C^(2n). What is the true asymptotic lower bound, as alpha tends to 0, on the number of such two-coordinate unitary steps required to compute X_alpha? In particular, can one prove that computing X_alpha requires essentially Omega(n log n) steps rather than only the currently derived Omega(alpha^2 n log n) or Omega(alpha n log n) lower bounds?",
+    "evidence": [
+      {
+        "page": 2,
+        "quote": "The work [Ailon(2013)] provides a lower bound of Omega(n log n) operations for computing F x (or Hx) given x, assuming that at each step the computer can perform a unitary operation affecting at most 2 rows."
+      },
+      {
+        "page": 3,
+        "quote": "Consider the 2n x 2n matrix G defined as G = ((0, F), (-F^*, 0)). ... Let Id denote the 2n x 2n identity matrix, and finally define for a real angle alpha the following matrix: X_alpha = (cos alpha) Id + (sin alpha) G."
+      },
+      {
+        "page": 3,
+        "quote": "Hence, we conjecture that the number of steps required to compute X_alpha should be not much smaller than Omega(n log n)."
+      },
+      {
+        "page": 3,
+        "quote": "The author conjectures Omega((n log n)/ log(1/alpha)) to be the correct bound."
+      }
+    ]
+  },
+  "artifact": {
+    "self_contained_problem": "Fix an integer n ≥ 1 and let F denote the normalized n×n discrete Fourier transform matrix, i.e. the unitary matrix with entries F_{jk} = (1/√n) exp(2πi jk/n) for 0 ≤ j,k ≤ n−1. Let F* denote its conjugate transpose. Define the 2n×2n unitary block matrix\n\n   G = [[0, F], [−F*, 0]],\n\nand, for a real parameter α, the 2n×2n unitary matrix\n\n   X_α = (cos α) I_{2n} + (sin α) G.\n\nConsider the following linear computational model. An \"algorithm\" computing a 2n×2n unitary U is a factorization U = R_T R_{T−1} ⋯ R_1, where each R_t is a 2n×2n unitary that is, up to permutation of coordinates, block-diagonal with one nontrivial 2×2 unitary block acting on two coordinates and the identity on the remaining 2n−2 coordinates. The cost of the algorithm is T, the number of such two-coordinate steps. Let c(U) denote the minimum cost over all such factorizations of U.\n\nIt is known that c(F) = Ω(n log n), and that c(X_α) ≥ Ω(α² n log n) and c(X_α) ≥ Ω(α n log n) can be established for small α > 0.\n\nDetermine the true asymptotic behavior of c(X_α) as α → 0 (with n → ∞). In particular, prove or disprove the conjecture that\n\n   c(X_α) = Ω( (n log n) / log(1/α) ),\n\nand decide whether c(X_α) = Ω(n log n) holds, i.e. whether the dependence on α can be eliminated entirely from the lower bound.",
+    "macro_subject": "Theoretical Computer Science",
+    "category_tag": "Fourier transform circuit lower bounds",
+    "open_status": "open",
+    "status_search_result": "Obtaining tight super-linear lower bounds for computing Fourier-type unitaries in the 2×2 unitary gate linear model is a longstanding open problem. Ailon's matrix-entropy method gives Ω(n log n) for F itself and Ω((n log n)/R) in R-well-conditioned models, but the conjectured Ω((n log n)/log(1/α)) bound for X_α and the question of whether α-independent Ω(n log n) holds appear not to have been resolved in the available literature.",
+    "status_evidence": [
+      {
+        "title": "A Lower Bound for Fourier Transform Computation in a Linear Model Over 2x2 Unitary Gates Using Matrix Entropy",
+        "url": "https://arxiv.org/abs/1305.4745",
+        "snippet": "In a layered linear circuit model restricted to unitary 2×2 gates, one obtains an Ω(n log n) lower bound for computing F.",
+        "claim": "The Ω(n log n) lower bound for the unrestricted Fourier transform F itself is established in this model."
+      },
+      {
+        "title": "An n log n Lower Bound for Fourier Transform Computation in the Well Conditioned Model",
+        "url": "https://arxiv.org/abs/1403.1307",
+        "snippet": "Obtaining a non-trivial (super-linear) lower bound for computation of the Fourier transform in the linear circuit model has been a long standing open problem.",
+        "claim": "Lower bounds in this model remain a long-standing open problem, with results conditional on conditioning assumptions."
+      },
+      {
+        "title": "Tighter Fourier Transform Lower Bounds",
+        "url": "https://link.springer.com/chapter/10.1007/978-3-662-47672-7_2",
+        "snippet": "A factor b speedup implies existence of Ω(n) b-ill conditioned bottlenecks occurring at Ω(n) different steps.",
+        "claim": "Subsequent work tightens the trade-offs but does not resolve the unconditional Ω(n log n) bound for X_α."
+      }
+    ],
+    "confidence": 0.7
+  },
+  "model": "opus",
+  "effort": "medium",
+  "elapsed_s": 39.17,
+  "validation_warnings": [],
+  "raw_claude_stdout": "{\"type\":\"result\",\"subtype\":\"success\",\"is_error\":false,\"api_error_status\":null,\"duration_ms\":38063,\"duration_api_ms\":37242,\"num_turns\":3,\"result\":\"Sources:\\n- [arXiv:1305.4745](https://arxiv.org/abs/1305.4745)\\n- [arXiv:1403.1307](https://arxiv.org/abs/1403.1307)\\n- [Tighter Fourier Transform Lower Bounds](https://link.springer.com/chapter/10.1007/978-3-662-47672-7_2)\",\"stop_reason\":\"end_turn\",\"session_id\":\"089f7abc-24df-4a2f-b20b-5d9c30d9fba6\",\"total_cost_usd\":0.116342,\"usage\":{\"input_tokens\":8,\"cache_creation_input_tokens\":5126,\"cache_read_input_tokens\":13491,\"output_tokens\":1839,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":5126,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[{\"input_tokens\":1,\"output_tokens\":125,\"cache_read_input_tokens\":6202,\"cache_creation_input_tokens\":1609,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":1609},\"type\":\"message\"}],\"speed\":\"standard\"},\"modelUsage\":{\"claude-haiku-4-5-20251001\":{\"inputTokens\":18929,\"outputTokens\":523,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":1,\"costUSD\":0.031543999999999996,\"contextWindow\":200000,\"maxOutputTokens\":32000},\"claude-opus-4-7\":{\"inputTokens\":8,\"outputTokens\":1839,\"cacheReadInputTokens\":13491,\"cacheCreationInputTokens\":5126,\"webSearchRequests\":0,\"costUSD\":0.084798,\"contextWindow\":1000000,\"maxOutputTokens\":64000}},\"permission_denials\":[],\"structured_output\":{\"self_contained_problem\":\"Fix an integer n ≥ 1 and let F denote the normalized n×n discrete Fourier transform matrix, i.e. the unitary matrix with entries F_{jk} = (1/√n) exp(2πi jk/n) for 0 ≤ j,k ≤ n−1. Let F* denote its conjugate transpose. Define the 2n×2n unitary block matrix\\n\\n   G = [[0, F], [−F*, 0]],\\n\\nand, for a real parameter α, the 2n×2n unitary matrix\\n\\n   X_α = (cos α) I_{2n} + (sin α) G.\\n\\nConsider the following linear computational model. An \\\"algorithm\\\" computing a 2n×2n unitary U is a factorization U = R_T R_{T−1} ⋯ R_1, where each R_t is a 2n×2n unitary that is, up to permutation of coordinates, block-diagonal with one nontrivial 2×2 unitary block acting on two coordinates and the identity on the remaining 2n−2 coordinates. The cost of the algorithm is T, the number of such two-coordinate steps. Let c(U) denote the minimum cost over all such factorizations of U.\\n\\nIt is known that c(F) = Ω(n log n), and that c(X_α) ≥ Ω(α² n log n) and c(X_α) ≥ Ω(α n log n) can be established for small α > 0.\\n\\nDetermine the true asymptotic behavior of c(X_α) as α → 0 (with n → ∞). In particular, prove or disprove the conjecture that\\n\\n   c(X_α) = Ω( (n log n) / log(1/α) ),\\n\\nand decide whether c(X_α) = Ω(n log n) holds, i.e. whether the dependence on α can be eliminated entirely from the lower bound.\",\"macro_subject\":\"Theoretical Computer Science\",\"category_tag\":\"Fourier transform circuit lower bounds\",\"open_status\":\"open\",\"status_search_result\":\"Obtaining tight super-linear lower bounds for computing Fourier-type unitaries in the 2×2 unitary gate linear model is a longstanding open problem. Ailon's matrix-entropy method gives Ω(n log n) for F itself and Ω((n log n)/R) in R-well-conditioned models, but the conjectured Ω((n log n)/log(1/α)) bound for X_α and the question of whether α-independent Ω(n log n) holds appear not to have been resolved in the available literature.\",\"status_evidence\":[{\"title\":\"A Lower Bound for Fourier Transform Computation in a Linear Model Over 2x2 Unitary Gates Using Matrix Entropy\",\"url\":\"https://arxiv.org/abs/1305.4745\",\"snippet\":\"In a layered linear circuit model restricted to unitary 2×2 gates, one obtains an Ω(n log n) lower bound for computing F.\",\"claim\":\"The Ω(n log n) lower bound for the unrestricted Fourier transform F itself is established in this model.\"},{\"title\":\"An n log n Lower Bound for Fourier Transform Computation in the Well Conditioned Model\",\"url\":\"https://arxiv.org/abs/1403.1307\",\"snippet\":\"Obtaining a non-trivial (super-linear) lower bound for computation of the Fourier transform in the linear circuit model has been a long standing open problem.\",\"claim\":\"Lower bounds in this model remain a long-standing open problem, with results conditional on conditioning assumptions.\"},{\"title\":\"Tighter Fourier Transform Lower Bounds\",\"url\":\"https://link.springer.com/chapter/10.1007/978-3-662-47672-7_2\",\"snippet\":\"A factor b speedup implies existence of Ω(n) b-ill conditioned bottlenecks occurring at Ω(n) different steps.\",\"claim\":\"Subsequent work tightens the trade-offs but does not resolve the unconditional Ω(n log n) bound for X_α.\"}],\"confidence\":0.7},\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"uuid\":\"7cc3e17c-54ce-4f93-a45b-19f26f9f16b5\"}\n"
+}

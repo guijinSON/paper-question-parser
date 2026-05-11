@@ -1,0 +1,51 @@
+{
+  "record": {
+    "global_index": 6618,
+    "source_json": "outputs/parse-paper/2501.14554.json",
+    "paper_id": "2501.14554",
+    "paper_title": "Combinatorial properties of continuous graphs: A survey of challenges, solutions and open problems",
+    "paper_link": "https://zbmath.org/902651898",
+    "question_link": "https://zbmath.org/902651898",
+    "question_id": "q_003",
+    "parser_is_solved": "false",
+    "context_brief": "approximability of maximum r-independent set",
+    "original_question": "Let α_r(Γ) be the maximum size of an r-independent set in a continuous graph Γ, where an r-independent set is a subset I ⊆ E whose distinct points are pairwise at distance at least 2r. For a rational radius r > 0, does there exist a polynomial-time approximation algorithm for the maximum r-independent set problem whose approximation ratio is bounded below by an absolute constant that does not depend on the input size?",
+    "evidence": [
+      {
+        "page": 3,
+        "quote": "Definition 9. Given a positive real number r > 0, a set of points I ⊆ E is called an r-independent (or r-stable) set of Γ if for any two points p, q ∈ I, it holds that d(p, q) ≥ 2r. The r-independence number of Γ, further referred as αr(Γ) or αr for simplicity, is the cardinality of the maximum r-independent set in Γ."
+      },
+      {
+        "page": 6,
+        "quote": "The specific open question we ask in this paragraph reads: For any rational number r > 0, is there a polynomial time approximation algorithm for the maximum r-independent set problem with performance guarantee bounded by a constant?"
+      }
+    ]
+  },
+  "artifact": {
+    "self_contained_problem": "Define a continuous graph Γ as the topological space obtained from a finite simple graph G = (V,E_G) by replacing each edge uv ∈ E_G with a homeomorphic copy of the closed unit interval [0,1], glued at endpoints according to V; let E denote the resulting underlying point set (the union of all edge-intervals together with the vertices). Equip E with the intrinsic shortest-path metric d in which each edge has length 1, so that d(p,q) is the length of a shortest path inside E from p to q.\n\nFor a real number r > 0, call a subset I ⊆ E an r-independent set of Γ if d(p,q) ≥ 2r for every pair of distinct points p,q ∈ I. Define the r-independence number\n   α_r(Γ) := sup{ |I| : I ⊆ E is r-independent }.\n(For each fixed rational r > 0, α_r(Γ) is finite for every finite continuous graph Γ.)\n\nThe maximum r-independent set problem takes as input a finite continuous graph Γ (specified, e.g., by its underlying combinatorial graph G together with the rational number r) and asks for an r-independent set of maximum cardinality.\n\nQuestion: Fix a rational number r > 0. Does there exist a polynomial-time algorithm A and an absolute constant c = c(r) > 0 (independent of the input size) such that, on every input continuous graph Γ, A outputs an r-independent set I_A of Γ with\n   |I_A| ≥ c · α_r(Γ) ?\n\nEquivalently, does the maximum r-independent set problem on continuous graphs admit a constant-factor polynomial-time approximation algorithm?",
+    "macro_subject": "Theoretical Computer Science",
+    "category_tag": "approximation algorithms on continuous graphs",
+    "open_status": "open",
+    "status_search_result": "A targeted web search did not turn up any polynomial-time constant-factor approximation algorithm for the maximum r-independent set problem on continuous (metric) graphs for arbitrary rational r > 0. Related results exist for unit disk graphs and intersection graphs, but they do not resolve the question for general continuous graphs. The question appears to remain open.",
+    "status_evidence": [
+      {
+        "title": "Combinatorial properties of continuous graphs (arXiv:2501.14554)",
+        "url": "https://arxiv.org/abs/2501.14554",
+        "snippet": "Survey introducing continuous graphs (each edge a unit-length interval) and discussing combinatorial parameters such as the r-independence number α_r(Γ).",
+        "claim": "The survey explicitly poses as an open question whether a constant-factor polynomial-time approximation exists for the maximum r-independent set problem on continuous graphs."
+      },
+      {
+        "title": "Approximation Algorithms for Maximum Independent Set on Unit Disk Graphs",
+        "url": "https://link.springer.com/chapter/10.1007/978-3-540-46515-7_16",
+        "snippet": "PTAS-style results for maximum independent set on geometric/unit-disk graphs.",
+        "claim": "Existing constant-factor and PTAS approximation results address geometric graph classes but do not directly resolve the r-independent set question on continuous graphs."
+      }
+    ],
+    "confidence": 0.7
+  },
+  "model": "opus",
+  "effort": "medium",
+  "elapsed_s": 42.79,
+  "validation_warnings": [],
+  "raw_claude_stdout": "{\"type\":\"result\",\"subtype\":\"success\",\"is_error\":false,\"api_error_status\":null,\"duration_ms\":41780,\"duration_api_ms\":38262,\"num_turns\":4,\"result\":\"Sources:\\n- [Combinatorial properties of continuous graphs (arXiv:2501.14554)](https://arxiv.org/abs/2501.14554)\\n- [Approximation Algorithms for Maximum Independent Set on Unit Disk Graphs](https://link.springer.com/chapter/10.1007/978-3-540-46515-7_16)\",\"stop_reason\":\"end_turn\",\"session_id\":\"cfbc8553-7327-43ce-b050-8d5fe2fbd687\",\"total_cost_usd\":0.12203025,\"usage\":{\"input_tokens\":9,\"cache_creation_input_tokens\":4803,\"cache_read_input_tokens\":19155,\"output_tokens\":1657,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":4803,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[{\"input_tokens\":1,\"output_tokens\":122,\"cache_read_input_tokens\":6223,\"cache_creation_input_tokens\":1265,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":1265},\"type\":\"message\"}],\"speed\":\"standard\"},\"modelUsage\":{\"claude-haiku-4-5-20251001\":{\"inputTokens\":27859,\"outputTokens\":621,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":1,\"costUSD\":0.040964,\"contextWindow\":200000,\"maxOutputTokens\":32000},\"claude-opus-4-7\":{\"inputTokens\":9,\"outputTokens\":1657,\"cacheReadInputTokens\":19155,\"cacheCreationInputTokens\":4803,\"webSearchRequests\":0,\"costUSD\":0.08106624999999999,\"contextWindow\":1000000,\"maxOutputTokens\":64000}},\"permission_denials\":[],\"structured_output\":{\"self_contained_problem\":\"Define a continuous graph Γ as the topological space obtained from a finite simple graph G = (V,E_G) by replacing each edge uv ∈ E_G with a homeomorphic copy of the closed unit interval [0,1], glued at endpoints according to V; let E denote the resulting underlying point set (the union of all edge-intervals together with the vertices). Equip E with the intrinsic shortest-path metric d in which each edge has length 1, so that d(p,q) is the length of a shortest path inside E from p to q.\\n\\nFor a real number r > 0, call a subset I ⊆ E an r-independent set of Γ if d(p,q) ≥ 2r for every pair of distinct points p,q ∈ I. Define the r-independence number\\n   α_r(Γ) := sup{ |I| : I ⊆ E is r-independent }.\\n(For each fixed rational r > 0, α_r(Γ) is finite for every finite continuous graph Γ.)\\n\\nThe maximum r-independent set problem takes as input a finite continuous graph Γ (specified, e.g., by its underlying combinatorial graph G together with the rational number r) and asks for an r-independent set of maximum cardinality.\\n\\nQuestion: Fix a rational number r > 0. Does there exist a polynomial-time algorithm A and an absolute constant c = c(r) > 0 (independent of the input size) such that, on every input continuous graph Γ, A outputs an r-independent set I_A of Γ with\\n   |I_A| ≥ c · α_r(Γ) ?\\n\\nEquivalently, does the maximum r-independent set problem on continuous graphs admit a constant-factor polynomial-time approximation algorithm?\",\"macro_subject\":\"Theoretical Computer Science\",\"category_tag\":\"approximation algorithms on continuous graphs\",\"open_status\":\"open\",\"status_search_result\":\"A targeted web search did not turn up any polynomial-time constant-factor approximation algorithm for the maximum r-independent set problem on continuous (metric) graphs for arbitrary rational r > 0. Related results exist for unit disk graphs and intersection graphs, but they do not resolve the question for general continuous graphs. The question appears to remain open.\",\"status_evidence\":[{\"title\":\"Combinatorial properties of continuous graphs (arXiv:2501.14554)\",\"url\":\"https://arxiv.org/abs/2501.14554\",\"snippet\":\"Survey introducing continuous graphs (each edge a unit-length interval) and discussing combinatorial parameters such as the r-independence number α_r(Γ).\",\"claim\":\"The survey explicitly poses as an open question whether a constant-factor polynomial-time approximation exists for the maximum r-independent set problem on continuous graphs.\"},{\"title\":\"Approximation Algorithms for Maximum Independent Set on Unit Disk Graphs\",\"url\":\"https://link.springer.com/chapter/10.1007/978-3-540-46515-7_16\",\"snippet\":\"PTAS-style results for maximum independent set on geometric/unit-disk graphs.\",\"claim\":\"Existing constant-factor and PTAS approximation results address geometric graph classes but do not directly resolve the r-independent set question on continuous graphs.\"}],\"confidence\":0.7},\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"uuid\":\"d782a836-89f4-4af3-b1f3-a1f5b2a415b6\"}\n"
+}

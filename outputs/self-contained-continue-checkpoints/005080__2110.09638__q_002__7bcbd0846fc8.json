@@ -1,0 +1,51 @@
+{
+  "record": {
+    "global_index": 5080,
+    "source_json": "outputs/parse-paper/2110.09638.json",
+    "paper_id": "2110.09638",
+    "paper_title": "",
+    "paper_link": "https://arxiv.org/abs/2110.09638",
+    "question_link": "https://arxiv.org/pdf/2110.09638.pdf#page=1",
+    "question_id": "q_002",
+    "parser_is_solved": "false",
+    "context_brief": "Optimal algorithms under limited feedback",
+    "original_question": "In the same decentralized channel-capture setting, the paper assumes that after every slot each user is told the exact number of users who transmitted, so that F[t]=0 means idle, F[t]=1 means success, and F[t]>=2 means a collision with a known number of transmitters. If that exact transmitter-count feedback is not available and users instead receive more limited feedback, what decentralized algorithms are then optimal for minimizing the expected time to the first success or otherwise achieving optimal channel-capture performance?",
+    "evidence": [
+      {
+        "page": 1,
+        "quote": "This identifies two open questions that we leave to future work: (ii) What algorithms are optimal when more limited feedback information is used?"
+      },
+      {
+        "page": 3,
+        "quote": "If n = 2 then F[t] is equivalent to the idle, success, collision feedback of classical slotted Aloha. If n > 2 then the F[t] feedback is more detailed."
+      }
+    ]
+  },
+  "artifact": {
+    "self_contained_problem": "Consider the following decentralized channel-capture problem. There are n ≥ 2 users sharing a single time-slotted broadcast channel. In each slot t = 1, 2, ..., each user independently decides (using only its own past observations and possibly private randomness) whether to transmit. Let X_i[t] ∈ {0,1} indicate whether user i transmits in slot t, and let S[t] = X_1[t] + ... + X_n[t] be the number of transmitters in slot t. A slot is called a \"success\" if S[t] = 1 (exactly one user transmits), in which case that user is said to have captured the channel. The goal of a decentralized algorithm is to minimize the expected number of slots until the first success (equivalently, to optimize channel-capture performance), where users follow identical protocols and break symmetry only through randomization and feedback.\n\nUnder the strong feedback model, after each slot every user observes F[t] = S[t] exactly (so F[t] = 0 indicates idle, F[t] = 1 indicates success, and F[t] = k ≥ 2 indicates a collision with the exact count k of transmitters revealed). \n\nThe problem: characterize and determine optimal decentralized algorithms (in the sense of minimizing the expected time to the first success, or otherwise achieving optimal channel-capture performance) under more limited feedback models in which the exact transmitter count is not available. In particular, treat the classical ternary \"idle / success / collision\" feedback (F[t] ∈ {0, 1, ≥2}) and any other coarsening of S[t], and identify the optimal protocols and their performance for each such feedback model.",
+    "macro_subject": "Applied Mathematics",
+    "category_tag": "Decentralized multiple-access algorithms",
+    "open_status": "open",
+    "status_search_result": "A web search returned related work on slotted ALOHA with capture and channel-aware transmission policies, but no source establishes optimal decentralized algorithms for the channel-capture/first-success objective under coarsened (non-exact-count) feedback such as ternary idle/success/collision feedback for general n. The question is explicitly identified as an open direction for future work, and no resolution was found.",
+    "status_evidence": [
+      {
+        "title": "On optimal transmission algorithms for slotted ALOHA sensor networks with multi-packet reception",
+        "url": "https://ieeexplore.ieee.org/document/1415798/",
+        "snippet": "Optimal transmit probability function and stochastic approximation algorithm for slotted ALOHA with multi-packet reception.",
+        "claim": "Existing optimality results address related but distinct settings (multi-packet reception with CSI), not the first-success channel-capture objective under coarsened feedback."
+      },
+      {
+        "title": "Exploiting channel state information in slotted ALOHA with SINR capture",
+        "url": "https://ieeexplore.ieee.org/document/6214052/",
+        "snippet": "Channel-aware ALOHA exploiting decentralized CSI under SINR capture model.",
+        "claim": "Related work on decentralized ALOHA does not resolve optimality under limited (non-exact-count) feedback for the channel-capture problem."
+      }
+    ],
+    "confidence": 0.7
+  },
+  "model": "opus",
+  "effort": "medium",
+  "elapsed_s": 32.01,
+  "validation_warnings": [],
+  "raw_claude_stdout": "{\"type\":\"result\",\"subtype\":\"success\",\"is_error\":false,\"api_error_status\":null,\"duration_ms\":30503,\"duration_api_ms\":30018,\"num_turns\":3,\"result\":\"Sources:\\n- [On optimal transmission algorithms for slotted ALOHA sensor networks with multi-packet reception](https://ieeexplore.ieee.org/document/1415798/)\\n- [Exploiting channel state information in slotted ALOHA with SINR capture](https://ieeexplore.ieee.org/document/6214052/)\\n- [arXiv:2109.08825](https://arxiv.org/pdf/2109.08825)\",\"stop_reason\":\"end_turn\",\"session_id\":\"cf1c595d-7369-45d4-9401-adf1b7b73f17\",\"total_cost_usd\":0.10103125,\"usage\":{\"input_tokens\":8,\"cache_creation_input_tokens\":4325,\"cache_read_input_tokens\":12784,\"output_tokens\":1472,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":4325,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[{\"input_tokens\":1,\"output_tokens\":150,\"cache_read_input_tokens\":5786,\"cache_creation_input_tokens\":1224,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":1224},\"type\":\"message\"}],\"speed\":\"standard\"},\"modelUsage\":{\"claude-haiku-4-5-20251001\":{\"inputTokens\":18458,\"outputTokens\":462,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":1,\"costUSD\":0.030767999999999997,\"contextWindow\":200000,\"maxOutputTokens\":32000},\"claude-opus-4-7\":{\"inputTokens\":8,\"outputTokens\":1472,\"cacheReadInputTokens\":12784,\"cacheCreationInputTokens\":4325,\"webSearchRequests\":0,\"costUSD\":0.07026325,\"contextWindow\":1000000,\"maxOutputTokens\":64000}},\"permission_denials\":[],\"structured_output\":{\"self_contained_problem\":\"Consider the following decentralized channel-capture problem. There are n ≥ 2 users sharing a single time-slotted broadcast channel. In each slot t = 1, 2, ..., each user independently decides (using only its own past observations and possibly private randomness) whether to transmit. Let X_i[t] ∈ {0,1} indicate whether user i transmits in slot t, and let S[t] = X_1[t] + ... + X_n[t] be the number of transmitters in slot t. A slot is called a \\\"success\\\" if S[t] = 1 (exactly one user transmits), in which case that user is said to have captured the channel. The goal of a decentralized algorithm is to minimize the expected number of slots until the first success (equivalently, to optimize channel-capture performance), where users follow identical protocols and break symmetry only through randomization and feedback.\\n\\nUnder the strong feedback model, after each slot every user observes F[t] = S[t] exactly (so F[t] = 0 indicates idle, F[t] = 1 indicates success, and F[t] = k ≥ 2 indicates a collision with the exact count k of transmitters revealed). \\n\\nThe problem: characterize and determine optimal decentralized algorithms (in the sense of minimizing the expected time to the first success, or otherwise achieving optimal channel-capture performance) under more limited feedback models in which the exact transmitter count is not available. In particular, treat the classical ternary \\\"idle / success / collision\\\" feedback (F[t] ∈ {0, 1, ≥2}) and any other coarsening of S[t], and identify the optimal protocols and their performance for each such feedback model.\",\"macro_subject\":\"Applied Mathematics\",\"category_tag\":\"Decentralized multiple-access algorithms\",\"open_status\":\"open\",\"status_search_result\":\"A web search returned related work on slotted ALOHA with capture and channel-aware transmission policies, but no source establishes optimal decentralized algorithms for the channel-capture/first-success objective under coarsened (non-exact-count) feedback such as ternary idle/success/collision feedback for general n. The question is explicitly identified as an open direction for future work, and no resolution was found.\",\"status_evidence\":[{\"title\":\"On optimal transmission algorithms for slotted ALOHA sensor networks with multi-packet reception\",\"url\":\"https://ieeexplore.ieee.org/document/1415798/\",\"snippet\":\"Optimal transmit probability function and stochastic approximation algorithm for slotted ALOHA with multi-packet reception.\",\"claim\":\"Existing optimality results address related but distinct settings (multi-packet reception with CSI), not the first-success channel-capture objective under coarsened feedback.\"},{\"title\":\"Exploiting channel state information in slotted ALOHA with SINR capture\",\"url\":\"https://ieeexplore.ieee.org/document/6214052/\",\"snippet\":\"Channel-aware ALOHA exploiting decentralized CSI under SINR capture model.\",\"claim\":\"Related work on decentralized ALOHA does not resolve optimality under limited (non-exact-count) feedback for the channel-capture problem.\"}],\"confidence\":0.7},\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"uuid\":\"5ecb5104-9097-4348-91bb-48d264759474\"}\n"
+}

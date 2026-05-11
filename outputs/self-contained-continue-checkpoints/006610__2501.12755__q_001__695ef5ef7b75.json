@@ -1,0 +1,61 @@
+{
+  "record": {
+    "global_index": 6610,
+    "source_json": "outputs/parse-paper/2501.12755.json",
+    "paper_id": "2501.12755",
+    "paper_title": "Open questions on defining and computing the vapour-liquid surface tension by virial and test transformation approaches",
+    "paper_link": "https://arxiv.org/abs/2501.12755",
+    "question_link": "https://arxiv.org/pdf/2501.12755.pdf#page=1",
+    "question_id": "q_001",
+    "parser_is_solved": "false",
+    "context_brief": "apparent kinetic contribution",
+    "original_question": "For molecular simulations of vapour-liquid interfaces using rigid multi-site molecular models, should the computed surface tension include an additional apparent kinetic or ideal-gas contribution when molecules have preferential orientation at the interface, and if so, under which mechanical formalism? In particular, should solvers that use rigid-unit centre-of-mass translation and rotation, rather than constrained interaction-site mechanics, add this kinetic contribution, or do previous planar-interface virial-route results remain valid because the kinetic and potential factors separate and the momentum contribution does not create a pressure-tensor anisotropy?",
+    "evidence": [
+      {
+        "page": 1,
+        "quote": "This work addresses four problems in defining and computing the surface tension of vapour-liquid interfaces: (1) The apparent kinetic contribution to the surface tension, and what it is that makes it appear; (2) the problem of defining the local virial, which for some purposes appears to be necessary; (3) the disagreement between results for spherical interfaces when using different methods, specifically the virial and the test area method; (4) how the surface tension values obtained from these methods can be related to the definition of the surface tension from thermodynamics – since if they cannot, it is a meaningless exercise to compute them. At the end, all these problems remain unsolved: They are “open questions.”"
+      },
+      {
+        "page": 2,
+        "quote": "Moreover, even in the planar case, Segaet al.[6] argue that a kinetic contribution appears, and that this contribution would need to be added to that from the virial, which to date has not become common practice at all. Is this an indication that almost all molecular simulation data on the surface tension are wrong? In the case of water, for instance, the error due to neglecting the effect from the apparent kinetic contribution would amount to 15%, Segaet al.[6] find."
+      },
+      {
+        "page": 6,
+        "quote": "Does ls1 need to include the apparent kinetic energy contribution when computingγ? And are all the previous results on the surface tension of multi-site models using industry-standard molecular simulation solvers incorrect?"
+      },
+      {
+        "page": 7,
+        "quote": "The argument thatPp is the pressure tensor with a thermodynamic meaning, and notPΞ, would need to be developed from the partition function, which has not been done by Segaet al.[6] or any of the follow-up works."
+      }
+    ]
+  },
+  "artifact": {
+    "self_contained_problem": "Consider a molecular dynamics simulation of a planar vapour–liquid interface in which the fluid is modelled by rigid multi-site molecules (each molecule consisting of several interaction sites held at fixed relative positions, with translational degrees of freedom for the centre of mass and rotational degrees of freedom for the orientation). At the interface, molecules typically exhibit a preferential orientation, so that the momentum distribution of individual interaction sites is not isotropic.\n\nTwo mechanical formalisms can be used to compute the surface tension γ from the pressure tensor P:\n(a) a \"constrained interaction-site\" formalism, in which each site is treated as a particle whose motion is subject to rigid-body constraints; in this formalism it has been argued (and quantified, e.g., for water at roughly a 15% effect) that an additional \"apparent kinetic\" or ideal-gas-like contribution—arising from the anisotropy of the site-momentum tensor at the oriented interface—must be added to the standard virial contribution;\n(b) a \"rigid-unit\" formalism, in which each molecule is propagated as a rigid body via centre-of-mass translation and rigid-body rotation; here the kinetic part of the centre-of-mass pressure tensor is isotropic and factorises from the configurational (potential) part.\n\nDetermine whether, in formalism (b), the surface tension γ computed from the standard virial route (without any added kinetic correction) coincides with the thermodynamically defined surface tension, or whether an apparent kinetic contribution analogous to that required in formalism (a) must also be added. Equivalently: derive, starting from the partition function of a system of rigid multi-site molecules with a planar vapour–liquid interface, which pressure tensor (the site-based tensor P_Ξ or the rigid-unit tensor P_p) carries the thermodynamic meaning of the mechanical route to γ, and decide whether previously published surface-tension data obtained with industry-standard rigid-unit solvers are consistent with the thermodynamic surface tension.",
+    "macro_subject": "Mathematical Physics",
+    "category_tag": "Statistical mechanics of interfaces / surface tension",
+    "open_status": "open",
+    "status_search_result": "The question is explicitly posed as an open question; the partition-function-based derivation needed to identify which pressure tensor (site-based vs rigid-unit centre-of-mass) carries the thermodynamic meaning of the surface tension for rigid multi-site models has not been carried out in the cited follow-up literature. No web source found indicating a resolution of this issue as of 2026.",
+    "status_evidence": [
+      {
+        "title": "Open questions on defining and computing the vapour-liquid surface tension",
+        "url": "https://arxiv.org/html/2501.12755",
+        "snippet": "all these problems remain unsolved: They are 'open questions.'",
+        "claim": "The question on the apparent kinetic contribution to surface tension is stated as unresolved."
+      },
+      {
+        "title": "Reducing uncertainty in simulation estimates of the surface tension",
+        "url": "https://pubs.rsc.org/en/content/articlehtml/2019/ra/c9ra07058c",
+        "snippet": "the kinetic energy tensor contribution to the pressure tensor is anisotropic in the case of molecules represented as rigid units with rotational degrees of freedom",
+        "claim": "Independent literature confirms ongoing discussion of the kinetic contribution but does not resolve the rigid-unit case from a partition-function viewpoint."
+      }
+    ],
+    "confidence": 0.7
+  },
+  "model": "opus",
+  "effort": "medium",
+  "elapsed_s": 34.73,
+  "validation_warnings": [
+    "self_contained_problem_mentions_article"
+  ],
+  "raw_claude_stdout": "{\"type\":\"result\",\"subtype\":\"success\",\"is_error\":false,\"api_error_status\":null,\"duration_ms\":33703,\"duration_api_ms\":32002,\"num_turns\":3,\"result\":\"Sources:\\n- [Open questions on defining and computing the vapour–liquid surface tension](https://arxiv.org/html/2501.12755)\\n- [Reducing uncertainty in simulation estimates of the surface tension](https://pubs.rsc.org/en/content/articlehtml/2019/ra/c9ra07058c)\",\"stop_reason\":\"end_turn\",\"session_id\":\"4c7a1714-27a1-4360-be0c-aee002f57bad\",\"total_cost_usd\":0.11208325000000001,\"usage\":{\"input_tokens\":8,\"cache_creation_input_tokens\":4969,\"cache_read_input_tokens\":13808,\"output_tokens\":1576,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":4969,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[{\"input_tokens\":1,\"output_tokens\":113,\"cache_read_input_tokens\":6304,\"cache_creation_input_tokens\":1350,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":1350},\"type\":\"message\"}],\"speed\":\"standard\"},\"modelUsage\":{\"claude-haiku-4-5-20251001\":{\"inputTokens\":22608,\"outputTokens\":415,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":1,\"costUSD\":0.034683,\"contextWindow\":200000,\"maxOutputTokens\":32000},\"claude-opus-4-7\":{\"inputTokens\":8,\"outputTokens\":1576,\"cacheReadInputTokens\":13808,\"cacheCreationInputTokens\":4969,\"webSearchRequests\":0,\"costUSD\":0.07740025,\"contextWindow\":1000000,\"maxOutputTokens\":64000}},\"permission_denials\":[],\"structured_output\":{\"self_contained_problem\":\"Consider a molecular dynamics simulation of a planar vapour–liquid interface in which the fluid is modelled by rigid multi-site molecules (each molecule consisting of several interaction sites held at fixed relative positions, with translational degrees of freedom for the centre of mass and rotational degrees of freedom for the orientation). At the interface, molecules typically exhibit a preferential orientation, so that the momentum distribution of individual interaction sites is not isotropic.\\n\\nTwo mechanical formalisms can be used to compute the surface tension γ from the pressure tensor P:\\n(a) a \\\"constrained interaction-site\\\" formalism, in which each site is treated as a particle whose motion is subject to rigid-body constraints; in this formalism it has been argued (and quantified, e.g., for water at roughly a 15% effect) that an additional \\\"apparent kinetic\\\" or ideal-gas-like contribution—arising from the anisotropy of the site-momentum tensor at the oriented interface—must be added to the standard virial contribution;\\n(b) a \\\"rigid-unit\\\" formalism, in which each molecule is propagated as a rigid body via centre-of-mass translation and rigid-body rotation; here the kinetic part of the centre-of-mass pressure tensor is isotropic and factorises from the configurational (potential) part.\\n\\nDetermine whether, in formalism (b), the surface tension γ computed from the standard virial route (without any added kinetic correction) coincides with the thermodynamically defined surface tension, or whether an apparent kinetic contribution analogous to that required in formalism (a) must also be added. Equivalently: derive, starting from the partition function of a system of rigid multi-site molecules with a planar vapour–liquid interface, which pressure tensor (the site-based tensor P_Ξ or the rigid-unit tensor P_p) carries the thermodynamic meaning of the mechanical route to γ, and decide whether previously published surface-tension data obtained with industry-standard rigid-unit solvers are consistent with the thermodynamic surface tension.\",\"macro_subject\":\"Mathematical Physics\",\"category_tag\":\"Statistical mechanics of interfaces / surface tension\",\"open_status\":\"open\",\"status_search_result\":\"The question is explicitly posed as an open question; the partition-function-based derivation needed to identify which pressure tensor (site-based vs rigid-unit centre-of-mass) carries the thermodynamic meaning of the surface tension for rigid multi-site models has not been carried out in the cited follow-up literature. No web source found indicating a resolution of this issue as of 2026.\",\"status_evidence\":[{\"title\":\"Open questions on defining and computing the vapour-liquid surface tension\",\"url\":\"https://arxiv.org/html/2501.12755\",\"snippet\":\"all these problems remain unsolved: They are 'open questions.'\",\"claim\":\"The question on the apparent kinetic contribution to surface tension is stated as unresolved.\"},{\"title\":\"Reducing uncertainty in simulation estimates of the surface tension\",\"url\":\"https://pubs.rsc.org/en/content/articlehtml/2019/ra/c9ra07058c\",\"snippet\":\"the kinetic energy tensor contribution to the pressure tensor is anisotropic in the case of molecules represented as rigid units with rotational degrees of freedom\",\"claim\":\"Independent literature confirms ongoing discussion of the kinetic contribution but does not resolve the rigid-unit case from a partition-function viewpoint.\"}],\"confidence\":0.7},\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"uuid\":\"e01c6a21-d990-4005-995a-70b782a6110a\"}\n"
+}

@@ -1,0 +1,57 @@
+{
+  "record": {
+    "global_index": 4688,
+    "source_json": "outputs/parse-paper/2009.05870.json",
+    "paper_id": "2009.05870",
+    "paper_title": "",
+    "paper_link": "https://arxiv.org/abs/2009.05870",
+    "question_link": "https://arxiv.org/pdf/2009.05870.pdf#page=2",
+    "question_id": "q_002",
+    "parser_is_solved": "false",
+    "context_brief": "Hardness evidence across algorithm classes",
+    "original_question": "Assuming the hypergraphic planted clique detection conjecture for fixed integer d ≥ 2, which states that when κ grows strictly slower than N no sequence of polynomial-time tests can distinguish the null model G_d(N, 1/2) from the planted-clique model G_d(N, 1/2, κ) with vanishing total error, can stronger evidence for this conjectured hardness be established for additional algorithmic frameworks beyond the Metropolis and low-degree polynomial methods already analyzed, specifically for classes such as statistical query, sum-of-squares, belief propagation, and approximate message passing?",
+    "evidence": [
+      {
+        "page": 2,
+        "quote": "Conjecture 1 (HPC detection) Suppose d ě 2 is a fixed integer. If\n                                   ?\n                 lim sup log κ{ log N ď 1 ´ τ for any τ ą 0,\n                        N Ñ8\nfor any sequence of polynomial-time tests tφuN : G Ñ t0, 1u, lim inf N Ñ8 PH0 pφpGq “ 1q `\nPH1 pφpGq “ 0q ą 1{2."
+      },
+      {
+        "page": 3,
+        "quote": "Challenge 2 Can we provide more evidence for HPC detection conjecture under more\nclasses of algorithms, such as statistical query (SQ), sum-of-squares (SOS), belief prop-\nagation (BP), approximate message passing (AMP), etc, in addition to the evidence in\nLuo and Zhang (2020)?"
+      }
+    ]
+  },
+  "artifact": {
+    "self_contained_problem": "Fix an integer $d \\ge 2$. For a positive integer $N$, let $G_d(N, 1/2)$ denote the null model: a random $d$-uniform hypergraph on vertex set $[N]$ in which every $d$-subset of $[N]$ is included as a hyperedge independently with probability $1/2$. For an integer $\\kappa = \\kappa(N) \\in \\{1, \\dots, N\\}$, let $G_d(N, 1/2, \\kappa)$ denote the planted-clique model: first sample a hypergraph as above, then choose a uniformly random subset $K \\subseteq [N]$ of size $\\kappa$ and add all $d$-subsets of $K$ as hyperedges (so $K$ becomes a $d$-uniform clique). Assume the following Hypergraphic Planted Clique (HPC) detection conjecture: if \n$$\\limsup_{N\\to\\infty}\\frac{\\log\\kappa}{\\log N} \\le 1-\\tau\\quad\\text{for some }\\tau>0,$$\nthen for every sequence of polynomial-time (in $N$) tests $\\phi_N : \\text{hypergraphs on }[N] \\to \\{0,1\\}$, \n$$\\liminf_{N\\to\\infty}\\Big(\\mathbb{P}_{H_0}(\\phi_N(G)=1)+\\mathbb{P}_{H_1}(\\phi_N(G)=0)\\Big) > \\tfrac{1}{2},$$\nwhere $H_0$ is $G_d(N,1/2)$ and $H_1$ is $G_d(N,1/2,\\kappa)$.\n\nExisting rigorous evidence for this conjecture covers Metropolis-type local algorithms and low-degree polynomial tests. Provide rigorous evidence (in the form of unconditional lower bounds against detection in the regime $\\log\\kappa/\\log N \\le 1-\\tau$) for the HPC detection conjecture in additional algorithmic frameworks, specifically: \n(i) statistical query (SQ) algorithms,\n(ii) sum-of-squares (SOS) semidefinite programming hierarchies,\n(iii) belief propagation (BP),\n(iv) approximate message passing (AMP).",
+    "macro_subject": "Theoretical Computer Science",
+    "category_tag": "average-case complexity / planted clique",
+    "open_status": "open",
+    "status_search_result": "A search shows substantial work on lower bounds for the standard (graph) planted clique problem in SOS, SQ, and related models (Barak et al., Feldman et al., Hopkins–Steurer, etc.), but evidence for the hypergraphic variant has so far been established only for Metropolis-type and low-degree polynomial algorithms (Luo–Zhang 2020). No published work was found establishing analogous SQ/SOS/BP/AMP lower bounds specifically for the hypergraphic planted clique detection problem, so the challenge appears to remain open.",
+    "status_evidence": [
+      {
+        "title": "Average-Case Hardness of Hypergraphic Planted Clique Detection (Luo & Zhang)",
+        "url": "http://proceedings.mlr.press/v125/luo20a/luo20a.pdf",
+        "snippet": "Establishes hardness of HPC detection against Metropolis algorithms and low-degree polynomial algorithms.",
+        "claim": "Existing evidence covers Metropolis and low-degree polynomial methods only."
+      },
+      {
+        "title": "A Nearly Tight Sum-of-Squares Lower Bound for the Planted Clique Problem",
+        "url": "https://arxiv.org/abs/1604.03084",
+        "snippet": "Proves SOS lower bounds for the standard graph planted clique problem.",
+        "claim": "SOS lower bounds exist for graph planted clique but the hypergraphic analogue is not addressed."
+      },
+      {
+        "title": "Statistical Algorithms and a Lower Bound for Detecting Planted Cliques",
+        "url": "https://dl.acm.org/doi/10.1145/3046674",
+        "snippet": "Provides SQ lower bounds for the planted clique problem in graphs.",
+        "claim": "SQ lower bounds known for graph planted clique; hypergraphic case not covered."
+      }
+    ],
+    "confidence": 0.7
+  },
+  "model": "opus",
+  "effort": "medium",
+  "elapsed_s": 39.23,
+  "validation_warnings": [],
+  "raw_claude_stdout": "{\"type\":\"result\",\"subtype\":\"success\",\"is_error\":false,\"api_error_status\":null,\"duration_ms\":38019,\"duration_api_ms\":37844,\"num_turns\":3,\"result\":\"Sources:\\n- [Luo & Zhang, Average-Case Hardness of Hypergraphic Planted Clique Detection](http://proceedings.mlr.press/v125/luo20a/luo20a.pdf)\\n- [A Nearly Tight Sum-of-Squares Lower Bound for the Planted Clique Problem](https://arxiv.org/abs/1604.03084)\\n- [Statistical Algorithms and a Lower Bound for Detecting Planted Cliques](https://dl.acm.org/doi/10.1145/3046674)\\n- [Low-degree phase transitions for detecting a planted clique in hypergraphs](https://proceedings.mlr.press/v247/mardia24a/mardia24a.pdf)\",\"stop_reason\":\"end_turn\",\"session_id\":\"289f23e2-0b1e-44e8-a885-23ac6d478984\",\"total_cost_usd\":0.12227225,\"usage\":{\"input_tokens\":8,\"cache_creation_input_tokens\":4959,\"cache_read_input_tokens\":13267,\"output_tokens\":1954,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":4959,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[{\"input_tokens\":1,\"output_tokens\":250,\"cache_read_input_tokens\":6048,\"cache_creation_input_tokens\":1596,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":1596},\"type\":\"message\"}],\"speed\":\"standard\"},\"modelUsage\":{\"claude-haiku-4-5-20251001\":{\"inputTokens\":23300,\"outputTokens\":491,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":1,\"costUSD\":0.035754999999999995,\"contextWindow\":200000,\"maxOutputTokens\":32000},\"claude-opus-4-7\":{\"inputTokens\":8,\"outputTokens\":1954,\"cacheReadInputTokens\":13267,\"cacheCreationInputTokens\":4959,\"webSearchRequests\":0,\"costUSD\":0.08651724999999999,\"contextWindow\":1000000,\"maxOutputTokens\":64000}},\"permission_denials\":[],\"structured_output\":{\"self_contained_problem\":\"Fix an integer $d \\\\ge 2$. For a positive integer $N$, let $G_d(N, 1/2)$ denote the null model: a random $d$-uniform hypergraph on vertex set $[N]$ in which every $d$-subset of $[N]$ is included as a hyperedge independently with probability $1/2$. For an integer $\\\\kappa = \\\\kappa(N) \\\\in \\\\{1, \\\\dots, N\\\\}$, let $G_d(N, 1/2, \\\\kappa)$ denote the planted-clique model: first sample a hypergraph as above, then choose a uniformly random subset $K \\\\subseteq [N]$ of size $\\\\kappa$ and add all $d$-subsets of $K$ as hyperedges (so $K$ becomes a $d$-uniform clique). Assume the following Hypergraphic Planted Clique (HPC) detection conjecture: if \\n$$\\\\limsup_{N\\\\to\\\\infty}\\\\frac{\\\\log\\\\kappa}{\\\\log N} \\\\le 1-\\\\tau\\\\quad\\\\text{for some }\\\\tau>0,$$\\nthen for every sequence of polynomial-time (in $N$) tests $\\\\phi_N : \\\\text{hypergraphs on }[N] \\\\to \\\\{0,1\\\\}$, \\n$$\\\\liminf_{N\\\\to\\\\infty}\\\\Big(\\\\mathbb{P}_{H_0}(\\\\phi_N(G)=1)+\\\\mathbb{P}_{H_1}(\\\\phi_N(G)=0)\\\\Big) > \\\\tfrac{1}{2},$$\\nwhere $H_0$ is $G_d(N,1/2)$ and $H_1$ is $G_d(N,1/2,\\\\kappa)$.\\n\\nExisting rigorous evidence for this conjecture covers Metropolis-type local algorithms and low-degree polynomial tests. Provide rigorous evidence (in the form of unconditional lower bounds against detection in the regime $\\\\log\\\\kappa/\\\\log N \\\\le 1-\\\\tau$) for the HPC detection conjecture in additional algorithmic frameworks, specifically: \\n(i) statistical query (SQ) algorithms,\\n(ii) sum-of-squares (SOS) semidefinite programming hierarchies,\\n(iii) belief propagation (BP),\\n(iv) approximate message passing (AMP).\",\"macro_subject\":\"Theoretical Computer Science\",\"category_tag\":\"average-case complexity / planted clique\",\"open_status\":\"open\",\"status_search_result\":\"A search shows substantial work on lower bounds for the standard (graph) planted clique problem in SOS, SQ, and related models (Barak et al., Feldman et al., Hopkins–Steurer, etc.), but evidence for the hypergraphic variant has so far been established only for Metropolis-type and low-degree polynomial algorithms (Luo–Zhang 2020). No published work was found establishing analogous SQ/SOS/BP/AMP lower bounds specifically for the hypergraphic planted clique detection problem, so the challenge appears to remain open.\",\"status_evidence\":[{\"title\":\"Average-Case Hardness of Hypergraphic Planted Clique Detection (Luo & Zhang)\",\"url\":\"http://proceedings.mlr.press/v125/luo20a/luo20a.pdf\",\"snippet\":\"Establishes hardness of HPC detection against Metropolis algorithms and low-degree polynomial algorithms.\",\"claim\":\"Existing evidence covers Metropolis and low-degree polynomial methods only.\"},{\"title\":\"A Nearly Tight Sum-of-Squares Lower Bound for the Planted Clique Problem\",\"url\":\"https://arxiv.org/abs/1604.03084\",\"snippet\":\"Proves SOS lower bounds for the standard graph planted clique problem.\",\"claim\":\"SOS lower bounds exist for graph planted clique but the hypergraphic analogue is not addressed.\"},{\"title\":\"Statistical Algorithms and a Lower Bound for Detecting Planted Cliques\",\"url\":\"https://dl.acm.org/doi/10.1145/3046674\",\"snippet\":\"Provides SQ lower bounds for the planted clique problem in graphs.\",\"claim\":\"SQ lower bounds known for graph planted clique; hypergraphic case not covered.\"}],\"confidence\":0.7},\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"uuid\":\"ff6f749d-e677-4524-8d29-313ce1fc1c88\"}\n"
+}

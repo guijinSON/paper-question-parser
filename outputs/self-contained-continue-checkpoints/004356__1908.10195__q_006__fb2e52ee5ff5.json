@@ -1,0 +1,77 @@
+{
+  "record": {
+    "global_index": 4356,
+    "source_json": "outputs/parse-paper/1908.10195.json",
+    "paper_id": "1908.10195",
+    "paper_title": "A Survey on LoRa Networking: Research Problems, Current Solutions and Open Issues",
+    "paper_link": "https://arxiv.org/abs/1908.10195",
+    "question_link": "https://arxiv.org/pdf/1908.10195.pdf#page=5",
+    "question_id": "q_006",
+    "parser_is_solved": "false",
+    "context_brief": "LoRa link-quality and coverage estimation models",
+    "original_question": "How can LoRa networking obtain mathematical models and systems for estimating link quality and communication coverage across diverse deployment environments, including open-air locations, concrete- or steel-obstructed locations, homes, hospitals, schools, forests, line-of-sight and non-line-of-sight conditions, signal attenuation, propagation losses, fading, and anisotropic coverage caused by dynamic and static obstacles in different directions?",
+    "evidence": [
+      {
+        "page": 5,
+        "quote": "LoRa networking will be deployed in many scenarios such as homes, hospitals, schools, forest, etc. end-devices will be placed in the locations open to air, closed by concrete or steel, etc. Aiming such diverse deployment conditions, signal attenuation, propagation losses and fading have to be countered to improve signal penetration thus improving the coverage of LoRa networks [35], [32]."
+      },
+      {
+        "page": 5,
+        "quote": "Another important challenge is estimating the coverage of LoRa networks."
+      },
+      {
+        "page": 5,
+        "quote": "Demetri et al. [78] identiﬁed that LoRa’s signal coverage is anisotropic. This is because LoRa signals travel a longer distance and experience varying environments with dynamic and static obstacles in different directions. Mathematical models and systems for link quality estimation are still unexplored for LoRa."
+      },
+      {
+        "page": 12,
+        "quote": "It is also claimed that Bor’s model [21] need on-site measurements which is hard due to that most of the covered regions comprise of transitional links, which are deﬁned as links with dynamic temporal link qualities."
+      }
+    ]
+  },
+  "artifact": {
+    "self_contained_problem": "Consider a low-power wide-area wireless network operating in sub-GHz unlicensed bands using a chirp-spread-spectrum modulation (LoRa-style physical layer), in which end devices transmit to gateways across heterogeneous deployment environments. Let L denote a wireless link between a transmitter at position p_t and a receiver at position p_r, embedded in an environment E that may include open-air regions, line-of-sight (LOS) and non-line-of-sight (NLOS) segments, concrete or steel obstructions, indoor settings (e.g., homes, hospitals, schools), and vegetated areas (e.g., forests). Assume each link experiences a combination of large-scale path loss, small-scale fading, shadowing, and direction-dependent (anisotropic) attenuation due to dynamic and static obstacles that vary with bearing from the transmitter.\n\nDevelop a mathematical framework that, given a description of the environment E (e.g., a map of obstacle classes and their electromagnetic properties along the propagation path) and link parameters (carrier frequency, spreading factor, bandwidth, transmit power, antenna heights), provides:\n\n(a) a closed-form or computable model L(p_t, p_r, E) for the expected link quality (e.g., received signal strength, signal-to-noise ratio, and packet reception ratio), explicitly accounting for direction-dependent path loss, multi-medium attenuation, and fading in transitional regions where link quality is temporally unstable;\n\n(b) a coverage-prediction system that, from such a model, outputs the spatial coverage region of a gateway at p_t under environment E, capturing anisotropy and the existence of transitional links;\n\n(c) provable accuracy or error bounds on link-quality estimates and coverage predictions across the listed deployment environments, without requiring extensive on-site measurements.\n\nThe problem is to construct such a model and system, or to prove fundamental limits on their achievable accuracy.",
+    "macro_subject": "Applied Mathematics",
+    "category_tag": "Wireless channel modeling and coverage estimation",
+    "open_status": "partially_solved",
+    "status_search_result": "Several works have proposed partial solutions: remote-sensing-based automated link-quality estimation combining multispectral imagery with the Okumura-Hata model (Demetri et al., IPSN 2019); a First Fresnel Zone log-normal shadowing model classifying mediums along the path; FLog and related orchard-specific models; and SVM/kernel-based machine-learning estimators using RSSI, SNR, and PRR. These address aspects of anisotropy and heterogeneous environments, but a unified, rigorously validated mathematical framework with provable accuracy across all deployment scenarios (indoor, NLOS, forested, urban, transitional) remains an open research direction.",
+    "status_evidence": [
+      {
+        "title": "Automated Estimation of Link Quality for LoRa: A Remote Sensing Approach",
+        "url": "https://disi.unitn.it/~picco/papers/ipsn19-lora.pdf",
+        "snippet": "Combines multispectral remote-sensing imagery with the Okumura-Hata channel model to classify the environment traversed by each LoRa link and estimate link quality without on-site measurements.",
+        "claim": "Provides a partial mathematical/data-driven model for LoRa link quality across heterogeneous environments."
+      },
+      {
+        "title": "Link Quality Modeling for LoRa Networks in Orchards",
+        "url": "https://dl.acm.org/doi/10.1145/3583120.3586969",
+        "snippet": "Uses a First Fresnel Zone log-normal shadowing model with per-medium path-loss exponents for vegetated environments.",
+        "claim": "Addresses anisotropic, environment-specific link-quality modeling in a restricted setting."
+      },
+      {
+        "title": "FLog: Automated Modeling of Link Quality for LoRa Networks in Orchards",
+        "url": "https://dl.acm.org/doi/10.1145/3718741",
+        "snippet": "Automates LoRa link-quality modeling for orchards, extending Fresnel-zone-based shadowing models.",
+        "claim": "A recent partial solution targeted at specific environments."
+      },
+      {
+        "title": "LoRa Link Quality Estimation Based on Support Vector Machine",
+        "url": "https://dl.acm.org/doi/abs/10.1007/978-3-030-92507-9_9",
+        "snippet": "Kernel SVM estimator using RSSI, SNR, and PRR features.",
+        "claim": "Machine-learning approach to link quality, complementary to physical models."
+      },
+      {
+        "title": "A Study of LoRa Coverage: Range Evaluation and Channel Attenuation Model",
+        "url": "https://ieeexplore.ieee.org/document/8584548/",
+        "snippet": "Empirical channel attenuation model and range evaluation for LoRa.",
+        "claim": "Empirical coverage modeling, partial progress on the coverage estimation problem."
+      }
+    ],
+    "confidence": 0.6
+  },
+  "model": "opus",
+  "effort": "medium",
+  "elapsed_s": 45.3,
+  "validation_warnings": [],
+  "raw_claude_stdout": "{\"type\":\"result\",\"subtype\":\"success\",\"is_error\":false,\"api_error_status\":null,\"duration_ms\":44269,\"duration_api_ms\":43243,\"num_turns\":3,\"result\":\"Sources:\\n- [Automated Estimation of Link Quality for LoRa: A Remote Sensing Approach](https://disi.unitn.it/~picco/papers/ipsn19-lora.pdf)\\n- [Link Quality Modeling for LoRa Networks in Orchards](https://dl.acm.org/doi/10.1145/3583120.3586969)\\n- [FLog: Automated Modeling of Link Quality for LoRa Networks in Orchards](https://dl.acm.org/doi/10.1145/3718741)\\n- [LoRa Link Quality Estimation Based on Support Vector Machine](https://dl.acm.org/doi/abs/10.1007/978-3-030-92507-9_9)\\n- [A Study of LoRa Coverage: Range Evaluation and Channel Attenuation Model](https://ieeexplore.ieee.org/document/8584548/)\",\"stop_reason\":\"end_turn\",\"session_id\":\"4ff16294-16eb-4b3b-ba7e-b82037ea2df4\",\"total_cost_usd\":0.13006725,\"usage\":{\"input_tokens\":8,\"cache_creation_input_tokens\":5355,\"cache_read_input_tokens\":13477,\"output_tokens\":2234,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":5355,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[{\"input_tokens\":1,\"output_tokens\":300,\"cache_read_input_tokens\":6206,\"cache_creation_input_tokens\":1834,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":1834},\"type\":\"message\"}],\"speed\":\"standard\"},\"modelUsage\":{\"claude-haiku-4-5-20251001\":{\"inputTokens\":21055,\"outputTokens\":583,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":1,\"costUSD\":0.03397000000000001,\"contextWindow\":200000,\"maxOutputTokens\":32000},\"claude-opus-4-7\":{\"inputTokens\":8,\"outputTokens\":2234,\"cacheReadInputTokens\":13477,\"cacheCreationInputTokens\":5355,\"webSearchRequests\":0,\"costUSD\":0.09609725,\"contextWindow\":1000000,\"maxOutputTokens\":64000}},\"permission_denials\":[],\"structured_output\":{\"self_contained_problem\":\"Consider a low-power wide-area wireless network operating in sub-GHz unlicensed bands using a chirp-spread-spectrum modulation (LoRa-style physical layer), in which end devices transmit to gateways across heterogeneous deployment environments. Let L denote a wireless link between a transmitter at position p_t and a receiver at position p_r, embedded in an environment E that may include open-air regions, line-of-sight (LOS) and non-line-of-sight (NLOS) segments, concrete or steel obstructions, indoor settings (e.g., homes, hospitals, schools), and vegetated areas (e.g., forests). Assume each link experiences a combination of large-scale path loss, small-scale fading, shadowing, and direction-dependent (anisotropic) attenuation due to dynamic and static obstacles that vary with bearing from the transmitter.\\n\\nDevelop a mathematical framework that, given a description of the environment E (e.g., a map of obstacle classes and their electromagnetic properties along the propagation path) and link parameters (carrier frequency, spreading factor, bandwidth, transmit power, antenna heights), provides:\\n\\n(a) a closed-form or computable model L(p_t, p_r, E) for the expected link quality (e.g., received signal strength, signal-to-noise ratio, and packet reception ratio), explicitly accounting for direction-dependent path loss, multi-medium attenuation, and fading in transitional regions where link quality is temporally unstable;\\n\\n(b) a coverage-prediction system that, from such a model, outputs the spatial coverage region of a gateway at p_t under environment E, capturing anisotropy and the existence of transitional links;\\n\\n(c) provable accuracy or error bounds on link-quality estimates and coverage predictions across the listed deployment environments, without requiring extensive on-site measurements.\\n\\nThe problem is to construct such a model and system, or to prove fundamental limits on their achievable accuracy.\",\"macro_subject\":\"Applied Mathematics\",\"category_tag\":\"Wireless channel modeling and coverage estimation\",\"open_status\":\"partially_solved\",\"status_search_result\":\"Several works have proposed partial solutions: remote-sensing-based automated link-quality estimation combining multispectral imagery with the Okumura-Hata model (Demetri et al., IPSN 2019); a First Fresnel Zone log-normal shadowing model classifying mediums along the path; FLog and related orchard-specific models; and SVM/kernel-based machine-learning estimators using RSSI, SNR, and PRR. These address aspects of anisotropy and heterogeneous environments, but a unified, rigorously validated mathematical framework with provable accuracy across all deployment scenarios (indoor, NLOS, forested, urban, transitional) remains an open research direction.\",\"status_evidence\":[{\"title\":\"Automated Estimation of Link Quality for LoRa: A Remote Sensing Approach\",\"url\":\"https://disi.unitn.it/~picco/papers/ipsn19-lora.pdf\",\"snippet\":\"Combines multispectral remote-sensing imagery with the Okumura-Hata channel model to classify the environment traversed by each LoRa link and estimate link quality without on-site measurements.\",\"claim\":\"Provides a partial mathematical/data-driven model for LoRa link quality across heterogeneous environments.\"},{\"title\":\"Link Quality Modeling for LoRa Networks in Orchards\",\"url\":\"https://dl.acm.org/doi/10.1145/3583120.3586969\",\"snippet\":\"Uses a First Fresnel Zone log-normal shadowing model with per-medium path-loss exponents for vegetated environments.\",\"claim\":\"Addresses anisotropic, environment-specific link-quality modeling in a restricted setting.\"},{\"title\":\"FLog: Automated Modeling of Link Quality for LoRa Networks in Orchards\",\"url\":\"https://dl.acm.org/doi/10.1145/3718741\",\"snippet\":\"Automates LoRa link-quality modeling for orchards, extending Fresnel-zone-based shadowing models.\",\"claim\":\"A recent partial solution targeted at specific environments.\"},{\"title\":\"LoRa Link Quality Estimation Based on Support Vector Machine\",\"url\":\"https://dl.acm.org/doi/abs/10.1007/978-3-030-92507-9_9\",\"snippet\":\"Kernel SVM estimator using RSSI, SNR, and PRR features.\",\"claim\":\"Machine-learning approach to link quality, complementary to physical models.\"},{\"title\":\"A Study of LoRa Coverage: Range Evaluation and Channel Attenuation Model\",\"url\":\"https://ieeexplore.ieee.org/document/8584548/\",\"snippet\":\"Empirical channel attenuation model and range evaluation for LoRa.\",\"claim\":\"Empirical coverage modeling, partial progress on the coverage estimation problem.\"}],\"confidence\":0.6},\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"uuid\":\"9ff77b6d-5c14-4e2c-a16d-f290fd899a1f\"}\n"
+}

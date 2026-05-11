@@ -1,0 +1,53 @@
+{
+  "record": {
+    "global_index": 4498,
+    "source_json": "outputs/parse-paper/1989-40.json",
+    "paper_id": "1989-40",
+    "paper_title": "A Collection of Open Problems",
+    "paper_link": "https://zbmath.org/15504",
+    "question_link": "https://zbmath.org/15504",
+    "question_id": "q_013",
+    "parser_is_solved": "false",
+    "context_brief": "Algorithmic complexity of graph diameter computation.",
+    "original_question": "Find a faster algorithm for computing the diameter of a graph than the matrix-multiplication-based bound cited in the source.",
+    "evidence": [
+      {
+        "page": 5,
+        "quote": "Find a fast algorithm to determine the diameter of a graph."
+      }
+    ]
+  },
+  "artifact": {
+    "self_contained_problem": "Let $G=(V,E)$ be a finite graph on $n=|V|$ vertices and $m=|E|$ edges. The distance $d_G(u,v)$ between two vertices $u,v\\in V$ is the number of edges in a shortest path from $u$ to $v$ (or $+\\infty$ if no such path exists). The diameter of $G$ is\n$$\\mathrm{diam}(G) \\;=\\; \\max_{u,v\\in V} d_G(u,v).$$\n\nIt is known that $\\mathrm{diam}(G)$ can be computed by first solving all-pairs shortest paths, which via fast (Boolean/min-plus) matrix multiplication can be done in time $O(n^{\\omega})$ for unweighted graphs, where $\\omega<2.373$ is the matrix-multiplication exponent.\n\nProblem. Design an algorithm that computes the exact diameter $\\mathrm{diam}(G)$ of an arbitrary (say unweighted, undirected) graph $G$ in time asymptotically faster than the matrix-multiplication-based $O(n^{\\omega})$ bound; equivalently, determine whether exact diameter computation is strictly easier than all-pairs shortest paths, or prove that no such speed-up is possible.",
+    "macro_subject": "Theoretical Computer Science",
+    "category_tag": "Graph diameter algorithms / fine-grained complexity",
+    "open_status": "open",
+    "status_search_result": "The exact complexity of computing graph diameter remains open. The fastest exact algorithm still runs in $O(n^{\\omega})$ time via fast matrix multiplication, and it is a well-known open question whether exact diameter requires solving all-pairs shortest paths. Conditional lower bounds under SETH rule out truly subquadratic $O((n+m)^{2-\\varepsilon})$ algorithms for sparse graphs, but no unconditional improvement over the matrix-multiplication bound is known, and approximation/directed/dynamic variants remain active research areas.",
+    "status_evidence": [
+      {
+        "title": "CS 267 Lecture 3 Shortest paths, graph diameter (Vassilevska Williams)",
+        "url": "http://theory.stanford.edu/~virgi/cs267/lecture4.pdf",
+        "snippet": "The (theoretically) fastest algorithm for Diameter runs in O(n^{2.373}) time and is based on fast matrix multiplication.",
+        "claim": "Best known exact diameter algorithm is the matrix-multiplication-based O(n^ω) bound."
+      },
+      {
+        "title": "Fast Approximation Algorithms for the Diameter and Radius of Sparse Graphs",
+        "url": "https://people.csail.mit.edu/virgi/diam.pdf",
+        "snippet": "Solving Diameter in O((n+m)^{2-ε}) time for any ε > 0 breaks the SETH.",
+        "claim": "Truly subquadratic exact diameter algorithms in sparse graphs would refute SETH, leaving the question of improving the matrix-multiplication bound open."
+      },
+      {
+        "title": "On Diameter Approximation in Directed Graphs",
+        "url": "https://arxiv.org/abs/2307.07583",
+        "snippet": "It remains a big open problem whether computing the diameter of a graph exactly requires computing APSP.",
+        "claim": "Whether exact diameter is easier than APSP is explicitly stated as an open problem in 2023."
+      }
+    ],
+    "confidence": 0.85
+  },
+  "model": "opus",
+  "effort": "medium",
+  "elapsed_s": 35.84,
+  "validation_warnings": [],
+  "raw_claude_stdout": "{\"type\":\"result\",\"subtype\":\"success\",\"is_error\":false,\"api_error_status\":null,\"duration_ms\":34519,\"duration_api_ms\":34036,\"num_turns\":3,\"result\":\"Sources:\\n- [On Diameter Approximation in Directed Graphs](https://arxiv.org/abs/2307.07583)\\n- [Fast Approximation Algorithms for the Diameter and Radius of Sparse Graphs](https://people.csail.mit.edu/virgi/diam.pdf)\\n- [CS 267 Lecture: Shortest paths, graph diameter](http://theory.stanford.edu/~virgi/cs267/lecture4.pdf)\",\"stop_reason\":\"end_turn\",\"session_id\":\"08e06d64-9049-4dd8-a4e1-45debd33b3a6\",\"total_cost_usd\":0.11130775,\"usage\":{\"input_tokens\":8,\"cache_creation_input_tokens\":4195,\"cache_read_input_tokens\":12306,\"output_tokens\":1688,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":4195,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[{\"input_tokens\":1,\"output_tokens\":162,\"cache_read_input_tokens\":5540,\"cache_creation_input_tokens\":1340,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":1340},\"type\":\"message\"}],\"speed\":\"standard\"},\"modelUsage\":{\"claude-haiku-4-5-20251001\":{\"inputTokens\":24196,\"outputTokens\":500,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":1,\"costUSD\":0.036696,\"contextWindow\":200000,\"maxOutputTokens\":32000},\"claude-opus-4-7\":{\"inputTokens\":8,\"outputTokens\":1688,\"cacheReadInputTokens\":12306,\"cacheCreationInputTokens\":4195,\"webSearchRequests\":0,\"costUSD\":0.07461175,\"contextWindow\":1000000,\"maxOutputTokens\":64000}},\"permission_denials\":[],\"structured_output\":{\"self_contained_problem\":\"Let $G=(V,E)$ be a finite graph on $n=|V|$ vertices and $m=|E|$ edges. The distance $d_G(u,v)$ between two vertices $u,v\\\\in V$ is the number of edges in a shortest path from $u$ to $v$ (or $+\\\\infty$ if no such path exists). The diameter of $G$ is\\n$$\\\\mathrm{diam}(G) \\\\;=\\\\; \\\\max_{u,v\\\\in V} d_G(u,v).$$\\n\\nIt is known that $\\\\mathrm{diam}(G)$ can be computed by first solving all-pairs shortest paths, which via fast (Boolean/min-plus) matrix multiplication can be done in time $O(n^{\\\\omega})$ for unweighted graphs, where $\\\\omega<2.373$ is the matrix-multiplication exponent.\\n\\nProblem. Design an algorithm that computes the exact diameter $\\\\mathrm{diam}(G)$ of an arbitrary (say unweighted, undirected) graph $G$ in time asymptotically faster than the matrix-multiplication-based $O(n^{\\\\omega})$ bound; equivalently, determine whether exact diameter computation is strictly easier than all-pairs shortest paths, or prove that no such speed-up is possible.\",\"macro_subject\":\"Theoretical Computer Science\",\"category_tag\":\"Graph diameter algorithms / fine-grained complexity\",\"open_status\":\"open\",\"status_search_result\":\"The exact complexity of computing graph diameter remains open. The fastest exact algorithm still runs in $O(n^{\\\\omega})$ time via fast matrix multiplication, and it is a well-known open question whether exact diameter requires solving all-pairs shortest paths. Conditional lower bounds under SETH rule out truly subquadratic $O((n+m)^{2-\\\\varepsilon})$ algorithms for sparse graphs, but no unconditional improvement over the matrix-multiplication bound is known, and approximation/directed/dynamic variants remain active research areas.\",\"status_evidence\":[{\"title\":\"CS 267 Lecture 3 Shortest paths, graph diameter (Vassilevska Williams)\",\"url\":\"http://theory.stanford.edu/~virgi/cs267/lecture4.pdf\",\"snippet\":\"The (theoretically) fastest algorithm for Diameter runs in O(n^{2.373}) time and is based on fast matrix multiplication.\",\"claim\":\"Best known exact diameter algorithm is the matrix-multiplication-based O(n^ω) bound.\"},{\"title\":\"Fast Approximation Algorithms for the Diameter and Radius of Sparse Graphs\",\"url\":\"https://people.csail.mit.edu/virgi/diam.pdf\",\"snippet\":\"Solving Diameter in O((n+m)^{2-ε}) time for any ε > 0 breaks the SETH.\",\"claim\":\"Truly subquadratic exact diameter algorithms in sparse graphs would refute SETH, leaving the question of improving the matrix-multiplication bound open.\"},{\"title\":\"On Diameter Approximation in Directed Graphs\",\"url\":\"https://arxiv.org/abs/2307.07583\",\"snippet\":\"It remains a big open problem whether computing the diameter of a graph exactly requires computing APSP.\",\"claim\":\"Whether exact diameter is easier than APSP is explicitly stated as an open problem in 2023.\"}],\"confidence\":0.85},\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"uuid\":\"2703ce7f-6cca-44da-90e5-6b74bda5ad8e\"}\n"
+}

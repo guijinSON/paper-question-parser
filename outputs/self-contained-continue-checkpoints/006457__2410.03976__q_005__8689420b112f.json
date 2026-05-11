@@ -1,0 +1,59 @@
+{
+  "record": {
+    "global_index": 6457,
+    "source_json": "outputs/parse-paper/2410.03976.json",
+    "paper_id": "2410.03976",
+    "paper_title": "An open problem: Why are motif-avoidant attractors so rare in asynchronous Boolean networks?",
+    "paper_link": "https://arxiv.org/abs/2410.03976",
+    "question_link": "https://arxiv.org/pdf/2410.03976.pdf#page=26",
+    "question_id": "q_005",
+    "parser_is_solved": "false",
+    "context_brief": "Unreachable memory states",
+    "original_question": "How common is the memory-state unreachability obstruction in delay-expanded Boolean networks, and under what conditions does it prevent a delay-based path from a motif-avoidant attractor to an avoided trap space? Here a canonical state is a delay-expanded state in which each delay node matches its parent node, a memory state is a state in which at least one delay node remembers a previous parent value, and the parameter m is the minimal disagreement between a state of the motif-avoidant attractor and the fixed nodes of the avoided trap space among the attractor's oscillating nodes.",
+    "evidence": [
+      {
+        "page": 26,
+        "quote": "We discovered that the general reachability of memory states is not guaranteed. The reason for the loss of reachability is the loss of transitions in certain memory states compared to the original system (and to canonical states)."
+      },
+      {
+        "page": 29,
+        "quote": "Significant open questions remain. For example, at present, there is no estimate of the prevalence of the unreachability issue (Appendix A.3) that limits the candidates for linear extensions to regulations of the trap space."
+      },
+      {
+        "page": 45,
+        "quote": "At present there is no estimate of the likelihood of a memory state needed to create a path to the trap space being unreachable from the motif-avoidant attractor."
+      },
+      {
+        "page": 45,
+        "quote": "If in fact it is true that unreachability only occurs for m = 1, then this issue does not pose a problem to MAA elimination."
+      }
+    ]
+  },
+  "artifact": {
+    "self_contained_problem": "Let f : {0,1}^n → {0,1}^n be a Boolean network with asynchronous update semantics: from a state x, for each index i with f_i(x) ≠ x_i, there is a transition x → x' where x' agrees with x except in coordinate i, which is flipped to f_i(x). An attractor is a minimal nonempty set of states closed under and strongly connected by these transitions. A trap space is a subcube T = ∏_i T_i (with T_i ∈ {{0},{1},{0,1}}) closed under f (so if x ∈ T then every asynchronous successor lies in T); its fixed coordinates are those i with |T_i| = 1. A motif-avoidant attractor (MAA) is an attractor A that is not contained in any minimal trap space; its oscillating nodes are the coordinates that take both values on A.\n\nThe delay-expansion of f introduces, for each node i, a \"delay node\" i' whose value is a copy of i used by certain regulators. A delay-expanded state assigns values to both the original nodes and the delay nodes. A canonical state is one in which every delay node's value equals its parent original node's value. A memory state is a non-canonical delay-expanded state, i.e., at least one delay node retains a previous value of its parent.\n\nFor an MAA A of f and an avoided trap space T (a minimal trap space disjoint from A), define\n   m = min_{x ∈ A} #{ i : i is an oscillating coordinate of A, i is fixed in T, and x_i ≠ T_i }.\nA delay-based path from A to T is a trajectory in the asynchronous dynamics of a delay-expansion of f that starts at a (canonical) state of A and reaches a state whose original-node projection lies in T. Such a path may require passing through certain memory states; an \"unreachability obstruction\" occurs when each such required memory state is not reachable in the delay-expanded asynchronous dynamics from any state of A.\n\nProblem. Quantify how common the unreachability obstruction is among delay-expanded Boolean networks possessing a motif-avoidant attractor A and an avoided minimal trap space T, and characterize the conditions on (f, A, T) under which it prevents the existence of a delay-based path from A to T. In particular, determine whether the unreachability obstruction can occur only when m = 1, or whether it can also arise for m ≥ 2; and provide quantitative estimates (asymptotic or otherwise) of its prevalence as a function of network parameters.",
+    "macro_subject": "Applied Mathematics",
+    "category_tag": "asynchronous Boolean networks",
+    "open_status": "open",
+    "status_search_result": "The problem is explicitly posed as an open question; the published version (Journal of Mathematical Biology, 2025) restates that no estimate currently exists for the prevalence of the unreachability obstruction in delay-expanded Boolean networks, and the conjecture that unreachability occurs only when m = 1 remains unresolved. No subsequent work resolving it was located.",
+    "status_evidence": [
+      {
+        "title": "An open problem: Why are motif-avoidant attractors so rare in asynchronous Boolean networks?",
+        "url": "https://link.springer.com/article/10.1007/s00285-025-02235-8",
+        "snippet": "Motif-avoidant attractors (MAAs) are attractors that lie outside minimal trap spaces, and they are rare and poorly understood.",
+        "claim": "Published version of the work that poses the open problem; the prevalence of the unreachability obstruction is not estimated."
+      },
+      {
+        "title": "arXiv:2410.03976v1",
+        "url": "https://arxiv.org/html/2410.03976v1",
+        "snippet": "there are examples of a delay failing to eliminate the MAA due to an unreachable memory state.",
+        "claim": "The unreachability obstruction is known to occur in examples but its prevalence and exact conditions remain undetermined."
+      }
+    ],
+    "confidence": 0.7
+  },
+  "model": "opus",
+  "effort": "medium",
+  "elapsed_s": 35.88,
+  "validation_warnings": [],
+  "raw_claude_stdout": "{\"type\":\"result\",\"subtype\":\"success\",\"is_error\":false,\"api_error_status\":null,\"duration_ms\":34755,\"duration_api_ms\":33512,\"num_turns\":3,\"result\":\"Sources:\\n- [An open problem: Why are motif-avoidant attractors so rare in asynchronous Boolean networks? (Springer)](https://link.springer.com/article/10.1007/s00285-025-02235-8)\\n- [arXiv:2410.03976](https://arxiv.org/html/2410.03976v1)\",\"stop_reason\":\"end_turn\",\"session_id\":\"e25ebc50-21d1-41ef-a218-af62f30d6655\",\"total_cost_usd\":0.11292999999999999,\"usage\":{\"input_tokens\":8,\"cache_creation_input_tokens\":4744,\"cache_read_input_tokens\":13158,\"output_tokens\":1708,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":4744,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[{\"input_tokens\":1,\"output_tokens\":111,\"cache_read_input_tokens\":5954,\"cache_creation_input_tokens\":1475,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":1475},\"type\":\"message\"}],\"speed\":\"standard\"},\"modelUsage\":{\"claude-haiku-4-5-20251001\":{\"inputTokens\":21336,\"outputTokens\":525,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":1,\"costUSD\":0.033961000000000005,\"contextWindow\":200000,\"maxOutputTokens\":32000},\"claude-opus-4-7\":{\"inputTokens\":8,\"outputTokens\":1708,\"cacheReadInputTokens\":13158,\"cacheCreationInputTokens\":4744,\"webSearchRequests\":0,\"costUSD\":0.078969,\"contextWindow\":1000000,\"maxOutputTokens\":64000}},\"permission_denials\":[],\"structured_output\":{\"self_contained_problem\":\"Let f : {0,1}^n → {0,1}^n be a Boolean network with asynchronous update semantics: from a state x, for each index i with f_i(x) ≠ x_i, there is a transition x → x' where x' agrees with x except in coordinate i, which is flipped to f_i(x). An attractor is a minimal nonempty set of states closed under and strongly connected by these transitions. A trap space is a subcube T = ∏_i T_i (with T_i ∈ {{0},{1},{0,1}}) closed under f (so if x ∈ T then every asynchronous successor lies in T); its fixed coordinates are those i with |T_i| = 1. A motif-avoidant attractor (MAA) is an attractor A that is not contained in any minimal trap space; its oscillating nodes are the coordinates that take both values on A.\\n\\nThe delay-expansion of f introduces, for each node i, a \\\"delay node\\\" i' whose value is a copy of i used by certain regulators. A delay-expanded state assigns values to both the original nodes and the delay nodes. A canonical state is one in which every delay node's value equals its parent original node's value. A memory state is a non-canonical delay-expanded state, i.e., at least one delay node retains a previous value of its parent.\\n\\nFor an MAA A of f and an avoided trap space T (a minimal trap space disjoint from A), define\\n   m = min_{x ∈ A} #{ i : i is an oscillating coordinate of A, i is fixed in T, and x_i ≠ T_i }.\\nA delay-based path from A to T is a trajectory in the asynchronous dynamics of a delay-expansion of f that starts at a (canonical) state of A and reaches a state whose original-node projection lies in T. Such a path may require passing through certain memory states; an \\\"unreachability obstruction\\\" occurs when each such required memory state is not reachable in the delay-expanded asynchronous dynamics from any state of A.\\n\\nProblem. Quantify how common the unreachability obstruction is among delay-expanded Boolean networks possessing a motif-avoidant attractor A and an avoided minimal trap space T, and characterize the conditions on (f, A, T) under which it prevents the existence of a delay-based path from A to T. In particular, determine whether the unreachability obstruction can occur only when m = 1, or whether it can also arise for m ≥ 2; and provide quantitative estimates (asymptotic or otherwise) of its prevalence as a function of network parameters.\",\"macro_subject\":\"Applied Mathematics\",\"category_tag\":\"asynchronous Boolean networks\",\"open_status\":\"open\",\"status_search_result\":\"The problem is explicitly posed as an open question; the published version (Journal of Mathematical Biology, 2025) restates that no estimate currently exists for the prevalence of the unreachability obstruction in delay-expanded Boolean networks, and the conjecture that unreachability occurs only when m = 1 remains unresolved. No subsequent work resolving it was located.\",\"status_evidence\":[{\"title\":\"An open problem: Why are motif-avoidant attractors so rare in asynchronous Boolean networks?\",\"url\":\"https://link.springer.com/article/10.1007/s00285-025-02235-8\",\"snippet\":\"Motif-avoidant attractors (MAAs) are attractors that lie outside minimal trap spaces, and they are rare and poorly understood.\",\"claim\":\"Published version of the work that poses the open problem; the prevalence of the unreachability obstruction is not estimated.\"},{\"title\":\"arXiv:2410.03976v1\",\"url\":\"https://arxiv.org/html/2410.03976v1\",\"snippet\":\"there are examples of a delay failing to eliminate the MAA due to an unreachable memory state.\",\"claim\":\"The unreachability obstruction is known to occur in examples but its prevalence and exact conditions remain undetermined.\"}],\"confidence\":0.7},\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"uuid\":\"87c42e71-da58-4437-a712-b9d92f218809\"}\n"
+}

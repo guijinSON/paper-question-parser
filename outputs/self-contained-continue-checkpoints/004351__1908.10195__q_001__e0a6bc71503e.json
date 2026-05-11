@@ -1,0 +1,67 @@
+{
+  "record": {
+    "global_index": 4351,
+    "source_json": "outputs/parse-paper/1908.10195.json",
+    "paper_id": "1908.10195",
+    "paper_title": "A Survey on LoRa Networking: Research Problems, Current Solutions and Open Issues",
+    "paper_link": "https://arxiv.org/abs/1908.10195",
+    "question_link": "https://arxiv.org/pdf/1908.10195.pdf#page=3",
+    "question_id": "q_001",
+    "parser_is_solved": "false",
+    "context_brief": "Optimal multi-gateway placement for LoRa deployments",
+    "original_question": "For LoRa networks, where battery-powered Internet-of-Things end-devices collect information and send it to gateways that relay messages to network and application servers, how can one design a generic method for choosing the number and physical placement of multiple gateways for each category of application and each set of hardware constraints, so that scalability, interference reduction, coverage, energy use, and overall network performance are improved?",
+    "evidence": [
+      {
+        "page": 3,
+        "quote": "A LoRa system comprises of end-devices, gateways, network and application servers. Figure 1 depicts the architecture of a typical LoRa system. end-devices collect information and send them to Gateways. Gateways relay messages between end-devices and network servers."
+      },
+      {
+        "page": 14,
+        "quote": "Some works, [38], [21], [66], [69] aiding scalability and interference use multiple gateways as a solution. Even though these techniques outperform existing results, using multiple gateways instigate to study the optimal gateway placements for LoRa deployments."
+      },
+      {
+        "page": 14,
+        "quote": "Optimal placement of gateways is always dependent on the application and constraints of the hardware used in the application. A generic solution for optimal placement of gateways according to the categories of applications will further improve the performance."
+      }
+    ]
+  },
+  "artifact": {
+    "self_contained_problem": "Consider a LoRa (Long Range) wireless network architecture consisting of: (i) battery-powered end-devices that periodically transmit short uplink packets, (ii) a set of gateways that receive these packets and forward them to (iii) a network server / application server backbone. Each gateway has a finite reception capacity, a propagation-dependent coverage region (parameterized by spreading factor, transmit power, bandwidth, and channel model), and known hardware constraints (e.g., number of demodulator chains, antenna gain, deployment cost). Each end-device is characterized by its location, traffic pattern (arrival rate, payload size), required quality-of-service (delivery ratio, latency, lifetime), and energy budget.\n\nGiven a deployment region with a spatial distribution of end-devices and an application category C (e.g., smart agriculture, smart city, industrial monitoring, asset tracking) specifying the QoS targets and hardware constraint set H_C, design a generic algorithmic method that, taking (C, H_C, the end-device distribution, and the propagation environment) as input, outputs:\n\n  (a) the number N of gateways to deploy, and\n  (b) the physical placement {x_1, ..., x_N} of these gateways within the region,\n\nsuch that the resulting deployment simultaneously:\n  1. maximizes scalability (number of supported end-devices),\n  2. minimizes inter-device and inter-gateway interference / collision rate,\n  3. maximizes coverage of the end-device population,\n  4. minimizes end-device energy consumption (extending battery lifetime),\n  5. optimizes overall network performance metrics such as packet delivery ratio and throughput.\n\nThe required method must be generic in the sense that the same procedure, instantiated with the parameters of any application category C and hardware-constraint set H_C, yields a Pareto-optimal (or provably near-optimal) (N, {x_i}) configuration. Formulate such a method and establish its optimality guarantees.",
+    "macro_subject": "Applied Mathematics",
+    "category_tag": "LoRa gateway placement optimization",
+    "open_status": "partially_solved",
+    "status_search_result": "Multiple recent works address specific instances of LoRa multi-gateway placement using bio-inspired/evolutionary algorithms (EPSO), clustering-based models (DPLACE using Gap-statistics), ray-tracing channel models, and PDR/CAPEX-OPEX multi-objective optimization. These provide application-specific or scenario-specific solutions (e.g., smart campus in wooded areas, dynamic IoT, smart cities), but a single generic method that uniformly handles all application categories and hardware-constraint sets with provable optimality has not been established. The problem is therefore partially solved.",
+    "status_evidence": [
+      {
+        "title": "Methodology for LoRa Gateway Placement Based on Bio-Inspired Algorithms for a Smart Campus in Wooded Area",
+        "url": "https://www.mdpi.com/1424-8220/22/17/6492",
+        "snippet": "Uses Evolutionary Particle Swarm Optimization to determine gateway positioning, maximize coverage and minimize equipment for a specific scenario.",
+        "claim": "Application-specific bio-inspired solution exists but is tailored to a wooded smart-campus deployment."
+      },
+      {
+        "title": "LoRaWAN Gateway Placement Model for Dynamic Internet of Things Scenarios",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7435864/",
+        "snippet": "DPLACE clusters IoT devices and uses the Gap statistic to compute the required number of LoRaWAN gateways for dynamic IoT scenarios.",
+        "claim": "Partial solution: a placement model addressing number and location of gateways for dynamic IoT, not a fully generic across-application framework."
+      },
+      {
+        "title": "Optimal Configuration of LoRa Networks in Smart Cities",
+        "url": "https://gpremsan.github.io/assets/pdf/premsankar2020optimal.pdf",
+        "snippet": "Optimization framework maximizing PDR while bounding CAPEX and OPEX in smart-city LoRa deployments.",
+        "claim": "Optimization framework exists for smart-city setting; generality across all application categories not established."
+      },
+      {
+        "title": "LoRaWAN Gateway Placement for Network Planning Using Ray Tracing-based Channel Models",
+        "url": "https://arxiv.org/html/2603.29105",
+        "snippet": "Recent network-planning approach using ray-tracing channel models for gateway placement.",
+        "claim": "Recent work continues to refine LoRa gateway placement, indicating the generic problem remains an active research direction."
+      }
+    ],
+    "confidence": 0.7
+  },
+  "model": "opus",
+  "effort": "medium",
+  "elapsed_s": 44.55,
+  "validation_warnings": [],
+  "raw_claude_stdout": "{\"type\":\"result\",\"subtype\":\"success\",\"is_error\":false,\"api_error_status\":null,\"duration_ms\":43375,\"duration_api_ms\":41805,\"num_turns\":3,\"result\":\"Sources:\\n- [Methodology for LoRa Gateway Placement Based on Bio-Inspired Algorithms (MDPI Sensors)](https://www.mdpi.com/1424-8220/22/17/6492)\\n- [LoRaWAN Gateway Placement Model for Dynamic IoT Scenarios (PMC)](https://pmc.ncbi.nlm.nih.gov/articles/PMC7435864/)\\n- [Optimal Configuration of LoRa Networks in Smart Cities (Premsankar)](https://gpremsan.github.io/assets/pdf/premsankar2020optimal.pdf)\\n- [LoRaWAN Gateway Placement Using Ray Tracing-based Channel Models (arXiv)](https://arxiv.org/html/2603.29105)\\n- [Ubiquitous multi-gateway LoRa networks: models and performance evaluation (LAAS-HAL)](https://laas.hal.science/hal-02914373)\",\"stop_reason\":\"end_turn\",\"session_id\":\"4d3f8bc0-a5ae-4175-828f-68dd05fff428\",\"total_cost_usd\":0.1266685,\"usage\":{\"input_tokens\":8,\"cache_creation_input_tokens\":5148,\"cache_read_input_tokens\":13221,\"output_tokens\":2172,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":5148,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[{\"input_tokens\":1,\"output_tokens\":332,\"cache_read_input_tokens\":6083,\"cache_creation_input_tokens\":1750,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":1750},\"type\":\"message\"}],\"speed\":\"standard\"},\"modelUsage\":{\"claude-haiku-4-5-20251001\":{\"inputTokens\":20918,\"outputTokens\":525,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":1,\"costUSD\":0.033542999999999996,\"contextWindow\":200000,\"maxOutputTokens\":32000},\"claude-opus-4-7\":{\"inputTokens\":8,\"outputTokens\":2172,\"cacheReadInputTokens\":13221,\"cacheCreationInputTokens\":5148,\"webSearchRequests\":0,\"costUSD\":0.0931255,\"contextWindow\":1000000,\"maxOutputTokens\":64000}},\"permission_denials\":[],\"structured_output\":{\"self_contained_problem\":\"Consider a LoRa (Long Range) wireless network architecture consisting of: (i) battery-powered end-devices that periodically transmit short uplink packets, (ii) a set of gateways that receive these packets and forward them to (iii) a network server / application server backbone. Each gateway has a finite reception capacity, a propagation-dependent coverage region (parameterized by spreading factor, transmit power, bandwidth, and channel model), and known hardware constraints (e.g., number of demodulator chains, antenna gain, deployment cost). Each end-device is characterized by its location, traffic pattern (arrival rate, payload size), required quality-of-service (delivery ratio, latency, lifetime), and energy budget.\\n\\nGiven a deployment region with a spatial distribution of end-devices and an application category C (e.g., smart agriculture, smart city, industrial monitoring, asset tracking) specifying the QoS targets and hardware constraint set H_C, design a generic algorithmic method that, taking (C, H_C, the end-device distribution, and the propagation environment) as input, outputs:\\n\\n  (a) the number N of gateways to deploy, and\\n  (b) the physical placement {x_1, ..., x_N} of these gateways within the region,\\n\\nsuch that the resulting deployment simultaneously:\\n  1. maximizes scalability (number of supported end-devices),\\n  2. minimizes inter-device and inter-gateway interference / collision rate,\\n  3. maximizes coverage of the end-device population,\\n  4. minimizes end-device energy consumption (extending battery lifetime),\\n  5. optimizes overall network performance metrics such as packet delivery ratio and throughput.\\n\\nThe required method must be generic in the sense that the same procedure, instantiated with the parameters of any application category C and hardware-constraint set H_C, yields a Pareto-optimal (or provably near-optimal) (N, {x_i}) configuration. Formulate such a method and establish its optimality guarantees.\",\"macro_subject\":\"Applied Mathematics\",\"category_tag\":\"LoRa gateway placement optimization\",\"open_status\":\"partially_solved\",\"status_search_result\":\"Multiple recent works address specific instances of LoRa multi-gateway placement using bio-inspired/evolutionary algorithms (EPSO), clustering-based models (DPLACE using Gap-statistics), ray-tracing channel models, and PDR/CAPEX-OPEX multi-objective optimization. These provide application-specific or scenario-specific solutions (e.g., smart campus in wooded areas, dynamic IoT, smart cities), but a single generic method that uniformly handles all application categories and hardware-constraint sets with provable optimality has not been established. The problem is therefore partially solved.\",\"status_evidence\":[{\"title\":\"Methodology for LoRa Gateway Placement Based on Bio-Inspired Algorithms for a Smart Campus in Wooded Area\",\"url\":\"https://www.mdpi.com/1424-8220/22/17/6492\",\"snippet\":\"Uses Evolutionary Particle Swarm Optimization to determine gateway positioning, maximize coverage and minimize equipment for a specific scenario.\",\"claim\":\"Application-specific bio-inspired solution exists but is tailored to a wooded smart-campus deployment.\"},{\"title\":\"LoRaWAN Gateway Placement Model for Dynamic Internet of Things Scenarios\",\"url\":\"https://pmc.ncbi.nlm.nih.gov/articles/PMC7435864/\",\"snippet\":\"DPLACE clusters IoT devices and uses the Gap statistic to compute the required number of LoRaWAN gateways for dynamic IoT scenarios.\",\"claim\":\"Partial solution: a placement model addressing number and location of gateways for dynamic IoT, not a fully generic across-application framework.\"},{\"title\":\"Optimal Configuration of LoRa Networks in Smart Cities\",\"url\":\"https://gpremsan.github.io/assets/pdf/premsankar2020optimal.pdf\",\"snippet\":\"Optimization framework maximizing PDR while bounding CAPEX and OPEX in smart-city LoRa deployments.\",\"claim\":\"Optimization framework exists for smart-city setting; generality across all application categories not established.\"},{\"title\":\"LoRaWAN Gateway Placement for Network Planning Using Ray Tracing-based Channel Models\",\"url\":\"https://arxiv.org/html/2603.29105\",\"snippet\":\"Recent network-planning approach using ray-tracing channel models for gateway placement.\",\"claim\":\"Recent work continues to refine LoRa gateway placement, indicating the generic problem remains an active research direction.\"}],\"confidence\":0.7},\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"uuid\":\"8aa91664-2a01-46ff-893a-5d0a226f63b3\"}\n"
+}

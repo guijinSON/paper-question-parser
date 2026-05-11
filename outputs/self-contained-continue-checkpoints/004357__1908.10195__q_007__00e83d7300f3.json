@@ -1,0 +1,65 @@
+{
+  "record": {
+    "global_index": 4357,
+    "source_json": "outputs/parse-paper/1908.10195.json",
+    "paper_id": "1908.10195",
+    "paper_title": "A Survey on LoRa Networking: Research Problems, Current Solutions and Open Issues",
+    "paper_link": "https://arxiv.org/abs/1908.10195",
+    "question_link": "https://arxiv.org/pdf/1908.10195.pdf#page=5",
+    "question_id": "q_007",
+    "parser_is_solved": "false",
+    "context_brief": "Scalable LoRa interference cancellation",
+    "original_question": "How can interference-cancellation techniques for LoRa recover data from collided signals at the scale required by dense LoRa deployments with thousands of end-devices connected to a single gateway, when existing channel coding cannot guarantee recovery for collisions and an existing distributed-coding/backscatter approach decodes 256 concurrent transmissions, which is still below the scale needed for some deployments?",
+    "evidence": [
+      {
+        "page": 5,
+        "quote": "Even though channel coding aids error, they cannot guarantee error correction in the case of collided signals. Interference Cancellation will extend error correction by untangling and extracting data from collided signals."
+      },
+      {
+        "page": 5,
+        "quote": "Netscatter [55] can cancel collisions of 256 concurrent transmissions, which is not adequate to handle thousands of end-devices by a single gateway. For example, a large-scale temperature monitoring system requires all end-devices to transmit data at the same time [25]. Hence, Interference cancellation is still an open problem that should be addressed to improve the performance of LoRa Networking."
+      },
+      {
+        "page": 10,
+        "quote": "NetScatter [55] improves interference cancellation. It theoretically proves that Choir [51] can only decode 5-10 concurrently transmitting devices. A new distributed coding technique based on CSS is proposed to decode concurrent transmissions below noise ﬂoor in a single FFT operation."
+      },
+      {
+        "page": 10,
+        "quote": "Experimental results show that this technique can decode 256 concurrent transmissions with 14-62 × improvement in throughput and 15-67 × improvement in latency when compared with existing interference cancellation techniques."
+      }
+    ]
+  },
+  "artifact": {
+    "self_contained_problem": "Consider a LoRa (Long Range, Chirp Spread Spectrum based) wireless network in which a single gateway must receive uplink transmissions from a very large population of end-devices (on the order of thousands) that may transmit simultaneously on the same frequency band, producing colliding signals at the gateway. Assume the standard LoRa physical layer: each end-device modulates data using up-chirp symbols parameterized by a spreading factor SF (so each symbol carries SF bits and lasts 2^SF / BW seconds for bandwidth BW), and the gateway demodulates by dechirping followed by an FFT. Channel coding (e.g., Hamming codes used in LoRaWAN) cannot in general guarantee recovery of payload bits from collided symbols, and known distributed-coding / backscatter-style schemes based on chirp spread spectrum can demonstrably resolve at most on the order of 256 concurrent transmissions in a single FFT operation.\n\nDesign and analyze an interference-cancellation scheme for the LoRa physical layer that, given the superposition signal received at one gateway from N end-devices transmitting concurrently (with possibly different starting times, carrier frequency offsets, and received powers, and possibly with some signals below the noise floor), recovers each device's payload with high probability for N scaling to the thousands. Specifically, exhibit a decoding algorithm together with rigorous performance guarantees (in terms of bit/packet error rate as a function of N, SF, SNR distribution, and timing/frequency offset distribution) that strictly improves the achievable concurrency beyond the 256-user regime, or prove an information-theoretic upper bound showing that no such scheme can scale to thousands of concurrent LoRa transmissions on a single gateway under realistic channel conditions.",
+    "macro_subject": "Applied Mathematics",
+    "category_tag": "LoRa interference cancellation",
+    "open_status": "partially_solved",
+    "status_search_result": "Subsequent work has substantially advanced LoRa concurrent decoding beyond the 256-transmission benchmark of NetScatter. Concurrent Interference Cancellation (CIC, SIGCOMM 2021) reportedly increases capacity up to 10x over standard LoRa and 4x over prior art; PCube (ACM TOSN 2022) uses multi-antenna reception diversity to scale concurrent transmissions; and more recent systems (e.g., Canas, and large-scale parallel decoding work in IEEE TMC 2024) push concurrency further by orthogonalizing many logical channels. However, no scheme has been proven to provably and reliably decode thousands of simultaneous LoRa transmissions at a single gateway under general conditions, so the underlying problem of fully scalable LoRa interference cancellation remains only partially solved.",
+    "status_evidence": [
+      {
+        "title": "Concurrent interference cancellation: decoding multi-packet collisions in LoRa (SIGCOMM 2021)",
+        "url": "https://conferences.sigcomm.org/sigcomm/2021/files/papers/3452296.3472931.pdf",
+        "snippet": "CIC ... can increase the network capacity of standard LoRa by up to 10x and up to 4x over the state-of-the-art research.",
+        "claim": "Significant progress has been made beyond the 256-transmission limit for LoRa interference cancellation."
+      },
+      {
+        "title": "PCube: Scaling LoRa Concurrent Transmissions with Reception Diversities",
+        "url": "https://dl.acm.org/doi/10.1145/3545571",
+        "snippet": "PCube leverages the reception diversities of multiple receiving antennas ... and scales the concurrent transmissions of a large number of LoRa nodes.",
+        "claim": "Multi-antenna gateway designs further scale concurrent LoRa decoding."
+      },
+      {
+        "title": "Enabling Large Scale LoRa Parallel Decoding With High-Dimensional and High-Accuracy Features (IEEE TMC 2024)",
+        "url": "https://dl.acm.org/doi/abs/10.1109/TMC.2024.3517343",
+        "snippet": "Enabling Large Scale LoRa Parallel Decoding With High-Dimensional and High-Accuracy Features.",
+        "claim": "Recent work continues to push the scale of LoRa parallel decoding, but a fully scalable solution to thousands of devices is not established."
+      }
+    ],
+    "confidence": 0.6
+  },
+  "model": "opus",
+  "effort": "medium",
+  "elapsed_s": 49.55,
+  "validation_warnings": [],
+  "raw_claude_stdout": "{\"type\":\"result\",\"subtype\":\"success\",\"is_error\":false,\"api_error_status\":null,\"duration_ms\":48391,\"duration_api_ms\":47701,\"num_turns\":3,\"result\":\"Sources:\\n- [Concurrent interference cancellation: decoding multi-packet collisions in LoRa (SIGCOMM 2021)](https://conferences.sigcomm.org/sigcomm/2021/files/papers/3452296.3472931.pdf)\\n- [PCube: Scaling LoRa Concurrent Transmissions with Reception Diversities](https://dl.acm.org/doi/10.1145/3545571)\\n- [Enabling Large Scale LoRa Parallel Decoding (IEEE TMC 2024)](https://dl.acm.org/doi/abs/10.1109/TMC.2024.3517343)\",\"stop_reason\":\"end_turn\",\"session_id\":\"e37a83bd-cc3f-42d2-9257-c14af0360c16\",\"total_cost_usd\":0.12369825000000001,\"usage\":{\"input_tokens\":8,\"cache_creation_input_tokens\":5329,\"cache_read_input_tokens\":13646,\"output_tokens\":1976,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":5329,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[{\"input_tokens\":1,\"output_tokens\":217,\"cache_read_input_tokens\":6362,\"cache_creation_input_tokens\":1652,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":1652},\"type\":\"message\"}],\"speed\":\"standard\"},\"modelUsage\":{\"claude-haiku-4-5-20251001\":{\"inputTokens\":21379,\"outputTokens\":550,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":1,\"costUSD\":0.034129,\"contextWindow\":200000,\"maxOutputTokens\":32000},\"claude-opus-4-7\":{\"inputTokens\":8,\"outputTokens\":1976,\"cacheReadInputTokens\":13646,\"cacheCreationInputTokens\":5329,\"webSearchRequests\":0,\"costUSD\":0.08956924999999999,\"contextWindow\":1000000,\"maxOutputTokens\":64000}},\"permission_denials\":[],\"structured_output\":{\"self_contained_problem\":\"Consider a LoRa (Long Range, Chirp Spread Spectrum based) wireless network in which a single gateway must receive uplink transmissions from a very large population of end-devices (on the order of thousands) that may transmit simultaneously on the same frequency band, producing colliding signals at the gateway. Assume the standard LoRa physical layer: each end-device modulates data using up-chirp symbols parameterized by a spreading factor SF (so each symbol carries SF bits and lasts 2^SF / BW seconds for bandwidth BW), and the gateway demodulates by dechirping followed by an FFT. Channel coding (e.g., Hamming codes used in LoRaWAN) cannot in general guarantee recovery of payload bits from collided symbols, and known distributed-coding / backscatter-style schemes based on chirp spread spectrum can demonstrably resolve at most on the order of 256 concurrent transmissions in a single FFT operation.\\n\\nDesign and analyze an interference-cancellation scheme for the LoRa physical layer that, given the superposition signal received at one gateway from N end-devices transmitting concurrently (with possibly different starting times, carrier frequency offsets, and received powers, and possibly with some signals below the noise floor), recovers each device's payload with high probability for N scaling to the thousands. Specifically, exhibit a decoding algorithm together with rigorous performance guarantees (in terms of bit/packet error rate as a function of N, SF, SNR distribution, and timing/frequency offset distribution) that strictly improves the achievable concurrency beyond the 256-user regime, or prove an information-theoretic upper bound showing that no such scheme can scale to thousands of concurrent LoRa transmissions on a single gateway under realistic channel conditions.\",\"macro_subject\":\"Applied Mathematics\",\"category_tag\":\"LoRa interference cancellation\",\"open_status\":\"partially_solved\",\"status_search_result\":\"Subsequent work has substantially advanced LoRa concurrent decoding beyond the 256-transmission benchmark of NetScatter. Concurrent Interference Cancellation (CIC, SIGCOMM 2021) reportedly increases capacity up to 10x over standard LoRa and 4x over prior art; PCube (ACM TOSN 2022) uses multi-antenna reception diversity to scale concurrent transmissions; and more recent systems (e.g., Canas, and large-scale parallel decoding work in IEEE TMC 2024) push concurrency further by orthogonalizing many logical channels. However, no scheme has been proven to provably and reliably decode thousands of simultaneous LoRa transmissions at a single gateway under general conditions, so the underlying problem of fully scalable LoRa interference cancellation remains only partially solved.\",\"status_evidence\":[{\"title\":\"Concurrent interference cancellation: decoding multi-packet collisions in LoRa (SIGCOMM 2021)\",\"url\":\"https://conferences.sigcomm.org/sigcomm/2021/files/papers/3452296.3472931.pdf\",\"snippet\":\"CIC ... can increase the network capacity of standard LoRa by up to 10x and up to 4x over the state-of-the-art research.\",\"claim\":\"Significant progress has been made beyond the 256-transmission limit for LoRa interference cancellation.\"},{\"title\":\"PCube: Scaling LoRa Concurrent Transmissions with Reception Diversities\",\"url\":\"https://dl.acm.org/doi/10.1145/3545571\",\"snippet\":\"PCube leverages the reception diversities of multiple receiving antennas ... and scales the concurrent transmissions of a large number of LoRa nodes.\",\"claim\":\"Multi-antenna gateway designs further scale concurrent LoRa decoding.\"},{\"title\":\"Enabling Large Scale LoRa Parallel Decoding With High-Dimensional and High-Accuracy Features (IEEE TMC 2024)\",\"url\":\"https://dl.acm.org/doi/abs/10.1109/TMC.2024.3517343\",\"snippet\":\"Enabling Large Scale LoRa Parallel Decoding With High-Dimensional and High-Accuracy Features.\",\"claim\":\"Recent work continues to push the scale of LoRa parallel decoding, but a fully scalable solution to thousands of devices is not established.\"}],\"confidence\":0.6},\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"uuid\":\"6b671f88-d640-493b-803b-911e73af364d\"}\n"
+}

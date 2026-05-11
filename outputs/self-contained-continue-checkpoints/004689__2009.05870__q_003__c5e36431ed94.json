@@ -1,0 +1,61 @@
+{
+  "record": {
+    "global_index": 4689,
+    "source_json": "outputs/parse-paper/2009.05870.json",
+    "paper_id": "2009.05870",
+    "paper_title": "",
+    "paper_link": "https://arxiv.org/abs/2009.05870",
+    "question_link": "https://arxiv.org/pdf/2009.05870.pdf#page=3",
+    "question_id": "q_003",
+    "parser_is_solved": "false",
+    "context_brief": "Equivalence of HPC and PC hardness",
+    "original_question": "At the regime κ = O(N^(1/2-τ)) for τ > 0, what is the precise average-case computational relationship between hypergraphic planted clique detection and ordinary planted clique detection? More specifically, since the paper states that HPC detection is no harder than PC detection because there is a randomized polynomial-time reduction from HPC to PC that preserves the planted clique size κ, can one also construct a randomized polynomial-time reduction from PC to HPC, thereby proving that the two detection problems are computationally equivalent in this threshold regime?",
+    "evidence": [
+      {
+        "page": 3,
+        "quote": "Challenge 3 At the threshold level of κ “ OpN 1{2´τ q for τ ą 0, what is relationship between\nHPC detection and PC detection in their computational hardness?"
+      },
+      {
+        "page": 3,
+        "quote": "First, HPC detection is no harder than PC detection. Given the adjacency tensor A of\nhypergraph G, by ﬁxing pd ´ 2q indices and varying the remaining two, we get an adjacency\nmatrix A from A which is a PC detection problem. So we can do a randomized polynomial-\ntime reduction from HPC detection to PC detection without changing the planted clique\nsize κ."
+      },
+      {
+        "page": 4,
+        "quote": "If reduction from PC to HPC could be proved, we would be able to arrive\nat the conclusion that PC and HPC detection are equivalently hard and all hardness results\nestablished in PC detection can be applied to HPC."
+      }
+    ]
+  },
+  "artifact": {
+    "self_contained_problem": "Fix integers $d \\geq 3$ and $N \\geq 1$. The hypergraphic planted clique (HPC) detection problem with parameters $(N, d, \\kappa)$ is the following hypothesis testing problem on $d$-uniform hypergraphs with vertex set $[N]$, encoded by their symmetric adjacency tensor $A \\in \\{0,1\\}^{N \\times \\cdots \\times N}$ (with zero diagonal):\n\n- Under $H_0$, every hyperedge $\\{i_1,\\dots,i_d\\} \\subseteq [N]$ is included independently with probability $1/2$ (Erdős–Rényi $d$-uniform random hypergraph).\n- Under $H_1$, a uniformly random subset $S \\subseteq [N]$ of size $\\kappa$ is chosen and all $\\binom{\\kappa}{d}$ hyperedges contained in $S$ are present; every other hyperedge is included independently with probability $1/2$.\n\nThe case $d=2$ recovers the ordinary planted clique (PC) detection problem.\n\nThere is a randomized polynomial-time reduction from HPC$(N,d,\\kappa)$ to PC$(N,\\kappa)$ that preserves the planted clique size: given the tensor $A$, fixing any $d-2$ indices and varying the remaining two yields an $N \\times N$ adjacency matrix that constitutes a PC instance with planted clique size $\\kappa$. Hence HPC detection is no harder than PC detection.\n\nQuestion: In the regime $\\kappa = O(N^{1/2 - \\tau})$ for some fixed $\\tau > 0$, does there exist a randomized polynomial-time reduction in the reverse direction, from PC$(N,\\kappa)$ detection to HPC$(N,d,\\kappa)$ detection (preserving the planted clique size $\\kappa$), thereby establishing that the two detection problems are computationally equivalent in this threshold regime?",
+    "macro_subject": "Theoretical Computer Science",
+    "category_tag": "Average-case hardness of planted clique",
+    "open_status": "open",
+    "status_search_result": "The problem is posed as an explicit open challenge concerning the equivalence of HPC and PC detection in the sub-square-root regime. A search for follow-up work (including reductions from PC to HPC and related tensor-PCA / hypergraph reductions through 2024–2025) did not surface a published randomized polynomial-time reduction from PC to HPC preserving the clique size $\\kappa$. Existing literature establishes only the easy direction (HPC to PC) and various low-degree / SoS hardness results, but not the desired computational equivalence. The status therefore appears to remain open.",
+    "status_evidence": [
+      {
+        "title": "Open Problem: Average-Case Hardness of Hypergraphic Planted Clique Detection",
+        "url": "https://proceedings.mlr.press/v125/luo20a.html",
+        "snippet": "Poses as an open problem the relationship between HPC and PC detection at the threshold κ = O(N^{1/2-τ}).",
+        "claim": "The PC-to-HPC reduction question is explicitly stated as an open problem."
+      },
+      {
+        "title": "Detection-Recovery and Detection-Refutation Gaps via Reductions from Planted Clique",
+        "url": "https://proceedings.mlr.press/v195/bresler23a/bresler23a.pdf",
+        "snippet": "Develops reductions from planted clique to other problems, but does not establish a PC-to-HPC reduction preserving κ in the relevant regime.",
+        "claim": "Subsequent reduction-based work has not closed the equivalence gap for HPC."
+      },
+      {
+        "title": "Low-Degree Security of the Planted Random Subgraph Problem",
+        "url": "https://eprint.iacr.org/2024/1497.pdf",
+        "snippet": "Studies low-degree hardness of planted subgraph variants without resolving HPC-to-PC equivalence.",
+        "claim": "Recent hardness frameworks do not provide the requested reduction."
+      }
+    ],
+    "confidence": 0.7
+  },
+  "model": "opus",
+  "effort": "medium",
+  "elapsed_s": 39.67,
+  "validation_warnings": [],
+  "raw_claude_stdout": "{\"type\":\"result\",\"subtype\":\"success\",\"is_error\":false,\"api_error_status\":null,\"duration_ms\":38297,\"duration_api_ms\":40115,\"num_turns\":3,\"result\":\"Sources:\\n- [Open Problem: Average-Case Hardness of Hypergraphic Planted Clique Detection (PMLR)](https://proceedings.mlr.press/v125/luo20a.html)\\n- [arXiv:2009.05870](https://arxiv.org/abs/2009.05870)\\n- [Detection-Recovery and Detection-Refutation Gaps via Reductions from Planted Clique](https://proceedings.mlr.press/v195/bresler23a/bresler23a.pdf)\\n- [Low-Degree Security of the Planted Random Subgraph Problem](https://eprint.iacr.org/2024/1497.pdf)\",\"stop_reason\":\"end_turn\",\"session_id\":\"5038569c-a6b2-4f2e-b38a-ffc8f9721f62\",\"total_cost_usd\":0.11682,\"usage\":{\"input_tokens\":8,\"cache_creation_input_tokens\":4752,\"cache_read_input_tokens\":13106,\"output_tokens\":1840,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":4752,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[{\"input_tokens\":1,\"output_tokens\":223,\"cache_read_input_tokens\":5897,\"cache_creation_input_tokens\":1540,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":1540},\"type\":\"message\"}],\"speed\":\"standard\"},\"modelUsage\":{\"claude-opus-4-7\":{\"inputTokens\":8,\"outputTokens\":1840,\"cacheReadInputTokens\":13106,\"cacheCreationInputTokens\":4752,\"webSearchRequests\":0,\"costUSD\":0.08229299999999999,\"contextWindow\":1000000,\"maxOutputTokens\":64000},\"claude-haiku-4-5-20251001\":{\"inputTokens\":22232,\"outputTokens\":459,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":1,\"costUSD\":0.034526999999999995,\"contextWindow\":200000,\"maxOutputTokens\":32000}},\"permission_denials\":[],\"structured_output\":{\"self_contained_problem\":\"Fix integers $d \\\\geq 3$ and $N \\\\geq 1$. The hypergraphic planted clique (HPC) detection problem with parameters $(N, d, \\\\kappa)$ is the following hypothesis testing problem on $d$-uniform hypergraphs with vertex set $[N]$, encoded by their symmetric adjacency tensor $A \\\\in \\\\{0,1\\\\}^{N \\\\times \\\\cdots \\\\times N}$ (with zero diagonal):\\n\\n- Under $H_0$, every hyperedge $\\\\{i_1,\\\\dots,i_d\\\\} \\\\subseteq [N]$ is included independently with probability $1/2$ (Erdős–Rényi $d$-uniform random hypergraph).\\n- Under $H_1$, a uniformly random subset $S \\\\subseteq [N]$ of size $\\\\kappa$ is chosen and all $\\\\binom{\\\\kappa}{d}$ hyperedges contained in $S$ are present; every other hyperedge is included independently with probability $1/2$.\\n\\nThe case $d=2$ recovers the ordinary planted clique (PC) detection problem.\\n\\nThere is a randomized polynomial-time reduction from HPC$(N,d,\\\\kappa)$ to PC$(N,\\\\kappa)$ that preserves the planted clique size: given the tensor $A$, fixing any $d-2$ indices and varying the remaining two yields an $N \\\\times N$ adjacency matrix that constitutes a PC instance with planted clique size $\\\\kappa$. Hence HPC detection is no harder than PC detection.\\n\\nQuestion: In the regime $\\\\kappa = O(N^{1/2 - \\\\tau})$ for some fixed $\\\\tau > 0$, does there exist a randomized polynomial-time reduction in the reverse direction, from PC$(N,\\\\kappa)$ detection to HPC$(N,d,\\\\kappa)$ detection (preserving the planted clique size $\\\\kappa$), thereby establishing that the two detection problems are computationally equivalent in this threshold regime?\",\"macro_subject\":\"Theoretical Computer Science\",\"category_tag\":\"Average-case hardness of planted clique\",\"open_status\":\"open\",\"status_search_result\":\"The problem is posed as an explicit open challenge concerning the equivalence of HPC and PC detection in the sub-square-root regime. A search for follow-up work (including reductions from PC to HPC and related tensor-PCA / hypergraph reductions through 2024–2025) did not surface a published randomized polynomial-time reduction from PC to HPC preserving the clique size $\\\\kappa$. Existing literature establishes only the easy direction (HPC to PC) and various low-degree / SoS hardness results, but not the desired computational equivalence. The status therefore appears to remain open.\",\"status_evidence\":[{\"title\":\"Open Problem: Average-Case Hardness of Hypergraphic Planted Clique Detection\",\"url\":\"https://proceedings.mlr.press/v125/luo20a.html\",\"snippet\":\"Poses as an open problem the relationship between HPC and PC detection at the threshold κ = O(N^{1/2-τ}).\",\"claim\":\"The PC-to-HPC reduction question is explicitly stated as an open problem.\"},{\"title\":\"Detection-Recovery and Detection-Refutation Gaps via Reductions from Planted Clique\",\"url\":\"https://proceedings.mlr.press/v195/bresler23a/bresler23a.pdf\",\"snippet\":\"Develops reductions from planted clique to other problems, but does not establish a PC-to-HPC reduction preserving κ in the relevant regime.\",\"claim\":\"Subsequent reduction-based work has not closed the equivalence gap for HPC.\"},{\"title\":\"Low-Degree Security of the Planted Random Subgraph Problem\",\"url\":\"https://eprint.iacr.org/2024/1497.pdf\",\"snippet\":\"Studies low-degree hardness of planted subgraph variants without resolving HPC-to-PC equivalence.\",\"claim\":\"Recent hardness frameworks do not provide the requested reduction.\"}],\"confidence\":0.7},\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"uuid\":\"4e32b4ec-735d-4034-8753-e096979f0159\"}\n"
+}

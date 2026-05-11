@@ -1,0 +1,51 @@
+{
+  "record": {
+    "global_index": 4782,
+    "source_json": "outputs/parse-paper/2012.04625.json",
+    "paper_id": "2012.04625",
+    "paper_title": "",
+    "paper_link": "https://arxiv.org/abs/2012.04625",
+    "question_link": "https://arxiv.org/pdf/2012.04625.pdf#page=7",
+    "question_id": "q_005",
+    "parser_is_solved": "false",
+    "context_brief": "Sign-flipping sequence graphs",
+    "original_question": "Fix a base b≥2 and define a_n by writing n=∑_k d_k b^k and then replacing b by -b, so a_n=∑_k d_k(-b)^k. After forming the associated 4-regular graph from the first N terms, explain why these sign-flipping sequences produce the intricate graph structures seen in the paper and whether those structures can be derived from, or otherwise explained by, the recurrence a_{bk+m}=(-b)a_k+m.",
+    "evidence": [
+      {
+        "page": 7,
+        "quote": "These sequences exist in the OEIS, at least for base b = 3 (A065369), 4 ≤ b ≤ 9 (A073791–A073796) and base b = 10 (A073835). However, it does not seem as if this sequences have been studied very much – we show that they exhibit fairly intricate structures."
+      },
+      {
+        "page": 9,
+        "quote": "One would perhaps assume that these intricate graphs are the consequence of iteratively applying Lemma 2 in some fashion. It is not clear to us at this point and further investigating these graphs seems like an interesting avenue."
+      }
+    ]
+  },
+  "artifact": {
+    "self_contained_problem": "Fix an integer base $b\\ge 2$. For each nonnegative integer $n$, write its standard base-$b$ expansion $n=\\sum_{k\\ge 0} d_k\\, b^k$ with digits $d_k\\in\\{0,1,\\dots,b-1\\}$, and define\n$$a_n \\;=\\; \\sum_{k\\ge 0} d_k\\,(-b)^k.$$\nEquivalently, $a_n$ satisfies the recurrence\n$$a_{bk+m} \\;=\\; -b\\,a_k + m \\qquad (k\\ge 0,\\; 0\\le m\\le b-1),\\qquad a_0=0.$$\n\nFix a positive integer $N$ and form a graph $G_{b,N}$ on the vertex set $\\{a_0,a_1,\\dots,a_{N-1}\\}\\subset\\mathbb{Z}$ as follows: for each $0\\le n\\le N-2$, place an edge between $a_n$ and $a_{n+1}$ (the \"consecutive\" edges), and for each $n$ in this range place an edge between $a_n$ and the vertex $a_m$ where $m$ is the index such that $a_m$ is the integer immediately succeeding $a_n$ in the sorted order of $\\{a_0,\\dots,a_{N-1}\\}$ (the \"value-order\" edges). The resulting graph is $4$-regular (away from boundary vertices).\n\nProblem. Give a rigorous explanation of the global structural features of the family of graphs $\\{G_{b,N}\\}_{N\\ge 1}$ (for example, the appearance of nested cycles, self-similar clustering, and large-scale geometric patterns observed as $N\\to\\infty$). In particular, determine whether all such structural features can be derived from iterated application of the recurrence $a_{bk+m}=-b\\,a_k+m$, or whether additional principles are required.",
+    "macro_subject": "Combinatorics",
+    "category_tag": "Negative-base digit sequences and graphs",
+    "open_status": "open",
+    "status_search_result": "No published resolution was located. The OEIS entries for these sequences (e.g., A065369 for b=3, A073791–A073796 for 4≤b≤9, A073835 for b=10) record the negative-base digit sums but do not contain a structural theorem explaining the associated 4-regular graph patterns. The question of whether the recurrence a_{bk+m}=-b·a_k+m fully accounts for the observed graph structures appears to remain open.",
+    "status_evidence": [
+      {
+        "title": "A065369 - OEIS",
+        "url": "https://oeis.org/A065369",
+        "snippet": "OEIS entry for the base-3 sign-flipping sequence; lists the values without providing a structural graph-theoretic analysis.",
+        "claim": "The sequence is catalogued in OEIS but no resolution of the graph-structure question is recorded there."
+      },
+      {
+        "title": "Negative base - Wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Negative_base",
+        "snippet": "Background on negative-base positional numeral systems, going back to Grünwald (1885) and Pawlak–Wakulicz (1957).",
+        "claim": "Negative-base representations underlying a_n are classical, but the specific graph-structure question is not addressed in the standard literature."
+      }
+    ],
+    "confidence": 0.5
+  },
+  "model": "opus",
+  "effort": "medium",
+  "elapsed_s": 41.51,
+  "validation_warnings": [],
+  "raw_claude_stdout": "{\"type\":\"result\",\"subtype\":\"success\",\"is_error\":false,\"api_error_status\":null,\"duration_ms\":40322,\"duration_api_ms\":38939,\"num_turns\":3,\"result\":\"Sources:\\n- [OEIS A065369](https://oeis.org/A065369)\\n- [Negative base — Wikipedia](https://en.wikipedia.org/wiki/Negative_base)\",\"stop_reason\":\"end_turn\",\"session_id\":\"d6e05225-2c8d-48dc-bd5c-27ed52b9360a\",\"total_cost_usd\":0.19084125,\"usage\":{\"input_tokens\":8,\"cache_creation_input_tokens\":5265,\"cache_read_input_tokens\":13712,\"output_tokens\":1463,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":5265,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[{\"input_tokens\":1,\"output_tokens\":68,\"cache_read_input_tokens\":6655,\"cache_creation_input_tokens\":1295,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":1295},\"type\":\"message\"}],\"speed\":\"standard\"},\"modelUsage\":{\"claude-haiku-4-5-20251001\":{\"inputTokens\":60479,\"outputTokens\":797,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":5,\"costUSD\":0.114464,\"contextWindow\":200000,\"maxOutputTokens\":32000},\"claude-opus-4-7\":{\"inputTokens\":8,\"outputTokens\":1463,\"cacheReadInputTokens\":13712,\"cacheCreationInputTokens\":5265,\"webSearchRequests\":0,\"costUSD\":0.07637725,\"contextWindow\":1000000,\"maxOutputTokens\":64000}},\"permission_denials\":[],\"structured_output\":{\"self_contained_problem\":\"Fix an integer base $b\\\\ge 2$. For each nonnegative integer $n$, write its standard base-$b$ expansion $n=\\\\sum_{k\\\\ge 0} d_k\\\\, b^k$ with digits $d_k\\\\in\\\\{0,1,\\\\dots,b-1\\\\}$, and define\\n$$a_n \\\\;=\\\\; \\\\sum_{k\\\\ge 0} d_k\\\\,(-b)^k.$$\\nEquivalently, $a_n$ satisfies the recurrence\\n$$a_{bk+m} \\\\;=\\\\; -b\\\\,a_k + m \\\\qquad (k\\\\ge 0,\\\\; 0\\\\le m\\\\le b-1),\\\\qquad a_0=0.$$\\n\\nFix a positive integer $N$ and form a graph $G_{b,N}$ on the vertex set $\\\\{a_0,a_1,\\\\dots,a_{N-1}\\\\}\\\\subset\\\\mathbb{Z}$ as follows: for each $0\\\\le n\\\\le N-2$, place an edge between $a_n$ and $a_{n+1}$ (the \\\"consecutive\\\" edges), and for each $n$ in this range place an edge between $a_n$ and the vertex $a_m$ where $m$ is the index such that $a_m$ is the integer immediately succeeding $a_n$ in the sorted order of $\\\\{a_0,\\\\dots,a_{N-1}\\\\}$ (the \\\"value-order\\\" edges). The resulting graph is $4$-regular (away from boundary vertices).\\n\\nProblem. Give a rigorous explanation of the global structural features of the family of graphs $\\\\{G_{b,N}\\\\}_{N\\\\ge 1}$ (for example, the appearance of nested cycles, self-similar clustering, and large-scale geometric patterns observed as $N\\\\to\\\\infty$). In particular, determine whether all such structural features can be derived from iterated application of the recurrence $a_{bk+m}=-b\\\\,a_k+m$, or whether additional principles are required.\",\"macro_subject\":\"Combinatorics\",\"category_tag\":\"Negative-base digit sequences and graphs\",\"open_status\":\"open\",\"status_search_result\":\"No published resolution was located. The OEIS entries for these sequences (e.g., A065369 for b=3, A073791–A073796 for 4≤b≤9, A073835 for b=10) record the negative-base digit sums but do not contain a structural theorem explaining the associated 4-regular graph patterns. The question of whether the recurrence a_{bk+m}=-b·a_k+m fully accounts for the observed graph structures appears to remain open.\",\"status_evidence\":[{\"title\":\"A065369 - OEIS\",\"url\":\"https://oeis.org/A065369\",\"snippet\":\"OEIS entry for the base-3 sign-flipping sequence; lists the values without providing a structural graph-theoretic analysis.\",\"claim\":\"The sequence is catalogued in OEIS but no resolution of the graph-structure question is recorded there.\"},{\"title\":\"Negative base - Wikipedia\",\"url\":\"https://en.wikipedia.org/wiki/Negative_base\",\"snippet\":\"Background on negative-base positional numeral systems, going back to Grünwald (1885) and Pawlak–Wakulicz (1957).\",\"claim\":\"Negative-base representations underlying a_n are classical, but the specific graph-structure question is not addressed in the standard literature.\"}],\"confidence\":0.5},\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"uuid\":\"5d376c3d-715a-4930-ad87-bcb14e2c260c\"}\n"
+}

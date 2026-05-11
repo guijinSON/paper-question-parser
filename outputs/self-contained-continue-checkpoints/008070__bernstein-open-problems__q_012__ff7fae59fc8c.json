@@ -1,0 +1,57 @@
+{
+  "record": {
+    "global_index": 8070,
+    "source_json": "outputs/parse-paper/bernstein-open-problems.json",
+    "paper_id": "bernstein-open-problems",
+    "paper_title": "Some Open Problems in Matrix Theory Arising in Linear Systems and Control",
+    "paper_link": "https://zbmath.org/32947",
+    "question_link": "https://zbmath.org/32947",
+    "question_id": "q_012",
+    "parser_is_solved": "false",
+    "context_brief": "reduced-order dynamic compensator stabilization",
+    "original_question": "Given a dynamic compensator of prescribed order n_c < n for the system x'(t) = A x(t) + B u(t), y(t) = C x(t), determine necessary and sufficient conditions under which there exist controller matrices A_c, B_c, and C_c of that reduced order that stabilize the closed loop. The source notes that the full-order case n_c = n is understood, whereas the reduced-order case remains unsolved.",
+    "evidence": [
+      {
+        "page": 12,
+        "quote": "If n_c = n, then necessary and sufficient conditions for stabilizability are well known, namely, (A, B) must be stabilizable and (C, A) must be detectable [53]."
+      },
+      {
+        "page": 12,
+        "quote": "Stabilizability for the case n_c < n is unsolved; for partial results see [59, 73]."
+      }
+    ]
+  },
+  "artifact": {
+    "self_contained_problem": "Let $A\\in\\mathbb{R}^{n\\times n}$, $B\\in\\mathbb{R}^{n\\times m}$, and $C\\in\\mathbb{R}^{p\\times n}$ define the linear time-invariant control system\n$$\\dot{x}(t)=A x(t)+B u(t),\\qquad y(t)=C x(t),\\qquad x(t)\\in\\mathbb{R}^{n},\\ u(t)\\in\\mathbb{R}^{m},\\ y(t)\\in\\mathbb{R}^{p}.$$\nFix an integer $n_c$ with $1\\le n_c<n$. A dynamic compensator of order $n_c$ has the form\n$$\\dot{x}_c(t)=A_c x_c(t)+B_c y(t),\\qquad u(t)=C_c x_c(t),\\qquad x_c(t)\\in\\mathbb{R}^{n_c},$$\nwith $A_c\\in\\mathbb{R}^{n_c\\times n_c}$, $B_c\\in\\mathbb{R}^{n_c\\times p}$, $C_c\\in\\mathbb{R}^{m\\times n_c}$. The closed-loop system is\n$$\\frac{d}{dt}\\begin{bmatrix}x\\\\ x_c\\end{bmatrix}=\\begin{bmatrix}A & BC_c\\\\ B_c C & A_c\\end{bmatrix}\\begin{bmatrix}x\\\\ x_c\\end{bmatrix},$$\nand is said to be stabilized when the matrix on the right has all eigenvalues with strictly negative real part.\n\nDetermine verifiable necessary and sufficient conditions on the triple $(A,B,C)$ and the integer $n_c$ for the existence of matrices $A_c,B_c,C_c$ of the prescribed dimensions that stabilize the closed-loop system.\n\n(For comparison, when $n_c=n$ a stabilizing compensator exists if and only if $(A,B)$ is stabilizable and $(C,A)$ is detectable; the question concerns the strictly reduced-order regime $n_c<n$.)",
+    "macro_subject": "Applied Mathematics",
+    "category_tag": "reduced-order output feedback stabilization",
+    "open_status": "open",
+    "status_search_result": "No general verifiable necessary and sufficient conditions for reduced-order dynamic output feedback stabilizability are known. The literature provides only sufficient conditions (e.g., LMI/BMI-based synthesis, dilated LMI relaxations, conditions for specific system classes such as periodic LPV or positive delayed systems) and iterative algorithms whose convergence remains unresolved. Even the closely related static output feedback stabilization problem is widely regarded as an open problem in control theory.",
+    "status_evidence": [
+      {
+        "title": "Reduced order dynamic controller synthesis conditions for LPV periodic discrete-time systems",
+        "url": "https://www.sciencedirect.com/science/article/abs/pii/S0016003221002349",
+        "snippet": "A method for the synthesis of reduced-order dynamic output-feedback controllers ... based on extended/dilated LMIs with slack matrix variables introduced to obtain an LMI relaxation for the non-convex robust reduced-order controller design problem.",
+        "claim": "Only sufficient LMI-based conditions, not necessary and sufficient ones, are available for reduced-order dynamic output feedback design."
+      },
+      {
+        "title": "A note on reduced order stabilizing output feedback controllers",
+        "url": "https://www.sciencedirect.com/science/article/abs/pii/S0167691196000771",
+        "snippet": "Partial results on the existence of reduced-order stabilizing output feedback controllers.",
+        "claim": "Only partial results are known for reduced-order stabilizing output feedback compensators."
+      },
+      {
+        "title": "A necessary and sufficient condition for output feedback stabilizability",
+        "url": "https://www.sciencedirect.com/science/article/abs/pii/0005109895000482",
+        "snippet": "Conditions for static output feedback stabilizability via LQR theory; computational issues and convergence of iterative algorithms remain open.",
+        "claim": "Even the static output feedback case lacks practically verifiable necessary and sufficient conditions, indicating the reduced-order problem is unresolved in general."
+      }
+    ],
+    "confidence": 0.8
+  },
+  "model": "opus",
+  "effort": "medium",
+  "elapsed_s": 31.5,
+  "validation_warnings": [],
+  "raw_claude_stdout": "{\"type\":\"result\",\"subtype\":\"success\",\"is_error\":false,\"api_error_status\":null,\"duration_ms\":30294,\"duration_api_ms\":29921,\"num_turns\":3,\"result\":\"Provided the structured dataset row. The reduced-order dynamic compensator stabilization problem remains open in general: only sufficient conditions (e.g., LMI/BMI relaxations) and partial results for special system classes are known.\\n\\nSources:\\n- [Reduced order dynamic controller synthesis (LPV periodic)](https://www.sciencedirect.com/science/article/abs/pii/S0016003221002349)\\n- [A note on reduced order stabilizing output feedback controllers](https://www.sciencedirect.com/science/article/abs/pii/S0167691196000771)\\n- [A necessary and sufficient condition for output feedback stabilizability](https://www.sciencedirect.com/science/article/abs/pii/0005109895000482)\",\"stop_reason\":\"end_turn\",\"session_id\":\"ace7b766-39c6-4ce8-90b5-f169b69fb223\",\"total_cost_usd\":0.117744,\"usage\":{\"input_tokens\":8,\"cache_creation_input_tokens\":4982,\"cache_read_input_tokens\":12969,\"output_tokens\":2034,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":4982,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[{\"input_tokens\":1,\"output_tokens\":249,\"cache_read_input_tokens\":5992,\"cache_creation_input_tokens\":1675,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":1675},\"type\":\"message\"}],\"speed\":\"standard\"},\"modelUsage\":{\"claude-haiku-4-5-20251001\":{\"inputTokens\":16687,\"outputTokens\":509,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":1,\"costUSD\":0.029232000000000005,\"contextWindow\":200000,\"maxOutputTokens\":32000},\"claude-opus-4-7\":{\"inputTokens\":8,\"outputTokens\":2034,\"cacheReadInputTokens\":12969,\"cacheCreationInputTokens\":4982,\"webSearchRequests\":0,\"costUSD\":0.088512,\"contextWindow\":1000000,\"maxOutputTokens\":64000}},\"permission_denials\":[],\"structured_output\":{\"self_contained_problem\":\"Let $A\\\\in\\\\mathbb{R}^{n\\\\times n}$, $B\\\\in\\\\mathbb{R}^{n\\\\times m}$, and $C\\\\in\\\\mathbb{R}^{p\\\\times n}$ define the linear time-invariant control system\\n$$\\\\dot{x}(t)=A x(t)+B u(t),\\\\qquad y(t)=C x(t),\\\\qquad x(t)\\\\in\\\\mathbb{R}^{n},\\\\ u(t)\\\\in\\\\mathbb{R}^{m},\\\\ y(t)\\\\in\\\\mathbb{R}^{p}.$$\\nFix an integer $n_c$ with $1\\\\le n_c<n$. A dynamic compensator of order $n_c$ has the form\\n$$\\\\dot{x}_c(t)=A_c x_c(t)+B_c y(t),\\\\qquad u(t)=C_c x_c(t),\\\\qquad x_c(t)\\\\in\\\\mathbb{R}^{n_c},$$\\nwith $A_c\\\\in\\\\mathbb{R}^{n_c\\\\times n_c}$, $B_c\\\\in\\\\mathbb{R}^{n_c\\\\times p}$, $C_c\\\\in\\\\mathbb{R}^{m\\\\times n_c}$. The closed-loop system is\\n$$\\\\frac{d}{dt}\\\\begin{bmatrix}x\\\\\\\\ x_c\\\\end{bmatrix}=\\\\begin{bmatrix}A & BC_c\\\\\\\\ B_c C & A_c\\\\end{bmatrix}\\\\begin{bmatrix}x\\\\\\\\ x_c\\\\end{bmatrix},$$\\nand is said to be stabilized when the matrix on the right has all eigenvalues with strictly negative real part.\\n\\nDetermine verifiable necessary and sufficient conditions on the triple $(A,B,C)$ and the integer $n_c$ for the existence of matrices $A_c,B_c,C_c$ of the prescribed dimensions that stabilize the closed-loop system.\\n\\n(For comparison, when $n_c=n$ a stabilizing compensator exists if and only if $(A,B)$ is stabilizable and $(C,A)$ is detectable; the question concerns the strictly reduced-order regime $n_c<n$.)\",\"macro_subject\":\"Applied Mathematics\",\"category_tag\":\"reduced-order output feedback stabilization\",\"open_status\":\"open\",\"status_search_result\":\"No general verifiable necessary and sufficient conditions for reduced-order dynamic output feedback stabilizability are known. The literature provides only sufficient conditions (e.g., LMI/BMI-based synthesis, dilated LMI relaxations, conditions for specific system classes such as periodic LPV or positive delayed systems) and iterative algorithms whose convergence remains unresolved. Even the closely related static output feedback stabilization problem is widely regarded as an open problem in control theory.\",\"status_evidence\":[{\"title\":\"Reduced order dynamic controller synthesis conditions for LPV periodic discrete-time systems\",\"url\":\"https://www.sciencedirect.com/science/article/abs/pii/S0016003221002349\",\"snippet\":\"A method for the synthesis of reduced-order dynamic output-feedback controllers ... based on extended/dilated LMIs with slack matrix variables introduced to obtain an LMI relaxation for the non-convex robust reduced-order controller design problem.\",\"claim\":\"Only sufficient LMI-based conditions, not necessary and sufficient ones, are available for reduced-order dynamic output feedback design.\"},{\"title\":\"A note on reduced order stabilizing output feedback controllers\",\"url\":\"https://www.sciencedirect.com/science/article/abs/pii/S0167691196000771\",\"snippet\":\"Partial results on the existence of reduced-order stabilizing output feedback controllers.\",\"claim\":\"Only partial results are known for reduced-order stabilizing output feedback compensators.\"},{\"title\":\"A necessary and sufficient condition for output feedback stabilizability\",\"url\":\"https://www.sciencedirect.com/science/article/abs/pii/0005109895000482\",\"snippet\":\"Conditions for static output feedback stabilizability via LQR theory; computational issues and convergence of iterative algorithms remain open.\",\"claim\":\"Even the static output feedback case lacks practically verifiable necessary and sufficient conditions, indicating the reduced-order problem is unresolved in general.\"}],\"confidence\":0.8},\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"uuid\":\"03f52929-bb74-4e68-91d4-d949540a6cbc\"}\n"
+}

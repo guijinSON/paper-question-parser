@@ -1,0 +1,55 @@
+{
+  "record": {
+    "global_index": 5048,
+    "source_json": "outputs/parse-paper/2109.06917.json",
+    "paper_id": "2109.06917",
+    "paper_title": "Open Problems Related to Quantum Query Complexity",
+    "paper_link": "https://arxiv.org/abs/2109.06917",
+    "question_link": "https://arxiv.org/pdf/2109.06917.pdf#page=8",
+    "question_id": "q_012",
+    "parser_is_solved": "false",
+    "context_brief": "Linear cross-entropy benchmark query complexity",
+    "original_question": "Given a Boolean function f:{0,1}^n->{-1,1}, suppose a quantum Fourier-sampling algorithm samples a string s with probability equal to f̂(s)^2, where f̂(z) is the z-th Boolean Fourier coefficient of f. For k output samples s_1,...,s_k, define χ=(2^n/k) times the sum over i of f̂(s_i)^2. Repeating Fourier sampling yields samples with χ≈3. What is the quantum query complexity of outputting samples s_1,...,s_k that satisfy χ≈4?",
+    "evidence": [
+      {
+        "page": 8,
+        "quote": "Given a Boolean function f :{0, 1}n→ {−1, 1}, an easy quantum algorithm samples a string s with probability equal to ˆf (s)2, where ˆf (z) is the zth Boolean Fourier coefficient of f."
+      },
+      {
+        "page": 8,
+        "quote": "Define the quantity χ := 2n/k ∑ki=1 ˆf (si)2. Then one can show that repeating the Fourier sampling algorithm yields samples s1, . . . , sk that satisfy χ≈ 3. We now ask:"
+      },
+      {
+        "page": 8,
+        "quote": "Problem 12 What is the quantum query complexity of outputting samples s1, . . . , sk that satisfy, say, χ≈ 4?"
+      }
+    ]
+  },
+  "artifact": {
+    "self_contained_problem": "Let $f:\\{0,1\\}^n\\to\\{-1,1\\}$ be a Boolean function, and for $z\\in\\{0,1\\}^n$ let\n$$\\hat f(z) \\;=\\; 2^{-n}\\sum_{x\\in\\{0,1\\}^n} f(x)(-1)^{x\\cdot z}$$\ndenote its Boolean Fourier coefficient at $z$, so that $\\sum_z \\hat f(z)^2 = 1$. The standard quantum Fourier-sampling procedure, given oracle access to $f$, outputs a string $s\\in\\{0,1\\}^n$ with probability $\\hat f(s)^2$ using one quantum query to $f$.\n\nFor a sequence of $k$ output strings $s_1,\\dots,s_k\\in\\{0,1\\}^n$, define the linear cross-entropy benchmark statistic\n$$\\chi \\;:=\\; \\frac{2^n}{k}\\sum_{i=1}^{k}\\hat f(s_i)^2.$$\nIt is known that, for a \"generic\" $f$, repeating the standard quantum Fourier-sampling algorithm $k$ times yields samples $s_1,\\dots,s_k$ for which $\\chi\\approx 3$ (in expectation, in the regime of interest).\n\nDetermine the quantum query complexity (as a function of $n$ and $k$) of the following task: given oracle access to $f$, output samples $s_1,\\dots,s_k\\in\\{0,1\\}^n$ such that\n$$\\chi \\;=\\; \\frac{2^n}{k}\\sum_{i=1}^{k}\\hat f(s_i)^2 \\;\\approx\\; 4.$$\nIn particular, prove non-trivial upper and lower bounds on the number of quantum queries to $f$ required to achieve $\\chi\\approx 4$ rather than $\\chi\\approx 3$.",
+    "macro_subject": "Theoretical Computer Science",
+    "category_tag": "Quantum query complexity",
+    "open_status": "open",
+    "status_search_result": "The problem is listed as an open problem in Aaronson's compilation of open problems on quantum query complexity (2021). Related work on linear cross-entropy benchmarking (e.g., Aaronson–Gunn's \"Quantum Supremacy Tsirelson Inequality\" and subsequent works on spoofing XEB) studies similar quantities but does not appear to settle the precise quantum query complexity of producing Fourier samples with χ ≈ 4 versus χ ≈ 3. No published resolution was found.",
+    "status_evidence": [
+      {
+        "title": "The Quantum Supremacy Tsirelson Inequality",
+        "url": "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.ITCS.2021.13",
+        "snippet": "Studies bounds on the linear cross-entropy benchmark achievable by k-query quantum algorithms, related to but not fully resolving the χ≈4 Fourier-sampling question.",
+        "claim": "Related upper-bound work exists but does not settle the precise query complexity of obtaining χ≈4."
+      },
+      {
+        "title": "Spoofing Linear Cross-Entropy Benchmarking in Shallow Quantum Circuits",
+        "url": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol185-itcs2021/LIPIcs.ITCS.2021.30/LIPIcs.ITCS.2021.30.pdf",
+        "snippet": "Considers classical and shallow-quantum spoofing of linear XEB, addressing related but distinct questions.",
+        "claim": "Closely related but does not resolve the quantum query complexity question for boosting χ from 3 to 4 in Fourier sampling."
+      }
+    ],
+    "confidence": 0.7
+  },
+  "model": "opus",
+  "effort": "medium",
+  "elapsed_s": 40.28,
+  "validation_warnings": [],
+  "raw_claude_stdout": "{\"type\":\"result\",\"subtype\":\"success\",\"is_error\":false,\"api_error_status\":null,\"duration_ms\":39210,\"duration_api_ms\":39508,\"num_turns\":3,\"result\":\"Sources:\\n- [The Quantum Supremacy Tsirelson Inequality](https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.ITCS.2021.13)\\n- [Spoofing Linear Cross-Entropy Benchmarking in Shallow Quantum Circuits](https://drops.dagstuhl.de/storage/00lipics/lipics-vol185-itcs2021/LIPIcs.ITCS.2021.30/LIPIcs.ITCS.2021.30.pdf)\\n- [Limitations of Linear Cross-Entropy as a Measure for Quantum Advantage](https://link.aps.org/doi/10.1103/PRXQuantum.5.010334)\",\"stop_reason\":\"end_turn\",\"session_id\":\"8d9f6081-e1b4-4920-a4cd-b61e002c4f3e\",\"total_cost_usd\":0.11567625000000001,\"usage\":{\"input_tokens\":8,\"cache_creation_input_tokens\":5017,\"cache_read_input_tokens\":13446,\"output_tokens\":1791,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":5017,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[{\"input_tokens\":1,\"output_tokens\":250,\"cache_read_input_tokens\":6261,\"cache_creation_input_tokens\":1441,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":1441},\"type\":\"message\"}],\"speed\":\"standard\"},\"modelUsage\":{\"claude-opus-4-7\":{\"inputTokens\":8,\"outputTokens\":1791,\"cacheReadInputTokens\":13446,\"cacheCreationInputTokens\":5017,\"webSearchRequests\":0,\"costUSD\":0.08289425,\"contextWindow\":1000000,\"maxOutputTokens\":64000},\"claude-haiku-4-5-20251001\":{\"inputTokens\":20282,\"outputTokens\":500,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":1,\"costUSD\":0.032782000000000006,\"contextWindow\":200000,\"maxOutputTokens\":32000}},\"permission_denials\":[],\"structured_output\":{\"self_contained_problem\":\"Let $f:\\\\{0,1\\\\}^n\\\\to\\\\{-1,1\\\\}$ be a Boolean function, and for $z\\\\in\\\\{0,1\\\\}^n$ let\\n$$\\\\hat f(z) \\\\;=\\\\; 2^{-n}\\\\sum_{x\\\\in\\\\{0,1\\\\}^n} f(x)(-1)^{x\\\\cdot z}$$\\ndenote its Boolean Fourier coefficient at $z$, so that $\\\\sum_z \\\\hat f(z)^2 = 1$. The standard quantum Fourier-sampling procedure, given oracle access to $f$, outputs a string $s\\\\in\\\\{0,1\\\\}^n$ with probability $\\\\hat f(s)^2$ using one quantum query to $f$.\\n\\nFor a sequence of $k$ output strings $s_1,\\\\dots,s_k\\\\in\\\\{0,1\\\\}^n$, define the linear cross-entropy benchmark statistic\\n$$\\\\chi \\\\;:=\\\\; \\\\frac{2^n}{k}\\\\sum_{i=1}^{k}\\\\hat f(s_i)^2.$$\\nIt is known that, for a \\\"generic\\\" $f$, repeating the standard quantum Fourier-sampling algorithm $k$ times yields samples $s_1,\\\\dots,s_k$ for which $\\\\chi\\\\approx 3$ (in expectation, in the regime of interest).\\n\\nDetermine the quantum query complexity (as a function of $n$ and $k$) of the following task: given oracle access to $f$, output samples $s_1,\\\\dots,s_k\\\\in\\\\{0,1\\\\}^n$ such that\\n$$\\\\chi \\\\;=\\\\; \\\\frac{2^n}{k}\\\\sum_{i=1}^{k}\\\\hat f(s_i)^2 \\\\;\\\\approx\\\\; 4.$$\\nIn particular, prove non-trivial upper and lower bounds on the number of quantum queries to $f$ required to achieve $\\\\chi\\\\approx 4$ rather than $\\\\chi\\\\approx 3$.\",\"macro_subject\":\"Theoretical Computer Science\",\"category_tag\":\"Quantum query complexity\",\"open_status\":\"open\",\"status_search_result\":\"The problem is listed as an open problem in Aaronson's compilation of open problems on quantum query complexity (2021). Related work on linear cross-entropy benchmarking (e.g., Aaronson–Gunn's \\\"Quantum Supremacy Tsirelson Inequality\\\" and subsequent works on spoofing XEB) studies similar quantities but does not appear to settle the precise quantum query complexity of producing Fourier samples with χ ≈ 4 versus χ ≈ 3. No published resolution was found.\",\"status_evidence\":[{\"title\":\"The Quantum Supremacy Tsirelson Inequality\",\"url\":\"https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.ITCS.2021.13\",\"snippet\":\"Studies bounds on the linear cross-entropy benchmark achievable by k-query quantum algorithms, related to but not fully resolving the χ≈4 Fourier-sampling question.\",\"claim\":\"Related upper-bound work exists but does not settle the precise query complexity of obtaining χ≈4.\"},{\"title\":\"Spoofing Linear Cross-Entropy Benchmarking in Shallow Quantum Circuits\",\"url\":\"https://drops.dagstuhl.de/storage/00lipics/lipics-vol185-itcs2021/LIPIcs.ITCS.2021.30/LIPIcs.ITCS.2021.30.pdf\",\"snippet\":\"Considers classical and shallow-quantum spoofing of linear XEB, addressing related but distinct questions.\",\"claim\":\"Closely related but does not resolve the quantum query complexity question for boosting χ from 3 to 4 in Fourier sampling.\"}],\"confidence\":0.7},\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"uuid\":\"74f14d8e-3d4f-4c13-8679-df351d7ccd10\"}\n"
+}

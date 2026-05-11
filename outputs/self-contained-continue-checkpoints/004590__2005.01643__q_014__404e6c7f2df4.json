@@ -1,0 +1,51 @@
+{
+  "record": {
+    "global_index": 4590,
+    "source_json": "outputs/parse-paper/2005.01643.json",
+    "paper_id": "2005.01643",
+    "paper_title": "Offline Reinforcement Learning: Tutorial, Review, and Perspectives on Open Problems",
+    "paper_link": "https://arxiv.org/abs/2005.01643",
+    "question_link": "https://arxiv.org/pdf/2005.01643.pdf#page=30",
+    "question_id": "q_014",
+    "parser_is_solved": "false",
+    "context_brief": "Off-policy evaluation for offline RL deployment",
+    "original_question": "How can off-policy evaluation estimate the online performance of policies learned by offline reinforcement learning without explicit online interaction, especially when simulators are unavailable and real online evaluation has financial or safety consequences in domains such as advertising or healthcare?",
+    "evidence": [
+      {
+        "page": 30,
+        "quote": "Accurately evaluating the performance of offline RL algorithms can be difficult, because we are typically interested in maximizing the online performance of an algorithm. When simulators are available, online evaluations can be cheaply performed within the simulator order to benchmark the performance of algorithms. Off-policy evaluation (OPE) can also be used to estimate the performance of policies without explicit online interaction, but it is an active area of research as discussed in Section 3.1."
+      },
+      {
+        "page": 30,
+        "quote": "Nevertheless, OPE is a popular tool in areas such as online advertising (Li et al., 2010) or healthcare (Murphy et al., 2001) where online evaluation can have significant financial or safety consequences."
+      }
+    ]
+  },
+  "artifact": {
+    "category_tag": "off-policy evaluation",
+    "confidence": 0.6,
+    "macro_subject": "Statistics and Machine Learning",
+    "open_status": "open",
+    "self_contained_problem": "Consider a Markov decision process M = (S, A, P, r, γ, ρ_0) with state space S, action space A, transition kernel P(s' | s, a), reward function r(s, a), discount factor γ ∈ [0,1), and initial-state distribution ρ_0. For a stationary policy π : S → Δ(A), define its (online) value as\n\n   J(π) = E[ Σ_{t=0}^∞ γ^t r(s_t, a_t) ],\n\nwhere s_0 ∼ ρ_0, a_t ∼ π(· | s_t), and s_{t+1} ∼ P(· | s_t, a_t).\n\nSuppose we are given only a fixed offline dataset D = { (s_i, a_i, r_i, s'_i) }_{i=1}^N collected by one or more unknown behavior policies π_β, with no ability to interact further with the environment and no access to a simulator. The off-policy evaluation (OPE) problem is:\n\n   Construct an estimator Ĵ(π; D) of J(π) for an arbitrary target policy π (in particular, one obtained from an offline reinforcement learning algorithm trained on D), together with finite-sample guarantees on |Ĵ(π; D) − J(π)|, that:\n     (a) does not require any online interaction with the MDP,\n     (b) is reliable enough to support deployment decisions in domains where erroneous online testing carries significant financial or safety cost (e.g. online advertising, clinical decision support), and\n     (c) handles realistic offline conditions including limited coverage of (s,a) by π_β, distribution shift between π_β and π, long horizons, high-dimensional state spaces, and unknown or stochastic behavior policies.\n\nOpen problem: Design an OPE methodology meeting (a)–(c) and prove non-asymptotic error bounds on its estimate of J(π) that are tight enough to certify the relative ordering and absolute online performance of policies produced by offline RL, without requiring any online rollouts.",
+    "status_search_result": "Off-policy evaluation under purely offline data with deployment-grade reliability remains an active and open research area. Recent benchmarks (e.g., the Deep OPE benchmark and follow-up work) consistently report that no existing OPE estimator reliably ranks or scores policies across diverse offline RL tasks, especially under limited coverage and long horizons. No published result claims a general solution.",
+    "status_evidence": [
+      {
+        "title": "Benchmarks for Deep Off-Policy Evaluation",
+        "url": "https://arxiv.org/abs/2103.16596",
+        "snippet": "We present a collection of policies that, in conjunction with existing offline datasets, can be used for benchmarking off-policy evaluation... results indicate substantial room for improvement.",
+        "claim": "OPE for offline RL remains unsolved; benchmark shows current methods are unreliable."
+      },
+      {
+        "title": "Offline Reinforcement Learning: Tutorial, Review, and Perspectives on Open Problems",
+        "url": "https://arxiv.org/abs/2005.01643",
+        "snippet": "Off-policy evaluation (OPE) can also be used to estimate the performance of policies without explicit online interaction, but it is an active area of research.",
+        "claim": "The problem is explicitly identified as open and active."
+      }
+    ]
+  },
+  "model": "opus",
+  "effort": "medium",
+  "elapsed_s": 25.93,
+  "validation_warnings": [],
+  "raw_claude_stdout": "{\"type\":\"result\",\"subtype\":\"success\",\"is_error\":false,\"api_error_status\":null,\"duration_ms\":24776,\"duration_api_ms\":25686,\"num_turns\":2,\"result\":\"I've produced the dataset row, framing the broad OPE deployment question as a precise open problem in offline RL with required non-asymptotic guarantees, and marked its status as open based on benchmark evidence.\\n\\nSources:\\n- [Benchmarks for Deep Off-Policy Evaluation](https://arxiv.org/abs/2103.16596)\\n- [Offline RL Tutorial, Review, and Perspectives](https://arxiv.org/abs/2005.01643)\",\"stop_reason\":\"end_turn\",\"session_id\":\"da8fe2a6-bd42-4ee6-a25c-25bc60d34384\",\"total_cost_usd\":0.06147225,\"usage\":{\"input_tokens\":7,\"cache_creation_input_tokens\":3081,\"cache_read_input_tokens\":7070,\"output_tokens\":1507,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":3081,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[{\"input_tokens\":1,\"output_tokens\":159,\"cache_read_input_tokens\":4385,\"cache_creation_input_tokens\":1381,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":1381},\"type\":\"message\"}],\"speed\":\"standard\"},\"modelUsage\":{\"claude-haiku-4-5-20251001\":{\"inputTokens\":876,\"outputTokens\":19,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":0,\"costUSD\":0.0009710000000000001,\"contextWindow\":200000,\"maxOutputTokens\":32000},\"claude-opus-4-7\":{\"inputTokens\":7,\"outputTokens\":1507,\"cacheReadInputTokens\":7070,\"cacheCreationInputTokens\":3081,\"webSearchRequests\":0,\"costUSD\":0.06050125,\"contextWindow\":1000000,\"maxOutputTokens\":64000}},\"permission_denials\":[],\"structured_output\":{\"category_tag\":\"off-policy evaluation\",\"confidence\":0.6,\"macro_subject\":\"Statistics and Machine Learning\",\"open_status\":\"open\",\"self_contained_problem\":\"Consider a Markov decision process M = (S, A, P, r, γ, ρ_0) with state space S, action space A, transition kernel P(s' | s, a), reward function r(s, a), discount factor γ ∈ [0,1), and initial-state distribution ρ_0. For a stationary policy π : S → Δ(A), define its (online) value as\\n\\n   J(π) = E[ Σ_{t=0}^∞ γ^t r(s_t, a_t) ],\\n\\nwhere s_0 ∼ ρ_0, a_t ∼ π(· | s_t), and s_{t+1} ∼ P(· | s_t, a_t).\\n\\nSuppose we are given only a fixed offline dataset D = { (s_i, a_i, r_i, s'_i) }_{i=1}^N collected by one or more unknown behavior policies π_β, with no ability to interact further with the environment and no access to a simulator. The off-policy evaluation (OPE) problem is:\\n\\n   Construct an estimator Ĵ(π; D) of J(π) for an arbitrary target policy π (in particular, one obtained from an offline reinforcement learning algorithm trained on D), together with finite-sample guarantees on |Ĵ(π; D) − J(π)|, that:\\n     (a) does not require any online interaction with the MDP,\\n     (b) is reliable enough to support deployment decisions in domains where erroneous online testing carries significant financial or safety cost (e.g. online advertising, clinical decision support), and\\n     (c) handles realistic offline conditions including limited coverage of (s,a) by π_β, distribution shift between π_β and π, long horizons, high-dimensional state spaces, and unknown or stochastic behavior policies.\\n\\nOpen problem: Design an OPE methodology meeting (a)–(c) and prove non-asymptotic error bounds on its estimate of J(π) that are tight enough to certify the relative ordering and absolute online performance of policies produced by offline RL, without requiring any online rollouts.\",\"status_search_result\":\"Off-policy evaluation under purely offline data with deployment-grade reliability remains an active and open research area. Recent benchmarks (e.g., the Deep OPE benchmark and follow-up work) consistently report that no existing OPE estimator reliably ranks or scores policies across diverse offline RL tasks, especially under limited coverage and long horizons. No published result claims a general solution.\",\"status_evidence\":[{\"title\":\"Benchmarks for Deep Off-Policy Evaluation\",\"url\":\"https://arxiv.org/abs/2103.16596\",\"snippet\":\"We present a collection of policies that, in conjunction with existing offline datasets, can be used for benchmarking off-policy evaluation... results indicate substantial room for improvement.\",\"claim\":\"OPE for offline RL remains unsolved; benchmark shows current methods are unreliable.\"},{\"title\":\"Offline Reinforcement Learning: Tutorial, Review, and Perspectives on Open Problems\",\"url\":\"https://arxiv.org/abs/2005.01643\",\"snippet\":\"Off-policy evaluation (OPE) can also be used to estimate the performance of policies without explicit online interaction, but it is an active area of research.\",\"claim\":\"The problem is explicitly identified as open and active.\"}]},\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"uuid\":\"e724bc05-3e21-40ea-b75c-89fa1cbfc826\"}\n"
+}
