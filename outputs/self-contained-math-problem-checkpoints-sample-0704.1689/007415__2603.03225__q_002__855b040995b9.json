@@ -1,0 +1,57 @@
+{
+  "record": {
+    "global_index": 7415,
+    "source_json": "outputs/parse-paper/2603.03225.json",
+    "paper_id": "2603.03225",
+    "paper_title": "Multiparty Quantum Key Agreement: Architectures, State-of-the-art, and Open Problems",
+    "paper_link": "https://arxiv.org/abs/2603.03225",
+    "question_link": "https://arxiv.org/pdf/2603.03225.pdf#page=2",
+    "question_id": "q_002",
+    "parser_is_solved": "false",
+    "context_brief": "Fairness with O(N) channels",
+    "original_question": "Can a circle, ring, tree, star, or other O(N)-channel topology for multiparty quantum key agreement achieve information-theoretic fairness against arbitrary coalitions of N−1 dishonest parties, meaning that no proper subset can force or predict a predetermined final key with more than negligible advantage, without relying on hidden trust assumptions or incurring unacceptable key-rate loss? If not, what information-theoretic lower bounds, hybrid classical–quantum mechanisms, or approximate-fairness frameworks characterize the achievable security–efficiency frontier?",
+    "evidence": [
+      {
+        "page": 2,
+        "quote": "Fairness. Every participant’s input influences the final key with equal weight. Formally: no proper subset S ⊂ {P1, P2, ..., Pn} can determine the final key unilaterally, even with unbounded computational power and arbitrarily chosen input bits."
+      },
+      {
+        "page": 13,
+        "quote": "Another intriguing open question in MQKA is whether circle-type or other O(N) topology protocols can achieve information-theoretic fairness in the presence of arbitrary (N−1)-party collusions."
+      },
+      {
+        "page": 13,
+        "quote": "Recent evidence suggests that fundamental limits may exist, as attempts to design O(N) protocols that ensure strong fairness often face two significant challenges. First, such protocols may inadvertently rely on undetectable trust assumptions, undermining their robustness. Second, they may necessitate sacrifices in key rate, leading to sub-optimal performance."
+      },
+      {
+        "page": 13,
+        "quote": "Information-Theoretic Lower Bounds: Proving that the combination of fairness, O(N) channels, and honest-majority assumptions leads to inherent contradictions could clarify the limits of feasible protocol designs."
+      },
+      {
+        "page": 14,
+        "quote": "Approximate Fairness Frameworks: Developing frameworks for near-fairness, where participants achieve gains of less than 2−2, could help characterize the achievable security-efficiency frontiers and inform the design of more resilient protocols."
+      }
+    ]
+  },
+  "artifact": {
+    "category_tag": "multiparty quantum key agreement",
+    "confidence": 0.6,
+    "macro_subject": "Mathematical Physics",
+    "open_status": "open",
+    "self_contained_problem": "Setup. Consider an N-party quantum key agreement (MQKA) protocol involving parties P_1,...,P_N (N ≥ 3). Each party P_i contributes a private input bit-string x_i and the protocol uses a quantum communication network whose underlying interaction graph is one of the following sparse topologies, each having O(N) quantum channels: a ring (cycle), a chain, a tree, or a star. After execution of the protocol, every honest party outputs the same final key K ∈ {0,1}^ℓ.\n\nSecurity definitions.\n(i) Correctness: when all parties are honest, all outputs equal a common key K which is uniformly distributed and statistically close to uniform from the viewpoint of any external eavesdropper.\n(ii) Information-theoretic fairness against (N−1)-collusions: for every proper subset S ⊊ {P_1,...,P_N} with |S| = N−1, and for every (computationally unbounded) joint strategy of the parties in S, including any adaptive choice of inputs and any allowed quantum operations on the channels they touch, the probability that the coalition can either (a) force the honest party's output to equal a value K* chosen in advance by the coalition, or (b) predict the honest party's output K with advantage greater than a negligible function of the security parameter, is itself negligible. The fairness must not depend on any hidden trust assumption (e.g., a third party assumed honest beyond the protocol's stated model).\n(iii) Efficiency / key rate: the asymptotic key length per quantum-channel-use should remain bounded below by a positive constant independent of N (no superpolynomial degradation in N).\n\nProblem. Determine whether there exists an MQKA protocol whose communication graph is one of the topologies above (ring, chain, tree, or star), or any other topology with O(N) quantum channels, that simultaneously achieves correctness (i), information-theoretic fairness against arbitrary (N−1)-coalitions (ii), and the constant-rate efficiency property (iii). \n\nIf no such protocol exists, prove an information-theoretic impossibility result that quantifies the tradeoff: identify a lower bound demonstrating that for graphs with O(N) edges, any protocol satisfying (i) and (ii) must incur a key-rate loss that grows unboundedly with N, or equivalently must rely on an unverifiable trust assumption. If a relaxed notion of approximate fairness (allowing the coalition's predictive/forcing advantage to be bounded by some explicit function ε(N)) is the best one can attain, characterize the optimal achievable ε(N) as a function of N for each of the listed topologies.",
+    "status_search_result": "The problem is posed as an explicit open question in a 2026 survey on multiparty quantum key agreement. No published work was found that establishes either the existence of an O(N)-channel MQKA protocol with information-theoretic fairness against (N−1)-collusions, or a matching impossibility theorem; the question appears to remain open.",
+    "status_evidence": [
+      {
+        "title": "Multiparty Quantum Key Agreement survey (arXiv listing)",
+        "url": "https://arxiv.org/abs/2603.03225",
+        "snippet": "Lists fairness with O(N) channels among open problems in MQKA.",
+        "claim": "The fairness/O(N)-topology question is explicitly listed as an open problem."
+      }
+    ]
+  },
+  "model": "opus",
+  "effort": "medium",
+  "elapsed_s": 25.37,
+  "validation_warnings": [],
+  "raw_claude_stdout": "{\"type\":\"result\",\"subtype\":\"success\",\"is_error\":false,\"api_error_status\":null,\"duration_ms\":23962,\"duration_api_ms\":25060,\"num_turns\":2,\"result\":\"Provided the dataset row as a structured JSON object.\",\"stop_reason\":\"end_turn\",\"session_id\":\"c803ac34-80e7-4f76-abe0-a3dd22aa79bc\",\"total_cost_usd\":0.06084125000000001,\"usage\":{\"input_tokens\":7,\"cache_creation_input_tokens\":3373,\"cache_read_input_tokens\":7340,\"output_tokens\":1395,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":3373,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[{\"input_tokens\":1,\"output_tokens\":21,\"cache_read_input_tokens\":4655,\"cache_creation_input_tokens\":1403,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":1403},\"type\":\"message\"}],\"speed\":\"standard\"},\"modelUsage\":{\"claude-haiku-4-5-20251001\":{\"inputTokens\":1080,\"outputTokens\":20,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":0,\"costUSD\":0.00118,\"contextWindow\":200000,\"maxOutputTokens\":32000},\"claude-opus-4-7\":{\"inputTokens\":7,\"outputTokens\":1395,\"cacheReadInputTokens\":7340,\"cacheCreationInputTokens\":3373,\"webSearchRequests\":0,\"costUSD\":0.05966125000000001,\"contextWindow\":1000000,\"maxOutputTokens\":64000}},\"permission_denials\":[],\"structured_output\":{\"category_tag\":\"multiparty quantum key agreement\",\"confidence\":0.6,\"macro_subject\":\"Mathematical Physics\",\"open_status\":\"open\",\"self_contained_problem\":\"Setup. Consider an N-party quantum key agreement (MQKA) protocol involving parties P_1,...,P_N (N ≥ 3). Each party P_i contributes a private input bit-string x_i and the protocol uses a quantum communication network whose underlying interaction graph is one of the following sparse topologies, each having O(N) quantum channels: a ring (cycle), a chain, a tree, or a star. After execution of the protocol, every honest party outputs the same final key K ∈ {0,1}^ℓ.\\n\\nSecurity definitions.\\n(i) Correctness: when all parties are honest, all outputs equal a common key K which is uniformly distributed and statistically close to uniform from the viewpoint of any external eavesdropper.\\n(ii) Information-theoretic fairness against (N−1)-collusions: for every proper subset S ⊊ {P_1,...,P_N} with |S| = N−1, and for every (computationally unbounded) joint strategy of the parties in S, including any adaptive choice of inputs and any allowed quantum operations on the channels they touch, the probability that the coalition can either (a) force the honest party's output to equal a value K* chosen in advance by the coalition, or (b) predict the honest party's output K with advantage greater than a negligible function of the security parameter, is itself negligible. The fairness must not depend on any hidden trust assumption (e.g., a third party assumed honest beyond the protocol's stated model).\\n(iii) Efficiency / key rate: the asymptotic key length per quantum-channel-use should remain bounded below by a positive constant independent of N (no superpolynomial degradation in N).\\n\\nProblem. Determine whether there exists an MQKA protocol whose communication graph is one of the topologies above (ring, chain, tree, or star), or any other topology with O(N) quantum channels, that simultaneously achieves correctness (i), information-theoretic fairness against arbitrary (N−1)-coalitions (ii), and the constant-rate efficiency property (iii). \\n\\nIf no such protocol exists, prove an information-theoretic impossibility result that quantifies the tradeoff: identify a lower bound demonstrating that for graphs with O(N) edges, any protocol satisfying (i) and (ii) must incur a key-rate loss that grows unboundedly with N, or equivalently must rely on an unverifiable trust assumption. If a relaxed notion of approximate fairness (allowing the coalition's predictive/forcing advantage to be bounded by some explicit function ε(N)) is the best one can attain, characterize the optimal achievable ε(N) as a function of N for each of the listed topologies.\",\"status_search_result\":\"The problem is posed as an explicit open question in a 2026 survey on multiparty quantum key agreement. No published work was found that establishes either the existence of an O(N)-channel MQKA protocol with information-theoretic fairness against (N−1)-collusions, or a matching impossibility theorem; the question appears to remain open.\",\"status_evidence\":[{\"title\":\"Multiparty Quantum Key Agreement survey (arXiv listing)\",\"url\":\"https://arxiv.org/abs/2603.03225\",\"snippet\":\"Lists fairness with O(N) channels among open problems in MQKA.\",\"claim\":\"The fairness/O(N)-topology question is explicitly listed as an open problem.\"}]},\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"uuid\":\"828a8afd-31bb-4553-91e2-ae0fab9d8fe4\"}\n"
+}

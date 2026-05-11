@@ -1,0 +1,47 @@
+{
+  "record": {
+    "global_index": 1449,
+    "source_json": "outputs/parse-paper/1204.6447.json",
+    "paper_id": "1204.6447",
+    "paper_title": "",
+    "paper_link": "https://arxiv.org/abs/1204.6447",
+    "question_link": "https://arxiv.org/pdf/1204.6447.pdf#page=6",
+    "question_id": "q_013",
+    "parser_is_solved": "false",
+    "context_brief": "Correlation distillation with erasures",
+    "original_question": "Let f : {-1,1}^n -> {-1,1} be unbiased. For a random restriction z in {-1,0,1}^n where each coordinate is independently +1 or -1 with probability p/2 each and 0 with probability 1-p, with p < 1/2 and n odd, is E_z[|f(z)|] maximized when f is the majority function, identifying f with its multilinear expansion?",
+    "evidence": [
+      {
+        "page": 6,
+        "quote": "Statement: Let f : {-1, 1}^n -> {-1, 1} be an unbiased function. Let z ~ {-1, 0, 1}^n be a random restriction in which each coordinate z_i is independently +/-1 with probability p/2 each, and 0 with probability 1 - p. Assuming p < 1/2 and n odd, is it true that E_z [| f ( z)|] is maximized when f is the majority function?"
+      }
+    ]
+  },
+  "artifact": {
+    "self_contained_problem": "Let $n$ be an odd positive integer and let $f:\\{-1,1\\}^n\\to\\{-1,1\\}$ be an unbiased Boolean function (i.e., $\\sum_{x\\in\\{-1,1\\}^n} f(x)=0$). Identify $f$ with its multilinear (Fourier) expansion $f(x)=\\sum_{S\\subseteq[n]}\\hat f(S)\\prod_{i\\in S}x_i$, so that $f$ is defined on all of $\\mathbb{R}^n$.\n\nFix a parameter $p\\in(0,1/2)$, and let $z=(z_1,\\dots,z_n)\\in\\{-1,0,1\\}^n$ be a random vector whose coordinates are independent with\n$$\\Pr[z_i=+1]=\\Pr[z_i=-1]=p/2,\\qquad \\Pr[z_i=0]=1-p.$$\n\nLet $\\mathrm{Maj}_n:\\{-1,1\\}^n\\to\\{-1,1\\}$ denote the majority function. The question is:\n\nDoes the inequality\n$$\\mathbb{E}_z\\bigl[|f(z)|\\bigr]\\le \\mathbb{E}_z\\bigl[|\\mathrm{Maj}_n(z)|\\bigr]$$\nhold for every unbiased $f:\\{-1,1\\}^n\\to\\{-1,1\\}$, every odd $n$, and every $p\\in(0,1/2)$?",
+    "macro_subject": "Combinatorics",
+    "category_tag": "Boolean function analysis / correlation distillation",
+    "open_status": "partially_solved",
+    "status_search_result": "A 2026 ECCC report (TR26-063) reports that the Non-Interactive Correlation Distillation with Erasures conjecture (in its original form, asking whether majority maximizes E[|f(z)|]) is refuted for all n ≥ 5 in certain noise-parameter regimes, while it holds for n = 3 in all regimes, and a nearly tight characterization of the (n,p) parameter region where majority is optimal is provided. The authors propose refined versions of the conjecture. Thus the original conjecture is partially solved (refuted in general; verified in a restricted regime).",
+    "status_evidence": [
+      {
+        "title": "ECCC TR26-063: NICD with Erasures and Majority is Least Stable",
+        "url": "https://eccc.weizmann.ac.il/report/2026/063/",
+        "snippet": "The conjectures are refuted in their originally stated form; a nearly tight characterization of the noise parameter regime in which each conjecture holds is given. For n = 3 the conjecture holds in all regimes; for n ≥ 5 it fails in some regimes.",
+        "claim": "The original NICD-with-erasures (majority-maximizes-E[|f(z)|]) conjecture is false for n ≥ 5 in some parameter regimes but holds for n = 3 and in restricted regimes."
+      },
+      {
+        "title": "A Counterexample to the 'Majority is Least Stable' Conjecture",
+        "url": "https://arxiv.org/abs/1703.07657",
+        "snippet": "Exhibits a linear threshold function in 5 variables with strictly smaller noise stability than majority on 5 variables, refuting the related 'majority is least stable' conjecture.",
+        "claim": "A closely related majority-extremality conjecture in Boolean function analysis was refuted by counterexample for n=5."
+      }
+    ],
+    "confidence": 0.7
+  },
+  "model": "opus",
+  "effort": "medium",
+  "elapsed_s": 51.82,
+  "validation_warnings": [],
+  "raw_claude_stdout": "{\"type\":\"result\",\"subtype\":\"success\",\"is_error\":false,\"api_error_status\":null,\"duration_ms\":50347,\"duration_api_ms\":45130,\"num_turns\":5,\"result\":\"Sources:\\n- [ECCC TR26-063](https://eccc.weizmann.ac.il/report/2026/063/)\\n- [A Counterexample to the \\\"Majority is Least Stable\\\" Conjecture (arXiv:1703.07657)](https://arxiv.org/abs/1703.07657)\\n- [O'Donnell–Wright NICD paper](https://www.cs.cmu.edu/~odonnell/papers/nicd.pdf)\",\"stop_reason\":\"end_turn\",\"session_id\":\"c638f551-ef52-4e83-bf4d-974a593ac8f5\",\"total_cost_usd\":0.16414725,\"usage\":{\"input_tokens\":10,\"cache_creation_input_tokens\":6185,\"cache_read_input_tokens\":27258,\"output_tokens\":1827,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":6185,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[{\"input_tokens\":1,\"output_tokens\":153,\"cache_read_input_tokens\":7539,\"cache_creation_input_tokens\":1331,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":1331},\"type\":\"message\"}],\"speed\":\"standard\"},\"modelUsage\":{\"claude-haiku-4-5-20251001\":{\"inputTokens\":40827,\"outputTokens\":1062,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":2,\"costUSD\":0.06613700000000002,\"contextWindow\":200000,\"maxOutputTokens\":32000},\"claude-opus-4-7\":{\"inputTokens\":10,\"outputTokens\":1827,\"cacheReadInputTokens\":27258,\"cacheCreationInputTokens\":6185,\"webSearchRequests\":0,\"costUSD\":0.09801025,\"contextWindow\":1000000,\"maxOutputTokens\":64000}},\"permission_denials\":[],\"structured_output\":{\"self_contained_problem\":\"Let $n$ be an odd positive integer and let $f:\\\\{-1,1\\\\}^n\\\\to\\\\{-1,1\\\\}$ be an unbiased Boolean function (i.e., $\\\\sum_{x\\\\in\\\\{-1,1\\\\}^n} f(x)=0$). Identify $f$ with its multilinear (Fourier) expansion $f(x)=\\\\sum_{S\\\\subseteq[n]}\\\\hat f(S)\\\\prod_{i\\\\in S}x_i$, so that $f$ is defined on all of $\\\\mathbb{R}^n$.\\n\\nFix a parameter $p\\\\in(0,1/2)$, and let $z=(z_1,\\\\dots,z_n)\\\\in\\\\{-1,0,1\\\\}^n$ be a random vector whose coordinates are independent with\\n$$\\\\Pr[z_i=+1]=\\\\Pr[z_i=-1]=p/2,\\\\qquad \\\\Pr[z_i=0]=1-p.$$\\n\\nLet $\\\\mathrm{Maj}_n:\\\\{-1,1\\\\}^n\\\\to\\\\{-1,1\\\\}$ denote the majority function. The question is:\\n\\nDoes the inequality\\n$$\\\\mathbb{E}_z\\\\bigl[|f(z)|\\\\bigr]\\\\le \\\\mathbb{E}_z\\\\bigl[|\\\\mathrm{Maj}_n(z)|\\\\bigr]$$\\nhold for every unbiased $f:\\\\{-1,1\\\\}^n\\\\to\\\\{-1,1\\\\}$, every odd $n$, and every $p\\\\in(0,1/2)$?\",\"macro_subject\":\"Combinatorics\",\"category_tag\":\"Boolean function analysis / correlation distillation\",\"open_status\":\"partially_solved\",\"status_search_result\":\"A 2026 ECCC report (TR26-063) reports that the Non-Interactive Correlation Distillation with Erasures conjecture (in its original form, asking whether majority maximizes E[|f(z)|]) is refuted for all n ≥ 5 in certain noise-parameter regimes, while it holds for n = 3 in all regimes, and a nearly tight characterization of the (n,p) parameter region where majority is optimal is provided. The authors propose refined versions of the conjecture. Thus the original conjecture is partially solved (refuted in general; verified in a restricted regime).\",\"status_evidence\":[{\"title\":\"ECCC TR26-063: NICD with Erasures and Majority is Least Stable\",\"url\":\"https://eccc.weizmann.ac.il/report/2026/063/\",\"snippet\":\"The conjectures are refuted in their originally stated form; a nearly tight characterization of the noise parameter regime in which each conjecture holds is given. For n = 3 the conjecture holds in all regimes; for n ≥ 5 it fails in some regimes.\",\"claim\":\"The original NICD-with-erasures (majority-maximizes-E[|f(z)|]) conjecture is false for n ≥ 5 in some parameter regimes but holds for n = 3 and in restricted regimes.\"},{\"title\":\"A Counterexample to the 'Majority is Least Stable' Conjecture\",\"url\":\"https://arxiv.org/abs/1703.07657\",\"snippet\":\"Exhibits a linear threshold function in 5 variables with strictly smaller noise stability than majority on 5 variables, refuting the related 'majority is least stable' conjecture.\",\"claim\":\"A closely related majority-extremality conjecture in Boolean function analysis was refuted by counterexample for n=5.\"}],\"confidence\":0.7},\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"uuid\":\"7fc3dd94-cc42-4abf-8de2-0b9f4c5a45ae\"}\n"
+}

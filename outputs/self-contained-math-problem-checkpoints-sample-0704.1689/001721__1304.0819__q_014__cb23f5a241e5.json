@@ -1,0 +1,51 @@
+{
+  "record": {
+    "global_index": 1721,
+    "source_json": "outputs/parse-paper/1304.0819.json",
+    "paper_id": "1304.0819",
+    "paper_title": "Twenty open problems in quantum control",
+    "paper_link": "https://arxiv.org/abs/1304.0819",
+    "question_link": "https://arxiv.org/pdf/1304.0819.pdf#page=6",
+    "question_id": "q_014",
+    "parser_is_solved": "false",
+    "context_brief": "Optimal control with damped auxiliaries",
+    "original_question": "In the regime of good quantum control, what are the optimal control protocols when the auxiliary controller itself experiences significant damping, so that the controller is not an ideal noiseless auxiliary?",
+    "evidence": [
+      {
+        "page": 6,
+        "quote": "For coherent feedback control we cannot even assume that the controller itself, and thus the processing of the information is noiseless."
+      },
+      {
+        "page": 6,
+        "quote": "Problem 14: Determine optimal control protocols in the regime of good control when the auxiliary system is subject to significant damping."
+      }
+    ]
+  },
+  "artifact": {
+    "self_contained_problem": "Consider a quantum system $S$ with Hilbert space $\\mathcal{H}_S$ that is to be controlled via coherent (i.e., non-measurement-based) feedback. The controller is an auxiliary quantum system $A$ with Hilbert space $\\mathcal{H}_A$, coupled to $S$ via some interaction Hamiltonian $H_{SA}$ together with possible time-dependent control Hamiltonians $H_c(t)$ acting on $S\\otimes A$. Assume the joint system evolves according to a Markovian master equation\n$$\\dot{\\rho} = -i[H_S + H_A + H_{SA} + H_c(t),\\rho] + \\mathcal{D}_S[\\rho] + \\gamma\\,\\mathcal{D}_A[\\rho],$$\nwhere $\\mathcal{D}_S$ is a (possibly weak) dissipator on $S$ and $\\mathcal{D}_A$ is a Lindblad dissipator acting only on the auxiliary $A$ with damping rate $\\gamma>0$ that is not negligible (so that the controller itself is significantly noisy and cannot be treated as an ideal noiseless ancilla). Work in the \"regime of good control,\" meaning the coherent control of $S$ alone (in the absence of the controller's damping) would achieve high-fidelity performance for a given task such as state preparation, gate implementation, or stabilization of a target state $\\rho_{\\mathrm{tgt}}$.\n\nProblem: Determine the optimal coherent feedback control protocols — i.e., the optimal choices of $H_{SA}$, $H_c(t)$, and the structure of the auxiliary $A$ — that maximize task fidelity (e.g., $\\mathrm{Tr}[\\rho_S(T)\\rho_{\\mathrm{tgt}}]$ at a final time $T$, or steady-state fidelity) when the auxiliary controller itself is subject to significant damping at rate $\\gamma$. Characterize how the optimal protocol and the achievable fidelity depend on $\\gamma$ and on the structure of $\\mathcal{D}_A$.",
+    "macro_subject": "Mathematical Physics",
+    "category_tag": "quantum coherent feedback control",
+    "open_status": "open",
+    "status_search_result": "Recent literature (e.g., learning-based LQG design for quantum coherent feedback, 2025; reviews of optimal quantum control) indicates that no closed-form optimal coherent feedback protocols are known when the auxiliary controller itself is significantly damped; numerical optimization yields only local optima due to nonconvex realizability constraints. The problem appears to remain open.",
+    "status_evidence": [
+      {
+        "title": "Learning-Based Design of LQG Controllers in Quantum Coherent Feedback",
+        "url": "https://arxiv.org/html/2502.08170",
+        "snippet": "In the quantum case, no closed-form solutions are known and the realizability constraints make the landscape for numerical optimization nonconvex; coherent controllers found via numerical optimization are merely local minima.",
+        "claim": "Optimal coherent feedback controller design with realistic (noisy) quantum auxiliaries lacks closed-form solutions and remains an active open research area."
+      },
+      {
+        "title": "Optimal Quantum Control Theory",
+        "url": "https://www.annualreviews.org/content/journals/10.1146/annurev-control-061520-010444",
+        "snippet": "Review of optimal quantum control discussing open challenges including coherent feedback with non-ideal controllers.",
+        "claim": "Optimal protocols for coherent control with damped auxiliary systems remain an open research direction."
+      }
+    ],
+    "confidence": 0.6
+  },
+  "model": "opus",
+  "effort": "medium",
+  "elapsed_s": 35.72,
+  "validation_warnings": [],
+  "raw_claude_stdout": "{\"type\":\"result\",\"subtype\":\"success\",\"is_error\":false,\"api_error_status\":null,\"duration_ms\":34381,\"duration_api_ms\":34264,\"num_turns\":3,\"result\":\"Sources:\\n- [Learning-Based Design of LQG Controllers in Quantum Coherent Feedback](https://arxiv.org/html/2502.08170)\\n- [Optimal Quantum Control Theory | Annual Reviews](https://www.annualreviews.org/content/journals/10.1146/annurev-control-061520-010444)\\n- [Coherent controllers for optical-feedback cooling of quantum oscillators](https://journals.aps.org/pra/abstract/10.1103/PhysRevA.87.013815)\",\"stop_reason\":\"end_turn\",\"session_id\":\"0c9a145b-cba2-41d7-b7e2-e4871144dae9\",\"total_cost_usd\":0.10635899999999998,\"usage\":{\"input_tokens\":8,\"cache_creation_input_tokens\":4312,\"cache_read_input_tokens\":12478,\"output_tokens\":1670,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":4312,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[{\"input_tokens\":1,\"output_tokens\":180,\"cache_read_input_tokens\":5594,\"cache_creation_input_tokens\":1403,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":1403},\"type\":\"message\"}],\"speed\":\"standard\"},\"modelUsage\":{\"claude-haiku-4-5-20251001\":{\"inputTokens\":18860,\"outputTokens\":504,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":1,\"costUSD\":0.031380000000000005,\"contextWindow\":200000,\"maxOutputTokens\":32000},\"claude-opus-4-7\":{\"inputTokens\":8,\"outputTokens\":1670,\"cacheReadInputTokens\":12478,\"cacheCreationInputTokens\":4312,\"webSearchRequests\":0,\"costUSD\":0.07497899999999999,\"contextWindow\":1000000,\"maxOutputTokens\":64000}},\"permission_denials\":[],\"structured_output\":{\"self_contained_problem\":\"Consider a quantum system $S$ with Hilbert space $\\\\mathcal{H}_S$ that is to be controlled via coherent (i.e., non-measurement-based) feedback. The controller is an auxiliary quantum system $A$ with Hilbert space $\\\\mathcal{H}_A$, coupled to $S$ via some interaction Hamiltonian $H_{SA}$ together with possible time-dependent control Hamiltonians $H_c(t)$ acting on $S\\\\otimes A$. Assume the joint system evolves according to a Markovian master equation\\n$$\\\\dot{\\\\rho} = -i[H_S + H_A + H_{SA} + H_c(t),\\\\rho] + \\\\mathcal{D}_S[\\\\rho] + \\\\gamma\\\\,\\\\mathcal{D}_A[\\\\rho],$$\\nwhere $\\\\mathcal{D}_S$ is a (possibly weak) dissipator on $S$ and $\\\\mathcal{D}_A$ is a Lindblad dissipator acting only on the auxiliary $A$ with damping rate $\\\\gamma>0$ that is not negligible (so that the controller itself is significantly noisy and cannot be treated as an ideal noiseless ancilla). Work in the \\\"regime of good control,\\\" meaning the coherent control of $S$ alone (in the absence of the controller's damping) would achieve high-fidelity performance for a given task such as state preparation, gate implementation, or stabilization of a target state $\\\\rho_{\\\\mathrm{tgt}}$.\\n\\nProblem: Determine the optimal coherent feedback control protocols — i.e., the optimal choices of $H_{SA}$, $H_c(t)$, and the structure of the auxiliary $A$ — that maximize task fidelity (e.g., $\\\\mathrm{Tr}[\\\\rho_S(T)\\\\rho_{\\\\mathrm{tgt}}]$ at a final time $T$, or steady-state fidelity) when the auxiliary controller itself is subject to significant damping at rate $\\\\gamma$. Characterize how the optimal protocol and the achievable fidelity depend on $\\\\gamma$ and on the structure of $\\\\mathcal{D}_A$.\",\"macro_subject\":\"Mathematical Physics\",\"category_tag\":\"quantum coherent feedback control\",\"open_status\":\"open\",\"status_search_result\":\"Recent literature (e.g., learning-based LQG design for quantum coherent feedback, 2025; reviews of optimal quantum control) indicates that no closed-form optimal coherent feedback protocols are known when the auxiliary controller itself is significantly damped; numerical optimization yields only local optima due to nonconvex realizability constraints. The problem appears to remain open.\",\"status_evidence\":[{\"title\":\"Learning-Based Design of LQG Controllers in Quantum Coherent Feedback\",\"url\":\"https://arxiv.org/html/2502.08170\",\"snippet\":\"In the quantum case, no closed-form solutions are known and the realizability constraints make the landscape for numerical optimization nonconvex; coherent controllers found via numerical optimization are merely local minima.\",\"claim\":\"Optimal coherent feedback controller design with realistic (noisy) quantum auxiliaries lacks closed-form solutions and remains an active open research area.\"},{\"title\":\"Optimal Quantum Control Theory\",\"url\":\"https://www.annualreviews.org/content/journals/10.1146/annurev-control-061520-010444\",\"snippet\":\"Review of optimal quantum control discussing open challenges including coherent feedback with non-ideal controllers.\",\"claim\":\"Optimal protocols for coherent control with damped auxiliary systems remain an open research direction.\"}],\"confidence\":0.6},\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"uuid\":\"7b0b0fc0-ad6f-41c0-9e6a-ffedc58b682e\"}\n"
+}

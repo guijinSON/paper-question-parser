@@ -1,0 +1,47 @@
+{
+  "record": {
+    "global_index": 7581,
+    "source_json": "outputs/parse-paper/5899043.json",
+    "paper_id": "5899043",
+    "paper_title": "Open Problems in Nonlinear Conjugate Gradient Algorithms for Unconstrained Optimization",
+    "paper_link": "https://zbmath.org/5899043",
+    "question_link": "https://zbmath.org/5899043",
+    "question_id": "q_005",
+    "parser_is_solved": "false",
+    "context_brief": "beta from function values",
+    "original_question": "In nonlinear conjugate gradient methods for minimizing a continuously differentiable objective f, formulas for the conjugate gradient parameter beta_k are usually built from gradient norms, differences y_k = g_{k+1} - g_k, displacements s_k = x_{k+1} - x_k, and related inner products. How can one use objective-function values such as f(x_k) and f(x_{k+1}) directly in the definition of beta_k to construct new conjugate gradient algorithms with good convergence and practical performance?",
+    "evidence": [
+      {
+        "page": 5,
+        "quote": "Problem 5. How can we use the function values in βk to generate new conjugate gradient algorithms? ... As we can see in the formula for βk the difference f(xk)−f(xk+1) is not used at all."
+      }
+    ]
+  },
+  "artifact": {
+    "self_contained_problem": "Consider the unconstrained minimization problem\n    min { f(x) : x ∈ R^n },\nwhere f : R^n → R is continuously differentiable with gradient g(x) = ∇f(x). A nonlinear conjugate gradient method generates iterates\n    x_{k+1} = x_k + α_k d_k,\nwith d_0 = -g_0 and, for k ≥ 1,\n    d_{k+1} = -g_{k+1} + β_k d_k,\nwhere α_k > 0 is a step length (typically chosen via a line search satisfying the standard Wolfe or strong Wolfe conditions) and β_k ∈ R is the conjugate gradient parameter. Classical choices of β_k (Hestenes–Stiefel, Fletcher–Reeves, Polak–Ribière–Polyak, Dai–Yuan, Liu–Storey, conjugate descent, etc.) are functions only of the gradients g_k = g(x_k) and g_{k+1}, the difference y_k = g_{k+1} - g_k, the displacement s_k = x_{k+1} - x_k, and inner products and norms built from these vectors; they do not involve the objective function values f(x_k) and f(x_{k+1}).\n\nProblem. Design a nonlinear conjugate gradient algorithm in which the parameter β_k explicitly depends on the function-value information f(x_k) and f(x_{k+1}) (for instance through the difference f(x_k) - f(x_{k+1}) or quantities derived from it), prove that the resulting method generates descent directions and is globally convergent on a suitable class of objective functions under a standard line-search condition, and demonstrate that it offers competitive numerical performance compared with established conjugate gradient schemes.",
+    "macro_subject": "Applied Mathematics",
+    "category_tag": "Nonlinear conjugate gradient methods",
+    "open_status": "partially_solved",
+    "status_search_result": "Several conjugate gradient algorithms incorporate function-value information indirectly via modified secant conditions, e.g. using z_k = y_k + (η_k/||s_k||^2) s_k with η_k = 2(f_k - f_{k+1}) + (g_k + g_{k+1})^T s_k (as in accelerated hybrid CG schemes). These constitute partial progress, but a fully developed family of CG methods in which β_k depends directly and intrinsically on f(x_k), f(x_{k+1}) — with global convergence theory and demonstrated competitive performance — remains an active research direction rather than a definitively closed problem.",
+    "status_evidence": [
+      {
+        "title": "Accelerated hybrid conjugate gradient algorithm with modified secant condition",
+        "url": "https://link.springer.com/article/10.1007/s11075-009-9321-0",
+        "snippet": "η_k = 2(f_k - f_{k+1}) + (g_k + g_{k+1})^T s_k is used inside a modified secant condition driving the β_k computation.",
+        "claim": "Function values appear indirectly in β_k through a modified secant condition, indicating partial progress on the problem."
+      },
+      {
+        "title": "Hybrid Conjugate Gradient Algorithm for Unconstrained Optimization",
+        "url": "https://link.springer.com/article/10.1007/s10957-008-9505-0",
+        "snippet": "β_k^C = (1-θ_k)β_k^{HS} + θ_k β_k^{DY} is a convex combination of standard parameters that do not directly use f-values.",
+        "claim": "Standard β_k formulas remain based on gradient and displacement information, not directly on function values."
+      }
+    ],
+    "confidence": 0.6
+  },
+  "model": "opus",
+  "effort": "medium",
+  "elapsed_s": 35.94,
+  "validation_warnings": [],
+  "raw_claude_stdout": "{\"type\":\"result\",\"subtype\":\"success\",\"is_error\":false,\"api_error_status\":null,\"duration_ms\":34703,\"duration_api_ms\":34199,\"num_turns\":3,\"result\":\"Sources:\\n- [Accelerated hybrid conjugate gradient algorithm with modified secant condition](https://link.springer.com/article/10.1007/s11075-009-9321-0)\\n- [Hybrid Conjugate Gradient Algorithm for Unconstrained Optimization](https://link.springer.com/article/10.1007/s10957-008-9505-0)\",\"stop_reason\":\"end_turn\",\"session_id\":\"5a72cdaf-ed94-406a-86c1-6eddaab51ad5\",\"total_cost_usd\":0.11177500000000001,\"usage\":{\"input_tokens\":8,\"cache_creation_input_tokens\":4422,\"cache_read_input_tokens\":12643,\"output_tokens\":1620,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":4422,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[{\"input_tokens\":1,\"output_tokens\":127,\"cache_read_input_tokens\":5686,\"cache_creation_input_tokens\":1421,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":1421},\"type\":\"message\"}],\"speed\":\"standard\"},\"modelUsage\":{\"claude-haiku-4-5-20251001\":{\"inputTokens\":25106,\"outputTokens\":434,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":1,\"costUSD\":0.037276000000000004,\"contextWindow\":200000,\"maxOutputTokens\":32000},\"claude-opus-4-7\":{\"inputTokens\":8,\"outputTokens\":1620,\"cacheReadInputTokens\":12643,\"cacheCreationInputTokens\":4422,\"webSearchRequests\":0,\"costUSD\":0.074499,\"contextWindow\":1000000,\"maxOutputTokens\":64000}},\"permission_denials\":[],\"structured_output\":{\"self_contained_problem\":\"Consider the unconstrained minimization problem\\n    min { f(x) : x ∈ R^n },\\nwhere f : R^n → R is continuously differentiable with gradient g(x) = ∇f(x). A nonlinear conjugate gradient method generates iterates\\n    x_{k+1} = x_k + α_k d_k,\\nwith d_0 = -g_0 and, for k ≥ 1,\\n    d_{k+1} = -g_{k+1} + β_k d_k,\\nwhere α_k > 0 is a step length (typically chosen via a line search satisfying the standard Wolfe or strong Wolfe conditions) and β_k ∈ R is the conjugate gradient parameter. Classical choices of β_k (Hestenes–Stiefel, Fletcher–Reeves, Polak–Ribière–Polyak, Dai–Yuan, Liu–Storey, conjugate descent, etc.) are functions only of the gradients g_k = g(x_k) and g_{k+1}, the difference y_k = g_{k+1} - g_k, the displacement s_k = x_{k+1} - x_k, and inner products and norms built from these vectors; they do not involve the objective function values f(x_k) and f(x_{k+1}).\\n\\nProblem. Design a nonlinear conjugate gradient algorithm in which the parameter β_k explicitly depends on the function-value information f(x_k) and f(x_{k+1}) (for instance through the difference f(x_k) - f(x_{k+1}) or quantities derived from it), prove that the resulting method generates descent directions and is globally convergent on a suitable class of objective functions under a standard line-search condition, and demonstrate that it offers competitive numerical performance compared with established conjugate gradient schemes.\",\"macro_subject\":\"Applied Mathematics\",\"category_tag\":\"Nonlinear conjugate gradient methods\",\"open_status\":\"partially_solved\",\"status_search_result\":\"Several conjugate gradient algorithms incorporate function-value information indirectly via modified secant conditions, e.g. using z_k = y_k + (η_k/||s_k||^2) s_k with η_k = 2(f_k - f_{k+1}) + (g_k + g_{k+1})^T s_k (as in accelerated hybrid CG schemes). These constitute partial progress, but a fully developed family of CG methods in which β_k depends directly and intrinsically on f(x_k), f(x_{k+1}) — with global convergence theory and demonstrated competitive performance — remains an active research direction rather than a definitively closed problem.\",\"status_evidence\":[{\"title\":\"Accelerated hybrid conjugate gradient algorithm with modified secant condition\",\"url\":\"https://link.springer.com/article/10.1007/s11075-009-9321-0\",\"snippet\":\"η_k = 2(f_k - f_{k+1}) + (g_k + g_{k+1})^T s_k is used inside a modified secant condition driving the β_k computation.\",\"claim\":\"Function values appear indirectly in β_k through a modified secant condition, indicating partial progress on the problem.\"},{\"title\":\"Hybrid Conjugate Gradient Algorithm for Unconstrained Optimization\",\"url\":\"https://link.springer.com/article/10.1007/s10957-008-9505-0\",\"snippet\":\"β_k^C = (1-θ_k)β_k^{HS} + θ_k β_k^{DY} is a convex combination of standard parameters that do not directly use f-values.\",\"claim\":\"Standard β_k formulas remain based on gradient and displacement information, not directly on function values.\"}],\"confidence\":0.6},\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"uuid\":\"7c3caaa6-16a5-4d5d-bc9a-3077268e4219\"}\n"
+}

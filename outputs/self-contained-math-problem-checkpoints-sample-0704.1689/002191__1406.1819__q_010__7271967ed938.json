@@ -1,0 +1,49 @@
+{
+  "record": {
+    "global_index": 2191,
+    "source_json": "outputs/parse-paper/1406.1819.json",
+    "paper_id": "1406.1819",
+    "paper_title": "Bootstrap Algebraic Multigrid: status report, open problems, and outlook",
+    "paper_link": "https://zbmath.org/6531350",
+    "question_link": "https://zbmath.org/6531350",
+    "question_id": "q_010",
+    "parser_is_solved": "false",
+    "context_brief": "stable non-Hermitian RAP",
+    "original_question": "For non-Hermitian problems, how can restriction R and interpolation P be constructed and tied together locally so that the Galerkin coarse-grid matrix remains suitable for multigrid correction and does not become singular or cause divergence through overcorrection when small singular values or eigenvalues are underestimated on coarse levels?",
+    "evidence": [
+      {
+        "page": 21,
+        "quote": "Thus, it is possible that the Galerkin coarse level operator can have a zero eigenvalue, even when the fine-level matrix does not."
+      },
+      {
+        "page": 21,
+        "quote": "We have observed in practice that in such cases, the resulting Galerkin method can diverge."
+      },
+      {
+        "page": 21,
+        "quote": "Thus, although the BAMG process provides techniques for constructing restriction R and interpolation P, each in their own setup scheme, these processes must be carefully tied together locally in order to obtain a suitable Galerkin coarse-grid matrix."
+      }
+    ]
+  },
+  "artifact": {
+    "category_tag": "Algebraic multigrid for non-Hermitian systems",
+    "confidence": 0.6,
+    "macro_subject": "Applied Mathematics",
+    "open_status": "open",
+    "self_contained_problem": "Let $A \\in \\mathbb{C}^{n \\times n}$ be a (possibly non-Hermitian) nonsingular matrix associated with a fine grid, and consider a two-level multigrid scheme with a coarse space of dimension $n_c < n$ defined by a restriction operator $R \\in \\mathbb{C}^{n_c \\times n}$ and an interpolation operator $P \\in \\mathbb{C}^{n \\times n_c}$. The Galerkin coarse-grid operator is defined as\\n$$A_c = R\\,A\\,P \\in \\mathbb{C}^{n_c \\times n_c}.$$\\nWhen $A$ is non-Hermitian, $R$ and $P$ may be chosen independently (typically using approximations to right and left near-kernel modes of $A$). It can happen that $A_c$ is singular or has eigenvalues/singular values whose magnitudes are much smaller than those of the corresponding modes of $A$, and this leads to divergence of the two-level correction step $x \\leftarrow x + P A_c^{-1} R\\,(b - A x)$ through overcorrection.\\n\\nProvide a constructive procedure that, given $A$ and given algorithms which separately produce candidate operators $R$ and $P$ from approximations to left and right near-kernel modes of $A$, locally couples these constructions so that the resulting Galerkin coarse operator $A_c = R A P$ is provably nonsingular and the resulting two-level iteration is non-divergent. In particular, derive sufficient local conditions linking the rows of $R$ to the columns of $P$ on each aggregate or coarse degree of freedom which guarantee that small singular values and eigenvalues of $A$ are not underestimated on the coarse level, and prove convergence (or non-divergence) of the resulting multigrid correction.",
+    "status_search_result": "The problem of robustly constructing coupled R and P for non-Hermitian algebraic multigrid (so that the Galerkin coarse operator remains nonsingular and avoids overcorrection) is a recognized open challenge in bootstrap/adaptive AMG. Subsequent work on non-Hermitian/non-symmetric AMG (e.g., AIR, lAIR, multigrid for Markov chains) provides partial heuristics, but no general procedure with rigorous guarantees has been established.",
+    "status_evidence": [
+      {
+        "title": "Bootstrap Algebraic Multigrid: status report, open problems, and outlook",
+        "url": "https://zbmath.org/6531350",
+        "snippet": "Lists open problems regarding stable non-Hermitian RAP and tying R and P together locally to avoid singular Galerkin operators and divergence.",
+        "claim": "The problem is identified as open in the bootstrap AMG status report."
+      }
+    ]
+  },
+  "model": "opus",
+  "effort": "medium",
+  "elapsed_s": 19.84,
+  "validation_warnings": [],
+  "raw_claude_stdout": "{\"type\":\"result\",\"subtype\":\"success\",\"is_error\":false,\"api_error_status\":null,\"duration_ms\":18558,\"duration_api_ms\":19590,\"num_turns\":2,\"result\":\"Sources:\\n- [zbMATH 6531350](https://zbmath.org/6531350)\",\"stop_reason\":\"end_turn\",\"session_id\":\"ce266e00-5de2-4b6f-b87b-70e174b98afc\",\"total_cost_usd\":0.05320875,\"usage\":{\"input_tokens\":7,\"cache_creation_input_tokens\":2873,\"cache_read_input_tokens\":7019,\"output_tokens\":1229,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":2873,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[{\"input_tokens\":1,\"output_tokens\":34,\"cache_read_input_tokens\":4334,\"cache_creation_input_tokens\":1224,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":1224},\"type\":\"message\"}],\"speed\":\"standard\"},\"modelUsage\":{\"claude-haiku-4-5-20251001\":{\"inputTokens\":868,\"outputTokens\":23,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":0,\"costUSD\":0.000983,\"contextWindow\":200000,\"maxOutputTokens\":32000},\"claude-opus-4-7\":{\"inputTokens\":7,\"outputTokens\":1229,\"cacheReadInputTokens\":7019,\"cacheCreationInputTokens\":2873,\"webSearchRequests\":0,\"costUSD\":0.05222575,\"contextWindow\":1000000,\"maxOutputTokens\":64000}},\"permission_denials\":[],\"structured_output\":{\"category_tag\":\"Algebraic multigrid for non-Hermitian systems\",\"confidence\":0.6,\"macro_subject\":\"Applied Mathematics\",\"open_status\":\"open\",\"self_contained_problem\":\"Let $A \\\\in \\\\mathbb{C}^{n \\\\times n}$ be a (possibly non-Hermitian) nonsingular matrix associated with a fine grid, and consider a two-level multigrid scheme with a coarse space of dimension $n_c < n$ defined by a restriction operator $R \\\\in \\\\mathbb{C}^{n_c \\\\times n}$ and an interpolation operator $P \\\\in \\\\mathbb{C}^{n \\\\times n_c}$. The Galerkin coarse-grid operator is defined as\\\\n$$A_c = R\\\\,A\\\\,P \\\\in \\\\mathbb{C}^{n_c \\\\times n_c}.$$\\\\nWhen $A$ is non-Hermitian, $R$ and $P$ may be chosen independently (typically using approximations to right and left near-kernel modes of $A$). It can happen that $A_c$ is singular or has eigenvalues/singular values whose magnitudes are much smaller than those of the corresponding modes of $A$, and this leads to divergence of the two-level correction step $x \\\\leftarrow x + P A_c^{-1} R\\\\,(b - A x)$ through overcorrection.\\\\n\\\\nProvide a constructive procedure that, given $A$ and given algorithms which separately produce candidate operators $R$ and $P$ from approximations to left and right near-kernel modes of $A$, locally couples these constructions so that the resulting Galerkin coarse operator $A_c = R A P$ is provably nonsingular and the resulting two-level iteration is non-divergent. In particular, derive sufficient local conditions linking the rows of $R$ to the columns of $P$ on each aggregate or coarse degree of freedom which guarantee that small singular values and eigenvalues of $A$ are not underestimated on the coarse level, and prove convergence (or non-divergence) of the resulting multigrid correction.\",\"status_search_result\":\"The problem of robustly constructing coupled R and P for non-Hermitian algebraic multigrid (so that the Galerkin coarse operator remains nonsingular and avoids overcorrection) is a recognized open challenge in bootstrap/adaptive AMG. Subsequent work on non-Hermitian/non-symmetric AMG (e.g., AIR, lAIR, multigrid for Markov chains) provides partial heuristics, but no general procedure with rigorous guarantees has been established.\",\"status_evidence\":[{\"title\":\"Bootstrap Algebraic Multigrid: status report, open problems, and outlook\",\"url\":\"https://zbmath.org/6531350\",\"snippet\":\"Lists open problems regarding stable non-Hermitian RAP and tying R and P together locally to avoid singular Galerkin operators and divergence.\",\"claim\":\"The problem is identified as open in the bootstrap AMG status report.\"}]},\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"uuid\":\"d42bc66f-2a27-4010-a7a3-25391037204d\"}\n"
+}

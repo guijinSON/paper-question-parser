@@ -1,0 +1,51 @@
+{
+  "record": {
+    "global_index": 2469,
+    "source_json": "outputs/parse-paper/1505.06999.json",
+    "paper_id": "1505.06999",
+    "paper_title": "",
+    "paper_link": "https://arxiv.org/abs/1505.06999",
+    "question_link": "https://arxiv.org/pdf/1505.06999.pdf#page=4",
+    "question_id": "q_005",
+    "parser_is_solved": "false",
+    "context_brief": "Logarithmic growth of unique stumps",
+    "original_question": "In the same decision-stump setting where X = [0, 1]^n, H_b is the midpoint-rule stump class induced by the dataset, E_b is the effective stump set obtained after removing dominated stumps, and U_b^T = union_{t=1}^T {h_t} is the set of unique decision stumps selected by Optimal AdaBoost from E_b during T rounds, is it true that for mu-almost all probability spaces (D, Sigma, P) and any dataset D sampled from P, there exist m_0, T_0 > 0 such that whenever m > m_0 and T > T_0, the conditional expectation E[|U_b^T| | D] is bounded above by (log T + 1)^c for some c in [1, 2), P-almost surely?",
+    "evidence": [
+      {
+        "page": 4,
+        "quote": "Further, denote by U_b^T equiv union_{t=1}^T {h_t} the set of unique decision stumps actually selected by Optimal AdaBoost from E_b after T rounds."
+      },
+      {
+        "page": 4,
+        "quote": "Conjecture 4 (Logarithmic Growth on Unique Stumps) For mu-almost all probability spaces (D, Sigma, P) and any dataset D ~ P, there exist m0, T0 > 0, such that if m > m0 and T > T0, we have E[ |U_b^T| | D ] <= (log T + 1)^c, for some c in [1, 2), P-almost surely."
+      }
+    ]
+  },
+  "artifact": {
+    "self_contained_problem": "Setup. Let the input space be $X = [0,1]^n$ and the label space $Y = \\{-1, +1\\}$. Fix a probability space $(D, \\Sigma, P)$ on $X \\times Y$, where $D$ varies over a measurable family endowed with a probability measure $\\mu$ on the space of such distributions. A dataset $\\mathcal{D} = \\{(x_i, y_i)\\}_{i=1}^m$ is drawn i.i.d. from $P$.\n\nDecision stumps. For each coordinate $j \\in \\{1,\\dots,n\\}$, sort the values $\\{x_{i,j}\\}_{i=1}^m$ and let the candidate thresholds be the midpoints between consecutive sorted values. The midpoint-rule stump class $H_b$ consists of all classifiers of the form $h(x) = s\\cdot \\mathrm{sign}(x_j - \\theta)$ where $j$ is a coordinate, $\\theta$ is one of these midpoint thresholds, and $s \\in \\{-1,+1\\}$. The effective stump set $E_b \\subseteq H_b$ is obtained from $H_b$ by removing dominated stumps (i.e., stumps that produce the same labeling on $\\mathcal{D}$ as another stump and are eliminated under the standard equivalence/domination reduction).\n\nOptimal AdaBoost. Run Optimal AdaBoost on $\\mathcal{D}$ with weak-learner output drawn from $E_b$: at each round $t = 1, 2, \\dots, T$, the weak learner returns a stump $h_t \\in E_b$ minimizing the weighted training error under the current distribution. Define\n$$U_b^T \\;=\\; \\bigcup_{t=1}^{T} \\{h_t\\},$$\nthe set of unique stumps selected during the first $T$ rounds.\n\nQuestion. Prove or disprove: for $\\mu$-almost every probability space $(D, \\Sigma, P)$ and any dataset $\\mathcal{D}$ sampled from $P$, there exist $m_0, T_0 > 0$ and an exponent $c \\in [1, 2)$ such that whenever $m > m_0$ and $T > T_0$,\n$$\\mathbb{E}\\!\\left[\\,|U_b^T|\\;\\middle|\\;\\mathcal{D}\\,\\right] \\;\\le\\; (\\log T + 1)^c,$$\n$P$-almost surely.",
+    "macro_subject": "Statistics and Machine Learning",
+    "category_tag": "AdaBoost decision stumps",
+    "open_status": "open",
+    "status_search_result": "The conjecture was posed as an open problem about the logarithmic growth of the number of unique decision stumps selected by Optimal AdaBoost. A subsequent overview notes that Belanich and Ortiz studied the ergodic dynamics of AdaBoost and obtained related intermediate results, but no source found explicitly resolves this specific conjectural bound $(\\log T + 1)^c$ with $c \\in [1,2)$. Status appears to remain open.",
+    "status_evidence": [
+      {
+        "title": "Some Open Problems in Optimal AdaBoost and Decision Stumps",
+        "url": "https://arxiv.org/abs/1505.06999",
+        "snippet": "List of open problems including conjecture on logarithmic growth of unique stumps.",
+        "claim": "The conjecture is stated as an open problem."
+      },
+      {
+        "title": "Overview of AdaBoost: Reconciling its views",
+        "url": "https://arxiv.org/pdf/2310.18323",
+        "snippet": "Discusses ergodic dynamics results by Belanich and Ortiz related to AdaBoost on decision stumps.",
+        "claim": "Related results have been obtained but the specific logarithmic-growth conjecture is not reported as resolved."
+      }
+    ],
+    "confidence": 0.6
+  },
+  "model": "opus",
+  "effort": "medium",
+  "elapsed_s": 36.71,
+  "validation_warnings": [],
+  "raw_claude_stdout": "{\"type\":\"result\",\"subtype\":\"success\",\"is_error\":false,\"api_error_status\":null,\"duration_ms\":35268,\"duration_api_ms\":33656,\"num_turns\":3,\"result\":\"Sources:\\n- [Some Open Problems in Optimal AdaBoost and Decision Stumps (arXiv:1505.06999)](https://arxiv.org/abs/1505.06999)\\n- [Overview of AdaBoost: Reconciling its views](https://arxiv.org/pdf/2310.18323)\",\"stop_reason\":\"end_turn\",\"session_id\":\"737eded5-bc52-434c-a9ab-0b3532fe6c68\",\"total_cost_usd\":0.11099375,\"usage\":{\"input_tokens\":8,\"cache_creation_input_tokens\":4619,\"cache_read_input_tokens\":13022,\"output_tokens\":1685,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":4619,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[{\"input_tokens\":1,\"output_tokens\":109,\"cache_read_input_tokens\":5848,\"cache_creation_input_tokens\":1456,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":1456},\"type\":\"message\"}],\"speed\":\"standard\"},\"modelUsage\":{\"claude-haiku-4-5-20251001\":{\"inputTokens\":21064,\"outputTokens\":477,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":1,\"costUSD\":0.033449,\"contextWindow\":200000,\"maxOutputTokens\":32000},\"claude-opus-4-7\":{\"inputTokens\":8,\"outputTokens\":1685,\"cacheReadInputTokens\":13022,\"cacheCreationInputTokens\":4619,\"webSearchRequests\":0,\"costUSD\":0.07754475000000001,\"contextWindow\":1000000,\"maxOutputTokens\":64000}},\"permission_denials\":[],\"structured_output\":{\"self_contained_problem\":\"Setup. Let the input space be $X = [0,1]^n$ and the label space $Y = \\\\{-1, +1\\\\}$. Fix a probability space $(D, \\\\Sigma, P)$ on $X \\\\times Y$, where $D$ varies over a measurable family endowed with a probability measure $\\\\mu$ on the space of such distributions. A dataset $\\\\mathcal{D} = \\\\{(x_i, y_i)\\\\}_{i=1}^m$ is drawn i.i.d. from $P$.\\n\\nDecision stumps. For each coordinate $j \\\\in \\\\{1,\\\\dots,n\\\\}$, sort the values $\\\\{x_{i,j}\\\\}_{i=1}^m$ and let the candidate thresholds be the midpoints between consecutive sorted values. The midpoint-rule stump class $H_b$ consists of all classifiers of the form $h(x) = s\\\\cdot \\\\mathrm{sign}(x_j - \\\\theta)$ where $j$ is a coordinate, $\\\\theta$ is one of these midpoint thresholds, and $s \\\\in \\\\{-1,+1\\\\}$. The effective stump set $E_b \\\\subseteq H_b$ is obtained from $H_b$ by removing dominated stumps (i.e., stumps that produce the same labeling on $\\\\mathcal{D}$ as another stump and are eliminated under the standard equivalence/domination reduction).\\n\\nOptimal AdaBoost. Run Optimal AdaBoost on $\\\\mathcal{D}$ with weak-learner output drawn from $E_b$: at each round $t = 1, 2, \\\\dots, T$, the weak learner returns a stump $h_t \\\\in E_b$ minimizing the weighted training error under the current distribution. Define\\n$$U_b^T \\\\;=\\\\; \\\\bigcup_{t=1}^{T} \\\\{h_t\\\\},$$\\nthe set of unique stumps selected during the first $T$ rounds.\\n\\nQuestion. Prove or disprove: for $\\\\mu$-almost every probability space $(D, \\\\Sigma, P)$ and any dataset $\\\\mathcal{D}$ sampled from $P$, there exist $m_0, T_0 > 0$ and an exponent $c \\\\in [1, 2)$ such that whenever $m > m_0$ and $T > T_0$,\\n$$\\\\mathbb{E}\\\\!\\\\left[\\\\,|U_b^T|\\\\;\\\\middle|\\\\;\\\\mathcal{D}\\\\,\\\\right] \\\\;\\\\le\\\\; (\\\\log T + 1)^c,$$\\n$P$-almost surely.\",\"macro_subject\":\"Statistics and Machine Learning\",\"category_tag\":\"AdaBoost decision stumps\",\"open_status\":\"open\",\"status_search_result\":\"The conjecture was posed as an open problem about the logarithmic growth of the number of unique decision stumps selected by Optimal AdaBoost. A subsequent overview notes that Belanich and Ortiz studied the ergodic dynamics of AdaBoost and obtained related intermediate results, but no source found explicitly resolves this specific conjectural bound $(\\\\log T + 1)^c$ with $c \\\\in [1,2)$. Status appears to remain open.\",\"status_evidence\":[{\"title\":\"Some Open Problems in Optimal AdaBoost and Decision Stumps\",\"url\":\"https://arxiv.org/abs/1505.06999\",\"snippet\":\"List of open problems including conjecture on logarithmic growth of unique stumps.\",\"claim\":\"The conjecture is stated as an open problem.\"},{\"title\":\"Overview of AdaBoost: Reconciling its views\",\"url\":\"https://arxiv.org/pdf/2310.18323\",\"snippet\":\"Discusses ergodic dynamics results by Belanich and Ortiz related to AdaBoost on decision stumps.\",\"claim\":\"Related results have been obtained but the specific logarithmic-growth conjecture is not reported as resolved.\"}],\"confidence\":0.6},\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"uuid\":\"69de1c92-5167-4d5b-a52b-b3e036fc7846\"}\n"
+}

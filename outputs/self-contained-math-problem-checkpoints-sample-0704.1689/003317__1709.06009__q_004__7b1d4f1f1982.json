@@ -1,0 +1,65 @@
+{
+  "record": {
+    "global_index": 3317,
+    "source_json": "outputs/parse-paper/1709.06009.json",
+    "paper_id": "1709.06009",
+    "paper_title": "Revisiting the Arcade Learning Environment: Evaluation Protocols and Open Problems for General Agents",
+    "paper_link": "https://zbmath.org/6865755",
+    "question_link": "https://zbmath.org/6865755",
+    "question_id": "q_004",
+    "parser_is_solved": "false",
+    "context_brief": "Transfer learning across Atari games",
+    "original_question": "How can an Arcade Learning Environment agent transfer knowledge across Atari games so as to reduce the number of samples needed to learn new games, including games that are only loosely analogous, while automatically determining when transfer is beneficial versus when it causes negative transfer, and while separating representation transfer from policy transfer instead of conflating both inside a single expert-pretrained neural-network approach?",
+    "evidence": [
+      {
+        "page": 22,
+        "quote": "We can expect knowledge transfer to reduce the required number of samples needed to learn to play similar games."
+      },
+      {
+        "page": 22,
+        "quote": "A more ambitious research question is how to leverage general video game experience, sharing knowledge across games that are not directly analogous."
+      },
+      {
+        "page": 22,
+        "quote": "It is not clear how this should be addressed in the ALE. Ideally one would like to have an algorithm automatically deciding which games are helpful and which ones are not."
+      },
+      {
+        "page": 22,
+        "quote": "Finally, current approaches are only based on the use of neural networks to perform transfer, conflating representation and policy transfer. It may be interesting to investigate how to transfer each one of these entities independently."
+      }
+    ]
+  },
+  "artifact": {
+    "category_tag": "transfer learning in reinforcement learning",
+    "confidence": 0.6,
+    "macro_subject": "Statistics and Machine Learning",
+    "open_status": "open",
+    "self_contained_problem": "Consider the Arcade Learning Environment (ALE), a benchmark consisting of a large collection of Atari 2600 games, each modeled as a Markov decision process whose state is given by raw screen pixels (and optionally the 128 bytes of console RAM), whose action set is the 18 joystick/button combinations, and whose reward is derived from the in-game score. A learning agent interacts with one or more of these MDPs by sampling trajectories and updating its parameters, with sample complexity measured by the number of environment frames consumed before the agent reaches a target level of performance.\\n\\nDesign and analyze a transfer-learning algorithm for ALE agents satisfying all of the following requirements:\\n\\n1. (Cross-game transfer.) Given experience accumulated on a source set of Atari games G_src = {g_1, ..., g_k}, the algorithm produces an initialization (and/or auxiliary structures) for learning a target Atari game g_target so that the number of target-game samples required to reach a fixed performance threshold is provably or empirically smaller than for an agent trained on g_target from scratch.\\n\\n2. (Loosely analogous games.) The reduction in sample complexity must hold not only when g_target is mechanically similar to games in G_src but also when g_target shares only loose, abstract structure with the source games (e.g., differing sprites, dynamics, and reward structures).\\n\\n3. (Automatic detection of useful transfer.) The algorithm must include a procedure that, given (G_src, g_target), automatically decides whether transferring from G_src to g_target is expected to be beneficial or harmful, so as to avoid negative transfer (the case in which using G_src strictly increases target sample complexity compared with learning g_target from scratch).\\n\\n4. (Decoupling representation and policy transfer.) The algorithm must separate the transferred quantities into (i) a representation component (a state-feature map φ : S → R^d) and (ii) a policy/value component (a mapping from features to actions or action-values), and must allow each component to be transferred independently of the other, rather than transferring a single monolithic neural network jointly encoding both.\\n\\nProvide such an algorithm together with a theoretical or empirical guarantee on ALE establishing properties (1)–(4).",
+    "status_search_result": "The problem is a broad open research challenge in deep reinforcement learning. While many partial advances on transfer in Atari/ALE exist (e.g., progressive networks, successor features, PopArt/IMPALA multi-task agents, Agent57, and later foundation-model-style RL agents), no single method is established as solving all four requirements simultaneously—particularly automatic detection of beneficial transfer and a clean separation of representation and policy transfer with guarantees on loosely analogous games. The status is therefore best described as open, with partial progress.",
+    "status_evidence": [
+      {
+        "title": "Revisiting the Arcade Learning Environment",
+        "url": "https://arxiv.org/abs/1709.06009",
+        "snippet": "Lists transfer learning across Atari games as an open problem, including automatic detection of helpful source games and decoupling representation from policy transfer.",
+        "claim": "The problem is posed as an open research direction in the ALE benchmark."
+      },
+      {
+        "title": "Successor Features for Transfer in Reinforcement Learning",
+        "url": "https://arxiv.org/abs/1606.05312",
+        "snippet": "Introduces successor features as a means to decouple environment dynamics from rewards, enabling some forms of transfer.",
+        "claim": "Partial progress exists on decoupling representation and policy/reward components."
+      },
+      {
+        "title": "Progressive Neural Networks",
+        "url": "https://arxiv.org/abs/1606.04671",
+        "snippet": "Proposes architectures that transfer features across Atari tasks while mitigating catastrophic forgetting, but does not automatically decide when transfer helps.",
+        "claim": "Existing methods address parts of the problem but not automatic negative-transfer detection."
+      }
+    ]
+  },
+  "model": "opus",
+  "effort": "medium",
+  "elapsed_s": 30.05,
+  "validation_warnings": [],
+  "raw_claude_stdout": "{\"type\":\"result\",\"subtype\":\"success\",\"is_error\":false,\"api_error_status\":null,\"duration_ms\":28776,\"duration_api_ms\":29700,\"num_turns\":2,\"result\":\"I've produced the dataset row. The problem—transferring knowledge across Atari games in the ALE while automatically avoiding negative transfer and decoupling representation from policy transfer—is framed as a self-contained ML research problem and classified as an open question with partial progress (successor features, progressive networks, multi-task agents).\\n\\nSources:\\n- [Revisiting the Arcade Learning Environment (arXiv:1709.06009)](https://arxiv.org/abs/1709.06009)\\n- [Successor Features for Transfer in RL](https://arxiv.org/abs/1606.05312)\\n- [Progressive Neural Networks](https://arxiv.org/abs/1606.04671)\",\"stop_reason\":\"end_turn\",\"session_id\":\"fe56d002-9924-4a80-877a-284108eaf645\",\"total_cost_usd\":0.0705135,\"usage\":{\"input_tokens\":7,\"cache_creation_input_tokens\":3340,\"cache_read_input_tokens\":7099,\"output_tokens\":1802,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":3340,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[{\"input_tokens\":1,\"output_tokens\":228,\"cache_read_input_tokens\":4414,\"cache_creation_input_tokens\":1611,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":1611},\"type\":\"message\"}],\"speed\":\"standard\"},\"modelUsage\":{\"claude-haiku-4-5-20251001\":{\"inputTokens\":914,\"outputTokens\":18,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":0,\"costUSD\":0.001004,\"contextWindow\":200000,\"maxOutputTokens\":32000},\"claude-opus-4-7\":{\"inputTokens\":7,\"outputTokens\":1802,\"cacheReadInputTokens\":7099,\"cacheCreationInputTokens\":3340,\"webSearchRequests\":0,\"costUSD\":0.06950950000000002,\"contextWindow\":1000000,\"maxOutputTokens\":64000}},\"permission_denials\":[],\"structured_output\":{\"category_tag\":\"transfer learning in reinforcement learning\",\"confidence\":0.6,\"macro_subject\":\"Statistics and Machine Learning\",\"open_status\":\"open\",\"self_contained_problem\":\"Consider the Arcade Learning Environment (ALE), a benchmark consisting of a large collection of Atari 2600 games, each modeled as a Markov decision process whose state is given by raw screen pixels (and optionally the 128 bytes of console RAM), whose action set is the 18 joystick/button combinations, and whose reward is derived from the in-game score. A learning agent interacts with one or more of these MDPs by sampling trajectories and updating its parameters, with sample complexity measured by the number of environment frames consumed before the agent reaches a target level of performance.\\\\n\\\\nDesign and analyze a transfer-learning algorithm for ALE agents satisfying all of the following requirements:\\\\n\\\\n1. (Cross-game transfer.) Given experience accumulated on a source set of Atari games G_src = {g_1, ..., g_k}, the algorithm produces an initialization (and/or auxiliary structures) for learning a target Atari game g_target so that the number of target-game samples required to reach a fixed performance threshold is provably or empirically smaller than for an agent trained on g_target from scratch.\\\\n\\\\n2. (Loosely analogous games.) The reduction in sample complexity must hold not only when g_target is mechanically similar to games in G_src but also when g_target shares only loose, abstract structure with the source games (e.g., differing sprites, dynamics, and reward structures).\\\\n\\\\n3. (Automatic detection of useful transfer.) The algorithm must include a procedure that, given (G_src, g_target), automatically decides whether transferring from G_src to g_target is expected to be beneficial or harmful, so as to avoid negative transfer (the case in which using G_src strictly increases target sample complexity compared with learning g_target from scratch).\\\\n\\\\n4. (Decoupling representation and policy transfer.) The algorithm must separate the transferred quantities into (i) a representation component (a state-feature map φ : S → R^d) and (ii) a policy/value component (a mapping from features to actions or action-values), and must allow each component to be transferred independently of the other, rather than transferring a single monolithic neural network jointly encoding both.\\\\n\\\\nProvide such an algorithm together with a theoretical or empirical guarantee on ALE establishing properties (1)–(4).\",\"status_search_result\":\"The problem is a broad open research challenge in deep reinforcement learning. While many partial advances on transfer in Atari/ALE exist (e.g., progressive networks, successor features, PopArt/IMPALA multi-task agents, Agent57, and later foundation-model-style RL agents), no single method is established as solving all four requirements simultaneously—particularly automatic detection of beneficial transfer and a clean separation of representation and policy transfer with guarantees on loosely analogous games. The status is therefore best described as open, with partial progress.\",\"status_evidence\":[{\"title\":\"Revisiting the Arcade Learning Environment\",\"url\":\"https://arxiv.org/abs/1709.06009\",\"snippet\":\"Lists transfer learning across Atari games as an open problem, including automatic detection of helpful source games and decoupling representation from policy transfer.\",\"claim\":\"The problem is posed as an open research direction in the ALE benchmark.\"},{\"title\":\"Successor Features for Transfer in Reinforcement Learning\",\"url\":\"https://arxiv.org/abs/1606.05312\",\"snippet\":\"Introduces successor features as a means to decouple environment dynamics from rewards, enabling some forms of transfer.\",\"claim\":\"Partial progress exists on decoupling representation and policy/reward components.\"},{\"title\":\"Progressive Neural Networks\",\"url\":\"https://arxiv.org/abs/1606.04671\",\"snippet\":\"Proposes architectures that transfer features across Atari tasks while mitigating catastrophic forgetting, but does not automatically decide when transfer helps.\",\"claim\":\"Existing methods address parts of the problem but not automatic negative-transfer detection.\"}]},\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"uuid\":\"f5424afe-d611-468a-b3ec-6fc95a3165d8\"}\n"
+}

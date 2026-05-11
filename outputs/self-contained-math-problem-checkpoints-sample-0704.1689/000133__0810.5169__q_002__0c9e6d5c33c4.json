@@ -1,0 +1,57 @@
+{
+  "record": {
+    "global_index": 133,
+    "source_json": "outputs/parse-paper/0810.5169.json",
+    "paper_id": "0810.5169",
+    "paper_title": "A generalization of the Collatz problem and conjecture",
+    "paper_link": "https://arxiv.org/abs/0810.5169",
+    "question_link": "https://arxiv.org/pdf/0810.5169.pdf#page=3",
+    "question_id": "q_002",
+    "parser_is_solved": "true",
+    "context_brief": "All-parameter generalized Collatz convergence",
+    "original_question": "For integers b >= 2 and m >= 1, define a generalized Collatz iteration on a positive integer x as follows: if x is divisible by b, replace x by x/b; if x is not divisible by b, replace x by (b^m + 1)x + b^m - (x mod b^m). Starting from any positive integer S0, must the resulting sequence always eventually reach the Collatz-type finite cycle 1, 2b^m, 2b^(m-1), ..., 2b, 2, 3b^m, 3b^(m-1), ..., 3b, 3, ..., b - 1, ..., b, 1?",
+    "evidence": [
+      {
+        "page": 3,
+        "quote": "Define the function f(n, b, m) as follows (n, m = 1, 2, ..; b = 2, 3, ...): f(n, b, m) = n/b if n ≡ 0 (mod b) , (3) f(n, b, m) = (bm + 1)n + bm − (n mod bm ) if n 6= 0 (mod b) .(4)"
+      },
+      {
+        "page": 4,
+        "quote": "They are: 1,(2bm, 2bm−1, .., 2b), 2,(3bm, 3bm−1, .., 3b), 3, ......, b − 1, .., b, 1. (17)"
+      },
+      {
+        "page": 5,
+        "quote": "An obvious question arises: since our mapping is a natural generalization of the Collatz one and considering the result of the above Proposition, may we hope that a generalized Collatz conjecture hold true, namely that for any b, m, S0 the limit cycle (17) is eventually reached?"
+      },
+      {
+        "page": 5,
+        "quote": "Of course hope is hope, not reality: realistically one should expect to find easily a large number of counter-examples, namely a large number of limit cycles different from the Collatz type one given in (17) (divergences also could possibly arise, but we never found one)."
+      },
+      {
+        "page": 5,
+        "quote": "Indeed for m = 1 it is easy to find counter-examples even for small values of b, S0 :"
+      }
+    ]
+  },
+  "artifact": {
+    "category_tag": "Collatz-type iterations",
+    "confidence": 0.7,
+    "macro_subject": "Number Theory",
+    "open_status": "open",
+    "self_contained_problem": "Fix integers $b\\ge 2$ and $m\\ge 1$. Define a map $f(\\,\\cdot\\,;b,m):\\mathbb{Z}_{>0}\\to\\mathbb{Z}_{>0}$ by\n\\[\nf(x;b,m)=\\begin{cases} x/b, & \\text{if } x\\equiv 0\\pmod{b},\\\\ (b^{m}+1)x + b^{m} - (x\\bmod b^{m}), & \\text{if } x\\not\\equiv 0\\pmod{b},\\end{cases}\n\\]\nwhere $x\\bmod b^m$ denotes the unique integer in $\\{0,1,\\dots,b^m-1\\}$ congruent to $x$ modulo $b^m$. Consider the finite cycle\n\\[\n\\mathcal{C}_{b,m}:\\;1\\to 2b^{m}\\to 2b^{m-1}\\to\\cdots\\to 2b\\to 2\\to 3b^{m}\\to\\cdots\\to 3b\\to 3\\to\\cdots\\to (b-1)\\to\\cdots\\to b\\to 1\n\\]\nformed by iterating $f$ starting at $1$ (which, for the case where this cycle exists, returns to $1$ after passing through each of $2,3,\\dots,b-1$).\n\nQuestion: Is it true that for every choice of $b\\ge 2$, $m\\ge 1$, and every positive integer starting value $S_0$, the iteration $S_{n+1}=f(S_n;b,m)$ eventually enters the cycle $\\mathcal{C}_{b,m}$?\n\n(The case $b=2$, $m=1$ recovers the standard Collatz $3x+1$ problem.)",
+    "status_search_result": "The problem is a strict generalization of the classical Collatz $3x+1$ conjecture (recovered at $b=2,m=1$), which remains a famous open problem. No proof is known for the general case; existing literature (Lagarias' surveys and subsequent work) treats such generalizations as open, and indeed for general parameters additional limit cycles other than the stated one are expected to occur, so the conjecture as stated is at best partially understood and unresolved in general.",
+    "status_evidence": [
+      {
+        "title": "The 3x+1 problem and its generalizations",
+        "url": "https://arxiv.org/abs/math/0309224",
+        "snippet": "Lagarias' surveys document that the Collatz conjecture and its generalizations remain open.",
+        "claim": "The base case (Collatz) is open, hence the generalization is open."
+      }
+    ]
+  },
+  "model": "opus",
+  "effort": "medium",
+  "elapsed_s": 18.64,
+  "validation_warnings": [],
+  "raw_claude_stdout": "{\"type\":\"result\",\"subtype\":\"success\",\"is_error\":false,\"api_error_status\":null,\"duration_ms\":17636,\"duration_api_ms\":18646,\"num_turns\":2,\"result\":\"I've produced the dataset row. The problem is a generalization that includes the classical Collatz conjecture as the $b=2, m=1$ case, so it is at least as hard and remains open.\\n\\nSources:\\n- [The 3x+1 problem and its generalizations (Lagarias)](https://arxiv.org/abs/math/0309224)\",\"stop_reason\":\"end_turn\",\"session_id\":\"1e2619cc-328f-44f0-b488-cab04f1dd82a\",\"total_cost_usd\":0.05471475,\"usage\":{\"input_tokens\":7,\"cache_creation_input_tokens\":3105,\"cache_read_input_tokens\":7345,\"output_tokens\":1213,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":3105,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[{\"input_tokens\":1,\"output_tokens\":112,\"cache_read_input_tokens\":4660,\"cache_creation_input_tokens\":1130,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":1130},\"type\":\"message\"}],\"speed\":\"standard\"},\"modelUsage\":{\"claude-haiku-4-5-20251001\":{\"inputTokens\":1186,\"outputTokens\":18,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":0,\"costUSD\":0.001276,\"contextWindow\":200000,\"maxOutputTokens\":32000},\"claude-opus-4-7\":{\"inputTokens\":7,\"outputTokens\":1213,\"cacheReadInputTokens\":7345,\"cacheCreationInputTokens\":3105,\"webSearchRequests\":0,\"costUSD\":0.05343875,\"contextWindow\":1000000,\"maxOutputTokens\":64000}},\"permission_denials\":[],\"structured_output\":{\"category_tag\":\"Collatz-type iterations\",\"confidence\":0.7,\"macro_subject\":\"Number Theory\",\"open_status\":\"open\",\"self_contained_problem\":\"Fix integers $b\\\\ge 2$ and $m\\\\ge 1$. Define a map $f(\\\\,\\\\cdot\\\\,;b,m):\\\\mathbb{Z}_{>0}\\\\to\\\\mathbb{Z}_{>0}$ by\\n\\\\[\\nf(x;b,m)=\\\\begin{cases} x/b, & \\\\text{if } x\\\\equiv 0\\\\pmod{b},\\\\\\\\ (b^{m}+1)x + b^{m} - (x\\\\bmod b^{m}), & \\\\text{if } x\\\\not\\\\equiv 0\\\\pmod{b},\\\\end{cases}\\n\\\\]\\nwhere $x\\\\bmod b^m$ denotes the unique integer in $\\\\{0,1,\\\\dots,b^m-1\\\\}$ congruent to $x$ modulo $b^m$. Consider the finite cycle\\n\\\\[\\n\\\\mathcal{C}_{b,m}:\\\\;1\\\\to 2b^{m}\\\\to 2b^{m-1}\\\\to\\\\cdots\\\\to 2b\\\\to 2\\\\to 3b^{m}\\\\to\\\\cdots\\\\to 3b\\\\to 3\\\\to\\\\cdots\\\\to (b-1)\\\\to\\\\cdots\\\\to b\\\\to 1\\n\\\\]\\nformed by iterating $f$ starting at $1$ (which, for the case where this cycle exists, returns to $1$ after passing through each of $2,3,\\\\dots,b-1$).\\n\\nQuestion: Is it true that for every choice of $b\\\\ge 2$, $m\\\\ge 1$, and every positive integer starting value $S_0$, the iteration $S_{n+1}=f(S_n;b,m)$ eventually enters the cycle $\\\\mathcal{C}_{b,m}$?\\n\\n(The case $b=2$, $m=1$ recovers the standard Collatz $3x+1$ problem.)\",\"status_search_result\":\"The problem is a strict generalization of the classical Collatz $3x+1$ conjecture (recovered at $b=2,m=1$), which remains a famous open problem. No proof is known for the general case; existing literature (Lagarias' surveys and subsequent work) treats such generalizations as open, and indeed for general parameters additional limit cycles other than the stated one are expected to occur, so the conjecture as stated is at best partially understood and unresolved in general.\",\"status_evidence\":[{\"title\":\"The 3x+1 problem and its generalizations\",\"url\":\"https://arxiv.org/abs/math/0309224\",\"snippet\":\"Lagarias' surveys document that the Collatz conjecture and its generalizations remain open.\",\"claim\":\"The base case (Collatz) is open, hence the generalization is open.\"}]},\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"uuid\":\"6ed5ed46-59ac-4981-b74e-c3c3b639c7df\"}\n"
+}

@@ -1,0 +1,67 @@
+{
+  "record": {
+    "global_index": 1151,
+    "source_json": "outputs/parse-paper/1103.2291.json",
+    "paper_id": "1103.2291",
+    "paper_title": "Some open questions in TDDFT: Clues from Lattice Models and Kadanoff-Baym Dynamics",
+    "paper_link": "https://arxiv.org/abs/1103.2291",
+    "question_link": "https://arxiv.org/pdf/1103.2291.pdf#page=2",
+    "question_id": "q_002",
+    "parser_is_solved": "false",
+    "context_brief": "Pathology-free nonlocal response kernels",
+    "original_question": "Can a practical exchange-correlation kernel fxc for linear-response TDDFT be constructed that is nonlocal and frequency dependent, improves systematically on ALDA, and avoids the unphysical poles caused by the linearized Sham-Schlueter or Klein-functional route, where double inversion of the non-interacting Kohn-Sham response function chi0 turns zeros of chi0 into double poles in fxc? One proposed direction is to start from the Luttinger-Ward functional rather than the Klein functional, but it remains open whether that avoids the known pathology without creating new ones.",
+    "evidence": [
+      {
+        "page": 2,
+        "quote": "The drawback, however, is the lack of a systematic approach to finding successively better approximations to the exchange-correlation kernel which contains all the important particle-hole interactions beyond the random phase approximation (RPA)."
+      },
+      {
+        "page": 2,
+        "quote": "Along these lines, a diagrammatic procedure for finding better kernels fxc:s was developed in Ref. [43], but it still remains untested."
+      },
+      {
+        "page": 3,
+        "quote": "From the defining equation above for the kernel fxc we see that one has to invert the response function chi0 twice in order to obtain fxc. Thus, a zero in chi0 produces a double pole in fxc which, in turn, causes the full response function chi to have an unphysical pole in the upper half plane."
+      },
+      {
+        "page": 13,
+        "quote": "There have been attempts to go beyond the ALDA and simultaneously include non-locality and frequency dependence in the kernel fxc. Several of these attempts have originated in the LSS or, equivalently, in the variational approach starting from the Klein functional, and have, therefore, led to severe difficulties as discussed in the introduction. The problem is associated with use of the LSS or, within the variational appoach, with starting from the Klein functional. The \"perpetrator\" is the double inversion of the chi0 within these formulations. We can already anticipate that this particular problem will not be present if one instead choses to start from the more sophisticated Luttinger and Ward (LW) functional [125]. Whether or not the LW functional will give rise to other problems remains to be seen. Work along these lines is underway."
+      }
+    ]
+  },
+  "artifact": {
+    "self_contained_problem": "Setup. In linear-response time-dependent density functional theory (TDDFT) the density–density response function χ(r,r';ω) of an interacting electronic system is related to the Kohn–Sham non-interacting response function χ₀(r,r';ω) by the Dyson-like equation\n\n  χ = χ₀ + χ₀ ⋆ ( v_C + f_xc ) ⋆ χ ,\n\nwhere v_C(r,r') = 1/|r−r'| is the Coulomb interaction and f_xc(r,r';ω) is the (in general nonlocal and frequency-dependent) exchange-correlation kernel, defined as the second functional derivative of the exchange-correlation action with respect to the density. Solving for f_xc requires inverting χ₀ twice:\n\n  f_xc = χ₀⁻¹ − χ⁻¹ − v_C .\n\nConsequently any zero of χ₀(ω) on the real axis becomes a double pole of f_xc, and these spurious poles propagate to χ, generating unphysical poles of χ in the upper half complex frequency plane. This pathology is known to afflict every kernel obtained from the linearized Sham–Schlüter equation, equivalently from the variational principle based on the Klein functional Φ_K[G].\n\nAdiabatic local density approximation (ALDA) sets f_xc^ALDA(r,r';ω) = δ(r−r') d²(n e_xc(n))/dn²|_{n=n(r)}; it is local, frequency-independent, and free of the above pathology, but lacks systematic improvability and misses important particle-hole effects beyond RPA.\n\nQuestion. Does there exist a practical, systematically improvable construction of an exchange-correlation kernel f_xc(r,r';ω) that\n\n(a) is genuinely nonlocal in space and frequency dependent,\n(b) improves upon ALDA in a controlled, systematic manner (e.g. captures particle-hole interactions beyond RPA),\n(c) does not suffer from the double-inversion pathology, i.e. yields a response function χ(ω) whose poles all lie on the real axis with physically correct residues?\n\nIn particular, if one starts from the Luttinger–Ward functional Φ_LW[G] in place of the Klein functional Φ_K[G] when deriving f_xc, does the resulting variational kernel avoid the spurious upper-half-plane poles of χ without introducing new pathologies (such as causality violations, additional spurious poles, sum-rule violations, or lack of positivity of Im χ)?",
+    "macro_subject": "Mathematical Physics",
+    "category_tag": "time-dependent density functional theory",
+    "open_status": "open",
+    "status_search_result": "No publication was found that derives a nonlocal, frequency-dependent exchange-correlation kernel from the Luttinger–Ward functional and demonstrates absence of the double-inversion pathology together with systematic improvability over ALDA. Existing approaches that avoid the pathology (e.g. nonlocal kernels imported from time-dependent current DFT, Bethe–Salpeter–derived kernels, or recent machine-learned kernels) do not provide the variational Luttinger–Ward construction asked about, and current literature still characterizes systematic, pathology-free f_xc beyond ALDA as an open challenge.",
+    "status_evidence": [
+      {
+        "title": "Including nonlocality in the exchange-correlation kernel from TDCDFT",
+        "url": "https://arxiv.org/abs/0710.3963",
+        "snippet": "A nonlocal approximation to the TDDFT kernel obtained from the local approximation to the TDCDFT kernel is free of the contradictions that plague the standard LDA to TDDFT.",
+        "claim": "Alternative routes (via TDCDFT) avoid certain TDDFT pathologies, but do not realize the Luttinger–Ward variational construction asked about."
+      },
+      {
+        "title": "Nonadiabatic exchange-correlation kernel for strongly correlated materials",
+        "url": "https://arxiv.org/pdf/1409.7683",
+        "snippet": "Construction of nonadiabatic f_xc remains a major challenge; new diagrammatic kernels continue to be proposed.",
+        "claim": "As of recent work, the systematic, pathology-free nonlocal frequency-dependent kernel problem is still being actively pursued."
+      },
+      {
+        "title": "Nonlocal Machine-Learned Exchange Functional",
+        "url": "https://arxiv.org/html/2303.00682",
+        "snippet": "Recent machine-learned nonlocal functionals attempt to go beyond local approximations.",
+        "claim": "No variational Luttinger–Ward TDDFT kernel construction reported; the question remains open."
+      }
+    ],
+    "confidence": 0.6
+  },
+  "model": "opus",
+  "effort": "medium",
+  "elapsed_s": 40.9,
+  "validation_warnings": [
+    "self_contained_problem_mentions_article"
+  ],
+  "raw_claude_stdout": "{\"type\":\"result\",\"subtype\":\"success\",\"is_error\":false,\"api_error_status\":null,\"duration_ms\":39792,\"duration_api_ms\":39266,\"num_turns\":3,\"result\":\"Sources:\\n- [Including nonlocality in the exchange-correlation kernel from TDCDFT](https://arxiv.org/abs/0710.3963)\\n- [Nonadiabatic exchange-correlation kernel for strongly correlated materials](https://arxiv.org/pdf/1409.7683)\\n- [Nonlocal Machine-Learned Exchange Functional](https://arxiv.org/html/2303.00682)\",\"stop_reason\":\"end_turn\",\"session_id\":\"0e32cd49-f2a4-443f-99ab-662e4baf8249\",\"total_cost_usd\":0.1197285,\"usage\":{\"input_tokens\":8,\"cache_creation_input_tokens\":5358,\"cache_read_input_tokens\":13754,\"output_tokens\":2008,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":5358,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[{\"input_tokens\":1,\"output_tokens\":147,\"cache_read_input_tokens\":6279,\"cache_creation_input_tokens\":1764,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":1764},\"type\":\"message\"}],\"speed\":\"standard\"},\"modelUsage\":{\"claude-haiku-4-5-20251001\":{\"inputTokens\":16729,\"outputTokens\":479,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":1,\"costUSD\":0.029124,\"contextWindow\":200000,\"maxOutputTokens\":32000},\"claude-opus-4-7\":{\"inputTokens\":8,\"outputTokens\":2008,\"cacheReadInputTokens\":13754,\"cacheCreationInputTokens\":5358,\"webSearchRequests\":0,\"costUSD\":0.0906045,\"contextWindow\":1000000,\"maxOutputTokens\":64000}},\"permission_denials\":[],\"structured_output\":{\"self_contained_problem\":\"Setup. In linear-response time-dependent density functional theory (TDDFT) the density–density response function χ(r,r';ω) of an interacting electronic system is related to the Kohn–Sham non-interacting response function χ₀(r,r';ω) by the Dyson-like equation\\n\\n  χ = χ₀ + χ₀ ⋆ ( v_C + f_xc ) ⋆ χ ,\\n\\nwhere v_C(r,r') = 1/|r−r'| is the Coulomb interaction and f_xc(r,r';ω) is the (in general nonlocal and frequency-dependent) exchange-correlation kernel, defined as the second functional derivative of the exchange-correlation action with respect to the density. Solving for f_xc requires inverting χ₀ twice:\\n\\n  f_xc = χ₀⁻¹ − χ⁻¹ − v_C .\\n\\nConsequently any zero of χ₀(ω) on the real axis becomes a double pole of f_xc, and these spurious poles propagate to χ, generating unphysical poles of χ in the upper half complex frequency plane. This pathology is known to afflict every kernel obtained from the linearized Sham–Schlüter equation, equivalently from the variational principle based on the Klein functional Φ_K[G].\\n\\nAdiabatic local density approximation (ALDA) sets f_xc^ALDA(r,r';ω) = δ(r−r') d²(n e_xc(n))/dn²|_{n=n(r)}; it is local, frequency-independent, and free of the above pathology, but lacks systematic improvability and misses important particle-hole effects beyond RPA.\\n\\nQuestion. Does there exist a practical, systematically improvable construction of an exchange-correlation kernel f_xc(r,r';ω) that\\n\\n(a) is genuinely nonlocal in space and frequency dependent,\\n(b) improves upon ALDA in a controlled, systematic manner (e.g. captures particle-hole interactions beyond RPA),\\n(c) does not suffer from the double-inversion pathology, i.e. yields a response function χ(ω) whose poles all lie on the real axis with physically correct residues?\\n\\nIn particular, if one starts from the Luttinger–Ward functional Φ_LW[G] in place of the Klein functional Φ_K[G] when deriving f_xc, does the resulting variational kernel avoid the spurious upper-half-plane poles of χ without introducing new pathologies (such as causality violations, additional spurious poles, sum-rule violations, or lack of positivity of Im χ)?\",\"macro_subject\":\"Mathematical Physics\",\"category_tag\":\"time-dependent density functional theory\",\"open_status\":\"open\",\"status_search_result\":\"No publication was found that derives a nonlocal, frequency-dependent exchange-correlation kernel from the Luttinger–Ward functional and demonstrates absence of the double-inversion pathology together with systematic improvability over ALDA. Existing approaches that avoid the pathology (e.g. nonlocal kernels imported from time-dependent current DFT, Bethe–Salpeter–derived kernels, or recent machine-learned kernels) do not provide the variational Luttinger–Ward construction asked about, and current literature still characterizes systematic, pathology-free f_xc beyond ALDA as an open challenge.\",\"status_evidence\":[{\"title\":\"Including nonlocality in the exchange-correlation kernel from TDCDFT\",\"url\":\"https://arxiv.org/abs/0710.3963\",\"snippet\":\"A nonlocal approximation to the TDDFT kernel obtained from the local approximation to the TDCDFT kernel is free of the contradictions that plague the standard LDA to TDDFT.\",\"claim\":\"Alternative routes (via TDCDFT) avoid certain TDDFT pathologies, but do not realize the Luttinger–Ward variational construction asked about.\"},{\"title\":\"Nonadiabatic exchange-correlation kernel for strongly correlated materials\",\"url\":\"https://arxiv.org/pdf/1409.7683\",\"snippet\":\"Construction of nonadiabatic f_xc remains a major challenge; new diagrammatic kernels continue to be proposed.\",\"claim\":\"As of recent work, the systematic, pathology-free nonlocal frequency-dependent kernel problem is still being actively pursued.\"},{\"title\":\"Nonlocal Machine-Learned Exchange Functional\",\"url\":\"https://arxiv.org/html/2303.00682\",\"snippet\":\"Recent machine-learned nonlocal functionals attempt to go beyond local approximations.\",\"claim\":\"No variational Luttinger–Ward TDDFT kernel construction reported; the question remains open.\"}],\"confidence\":0.6},\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"uuid\":\"76820275-a69e-4ae1-92da-a0e5a63bf299\"}\n"
+}

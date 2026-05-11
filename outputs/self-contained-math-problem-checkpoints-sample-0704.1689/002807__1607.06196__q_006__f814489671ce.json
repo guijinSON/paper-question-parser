@@ -1,0 +1,53 @@
+{
+  "record": {
+    "global_index": 2807,
+    "source_json": "outputs/parse-paper/1607.06196.json",
+    "paper_id": "1607.06196",
+    "paper_title": "Report from the Open Problems Session at OPSFA13",
+    "paper_link": "https://zbmath.org/6613992",
+    "question_link": "https://zbmath.org/6613992",
+    "question_id": "q_006",
+    "parser_is_solved": "false",
+    "context_brief": "Fast discrete spherical harmonic transform",
+    "original_question": "Does there exist an algorithm that efficiently converts between values of a function sampled on a grid on the sphere and its spherical harmonic coefficients in both directions, with ideal complexity on the order of O(n log n) for a grid of n points?",
+    "evidence": [
+      {
+        "page": 9,
+        "quote": "Does there exist an algorithm that can eﬃciently convert from values of a function evaluated on a grid on the sphere to spherical harmonic coeﬃcients, and vice-versa? Ideally, such an algorithm would be roughly of complexity O(n log n) for a grid of n points."
+      }
+    ]
+  },
+  "artifact": {
+    "self_contained_problem": "Let $S^2$ denote the unit sphere in $\\mathbb{R}^3$, and let $\\{Y_\\ell^m : \\ell \\ge 0,\\ |m| \\le \\ell\\}$ be the standard orthonormal basis of spherical harmonics on $S^2$. For a band-limited function $f : S^2 \\to \\mathbb{C}$ with expansion\n$$ f(\\theta,\\varphi) = \\sum_{\\ell=0}^{L-1} \\sum_{m=-\\ell}^{\\ell} \\widehat{f}_\\ell^m\\, Y_\\ell^m(\\theta,\\varphi), $$\nthe forward spherical harmonic transform takes the coefficients $\\{\\widehat{f}_\\ell^m\\}$ to samples $\\{f(x_j)\\}_{j=1}^n$ on a suitable grid $\\{x_j\\} \\subset S^2$ with $n = \\Theta(L^2)$ points, and the inverse transform recovers $\\{\\widehat{f}_\\ell^m\\}$ from $\\{f(x_j)\\}$.\n\nQuestion: Does there exist a numerically stable algorithm performing both the forward and inverse spherical harmonic transforms in time $O(n \\log n)$ on a grid of $n$ points on the sphere?",
+    "macro_subject": "Applied Mathematics",
+    "category_tag": "Fast spherical harmonic transforms",
+    "open_status": "open",
+    "status_search_result": "Existing fast spherical harmonic transform algorithms (Driscoll–Healy, Mohlenkamp, Healy et al., Tygert, Potts et al., and others) achieve complexities such as $O(N^{5/2}\\log N)$ or $O(N^2(\\log N)^2)$, with divide-and-conquer Legendre-based approaches reaching $O(N^2 \\log N)$ (i.e., $O(n \\log n)$ with constants/log factors), but a numerically stable, practically efficient transform attaining clean FFT-like $O(n \\log n)$ complexity in both directions is not established. The problem appears to remain open.",
+    "status_evidence": [
+      {
+        "title": "Fast algorithms for spherical harmonic expansions (Tygert)",
+        "url": "https://tygert.com/sph2.pdf",
+        "snippet": "Asymptotically fast algorithms with overhead such that they are not faster for N<512; complexities like O(N^{5/2} log N) and O(N^2 (log N)^2).",
+        "claim": "Best published complexities fall short of clean O(n log n) with practical constants."
+      },
+      {
+        "title": "Efficient Spherical Harmonic Transforms",
+        "url": "https://arxiv.org/pdf/1202.6522",
+        "snippet": "Discusses divide-and-conquer approaches reaching about O(N^2 log N).",
+        "claim": "Theoretical near-O(n log n) results exist but stability/practicality remains an issue."
+      },
+      {
+        "title": "A fast spherical harmonics transform algorithm",
+        "url": "https://www.ams.org/mcom/2002-71-238/S0025-5718-01-01386-2/S0025-5718-01-01386-2.pdf",
+        "snippet": "Fast algorithm for spherical harmonic transform with super-quadratic complexity in N.",
+        "claim": "Standard fast SHT algorithms do not yet match FFT-like ideal performance."
+      }
+    ],
+    "confidence": 0.7
+  },
+  "model": "opus",
+  "effort": "medium",
+  "elapsed_s": 29.97,
+  "validation_warnings": [],
+  "raw_claude_stdout": "{\"type\":\"result\",\"subtype\":\"success\",\"is_error\":false,\"api_error_status\":null,\"duration_ms\":28735,\"duration_api_ms\":28716,\"num_turns\":3,\"result\":\"Sources:\\n- [Fast algorithms for spherical harmonic expansions (Tygert)](https://tygert.com/sph2.pdf)\\n- [Efficient Spherical Harmonic Transforms](https://arxiv.org/pdf/1202.6522)\\n- [A fast spherical harmonics transform algorithm](https://www.ams.org/mcom/2002-71-238/S0025-5718-01-01386-2/S0025-5718-01-01386-2.pdf)\",\"stop_reason\":\"end_turn\",\"session_id\":\"b4cab3db-da79-4b57-95a0-454a89957889\",\"total_cost_usd\":0.10661675,\"usage\":{\"input_tokens\":8,\"cache_creation_input_tokens\":4155,\"cache_read_input_tokens\":12418,\"output_tokens\":1566,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":4155,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[{\"input_tokens\":1,\"output_tokens\":164,\"cache_read_input_tokens\":5533,\"cache_creation_input_tokens\":1307,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":1307},\"type\":\"message\"}],\"speed\":\"standard\"},\"modelUsage\":{\"claude-haiku-4-5-20251001\":{\"inputTokens\":22769,\"outputTokens\":496,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":1,\"costUSD\":0.035249,\"contextWindow\":200000,\"maxOutputTokens\":32000},\"claude-opus-4-7\":{\"inputTokens\":8,\"outputTokens\":1566,\"cacheReadInputTokens\":12418,\"cacheCreationInputTokens\":4155,\"webSearchRequests\":0,\"costUSD\":0.07136775,\"contextWindow\":1000000,\"maxOutputTokens\":64000}},\"permission_denials\":[],\"structured_output\":{\"self_contained_problem\":\"Let $S^2$ denote the unit sphere in $\\\\mathbb{R}^3$, and let $\\\\{Y_\\\\ell^m : \\\\ell \\\\ge 0,\\\\ |m| \\\\le \\\\ell\\\\}$ be the standard orthonormal basis of spherical harmonics on $S^2$. For a band-limited function $f : S^2 \\\\to \\\\mathbb{C}$ with expansion\\n$$ f(\\\\theta,\\\\varphi) = \\\\sum_{\\\\ell=0}^{L-1} \\\\sum_{m=-\\\\ell}^{\\\\ell} \\\\widehat{f}_\\\\ell^m\\\\, Y_\\\\ell^m(\\\\theta,\\\\varphi), $$\\nthe forward spherical harmonic transform takes the coefficients $\\\\{\\\\widehat{f}_\\\\ell^m\\\\}$ to samples $\\\\{f(x_j)\\\\}_{j=1}^n$ on a suitable grid $\\\\{x_j\\\\} \\\\subset S^2$ with $n = \\\\Theta(L^2)$ points, and the inverse transform recovers $\\\\{\\\\widehat{f}_\\\\ell^m\\\\}$ from $\\\\{f(x_j)\\\\}$.\\n\\nQuestion: Does there exist a numerically stable algorithm performing both the forward and inverse spherical harmonic transforms in time $O(n \\\\log n)$ on a grid of $n$ points on the sphere?\",\"macro_subject\":\"Applied Mathematics\",\"category_tag\":\"Fast spherical harmonic transforms\",\"open_status\":\"open\",\"status_search_result\":\"Existing fast spherical harmonic transform algorithms (Driscoll–Healy, Mohlenkamp, Healy et al., Tygert, Potts et al., and others) achieve complexities such as $O(N^{5/2}\\\\log N)$ or $O(N^2(\\\\log N)^2)$, with divide-and-conquer Legendre-based approaches reaching $O(N^2 \\\\log N)$ (i.e., $O(n \\\\log n)$ with constants/log factors), but a numerically stable, practically efficient transform attaining clean FFT-like $O(n \\\\log n)$ complexity in both directions is not established. The problem appears to remain open.\",\"status_evidence\":[{\"title\":\"Fast algorithms for spherical harmonic expansions (Tygert)\",\"url\":\"https://tygert.com/sph2.pdf\",\"snippet\":\"Asymptotically fast algorithms with overhead such that they are not faster for N<512; complexities like O(N^{5/2} log N) and O(N^2 (log N)^2).\",\"claim\":\"Best published complexities fall short of clean O(n log n) with practical constants.\"},{\"title\":\"Efficient Spherical Harmonic Transforms\",\"url\":\"https://arxiv.org/pdf/1202.6522\",\"snippet\":\"Discusses divide-and-conquer approaches reaching about O(N^2 log N).\",\"claim\":\"Theoretical near-O(n log n) results exist but stability/practicality remains an issue.\"},{\"title\":\"A fast spherical harmonics transform algorithm\",\"url\":\"https://www.ams.org/mcom/2002-71-238/S0025-5718-01-01386-2/S0025-5718-01-01386-2.pdf\",\"snippet\":\"Fast algorithm for spherical harmonic transform with super-quadratic complexity in N.\",\"claim\":\"Standard fast SHT algorithms do not yet match FFT-like ideal performance.\"}],\"confidence\":0.7},\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"uuid\":\"f2b5ee60-719a-4c1f-8dbd-99095129e9d6\"}\n"
+}

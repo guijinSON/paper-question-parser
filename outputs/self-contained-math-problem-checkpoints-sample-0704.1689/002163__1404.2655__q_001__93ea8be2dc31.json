@@ -1,0 +1,61 @@
+{
+  "record": {
+    "global_index": 2163,
+    "source_json": "outputs/parse-paper/1404.2655.json",
+    "paper_id": "1404.2655",
+    "paper_title": "",
+    "paper_link": "https://arxiv.org/abs/1404.2655",
+    "question_link": "https://arxiv.org/pdf/1404.2655.pdf#page=1",
+    "question_id": "q_001",
+    "parser_is_solved": "false",
+    "context_brief": "General SDP rank-recovery phenomenon",
+    "original_question": "In recovery problems with noisy data, why do semidefinite-programming relaxations of maximum-likelihood estimators often remain tight beyond the exact-recovery regime? More concretely, when noise is large enough that the maximum-likelihood estimator cannot exactly recover the ground truth, under what structural or probabilistic conditions does the SDP relaxation still return a solution that lies in the original nonconvex model class, or equivalently matches the lower-rank quasi-maximum-likelihood solution instead of requiring a rounding step?",
+    "evidence": [
+      {
+        "page": 1,
+        "quote": "We have observed an interesting, yet unexplained, phenomenon: Semidefinite programming (SDP) based relaxations of maximum likelihood estimators (MLE) tend to be tight in recovery problems with noisy data, even when MLE cannot exactly recover the ground truth."
+      },
+      {
+        "page": 1,
+        "quote": "However, to the best of our knowledge, their tightness is not understood beyond this regime."
+      },
+      {
+        "page": 2,
+        "quote": "Yet, to the best of our knowledge, there is no theoretical understanding of this rank recovery phenomenon."
+      }
+    ]
+  },
+  "artifact": {
+    "self_contained_problem": "Let an unknown ground-truth signal x* belong to a nonconvex set M (for example, a product of unit spheres, a group such as O(d), U(d), or SO(d), or the discrete cube {±1}^n). Suppose noisy measurements C are obtained (e.g., C = x*x*^T + σW for a symmetric noise matrix W) and consider the maximum-likelihood estimator\n\n  x_MLE ∈ argmin_{x ∈ M} f(x; C),\n\nwhere f is the negative log-likelihood, typically a quadratic form in a rank-one or low-rank lift X = xx^T. The standard semidefinite relaxation is\n\n  X_SDP ∈ argmin_{X ⪰ 0, X ∈ K} ⟨L(C), X⟩,\n\nwhere K encodes the linear constraints (e.g., diag(X) = I) and L(C) is the data matrix associated with f.\n\nThe relaxation is called tight when X_SDP has the same rank as the lift x*x*^T of any feasible point of M (so X_SDP corresponds to an actual element of M, with no rounding step required); equivalently, X_SDP coincides with the lift of the quasi-MLE on M.\n\nIt is known that in the low-noise (exact-recovery) regime, where x_MLE = x*, the SDP relaxation is tight. Empirically, however, SDP tightness persists well beyond this regime: even when the noise is large enough that x_MLE ≠ x*, the optimum X_SDP still has the appropriate low rank and equals the lift of x_MLE.\n\nProblem. Identify general structural and/or probabilistic conditions on M, on the cost function f, and on the noise model under which the following rank-recovery phenomenon holds with high probability: the optimal solution X_SDP of the SDP relaxation lies in the lifted nonconvex feasible set {xx^T : x ∈ M} (equivalently, has the rank of a lifted point of M), and hence equals the lift of the (quasi-)MLE on M, throughout a noise regime strictly larger than the exact-recovery regime. Provide a theoretical explanation of this tightness beyond the exact-recovery threshold.",
+    "macro_subject": "Applied Mathematics",
+    "category_tag": "Semidefinite programming relaxations",
+    "open_status": "partially_solved",
+    "status_search_result": "The general phenomenon was posed as an open problem and remains without a unified explanation. Partial progress exists: Bandeira, Boumal, and Singer (arXiv:1411.3272) established a rank-recovery / tightness result for the angular synchronization SDP beyond exact recovery, and subsequent work (e.g., on Z2 synchronization and graph clustering, including a 2025 paper in Information and Inference) has analyzed benign nonconvex landscapes near exact-recovery thresholds. A general theory covering the broad class of recovery SDPs is still lacking.",
+    "status_evidence": [
+      {
+        "title": "Tightness of the maximum likelihood semidefinite relaxation for angular synchronization",
+        "url": "https://arxiv.org/abs/1411.3272",
+        "snippet": "First instance establishing a rank-recovery/tightness result for an SDP relaxation beyond the exact-recovery regime, for angular synchronization.",
+        "claim": "Partial progress: tightness/rank-recovery established for angular synchronization."
+      },
+      {
+        "title": "Nonconvex landscapes for Z2 synchronization and graph clustering are benign near exact recovery thresholds",
+        "url": "https://academic.oup.com/imaiai/article/14/2/iaaf012/8123647",
+        "snippet": "Analyzes benign nonconvex landscapes near exact-recovery thresholds for Z2 synchronization and graph clustering.",
+        "claim": "Further partial progress on related models near exact-recovery thresholds."
+      },
+      {
+        "title": "Open problem: Tightness of maximum likelihood semidefinite relaxations",
+        "url": "https://arxiv.org/abs/1404.2655",
+        "snippet": "Posed as an open problem with the phenomenon unexplained beyond the exact-recovery regime.",
+        "claim": "Original problem statement; phenomenon left open in general."
+      }
+    ],
+    "confidence": 0.7
+  },
+  "model": "opus",
+  "effort": "medium",
+  "elapsed_s": 40.75,
+  "validation_warnings": [],
+  "raw_claude_stdout": "{\"type\":\"result\",\"subtype\":\"success\",\"is_error\":false,\"api_error_status\":null,\"duration_ms\":39408,\"duration_api_ms\":38745,\"num_turns\":3,\"result\":\"Provided structured output for the SDP rank-recovery open problem.\\n\\nSources:\\n- [arXiv:1404.2655 — Open problem: Tightness of maximum likelihood semidefinite relaxations](https://arxiv.org/abs/1404.2655)\\n- [arXiv:1411.3272 — Tightness of the maximum likelihood semidefinite relaxation for angular synchronization](https://arxiv.org/abs/1411.3272)\\n- [Nonconvex landscapes for Z2 synchronization and graph clustering are benign near exact recovery thresholds](https://academic.oup.com/imaiai/article/14/2/iaaf012/8123647)\\n- [Tightness of the Angular Synchronization SDP relaxation and rank recovery — Relax and Conquer](https://afonsobandeira.wordpress.com/2014/12/13/tightness-of-the-angular-synchronization-sdp-relaxation-and-rank-recovery/)\",\"stop_reason\":\"end_turn\",\"session_id\":\"1f528af1-2a6e-4e94-baac-8dbbd285b5d5\",\"total_cost_usd\":0.11815475,\"usage\":{\"input_tokens\":8,\"cache_creation_input_tokens\":4811,\"cache_read_input_tokens\":12996,\"output_tokens\":2022,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":4811,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[{\"input_tokens\":1,\"output_tokens\":325,\"cache_read_input_tokens\":5908,\"cache_creation_input_tokens\":1588,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":1588},\"type\":\"message\"}],\"speed\":\"standard\"},\"modelUsage\":{\"claude-haiku-4-5-20251001\":{\"inputTokens\":18603,\"outputTokens\":479,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":1,\"costUSD\":0.030998000000000005,\"contextWindow\":200000,\"maxOutputTokens\":32000},\"claude-opus-4-7\":{\"inputTokens\":8,\"outputTokens\":2022,\"cacheReadInputTokens\":12996,\"cacheCreationInputTokens\":4811,\"webSearchRequests\":0,\"costUSD\":0.08715675,\"contextWindow\":1000000,\"maxOutputTokens\":64000}},\"permission_denials\":[],\"structured_output\":{\"self_contained_problem\":\"Let an unknown ground-truth signal x* belong to a nonconvex set M (for example, a product of unit spheres, a group such as O(d), U(d), or SO(d), or the discrete cube {±1}^n). Suppose noisy measurements C are obtained (e.g., C = x*x*^T + σW for a symmetric noise matrix W) and consider the maximum-likelihood estimator\\n\\n  x_MLE ∈ argmin_{x ∈ M} f(x; C),\\n\\nwhere f is the negative log-likelihood, typically a quadratic form in a rank-one or low-rank lift X = xx^T. The standard semidefinite relaxation is\\n\\n  X_SDP ∈ argmin_{X ⪰ 0, X ∈ K} ⟨L(C), X⟩,\\n\\nwhere K encodes the linear constraints (e.g., diag(X) = I) and L(C) is the data matrix associated with f.\\n\\nThe relaxation is called tight when X_SDP has the same rank as the lift x*x*^T of any feasible point of M (so X_SDP corresponds to an actual element of M, with no rounding step required); equivalently, X_SDP coincides with the lift of the quasi-MLE on M.\\n\\nIt is known that in the low-noise (exact-recovery) regime, where x_MLE = x*, the SDP relaxation is tight. Empirically, however, SDP tightness persists well beyond this regime: even when the noise is large enough that x_MLE ≠ x*, the optimum X_SDP still has the appropriate low rank and equals the lift of x_MLE.\\n\\nProblem. Identify general structural and/or probabilistic conditions on M, on the cost function f, and on the noise model under which the following rank-recovery phenomenon holds with high probability: the optimal solution X_SDP of the SDP relaxation lies in the lifted nonconvex feasible set {xx^T : x ∈ M} (equivalently, has the rank of a lifted point of M), and hence equals the lift of the (quasi-)MLE on M, throughout a noise regime strictly larger than the exact-recovery regime. Provide a theoretical explanation of this tightness beyond the exact-recovery threshold.\",\"macro_subject\":\"Applied Mathematics\",\"category_tag\":\"Semidefinite programming relaxations\",\"open_status\":\"partially_solved\",\"status_search_result\":\"The general phenomenon was posed as an open problem and remains without a unified explanation. Partial progress exists: Bandeira, Boumal, and Singer (arXiv:1411.3272) established a rank-recovery / tightness result for the angular synchronization SDP beyond exact recovery, and subsequent work (e.g., on Z2 synchronization and graph clustering, including a 2025 paper in Information and Inference) has analyzed benign nonconvex landscapes near exact-recovery thresholds. A general theory covering the broad class of recovery SDPs is still lacking.\",\"status_evidence\":[{\"title\":\"Tightness of the maximum likelihood semidefinite relaxation for angular synchronization\",\"url\":\"https://arxiv.org/abs/1411.3272\",\"snippet\":\"First instance establishing a rank-recovery/tightness result for an SDP relaxation beyond the exact-recovery regime, for angular synchronization.\",\"claim\":\"Partial progress: tightness/rank-recovery established for angular synchronization.\"},{\"title\":\"Nonconvex landscapes for Z2 synchronization and graph clustering are benign near exact recovery thresholds\",\"url\":\"https://academic.oup.com/imaiai/article/14/2/iaaf012/8123647\",\"snippet\":\"Analyzes benign nonconvex landscapes near exact-recovery thresholds for Z2 synchronization and graph clustering.\",\"claim\":\"Further partial progress on related models near exact-recovery thresholds.\"},{\"title\":\"Open problem: Tightness of maximum likelihood semidefinite relaxations\",\"url\":\"https://arxiv.org/abs/1404.2655\",\"snippet\":\"Posed as an open problem with the phenomenon unexplained beyond the exact-recovery regime.\",\"claim\":\"Original problem statement; phenomenon left open in general.\"}],\"confidence\":0.7},\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"uuid\":\"b0f578ee-78cb-46bb-a00d-2fa1aa54e476\"}\n"
+}

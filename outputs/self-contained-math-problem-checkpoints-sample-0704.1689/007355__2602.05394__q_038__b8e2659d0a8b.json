@@ -1,0 +1,47 @@
+{
+  "record": {
+    "global_index": 7355,
+    "source_json": "outputs/parse-paper/2602.05394.json",
+    "paper_id": "2602.05394",
+    "paper_title": "",
+    "paper_link": "https://arxiv.org/abs/2602.05394",
+    "question_link": "https://arxiv.org/pdf/2602.05394.pdf#page=36",
+    "question_id": "q_038",
+    "parser_is_solved": "false",
+    "context_brief": "randomized SVD with OSI",
+    "original_question": "Randomized SVD: Let (A R^n x d ) be a matrix, fix $r > 0$, and let (Omega R^n x k ) be an oblivious subspace injection with dimension $r$ and injectivity (1-epsilon ). Let $~A = (AOmega)(AOmega)^+A$ denote the randomized SVD approximation to $A$, and let $A_r$ be the best rank-$r$ approximation to $A$ with respect to the Frobenius norm. Prove or disprove: Does it necessarily hold that [ |A - ~A |_ F <= (1+O(epsilon)) |A-A_r |_ F? ]",
+    "evidence": [
+      {
+        "page": 36,
+        "quote": "Let \\(A \\in \\mathbb R^{n \\times d}\\) be a matrix, fix $r > 0$, and let \\(\\Omega \\in \\mathbb R^{n \\times k}\\) be an oblivious subspace injection with dimension $r$ and injectivity \\(1-\\varepsilon\\). Let $\\tilde{A} = (A\\Omega)(A\\Omega)^+A$ denote the randomized SVD approximation to $A$, and let $A_r$ be the best rank-$r$ approximation to $A$ with respect to the Frobenius norm. Prove or disprove: Does it necessarily hold that \\[ \\|A - \\tilde{A}\\|_{\\rm F} \\leq (1+\\mathcal{O}(\\varepsilon)) \\|A-A_r\\|_{\\rm F}? \\]"
+      }
+    ]
+  },
+  "artifact": {
+    "category_tag": "randomized numerical linear algebra",
+    "confidence": 0.6,
+    "macro_subject": "Applied Mathematics",
+    "open_status": "solved",
+    "self_contained_problem": "Let $A\\in\\mathbb{R}^{n\\times d}$ and fix an integer $r>0$. For $\\varepsilon\\in(0,1)$, call a (random) matrix $\\Omega\\in\\mathbb{R}^{n\\times k}$ an oblivious subspace injection of dimension $r$ with injectivity $1-\\varepsilon$ if, for every fixed $r$-dimensional subspace $V\\subseteq\\mathbb{R}^{n}$, with high probability the map $x\\mapsto \\Omega^{\\top}x$ restricted to $V$ satisfies\\n$$(1-\\varepsilon)\\|x\\|_2^2\\le \\|\\Omega^{\\top}x\\|_2^2\\le(1+\\varepsilon)\\|x\\|_2^2\\qquad\\text{for all }x\\in V.$$\\nDefine the randomized SVD approximation\\n$$\\tilde A \\;=\\; (A\\Omega)(A\\Omega)^{+}A,$$\\nwhere $(\\cdot)^{+}$ denotes the Moore–Penrose pseudoinverse, and let $A_r$ be a best rank-$r$ approximation to $A$ in the Frobenius norm, i.e. a minimizer of $\\|A-B\\|_F$ over all matrices $B$ of rank at most $r$.\\n\\nProve or disprove: there is an absolute constant $C>0$ (independent of $A$, $r$, $n$, $d$, $k$) such that\\n$$\\|A-\\tilde A\\|_F \\;\\le\\; (1+C\\varepsilon)\\,\\|A-A_r\\|_F.$$",
+    "status_search_result": "This is the standard guarantee for sketch-based randomized low-rank approximation. Sarlós (2006) and the analyses of subspace-embedding-based randomized SVD (e.g., Clarkson–Woodruff, Halko–Martinsson–Tropp, Woodruff's survey \"Sketching as a Tool for Numerical Linear Algebra\") establish that if $\\Omega$ is an oblivious subspace embedding for $r$-dimensional subspaces with distortion $\\varepsilon$, then $\\|A-(A\\Omega)(A\\Omega)^+A\\|_F \\le (1+O(\\varepsilon))\\|A-A_r\\|_F$. The statement is therefore known to be true.",
+    "status_evidence": [
+      {
+        "title": "Sketching as a Tool for Numerical Linear Algebra (Woodruff)",
+        "url": "https://arxiv.org/abs/1411.4357",
+        "snippet": "Provides the (1+epsilon) Frobenius-norm low-rank approximation guarantee for sketches that are subspace embeddings, including the bound for (A\\Omega)(A\\Omega)^+ A.",
+        "claim": "Standard textbook result: oblivious subspace embeddings yield (1+O(epsilon)) Frobenius low-rank approximation."
+      },
+      {
+        "title": "Sarlós, Improved Approximation Algorithms for Large Matrices via Random Projections",
+        "url": "https://ieeexplore.ieee.org/document/4031351",
+        "snippet": "Establishes that random projections satisfying a subspace embedding property give relative-error Frobenius low-rank approximations.",
+        "claim": "Original source for the (1+epsilon) Frobenius bound for projection-based randomized low-rank approximation."
+      }
+    ]
+  },
+  "model": "opus",
+  "effort": "medium",
+  "elapsed_s": 25.45,
+  "validation_warnings": [],
+  "raw_claude_stdout": "{\"type\":\"result\",\"subtype\":\"success\",\"is_error\":false,\"api_error_status\":null,\"duration_ms\":24095,\"duration_api_ms\":25279,\"num_turns\":2,\"result\":\"I've produced the dataset row. The problem is the classical Sarlós-type guarantee for sketch-based randomized SVD, which is known to hold (true) under the oblivious subspace embedding hypothesis.\\n\\nSources:\\n- [Sketching as a Tool for Numerical Linear Algebra](https://arxiv.org/abs/1411.4357)\\n- [Sarlós, Improved Approximation Algorithms for Large Matrices via Random Projections](https://ieeexplore.ieee.org/document/4031351)\",\"stop_reason\":\"end_turn\",\"session_id\":\"376a86d0-8102-42d9-b81b-62d05cc109bd\",\"total_cost_usd\":0.07060375,\"usage\":{\"input_tokens\":7,\"cache_creation_input_tokens\":3477,\"cache_read_input_tokens\":7221,\"output_tokens\":1764,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":3477,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[{\"input_tokens\":1,\"output_tokens\":176,\"cache_read_input_tokens\":4536,\"cache_creation_input_tokens\":1626,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":1626},\"type\":\"message\"}],\"speed\":\"standard\"},\"modelUsage\":{\"claude-haiku-4-5-20251001\":{\"inputTokens\":1042,\"outputTokens\":17,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":0,\"costUSD\":0.001127,\"contextWindow\":200000,\"maxOutputTokens\":32000},\"claude-opus-4-7\":{\"inputTokens\":7,\"outputTokens\":1764,\"cacheReadInputTokens\":7221,\"cacheCreationInputTokens\":3477,\"webSearchRequests\":0,\"costUSD\":0.06947675,\"contextWindow\":1000000,\"maxOutputTokens\":64000}},\"permission_denials\":[],\"structured_output\":{\"category_tag\":\"randomized numerical linear algebra\",\"confidence\":0.6,\"macro_subject\":\"Applied Mathematics\",\"open_status\":\"solved\",\"self_contained_problem\":\"Let $A\\\\in\\\\mathbb{R}^{n\\\\times d}$ and fix an integer $r>0$. For $\\\\varepsilon\\\\in(0,1)$, call a (random) matrix $\\\\Omega\\\\in\\\\mathbb{R}^{n\\\\times k}$ an oblivious subspace injection of dimension $r$ with injectivity $1-\\\\varepsilon$ if, for every fixed $r$-dimensional subspace $V\\\\subseteq\\\\mathbb{R}^{n}$, with high probability the map $x\\\\mapsto \\\\Omega^{\\\\top}x$ restricted to $V$ satisfies\\\\n$$(1-\\\\varepsilon)\\\\|x\\\\|_2^2\\\\le \\\\|\\\\Omega^{\\\\top}x\\\\|_2^2\\\\le(1+\\\\varepsilon)\\\\|x\\\\|_2^2\\\\qquad\\\\text{for all }x\\\\in V.$$\\\\nDefine the randomized SVD approximation\\\\n$$\\\\tilde A \\\\;=\\\\; (A\\\\Omega)(A\\\\Omega)^{+}A,$$\\\\nwhere $(\\\\cdot)^{+}$ denotes the Moore–Penrose pseudoinverse, and let $A_r$ be a best rank-$r$ approximation to $A$ in the Frobenius norm, i.e. a minimizer of $\\\\|A-B\\\\|_F$ over all matrices $B$ of rank at most $r$.\\\\n\\\\nProve or disprove: there is an absolute constant $C>0$ (independent of $A$, $r$, $n$, $d$, $k$) such that\\\\n$$\\\\|A-\\\\tilde A\\\\|_F \\\\;\\\\le\\\\; (1+C\\\\varepsilon)\\\\,\\\\|A-A_r\\\\|_F.$$\",\"status_search_result\":\"This is the standard guarantee for sketch-based randomized low-rank approximation. Sarlós (2006) and the analyses of subspace-embedding-based randomized SVD (e.g., Clarkson–Woodruff, Halko–Martinsson–Tropp, Woodruff's survey \\\"Sketching as a Tool for Numerical Linear Algebra\\\") establish that if $\\\\Omega$ is an oblivious subspace embedding for $r$-dimensional subspaces with distortion $\\\\varepsilon$, then $\\\\|A-(A\\\\Omega)(A\\\\Omega)^+A\\\\|_F \\\\le (1+O(\\\\varepsilon))\\\\|A-A_r\\\\|_F$. The statement is therefore known to be true.\",\"status_evidence\":[{\"title\":\"Sketching as a Tool for Numerical Linear Algebra (Woodruff)\",\"url\":\"https://arxiv.org/abs/1411.4357\",\"snippet\":\"Provides the (1+epsilon) Frobenius-norm low-rank approximation guarantee for sketches that are subspace embeddings, including the bound for (A\\\\Omega)(A\\\\Omega)^+ A.\",\"claim\":\"Standard textbook result: oblivious subspace embeddings yield (1+O(epsilon)) Frobenius low-rank approximation.\"},{\"title\":\"Sarlós, Improved Approximation Algorithms for Large Matrices via Random Projections\",\"url\":\"https://ieeexplore.ieee.org/document/4031351\",\"snippet\":\"Establishes that random projections satisfying a subspace embedding property give relative-error Frobenius low-rank approximations.\",\"claim\":\"Original source for the (1+epsilon) Frobenius bound for projection-based randomized low-rank approximation.\"}]},\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"uuid\":\"25f9981a-3071-471a-a94f-5f4f5230cf92\"}\n"
+}

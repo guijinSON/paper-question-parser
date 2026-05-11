@@ -1,0 +1,53 @@
+{
+  "record": {
+    "global_index": 7341,
+    "source_json": "outputs/parse-paper/2602.05394.json",
+    "paper_id": "2602.05394",
+    "paper_title": "",
+    "paper_link": "https://arxiv.org/abs/2602.05394",
+    "question_link": "https://arxiv.org/pdf/2602.05394.pdf#page=21",
+    "question_id": "q_021",
+    "parser_is_solved": "false",
+    "context_brief": "deterministic shattering",
+    "original_question": "Deterministic Pseudospectral Shattering: Give a provably correct and efficient deterministic algorithm for the following task: on input $A C^n x n$ and $delta>0$, output a perturbation $E$ with $ |E | delta$ such that $kappa_eig(A+E) C(delta/n)^c$, where $C,c$ are universal constants. In this context, efficient means $O(n^3 ^c(n/delta))$ arithmetic operations, either in exact arithmetic or, more ambitiously, in finite arithmetic with $O( ^c(n/delta))$ bits of precision.",
+    "evidence": [
+      {
+        "page": 21,
+        "quote": "Give a provably correct and efficient \\emph{deterministic} algorithm for the following task: on input $A\\in\\mathbb{C}^{n\\times n}$ and $\\delta>0$, output a perturbation $E$ with $\\|E\\|\\le \\delta$ such that $\\kappa_{eig}(A+E)\\le C(\\delta/n)^c$, where $C,c$ are universal constants. In this context, efficient means $O(n^3\\log^c(n/\\delta))$ arithmetic operations, either in exact arithmetic or, more ambitiously, in finite arithmetic with $O(\\log^c(n/\\delta))$ bits of precision."
+      }
+    ]
+  },
+  "artifact": {
+    "self_contained_problem": "For a matrix $M\\in\\mathbb{C}^{n\\times n}$ that is diagonalizable as $M=VDV^{-1}$ with $D$ diagonal, define the eigenvector condition number\n$$\\kappa_{\\mathrm{eig}}(M)=\\inf_{V}\\,\\|V\\|\\,\\|V^{-1}\\|,$$\nwhere the infimum is over all such diagonalizations and $\\|\\cdot\\|$ denotes the spectral norm (set $\\kappa_{\\mathrm{eig}}(M)=\\infty$ if $M$ is not diagonalizable).\n\nConstruct a deterministic algorithm with the following provable guarantee. There exist universal constants $C,c>0$ such that, given as input any matrix $A\\in\\mathbb{C}^{n\\times n}$ with $\\|A\\|\\le 1$ and any parameter $\\delta>0$, the algorithm outputs a perturbation $E\\in\\mathbb{C}^{n\\times n}$ with\n$$\\|E\\|\\le\\delta\\qquad\\text{and}\\qquad \\kappa_{\\mathrm{eig}}(A+E)\\le C\\left(\\frac{n}{\\delta}\\right)^{c}.$$\nThe algorithm must be efficient, in the sense of using $O(n^3\\,\\log^{c}(n/\\delta))$ arithmetic operations, either in exact arithmetic, or—more ambitiously—in finite-precision arithmetic with $O(\\log^{c}(n/\\delta))$ bits of precision.\n\nEither exhibit such a deterministic algorithm together with a proof of correctness, or prove that no such algorithm exists.",
+    "macro_subject": "Applied Mathematics",
+    "category_tag": "numerical linear algebra / pseudospectral shattering",
+    "open_status": "open",
+    "status_search_result": "Existing pseudospectral shattering algorithms (Banks–Garza-Vargas–Kulkarni–Srivastava and the generalized/sparse extensions) are randomized: they rely on adding a random Gaussian (or sparse random) perturbation to achieve the eigenvector-conditioning guarantee. Subsequent work through 2024 (generalized pencils, sparse perturbations) still uses randomness, and no deterministic polynomial-time algorithm achieving the stated guarantee appears in the literature, indicating the problem remains open.",
+    "status_evidence": [
+      {
+        "title": "Pseudospectral Shattering, the Sign Function, and Diagonalization in Nearly Matrix Multiplication Time",
+        "url": "https://arxiv.org/abs/1912.08805",
+        "snippet": "Randomized algorithm using a complex Gaussian perturbation to achieve pseudospectral shattering and diagonalize an arbitrary matrix.",
+        "claim": "The original shattering algorithm is randomized."
+      },
+      {
+        "title": "Generalized Pseudospectral Shattering and Inverse-Free Matrix Pencil Diagonalization",
+        "url": "https://arxiv.org/abs/2306.03700",
+        "snippet": "Extends shattering to matrix pencils, still relying on random perturbation.",
+        "claim": "Recent extensions remain randomized, no deterministic version reported."
+      },
+      {
+        "title": "Sparse Pseudospectral Shattering",
+        "url": "https://arxiv.org/abs/2411.19926",
+        "snippet": "Studies sparse random perturbations achieving pseudospectral shattering.",
+        "claim": "Most recent work continues to rely on randomness."
+      }
+    ],
+    "confidence": 0.8
+  },
+  "model": "opus",
+  "effort": "medium",
+  "elapsed_s": 31.67,
+  "validation_warnings": [],
+  "raw_claude_stdout": "{\"type\":\"result\",\"subtype\":\"success\",\"is_error\":false,\"api_error_status\":null,\"duration_ms\":30396,\"duration_api_ms\":29837,\"num_turns\":3,\"result\":\"Provided the structured row.\\n\\nSources:\\n- [Pseudospectral Shattering, the Sign Function, and Diagonalization in Nearly Matrix Multiplication Time (arXiv 1912.08805)](https://arxiv.org/abs/1912.08805)\\n- [Generalized Pseudospectral Shattering and Inverse-Free Matrix Pencil Diagonalization (arXiv 2306.03700)](https://arxiv.org/abs/2306.03700)\\n- [Sparse Pseudospectral Shattering (arXiv 2411.19926)](https://arxiv.org/abs/2411.19926)\",\"stop_reason\":\"end_turn\",\"session_id\":\"1a0b5215-f311-4dc1-b1af-486ecea81f7f\",\"total_cost_usd\":0.1077525,\"usage\":{\"input_tokens\":8,\"cache_creation_input_tokens\":4650,\"cache_read_input_tokens\":13110,\"output_tokens\":1683,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":4650,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[{\"input_tokens\":1,\"output_tokens\":213,\"cache_read_input_tokens\":5976,\"cache_creation_input_tokens\":1359,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":1359},\"type\":\"message\"}],\"speed\":\"standard\"},\"modelUsage\":{\"claude-haiku-4-5-20251001\":{\"inputTokens\":17685,\"outputTokens\":467,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":1,\"costUSD\":0.03002,\"contextWindow\":200000,\"maxOutputTokens\":32000},\"claude-opus-4-7\":{\"inputTokens\":8,\"outputTokens\":1683,\"cacheReadInputTokens\":13110,\"cacheCreationInputTokens\":4650,\"webSearchRequests\":0,\"costUSD\":0.0777325,\"contextWindow\":1000000,\"maxOutputTokens\":64000}},\"permission_denials\":[],\"structured_output\":{\"self_contained_problem\":\"For a matrix $M\\\\in\\\\mathbb{C}^{n\\\\times n}$ that is diagonalizable as $M=VDV^{-1}$ with $D$ diagonal, define the eigenvector condition number\\n$$\\\\kappa_{\\\\mathrm{eig}}(M)=\\\\inf_{V}\\\\,\\\\|V\\\\|\\\\,\\\\|V^{-1}\\\\|,$$\\nwhere the infimum is over all such diagonalizations and $\\\\|\\\\cdot\\\\|$ denotes the spectral norm (set $\\\\kappa_{\\\\mathrm{eig}}(M)=\\\\infty$ if $M$ is not diagonalizable).\\n\\nConstruct a deterministic algorithm with the following provable guarantee. There exist universal constants $C,c>0$ such that, given as input any matrix $A\\\\in\\\\mathbb{C}^{n\\\\times n}$ with $\\\\|A\\\\|\\\\le 1$ and any parameter $\\\\delta>0$, the algorithm outputs a perturbation $E\\\\in\\\\mathbb{C}^{n\\\\times n}$ with\\n$$\\\\|E\\\\|\\\\le\\\\delta\\\\qquad\\\\text{and}\\\\qquad \\\\kappa_{\\\\mathrm{eig}}(A+E)\\\\le C\\\\left(\\\\frac{n}{\\\\delta}\\\\right)^{c}.$$\\nThe algorithm must be efficient, in the sense of using $O(n^3\\\\,\\\\log^{c}(n/\\\\delta))$ arithmetic operations, either in exact arithmetic, or—more ambitiously—in finite-precision arithmetic with $O(\\\\log^{c}(n/\\\\delta))$ bits of precision.\\n\\nEither exhibit such a deterministic algorithm together with a proof of correctness, or prove that no such algorithm exists.\",\"macro_subject\":\"Applied Mathematics\",\"category_tag\":\"numerical linear algebra / pseudospectral shattering\",\"open_status\":\"open\",\"status_search_result\":\"Existing pseudospectral shattering algorithms (Banks–Garza-Vargas–Kulkarni–Srivastava and the generalized/sparse extensions) are randomized: they rely on adding a random Gaussian (or sparse random) perturbation to achieve the eigenvector-conditioning guarantee. Subsequent work through 2024 (generalized pencils, sparse perturbations) still uses randomness, and no deterministic polynomial-time algorithm achieving the stated guarantee appears in the literature, indicating the problem remains open.\",\"status_evidence\":[{\"title\":\"Pseudospectral Shattering, the Sign Function, and Diagonalization in Nearly Matrix Multiplication Time\",\"url\":\"https://arxiv.org/abs/1912.08805\",\"snippet\":\"Randomized algorithm using a complex Gaussian perturbation to achieve pseudospectral shattering and diagonalize an arbitrary matrix.\",\"claim\":\"The original shattering algorithm is randomized.\"},{\"title\":\"Generalized Pseudospectral Shattering and Inverse-Free Matrix Pencil Diagonalization\",\"url\":\"https://arxiv.org/abs/2306.03700\",\"snippet\":\"Extends shattering to matrix pencils, still relying on random perturbation.\",\"claim\":\"Recent extensions remain randomized, no deterministic version reported.\"},{\"title\":\"Sparse Pseudospectral Shattering\",\"url\":\"https://arxiv.org/abs/2411.19926\",\"snippet\":\"Studies sparse random perturbations achieving pseudospectral shattering.\",\"claim\":\"Most recent work continues to rely on randomness.\"}],\"confidence\":0.8},\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"uuid\":\"cba7a7bd-feff-4c67-a023-2dba03cf3695\"}\n"
+}

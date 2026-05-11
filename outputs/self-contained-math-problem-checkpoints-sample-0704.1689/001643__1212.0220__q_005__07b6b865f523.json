@@ -1,0 +1,47 @@
+{
+  "record": {
+    "global_index": 1643,
+    "source_json": "outputs/parse-paper/1212.0220.json",
+    "paper_id": "1212.0220",
+    "paper_title": "",
+    "paper_link": "https://arxiv.org/abs/1212.0220",
+    "question_link": "https://arxiv.org/pdf/1212.0220.pdf#page=11",
+    "question_id": "q_005",
+    "parser_is_solved": "false",
+    "context_brief": "Memory and search efficiency",
+    "original_question": "How can one prove that the use of memory can significantly increase the search efficiency of a metaheuristic algorithm, and under what conditions does such an efficiency gain hold?",
+    "evidence": [
+      {
+        "page": 11,
+        "quote": "How to prove that the use of memory can significantly increase the search efficiency of an algorithm? Under what conditions?"
+      }
+    ]
+  },
+  "artifact": {
+    "self_contained_problem": "Consider the abstract setting of metaheuristic search. A metaheuristic algorithm A is a (possibly randomized) iterative procedure that, at each step t, produces a candidate solution x_t in a search space X (with objective function f : X → ℝ to be optimized) based on information from previous iterations. Define a memoryless variant A_0 of A as one in which the next candidate x_{t+1} depends only on the current state x_t (and possibly external randomness), and a memory-augmented variant A_M as one in which the algorithm maintains an auxiliary data structure M_t (the \"memory\") summarizing a subset of the history {(x_s, f(x_s)) : s ≤ t}, and chooses x_{t+1} as a function of (x_t, M_t).\n\nDefine the search efficiency of an algorithm on a problem instance to be E(A) = 1 / 𝔼[T_A(ε)], where T_A(ε) is the first iteration at which A produces a solution within ε of the global optimum of f.\n\nProvide a rigorous proof of a theorem of the following form: there exist natural classes 𝓕 of objective functions f and natural classes of memory structures M such that, for every f ∈ 𝓕,\n   E(A_M) ≥ c(f) · E(A_0)\nwith c(f) > 1 (and ideally with c(f) growing in some complexity parameter of f). Identify and justify the precise conditions on 𝓕, on M, and on the update rule that are necessary and sufficient for such an efficiency gain to hold, and exhibit (or rule out) regimes in which adding memory provably fails to increase, or even decreases, search efficiency.",
+    "macro_subject": "Theoretical Computer Science",
+    "category_tag": "Metaheuristic optimization",
+    "open_status": "open",
+    "status_search_result": "Recent surveys and reviews of metaheuristics (e.g., 2023–2024 reviews on memory-driven metaheuristics and exhaustive surveys of metaheuristic search) continue to list the rigorous theoretical analysis of memory's contribution to search efficiency among open challenges. No general theorem proving an unconditional efficiency gain from memory has been established; results remain empirical or restricted to specific algorithms/problem classes.",
+    "status_evidence": [
+      {
+        "title": "An exhaustive review of the metaheuristic algorithms for search and optimization: taxonomy, applications, and open challenges",
+        "url": "https://link.springer.com/article/10.1007/s10462-023-10470-y",
+        "snippet": "Discusses open challenges in metaheuristic search, including the role and theoretical analysis of memory mechanisms.",
+        "claim": "Theoretical questions about memory's effect on metaheuristic search efficiency are listed among open challenges."
+      },
+      {
+        "title": "Memory-Driven Metaheuristics: Improving Optimization Performance",
+        "url": "https://link.springer.com/rwe/10.1007/978-981-19-8851-6_38-1",
+        "snippet": "Key factors influencing the effectiveness of memory mechanisms include memory size, stored information, and decay rate; future research directions include improving memory mechanisms.",
+        "claim": "The conditions under which memory yields efficiency gains remain a subject of ongoing research rather than a settled theorem."
+      }
+    ],
+    "confidence": 0.7
+  },
+  "model": "opus",
+  "effort": "medium",
+  "elapsed_s": 34.26,
+  "validation_warnings": [],
+  "raw_claude_stdout": "{\"type\":\"result\",\"subtype\":\"success\",\"is_error\":false,\"api_error_status\":null,\"duration_ms\":32881,\"duration_api_ms\":32361,\"num_turns\":3,\"result\":\"Sources:\\n- [An exhaustive review of metaheuristic algorithms — Springer](https://link.springer.com/article/10.1007/s10462-023-10470-y)\\n- [Memory-Driven Metaheuristics: Improving Optimization Performance](https://link.springer.com/rwe/10.1007/978-981-19-8851-6_38-1)\\n- [Deep Memory Search (arXiv)](https://arxiv.org/html/2410.17042v1)\",\"stop_reason\":\"end_turn\",\"session_id\":\"bb4f7161-5884-4cb1-8003-466aa09a4461\",\"total_cost_usd\":0.10396575000000001,\"usage\":{\"input_tokens\":8,\"cache_creation_input_tokens\":4245,\"cache_read_input_tokens\":12453,\"output_tokens\":1552,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":4245,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[{\"input_tokens\":1,\"output_tokens\":160,\"cache_read_input_tokens\":5654,\"cache_creation_input_tokens\":1276,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":1276},\"type\":\"message\"}],\"speed\":\"standard\"},\"modelUsage\":{\"claude-haiku-4-5-20251001\":{\"inputTokens\":19928,\"outputTokens\":488,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":1,\"costUSD\":0.032368,\"contextWindow\":200000,\"maxOutputTokens\":32000},\"claude-opus-4-7\":{\"inputTokens\":8,\"outputTokens\":1552,\"cacheReadInputTokens\":12453,\"cacheCreationInputTokens\":4245,\"webSearchRequests\":0,\"costUSD\":0.07159775,\"contextWindow\":1000000,\"maxOutputTokens\":64000}},\"permission_denials\":[],\"structured_output\":{\"self_contained_problem\":\"Consider the abstract setting of metaheuristic search. A metaheuristic algorithm A is a (possibly randomized) iterative procedure that, at each step t, produces a candidate solution x_t in a search space X (with objective function f : X → ℝ to be optimized) based on information from previous iterations. Define a memoryless variant A_0 of A as one in which the next candidate x_{t+1} depends only on the current state x_t (and possibly external randomness), and a memory-augmented variant A_M as one in which the algorithm maintains an auxiliary data structure M_t (the \\\"memory\\\") summarizing a subset of the history {(x_s, f(x_s)) : s ≤ t}, and chooses x_{t+1} as a function of (x_t, M_t).\\n\\nDefine the search efficiency of an algorithm on a problem instance to be E(A) = 1 / 𝔼[T_A(ε)], where T_A(ε) is the first iteration at which A produces a solution within ε of the global optimum of f.\\n\\nProvide a rigorous proof of a theorem of the following form: there exist natural classes 𝓕 of objective functions f and natural classes of memory structures M such that, for every f ∈ 𝓕,\\n   E(A_M) ≥ c(f) · E(A_0)\\nwith c(f) > 1 (and ideally with c(f) growing in some complexity parameter of f). Identify and justify the precise conditions on 𝓕, on M, and on the update rule that are necessary and sufficient for such an efficiency gain to hold, and exhibit (or rule out) regimes in which adding memory provably fails to increase, or even decreases, search efficiency.\",\"macro_subject\":\"Theoretical Computer Science\",\"category_tag\":\"Metaheuristic optimization\",\"open_status\":\"open\",\"status_search_result\":\"Recent surveys and reviews of metaheuristics (e.g., 2023–2024 reviews on memory-driven metaheuristics and exhaustive surveys of metaheuristic search) continue to list the rigorous theoretical analysis of memory's contribution to search efficiency among open challenges. No general theorem proving an unconditional efficiency gain from memory has been established; results remain empirical or restricted to specific algorithms/problem classes.\",\"status_evidence\":[{\"title\":\"An exhaustive review of the metaheuristic algorithms for search and optimization: taxonomy, applications, and open challenges\",\"url\":\"https://link.springer.com/article/10.1007/s10462-023-10470-y\",\"snippet\":\"Discusses open challenges in metaheuristic search, including the role and theoretical analysis of memory mechanisms.\",\"claim\":\"Theoretical questions about memory's effect on metaheuristic search efficiency are listed among open challenges.\"},{\"title\":\"Memory-Driven Metaheuristics: Improving Optimization Performance\",\"url\":\"https://link.springer.com/rwe/10.1007/978-981-19-8851-6_38-1\",\"snippet\":\"Key factors influencing the effectiveness of memory mechanisms include memory size, stored information, and decay rate; future research directions include improving memory mechanisms.\",\"claim\":\"The conditions under which memory yields efficiency gains remain a subject of ongoing research rather than a settled theorem.\"}],\"confidence\":0.7},\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"uuid\":\"b6647f81-cbd6-4fa5-942d-7e8ec37e32c0\"}\n"
+}

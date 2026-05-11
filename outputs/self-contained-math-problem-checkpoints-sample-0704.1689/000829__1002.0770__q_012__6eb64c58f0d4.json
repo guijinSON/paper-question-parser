@@ -1,0 +1,71 @@
+{
+  "record": {
+    "global_index": 829,
+    "source_json": "outputs/parse-paper/1002.0770.json",
+    "paper_id": "1002.0770",
+    "paper_title": "Open problems in theory of nuclear open quantum systems",
+    "paper_link": "https://arxiv.org/abs/1002.0770",
+    "question_link": "https://arxiv.org/pdf/1002.0770.pdf#page=12",
+    "question_id": "q_012",
+    "parser_is_solved": "false",
+    "context_brief": "Fast GSM reaction-channel overlaps",
+    "original_question": "How can fast and scalable algorithms be developed for calculating the overlaps O_{c;n} between reaction channels and Gamow Shell Model many-body states, including the required coordinate transformations for heavier projectiles and for reactions with two-body asymptotic conditions?",
+    "evidence": [
+      {
+        "page": 12,
+        "quote": "In the above equation, Hnm≡⟨Ψn|H|Ψm⟩ is the GSM Hamiltonian matrix and Oc;n≡⟨c;r|Ψn⟩ are overlaps of the reaction channel and the GSM many-body state."
+      },
+      {
+        "page": 12,
+        "quote": "Formally, Eq. (8) takes the same form independently of the choice of reaction channels; the whole complication is hidden in the overlaps Oc;n."
+      },
+      {
+        "page": 12,
+        "quote": "Their calculation is a formidable task for the GSM approach."
+      },
+      {
+        "page": 12,
+        "quote": "It requires a complicated change of the coordinate system which makes the calculation difficult for heavier projectiles, even for reactions with two-body asymptotic conditions."
+      },
+      {
+        "page": 12,
+        "quote": "Any future progress in the application of GSM to nuclear reactions is ultimately related to the progress in the development of new algorithms for fast calculation of overlaps."
+      }
+    ]
+  },
+  "artifact": {
+    "self_contained_problem": "In the Gamow Shell Model (GSM), nuclear many-body states $|\\Psi_n\\rangle$ are expanded in a Berggren single-particle basis that includes bound, resonant (Gamow), and non-resonant scattering states, so as to describe both bound and unbound nuclei as open quantum systems. Reaction observables can be obtained by writing the coupled-channel equation\n$$\\sum_m H_{nm}\\,c_m(r) - E\\sum_m N_{nm}\\,c_m(r) = \\text{source terms involving the channel functions},$$\nwhere $H_{nm} \\equiv \\langle \\Psi_n | H | \\Psi_m\\rangle$ is the GSM Hamiltonian matrix, and where the essential ingredients linking many-body structure to reaction asymptotics are the channel–state overlaps\n$$O_{c;n}(r) \\equiv \\langle c; r \\,|\\, \\Psi_n\\rangle,$$\nwith $|c; r\\rangle$ denoting a reaction channel built by coupling a target many-body state with a projectile localized at relative distance $r$ in a chosen partial wave and spin–isospin coupling.\n\nDevelop a fast and scalable algorithm for the numerical evaluation of the overlaps $O_{c;n}(r)$ for arbitrary $n$ and channel labels $c$, including the explicit coordinate transformation between the GSM single-particle (laboratory or core-frame) coordinates used to expand $|\\Psi_n\\rangle$ and the relative–center-of-mass coordinates required by $|c;r\\rangle$, in such a way that the method:\n(i) remains tractable as the projectile mass increases (i.e., for composite projectiles heavier than a single nucleon), and\n(ii) handles reactions with two-body asymptotic conditions (one target plus one composite projectile, with all required antisymmetrization between projectile and target nucleons).\n\nSpecify the algorithm, prove its correctness, and analyze its computational complexity as a function of the number of GSM basis states, the projectile mass number, and the radial discretization.",
+    "macro_subject": "Mathematical Physics",
+    "category_tag": "Gamow Shell Model reaction overlaps",
+    "open_status": "partially_solved",
+    "status_search_result": "Substantial progress has been made on the GSM coupled-channel (GSM-CC) framework since this question was posed. Algorithms for computing channel–state overlaps via a resonating-group (RGM) construction have been implemented and applied to (d,p) transfer reactions on targets up to 40Ca, to radiative capture such as 8B(p,γ)9C, and to elastic scattering like 17Ne(p,p), demonstrating practical handling of two-body asymptotic conditions and composite (deuteron-like) projectiles. Recent work also introduces reduced-basis/Bayesian emulators giving roughly four orders of magnitude speedups. However, fully scalable algorithms for arbitrarily heavy composite projectiles with the required coordinate transformations remain an active area of development rather than a fully closed problem.",
+    "status_evidence": [
+      {
+        "title": "Gamow Shell Model description of 40Ca(d,p) transfer reaction",
+        "url": "https://arxiv.org/abs/2301.05419",
+        "snippet": "GSM-CC applied to (d,p) transfer reactions, treating two-body asymptotic conditions with composite projectile.",
+        "claim": "Algorithms for two-body asymptotic GSM-CC reactions with composite projectiles have been implemented for medium-mass targets."
+      },
+      {
+        "title": "Gamow shell model description of the radiative capture reaction 8B(p,γ)9C",
+        "url": "https://arxiv.org/abs/2212.13172",
+        "snippet": "GSM-CC framework used for radiative capture in a unified structure-reaction approach.",
+        "claim": "GSM-CC reaction channel overlaps have been used in practical capture-reaction calculations."
+      },
+      {
+        "title": "Gamow shell model study of 17Ne(p,p) and isospin symmetry breaking in 18Na",
+        "url": "https://arxiv.org/html/2510.07693",
+        "snippet": "Recent GSM-CC application to elastic proton scattering, with overlap-based selection of resonant solutions.",
+        "claim": "Overlap-based techniques in GSM-CC are an ongoing active development."
+      }
+    ],
+    "confidence": 0.6
+  },
+  "model": "opus",
+  "effort": "medium",
+  "elapsed_s": 41.88,
+  "validation_warnings": [
+    "self_contained_problem_mentions_article"
+  ],
+  "raw_claude_stdout": "{\"type\":\"result\",\"subtype\":\"success\",\"is_error\":false,\"api_error_status\":null,\"duration_ms\":40733,\"duration_api_ms\":37739,\"num_turns\":3,\"result\":\"Sources:\\n- [GSM description of 40Ca(d,p) transfer reaction](https://arxiv.org/abs/2301.05419)\\n- [GSM description of radiative capture 8B(p,γ)9C](https://arxiv.org/abs/2212.13172)\\n- [GSM study of 17Ne(p,p)](https://arxiv.org/html/2510.07693)\\n- [GSM transfer reaction (Phys. Rev. C)](https://link.aps.org/doi/10.1103/PhysRevC.107.L011603)\",\"stop_reason\":\"end_turn\",\"session_id\":\"5c6966d7-078b-4251-aa92-74a247ed4da9\",\"total_cost_usd\":0.11459949999999999,\"usage\":{\"input_tokens\":8,\"cache_creation_input_tokens\":4780,\"cache_read_input_tokens\":12911,\"output_tokens\":1949,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":4780,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[{\"input_tokens\":1,\"output_tokens\":184,\"cache_read_input_tokens\":5816,\"cache_creation_input_tokens\":1649,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":1649},\"type\":\"message\"}],\"speed\":\"standard\"},\"modelUsage\":{\"claude-haiku-4-5-20251001\":{\"inputTokens\":17259,\"outputTokens\":449,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":1,\"costUSD\":0.029504,\"contextWindow\":200000,\"maxOutputTokens\":32000},\"claude-opus-4-7\":{\"inputTokens\":8,\"outputTokens\":1949,\"cacheReadInputTokens\":12911,\"cacheCreationInputTokens\":4780,\"webSearchRequests\":0,\"costUSD\":0.08509549999999999,\"contextWindow\":1000000,\"maxOutputTokens\":64000}},\"permission_denials\":[],\"structured_output\":{\"self_contained_problem\":\"In the Gamow Shell Model (GSM), nuclear many-body states $|\\\\Psi_n\\\\rangle$ are expanded in a Berggren single-particle basis that includes bound, resonant (Gamow), and non-resonant scattering states, so as to describe both bound and unbound nuclei as open quantum systems. Reaction observables can be obtained by writing the coupled-channel equation\\n$$\\\\sum_m H_{nm}\\\\,c_m(r) - E\\\\sum_m N_{nm}\\\\,c_m(r) = \\\\text{source terms involving the channel functions},$$\\nwhere $H_{nm} \\\\equiv \\\\langle \\\\Psi_n | H | \\\\Psi_m\\\\rangle$ is the GSM Hamiltonian matrix, and where the essential ingredients linking many-body structure to reaction asymptotics are the channel–state overlaps\\n$$O_{c;n}(r) \\\\equiv \\\\langle c; r \\\\,|\\\\, \\\\Psi_n\\\\rangle,$$\\nwith $|c; r\\\\rangle$ denoting a reaction channel built by coupling a target many-body state with a projectile localized at relative distance $r$ in a chosen partial wave and spin–isospin coupling.\\n\\nDevelop a fast and scalable algorithm for the numerical evaluation of the overlaps $O_{c;n}(r)$ for arbitrary $n$ and channel labels $c$, including the explicit coordinate transformation between the GSM single-particle (laboratory or core-frame) coordinates used to expand $|\\\\Psi_n\\\\rangle$ and the relative–center-of-mass coordinates required by $|c;r\\\\rangle$, in such a way that the method:\\n(i) remains tractable as the projectile mass increases (i.e., for composite projectiles heavier than a single nucleon), and\\n(ii) handles reactions with two-body asymptotic conditions (one target plus one composite projectile, with all required antisymmetrization between projectile and target nucleons).\\n\\nSpecify the algorithm, prove its correctness, and analyze its computational complexity as a function of the number of GSM basis states, the projectile mass number, and the radial discretization.\",\"macro_subject\":\"Mathematical Physics\",\"category_tag\":\"Gamow Shell Model reaction overlaps\",\"open_status\":\"partially_solved\",\"status_search_result\":\"Substantial progress has been made on the GSM coupled-channel (GSM-CC) framework since this question was posed. Algorithms for computing channel–state overlaps via a resonating-group (RGM) construction have been implemented and applied to (d,p) transfer reactions on targets up to 40Ca, to radiative capture such as 8B(p,γ)9C, and to elastic scattering like 17Ne(p,p), demonstrating practical handling of two-body asymptotic conditions and composite (deuteron-like) projectiles. Recent work also introduces reduced-basis/Bayesian emulators giving roughly four orders of magnitude speedups. However, fully scalable algorithms for arbitrarily heavy composite projectiles with the required coordinate transformations remain an active area of development rather than a fully closed problem.\",\"status_evidence\":[{\"title\":\"Gamow Shell Model description of 40Ca(d,p) transfer reaction\",\"url\":\"https://arxiv.org/abs/2301.05419\",\"snippet\":\"GSM-CC applied to (d,p) transfer reactions, treating two-body asymptotic conditions with composite projectile.\",\"claim\":\"Algorithms for two-body asymptotic GSM-CC reactions with composite projectiles have been implemented for medium-mass targets.\"},{\"title\":\"Gamow shell model description of the radiative capture reaction 8B(p,γ)9C\",\"url\":\"https://arxiv.org/abs/2212.13172\",\"snippet\":\"GSM-CC framework used for radiative capture in a unified structure-reaction approach.\",\"claim\":\"GSM-CC reaction channel overlaps have been used in practical capture-reaction calculations.\"},{\"title\":\"Gamow shell model study of 17Ne(p,p) and isospin symmetry breaking in 18Na\",\"url\":\"https://arxiv.org/html/2510.07693\",\"snippet\":\"Recent GSM-CC application to elastic proton scattering, with overlap-based selection of resonant solutions.\",\"claim\":\"Overlap-based techniques in GSM-CC are an ongoing active development.\"}],\"confidence\":0.6},\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"uuid\":\"e8af9fbd-323f-4253-a112-5f0ebcbccca7\"}\n"
+}

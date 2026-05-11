@@ -1,0 +1,47 @@
+{
+  "record": {
+    "global_index": 2587,
+    "source_json": "outputs/parse-paper/1511.00270.json",
+    "paper_id": "1511.00270",
+    "paper_title": "Problem collection from the IML programme: Graphs, Hypergraphs, and Computing",
+    "paper_link": "https://arxiv.org/abs/1511.00270",
+    "question_link": "https://arxiv.org/pdf/1511.00270.pdf#page=18",
+    "question_id": "q_033",
+    "parser_is_solved": "false",
+    "context_brief": "Reconstructing a graph from edge-path data",
+    "original_question": "Given a finite set E and a collection of finite sequences of elements of E that are intended to be simple paths, can one decide efficiently whether there exists a graph whose edge set is E and whose simple paths include exactly those sequences?",
+    "evidence": [
+      {
+        "page": 18,
+        "quote": "We now wish to determine if there is a graph such that E is the edges of the graph and the sequences are (nice, simple) paths in the graph. This can be done, the graph would have at most 2|E| vertices so you can search all possibilities. So the question would be whether you can do it efficiently."
+      }
+    ]
+  },
+  "artifact": {
+    "self_contained_problem": "Let $E$ be a finite set, and let $\\mathcal{S} = (s_1, s_2, \\ldots, s_m)$ be a finite collection of finite sequences whose entries are elements of $E$. We say that an undirected graph $G = (V, E)$ with edge set $E$ realizes $\\mathcal{S}$ if:\n\n1. For each sequence $s_i = (e_{i,1}, e_{i,2}, \\ldots, e_{i,k_i}) \\in \\mathcal{S}$, there exists a simple path in $G$ (a walk that does not repeat vertices) whose ordered sequence of traversed edges is exactly $s_i$;\n2. The set of all such ordered edge-sequences arising from simple paths of $G$ is exactly $\\mathcal{S}$ (as a set).\n\nNote that any such graph has at most $2|E|$ vertices, so existence can be decided by brute-force search over all candidate vertex sets and incidence structures.\n\nQuestion: Is there an algorithm that, given $E$ and $\\mathcal{S}$, decides in time polynomial in the total input size $|E| + \\sum_{i} k_i$ whether such a graph $G$ exists? Equivalently, determine the computational complexity of this decision problem.",
+    "macro_subject": "Theoretical Computer Science",
+    "category_tag": "Graph reconstruction algorithms",
+    "open_status": "unknown",
+    "status_search_result": "Web searches reveal related work on reconstructing graphs from path traces (e.g., Gripon and others) and on graph reconstruction from queries, but none directly addresses the precise decision problem of efficiently testing whether a given collection of edge-sequences is exactly the set of simple paths of some graph on the given edge set. No published polynomial-time algorithm or hardness reduction matching this formulation was located, so the status is treated as unknown.",
+    "status_evidence": [
+      {
+        "title": "Reconstructing a Graph from Path Traces",
+        "url": "https://arxiv.org/pdf/1301.6916",
+        "snippet": "Algorithms for reconstructing networks from traces are exponential in trace size; greedy methods provide guarantees only under restrictive conditions.",
+        "claim": "Existing reconstruction-from-paths algorithms address related but distinct problems and do not resolve the efficient-decision question."
+      },
+      {
+        "title": "Reconstruction of the path graph",
+        "url": "https://www.sciencedirect.com/science/article/pii/S0925772118300129",
+        "snippet": "Studies of graph reconstruction from path-related data continue to appear, indicating the area is active.",
+        "claim": "The complexity question for deciding realizability from a prescribed set of simple-path edge-sequences does not appear to have a definitive published resolution."
+      }
+    ],
+    "confidence": 0.5
+  },
+  "model": "opus",
+  "effort": "medium",
+  "elapsed_s": 30.68,
+  "validation_warnings": [],
+  "raw_claude_stdout": "{\"type\":\"result\",\"subtype\":\"success\",\"is_error\":false,\"api_error_status\":null,\"duration_ms\":29174,\"duration_api_ms\":29209,\"num_turns\":3,\"result\":\"Sources:\\n- [Reconstructing a Graph from Path Traces](https://arxiv.org/pdf/1301.6916)\\n- [Reconstruction of the path graph](https://www.sciencedirect.com/science/article/pii/S0925772118300129)\\n- [Graph reconstruction from path correlation data](https://arxiv.org/pdf/1804.04574)\",\"stop_reason\":\"end_turn\",\"session_id\":\"4fc789e9-247a-4f94-9e16-08740713aa17\",\"total_cost_usd\":0.09891775,\"usage\":{\"input_tokens\":8,\"cache_creation_input_tokens\":3993,\"cache_read_input_tokens\":12483,\"output_tokens\":1319,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":3993,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[{\"input_tokens\":1,\"output_tokens\":127,\"cache_read_input_tokens\":5578,\"cache_creation_input_tokens\":1100,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":1100},\"type\":\"message\"}],\"speed\":\"standard\"},\"modelUsage\":{\"claude-haiku-4-5-20251001\":{\"inputTokens\":22250,\"outputTokens\":491,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":1,\"costUSD\":0.034705,\"contextWindow\":200000,\"maxOutputTokens\":32000},\"claude-opus-4-7\":{\"inputTokens\":8,\"outputTokens\":1319,\"cacheReadInputTokens\":12483,\"cacheCreationInputTokens\":3993,\"webSearchRequests\":0,\"costUSD\":0.06421275,\"contextWindow\":1000000,\"maxOutputTokens\":64000}},\"permission_denials\":[],\"structured_output\":{\"self_contained_problem\":\"Let $E$ be a finite set, and let $\\\\mathcal{S} = (s_1, s_2, \\\\ldots, s_m)$ be a finite collection of finite sequences whose entries are elements of $E$. We say that an undirected graph $G = (V, E)$ with edge set $E$ realizes $\\\\mathcal{S}$ if:\\n\\n1. For each sequence $s_i = (e_{i,1}, e_{i,2}, \\\\ldots, e_{i,k_i}) \\\\in \\\\mathcal{S}$, there exists a simple path in $G$ (a walk that does not repeat vertices) whose ordered sequence of traversed edges is exactly $s_i$;\\n2. The set of all such ordered edge-sequences arising from simple paths of $G$ is exactly $\\\\mathcal{S}$ (as a set).\\n\\nNote that any such graph has at most $2|E|$ vertices, so existence can be decided by brute-force search over all candidate vertex sets and incidence structures.\\n\\nQuestion: Is there an algorithm that, given $E$ and $\\\\mathcal{S}$, decides in time polynomial in the total input size $|E| + \\\\sum_{i} k_i$ whether such a graph $G$ exists? Equivalently, determine the computational complexity of this decision problem.\",\"macro_subject\":\"Theoretical Computer Science\",\"category_tag\":\"Graph reconstruction algorithms\",\"open_status\":\"unknown\",\"status_search_result\":\"Web searches reveal related work on reconstructing graphs from path traces (e.g., Gripon and others) and on graph reconstruction from queries, but none directly addresses the precise decision problem of efficiently testing whether a given collection of edge-sequences is exactly the set of simple paths of some graph on the given edge set. No published polynomial-time algorithm or hardness reduction matching this formulation was located, so the status is treated as unknown.\",\"status_evidence\":[{\"title\":\"Reconstructing a Graph from Path Traces\",\"url\":\"https://arxiv.org/pdf/1301.6916\",\"snippet\":\"Algorithms for reconstructing networks from traces are exponential in trace size; greedy methods provide guarantees only under restrictive conditions.\",\"claim\":\"Existing reconstruction-from-paths algorithms address related but distinct problems and do not resolve the efficient-decision question.\"},{\"title\":\"Reconstruction of the path graph\",\"url\":\"https://www.sciencedirect.com/science/article/pii/S0925772118300129\",\"snippet\":\"Studies of graph reconstruction from path-related data continue to appear, indicating the area is active.\",\"claim\":\"The complexity question for deciding realizability from a prescribed set of simple-path edge-sequences does not appear to have a definitive published resolution.\"}],\"confidence\":0.5},\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"uuid\":\"a6de8fc2-cd2e-49f2-861f-47026aef02ff\"}\n"
+}

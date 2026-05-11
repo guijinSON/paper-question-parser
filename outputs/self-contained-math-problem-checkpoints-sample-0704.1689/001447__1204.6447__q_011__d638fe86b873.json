@@ -1,0 +1,47 @@
+{
+  "record": {
+    "global_index": 1447,
+    "source_json": "outputs/parse-paper/1204.6447.json",
+    "paper_id": "1204.6447",
+    "paper_title": "",
+    "paper_link": "https://arxiv.org/abs/1204.6447",
+    "question_link": "https://arxiv.org/pdf/1204.6447.pdf#page=6",
+    "question_id": "q_011",
+    "parser_is_solved": "false",
+    "context_brief": "Optimality of majority for correlation distillation",
+    "original_question": "Fix r in N, odd n, and 0 < epsilon < 1/2. For f : {-1,1}^n -> {-1,1}, let P(f) be the probability that r independent epsilon-noisy copies of a uniform x all give the same output under f. Among odd functions f, is P(f) always maximized by a majority function Maj_k on some odd number k of inputs?",
+    "evidence": [
+      {
+        "page": 6,
+        "quote": "Statement: Fix r in N, n odd, and 0 < epsilon < 1/2. For f : {-1, 1}^n -> {-1, 1}, define P ( f ) = Pr[ f ( y(1) ) = f ( y(2) ) = ... = f ( y(r ) )], where x ~ {-1, 1}^n is chosen uniformly and then each y(i) is independently an epsilon-noisy copy of x. Is it true that P ( f ) is maximized among odd functions f by the Majority function Maj_k on some odd number of inputs k?"
+      }
+    ]
+  },
+  "artifact": {
+    "self_contained_problem": "Let $n$ be an odd positive integer, $r \\in \\mathbb{N}$ with $r \\geq 2$, and $0 < \\varepsilon < 1/2$. For a function $f : \\{-1,1\\}^n \\to \\{-1,1\\}$, define\n$$P(f) = \\Pr\\bigl[f(y^{(1)}) = f(y^{(2)}) = \\cdots = f(y^{(r)})\\bigr],$$\nwhere $x \\in \\{-1,1\\}^n$ is chosen uniformly at random and, conditional on $x$, each $y^{(i)} \\in \\{-1,1\\}^n$ is an independent $\\varepsilon$-noisy copy of $x$ (i.e., for each coordinate $j$ independently, $y^{(i)}_j = x_j$ with probability $1-\\varepsilon$ and $y^{(i)}_j = -x_j$ with probability $\\varepsilon$).\n\nCall $f$ odd if $f(-x) = -f(x)$ for all $x \\in \\{-1,1\\}^n$. For an odd integer $k$ with $1 \\leq k \\leq n$, let $\\mathrm{Maj}_k(x) = \\mathrm{sign}(x_1 + x_2 + \\cdots + x_k)$ (a function of the first $k$ coordinates, viewed as a function on $\\{-1,1\\}^n$).\n\nQuestion: Is it true that, among all odd functions $f : \\{-1,1\\}^n \\to \\{-1,1\\}$, the quantity $P(f)$ is maximized by $\\mathrm{Maj}_k$ for some odd $k$?",
+    "macro_subject": "Combinatorics",
+    "category_tag": "Boolean function noise stability",
+    "open_status": "open",
+    "status_search_result": "The question concerns non-interactive correlation distillation with r noisy copies. The case r = 2 is the noise stability problem solved by the \"Majority Is Stablest\" theorem (in the low-influence setting). For general r ≥ 3 with the agreement/equality probability (sometimes called higher-order noise stability), the problem of whether majority functions are optimal among odd Boolean functions remains open; existing literature (Mossel–O'Donnell on NICD) addresses asymptotic regimes and specific cases but does not settle the general conjecture.",
+    "status_evidence": [
+      {
+        "title": "Non-interactive correlation distillation, inhomogeneous Markov chains, and the reverse Bonami–Beckner inequality",
+        "url": "https://www.cs.cmu.edu/~odonnell/papers/nicd.pdf",
+        "snippet": "NICD with k players receiving noisy copies; majority conjectured/shown optimal in certain regimes.",
+        "claim": "The optimality of majority for r-fold agreement among odd functions is studied in NICD; general case not resolved."
+      },
+      {
+        "title": "Noise stability of functions with low influences: Invariance and optimality",
+        "url": "https://annals.math.princeton.edu/2010/171-1/p05",
+        "snippet": "Majority Is Stablest theorem proved for r=2 in low-influence regime.",
+        "claim": "The r=2 analogue is established only under low-influence assumptions; the unrestricted odd-function statement for general r is not established."
+      }
+    ],
+    "confidence": 0.7
+  },
+  "model": "opus",
+  "effort": "medium",
+  "elapsed_s": 33.27,
+  "validation_warnings": [],
+  "raw_claude_stdout": "{\"type\":\"result\",\"subtype\":\"success\",\"is_error\":false,\"api_error_status\":null,\"duration_ms\":32028,\"duration_api_ms\":30771,\"num_turns\":3,\"result\":\"Sources:\\n- [Non-interactive correlation distillation (Mossel–O'Donnell)](https://www.cs.cmu.edu/~odonnell/papers/nicd.pdf)\\n- [Noise stability of functions with low influences](https://annals.math.princeton.edu/2010/171-1/p05)\",\"stop_reason\":\"end_turn\",\"session_id\":\"4b6caca2-09d9-4a70-9ab5-a27fed4ee13d\",\"total_cost_usd\":0.10283725,\"usage\":{\"input_tokens\":8,\"cache_creation_input_tokens\":4277,\"cache_read_input_tokens\":12710,\"output_tokens\":1483,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":4277,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[{\"input_tokens\":1,\"output_tokens\":108,\"cache_read_input_tokens\":5688,\"cache_creation_input_tokens\":1274,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":1274},\"type\":\"message\"}],\"speed\":\"standard\"},\"modelUsage\":{\"claude-haiku-4-5-20251001\":{\"inputTokens\":20441,\"outputTokens\":439,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":1,\"costUSD\":0.032636000000000005,\"contextWindow\":200000,\"maxOutputTokens\":32000},\"claude-opus-4-7\":{\"inputTokens\":8,\"outputTokens\":1483,\"cacheReadInputTokens\":12710,\"cacheCreationInputTokens\":4277,\"webSearchRequests\":0,\"costUSD\":0.07020124999999999,\"contextWindow\":1000000,\"maxOutputTokens\":64000}},\"permission_denials\":[],\"structured_output\":{\"self_contained_problem\":\"Let $n$ be an odd positive integer, $r \\\\in \\\\mathbb{N}$ with $r \\\\geq 2$, and $0 < \\\\varepsilon < 1/2$. For a function $f : \\\\{-1,1\\\\}^n \\\\to \\\\{-1,1\\\\}$, define\\n$$P(f) = \\\\Pr\\\\bigl[f(y^{(1)}) = f(y^{(2)}) = \\\\cdots = f(y^{(r)})\\\\bigr],$$\\nwhere $x \\\\in \\\\{-1,1\\\\}^n$ is chosen uniformly at random and, conditional on $x$, each $y^{(i)} \\\\in \\\\{-1,1\\\\}^n$ is an independent $\\\\varepsilon$-noisy copy of $x$ (i.e., for each coordinate $j$ independently, $y^{(i)}_j = x_j$ with probability $1-\\\\varepsilon$ and $y^{(i)}_j = -x_j$ with probability $\\\\varepsilon$).\\n\\nCall $f$ odd if $f(-x) = -f(x)$ for all $x \\\\in \\\\{-1,1\\\\}^n$. For an odd integer $k$ with $1 \\\\leq k \\\\leq n$, let $\\\\mathrm{Maj}_k(x) = \\\\mathrm{sign}(x_1 + x_2 + \\\\cdots + x_k)$ (a function of the first $k$ coordinates, viewed as a function on $\\\\{-1,1\\\\}^n$).\\n\\nQuestion: Is it true that, among all odd functions $f : \\\\{-1,1\\\\}^n \\\\to \\\\{-1,1\\\\}$, the quantity $P(f)$ is maximized by $\\\\mathrm{Maj}_k$ for some odd $k$?\",\"macro_subject\":\"Combinatorics\",\"category_tag\":\"Boolean function noise stability\",\"open_status\":\"open\",\"status_search_result\":\"The question concerns non-interactive correlation distillation with r noisy copies. The case r = 2 is the noise stability problem solved by the \\\"Majority Is Stablest\\\" theorem (in the low-influence setting). For general r ≥ 3 with the agreement/equality probability (sometimes called higher-order noise stability), the problem of whether majority functions are optimal among odd Boolean functions remains open; existing literature (Mossel–O'Donnell on NICD) addresses asymptotic regimes and specific cases but does not settle the general conjecture.\",\"status_evidence\":[{\"title\":\"Non-interactive correlation distillation, inhomogeneous Markov chains, and the reverse Bonami–Beckner inequality\",\"url\":\"https://www.cs.cmu.edu/~odonnell/papers/nicd.pdf\",\"snippet\":\"NICD with k players receiving noisy copies; majority conjectured/shown optimal in certain regimes.\",\"claim\":\"The optimality of majority for r-fold agreement among odd functions is studied in NICD; general case not resolved.\"},{\"title\":\"Noise stability of functions with low influences: Invariance and optimality\",\"url\":\"https://annals.math.princeton.edu/2010/171-1/p05\",\"snippet\":\"Majority Is Stablest theorem proved for r=2 in low-influence regime.\",\"claim\":\"The r=2 analogue is established only under low-influence assumptions; the unrestricted odd-function statement for general r is not established.\"}],\"confidence\":0.7},\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"uuid\":\"d4b6133e-f489-4db3-b955-bf56b64708bb\"}\n"
+}

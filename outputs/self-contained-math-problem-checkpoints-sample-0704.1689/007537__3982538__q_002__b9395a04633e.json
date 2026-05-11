@@ -1,0 +1,51 @@
+{
+  "record": {
+    "global_index": 7537,
+    "source_json": "outputs/parse-paper/3982538.json",
+    "paper_id": "3982538",
+    "paper_title": "Open Problems in Stringology",
+    "paper_link": "https://zbmath.org/3982538",
+    "question_link": "https://zbmath.org/3982538",
+    "question_id": "q_002",
+    "parser_is_solved": "false",
+    "context_brief": "state complexity of Boyer-Moore automata",
+    "original_question": "Fix a pattern string x. In the Boyer-Moore approach, one can imagine a deterministic finite automaton that remembers which parts of x need not be compared again after a mismatch when the pattern is shifted. What is the exact number of states such a Boyer-Moore automaton must have, or at least what are tight upper and lower bounds for that number as a function of |x| and the alphabet?",
+    "evidence": [
+      {
+        "page": 2,
+        "quote": "Question 2: The number of states in a \"Boyer-Moore dfa\"."
+      },
+      {
+        "page": 2,
+        "quote": "Knuth [19] suggested using a dfa that will \"remember\" those parts of the pattern that need not be compared. The question is to find the exact number, or alternatively close upper and lower bounds on the number of states such a dfa must have."
+      }
+    ]
+  },
+  "artifact": {
+    "self_contained_problem": "Let $\\Sigma$ be a finite alphabet of size $\\sigma\\ge 2$ and let $x\\in\\Sigma^m$ be a pattern of length $m=|x|$. Consider the following deterministic finite automaton $A_x$ associated with $x$ (a \"Boyer–Moore DFA\"): the states of $A_x$ encode all distinct configurations of \"knowledge\" that a Boyer–Moore-style scan of a text against $x$ may possess after processing some prefix of the text, where such a configuration records, for the current alignment of $x$ against the text, exactly which positions of $x$ are already known (from previous comparisons and shifts) to match the corresponding text characters and therefore need not be compared again. Two configurations are identified iff they induce the same future comparison/shift behavior, so $A_x$ is the minimal DFA with this property. Let $S(x)$ denote the number of states of $A_x$, and set\n$$F(m,\\sigma)=\\max_{x\\in\\Sigma^m} S(x).$$\nDetermine $F(m,\\sigma)$ exactly, or otherwise establish matching (or as tight as possible) upper and lower bounds for $F(m,\\sigma)$ as a function of $m$ and $\\sigma$.",
+    "macro_subject": "Theoretical Computer Science",
+    "category_tag": "state complexity of pattern-matching automata",
+    "open_status": "open",
+    "status_search_result": "The problem of determining the exact state complexity of the Boyer–Moore DFA appears to remain open. Partial results exist: experimental and theoretical work on the size of Boyer–Moore automata has produced lower-bound constructions (e.g. a conjectured Ω(m^6) family of binary patterns) and conjectured upper bounds of polynomial O(m^7) or even exponential O(2^{0.4 m}) order in the pattern length m, but no tight closed-form answer is established.",
+    "status_evidence": [
+      {
+        "title": "On the size of Boyer–Moore automata",
+        "url": "https://www.sciencedirect.com/science/article/pii/S030439750900485X",
+        "snippet": "experimentally show that a finite class of binary patterns produce very large Boyer-Moore automata ... conjecture generates automata of size Ω(m^6) ... maximal size could be a polynomial of O(m^7), or even an exponential O(2^{0.4m})",
+        "claim": "Tight bounds on the number of states of Boyer–Moore automata are not known; only conjectural lower and upper bounds are available."
+      },
+      {
+        "title": "On Boyer-Moore automata",
+        "url": "https://link.springer.com/article/10.1007/BF01185428",
+        "snippet": "Algorithmica article studying Boyer-Moore automata and bounds on their size.",
+        "claim": "Earlier work studies the size of Boyer–Moore automata but does not settle the exact state count."
+      }
+    ],
+    "confidence": 0.7
+  },
+  "model": "opus",
+  "effort": "medium",
+  "elapsed_s": 39.7,
+  "validation_warnings": [],
+  "raw_claude_stdout": "{\"type\":\"result\",\"subtype\":\"success\",\"is_error\":false,\"api_error_status\":null,\"duration_ms\":38496,\"duration_api_ms\":35940,\"num_turns\":4,\"result\":\"Sources:\\n- [On the size of Boyer–Moore automata (ScienceDirect)](https://www.sciencedirect.com/science/article/pii/S030439750900485X)\\n- [On Boyer-Moore automata (Algorithmica)](https://link.springer.com/article/10.1007/BF01185428)\\n- [On the size of Boyer–Moore automata (Academia.edu PDF)](https://www.academia.edu/90984145/On_the_size_of_Boyer_Moore_automata)\\n- [Boyer–Moore string-search algorithm (Wikipedia)](https://en.wikipedia.org/wiki/Boyer%E2%80%93Moore_string-search_algorithm)\",\"stop_reason\":\"end_turn\",\"session_id\":\"d514cea7-71e0-4f49-a7d1-bf9585eb0f7e\",\"total_cost_usd\":0.10803825,\"usage\":{\"input_tokens\":9,\"cache_creation_input_tokens\":4137,\"cache_read_input_tokens\":18036,\"output_tokens\":1624,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":4137,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[{\"input_tokens\":1,\"output_tokens\":238,\"cache_read_input_tokens\":5667,\"cache_creation_input_tokens\":1155,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":1155},\"type\":\"message\"}],\"speed\":\"standard\"},\"modelUsage\":{\"claude-haiku-4-5-20251001\":{\"inputTokens\":20619,\"outputTokens\":380,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":1,\"costUSD\":0.032519,\"contextWindow\":200000,\"maxOutputTokens\":32000},\"claude-opus-4-7\":{\"inputTokens\":9,\"outputTokens\":1624,\"cacheReadInputTokens\":18036,\"cacheCreationInputTokens\":4137,\"webSearchRequests\":0,\"costUSD\":0.07551925000000001,\"contextWindow\":1000000,\"maxOutputTokens\":64000}},\"permission_denials\":[],\"structured_output\":{\"self_contained_problem\":\"Let $\\\\Sigma$ be a finite alphabet of size $\\\\sigma\\\\ge 2$ and let $x\\\\in\\\\Sigma^m$ be a pattern of length $m=|x|$. Consider the following deterministic finite automaton $A_x$ associated with $x$ (a \\\"Boyer–Moore DFA\\\"): the states of $A_x$ encode all distinct configurations of \\\"knowledge\\\" that a Boyer–Moore-style scan of a text against $x$ may possess after processing some prefix of the text, where such a configuration records, for the current alignment of $x$ against the text, exactly which positions of $x$ are already known (from previous comparisons and shifts) to match the corresponding text characters and therefore need not be compared again. Two configurations are identified iff they induce the same future comparison/shift behavior, so $A_x$ is the minimal DFA with this property. Let $S(x)$ denote the number of states of $A_x$, and set\\n$$F(m,\\\\sigma)=\\\\max_{x\\\\in\\\\Sigma^m} S(x).$$\\nDetermine $F(m,\\\\sigma)$ exactly, or otherwise establish matching (or as tight as possible) upper and lower bounds for $F(m,\\\\sigma)$ as a function of $m$ and $\\\\sigma$.\",\"macro_subject\":\"Theoretical Computer Science\",\"category_tag\":\"state complexity of pattern-matching automata\",\"open_status\":\"open\",\"status_search_result\":\"The problem of determining the exact state complexity of the Boyer–Moore DFA appears to remain open. Partial results exist: experimental and theoretical work on the size of Boyer–Moore automata has produced lower-bound constructions (e.g. a conjectured Ω(m^6) family of binary patterns) and conjectured upper bounds of polynomial O(m^7) or even exponential O(2^{0.4 m}) order in the pattern length m, but no tight closed-form answer is established.\",\"status_evidence\":[{\"title\":\"On the size of Boyer–Moore automata\",\"url\":\"https://www.sciencedirect.com/science/article/pii/S030439750900485X\",\"snippet\":\"experimentally show that a finite class of binary patterns produce very large Boyer-Moore automata ... conjecture generates automata of size Ω(m^6) ... maximal size could be a polynomial of O(m^7), or even an exponential O(2^{0.4m})\",\"claim\":\"Tight bounds on the number of states of Boyer–Moore automata are not known; only conjectural lower and upper bounds are available.\"},{\"title\":\"On Boyer-Moore automata\",\"url\":\"https://link.springer.com/article/10.1007/BF01185428\",\"snippet\":\"Algorithmica article studying Boyer-Moore automata and bounds on their size.\",\"claim\":\"Earlier work studies the size of Boyer–Moore automata but does not settle the exact state count.\"}],\"confidence\":0.7},\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"uuid\":\"ff4b5782-8092-4bba-8434-6624ef91e9d5\"}\n"
+}
