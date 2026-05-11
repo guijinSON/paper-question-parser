@@ -1,0 +1,61 @@
+{
+  "record": {
+    "global_index": 6661,
+    "source_json": "outputs/parse-paper/2502.19916.json",
+    "paper_id": "2502.19916",
+    "paper_title": "",
+    "paper_link": "https://arxiv.org/abs/2502.19916",
+    "question_link": "https://arxiv.org/pdf/2502.19916.pdf#page=2",
+    "question_id": "q_002",
+    "parser_is_solved": "false",
+    "context_brief": "Blank-region HB dynamics",
+    "original_question": "For Polyak's heavy-ball method on the class F_{mu,L} of L-smooth, mu-strongly convex functions, do there exist tunings (gamma, beta) for which the method provably has neither a Lyapunov function of the searched form nor a cycle on any function in F_{mu,L}? If such tunings exist, does the method converge without a Lyapunov certificate, diverge without cycling, or exhibit some other behavior in those blank parameter regions?",
+    "evidence": [
+      {
+        "page": 2,
+        "quote": "Open problem 2. Do there exist parameters for which HB provably neither admits a Lyapunov function, nor a cycle? If so, what happens then?"
+      },
+      {
+        "page": 3,
+        "quote": "Overall, one observes that there exist unfilled areas, i.e., tunings for which HB has neither a Lyapunov function nor a cycle on F_{mu,L}, and we cannot conclude whether HB converges or diverges when tuned in those regions."
+      },
+      {
+        "page": 6,
+        "quote": "While green regions of Figure 2 correspond to tunings on which HB admits a Lyapunov function (and hence converges), and purple regions of Figure 2 correspond to tunings on which HB admits cycles (and hence does not converge in general), it seems that some tunings do not fall in any of the two latter regions. We can therefore ask whether HB converges (without any Lyapunov function) or diverges (without any cycling behavior) on those tunings."
+      }
+    ]
+  },
+  "artifact": {
+    "self_contained_problem": "Let $F_{\\mu,L}$ denote the class of continuously differentiable functions $f:\\mathbb{R}^d\\to\\mathbb{R}$ that are $L$-smooth (their gradient is $L$-Lipschitz) and $\\mu$-strongly convex, with $0<\\mu<L$. For fixed parameters $\\gamma>0$ (step size) and $\\beta\\in\\mathbb{R}$ (momentum), Polyak's heavy-ball method (HB) generates iterates by\n$$x_{k+1} = x_k - \\gamma\\,\\nabla f(x_k) + \\beta\\,(x_k - x_{k-1}),\\qquad k\\ge 1,$$\nwith $x_0,x_1\\in\\mathbb{R}^d$ given. Define the dimensionless tuning region $\\mathcal{T}=\\{(\\gamma L,\\beta)\\}\\subset\\mathbb{R}_{>0}\\times\\mathbb{R}$.\n\nSay that HB admits a quadratic Lyapunov certificate at tuning $(\\gamma,\\beta)$ on $F_{\\mu,L}$ if there exist constants and a quadratic function $V:\\mathbb{R}^{2d}\\times\\mathbb{R}^d\\to\\mathbb{R}_{\\ge 0}$ of the form\n$$V(x_k,x_{k-1},x_\\star)=\\begin{pmatrix}x_k-x_\\star\\\\ x_{k-1}-x_\\star\\end{pmatrix}^{\\!\\top}\\!P\\begin{pmatrix}x_k-x_\\star\\\\ x_{k-1}-x_\\star\\end{pmatrix} + q\\bigl(f(x_k)-f(x_\\star)\\bigr)$$\nwith $P\\succeq 0$, $q\\ge 0$, and a contraction rate $\\rho\\in[0,1)$ such that for every $f\\in F_{\\mu,L}$ with minimizer $x_\\star$ and every iterate pair, $V(x_{k+1},x_k,x_\\star)\\le \\rho\\,V(x_k,x_{k-1},x_\\star)$. Say that HB admits a cycle at $(\\gamma,\\beta)$ on $F_{\\mu,L}$ if there exists $f\\in F_{\\mu,L}$ and initial data $(x_0,x_1)$ producing a periodic, non-stationary orbit of HB.\n\nQuestion. Do there exist tunings $(\\gamma,\\beta)\\in\\mathcal{T}$ for which HB on $F_{\\mu,L}$ provably admits neither a Lyapunov certificate of the above form nor a cycle? If yes, characterize the asymptotic behavior of HB at such tunings: does the method nevertheless converge globally (without admitting a Lyapunov certificate of this form), does it diverge (without exhibiting any cycle), or does some other behavior occur uniformly over $F_{\\mu,L}$?",
+    "macro_subject": "Applied Mathematics",
+    "category_tag": "First-order optimization methods",
+    "open_status": "open",
+    "status_search_result": "The question is posed as an explicit open problem in a 2025 preprint and its 2025 HAL deposit on heavy-ball dynamics. There is empirical evidence that the \"blank\" tuning region is nonempty, but no proof or resolution of the asymptotic behavior in that region appears in the literature; recent related works (e.g., accelerated Lyapunov functions on quadratics, provable non-acceleration results) do not settle it.",
+    "status_evidence": [
+      {
+        "title": "Open Problem: Two Riddles in Heavy-Ball Dynamics",
+        "url": "https://arxiv.org/abs/2502.19916",
+        "snippet": "Presents two open problems on Polyak's Heavy-Ball, including whether parameters exist with neither Lyapunov function nor cycle, and what happens then.",
+        "claim": "The problem is explicitly stated as open."
+      },
+      {
+        "title": "Open Problem: Two Riddles in Heavy-Ball Dynamics (HAL)",
+        "url": "https://hal.science/hal-05461110v1",
+        "snippet": "HAL deposit of the same open-problem note on heavy-ball dynamics.",
+        "claim": "Recent (2025) deposit reiterating the problem as open."
+      },
+      {
+        "title": "Provable non-accelerations of the heavy-ball method",
+        "url": "https://link.springer.com/article/10.1007/s10107-025-02269-2",
+        "snippet": "Recent related work on heavy-ball lower bounds and cycles, but does not resolve the blank-region question.",
+        "claim": "No resolution of the blank-region behavior is provided."
+      }
+    ],
+    "confidence": 0.85
+  },
+  "model": "opus",
+  "effort": "medium",
+  "elapsed_s": 38.66,
+  "validation_warnings": [],
+  "raw_claude_stdout": "{\"type\":\"result\",\"subtype\":\"success\",\"is_error\":false,\"api_error_status\":null,\"duration_ms\":37319,\"duration_api_ms\":36678,\"num_turns\":3,\"result\":\"Sources:\\n- [Open Problem: Two Riddles in Heavy-Ball Dynamics (arXiv)](https://arxiv.org/abs/2502.19916)\\n- [Open Problem: Two Riddles in Heavy-Ball Dynamics (HAL)](https://hal.science/hal-05461110v1)\\n- [Provable non-accelerations of the heavy-ball method](https://link.springer.com/article/10.1007/s10107-025-02269-2)\\n- [An Accelerated Lyapunov Function for Polyak's Heavy-Ball on Convex Quadratics](https://arxiv.org/abs/2301.05799)\",\"stop_reason\":\"end_turn\",\"session_id\":\"6b16f247-3358-41a7-b8c4-cf4650dfdfb5\",\"total_cost_usd\":0.1195835,\"usage\":{\"input_tokens\":8,\"cache_creation_input_tokens\":4912,\"cache_read_input_tokens\":13035,\"output_tokens\":2072,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":4912,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[{\"input_tokens\":1,\"output_tokens\":221,\"cache_read_input_tokens\":5855,\"cache_creation_input_tokens\":1742,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":1742},\"type\":\"message\"}],\"speed\":\"standard\"},\"modelUsage\":{\"claude-haiku-4-5-20251001\":{\"inputTokens\":18251,\"outputTokens\":455,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":1,\"costUSD\":0.030526,\"contextWindow\":200000,\"maxOutputTokens\":32000},\"claude-opus-4-7\":{\"inputTokens\":8,\"outputTokens\":2072,\"cacheReadInputTokens\":13035,\"cacheCreationInputTokens\":4912,\"webSearchRequests\":0,\"costUSD\":0.0890575,\"contextWindow\":1000000,\"maxOutputTokens\":64000}},\"permission_denials\":[],\"structured_output\":{\"self_contained_problem\":\"Let $F_{\\\\mu,L}$ denote the class of continuously differentiable functions $f:\\\\mathbb{R}^d\\\\to\\\\mathbb{R}$ that are $L$-smooth (their gradient is $L$-Lipschitz) and $\\\\mu$-strongly convex, with $0<\\\\mu<L$. For fixed parameters $\\\\gamma>0$ (step size) and $\\\\beta\\\\in\\\\mathbb{R}$ (momentum), Polyak's heavy-ball method (HB) generates iterates by\\n$$x_{k+1} = x_k - \\\\gamma\\\\,\\\\nabla f(x_k) + \\\\beta\\\\,(x_k - x_{k-1}),\\\\qquad k\\\\ge 1,$$\\nwith $x_0,x_1\\\\in\\\\mathbb{R}^d$ given. Define the dimensionless tuning region $\\\\mathcal{T}=\\\\{(\\\\gamma L,\\\\beta)\\\\}\\\\subset\\\\mathbb{R}_{>0}\\\\times\\\\mathbb{R}$.\\n\\nSay that HB admits a quadratic Lyapunov certificate at tuning $(\\\\gamma,\\\\beta)$ on $F_{\\\\mu,L}$ if there exist constants and a quadratic function $V:\\\\mathbb{R}^{2d}\\\\times\\\\mathbb{R}^d\\\\to\\\\mathbb{R}_{\\\\ge 0}$ of the form\\n$$V(x_k,x_{k-1},x_\\\\star)=\\\\begin{pmatrix}x_k-x_\\\\star\\\\\\\\ x_{k-1}-x_\\\\star\\\\end{pmatrix}^{\\\\!\\\\top}\\\\!P\\\\begin{pmatrix}x_k-x_\\\\star\\\\\\\\ x_{k-1}-x_\\\\star\\\\end{pmatrix} + q\\\\bigl(f(x_k)-f(x_\\\\star)\\\\bigr)$$\\nwith $P\\\\succeq 0$, $q\\\\ge 0$, and a contraction rate $\\\\rho\\\\in[0,1)$ such that for every $f\\\\in F_{\\\\mu,L}$ with minimizer $x_\\\\star$ and every iterate pair, $V(x_{k+1},x_k,x_\\\\star)\\\\le \\\\rho\\\\,V(x_k,x_{k-1},x_\\\\star)$. Say that HB admits a cycle at $(\\\\gamma,\\\\beta)$ on $F_{\\\\mu,L}$ if there exists $f\\\\in F_{\\\\mu,L}$ and initial data $(x_0,x_1)$ producing a periodic, non-stationary orbit of HB.\\n\\nQuestion. Do there exist tunings $(\\\\gamma,\\\\beta)\\\\in\\\\mathcal{T}$ for which HB on $F_{\\\\mu,L}$ provably admits neither a Lyapunov certificate of the above form nor a cycle? If yes, characterize the asymptotic behavior of HB at such tunings: does the method nevertheless converge globally (without admitting a Lyapunov certificate of this form), does it diverge (without exhibiting any cycle), or does some other behavior occur uniformly over $F_{\\\\mu,L}$?\",\"macro_subject\":\"Applied Mathematics\",\"category_tag\":\"First-order optimization methods\",\"open_status\":\"open\",\"status_search_result\":\"The question is posed as an explicit open problem in a 2025 preprint and its 2025 HAL deposit on heavy-ball dynamics. There is empirical evidence that the \\\"blank\\\" tuning region is nonempty, but no proof or resolution of the asymptotic behavior in that region appears in the literature; recent related works (e.g., accelerated Lyapunov functions on quadratics, provable non-acceleration results) do not settle it.\",\"status_evidence\":[{\"title\":\"Open Problem: Two Riddles in Heavy-Ball Dynamics\",\"url\":\"https://arxiv.org/abs/2502.19916\",\"snippet\":\"Presents two open problems on Polyak's Heavy-Ball, including whether parameters exist with neither Lyapunov function nor cycle, and what happens then.\",\"claim\":\"The problem is explicitly stated as open.\"},{\"title\":\"Open Problem: Two Riddles in Heavy-Ball Dynamics (HAL)\",\"url\":\"https://hal.science/hal-05461110v1\",\"snippet\":\"HAL deposit of the same open-problem note on heavy-ball dynamics.\",\"claim\":\"Recent (2025) deposit reiterating the problem as open.\"},{\"title\":\"Provable non-accelerations of the heavy-ball method\",\"url\":\"https://link.springer.com/article/10.1007/s10107-025-02269-2\",\"snippet\":\"Recent related work on heavy-ball lower bounds and cycles, but does not resolve the blank-region question.\",\"claim\":\"No resolution of the blank-region behavior is provided.\"}],\"confidence\":0.85},\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"uuid\":\"b5c2da51-d849-4c20-8e3f-38a247bbb98b\"}\n"
+}

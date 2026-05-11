@@ -1,0 +1,71 @@
+{
+  "record": {
+    "global_index": 10882,
+    "source_json": "outputs/parse-paper/zbmath-7239447.json",
+    "paper_id": "zbmath/7239447",
+    "paper_title": "The Projection Technique for Two Open Problems of Unconstrained Optimization Problems",
+    "paper_link": "https://zbmath.org/7239447",
+    "question_link": "https://zbmath.org/7239447",
+    "question_id": "q_002",
+    "parser_is_solved": "true",
+    "context_brief": "BFGS global convergence under weak Wolfe-Powell search",
+    "original_question": "For unconstrained optimization of a twice continuously differentiable nonconvex function f: R^n -> R, does the Broyden-Fletcher-Goldfarb-Shanno quasi-Newton method admit a globally convergent variant under the weak Wolfe-Powell line search? More specifically, can one obtain global convergence for nonconvex objectives in that weak Wolfe-Powell setting even though standard BFGS is known to fail in relevant counterexamples?",
+    "evidence": [
+      {
+        "page": 1,
+        "quote": "the second is the global convergence of the Broyden–Fletcher–Goldfarb–Shanno quasi-Newton method"
+      },
+      {
+        "page": 11,
+        "quote": "The other is the global convergence of the BFGS method for nonconvex functions. It has been considered an open problem in unconstrained optimization"
+      },
+      {
+        "page": 26,
+        "quote": "the other open problem is the global convergence of the BFGS quasi-Newton algorithm under the WWP line search for nonconvex functions"
+      },
+      {
+        "page": 26,
+        "quote": "the given algorithms possess global convergence under the WWP line search and the normal conditions for nonconvex functions"
+      }
+    ]
+  },
+  "artifact": {
+    "self_contained_problem": "Let f: R^n -> R be twice continuously differentiable and bounded below, with gradient g = ∇f assumed to be Lipschitz continuous on the level set of the starting point. Consider the quasi-Newton iteration\n\n  x_{k+1} = x_k + α_k d_k,   d_k = -B_k^{-1} g(x_k),\n\nwhere {B_k} is updated by the Broyden–Fletcher–Goldfarb–Shanno (BFGS) formula\n\n  B_{k+1} = B_k - (B_k s_k s_k^T B_k)/(s_k^T B_k s_k) + (y_k y_k^T)/(y_k^T s_k),\n\nwith s_k = x_{k+1} - x_k and y_k = g(x_{k+1}) - g(x_k), and where the step size α_k > 0 is chosen by the weak Wolfe–Powell (WWP) line search: there exist constants 0 < δ < σ < 1 such that\n\n  f(x_k + α_k d_k) ≤ f(x_k) + δ α_k g(x_k)^T d_k,\n  g(x_k + α_k d_k)^T d_k ≥ σ g(x_k)^T d_k.\n\nIt is known that for general nonconvex f the standard BFGS method under the WWP line search may fail to converge (counterexamples are known).\n\nQuestion: Does there exist a variant of the BFGS quasi-Newton method (for instance, using a projection-type modification of the iterates and/or a modification of the WWP line search and/or the update formula) that, under standard regularity assumptions on f (twice continuous differentiability, lower boundedness, Lipschitz continuous gradient) but without assuming convexity, satisfies the global convergence property\n\n  liminf_{k → ∞} ‖g(x_k)‖ = 0   (or, stronger, lim_{k → ∞} ‖g(x_k)‖ = 0)?",
+    "macro_subject": "Applied Mathematics",
+    "category_tag": "Quasi-Newton methods and BFGS convergence",
+    "open_status": "partially_solved",
+    "status_search_result": "Several recent works construct modified BFGS variants (using projection techniques and/or modified weak Wolfe–Powell line searches) that are globally convergent for nonconvex functions, thereby giving an affirmative answer in the \"modified-variant\" sense. However, the global convergence of the classical (unmodified) BFGS method with a standard Wolfe line search for general nonconvex functions remains an open problem, with known counterexamples (Dai; Mascarenhas) showing that standard BFGS can fail.",
+    "status_evidence": [
+      {
+        "title": "Global convergence of a family of modified BFGS methods under a modified weak-Wolfe–Powell line search for nonconvex functions",
+        "url": "https://link.springer.com/article/10.1007/s10288-019-00412-2",
+        "snippet": "A new modified weak-Wolfe–Powell line search technique together with modified BFGS formulas yields global convergence for nonconvex functions.",
+        "claim": "Modified BFGS variants under a modified WWP line search are globally convergent on nonconvex problems."
+      },
+      {
+        "title": "An adaptive projection BFGS method for nonconvex unconstrained optimization problems",
+        "url": "https://link.springer.com/article/10.1007/s11075-023-01626-6",
+        "snippet": "An adaptive projection BFGS method is globally convergent for nonconvex problems under weak Wolfe–Powell conditions with a superlinear rate.",
+        "claim": "A projection-based BFGS variant achieves global convergence for nonconvex objectives under WWP."
+      },
+      {
+        "title": "The global convergence of the BFGS method with a modified WWP line search for nonconvex functions",
+        "url": "https://dl.acm.org/doi/abs/10.1007/s11075-022-01265-3",
+        "snippet": "Global convergence of the classical BFGS method is established under a modified WWP line search for nonconvex functions.",
+        "claim": "Classical BFGS attains global convergence under a suitably modified WWP line search."
+      },
+      {
+        "title": "The Projection Technique for Two Open Problems of Unconstrained Optimization Problems",
+        "url": "https://link.springer.com/article/10.1007/s10957-020-01710-0",
+        "snippet": "Projection technique addresses two open problems including BFGS global convergence under WWP line search for nonconvex functions.",
+        "claim": "A projection-modified BFGS algorithm is globally convergent under the WWP line search."
+      }
+    ],
+    "confidence": 0.7
+  },
+  "model": "opus",
+  "effort": "medium",
+  "elapsed_s": 45.3,
+  "validation_warnings": [],
+  "raw_claude_stdout": "{\"type\":\"result\",\"subtype\":\"success\",\"is_error\":false,\"api_error_status\":null,\"duration_ms\":44008,\"duration_api_ms\":44267,\"num_turns\":3,\"result\":\"Sources:\\n- [Global convergence of a family of modified BFGS methods under a modified weak-Wolfe–Powell line search for nonconvex functions](https://link.springer.com/article/10.1007/s10288-019-00412-2)\\n- [An adaptive projection BFGS method for nonconvex unconstrained optimization problems](https://link.springer.com/article/10.1007/s11075-023-01626-6)\\n- [The global convergence of the BFGS method with a modified WWP line search for nonconvex functions](https://dl.acm.org/doi/abs/10.1007/s11075-022-01265-3)\\n- [The Projection Technique for Two Open Problems of Unconstrained Optimization Problems](https://link.springer.com/article/10.1007/s10957-020-01710-0)\",\"stop_reason\":\"end_turn\",\"session_id\":\"8e65b04f-a920-4e27-94f9-3a9233c5fe3b\",\"total_cost_usd\":0.13195825,\"usage\":{\"input_tokens\":8,\"cache_creation_input_tokens\":5507,\"cache_read_input_tokens\":13409,\"output_tokens\":2325,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":5507,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[{\"input_tokens\":1,\"output_tokens\":266,\"cache_read_input_tokens\":6296,\"cache_creation_input_tokens\":1896,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":1896},\"type\":\"message\"}],\"speed\":\"standard\"},\"modelUsage\":{\"claude-haiku-4-5-20251001\":{\"inputTokens\":20065,\"outputTokens\":521,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":1,\"costUSD\":0.03267,\"contextWindow\":200000,\"maxOutputTokens\":32000},\"claude-opus-4-7\":{\"inputTokens\":8,\"outputTokens\":2325,\"cacheReadInputTokens\":13409,\"cacheCreationInputTokens\":5507,\"webSearchRequests\":0,\"costUSD\":0.09928825,\"contextWindow\":1000000,\"maxOutputTokens\":64000}},\"permission_denials\":[],\"structured_output\":{\"self_contained_problem\":\"Let f: R^n -> R be twice continuously differentiable and bounded below, with gradient g = ∇f assumed to be Lipschitz continuous on the level set of the starting point. Consider the quasi-Newton iteration\\n\\n  x_{k+1} = x_k + α_k d_k,   d_k = -B_k^{-1} g(x_k),\\n\\nwhere {B_k} is updated by the Broyden–Fletcher–Goldfarb–Shanno (BFGS) formula\\n\\n  B_{k+1} = B_k - (B_k s_k s_k^T B_k)/(s_k^T B_k s_k) + (y_k y_k^T)/(y_k^T s_k),\\n\\nwith s_k = x_{k+1} - x_k and y_k = g(x_{k+1}) - g(x_k), and where the step size α_k > 0 is chosen by the weak Wolfe–Powell (WWP) line search: there exist constants 0 < δ < σ < 1 such that\\n\\n  f(x_k + α_k d_k) ≤ f(x_k) + δ α_k g(x_k)^T d_k,\\n  g(x_k + α_k d_k)^T d_k ≥ σ g(x_k)^T d_k.\\n\\nIt is known that for general nonconvex f the standard BFGS method under the WWP line search may fail to converge (counterexamples are known).\\n\\nQuestion: Does there exist a variant of the BFGS quasi-Newton method (for instance, using a projection-type modification of the iterates and/or a modification of the WWP line search and/or the update formula) that, under standard regularity assumptions on f (twice continuous differentiability, lower boundedness, Lipschitz continuous gradient) but without assuming convexity, satisfies the global convergence property\\n\\n  liminf_{k → ∞} ‖g(x_k)‖ = 0   (or, stronger, lim_{k → ∞} ‖g(x_k)‖ = 0)?\",\"macro_subject\":\"Applied Mathematics\",\"category_tag\":\"Quasi-Newton methods and BFGS convergence\",\"open_status\":\"partially_solved\",\"status_search_result\":\"Several recent works construct modified BFGS variants (using projection techniques and/or modified weak Wolfe–Powell line searches) that are globally convergent for nonconvex functions, thereby giving an affirmative answer in the \\\"modified-variant\\\" sense. However, the global convergence of the classical (unmodified) BFGS method with a standard Wolfe line search for general nonconvex functions remains an open problem, with known counterexamples (Dai; Mascarenhas) showing that standard BFGS can fail.\",\"status_evidence\":[{\"title\":\"Global convergence of a family of modified BFGS methods under a modified weak-Wolfe–Powell line search for nonconvex functions\",\"url\":\"https://link.springer.com/article/10.1007/s10288-019-00412-2\",\"snippet\":\"A new modified weak-Wolfe–Powell line search technique together with modified BFGS formulas yields global convergence for nonconvex functions.\",\"claim\":\"Modified BFGS variants under a modified WWP line search are globally convergent on nonconvex problems.\"},{\"title\":\"An adaptive projection BFGS method for nonconvex unconstrained optimization problems\",\"url\":\"https://link.springer.com/article/10.1007/s11075-023-01626-6\",\"snippet\":\"An adaptive projection BFGS method is globally convergent for nonconvex problems under weak Wolfe–Powell conditions with a superlinear rate.\",\"claim\":\"A projection-based BFGS variant achieves global convergence for nonconvex objectives under WWP.\"},{\"title\":\"The global convergence of the BFGS method with a modified WWP line search for nonconvex functions\",\"url\":\"https://dl.acm.org/doi/abs/10.1007/s11075-022-01265-3\",\"snippet\":\"Global convergence of the classical BFGS method is established under a modified WWP line search for nonconvex functions.\",\"claim\":\"Classical BFGS attains global convergence under a suitably modified WWP line search.\"},{\"title\":\"The Projection Technique for Two Open Problems of Unconstrained Optimization Problems\",\"url\":\"https://link.springer.com/article/10.1007/s10957-020-01710-0\",\"snippet\":\"Projection technique addresses two open problems including BFGS global convergence under WWP line search for nonconvex functions.\",\"claim\":\"A projection-modified BFGS algorithm is globally convergent under the WWP line search.\"}],\"confidence\":0.7},\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"uuid\":\"01d3b9b9-3a64-42dc-b87c-ffeb27b61b12\"}\n"
+}

@@ -1,0 +1,55 @@
+{
+  "record": {
+    "global_index": 10690,
+    "source_json": "outputs/parse-paper/two-open-problems-in-precedence-constrained-scheduling.json",
+    "paper_id": "two-open-problems-in-precedence-constrained-scheduling",
+    "paper_title": "Two open problems in precedence constrained scheduling",
+    "paper_link": "https://zbmath.org/3883928",
+    "question_link": "https://zbmath.org/3883928",
+    "question_id": "q_003",
+    "parser_is_solved": "false",
+    "context_brief": "three-machine precedence-constrained makespan",
+    "original_question": "Determine the computational complexity of the following optimization problem. The input is a directed precedence graph G on n unit-time jobs to be scheduled on three identical parallel machines. A feasible schedule assigns each job j to an integer time slot σ(j) in such a way that σ(j) < σ(k) whenever (j,k) is a precedence arc of G, and at most three jobs are assigned to any one time slot. The objective is to minimize the makespan, that is, the largest occupied time slot. What is the complexity of finding this minimum makespan?",
+    "evidence": [
+      {
+        "page": 10,
+        "quote": "We will, once again, concentrate on the case of unit-time jobs."
+      },
+      {
+        "page": 10,
+        "quote": "In particular, the case that m = 3 has withstood all attacks, and this is our second open problem:"
+      },
+      {
+        "page": 10,
+        "quote": "Given a directed graph G with vertex set { l, ... ,n }, find the minimum value of C for which there exists a function a:{l, ... ,n} ~ {1, ... ,C} satisfying a(j) < a(k) whenever (j ,k) is an arc of G and I U E { 1, ... ,n }: o(j) = t} I ~ 3 for all t E {l, ... ,C}."
+      }
+    ]
+  },
+  "artifact": {
+    "self_contained_problem": "Consider the following scheduling problem. The input is a directed acyclic graph G = (V, E) with V = {1, 2, …, n}, representing precedence constraints among n unit-time jobs. A feasible schedule is a function σ : V → ℤ_{≥1} such that:\n(i) σ(j) < σ(k) whenever (j, k) ∈ E (precedence is respected), and\n(ii) for every integer t ≥ 1, |{ j ∈ V : σ(j) = t }| ≤ 3 (at most three jobs share a time slot, corresponding to three identical parallel machines).\nThe makespan of σ is C(σ) = max_{j ∈ V} σ(j). The goal is to compute min C(σ) over all feasible schedules.\n\nDetermine the computational complexity of this optimization problem: is it solvable in polynomial time in n, or is it NP-hard?",
+    "macro_subject": "Theoretical Computer Science",
+    "category_tag": "precedence-constrained scheduling",
+    "open_status": "open",
+    "status_search_result": "The complexity of P3 | prec, p_j = 1 | C_max is a long-standing open problem (going back to Garey and Johnson, 1979): it is unknown whether it is NP-hard or polynomial-time solvable. While the case of two machines (m = 2) is in P (Coffman–Graham), the case m = 3 (and any fixed m ≥ 3) remains unresolved. Recent work focuses on faster exact exponential algorithms (e.g., O(1.995^n)-time) rather than resolving the complexity status.",
+    "status_evidence": [
+      {
+        "title": "Parameterized complexity of machine scheduling: 15 open problems",
+        "url": "https://arxiv.org/pdf/1709.01670",
+        "snippet": "Lists P3|prec,p_j=1|C_max among classical open problems in scheduling theory whose complexity is unresolved.",
+        "claim": "Complexity of three-machine unit-time precedence-constrained makespan scheduling is open."
+      },
+      {
+        "title": "Makespan Scheduling of Unit Jobs with Precedence Constraints in O(1.995^n) time",
+        "url": "https://arxiv.org/pdf/2208.02664",
+        "snippet": "Even for m = 3 machines the best known algorithms ran in O*(2^n) time prior to this work; the complexity status (P vs NP-hard) remains open.",
+        "claim": "Recent work provides faster exponential-time algorithms but does not settle whether the problem is in P."
+      }
+    ],
+    "confidence": 0.95
+  },
+  "model": "opus",
+  "effort": "medium",
+  "elapsed_s": 28.97,
+  "validation_warnings": [],
+  "raw_claude_stdout": "{\"type\":\"result\",\"subtype\":\"success\",\"is_error\":false,\"api_error_status\":null,\"duration_ms\":27660,\"duration_api_ms\":27573,\"num_turns\":3,\"result\":\"Sources:\\n- [Parameterized complexity of machine scheduling: 15 open problems](https://arxiv.org/pdf/1709.01670)\\n- [Makespan Scheduling of Unit Jobs with Precedence Constraints in O(1.995^n) time](https://arxiv.org/pdf/2208.02664)\",\"stop_reason\":\"end_turn\",\"session_id\":\"1f1d2e39-5bb6-4124-b4ca-9968a4da0e21\",\"total_cost_usd\":0.09671350000000002,\"usage\":{\"input_tokens\":8,\"cache_creation_input_tokens\":4084,\"cache_read_input_tokens\":12873,\"output_tokens\":1264,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":4084,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[{\"input_tokens\":1,\"output_tokens\":112,\"cache_read_input_tokens\":5745,\"cache_creation_input_tokens\":1024,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":1024},\"type\":\"message\"}],\"speed\":\"standard\"},\"modelUsage\":{\"claude-haiku-4-5-20251001\":{\"inputTokens\":20922,\"outputTokens\":438,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":1,\"costUSD\":0.033112,\"contextWindow\":200000,\"maxOutputTokens\":32000},\"claude-opus-4-7\":{\"inputTokens\":8,\"outputTokens\":1264,\"cacheReadInputTokens\":12873,\"cacheCreationInputTokens\":4084,\"webSearchRequests\":0,\"costUSD\":0.0636015,\"contextWindow\":1000000,\"maxOutputTokens\":64000}},\"permission_denials\":[],\"structured_output\":{\"self_contained_problem\":\"Consider the following scheduling problem. The input is a directed acyclic graph G = (V, E) with V = {1, 2, …, n}, representing precedence constraints among n unit-time jobs. A feasible schedule is a function σ : V → ℤ_{≥1} such that:\\n(i) σ(j) < σ(k) whenever (j, k) ∈ E (precedence is respected), and\\n(ii) for every integer t ≥ 1, |{ j ∈ V : σ(j) = t }| ≤ 3 (at most three jobs share a time slot, corresponding to three identical parallel machines).\\nThe makespan of σ is C(σ) = max_{j ∈ V} σ(j). The goal is to compute min C(σ) over all feasible schedules.\\n\\nDetermine the computational complexity of this optimization problem: is it solvable in polynomial time in n, or is it NP-hard?\",\"macro_subject\":\"Theoretical Computer Science\",\"category_tag\":\"precedence-constrained scheduling\",\"open_status\":\"open\",\"status_search_result\":\"The complexity of P3 | prec, p_j = 1 | C_max is a long-standing open problem (going back to Garey and Johnson, 1979): it is unknown whether it is NP-hard or polynomial-time solvable. While the case of two machines (m = 2) is in P (Coffman–Graham), the case m = 3 (and any fixed m ≥ 3) remains unresolved. Recent work focuses on faster exact exponential algorithms (e.g., O(1.995^n)-time) rather than resolving the complexity status.\",\"status_evidence\":[{\"title\":\"Parameterized complexity of machine scheduling: 15 open problems\",\"url\":\"https://arxiv.org/pdf/1709.01670\",\"snippet\":\"Lists P3|prec,p_j=1|C_max among classical open problems in scheduling theory whose complexity is unresolved.\",\"claim\":\"Complexity of three-machine unit-time precedence-constrained makespan scheduling is open.\"},{\"title\":\"Makespan Scheduling of Unit Jobs with Precedence Constraints in O(1.995^n) time\",\"url\":\"https://arxiv.org/pdf/2208.02664\",\"snippet\":\"Even for m = 3 machines the best known algorithms ran in O*(2^n) time prior to this work; the complexity status (P vs NP-hard) remains open.\",\"claim\":\"Recent work provides faster exponential-time algorithms but does not settle whether the problem is in P.\"}],\"confidence\":0.95},\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"uuid\":\"8d20109a-1be4-4e81-afb9-4fd7c8139259\"}\n"
+}

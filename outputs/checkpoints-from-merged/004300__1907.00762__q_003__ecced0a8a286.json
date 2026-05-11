@@ -1,0 +1,51 @@
+{
+  "record": {
+    "global_index": 4300,
+    "source_json": "outputs/parse-paper/1907.00762.json",
+    "paper_id": "1907.00762",
+    "paper_title": "",
+    "paper_link": "https://arxiv.org/abs/1907.00762",
+    "question_link": "https://arxiv.org/pdf/1907.00762.pdf#page=4",
+    "question_id": "q_003",
+    "parser_is_solved": "false",
+    "context_brief": "Subquadratic memory for near-optimal queries",
+    "original_question": "Still in the regime d = Omega(log^c(1/epsilon)) and d = O(1/epsilon^c) for all c, is quadratic memory really necessary to obtain near-optimal query complexity for convex Lipschitz optimization? Concretely, can one have T(d, M = O(d^(2-delta)), epsilon) = O~(d polylog(1/epsilon)) for some delta > 0 while storing only subquadratic memory between first-order oracle calls?",
+    "evidence": [
+      {
+        "page": 4,
+        "quote": "At the other extreme, we might ask whether quadratic memory is necessary in order to achieve optimal query complexity:"
+      },
+      {
+        "page": 4,
+        "quote": "Question 3 ($200 or One Star Michelin Meal) Can we have T(d, M = O(d^(2-delta)), epsilon) = O~(d polylog 1/epsilon), for delta > 0, when d = Omega(log^c 1/epsilon) but d = O(1/epsilon^c) for all c?"
+      }
+    ]
+  },
+  "artifact": {
+    "self_contained_problem": "Consider the problem of minimizing a 1-Lipschitz convex function f : [-1,1]^d → ℝ to additive accuracy ε, given access to a first-order oracle that, on query x, returns (f(x), g) for some subgradient g ∈ ∂f(x). For an algorithm A interacting with such an oracle, let M(A) denote the number of bits of memory it may retain between consecutive oracle calls, and let T(d, M, ε) denote the minimum number of oracle queries needed by any (possibly randomized) algorithm with memory budget M to output, with constant probability, a point x̂ ∈ [-1,1]^d satisfying f(x̂) − min f ≤ ε.\n\nRestrict attention to the regime in which d = Ω(log^c(1/ε)) for every constant c > 0 and d = O((1/ε)^c) for every constant c > 0. The question is: does there exist some δ > 0 and an algorithm achieving\n   T(d, M, ε) = Õ(d · polylog(1/ε))\nwhile using only M = O(d^{2−δ}) bits of memory between oracle calls? Equivalently, is strictly subquadratic memory compatible with near-optimal (Õ(d)) query complexity for convex Lipschitz optimization in this regime?",
+    "macro_subject": "Theoretical Computer Science",
+    "category_tag": "memory-query tradeoffs in convex optimization",
+    "open_status": "solved",
+    "status_search_result": "A 2023 result by Blanchard, Zhang, and Jaillet (\"Quadratic Memory is Necessary for Optimal Query Complexity in Convex Optimization: Center-of-Mass is Pareto-Optimal\", arXiv:2302.04963; later in Mathematics of Operations Research) resolves the question in the negative: any randomized algorithm achieving Õ(d·polylog(1/ε)) queries must use Ω(d^{2−o(1)}) bits of memory, so no δ > 0 yields the desired tradeoff. This shows center-of-mass cutting-plane methods are Pareto-optimal up to logarithmic factors, settling the question.",
+    "status_evidence": [
+      {
+        "title": "Quadratic Memory is Necessary for Optimal Query Complexity in Convex Optimization: Center-of-Mass is Pareto-Optimal",
+        "url": "https://arxiv.org/abs/2302.04963",
+        "snippet": "Center-of-mass cutting-planes algorithms in dimension d which use Õ(d^2) memory and Õ(d) queries are Pareto-optimal for both convex optimization and the feasibility problem, up to logarithmic factors.",
+        "claim": "Establishes that quadratic memory is necessary to attain near-optimal query complexity, ruling out the proposed subquadratic-memory algorithm."
+      },
+      {
+        "title": "Quadratic Memory Is Necessary for Optimal Query Complexity in Convex Optimization (Mathematics of Operations Research)",
+        "url": "https://pubsonline.informs.org/doi/10.1287/moor.2023.0208",
+        "snippet": "Center of mass is Pareto optimal: optimal query complexity requires quadratic memory.",
+        "claim": "Peer-reviewed publication confirming the resolution of the memory-query tradeoff in the negative for subquadratic memory."
+      }
+    ],
+    "confidence": 0.85
+  },
+  "model": "opus",
+  "effort": "medium",
+  "elapsed_s": 38.98,
+  "validation_warnings": [],
+  "raw_claude_stdout": "{\"type\":\"result\",\"subtype\":\"success\",\"is_error\":false,\"api_error_status\":null,\"duration_ms\":37775,\"duration_api_ms\":36897,\"num_turns\":3,\"result\":\"Sources:\\n- [Quadratic Memory is Necessary for Optimal Query Complexity in Convex Optimization: Center-of-Mass is Pareto-Optimal](https://arxiv.org/abs/2302.04963)\\n- [Mathematics of Operations Research version](https://pubsonline.informs.org/doi/10.1287/moor.2023.0208)\\n- [Memory-Query Tradeoffs for Randomized Convex Optimization](https://arxiv.org/html/2306.12534)\\n- [Efficient Convex Optimization Requires Superlinear Memory](https://arxiv.org/html/2203.15260v2)\",\"stop_reason\":\"end_turn\",\"session_id\":\"545718b6-ccdd-4775-8fa7-dc322b57cb47\",\"total_cost_usd\":0.10654149999999998,\"usage\":{\"input_tokens\":8,\"cache_creation_input_tokens\":4562,\"cache_read_input_tokens\":12866,\"output_tokens\":1742,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":4562,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[{\"input_tokens\":1,\"output_tokens\":218,\"cache_read_input_tokens\":5830,\"cache_creation_input_tokens\":1417,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":1417},\"type\":\"message\"}],\"speed\":\"standard\"},\"modelUsage\":{\"claude-haiku-4-5-20251001\":{\"inputTokens\":15616,\"outputTokens\":478,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":1,\"costUSD\":0.028006000000000003,\"contextWindow\":200000,\"maxOutputTokens\":32000},\"claude-opus-4-7\":{\"inputTokens\":8,\"outputTokens\":1742,\"cacheReadInputTokens\":12866,\"cacheCreationInputTokens\":4562,\"webSearchRequests\":0,\"costUSD\":0.0785355,\"contextWindow\":1000000,\"maxOutputTokens\":64000}},\"permission_denials\":[],\"structured_output\":{\"self_contained_problem\":\"Consider the problem of minimizing a 1-Lipschitz convex function f : [-1,1]^d → ℝ to additive accuracy ε, given access to a first-order oracle that, on query x, returns (f(x), g) for some subgradient g ∈ ∂f(x). For an algorithm A interacting with such an oracle, let M(A) denote the number of bits of memory it may retain between consecutive oracle calls, and let T(d, M, ε) denote the minimum number of oracle queries needed by any (possibly randomized) algorithm with memory budget M to output, with constant probability, a point x̂ ∈ [-1,1]^d satisfying f(x̂) − min f ≤ ε.\\n\\nRestrict attention to the regime in which d = Ω(log^c(1/ε)) for every constant c > 0 and d = O((1/ε)^c) for every constant c > 0. The question is: does there exist some δ > 0 and an algorithm achieving\\n   T(d, M, ε) = Õ(d · polylog(1/ε))\\nwhile using only M = O(d^{2−δ}) bits of memory between oracle calls? Equivalently, is strictly subquadratic memory compatible with near-optimal (Õ(d)) query complexity for convex Lipschitz optimization in this regime?\",\"macro_subject\":\"Theoretical Computer Science\",\"category_tag\":\"memory-query tradeoffs in convex optimization\",\"open_status\":\"solved\",\"status_search_result\":\"A 2023 result by Blanchard, Zhang, and Jaillet (\\\"Quadratic Memory is Necessary for Optimal Query Complexity in Convex Optimization: Center-of-Mass is Pareto-Optimal\\\", arXiv:2302.04963; later in Mathematics of Operations Research) resolves the question in the negative: any randomized algorithm achieving Õ(d·polylog(1/ε)) queries must use Ω(d^{2−o(1)}) bits of memory, so no δ > 0 yields the desired tradeoff. This shows center-of-mass cutting-plane methods are Pareto-optimal up to logarithmic factors, settling the question.\",\"status_evidence\":[{\"title\":\"Quadratic Memory is Necessary for Optimal Query Complexity in Convex Optimization: Center-of-Mass is Pareto-Optimal\",\"url\":\"https://arxiv.org/abs/2302.04963\",\"snippet\":\"Center-of-mass cutting-planes algorithms in dimension d which use Õ(d^2) memory and Õ(d) queries are Pareto-optimal for both convex optimization and the feasibility problem, up to logarithmic factors.\",\"claim\":\"Establishes that quadratic memory is necessary to attain near-optimal query complexity, ruling out the proposed subquadratic-memory algorithm.\"},{\"title\":\"Quadratic Memory Is Necessary for Optimal Query Complexity in Convex Optimization (Mathematics of Operations Research)\",\"url\":\"https://pubsonline.informs.org/doi/10.1287/moor.2023.0208\",\"snippet\":\"Center of mass is Pareto optimal: optimal query complexity requires quadratic memory.\",\"claim\":\"Peer-reviewed publication confirming the resolution of the memory-query tradeoff in the negative for subquadratic memory.\"}],\"confidence\":0.85},\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"uuid\":\"3cbeec60-ba4a-4546-a323-f22e225d9c16\"}\n"
+}

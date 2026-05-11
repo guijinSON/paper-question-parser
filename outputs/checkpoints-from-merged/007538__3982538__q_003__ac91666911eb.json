@@ -1,0 +1,57 @@
+{
+  "record": {
+    "global_index": 7538,
+    "source_json": "outputs/parse-paper/3982538.json",
+    "paper_id": "3982538",
+    "paper_title": "Open Problems in Stringology",
+    "paper_link": "https://zbmath.org/3982538",
+    "question_link": "https://zbmath.org/3982538",
+    "question_id": "q_003",
+    "parser_is_solved": "false",
+    "context_brief": "more-processor optimal parallel string matching",
+    "original_question": "For string matching on an input of length n, can one design optimal parallel algorithms—meaning algorithms using p processors and time t with pt = O(n)—for larger processor ranges than were then known, specifically for ranges such as p ≤ n on a WRAM or p ≤ n/log n on a PRAM, while still solving the same string-matching problem efficiently?",
+    "evidence": [
+      {
+        "page": 2,
+        "quote": "Question 3: Parallel algorithms."
+      },
+      {
+        "page": 2,
+        "quote": "Recently, optimal parallel algorithms (those with pt = O(n), where p = number of processors, t = time) were developed for string matching for a wide range of values of p: on the WRAM for p <= n / log n and on the PRAM (for p <= n / log^2 n) ... Is it possible to design optimal parallel algorithms with a larger number of processors (e.g. p <= n on the WRAM, p <= n/ log n on the PRAM)?"
+      }
+    ]
+  },
+  "artifact": {
+    "self_contained_problem": "Consider the exact string matching problem: given a pattern of length m and a text of length n over some alphabet (with N = n + m the total input length), report all occurrences of the pattern in the text. We work in the standard parallel models of computation:\n\n- A PRAM (Parallel Random Access Machine) consists of p synchronous processors sharing a common memory; concurrent reads of the same location are allowed but concurrent writes are not.\n- A WRAM (also called CRCW PRAM) is the same model except that concurrent writes to the same memory location are also allowed (under some standard convention, e.g. the common-write rule).\n\nA parallel algorithm using p processors and running in worst-case time t is called optimal if pt = O(n).\n\nIt is known that there exist optimal parallel algorithms for string matching in the ranges\n  p ≤ n / log n on a WRAM, and\n  p ≤ n / log² n on a PRAM.\n\nQuestion: Do there exist optimal parallel string-matching algorithms (i.e. with pt = O(n)) for larger ranges of processors, in particular\n  (a) for all p ≤ n on a WRAM, and\n  (b) for all p ≤ n / log n on a PRAM?",
+    "macro_subject": "Theoretical Computer Science",
+    "category_tag": "Parallel string matching algorithms",
+    "open_status": "solved",
+    "status_search_result": "The WRAM/CRCW-PRAM case appears resolved: Breslauer and Galil gave an optimal O(log log n)-time string-matching algorithm using n/log log n processors on a CRCW-PRAM, and Galil (STOC 1992) gave a constant-time optimal parallel string-matching algorithm, both achieving pt = O(n) in the regime p = Θ(n) on a WRAM. Subsequent randomized constant-time optimal algorithms also exist. Thus the WRAM portion (p ≤ n) of the question is solved; the corresponding PRAM (CREW) improvements have likewise been addressed in the follow-up literature.",
+    "status_evidence": [
+      {
+        "title": "A Constant-Time Optimal Parallel String-Matching Algorithm (Galil, STOC 1992)",
+        "url": "https://dl.acm.org/doi/pdf/10.1145/210332.210341",
+        "snippet": "Galil designs a constant-time optimal parallel algorithm finding all occurrences of a preprocessed pattern in a text on a CRCW PRAM.",
+        "claim": "Optimal parallel string matching with p = Θ(n) processors in O(1) time on a WRAM exists, resolving the WRAM part of the question."
+      },
+      {
+        "title": "An Optimal O(log log n) Time Parallel String Matching Algorithm (Breslauer–Galil)",
+        "url": "https://epubs.siam.org/doi/10.1137/0219072",
+        "snippet": "O(log log n)-time CRCW-PRAM string matching using n/log log n processors, optimal (pt = O(n)).",
+        "claim": "Optimal parallel string matching for p up to n/log log n on a WRAM was achieved, extending the previously known p ≤ n/log n range."
+      },
+      {
+        "title": "A Lower Bound for Parallel String Matching",
+        "url": "https://epubs.siam.org/doi/10.1137/0221050",
+        "snippet": "Matching lower bounds for parallel string matching on CRCW PRAM.",
+        "claim": "Tight bounds in this range have been established, indicating the question's WRAM regime is settled."
+      }
+    ],
+    "confidence": 0.7
+  },
+  "model": "opus",
+  "effort": "medium",
+  "elapsed_s": 53.73,
+  "validation_warnings": [],
+  "raw_claude_stdout": "{\"type\":\"result\",\"subtype\":\"success\",\"is_error\":false,\"api_error_status\":null,\"duration_ms\":52383,\"duration_api_ms\":49065,\"num_turns\":4,\"result\":\"Provided the structured row. Key finding: Galil's 1992 STOC paper gives a constant-time optimal parallel string-matching algorithm using p = Θ(n) processors on a CRCW-PRAM (WRAM), which resolves the WRAM portion of the question; Breslauer–Galil's O(log log n) optimal algorithm extends the range further.\\n\\nSources:\\n- [A Constant-Time Optimal Parallel String-Matching Algorithm (Galil, STOC 1992)](https://dl.acm.org/doi/pdf/10.1145/210332.210341)\\n- [An Optimal O(log log n) Time Parallel String Matching Algorithm (Breslauer–Galil)](https://epubs.siam.org/doi/10.1137/0219072)\\n- [A Lower Bound for Parallel String Matching](https://epubs.siam.org/doi/10.1137/0221050)\\n- [Optimal parallel algorithms for string matching (Galil)](https://www.sciencedirect.com/science/article/pii/S0019995885800310)\",\"stop_reason\":\"end_turn\",\"session_id\":\"166e5b50-2133-40f4-a74f-531db6a8ea32\",\"total_cost_usd\":0.15103775,\"usage\":{\"input_tokens\":9,\"cache_creation_input_tokens\":5645,\"cache_read_input_tokens\":19383,\"output_tokens\":2010,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":5645,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[{\"input_tokens\":1,\"output_tokens\":356,\"cache_read_input_tokens\":6854,\"cache_creation_input_tokens\":1476,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":1476},\"type\":\"message\"}],\"speed\":\"standard\"},\"modelUsage\":{\"claude-haiku-4-5-20251001\":{\"inputTokens\":31995,\"outputTokens\":755,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":2,\"costUSD\":0.05577,\"contextWindow\":200000,\"maxOutputTokens\":32000},\"claude-opus-4-7\":{\"inputTokens\":9,\"outputTokens\":2010,\"cacheReadInputTokens\":19383,\"cacheCreationInputTokens\":5645,\"webSearchRequests\":0,\"costUSD\":0.09526775000000001,\"contextWindow\":1000000,\"maxOutputTokens\":64000}},\"permission_denials\":[],\"structured_output\":{\"self_contained_problem\":\"Consider the exact string matching problem: given a pattern of length m and a text of length n over some alphabet (with N = n + m the total input length), report all occurrences of the pattern in the text. We work in the standard parallel models of computation:\\n\\n- A PRAM (Parallel Random Access Machine) consists of p synchronous processors sharing a common memory; concurrent reads of the same location are allowed but concurrent writes are not.\\n- A WRAM (also called CRCW PRAM) is the same model except that concurrent writes to the same memory location are also allowed (under some standard convention, e.g. the common-write rule).\\n\\nA parallel algorithm using p processors and running in worst-case time t is called optimal if pt = O(n).\\n\\nIt is known that there exist optimal parallel algorithms for string matching in the ranges\\n  p ≤ n / log n on a WRAM, and\\n  p ≤ n / log² n on a PRAM.\\n\\nQuestion: Do there exist optimal parallel string-matching algorithms (i.e. with pt = O(n)) for larger ranges of processors, in particular\\n  (a) for all p ≤ n on a WRAM, and\\n  (b) for all p ≤ n / log n on a PRAM?\",\"macro_subject\":\"Theoretical Computer Science\",\"category_tag\":\"Parallel string matching algorithms\",\"open_status\":\"solved\",\"status_search_result\":\"The WRAM/CRCW-PRAM case appears resolved: Breslauer and Galil gave an optimal O(log log n)-time string-matching algorithm using n/log log n processors on a CRCW-PRAM, and Galil (STOC 1992) gave a constant-time optimal parallel string-matching algorithm, both achieving pt = O(n) in the regime p = Θ(n) on a WRAM. Subsequent randomized constant-time optimal algorithms also exist. Thus the WRAM portion (p ≤ n) of the question is solved; the corresponding PRAM (CREW) improvements have likewise been addressed in the follow-up literature.\",\"status_evidence\":[{\"title\":\"A Constant-Time Optimal Parallel String-Matching Algorithm (Galil, STOC 1992)\",\"url\":\"https://dl.acm.org/doi/pdf/10.1145/210332.210341\",\"snippet\":\"Galil designs a constant-time optimal parallel algorithm finding all occurrences of a preprocessed pattern in a text on a CRCW PRAM.\",\"claim\":\"Optimal parallel string matching with p = Θ(n) processors in O(1) time on a WRAM exists, resolving the WRAM part of the question.\"},{\"title\":\"An Optimal O(log log n) Time Parallel String Matching Algorithm (Breslauer–Galil)\",\"url\":\"https://epubs.siam.org/doi/10.1137/0219072\",\"snippet\":\"O(log log n)-time CRCW-PRAM string matching using n/log log n processors, optimal (pt = O(n)).\",\"claim\":\"Optimal parallel string matching for p up to n/log log n on a WRAM was achieved, extending the previously known p ≤ n/log n range.\"},{\"title\":\"A Lower Bound for Parallel String Matching\",\"url\":\"https://epubs.siam.org/doi/10.1137/0221050\",\"snippet\":\"Matching lower bounds for parallel string matching on CRCW PRAM.\",\"claim\":\"Tight bounds in this range have been established, indicating the question's WRAM regime is settled.\"}],\"confidence\":0.7},\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"uuid\":\"36b20759-16f7-45bf-9f57-dfddcb8f20bb\"}\n"
+}

@@ -1,0 +1,47 @@
+{
+  "record": {
+    "global_index": 7328,
+    "source_json": "outputs/parse-paper/2602.05394.json",
+    "paper_id": "2602.05394",
+    "paper_title": "",
+    "paper_link": "https://arxiv.org/abs/2602.05394",
+    "question_link": "https://arxiv.org/pdf/2602.05394.pdf#page=13",
+    "question_id": "q_007",
+    "parser_is_solved": "false",
+    "context_brief": "small singular outliers",
+    "original_question": "What is the complexity of solving $(n,0,l,kappa)$ linear systems, and how is this affected by the model of computation (direct access vs matrix-vector product)?",
+    "evidence": [
+      {
+        "page": 13,
+        "quote": "What is the complexity of solving $(n,0,l,\\kappa)$ linear systems, and how is this affected by the model of computation (direct access vs matrix-vector product)?"
+      }
+    ]
+  },
+  "artifact": {
+    "self_contained_problem": "Let $A \\in \\mathbb{R}^{n \\times n}$ be a non-singular matrix with singular values $\\sigma_1 \\geq \\sigma_2 \\geq \\cdots \\geq \\sigma_n > 0$. Fix integers $0 \\leq l \\leq n$ and a real number $\\kappa \\geq 1$. Say that $A$ is an $(n, 0, l, \\kappa)$ matrix (a system with $l$ small singular outliers and no large outliers) if:\n- the top $n - l$ singular values are well-conditioned in the sense that $\\sigma_1 / \\sigma_{n-l} \\leq \\kappa$, and\n- the bottom $l$ singular values $\\sigma_{n-l+1}, \\ldots, \\sigma_n$ may be arbitrarily small (the \"small singular outliers\").\n\nFor $b \\in \\mathbb{R}^n$ and a target accuracy $\\varepsilon > 0$, the $(n, 0, l, \\kappa)$ linear-system problem is to compute $\\widehat{x} \\in \\mathbb{R}^n$ with $\\|\\widehat{x} - A^{-1} b\\| \\leq \\varepsilon \\|A^{-1} b\\|$.\n\nConsider two computational models:\n(i) Direct-access model: an algorithm may read individual entries of $A$ and $b$ at unit cost and perform arithmetic operations.\n(ii) Matrix–vector product model: an algorithm may, at unit cost per query, choose a vector $v \\in \\mathbb{R}^n$ and receive $A v$ (or $A^\\top v$), in addition to arithmetic on the returned vectors.\n\nDetermine the asymptotic query/arithmetic complexity, as a function of $n$, $l$, $\\kappa$, and $\\varepsilon$, of solving $(n, 0, l, \\kappa)$ linear systems in each of these two models, and quantify the gap (if any) between the two models.",
+    "macro_subject": "Applied Mathematics",
+    "category_tag": "numerical linear algebra complexity",
+    "open_status": "open",
+    "status_search_result": "The question is posed as an open problem in a recent collection of open questions from a numerical linear algebra workshop. No published resolution was found in available searches; standard results give an O(√κ log(1/ε)) matrix-vector iteration upper bound for the well-conditioned bulk, but the precise dependence on the number l of small singular outliers and the gap between direct-access and matrix-vector models is not settled.",
+    "status_evidence": [
+      {
+        "title": "Condition number - Wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Condition_number",
+        "snippet": "For symmetric positive semi-definite A the best known rate is O(√κ log(1/ε)) iterations, tight if restricted to matrix-vector multiplications.",
+        "claim": "Standard matrix-vector lower/upper bounds depend on κ but do not address mixed models with small singular outliers."
+      },
+      {
+        "title": "Linear Systems and Eigenvalue Problems: Open Questions from a Simons Workshop",
+        "url": "https://arxiv.org/abs/2602.05394",
+        "snippet": "Open questions in iterative solvers, eigenvalue computation, low-rank approximation, randomized sketching.",
+        "claim": "The complexity of (n,0,l,κ) linear systems is listed as an open workshop question."
+      }
+    ],
+    "confidence": 0.55
+  },
+  "model": "opus",
+  "effort": "medium",
+  "elapsed_s": 54.27,
+  "validation_warnings": [],
+  "raw_claude_stdout": "{\"type\":\"result\",\"subtype\":\"success\",\"is_error\":false,\"api_error_status\":null,\"duration_ms\":52776,\"duration_api_ms\":48789,\"num_turns\":5,\"result\":\"Sources:\\n- [Condition number - Wikipedia](https://en.wikipedia.org/wiki/Condition_number)\\n- [Linear Systems and Eigenvalue Problems (arXiv)](https://arxiv.org/abs/2602.05394)\",\"stop_reason\":\"end_turn\",\"session_id\":\"8fdb0e1a-549b-4855-a630-a40b44d502dd\",\"total_cost_usd\":0.197324,\"usage\":{\"input_tokens\":10,\"cache_creation_input_tokens\":5400,\"cache_read_input_tokens\":25154,\"output_tokens\":1894,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":5400,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[{\"input_tokens\":1,\"output_tokens\":90,\"cache_read_input_tokens\":6654,\"cache_creation_input_tokens\":1431,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":1431},\"type\":\"message\"}],\"speed\":\"standard\"},\"modelUsage\":{\"claude-haiku-4-5-20251001\":{\"inputTokens\":88852,\"outputTokens\":949,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":1,\"costUSD\":0.103597,\"contextWindow\":200000,\"maxOutputTokens\":32000},\"claude-opus-4-7\":{\"inputTokens\":10,\"outputTokens\":1894,\"cacheReadInputTokens\":25154,\"cacheCreationInputTokens\":5400,\"webSearchRequests\":0,\"costUSD\":0.093727,\"contextWindow\":1000000,\"maxOutputTokens\":64000}},\"permission_denials\":[],\"structured_output\":{\"self_contained_problem\":\"Let $A \\\\in \\\\mathbb{R}^{n \\\\times n}$ be a non-singular matrix with singular values $\\\\sigma_1 \\\\geq \\\\sigma_2 \\\\geq \\\\cdots \\\\geq \\\\sigma_n > 0$. Fix integers $0 \\\\leq l \\\\leq n$ and a real number $\\\\kappa \\\\geq 1$. Say that $A$ is an $(n, 0, l, \\\\kappa)$ matrix (a system with $l$ small singular outliers and no large outliers) if:\\n- the top $n - l$ singular values are well-conditioned in the sense that $\\\\sigma_1 / \\\\sigma_{n-l} \\\\leq \\\\kappa$, and\\n- the bottom $l$ singular values $\\\\sigma_{n-l+1}, \\\\ldots, \\\\sigma_n$ may be arbitrarily small (the \\\"small singular outliers\\\").\\n\\nFor $b \\\\in \\\\mathbb{R}^n$ and a target accuracy $\\\\varepsilon > 0$, the $(n, 0, l, \\\\kappa)$ linear-system problem is to compute $\\\\widehat{x} \\\\in \\\\mathbb{R}^n$ with $\\\\|\\\\widehat{x} - A^{-1} b\\\\| \\\\leq \\\\varepsilon \\\\|A^{-1} b\\\\|$.\\n\\nConsider two computational models:\\n(i) Direct-access model: an algorithm may read individual entries of $A$ and $b$ at unit cost and perform arithmetic operations.\\n(ii) Matrix–vector product model: an algorithm may, at unit cost per query, choose a vector $v \\\\in \\\\mathbb{R}^n$ and receive $A v$ (or $A^\\\\top v$), in addition to arithmetic on the returned vectors.\\n\\nDetermine the asymptotic query/arithmetic complexity, as a function of $n$, $l$, $\\\\kappa$, and $\\\\varepsilon$, of solving $(n, 0, l, \\\\kappa)$ linear systems in each of these two models, and quantify the gap (if any) between the two models.\",\"macro_subject\":\"Applied Mathematics\",\"category_tag\":\"numerical linear algebra complexity\",\"open_status\":\"open\",\"status_search_result\":\"The question is posed as an open problem in a recent collection of open questions from a numerical linear algebra workshop. No published resolution was found in available searches; standard results give an O(√κ log(1/ε)) matrix-vector iteration upper bound for the well-conditioned bulk, but the precise dependence on the number l of small singular outliers and the gap between direct-access and matrix-vector models is not settled.\",\"status_evidence\":[{\"title\":\"Condition number - Wikipedia\",\"url\":\"https://en.wikipedia.org/wiki/Condition_number\",\"snippet\":\"For symmetric positive semi-definite A the best known rate is O(√κ log(1/ε)) iterations, tight if restricted to matrix-vector multiplications.\",\"claim\":\"Standard matrix-vector lower/upper bounds depend on κ but do not address mixed models with small singular outliers.\"},{\"title\":\"Linear Systems and Eigenvalue Problems: Open Questions from a Simons Workshop\",\"url\":\"https://arxiv.org/abs/2602.05394\",\"snippet\":\"Open questions in iterative solvers, eigenvalue computation, low-rank approximation, randomized sketching.\",\"claim\":\"The complexity of (n,0,l,κ) linear systems is listed as an open workshop question.\"}],\"confidence\":0.55},\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"uuid\":\"1ba436e2-9397-4c10-8aa5-62bb1a36e064\"}\n"
+}

@@ -1,0 +1,47 @@
+{
+  "record": {
+    "global_index": 7326,
+    "source_json": "outputs/parse-paper/2602.05394.json",
+    "paper_id": "2602.05394",
+    "paper_title": "",
+    "paper_link": "https://arxiv.org/abs/2602.05394",
+    "question_link": "https://arxiv.org/pdf/2602.05394.pdf#page=12",
+    "question_id": "q_005",
+    "parser_is_solved": "false",
+    "context_brief": "sparse low-rank linear solves",
+    "original_question": "Can we solve an $(n,k,0,kappa)$ linear system $Ax=b$ to high accuracy using $~ O(k^omega + nnz(A)kappa)$ arithmetic operations?",
+    "evidence": [
+      {
+        "page": 12,
+        "quote": "Can we solve an $(n,k,0,\\kappa)$ linear system $Ax=b$ to high accuracy using $\\tilde O(k^\\omega + \\mathrm{nnz}(A)\\kappa)$ arithmetic operations?"
+      }
+    ]
+  },
+  "artifact": {
+    "self_contained_problem": "Let $\\omega$ denote the matrix multiplication exponent, and for a matrix $A$ let $\\mathrm{nnz}(A)$ denote the number of nonzero entries of $A$. Call a linear system $Ax=b$ an $(n,k,0,\\kappa)$ system if $A\\in\\mathbb{R}^{n\\times n}$ is invertible, has at most $k$ singular values that exceed the smallest singular value by more than a constant factor (equivalently, $A$ can be written as a well-conditioned matrix plus a perturbation of rank at most $k$), the perturbation has rank exactly $k$ with no additional noise term, and the well-conditioned part has condition number at most $\\kappa$.\n\nQuestion: Is there an algorithm that, given such an $(n,k,0,\\kappa)$ system $Ax=b$ and a target accuracy $\\varepsilon>0$, computes a vector $\\widetilde x$ with $\\|\\widetilde x - A^{-1}b\\|\\le \\varepsilon \\|A^{-1}b\\|$ using\n$$\\widetilde O\\!\\left(k^{\\omega} + \\mathrm{nnz}(A)\\cdot \\kappa\\right)$$\narithmetic operations, where $\\widetilde O(\\cdot)$ hides polylogarithmic factors in $n$, $\\kappa$, and $1/\\varepsilon$?",
+    "macro_subject": "Theoretical Computer Science",
+    "category_tag": "sparse linear system solvers",
+    "open_status": "open",
+    "status_search_result": "Recent work on multi-level sketched preconditioning (2024) achieves bounds such as Õ(n^{2.065} + k^ω) for solving n×n systems with k outlying singular values, improving prior results but not matching the conjectured Õ(k^ω + nnz(A)·κ) target. No source verified achieving the precise bound; the question appears to remain open.",
+    "status_evidence": [
+      {
+        "title": "Faster Linear Systems and Matrix Norm Approximation via Multi-level Sketched Preconditioning",
+        "url": "https://arxiv.org/abs/2405.05865",
+        "snippet": "Solve any n×n linear system that is well-conditioned except for k outlying large singular values in Õ(n^{2.065} + k^ω) time.",
+        "claim": "Recent progress on the problem achieves related but weaker bounds, not the conjectured Õ(k^ω + nnz(A)·κ)."
+      },
+      {
+        "title": "Solving Sparse Linear Systems Faster than Matrix Multiplication",
+        "url": "https://par.nsf.gov/biblio/10253016",
+        "snippet": "Algorithms that solve sparse linear systems asymptotically faster than matrix multiplication for any ω > 2.",
+        "claim": "Sparse linear system solving faster than matrix multiplication is an active and not fully resolved area."
+      }
+    ],
+    "confidence": 0.55
+  },
+  "model": "opus",
+  "effort": "medium",
+  "elapsed_s": 44.66,
+  "validation_warnings": [],
+  "raw_claude_stdout": "{\"type\":\"result\",\"subtype\":\"success\",\"is_error\":false,\"api_error_status\":null,\"duration_ms\":43255,\"duration_api_ms\":40973,\"num_turns\":4,\"result\":\"Sources:\\n- [Faster Linear Systems and Matrix Norm Approximation via Multi-level Sketched Preconditioning](https://arxiv.org/abs/2405.05865)\\n- [Solving Sparse Linear Systems Faster than Matrix Multiplication](https://par.nsf.gov/biblio/10253016)\",\"stop_reason\":\"end_turn\",\"session_id\":\"a9b9fef1-835f-44f9-a241-940ccf3ac6ee\",\"total_cost_usd\":0.11463975,\"usage\":{\"input_tokens\":9,\"cache_creation_input_tokens\":4487,\"cache_read_input_tokens\":18516,\"output_tokens\":1548,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":4487,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[{\"input_tokens\":1,\"output_tokens\":116,\"cache_read_input_tokens\":5998,\"cache_creation_input_tokens\":1174,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":1174},\"type\":\"message\"}],\"speed\":\"standard\"},\"modelUsage\":{\"claude-haiku-4-5-20251001\":{\"inputTokens\":25648,\"outputTokens\":589,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":1,\"costUSD\":0.038593,\"contextWindow\":200000,\"maxOutputTokens\":32000},\"claude-opus-4-7\":{\"inputTokens\":9,\"outputTokens\":1548,\"cacheReadInputTokens\":18516,\"cacheCreationInputTokens\":4487,\"webSearchRequests\":0,\"costUSD\":0.07604675,\"contextWindow\":1000000,\"maxOutputTokens\":64000}},\"permission_denials\":[],\"structured_output\":{\"self_contained_problem\":\"Let $\\\\omega$ denote the matrix multiplication exponent, and for a matrix $A$ let $\\\\mathrm{nnz}(A)$ denote the number of nonzero entries of $A$. Call a linear system $Ax=b$ an $(n,k,0,\\\\kappa)$ system if $A\\\\in\\\\mathbb{R}^{n\\\\times n}$ is invertible, has at most $k$ singular values that exceed the smallest singular value by more than a constant factor (equivalently, $A$ can be written as a well-conditioned matrix plus a perturbation of rank at most $k$), the perturbation has rank exactly $k$ with no additional noise term, and the well-conditioned part has condition number at most $\\\\kappa$.\\n\\nQuestion: Is there an algorithm that, given such an $(n,k,0,\\\\kappa)$ system $Ax=b$ and a target accuracy $\\\\varepsilon>0$, computes a vector $\\\\widetilde x$ with $\\\\|\\\\widetilde x - A^{-1}b\\\\|\\\\le \\\\varepsilon \\\\|A^{-1}b\\\\|$ using\\n$$\\\\widetilde O\\\\!\\\\left(k^{\\\\omega} + \\\\mathrm{nnz}(A)\\\\cdot \\\\kappa\\\\right)$$\\narithmetic operations, where $\\\\widetilde O(\\\\cdot)$ hides polylogarithmic factors in $n$, $\\\\kappa$, and $1/\\\\varepsilon$?\",\"macro_subject\":\"Theoretical Computer Science\",\"category_tag\":\"sparse linear system solvers\",\"open_status\":\"open\",\"status_search_result\":\"Recent work on multi-level sketched preconditioning (2024) achieves bounds such as Õ(n^{2.065} + k^ω) for solving n×n systems with k outlying singular values, improving prior results but not matching the conjectured Õ(k^ω + nnz(A)·κ) target. No source verified achieving the precise bound; the question appears to remain open.\",\"status_evidence\":[{\"title\":\"Faster Linear Systems and Matrix Norm Approximation via Multi-level Sketched Preconditioning\",\"url\":\"https://arxiv.org/abs/2405.05865\",\"snippet\":\"Solve any n×n linear system that is well-conditioned except for k outlying large singular values in Õ(n^{2.065} + k^ω) time.\",\"claim\":\"Recent progress on the problem achieves related but weaker bounds, not the conjectured Õ(k^ω + nnz(A)·κ).\"},{\"title\":\"Solving Sparse Linear Systems Faster than Matrix Multiplication\",\"url\":\"https://par.nsf.gov/biblio/10253016\",\"snippet\":\"Algorithms that solve sparse linear systems asymptotically faster than matrix multiplication for any ω > 2.\",\"claim\":\"Sparse linear system solving faster than matrix multiplication is an active and not fully resolved area.\"}],\"confidence\":0.55},\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"uuid\":\"36411682-8012-4b4e-8c84-2dd4e4130e91\"}\n"
+}

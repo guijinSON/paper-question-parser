@@ -1,0 +1,53 @@
+{
+  "record": {
+    "global_index": 7867,
+    "source_json": "outputs/parse-paper/LIPIcs.FSTTCS.2010.42.json",
+    "paper_id": "LIPIcs.FSTTCS.2010.42",
+    "paper_title": "Recent Progress and Open Problems in Algorithmic Convex Geometry",
+    "paper_link": "https://zbmath.org/6073519",
+    "question_link": "https://zbmath.org/6073519",
+    "question_id": "q_012",
+    "parser_is_solved": "false",
+    "context_brief": "volume from random samples",
+    "original_question": "If one is given only random sample points rather than oracle access, can the volume of a polytope with a bounded number of facets be computed efficiently from that sample? The paper poses this as the remaining positive case after noting a superpolynomial lower bound for general convex bodies.",
+    "evidence": [
+      {
+        "page": 20,
+        "quote": "On the other hand, it remains open to efficiently compute the volume from a random sample for polytopes with a bounded number of facets."
+      }
+    ]
+  },
+  "artifact": {
+    "self_contained_problem": "Let $d\\ge 1$ and let $m=m(d)$ be a function bounded by a fixed polynomial in $d$ (so we consider polytopes with at most polynomially many facets). Suppose $P\\subset\\mathbb{R}^d$ is an unknown convex polytope defined as the intersection of at most $m$ closed half-spaces, and suppose the only access to $P$ is through a sample of points $X_1,\\dots,X_N$ drawn i.i.d. from the uniform distribution on $P$ (no membership oracle, no separation oracle, and no explicit list of the facets is given).\n\nQuestion: Does there exist a randomized algorithm which, given $\\varepsilon,\\delta\\in(0,1)$ and a sample of size $N=\\mathrm{poly}(d,m,1/\\varepsilon,\\log(1/\\delta))$ from the uniform distribution on $P$, runs in time polynomial in $d$, $m$, $1/\\varepsilon$, and $\\log(1/\\delta)$, and outputs a number $V$ satisfying\n$$ (1-\\varepsilon)\\,\\mathrm{vol}(P)\\;\\le\\;V\\;\\le\\;(1+\\varepsilon)\\,\\mathrm{vol}(P) $$\nwith probability at least $1-\\delta$?\n\nEquivalently: can the volume of a polytope with a polynomially bounded number of facets be approximated efficiently from random samples alone? It is known that for general convex bodies in $\\mathbb{R}^d$ accessed only through random samples a superpolynomial number of samples is required, so the question is whether the polytopal case with few facets escapes this lower bound.",
+    "macro_subject": "Theoretical Computer Science",
+    "category_tag": "algorithmic convex geometry / volume estimation",
+    "open_status": "unknown",
+    "status_search_result": "Web searches did not surface a definitive resolution. Standard polytope volume algorithms assume oracle access (membership/separation), and recent work on volume approximation via random walks still presupposes such oracles. Sample-only volume estimation has known superpolynomial lower bounds for general convex bodies, but no clear positive or negative result was located for polytopes with a bounded number of facets.",
+    "status_evidence": [
+      {
+        "title": "Convex volume approximation - Wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Convex_volume_approximation",
+        "snippet": "Randomized polynomial time approximation scheme by Dyer, Frieze, and Kannan uses oracle access to the convex body.",
+        "claim": "Existing FPRAS-type results assume oracle access, not random sample access."
+      },
+      {
+        "title": "Efficient Random-Walk Methods for Approximating Polytope Volume",
+        "url": "https://vissarion.github.io/publications/EF_socg14.pdf",
+        "snippet": "Practical algorithms for polytope volume rely on random walks from a known H-representation of the polytope.",
+        "claim": "Recent volume algorithms still require an explicit description of facets, not pure sample access."
+      },
+      {
+        "title": "Sample Complexity Bounds for Learning High-dimensional Simplices",
+        "url": "https://arxiv.org/pdf/2209.05953",
+        "snippet": "Studies sample complexity for learning simplices from samples; theoretical aspects still contain open problems.",
+        "claim": "Sample-based learning/volume questions for polytopes with few facets remain partly open."
+      }
+    ],
+    "confidence": 0.6
+  },
+  "model": "opus",
+  "effort": "medium",
+  "elapsed_s": 50.55,
+  "validation_warnings": [],
+  "raw_claude_stdout": "{\"type\":\"result\",\"subtype\":\"success\",\"is_error\":false,\"api_error_status\":null,\"duration_ms\":49090,\"duration_api_ms\":47084,\"num_turns\":4,\"result\":\"Provided structured output for the polytope volume-from-samples problem.\\n\\nSources:\\n- [Convex volume approximation - Wikipedia](https://en.wikipedia.org/wiki/Convex_volume_approximation)\\n- [Efficient Random-Walk Methods for Approximating Polytope Volume](https://vissarion.github.io/publications/EF_socg14.pdf)\\n- [Sample Complexity Bounds for Learning High-dimensional Simplices](https://arxiv.org/pdf/2209.05953)\",\"stop_reason\":\"end_turn\",\"session_id\":\"8017a431-f331-4e47-b4cf-749aeec2bf00\",\"total_cost_usd\":0.16319574999999997,\"usage\":{\"input_tokens\":9,\"cache_creation_input_tokens\":5741,\"cache_read_input_tokens\":19619,\"output_tokens\":1675,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":5741,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[{\"input_tokens\":1,\"output_tokens\":178,\"cache_read_input_tokens\":7099,\"cache_creation_input_tokens\":1327,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":1327},\"type\":\"message\"}],\"speed\":\"standard\"},\"modelUsage\":{\"claude-haiku-4-5-20251001\":{\"inputTokens\":49850,\"outputTokens\":1147,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":2,\"costUSD\":0.075585,\"contextWindow\":200000,\"maxOutputTokens\":32000},\"claude-opus-4-7\":{\"inputTokens\":9,\"outputTokens\":1675,\"cacheReadInputTokens\":19619,\"cacheCreationInputTokens\":5741,\"webSearchRequests\":0,\"costUSD\":0.08761075,\"contextWindow\":1000000,\"maxOutputTokens\":64000}},\"permission_denials\":[],\"structured_output\":{\"self_contained_problem\":\"Let $d\\\\ge 1$ and let $m=m(d)$ be a function bounded by a fixed polynomial in $d$ (so we consider polytopes with at most polynomially many facets). Suppose $P\\\\subset\\\\mathbb{R}^d$ is an unknown convex polytope defined as the intersection of at most $m$ closed half-spaces, and suppose the only access to $P$ is through a sample of points $X_1,\\\\dots,X_N$ drawn i.i.d. from the uniform distribution on $P$ (no membership oracle, no separation oracle, and no explicit list of the facets is given).\\n\\nQuestion: Does there exist a randomized algorithm which, given $\\\\varepsilon,\\\\delta\\\\in(0,1)$ and a sample of size $N=\\\\mathrm{poly}(d,m,1/\\\\varepsilon,\\\\log(1/\\\\delta))$ from the uniform distribution on $P$, runs in time polynomial in $d$, $m$, $1/\\\\varepsilon$, and $\\\\log(1/\\\\delta)$, and outputs a number $V$ satisfying\\n$$ (1-\\\\varepsilon)\\\\,\\\\mathrm{vol}(P)\\\\;\\\\le\\\\;V\\\\;\\\\le\\\\;(1+\\\\varepsilon)\\\\,\\\\mathrm{vol}(P) $$\\nwith probability at least $1-\\\\delta$?\\n\\nEquivalently: can the volume of a polytope with a polynomially bounded number of facets be approximated efficiently from random samples alone? It is known that for general convex bodies in $\\\\mathbb{R}^d$ accessed only through random samples a superpolynomial number of samples is required, so the question is whether the polytopal case with few facets escapes this lower bound.\",\"macro_subject\":\"Theoretical Computer Science\",\"category_tag\":\"algorithmic convex geometry / volume estimation\",\"open_status\":\"unknown\",\"status_search_result\":\"Web searches did not surface a definitive resolution. Standard polytope volume algorithms assume oracle access (membership/separation), and recent work on volume approximation via random walks still presupposes such oracles. Sample-only volume estimation has known superpolynomial lower bounds for general convex bodies, but no clear positive or negative result was located for polytopes with a bounded number of facets.\",\"status_evidence\":[{\"title\":\"Convex volume approximation - Wikipedia\",\"url\":\"https://en.wikipedia.org/wiki/Convex_volume_approximation\",\"snippet\":\"Randomized polynomial time approximation scheme by Dyer, Frieze, and Kannan uses oracle access to the convex body.\",\"claim\":\"Existing FPRAS-type results assume oracle access, not random sample access.\"},{\"title\":\"Efficient Random-Walk Methods for Approximating Polytope Volume\",\"url\":\"https://vissarion.github.io/publications/EF_socg14.pdf\",\"snippet\":\"Practical algorithms for polytope volume rely on random walks from a known H-representation of the polytope.\",\"claim\":\"Recent volume algorithms still require an explicit description of facets, not pure sample access.\"},{\"title\":\"Sample Complexity Bounds for Learning High-dimensional Simplices\",\"url\":\"https://arxiv.org/pdf/2209.05953\",\"snippet\":\"Studies sample complexity for learning simplices from samples; theoretical aspects still contain open problems.\",\"claim\":\"Sample-based learning/volume questions for polytopes with few facets remain partly open.\"}],\"confidence\":0.6},\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"uuid\":\"8d689071-715b-4190-a990-8061d9779c26\"}\n"
+}

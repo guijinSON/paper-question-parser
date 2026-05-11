@@ -1,0 +1,59 @@
+{
+  "record": {
+    "global_index": 4352,
+    "source_json": "outputs/parse-paper/1908.10195.json",
+    "paper_id": "1908.10195",
+    "paper_title": "A Survey on LoRa Networking: Research Problems, Current Solutions and Open Issues",
+    "paper_link": "https://arxiv.org/abs/1908.10195",
+    "question_link": "https://arxiv.org/pdf/1908.10195.pdf#page=3",
+    "question_id": "q_002",
+    "parser_is_solved": "false",
+    "context_brief": "Dynamic downlink ACK mechanisms",
+    "original_question": "In LoRaWAN Class A operation, an end-device sends an uplink message and then opens two receive windows to receive a downlink acknowledgment from the network server. How can LoRaWAN provide a dynamic acknowledgment mechanism that prevents delayed or corrupted downlink acknowledgments from blocking later uplink packets or causing unnecessary retransmissions, especially when the gateway faces busy channels, overlapping frames, limited downlink opportunities, and no optimal data-rate policy for downlink acknowledgments?",
+    "evidence": [
+      {
+        "page": 3,
+        "quote": "In Class A, after sending conﬁrmed messages, end-devices expect an acknowledgment (ACK) from the Network server during two pre-agreed time-slots known as ‘receive windows (RW)’ ."
+      },
+      {
+        "page": 10,
+        "quote": "The ﬁrst issue is whether the gateway should listen to the channel during the interval, T1, between frame reception and transmission of response. There arises a problem if the channel is busy with other scheduled transmissions in that speciﬁc interval T1. This might cause delay to the ACKs, leading to unwanted retransmissions."
+      },
+      {
+        "page": 10,
+        "quote": "The third issue is the limited interval for retransmission. Due to the above said factors, ACKs may take more time to reach an end-device which will increase the retransmission probability even for a successfully delivered message."
+      },
+      {
+        "page": 14,
+        "quote": "Some works like [39] and [64] state that downlink ACKs reduce network performance, as end devices are not able to transmit subsequent packets if downlink ACKs are delayed or corrupted. This gives rise to the need for developing a dynamic ACK mechanism to improve network performance."
+      }
+    ]
+  },
+  "artifact": {
+    "self_contained_problem": "Consider a low-power wide-area network operating under the LoRaWAN Class A protocol. Each end-device, after transmitting a confirmed uplink frame, opens exactly two short receive windows (at fixed delays T1 and T2 after the end of the uplink) during which it can receive a downlink acknowledgment (ACK) from the network server, relayed through a gateway. Outside these two windows the device cannot receive. The gateway is half-duplex (it cannot transmit while receiving), it serves many devices on a small set of shared sub-GHz channels subject to duty-cycle regulations, and it has no a priori optimal rule for choosing the data rate (spreading factor) of the downlink ACK. As a consequence, an ACK may (i) be delayed because the relevant channel is busy with another scheduled transmission during the interval T1, (ii) be lost or corrupted due to overlapping frames or poor link budget at the chosen data rate, or (iii) miss both receive windows because of limited downlink opportunities. When this happens, the end-device either retransmits an already correctly delivered uplink or is blocked from sending subsequent uplinks until the confirmation procedure terminates, degrading network throughput and energy efficiency.\n\nDesign a dynamic acknowledgment mechanism for LoRaWAN Class A — specifying when the gateway should listen on the channel during T1, how it should schedule and prioritize ACK transmissions among contending devices, how it should select the downlink data rate and receive window (RX1 vs. RX2), and how the end-device should interpret missing or late ACKs — that provably prevents delayed or corrupted downlink acknowledgments from blocking later uplink packets or triggering unnecessary retransmissions, while remaining compliant with duty-cycle constraints and the single-gateway, multi-device, multi-channel setting described above.",
+    "macro_subject": "Applied Mathematics",
+    "category_tag": "LoRaWAN MAC protocol design",
+    "open_status": "open",
+    "status_search_result": "The LoRaWAN Class A specification still mandates fixed RX1/RX2 receive windows after a confirmed uplink, with no standardized adaptive scheme for downlink ACK scheduling or data-rate selection. Recent work (e.g., on downlink spreading-factor selection in LoRaWAN, 2023) addresses sub-aspects but no widely accepted dynamic ACK mechanism resolving busy-channel delays, overlapping frames, limited downlink opportunities, and suboptimal DR policy has been adopted. The problem is therefore considered open.",
+    "status_evidence": [
+      {
+        "title": "Confirmed Downlinks Behavior — The Things Stack for LoRaWAN",
+        "url": "https://www.thethingsindustries.com/docs/hardware/devices/concepts/confirmed-downlinks-behavior/",
+        "snippet": "After the end device has sent a confirmed uplink, it should await a downlink from the network server with the ACK bit set. The network server will only send the acknowledgement during the receive windows directly after the uplink was sent.",
+        "claim": "Current LoRaWAN deployments still rely on the fixed two-receive-window ACK procedure of Class A, with no standardized dynamic mechanism."
+      },
+      {
+        "title": "Downlink Spreading Factor selection in LoRaWAN",
+        "url": "https://www.sciencedirect.com/science/article/abs/pii/S0140366423004486",
+        "snippet": "Study addressing the lack of an optimal data-rate (spreading factor) policy for LoRaWAN downlink transmissions.",
+        "claim": "Selection of an optimal downlink data rate for ACKs remains an active research problem rather than a settled design."
+      }
+    ],
+    "confidence": 0.6
+  },
+  "model": "opus",
+  "effort": "medium",
+  "elapsed_s": 43.4,
+  "validation_warnings": [],
+  "raw_claude_stdout": "{\"type\":\"result\",\"subtype\":\"success\",\"is_error\":false,\"api_error_status\":null,\"duration_ms\":42086,\"duration_api_ms\":40580,\"num_turns\":3,\"result\":\"I've created the dataset row for this LoRaWAN Class A dynamic ACK mechanism problem.\\n\\nSources:\\n- [Confirmed Downlinks Behavior | The Things Stack for LoRaWAN](https://www.thethingsindustries.com/docs/hardware/devices/concepts/confirmed-downlinks-behavior/)\\n- [Downlink Spreading Factor selection in LoRaWAN - ScienceDirect](https://www.sciencedirect.com/science/article/abs/pii/S0140366423004486)\\n- [Sending and Receiving Messages AN1200.88 (Semtech)](https://www.semtech.com/uploads/technology/LoRa/sending-and-receiving-messages.pdf)\\n- [Device classes — ChirpStack LoRaWAN Network Server](https://www.chirpstack.io/docs/chirpstack/features/device-classes.html)\",\"stop_reason\":\"end_turn\",\"session_id\":\"27d455f9-8861-483c-96f2-2a9c7ce378ad\",\"total_cost_usd\":0.116458,\"usage\":{\"input_tokens\":8,\"cache_creation_input_tokens\":5024,\"cache_read_input_tokens\":13598,\"output_tokens\":1866,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":5024,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[{\"input_tokens\":1,\"output_tokens\":305,\"cache_read_input_tokens\":6284,\"cache_creation_input_tokens\":1425,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":1425},\"type\":\"message\"}],\"speed\":\"standard\"},\"modelUsage\":{\"claude-haiku-4-5-20251001\":{\"inputTokens\":18874,\"outputTokens\":539,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":1,\"costUSD\":0.031569,\"contextWindow\":200000,\"maxOutputTokens\":32000},\"claude-opus-4-7\":{\"inputTokens\":8,\"outputTokens\":1866,\"cacheReadInputTokens\":13598,\"cacheCreationInputTokens\":5024,\"webSearchRequests\":0,\"costUSD\":0.08488899999999999,\"contextWindow\":1000000,\"maxOutputTokens\":64000}},\"permission_denials\":[],\"structured_output\":{\"self_contained_problem\":\"Consider a low-power wide-area network operating under the LoRaWAN Class A protocol. Each end-device, after transmitting a confirmed uplink frame, opens exactly two short receive windows (at fixed delays T1 and T2 after the end of the uplink) during which it can receive a downlink acknowledgment (ACK) from the network server, relayed through a gateway. Outside these two windows the device cannot receive. The gateway is half-duplex (it cannot transmit while receiving), it serves many devices on a small set of shared sub-GHz channels subject to duty-cycle regulations, and it has no a priori optimal rule for choosing the data rate (spreading factor) of the downlink ACK. As a consequence, an ACK may (i) be delayed because the relevant channel is busy with another scheduled transmission during the interval T1, (ii) be lost or corrupted due to overlapping frames or poor link budget at the chosen data rate, or (iii) miss both receive windows because of limited downlink opportunities. When this happens, the end-device either retransmits an already correctly delivered uplink or is blocked from sending subsequent uplinks until the confirmation procedure terminates, degrading network throughput and energy efficiency.\\n\\nDesign a dynamic acknowledgment mechanism for LoRaWAN Class A — specifying when the gateway should listen on the channel during T1, how it should schedule and prioritize ACK transmissions among contending devices, how it should select the downlink data rate and receive window (RX1 vs. RX2), and how the end-device should interpret missing or late ACKs — that provably prevents delayed or corrupted downlink acknowledgments from blocking later uplink packets or triggering unnecessary retransmissions, while remaining compliant with duty-cycle constraints and the single-gateway, multi-device, multi-channel setting described above.\",\"macro_subject\":\"Applied Mathematics\",\"category_tag\":\"LoRaWAN MAC protocol design\",\"open_status\":\"open\",\"status_search_result\":\"The LoRaWAN Class A specification still mandates fixed RX1/RX2 receive windows after a confirmed uplink, with no standardized adaptive scheme for downlink ACK scheduling or data-rate selection. Recent work (e.g., on downlink spreading-factor selection in LoRaWAN, 2023) addresses sub-aspects but no widely accepted dynamic ACK mechanism resolving busy-channel delays, overlapping frames, limited downlink opportunities, and suboptimal DR policy has been adopted. The problem is therefore considered open.\",\"status_evidence\":[{\"title\":\"Confirmed Downlinks Behavior — The Things Stack for LoRaWAN\",\"url\":\"https://www.thethingsindustries.com/docs/hardware/devices/concepts/confirmed-downlinks-behavior/\",\"snippet\":\"After the end device has sent a confirmed uplink, it should await a downlink from the network server with the ACK bit set. The network server will only send the acknowledgement during the receive windows directly after the uplink was sent.\",\"claim\":\"Current LoRaWAN deployments still rely on the fixed two-receive-window ACK procedure of Class A, with no standardized dynamic mechanism.\"},{\"title\":\"Downlink Spreading Factor selection in LoRaWAN\",\"url\":\"https://www.sciencedirect.com/science/article/abs/pii/S0140366423004486\",\"snippet\":\"Study addressing the lack of an optimal data-rate (spreading factor) policy for LoRaWAN downlink transmissions.\",\"claim\":\"Selection of an optimal downlink data rate for ACKs remains an active research problem rather than a settled design.\"}],\"confidence\":0.6},\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"uuid\":\"48ac81e2-b066-48ea-85c8-b3809658bc29\"}\n"
+}

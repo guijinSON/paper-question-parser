@@ -1,0 +1,53 @@
+{
+  "record": {
+    "global_index": 6823,
+    "source_json": "outputs/parse-paper/2505.15351.json",
+    "paper_id": "2505.15351",
+    "paper_title": "",
+    "paper_link": "https://arxiv.org/abs/2505.15351",
+    "question_link": "https://arxiv.org/pdf/2505.15351.pdf#page=30",
+    "question_id": "q_018",
+    "parser_is_solved": "false",
+    "context_brief": "zeros in the ambiguity function",
+    "original_question": "In discrete Wigner distribution deconvolution for ptychographic phase retrieval, if the window ambiguity factors F[w · S_xi w] are allowed to vanish at some coefficients, how many such zero coefficients can be tolerated while still guaranteeing unique recovery of the underlying signal f?",
+    "evidence": [
+      {
+        "page": 30,
+        "quote": "Question 8.1. How many zero coefficients F [w ˝ Sξw]x are allowed so that f may be recovered uniquely?"
+      }
+    ]
+  },
+  "artifact": {
+    "self_contained_problem": "Setup. Let $d\\geq 2$ be an integer and identify $\\mathbb{Z}_d$ with $\\{0,1,\\dots,d-1\\}$. For a vector $u\\in\\mathbb{C}^d$, write $u[n]$ for its $n$-th coordinate (indices mod $d$). Define the cyclic shift operator $S_\\xi:\\mathbb{C}^d\\to\\mathbb{C}^d$ by $(S_\\xi u)[n]=u[n-\\xi]$, the entrywise conjugate-product $u\\circ v$ by $(u\\circ v)[n]=\\overline{u[n]}\\,v[n]$, and the discrete Fourier transform\n$$\\mathcal{F}[u][k]=\\sum_{n=0}^{d-1} u[n]\\,e^{-2\\pi i nk/d}.$$\nFix a window $w\\in\\mathbb{C}^d$ and a signal $f\\in\\mathbb{C}^d$. The discrete ambiguity function of $f$ with window $w$ is the array\n$$A_{w,f}[\\xi,x] \\;=\\; \\mathcal{F}\\!\\big[\\,\\overline{f}\\cdot S_\\xi f\\,\\big][x], \\qquad (\\xi,x)\\in\\mathbb{Z}_d\\times\\mathbb{Z}_d.$$\nPtychographic phase retrieval via Wigner distribution deconvolution recovers $f$ (up to a global unimodular constant) from $A_{w,f}$ by entrywise division by the window ambiguity factors\n$$M_w[\\xi,x] \\;=\\; \\mathcal{F}\\!\\big[\\,\\overline{w}\\cdot S_\\xi w\\,\\big][x].$$\nThis procedure is well-posed at coordinates where $M_w[\\xi,x]\\neq 0$.\n\nQuestion. Determine the maximum number $N(d)$ of pairs $(\\xi,x)\\in\\mathbb{Z}_d\\times\\mathbb{Z}_d$ on which the window ambiguity factor $M_w[\\xi,x]$ can vanish while still guaranteeing that the signal $f\\in\\mathbb{C}^d$ (generic, or in some specified class) is uniquely recoverable from the measurements $A_{w,f}$ up to a global phase. Equivalently, characterize the admissible zero patterns of $M_w$ that preserve uniqueness of recovery.",
+    "macro_subject": "Applied Mathematics",
+    "category_tag": "Ptychographic phase retrieval",
+    "open_status": "open",
+    "status_search_result": "The question is posed as an open problem about how many zero coefficients of the window ambiguity factor can be tolerated in Wigner distribution deconvolution for ptychographic phase retrieval. Web search reveals related work on WDD, uniqueness for phase objects, and noise/background suppression, but no source providing a definitive count or characterization addressing this specific tolerance question. Hence the problem appears to remain open.",
+    "status_evidence": [
+      {
+        "title": "Background Removal for Ptychography via Wigner Distribution Deconvolution",
+        "url": "https://epubs.siam.org/doi/10.1137/24M1642433",
+        "snippet": "Wigner distribution deconvolution lifts the object to a higher-dimensional matrix space where recovery is reformulated as a linear problem.",
+        "claim": "Recent WDD literature studies uniqueness/recovery but does not resolve the tolerance of zero ambiguity coefficients."
+      },
+      {
+        "title": "Ptychographic inversion via Wigner distribution deconvolution: noise suppression and probe design",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/25068588/",
+        "snippet": "Discusses probe design to avoid zeros of the window ambiguity in WDD inversion.",
+        "claim": "Existing analyses address zeros of the ambiguity heuristically without a definitive bound on tolerable zeros."
+      },
+      {
+        "title": "Denoised Wigner distribution deconvolution via low-rank matrix completion",
+        "url": "https://www.osti.gov/pages/servlets/purl/1434528",
+        "snippet": "Uses low-rank completion to handle missing/zero entries arising in WDD.",
+        "claim": "Mitigation strategies exist but a sharp uniqueness threshold for zero counts is not established."
+      }
+    ],
+    "confidence": 0.6
+  },
+  "model": "opus",
+  "effort": "medium",
+  "elapsed_s": 38.05,
+  "validation_warnings": [],
+  "raw_claude_stdout": "{\"type\":\"result\",\"subtype\":\"success\",\"is_error\":false,\"api_error_status\":null,\"duration_ms\":36692,\"duration_api_ms\":35518,\"num_turns\":3,\"result\":\"Sources:\\n- [Background Removal for Ptychography via Wigner Distribution Deconvolution](https://epubs.siam.org/doi/10.1137/24M1642433)\\n- [Ptychographic inversion via Wigner distribution deconvolution](https://pubmed.ncbi.nlm.nih.gov/25068588/)\\n- [Denoised Wigner distribution deconvolution via low-rank matrix completion](https://www.osti.gov/pages/servlets/purl/1434528)\",\"stop_reason\":\"end_turn\",\"session_id\":\"1ccb7caa-eb98-4ffe-b088-f6c74cd6d08a\",\"total_cost_usd\":0.11380624999999998,\"usage\":{\"input_tokens\":8,\"cache_creation_input_tokens\":4615,\"cache_read_input_tokens\":12511,\"output_tokens\":1913,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":4615,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[{\"input_tokens\":1,\"output_tokens\":170,\"cache_read_input_tokens\":5654,\"cache_creation_input_tokens\":1646,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":1646},\"type\":\"message\"}],\"speed\":\"standard\"},\"modelUsage\":{\"claude-haiku-4-5-20251001\":{\"inputTokens\":18642,\"outputTokens\":440,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":1,\"costUSD\":0.030842,\"contextWindow\":200000,\"maxOutputTokens\":32000},\"claude-opus-4-7\":{\"inputTokens\":8,\"outputTokens\":1913,\"cacheReadInputTokens\":12511,\"cacheCreationInputTokens\":4615,\"webSearchRequests\":0,\"costUSD\":0.08296424999999999,\"contextWindow\":1000000,\"maxOutputTokens\":64000}},\"permission_denials\":[],\"structured_output\":{\"self_contained_problem\":\"Setup. Let $d\\\\geq 2$ be an integer and identify $\\\\mathbb{Z}_d$ with $\\\\{0,1,\\\\dots,d-1\\\\}$. For a vector $u\\\\in\\\\mathbb{C}^d$, write $u[n]$ for its $n$-th coordinate (indices mod $d$). Define the cyclic shift operator $S_\\\\xi:\\\\mathbb{C}^d\\\\to\\\\mathbb{C}^d$ by $(S_\\\\xi u)[n]=u[n-\\\\xi]$, the entrywise conjugate-product $u\\\\circ v$ by $(u\\\\circ v)[n]=\\\\overline{u[n]}\\\\,v[n]$, and the discrete Fourier transform\\n$$\\\\mathcal{F}[u][k]=\\\\sum_{n=0}^{d-1} u[n]\\\\,e^{-2\\\\pi i nk/d}.$$\\nFix a window $w\\\\in\\\\mathbb{C}^d$ and a signal $f\\\\in\\\\mathbb{C}^d$. The discrete ambiguity function of $f$ with window $w$ is the array\\n$$A_{w,f}[\\\\xi,x] \\\\;=\\\\; \\\\mathcal{F}\\\\!\\\\big[\\\\,\\\\overline{f}\\\\cdot S_\\\\xi f\\\\,\\\\big][x], \\\\qquad (\\\\xi,x)\\\\in\\\\mathbb{Z}_d\\\\times\\\\mathbb{Z}_d.$$\\nPtychographic phase retrieval via Wigner distribution deconvolution recovers $f$ (up to a global unimodular constant) from $A_{w,f}$ by entrywise division by the window ambiguity factors\\n$$M_w[\\\\xi,x] \\\\;=\\\\; \\\\mathcal{F}\\\\!\\\\big[\\\\,\\\\overline{w}\\\\cdot S_\\\\xi w\\\\,\\\\big][x].$$\\nThis procedure is well-posed at coordinates where $M_w[\\\\xi,x]\\\\neq 0$.\\n\\nQuestion. Determine the maximum number $N(d)$ of pairs $(\\\\xi,x)\\\\in\\\\mathbb{Z}_d\\\\times\\\\mathbb{Z}_d$ on which the window ambiguity factor $M_w[\\\\xi,x]$ can vanish while still guaranteeing that the signal $f\\\\in\\\\mathbb{C}^d$ (generic, or in some specified class) is uniquely recoverable from the measurements $A_{w,f}$ up to a global phase. Equivalently, characterize the admissible zero patterns of $M_w$ that preserve uniqueness of recovery.\",\"macro_subject\":\"Applied Mathematics\",\"category_tag\":\"Ptychographic phase retrieval\",\"open_status\":\"open\",\"status_search_result\":\"The question is posed as an open problem about how many zero coefficients of the window ambiguity factor can be tolerated in Wigner distribution deconvolution for ptychographic phase retrieval. Web search reveals related work on WDD, uniqueness for phase objects, and noise/background suppression, but no source providing a definitive count or characterization addressing this specific tolerance question. Hence the problem appears to remain open.\",\"status_evidence\":[{\"title\":\"Background Removal for Ptychography via Wigner Distribution Deconvolution\",\"url\":\"https://epubs.siam.org/doi/10.1137/24M1642433\",\"snippet\":\"Wigner distribution deconvolution lifts the object to a higher-dimensional matrix space where recovery is reformulated as a linear problem.\",\"claim\":\"Recent WDD literature studies uniqueness/recovery but does not resolve the tolerance of zero ambiguity coefficients.\"},{\"title\":\"Ptychographic inversion via Wigner distribution deconvolution: noise suppression and probe design\",\"url\":\"https://pubmed.ncbi.nlm.nih.gov/25068588/\",\"snippet\":\"Discusses probe design to avoid zeros of the window ambiguity in WDD inversion.\",\"claim\":\"Existing analyses address zeros of the ambiguity heuristically without a definitive bound on tolerable zeros.\"},{\"title\":\"Denoised Wigner distribution deconvolution via low-rank matrix completion\",\"url\":\"https://www.osti.gov/pages/servlets/purl/1434528\",\"snippet\":\"Uses low-rank completion to handle missing/zero entries arising in WDD.\",\"claim\":\"Mitigation strategies exist but a sharp uniqueness threshold for zero counts is not established.\"}],\"confidence\":0.6},\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"uuid\":\"06e10f48-e4dd-4628-9386-a09d5edf1a78\"}\n"
+}

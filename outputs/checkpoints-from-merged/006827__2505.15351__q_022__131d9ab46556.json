@@ -1,0 +1,53 @@
+{
+  "record": {
+    "global_index": 6827,
+    "source_json": "outputs/parse-paper/2505.15351.json",
+    "paper_id": "2505.15351",
+    "paper_title": "",
+    "paper_link": "https://arxiv.org/abs/2505.15351",
+    "question_link": "https://arxiv.org/pdf/2505.15351.pdf#page=32",
+    "question_id": "q_022",
+    "parser_is_solved": "false",
+    "context_brief": "WDD beyond grid scans",
+    "original_question": "Can Wigner distribution deconvolution be derived for arbitrary physically reasonable scanning patterns, rather than only full scans or simple scan grids, and what assumptions on the object are then necessary for recovery?",
+    "evidence": [
+      {
+        "page": 32,
+        "quote": "Question 8.5. Can WDD be derived for arbitrary (reasonable) scanning patterns and which object assumptions are necessary?"
+      }
+    ]
+  },
+  "artifact": {
+    "self_contained_problem": "Setting. Let $f \\in \\mathbb{C}^d$ denote an unknown object (signal) and $w \\in \\mathbb{C}^d$ denote a known window/probe. For a translation parameter $k \\in \\mathbb{Z}_d$ and frequency parameter $\\ell \\in \\mathbb{Z}_d$, the ptychographic measurement is\n$$ Y[k,\\ell] \\;=\\; \\Big| \\sum_{n \\in \\mathbb{Z}_d} f[n]\\, \\overline{w[n-k]}\\, e^{-2\\pi i \\ell n / d} \\Big|^2 . $$\nThe classical Wigner distribution deconvolution (WDD) recovers $f$ (up to a global phase) from the full set of measurements $\\{Y[k,\\ell] : k,\\ell \\in \\mathbb{Z}_d\\}$ by taking a 2D Fourier transform in $(k,\\ell)$, dividing pointwise by the corresponding Wigner transform of the probe, and then extracting $f$ from the lifted rank-one matrix $f f^*$. WDD has also been formulated when the translations $k$ are restricted to a subgroup (a regular sub-grid) of $\\mathbb{Z}_d$.\n\nProblem. Let $K \\subset \\mathbb{Z}_d$ be an arbitrary \"physically reasonable\" sampling pattern of translations (for instance, a non-uniform but covering set of probe positions), and consider only the measurements\n$$ \\{\\, Y[k,\\ell] \\;:\\; k \\in K,\\; \\ell \\in \\mathbb{Z}_d \\,\\}. $$\nDetermine whether a Wigner distribution deconvolution-type inversion procedure can be derived that recovers $f$ (up to a global phase) from these measurements for general sampling patterns $K$ that are neither the full group $\\mathbb{Z}_d$ nor a subgroup. Identify minimal/sufficient conditions on the pair $(K, w)$ and on the object $f$ (e.g., support, sparsity, smoothness, or non-vanishing assumptions) under which such a WDD-style reconstruction is well-posed and stable.",
+    "macro_subject": "Applied Mathematics",
+    "category_tag": "Ptychography and phase retrieval",
+    "open_status": "open",
+    "status_search_result": "Existing work formulates Wigner distribution deconvolution for full scans and for translations forming a subgroup of Z_d, and recent papers extend WDD to background denoising and live reconstruction, but no published derivation of WDD for arbitrary (non-subgroup) scanning patterns together with the corresponding object assumptions appears to be available. The question therefore appears to be open.",
+    "status_evidence": [
+      {
+        "title": "Background Denoising for Ptychography via Wigner Distribution Deconvolution",
+        "url": "https://arxiv.org/abs/2402.15353",
+        "snippet": "WDD lifts the object to a higher-dimensional matrix space where recovery is a linear problem; algorithms given for full and subgrid scans.",
+        "claim": "Current WDD formulations target full scans or subgroup-type grids, not arbitrary scanning patterns."
+      },
+      {
+        "title": "Wigner Distribution Deconvolution Adaptation for Live Ptychography Reconstruction",
+        "url": "https://arxiv.org/abs/2212.01309",
+        "snippet": "Modifies WDD to support live processing during acquisition, still under standard scan-grid assumptions.",
+        "claim": "Recent WDD adaptations remain under regular grid scanning assumptions."
+      },
+      {
+        "title": "Ptychographic inversion via Wigner distribution deconvolution: noise suppression and probe design",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/25068588/",
+        "snippet": "Classical WDD inversion analyzed under standard ptychographic sampling.",
+        "claim": "Classical WDD theory is built on full or grid sampling, leaving arbitrary patterns unresolved."
+      }
+    ],
+    "confidence": 0.6
+  },
+  "model": "opus",
+  "effort": "medium",
+  "elapsed_s": 39.09,
+  "validation_warnings": [],
+  "raw_claude_stdout": "{\"type\":\"result\",\"subtype\":\"success\",\"is_error\":false,\"api_error_status\":null,\"duration_ms\":37816,\"duration_api_ms\":37153,\"num_turns\":3,\"result\":\"Sources:\\n- [Background Denoising for Ptychography via WDD](https://arxiv.org/abs/2402.15353)\\n- [WDD Adaptation for Live Ptychography Reconstruction](https://arxiv.org/abs/2212.01309)\\n- [Ptychographic inversion via WDD: noise suppression and probe design](https://pubmed.ncbi.nlm.nih.gov/25068588/)\",\"stop_reason\":\"end_turn\",\"session_id\":\"5e351c69-84fc-4698-a629-22908f62211f\",\"total_cost_usd\":0.10672324999999999,\"usage\":{\"input_tokens\":8,\"cache_creation_input_tokens\":4605,\"cache_read_input_tokens\":12588,\"output_tokens\":1792,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":4605,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[{\"input_tokens\":1,\"output_tokens\":144,\"cache_read_input_tokens\":5763,\"cache_creation_input_tokens\":1527,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":1527},\"type\":\"message\"}],\"speed\":\"standard\"},\"modelUsage\":{\"claude-haiku-4-5-20251001\":{\"inputTokens\":14123,\"outputTokens\":537,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":1,\"costUSD\":0.026808,\"contextWindow\":200000,\"maxOutputTokens\":32000},\"claude-opus-4-7\":{\"inputTokens\":8,\"outputTokens\":1792,\"cacheReadInputTokens\":12588,\"cacheCreationInputTokens\":4605,\"webSearchRequests\":0,\"costUSD\":0.07991525,\"contextWindow\":1000000,\"maxOutputTokens\":64000}},\"permission_denials\":[],\"structured_output\":{\"self_contained_problem\":\"Setting. Let $f \\\\in \\\\mathbb{C}^d$ denote an unknown object (signal) and $w \\\\in \\\\mathbb{C}^d$ denote a known window/probe. For a translation parameter $k \\\\in \\\\mathbb{Z}_d$ and frequency parameter $\\\\ell \\\\in \\\\mathbb{Z}_d$, the ptychographic measurement is\\n$$ Y[k,\\\\ell] \\\\;=\\\\; \\\\Big| \\\\sum_{n \\\\in \\\\mathbb{Z}_d} f[n]\\\\, \\\\overline{w[n-k]}\\\\, e^{-2\\\\pi i \\\\ell n / d} \\\\Big|^2 . $$\\nThe classical Wigner distribution deconvolution (WDD) recovers $f$ (up to a global phase) from the full set of measurements $\\\\{Y[k,\\\\ell] : k,\\\\ell \\\\in \\\\mathbb{Z}_d\\\\}$ by taking a 2D Fourier transform in $(k,\\\\ell)$, dividing pointwise by the corresponding Wigner transform of the probe, and then extracting $f$ from the lifted rank-one matrix $f f^*$. WDD has also been formulated when the translations $k$ are restricted to a subgroup (a regular sub-grid) of $\\\\mathbb{Z}_d$.\\n\\nProblem. Let $K \\\\subset \\\\mathbb{Z}_d$ be an arbitrary \\\"physically reasonable\\\" sampling pattern of translations (for instance, a non-uniform but covering set of probe positions), and consider only the measurements\\n$$ \\\\{\\\\, Y[k,\\\\ell] \\\\;:\\\\; k \\\\in K,\\\\; \\\\ell \\\\in \\\\mathbb{Z}_d \\\\,\\\\}. $$\\nDetermine whether a Wigner distribution deconvolution-type inversion procedure can be derived that recovers $f$ (up to a global phase) from these measurements for general sampling patterns $K$ that are neither the full group $\\\\mathbb{Z}_d$ nor a subgroup. Identify minimal/sufficient conditions on the pair $(K, w)$ and on the object $f$ (e.g., support, sparsity, smoothness, or non-vanishing assumptions) under which such a WDD-style reconstruction is well-posed and stable.\",\"macro_subject\":\"Applied Mathematics\",\"category_tag\":\"Ptychography and phase retrieval\",\"open_status\":\"open\",\"status_search_result\":\"Existing work formulates Wigner distribution deconvolution for full scans and for translations forming a subgroup of Z_d, and recent papers extend WDD to background denoising and live reconstruction, but no published derivation of WDD for arbitrary (non-subgroup) scanning patterns together with the corresponding object assumptions appears to be available. The question therefore appears to be open.\",\"status_evidence\":[{\"title\":\"Background Denoising for Ptychography via Wigner Distribution Deconvolution\",\"url\":\"https://arxiv.org/abs/2402.15353\",\"snippet\":\"WDD lifts the object to a higher-dimensional matrix space where recovery is a linear problem; algorithms given for full and subgrid scans.\",\"claim\":\"Current WDD formulations target full scans or subgroup-type grids, not arbitrary scanning patterns.\"},{\"title\":\"Wigner Distribution Deconvolution Adaptation for Live Ptychography Reconstruction\",\"url\":\"https://arxiv.org/abs/2212.01309\",\"snippet\":\"Modifies WDD to support live processing during acquisition, still under standard scan-grid assumptions.\",\"claim\":\"Recent WDD adaptations remain under regular grid scanning assumptions.\"},{\"title\":\"Ptychographic inversion via Wigner distribution deconvolution: noise suppression and probe design\",\"url\":\"https://pubmed.ncbi.nlm.nih.gov/25068588/\",\"snippet\":\"Classical WDD inversion analyzed under standard ptychographic sampling.\",\"claim\":\"Classical WDD theory is built on full or grid sampling, leaving arbitrary patterns unresolved.\"}],\"confidence\":0.6},\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"uuid\":\"70a1cdc9-4b8f-4d5d-8fe4-fea14821e035\"}\n"
+}

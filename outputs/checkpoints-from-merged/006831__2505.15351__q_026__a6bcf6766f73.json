@@ -1,0 +1,53 @@
+{
+  "record": {
+    "global_index": 6831,
+    "source_json": "outputs/parse-paper/2505.15351.json",
+    "paper_id": "2505.15351",
+    "paper_title": "",
+    "paper_link": "https://arxiv.org/abs/2505.15351",
+    "question_link": "https://arxiv.org/pdf/2505.15351.pdf#page=34",
+    "question_id": "q_026",
+    "parser_is_solved": "false",
+    "context_brief": "practical algorithms from finite STFT samples",
+    "original_question": "Can one develop practical phase-retrieval algorithms, together with window functions and finite sampling schemes in R^d x R^d, such that for every function in a dense subset of L^2(R^d) the reconstruction from finitely many sampled short-time Fourier magnitude measurements converges, up to a global phase factor, to the true function as the number of samples tends to infinity?",
+    "evidence": [
+      {
+        "page": 34,
+        "quote": "Question 8.9. Develop practical phase retrieval algorithms A : [0, ∞)^k → L2(R^d) together with window functions w and finite sampling schemes Ωk = {(xj, ξj) | 1 ≤ j ≤ k} ⊂ R^d × R^d such that, e.g, inf_{α∈S1} ||αf − A(|Vwf|^2_{Ωk})||_{L2} → 0 as k → ∞ for all f in a dense set of functions of L2(R^d)."
+      }
+    ]
+  },
+  "artifact": {
+    "self_contained_problem": "For $f \\in L^2(\\mathbb{R}^d)$ and a window function $w \\in L^2(\\mathbb{R}^d)$, the short-time Fourier transform (STFT) of $f$ with respect to $w$ is defined by\n$$V_w f(x,\\xi) = \\int_{\\mathbb{R}^d} f(t)\\,\\overline{w(t-x)}\\, e^{-2\\pi i t\\cdot \\xi}\\,dt, \\qquad (x,\\xi) \\in \\mathbb{R}^d \\times \\mathbb{R}^d.$$\nThe associated spectrogram is $|V_w f|^2$. Phase retrieval seeks to reconstruct $f$ (up to a global unimodular phase factor $\\alpha \\in S^1 = \\{z \\in \\mathbb{C} : |z|=1\\}$) from magnitude measurements of $V_w f$.\n\nConstruct a window function $w \\in L^2(\\mathbb{R}^d)$, a sequence of finite sampling sets $\\Omega_k = \\{(x_j, \\xi_j) : 1 \\le j \\le k\\} \\subset \\mathbb{R}^d \\times \\mathbb{R}^d$, and a sequence of (practical, implementable) reconstruction maps\n$$A_k : [0,\\infty)^k \\to L^2(\\mathbb{R}^d),$$\nsuch that there exists a dense subset $D \\subset L^2(\\mathbb{R}^d)$ with the property that for every $f \\in D$,\n$$\\inf_{\\alpha \\in S^1} \\big\\| \\alpha f - A_k\\big(|V_w f|^2 \\big|_{\\Omega_k}\\big) \\big\\|_{L^2(\\mathbb{R}^d)} \\longrightarrow 0 \\quad \\text{as } k \\to \\infty,$$\nwhere $|V_w f|^2|_{\\Omega_k} = (|V_w f(x_j,\\xi_j)|^2)_{j=1}^k$.\n\nEither exhibit such a triple $(A_k, w, \\{\\Omega_k\\})$ or prove that no such practical scheme exists.",
+    "macro_subject": "Analysis",
+    "category_tag": "STFT phase retrieval",
+    "open_status": "partially_solved",
+    "status_search_result": "Several recent works provide partial answers: semidefinite programming based Gabor phase retrieval with accuracy guarantees from finitely many noisy samples, provably accurate spectrogram inversion algorithms for L^2([-π,π]), and provably convergent (accelerated) Griffin–Lim type iterations. These give practical algorithms with convergence/error guarantees in restricted settings (bandlimited or smooth functions on intervals, specific windows). A fully general construction yielding convergence on a dense subset of L^2(R^d) for all d with a unified practical scheme does not appear to be established, so the problem is best regarded as partially solved.",
+    "status_evidence": [
+      {
+        "title": "Phase Retrieval for L^2([-π,π]) via Provably Accurate and Noise Robust Numerical Inversion of Spectrogram Measurements",
+        "url": "https://link.springer.com/article/10.1007/s00041-022-09988-6",
+        "snippet": "Two algorithms approximating smooth functions from a finite set of STFT magnitude measurements, with theoretical error guarantees and good numerical convergence.",
+        "claim": "Partial result: provably accurate practical reconstruction from finite STFT magnitude samples in 1D bandlimited setting."
+      },
+      {
+        "title": "Gabor Phase Retrieval via Semidefinite Programming",
+        "url": "https://arxiv.org/pdf/2310.11214",
+        "snippet": "Practical scenario with finitely many possibly noisy samples; SDP method guaranteed accurate when spectrogram is sufficiently connected.",
+        "claim": "Provably convergent SDP-based practical Gabor phase retrieval from finitely many samples."
+      },
+      {
+        "title": "Accelerated Griffin–Lim algorithm: a provably converging numerical method for phase retrieval",
+        "url": "https://arxiv.org/html/2306.12504",
+        "snippet": "Inertial/momentum-based algorithm with convergence guarantees for the Fast Griffin–Lim algorithm.",
+        "claim": "Provides a practical, provably convergent iterative phase retrieval algorithm."
+      }
+    ],
+    "confidence": 0.55
+  },
+  "model": "opus",
+  "effort": "medium",
+  "elapsed_s": 40.68,
+  "validation_warnings": [],
+  "raw_claude_stdout": "{\"type\":\"result\",\"subtype\":\"success\",\"is_error\":false,\"api_error_status\":null,\"duration_ms\":39446,\"duration_api_ms\":39043,\"num_turns\":3,\"result\":\"Sources:\\n- [Phase Retrieval for L²([-π,π]) via Provably Accurate Numerical Inversion](https://link.springer.com/article/10.1007/s00041-022-09988-6)\\n- [Gabor Phase Retrieval via Semidefinite Programming](https://arxiv.org/pdf/2310.11214)\\n- [Accelerated Griffin-Lim Algorithm](https://arxiv.org/html/2306.12504)\\n- [The Numerics of Phase Retrieval — Fannjiang & Strohmer](https://www.math.ucdavis.edu/~strohmer/papers/2020/ActaPhase.pdf)\",\"stop_reason\":\"end_turn\",\"session_id\":\"89f319d2-226a-4163-9ed5-d4e35a35bdf2\",\"total_cost_usd\":0.12094424999999999,\"usage\":{\"input_tokens\":8,\"cache_creation_input_tokens\":4853,\"cache_read_input_tokens\":12884,\"output_tokens\":1977,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":4853,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[{\"input_tokens\":1,\"output_tokens\":226,\"cache_read_input_tokens\":5879,\"cache_creation_input_tokens\":1659,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":1659},\"type\":\"message\"}],\"speed\":\"standard\"},\"modelUsage\":{\"claude-haiku-4-5-20251001\":{\"inputTokens\":22106,\"outputTokens\":520,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":1,\"costUSD\":0.034705999999999994,\"contextWindow\":200000,\"maxOutputTokens\":32000},\"claude-opus-4-7\":{\"inputTokens\":8,\"outputTokens\":1977,\"cacheReadInputTokens\":12884,\"cacheCreationInputTokens\":4853,\"webSearchRequests\":0,\"costUSD\":0.08623825,\"contextWindow\":1000000,\"maxOutputTokens\":64000}},\"permission_denials\":[],\"structured_output\":{\"self_contained_problem\":\"For $f \\\\in L^2(\\\\mathbb{R}^d)$ and a window function $w \\\\in L^2(\\\\mathbb{R}^d)$, the short-time Fourier transform (STFT) of $f$ with respect to $w$ is defined by\\n$$V_w f(x,\\\\xi) = \\\\int_{\\\\mathbb{R}^d} f(t)\\\\,\\\\overline{w(t-x)}\\\\, e^{-2\\\\pi i t\\\\cdot \\\\xi}\\\\,dt, \\\\qquad (x,\\\\xi) \\\\in \\\\mathbb{R}^d \\\\times \\\\mathbb{R}^d.$$\\nThe associated spectrogram is $|V_w f|^2$. Phase retrieval seeks to reconstruct $f$ (up to a global unimodular phase factor $\\\\alpha \\\\in S^1 = \\\\{z \\\\in \\\\mathbb{C} : |z|=1\\\\}$) from magnitude measurements of $V_w f$.\\n\\nConstruct a window function $w \\\\in L^2(\\\\mathbb{R}^d)$, a sequence of finite sampling sets $\\\\Omega_k = \\\\{(x_j, \\\\xi_j) : 1 \\\\le j \\\\le k\\\\} \\\\subset \\\\mathbb{R}^d \\\\times \\\\mathbb{R}^d$, and a sequence of (practical, implementable) reconstruction maps\\n$$A_k : [0,\\\\infty)^k \\\\to L^2(\\\\mathbb{R}^d),$$\\nsuch that there exists a dense subset $D \\\\subset L^2(\\\\mathbb{R}^d)$ with the property that for every $f \\\\in D$,\\n$$\\\\inf_{\\\\alpha \\\\in S^1} \\\\big\\\\| \\\\alpha f - A_k\\\\big(|V_w f|^2 \\\\big|_{\\\\Omega_k}\\\\big) \\\\big\\\\|_{L^2(\\\\mathbb{R}^d)} \\\\longrightarrow 0 \\\\quad \\\\text{as } k \\\\to \\\\infty,$$\\nwhere $|V_w f|^2|_{\\\\Omega_k} = (|V_w f(x_j,\\\\xi_j)|^2)_{j=1}^k$.\\n\\nEither exhibit such a triple $(A_k, w, \\\\{\\\\Omega_k\\\\})$ or prove that no such practical scheme exists.\",\"macro_subject\":\"Analysis\",\"category_tag\":\"STFT phase retrieval\",\"open_status\":\"partially_solved\",\"status_search_result\":\"Several recent works provide partial answers: semidefinite programming based Gabor phase retrieval with accuracy guarantees from finitely many noisy samples, provably accurate spectrogram inversion algorithms for L^2([-π,π]), and provably convergent (accelerated) Griffin–Lim type iterations. These give practical algorithms with convergence/error guarantees in restricted settings (bandlimited or smooth functions on intervals, specific windows). A fully general construction yielding convergence on a dense subset of L^2(R^d) for all d with a unified practical scheme does not appear to be established, so the problem is best regarded as partially solved.\",\"status_evidence\":[{\"title\":\"Phase Retrieval for L^2([-π,π]) via Provably Accurate and Noise Robust Numerical Inversion of Spectrogram Measurements\",\"url\":\"https://link.springer.com/article/10.1007/s00041-022-09988-6\",\"snippet\":\"Two algorithms approximating smooth functions from a finite set of STFT magnitude measurements, with theoretical error guarantees and good numerical convergence.\",\"claim\":\"Partial result: provably accurate practical reconstruction from finite STFT magnitude samples in 1D bandlimited setting.\"},{\"title\":\"Gabor Phase Retrieval via Semidefinite Programming\",\"url\":\"https://arxiv.org/pdf/2310.11214\",\"snippet\":\"Practical scenario with finitely many possibly noisy samples; SDP method guaranteed accurate when spectrogram is sufficiently connected.\",\"claim\":\"Provably convergent SDP-based practical Gabor phase retrieval from finitely many samples.\"},{\"title\":\"Accelerated Griffin–Lim algorithm: a provably converging numerical method for phase retrieval\",\"url\":\"https://arxiv.org/html/2306.12504\",\"snippet\":\"Inertial/momentum-based algorithm with convergence guarantees for the Fast Griffin–Lim algorithm.\",\"claim\":\"Provides a practical, provably convergent iterative phase retrieval algorithm.\"}],\"confidence\":0.55},\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"uuid\":\"7997af52-1ec7-495d-b20a-9185808b40f4\"}\n"
+}

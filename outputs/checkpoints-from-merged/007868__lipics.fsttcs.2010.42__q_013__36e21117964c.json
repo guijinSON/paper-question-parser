@@ -1,0 +1,53 @@
+{
+  "record": {
+    "global_index": 7868,
+    "source_json": "outputs/parse-paper/LIPIcs.FSTTCS.2010.42.json",
+    "paper_id": "LIPIcs.FSTTCS.2010.42",
+    "paper_title": "Recent Progress and Open Problems in Algorithmic Convex Geometry",
+    "paper_link": "https://zbmath.org/6073519",
+    "question_link": "https://zbmath.org/6073519",
+    "question_id": "q_013",
+    "parser_is_solved": "false",
+    "context_brief": "learning polytopes from samples",
+    "original_question": "Can one learn a polytope in R^n with m facets in time polynomial in m, n, and 1/ε from random examples, either when the samples are drawn uniformly from the polytope or when they are drawn from a Gaussian distribution and labeled by membership in the polytope?",
+    "evidence": [
+      {
+        "page": 21,
+        "quote": "Thus an interesting open problem is to learn a polytope in R^n with m facets given either uniform random points from it or from a Gaussian. It is conceivable that the complexity is poly(m, n, 1/ε)."
+      }
+    ]
+  },
+  "artifact": {
+    "self_contained_problem": "Let $P \\subseteq \\mathbb{R}^n$ be an unknown convex polytope defined as the intersection of $m$ halfspaces (so $P$ has at most $m$ facets). Consider the following two learning models, each with accuracy parameter $\\varepsilon \\in (0,1)$:\n\n(a) Uniform model: the learner receives i.i.d. samples drawn from the uniform distribution on $P$.\n\n(b) Gaussian membership model: the learner receives i.i.d. labeled samples $(x, \\mathbf{1}[x \\in P])$, where $x \\sim \\mathcal{N}(0, I_n)$ is the standard $n$-dimensional Gaussian.\n\nIn each model, the goal is to output a hypothesis polytope (or set) $\\widehat{P}$ such that, with high probability over the samples, the symmetric-difference measure between $\\widehat{P}$ and $P$ (with respect to the underlying distribution) is at most $\\varepsilon$.\n\nQuestion: Does there exist a learning algorithm that, in either model (a) or model (b), runs in time polynomial in $m$, $n$, and $1/\\varepsilon$ and achieves the above accuracy guarantee?",
+    "macro_subject": "Theoretical Computer Science",
+    "category_tag": "learning convex bodies / polytopes",
+    "open_status": "open",
+    "status_search_result": "Efficiently learning polytopes (intersections of halfspaces) from random samples under natural distributions such as Gaussian remains a central open problem in computational learning theory. The best known algorithms for learning intersections of $k$ halfspaces under Gaussian marginals run in time $n^{\\mathrm{poly}\\log k}$ or handle only $k = 2^{O(\\sqrt{\\log n})}$ halfspaces in polynomial time (Klivans–O'Donnell–Servedio), while recent SQ lower bounds rule out fully polynomial algorithms in some agnostic settings. No $\\mathrm{poly}(m,n,1/\\varepsilon)$ algorithm is known in either the uniform-on-polytope or labeled-Gaussian model.",
+    "status_evidence": [
+      {
+        "title": "How hard is it to learn an intersection of halfspaces? (Clayton Sanford blog on HSSV22)",
+        "url": "http://blog.claytonsanford.com/2022/07/30/hssv22.html",
+        "snippet": "Efficiently learning intersections of halfspaces under Gaussian marginals is one of the most well-studied problems... PAC learning intersections of halfspaces remains unresolved despite much effort.",
+        "claim": "Problem of efficiently PAC-learning intersections of halfspaces (polytopes) under Gaussian marginals remains open."
+      },
+      {
+        "title": "Learning Intersections of Halfspaces with Distribution Shift (arXiv 2404.02364)",
+        "url": "https://arxiv.org/pdf/2404.02364",
+        "snippet": "Prior work either fails in the presence of noise or scales superpolynomially with respect to the dimension.",
+        "claim": "Known algorithms for learning intersections of halfspaces under Gaussians do not achieve poly(m,n,1/ε) time."
+      },
+      {
+        "title": "A Random Sampling Based Algorithm for Learning Intersections of Halfspaces (Klivans–Servedio–Vempala)",
+        "url": "https://faculty.cc.gatech.edu/~vempala/papers/kplanes-jacm.pdf",
+        "snippet": "Algorithms with complexity allowing learning an intersection of up to k=2^{O(sqrt log n)} halfspaces in polynomial time under Gaussian.",
+        "claim": "Polynomial-time results are known only in restricted regimes, not for general m."
+      }
+    ],
+    "confidence": 0.8
+  },
+  "model": "opus",
+  "effort": "medium",
+  "elapsed_s": 46.33,
+  "validation_warnings": [],
+  "raw_claude_stdout": "{\"type\":\"result\",\"subtype\":\"success\",\"is_error\":false,\"api_error_status\":null,\"duration_ms\":44964,\"duration_api_ms\":42652,\"num_turns\":4,\"result\":\"Sources:\\n- [Clayton Sanford – How hard is it to learn an intersection of halfspaces?](http://blog.claytonsanford.com/2022/07/30/hssv22.html)\\n- [Learning Intersections of Halfspaces with Distribution Shift](https://arxiv.org/pdf/2404.02364)\\n- [Klivans–Servedio–Vempala, Random Sampling for Intersections of Halfspaces](https://faculty.cc.gatech.edu/~vempala/papers/kplanes-jacm.pdf)\",\"stop_reason\":\"end_turn\",\"session_id\":\"bdb56f3c-f85a-4b42-94ea-9c0feb7a1d3c\",\"total_cost_usd\":0.15486425,\"usage\":{\"input_tokens\":9,\"cache_creation_input_tokens\":5849,\"cache_read_input_tokens\":19588,\"output_tokens\":1805,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":5849,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[{\"input_tokens\":1,\"output_tokens\":187,\"cache_read_input_tokens\":7085,\"cache_creation_input_tokens\":1449,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":1449},\"type\":\"message\"}],\"speed\":\"standard\"},\"modelUsage\":{\"claude-haiku-4-5-20251001\":{\"inputTokens\":38544,\"outputTokens\":960,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":2,\"costUSD\":0.06334400000000001,\"contextWindow\":200000,\"maxOutputTokens\":32000},\"claude-opus-4-7\":{\"inputTokens\":9,\"outputTokens\":1805,\"cacheReadInputTokens\":19588,\"cacheCreationInputTokens\":5849,\"webSearchRequests\":0,\"costUSD\":0.09152024999999998,\"contextWindow\":1000000,\"maxOutputTokens\":64000}},\"permission_denials\":[],\"structured_output\":{\"self_contained_problem\":\"Let $P \\\\subseteq \\\\mathbb{R}^n$ be an unknown convex polytope defined as the intersection of $m$ halfspaces (so $P$ has at most $m$ facets). Consider the following two learning models, each with accuracy parameter $\\\\varepsilon \\\\in (0,1)$:\\n\\n(a) Uniform model: the learner receives i.i.d. samples drawn from the uniform distribution on $P$.\\n\\n(b) Gaussian membership model: the learner receives i.i.d. labeled samples $(x, \\\\mathbf{1}[x \\\\in P])$, where $x \\\\sim \\\\mathcal{N}(0, I_n)$ is the standard $n$-dimensional Gaussian.\\n\\nIn each model, the goal is to output a hypothesis polytope (or set) $\\\\widehat{P}$ such that, with high probability over the samples, the symmetric-difference measure between $\\\\widehat{P}$ and $P$ (with respect to the underlying distribution) is at most $\\\\varepsilon$.\\n\\nQuestion: Does there exist a learning algorithm that, in either model (a) or model (b), runs in time polynomial in $m$, $n$, and $1/\\\\varepsilon$ and achieves the above accuracy guarantee?\",\"macro_subject\":\"Theoretical Computer Science\",\"category_tag\":\"learning convex bodies / polytopes\",\"open_status\":\"open\",\"status_search_result\":\"Efficiently learning polytopes (intersections of halfspaces) from random samples under natural distributions such as Gaussian remains a central open problem in computational learning theory. The best known algorithms for learning intersections of $k$ halfspaces under Gaussian marginals run in time $n^{\\\\mathrm{poly}\\\\log k}$ or handle only $k = 2^{O(\\\\sqrt{\\\\log n})}$ halfspaces in polynomial time (Klivans–O'Donnell–Servedio), while recent SQ lower bounds rule out fully polynomial algorithms in some agnostic settings. No $\\\\mathrm{poly}(m,n,1/\\\\varepsilon)$ algorithm is known in either the uniform-on-polytope or labeled-Gaussian model.\",\"status_evidence\":[{\"title\":\"How hard is it to learn an intersection of halfspaces? (Clayton Sanford blog on HSSV22)\",\"url\":\"http://blog.claytonsanford.com/2022/07/30/hssv22.html\",\"snippet\":\"Efficiently learning intersections of halfspaces under Gaussian marginals is one of the most well-studied problems... PAC learning intersections of halfspaces remains unresolved despite much effort.\",\"claim\":\"Problem of efficiently PAC-learning intersections of halfspaces (polytopes) under Gaussian marginals remains open.\"},{\"title\":\"Learning Intersections of Halfspaces with Distribution Shift (arXiv 2404.02364)\",\"url\":\"https://arxiv.org/pdf/2404.02364\",\"snippet\":\"Prior work either fails in the presence of noise or scales superpolynomially with respect to the dimension.\",\"claim\":\"Known algorithms for learning intersections of halfspaces under Gaussians do not achieve poly(m,n,1/ε) time.\"},{\"title\":\"A Random Sampling Based Algorithm for Learning Intersections of Halfspaces (Klivans–Servedio–Vempala)\",\"url\":\"https://faculty.cc.gatech.edu/~vempala/papers/kplanes-jacm.pdf\",\"snippet\":\"Algorithms with complexity allowing learning an intersection of up to k=2^{O(sqrt log n)} halfspaces in polynomial time under Gaussian.\",\"claim\":\"Polynomial-time results are known only in restricted regimes, not for general m.\"}],\"confidence\":0.8},\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"uuid\":\"5e475a9f-0b73-4120-b019-4dedab9287cd\"}\n"
+}

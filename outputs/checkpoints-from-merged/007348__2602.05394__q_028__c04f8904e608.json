@@ -1,0 +1,53 @@
+{
+  "record": {
+    "global_index": 7348,
+    "source_json": "outputs/parse-paper/2602.05394.json",
+    "paper_id": "2602.05394",
+    "paper_title": "",
+    "paper_link": "https://arxiv.org/abs/2602.05394",
+    "question_link": "https://arxiv.org/pdf/2602.05394.pdf#page=25",
+    "question_id": "q_028",
+    "parser_is_solved": "false",
+    "context_brief": "bidiagonal SVD in O(kn)",
+    "original_question": "Let $B$ be an $n x n$ (upper) bidiagonal matrix. Is there an algorithm that, in $O(kn)$ operations, can produce $k$ triples $(sigma_i,v_i,u_i)$ such that $sigma_i >= 0$, $v_i, u_i C^n$ are unit vectors, and, for machine precision $epsilon$, $ |Bv_i-sigma_iu_i |_2 = O(epsilon n |B |_2)$; $|v_i^Hv_j|$, $|u_i^Hu_j| = O(epsilon n)$ if $i != j$.",
+    "evidence": [
+      {
+        "page": 25,
+        "quote": "Let $B$ be an $n \\times n$ (upper) bidiagonal matrix. Is there an algorithm that, in $O(kn)$ operations, can produce $k$ triples $(\\sigma_i,v_i,u_i)$ such that $\\sigma_i \\geq 0$, $v_i, u_i \\in {\\mathbb C}^n$ are unit vectors, and, for machine precision $\\epsilon$, \\begin{enumerate} \\item $\\|Bv_i-\\sigma_iu_i\\|_2 = O(\\epsilon n\\|B\\|_2)$; \\item $|v_i^Hv_j|$, $|u_i^Hu_j| = O(\\epsilon n)$ if $i \\neq j$. \\end{enumerate}"
+      }
+    ]
+  },
+  "artifact": {
+    "self_contained_problem": "Let $B \\in \\mathbb{C}^{n \\times n}$ be an upper bidiagonal matrix (i.e., $B_{ij} = 0$ unless $j = i$ or $j = i+1$), and let $\\epsilon > 0$ denote a fixed machine precision. Let $1 \\le k \\le n$ be an integer. Does there exist an algorithm that, using only $O(kn)$ arithmetic floating-point operations (in a standard model of floating-point arithmetic with unit roundoff $\\epsilon$), produces $k$ triples $(\\sigma_i, v_i, u_i)$ for $i = 1, \\ldots, k$ with $\\sigma_i \\ge 0$ and $v_i, u_i \\in \\mathbb{C}^n$ unit vectors (in the Euclidean norm) such that the following hold:\n\n1. (Approximate singular triple) For every $i \\in \\{1,\\ldots,k\\}$,\n$$\\|B v_i - \\sigma_i u_i\\|_2 = O(\\epsilon\\, n\\, \\|B\\|_2).$$\n\n2. (Numerical orthogonality) For all $i \\ne j$ in $\\{1,\\ldots,k\\}$,\n$$|v_i^H v_j| = O(\\epsilon\\, n), \\qquad |u_i^H u_j| = O(\\epsilon\\, n).$$\n\nHere $\\|\\cdot\\|_2$ denotes the spectral (operator $2$-) norm for matrices and the Euclidean norm for vectors, and $v^H$ denotes the conjugate transpose. The implicit constants in the $O(\\cdot)$ bounds must be independent of $B$, $n$, $k$, and $\\epsilon$.",
+    "macro_subject": "Applied Mathematics",
+    "category_tag": "numerical linear algebra, bidiagonal SVD",
+    "open_status": "open",
+    "status_search_result": "The MRRR (Multiple Relatively Robust Representations) approach has been proposed to compute k singular triples of a bidiagonal matrix in O(kn) time and storage. However, a fully stable, provably correct version of MRRR for the SVD with the required residual and numerical-orthogonality guarantees is not publicly available in standard libraries such as LAPACK; existing implementations (e.g., BDSVDX, based on an associated tridiagonal eigenproblem) do not achieve the O(kn) complexity together with the stated accuracy guarantees. The problem appears to remain open.",
+    "status_evidence": [
+      {
+        "title": "Computing the Bidiagonal SVD Using Multiple Relatively Robust Representations",
+        "url": "https://epubs.siam.org/doi/10.1137/050628301",
+        "snippet": "k singular triplets can be computed using only O(nk) storage units and floating point operations.",
+        "claim": "MRRR aims to compute k bidiagonal singular triples in O(kn) work, but a stable implementation with the required guarantees is still lacking."
+      },
+      {
+        "title": "Bidiagonal SVD Computation via an Associated Tridiagonal Eigenproblem",
+        "url": "https://dl.acm.org/doi/abs/10.1145/3361746",
+        "snippet": "BDSVDX computes the SVD of a bidiagonal matrix through the eigenpairs of an associated symmetric tridiagonal matrix, enabling computation of a subset of singular values and vectors.",
+        "claim": "Current LAPACK routines for partial bidiagonal SVD do not achieve O(kn) complexity with the specified residual and orthogonality bounds."
+      },
+      {
+        "title": "LAPACK Working Note 166: Computing the Bidiagonal SVD Using MRRR",
+        "url": "https://library.eecs.utk.edu/files/ut-cs-05-551.pdf",
+        "snippet": "Discusses challenges in obtaining a numerically stable MRRR for the bidiagonal SVD.",
+        "claim": "A fully stable MRRR-based bidiagonal SVD with provable O(kn) accuracy guarantees has not been established."
+      }
+    ],
+    "confidence": 0.7
+  },
+  "model": "opus",
+  "effort": "medium",
+  "elapsed_s": 33.11,
+  "validation_warnings": [],
+  "raw_claude_stdout": "{\"type\":\"result\",\"subtype\":\"success\",\"is_error\":false,\"api_error_status\":null,\"duration_ms\":31746,\"duration_api_ms\":31532,\"num_turns\":3,\"result\":\"I've produced the dataset row.\\n\\nSources:\\n- [Computing the Bidiagonal SVD Using Multiple Relatively Robust Representations (SIMAX)](https://epubs.siam.org/doi/10.1137/050628301)\\n- [Bidiagonal SVD Computation via an Associated Tridiagonal Eigenproblem (ACM TOMS)](https://dl.acm.org/doi/abs/10.1145/3361746)\\n- [LAPACK Working Note 166](https://library.eecs.utk.edu/files/ut-cs-05-551.pdf)\\n- [Accurate Singular Values of Bidiagonal Matrices (LAWN 03)](https://www.netlib.org/lapack/lawnspdf/lawn03.pdf)\",\"stop_reason\":\"end_turn\",\"session_id\":\"36ea2691-9ea8-4942-9fb6-b1a2f91d75b0\",\"total_cost_usd\":0.11876075,\"usage\":{\"input_tokens\":8,\"cache_creation_input_tokens\":4765,\"cache_read_input_tokens\":13103,\"output_tokens\":1907,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":4765,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[{\"input_tokens\":1,\"output_tokens\":261,\"cache_read_input_tokens\":5914,\"cache_creation_input_tokens\":1536,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":1536},\"type\":\"message\"}],\"speed\":\"standard\"},\"modelUsage\":{\"claude-haiku-4-5-20251001\":{\"inputTokens\":22473,\"outputTokens\":448,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":1,\"costUSD\":0.034713,\"contextWindow\":200000,\"maxOutputTokens\":32000},\"claude-opus-4-7\":{\"inputTokens\":8,\"outputTokens\":1907,\"cacheReadInputTokens\":13103,\"cacheCreationInputTokens\":4765,\"webSearchRequests\":0,\"costUSD\":0.08404774999999998,\"contextWindow\":1000000,\"maxOutputTokens\":64000}},\"permission_denials\":[],\"structured_output\":{\"self_contained_problem\":\"Let $B \\\\in \\\\mathbb{C}^{n \\\\times n}$ be an upper bidiagonal matrix (i.e., $B_{ij} = 0$ unless $j = i$ or $j = i+1$), and let $\\\\epsilon > 0$ denote a fixed machine precision. Let $1 \\\\le k \\\\le n$ be an integer. Does there exist an algorithm that, using only $O(kn)$ arithmetic floating-point operations (in a standard model of floating-point arithmetic with unit roundoff $\\\\epsilon$), produces $k$ triples $(\\\\sigma_i, v_i, u_i)$ for $i = 1, \\\\ldots, k$ with $\\\\sigma_i \\\\ge 0$ and $v_i, u_i \\\\in \\\\mathbb{C}^n$ unit vectors (in the Euclidean norm) such that the following hold:\\n\\n1. (Approximate singular triple) For every $i \\\\in \\\\{1,\\\\ldots,k\\\\}$,\\n$$\\\\|B v_i - \\\\sigma_i u_i\\\\|_2 = O(\\\\epsilon\\\\, n\\\\, \\\\|B\\\\|_2).$$\\n\\n2. (Numerical orthogonality) For all $i \\\\ne j$ in $\\\\{1,\\\\ldots,k\\\\}$,\\n$$|v_i^H v_j| = O(\\\\epsilon\\\\, n), \\\\qquad |u_i^H u_j| = O(\\\\epsilon\\\\, n).$$\\n\\nHere $\\\\|\\\\cdot\\\\|_2$ denotes the spectral (operator $2$-) norm for matrices and the Euclidean norm for vectors, and $v^H$ denotes the conjugate transpose. The implicit constants in the $O(\\\\cdot)$ bounds must be independent of $B$, $n$, $k$, and $\\\\epsilon$.\",\"macro_subject\":\"Applied Mathematics\",\"category_tag\":\"numerical linear algebra, bidiagonal SVD\",\"open_status\":\"open\",\"status_search_result\":\"The MRRR (Multiple Relatively Robust Representations) approach has been proposed to compute k singular triples of a bidiagonal matrix in O(kn) time and storage. However, a fully stable, provably correct version of MRRR for the SVD with the required residual and numerical-orthogonality guarantees is not publicly available in standard libraries such as LAPACK; existing implementations (e.g., BDSVDX, based on an associated tridiagonal eigenproblem) do not achieve the O(kn) complexity together with the stated accuracy guarantees. The problem appears to remain open.\",\"status_evidence\":[{\"title\":\"Computing the Bidiagonal SVD Using Multiple Relatively Robust Representations\",\"url\":\"https://epubs.siam.org/doi/10.1137/050628301\",\"snippet\":\"k singular triplets can be computed using only O(nk) storage units and floating point operations.\",\"claim\":\"MRRR aims to compute k bidiagonal singular triples in O(kn) work, but a stable implementation with the required guarantees is still lacking.\"},{\"title\":\"Bidiagonal SVD Computation via an Associated Tridiagonal Eigenproblem\",\"url\":\"https://dl.acm.org/doi/abs/10.1145/3361746\",\"snippet\":\"BDSVDX computes the SVD of a bidiagonal matrix through the eigenpairs of an associated symmetric tridiagonal matrix, enabling computation of a subset of singular values and vectors.\",\"claim\":\"Current LAPACK routines for partial bidiagonal SVD do not achieve O(kn) complexity with the specified residual and orthogonality bounds.\"},{\"title\":\"LAPACK Working Note 166: Computing the Bidiagonal SVD Using MRRR\",\"url\":\"https://library.eecs.utk.edu/files/ut-cs-05-551.pdf\",\"snippet\":\"Discusses challenges in obtaining a numerically stable MRRR for the bidiagonal SVD.\",\"claim\":\"A fully stable MRRR-based bidiagonal SVD with provable O(kn) accuracy guarantees has not been established.\"}],\"confidence\":0.7},\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"uuid\":\"3ad669ed-e577-4827-8fb7-dc9fa44bf10f\"}\n"
+}

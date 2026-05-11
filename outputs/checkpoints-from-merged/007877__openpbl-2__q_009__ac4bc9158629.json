@@ -1,0 +1,57 @@
+{
+  "record": {
+    "global_index": 7877,
+    "source_json": "outputs/parse-paper/OpenPbl-2.json",
+    "paper_id": "OpenPbl-2",
+    "paper_title": "",
+    "paper_link": "",
+    "question_link": "",
+    "question_id": "q_009",
+    "parser_is_solved": "false",
+    "context_brief": "Partition into two linear forests",
+    "original_question": "Given a digraph D, can its arc set always be partitioned into two linear forests, where a linear forest means a disjoint union of directed paths?",
+    "evidence": [
+      {
+        "page": 2,
+        "quote": "A linear forest is the union of directed paths."
+      },
+      {
+        "page": 2,
+        "quote": "Algorithmic question : can we partition the arcs of a diraph D into two linear forests ?"
+      }
+    ]
+  },
+  "artifact": {
+    "self_contained_problem": "A digraph $D=(V,A)$ is a finite directed graph (loops and multiple arcs are excluded). A directed path is a sequence of distinct vertices $v_0,v_1,\\dots,v_k$ together with the arcs $v_0v_1,v_1v_2,\\dots,v_{k-1}v_k$. A linear forest in $D$ is a subdigraph whose arc set is a disjoint union of (the arc sets of) directed paths; equivalently, a spanning subdigraph in which every vertex has in-degree at most $1$ and out-degree at most $1$, and whose underlying graph is acyclic.\n\nA partition of the arc set $A$ into two linear forests is a decomposition $A=A_1\\sqcup A_2$ such that, for each $i\\in\\{1,2\\}$, the spanning subdigraph $(V,A_i)$ is a linear forest.\n\nNecessarily, in any such decomposition every vertex of $D$ must have in-degree at most $2$ and out-degree at most $2$. The problem is the following:\n\nIs it true that every digraph $D$ with maximum in-degree at most $2$ and maximum out-degree at most $2$ admits a partition of its arc set into two linear forests? Equivalently, design an algorithm that, given such a digraph $D$, decides whether $A(D)$ can be partitioned into two linear forests, and produces such a partition when one exists.",
+    "macro_subject": "Combinatorics",
+    "category_tag": "Linear arboricity of digraphs",
+    "open_status": "partially_solved",
+    "status_search_result": "The problem is connected to the linear arboricity of digraphs introduced by Nakayama and Péroche (1987), whose conjecture (every $d$-regular digraph has linear arboricity $d+1$) was disproved in 2017 for symmetric complete digraphs by He et al. A 2024 dichotomy result by Aubian, Hörsch et al. shows that decomposing a digraph into a $k$-bounded and an $\\ell$-bounded directed linear forest is polynomial when $k+\\ell\\le 3$ and NP-complete otherwise, indicating that the unrestricted version of decomposition into two linear forests is computationally hard. The general existence question for digraphs of maximum in- and out-degree two is still not fully settled.",
+    "status_evidence": [
+      {
+        "title": "Complexity results on the decomposition of a digraph into directed linear forests and out-stars",
+        "url": "https://arxiv.org/abs/2401.09202",
+        "snippet": "Full dichotomy: decomposing a digraph into a k-bounded and an ℓ-bounded directed linear forest is polynomial if k+ℓ≤3 and NP-complete otherwise.",
+        "claim": "The decomposition problem into two linear forests is computationally hard in general, with a sharp dichotomy."
+      },
+      {
+        "title": "Linear arboricity of digraphs - Nakayama, Péroche",
+        "url": "https://onlinelibrary.wiley.com/doi/abs/10.1002/net.3230170104",
+        "snippet": "Introduces linear arboricity of digraphs and conjectures bounds for d-regular digraphs.",
+        "claim": "Foundational conjecture on linear arboricity of digraphs; later shown false for symmetric complete digraphs."
+      },
+      {
+        "title": "The List Linear Arboricity of Digraphs",
+        "url": "https://arxiv.org/html/2512.20195",
+        "snippet": "Recent work continues to study linear arboricity bounds for digraphs.",
+        "claim": "The area remains active with partial results."
+      }
+    ],
+    "confidence": 0.5
+  },
+  "model": "opus",
+  "effort": "medium",
+  "elapsed_s": 52.22,
+  "validation_warnings": [],
+  "raw_claude_stdout": "{\"type\":\"result\",\"subtype\":\"success\",\"is_error\":false,\"api_error_status\":null,\"duration_ms\":50895,\"duration_api_ms\":49144,\"num_turns\":4,\"result\":\"Sources:\\n- [Complexity results on the decomposition of a digraph into directed linear forests and out-stars](https://arxiv.org/abs/2401.09202)\\n- [Linear arboricity of digraphs - Nakayama, Péroche](https://onlinelibrary.wiley.com/doi/abs/10.1002/net.3230170104)\\n- [The List Linear Arboricity of Digraphs](https://arxiv.org/html/2512.20195)\",\"stop_reason\":\"end_turn\",\"session_id\":\"5cd46557-031f-4417-b6c7-fb0b37e72ee3\",\"total_cost_usd\":0.13689225,\"usage\":{\"input_tokens\":9,\"cache_creation_input_tokens\":5095,\"cache_read_input_tokens\":18151,\"output_tokens\":2347,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":5095,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[{\"input_tokens\":1,\"output_tokens\":156,\"cache_read_input_tokens\":5988,\"cache_creation_input_tokens\":1792,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":1792},\"type\":\"message\"}],\"speed\":\"standard\"},\"modelUsage\":{\"claude-haiku-4-5-20251001\":{\"inputTokens\":23973,\"outputTokens\":656,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":1,\"costUSD\":0.037253,\"contextWindow\":200000,\"maxOutputTokens\":32000},\"claude-opus-4-7\":{\"inputTokens\":9,\"outputTokens\":2347,\"cacheReadInputTokens\":18151,\"cacheCreationInputTokens\":5095,\"webSearchRequests\":0,\"costUSD\":0.09963925000000001,\"contextWindow\":1000000,\"maxOutputTokens\":64000}},\"permission_denials\":[],\"structured_output\":{\"self_contained_problem\":\"A digraph $D=(V,A)$ is a finite directed graph (loops and multiple arcs are excluded). A directed path is a sequence of distinct vertices $v_0,v_1,\\\\dots,v_k$ together with the arcs $v_0v_1,v_1v_2,\\\\dots,v_{k-1}v_k$. A linear forest in $D$ is a subdigraph whose arc set is a disjoint union of (the arc sets of) directed paths; equivalently, a spanning subdigraph in which every vertex has in-degree at most $1$ and out-degree at most $1$, and whose underlying graph is acyclic.\\n\\nA partition of the arc set $A$ into two linear forests is a decomposition $A=A_1\\\\sqcup A_2$ such that, for each $i\\\\in\\\\{1,2\\\\}$, the spanning subdigraph $(V,A_i)$ is a linear forest.\\n\\nNecessarily, in any such decomposition every vertex of $D$ must have in-degree at most $2$ and out-degree at most $2$. The problem is the following:\\n\\nIs it true that every digraph $D$ with maximum in-degree at most $2$ and maximum out-degree at most $2$ admits a partition of its arc set into two linear forests? Equivalently, design an algorithm that, given such a digraph $D$, decides whether $A(D)$ can be partitioned into two linear forests, and produces such a partition when one exists.\",\"macro_subject\":\"Combinatorics\",\"category_tag\":\"Linear arboricity of digraphs\",\"open_status\":\"partially_solved\",\"status_search_result\":\"The problem is connected to the linear arboricity of digraphs introduced by Nakayama and Péroche (1987), whose conjecture (every $d$-regular digraph has linear arboricity $d+1$) was disproved in 2017 for symmetric complete digraphs by He et al. A 2024 dichotomy result by Aubian, Hörsch et al. shows that decomposing a digraph into a $k$-bounded and an $\\\\ell$-bounded directed linear forest is polynomial when $k+\\\\ell\\\\le 3$ and NP-complete otherwise, indicating that the unrestricted version of decomposition into two linear forests is computationally hard. The general existence question for digraphs of maximum in- and out-degree two is still not fully settled.\",\"status_evidence\":[{\"title\":\"Complexity results on the decomposition of a digraph into directed linear forests and out-stars\",\"url\":\"https://arxiv.org/abs/2401.09202\",\"snippet\":\"Full dichotomy: decomposing a digraph into a k-bounded and an ℓ-bounded directed linear forest is polynomial if k+ℓ≤3 and NP-complete otherwise.\",\"claim\":\"The decomposition problem into two linear forests is computationally hard in general, with a sharp dichotomy.\"},{\"title\":\"Linear arboricity of digraphs - Nakayama, Péroche\",\"url\":\"https://onlinelibrary.wiley.com/doi/abs/10.1002/net.3230170104\",\"snippet\":\"Introduces linear arboricity of digraphs and conjectures bounds for d-regular digraphs.\",\"claim\":\"Foundational conjecture on linear arboricity of digraphs; later shown false for symmetric complete digraphs.\"},{\"title\":\"The List Linear Arboricity of Digraphs\",\"url\":\"https://arxiv.org/html/2512.20195\",\"snippet\":\"Recent work continues to study linear arboricity bounds for digraphs.\",\"claim\":\"The area remains active with partial results.\"}],\"confidence\":0.5},\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"uuid\":\"d70090c3-6688-4ee5-a367-1860b66beaa8\"}\n"
+}

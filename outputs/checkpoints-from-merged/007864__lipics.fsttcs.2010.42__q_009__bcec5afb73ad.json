@@ -1,0 +1,47 @@
+{
+  "record": {
+    "global_index": 7864,
+    "source_json": "outputs/parse-paper/LIPIcs.FSTTCS.2010.42.json",
+    "paper_id": "LIPIcs.FSTTCS.2010.42",
+    "paper_title": "Recent Progress and Open Problems in Algorithmic Convex Geometry",
+    "paper_link": "https://zbmath.org/6073519",
+    "question_link": "https://zbmath.org/6073519",
+    "question_id": "q_009",
+    "parser_is_solved": "false",
+    "context_brief": "reflection walk analysis",
+    "original_question": "For sampling from a convex body using only a separation oracle, can the reflection walk be analyzed to show substantially better oracle complexity than the ball walk, potentially O*(nD) oracle calls in general and even O*(n) for isotropic bodies?",
+    "evidence": [
+      {
+        "page": 18,
+        "quote": "It is possible that for this process, the number of oracle calls (not the number of Markov chain steps) is only O*(nD) rather than O*(n^2D^2), and even O*(n) for isotropic bodies. It is a very interesting open problem to analyze the reflection walk."
+      }
+    ]
+  },
+  "artifact": {
+    "self_contained_problem": "Let $K \\subset \\mathbb{R}^n$ be a convex body given only by a separation oracle: on input $x \\in \\mathbb{R}^n$, the oracle either reports that $x \\in K$, or returns a hyperplane separating $x$ from $K$. Assume $K$ contains a unit ball and is contained in a ball of radius $D$. Consider the \"reflection walk\" for sampling (approximately) the uniform distribution on $K$: from a current point $x \\in K$, pick a random direction (or velocity), move along a straight line, and whenever the trajectory would exit $K$ reflect specularly off the boundary (computed via the separation oracle), continuing for a prescribed total length, then output the resulting point as the next state.\n\n(a) Provide a mixing-time analysis of the reflection walk showing that, to produce an approximately uniform sample from $K$, the total expected number of separation-oracle calls is $\\widetilde{O}(nD)$ (hiding logarithmic factors and dependence on the error parameter), substantially improving upon the $\\widetilde{O}(n^2 D^2)$ oracle-call bound that follows from the standard ball walk.\n\n(b) Strengthen the bound to $\\widetilde{O}(n)$ separation-oracle calls in the case that $K$ is in (near-)isotropic position, i.e., the uniform distribution on $K$ has identity covariance.",
+    "macro_subject": "Theoretical Computer Science",
+    "category_tag": "Convex body sampling / random walks",
+    "open_status": "unknown",
+    "status_search_result": "Recent work (e.g., 2024–2025) on oracle-based uniform sampling from convex bodies (proximal samplers, In-and-Out, Dikin walks) has improved oracle complexities under various oracle models, but no source found provides the specific reflection-walk analysis achieving $\\widetilde{O}(nD)$ separation-oracle calls in general or $\\widetilde{O}(n)$ for isotropic bodies. The status of this specific reflection-walk question appears to remain unresolved based on available evidence.",
+    "status_evidence": [
+      {
+        "title": "Oracle-based Uniform Sampling from Convex Bodies",
+        "url": "https://arxiv.org/abs/2510.02983",
+        "snippet": "Algorithms based on proximal samplers using projection/separation oracles, matching iteration complexity of In-and-Out and the Ball walk.",
+        "claim": "Recent oracle-based samplers improve complexity but do not specifically analyze the reflection walk to the targeted bounds."
+      },
+      {
+        "title": "In-and-Out: Algorithmic Diffusion for Sampling Convex Bodies",
+        "url": "https://arxiv.org/html/2405.01425",
+        "snippet": "New diffusion-based sampler for convex bodies with improved mixing analysis.",
+        "claim": "Progress on convex body sampling complexity exists, but distinct from reflection-walk analysis."
+      }
+    ],
+    "confidence": 0.6
+  },
+  "model": "opus",
+  "effort": "medium",
+  "elapsed_s": 32.61,
+  "validation_warnings": [],
+  "raw_claude_stdout": "{\"type\":\"result\",\"subtype\":\"success\",\"is_error\":false,\"api_error_status\":null,\"duration_ms\":31235,\"duration_api_ms\":31953,\"num_turns\":3,\"result\":\"Sources:\\n- [Oracle-based Uniform Sampling from Convex Bodies](https://arxiv.org/abs/2510.02983)\\n- [In-and-Out: Algorithmic Diffusion for Sampling Convex Bodies](https://arxiv.org/html/2405.01425)\\n- [Log-Concave Sampling (Chewi)](https://chewisinho.github.io/main.pdf)\",\"stop_reason\":\"end_turn\",\"session_id\":\"d1c27933-fbff-44bb-aa66-624dd2b4a76f\",\"total_cost_usd\":0.1015385,\"usage\":{\"input_tokens\":8,\"cache_creation_input_tokens\":4220,\"cache_read_input_tokens\":12631,\"output_tokens\":1406,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":4220,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[{\"input_tokens\":1,\"output_tokens\":141,\"cache_read_input_tokens\":5735,\"cache_creation_input_tokens\":1170,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":1170},\"type\":\"message\"}],\"speed\":\"standard\"},\"modelUsage\":{\"claude-haiku-4-5-20251001\":{\"inputTokens\":20698,\"outputTokens\":592,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":1,\"costUSD\":0.033658,\"contextWindow\":200000,\"maxOutputTokens\":32000},\"claude-opus-4-7\":{\"inputTokens\":8,\"outputTokens\":1406,\"cacheReadInputTokens\":12631,\"cacheCreationInputTokens\":4220,\"webSearchRequests\":0,\"costUSD\":0.0678805,\"contextWindow\":1000000,\"maxOutputTokens\":64000}},\"permission_denials\":[],\"structured_output\":{\"self_contained_problem\":\"Let $K \\\\subset \\\\mathbb{R}^n$ be a convex body given only by a separation oracle: on input $x \\\\in \\\\mathbb{R}^n$, the oracle either reports that $x \\\\in K$, or returns a hyperplane separating $x$ from $K$. Assume $K$ contains a unit ball and is contained in a ball of radius $D$. Consider the \\\"reflection walk\\\" for sampling (approximately) the uniform distribution on $K$: from a current point $x \\\\in K$, pick a random direction (or velocity), move along a straight line, and whenever the trajectory would exit $K$ reflect specularly off the boundary (computed via the separation oracle), continuing for a prescribed total length, then output the resulting point as the next state.\\n\\n(a) Provide a mixing-time analysis of the reflection walk showing that, to produce an approximately uniform sample from $K$, the total expected number of separation-oracle calls is $\\\\widetilde{O}(nD)$ (hiding logarithmic factors and dependence on the error parameter), substantially improving upon the $\\\\widetilde{O}(n^2 D^2)$ oracle-call bound that follows from the standard ball walk.\\n\\n(b) Strengthen the bound to $\\\\widetilde{O}(n)$ separation-oracle calls in the case that $K$ is in (near-)isotropic position, i.e., the uniform distribution on $K$ has identity covariance.\",\"macro_subject\":\"Theoretical Computer Science\",\"category_tag\":\"Convex body sampling / random walks\",\"open_status\":\"unknown\",\"status_search_result\":\"Recent work (e.g., 2024–2025) on oracle-based uniform sampling from convex bodies (proximal samplers, In-and-Out, Dikin walks) has improved oracle complexities under various oracle models, but no source found provides the specific reflection-walk analysis achieving $\\\\widetilde{O}(nD)$ separation-oracle calls in general or $\\\\widetilde{O}(n)$ for isotropic bodies. The status of this specific reflection-walk question appears to remain unresolved based on available evidence.\",\"status_evidence\":[{\"title\":\"Oracle-based Uniform Sampling from Convex Bodies\",\"url\":\"https://arxiv.org/abs/2510.02983\",\"snippet\":\"Algorithms based on proximal samplers using projection/separation oracles, matching iteration complexity of In-and-Out and the Ball walk.\",\"claim\":\"Recent oracle-based samplers improve complexity but do not specifically analyze the reflection walk to the targeted bounds.\"},{\"title\":\"In-and-Out: Algorithmic Diffusion for Sampling Convex Bodies\",\"url\":\"https://arxiv.org/html/2405.01425\",\"snippet\":\"New diffusion-based sampler for convex bodies with improved mixing analysis.\",\"claim\":\"Progress on convex body sampling complexity exists, but distinct from reflection-walk analysis.\"}],\"confidence\":0.6},\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"uuid\":\"d5e1e890-cf7c-4008-a736-d62e80a71abf\"}\n"
+}

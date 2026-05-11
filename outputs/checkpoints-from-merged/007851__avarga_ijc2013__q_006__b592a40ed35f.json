@@ -1,0 +1,53 @@
+{
+  "record": {
+    "global_index": 7851,
+    "source_json": "outputs/parse-paper/AVarga_IJC2013.json",
+    "paper_id": "AVarga_IJC2013",
+    "paper_title": "Computational issues for linear periodic systems: paradigms, algorithms, open problems",
+    "paper_link": "https://zbmath.org/6239649",
+    "question_link": "https://zbmath.org/6239649",
+    "question_id": "q_006",
+    "parser_is_solved": "false",
+    "context_brief": "Continuous-time periodic frequency response",
+    "original_question": "For continuous-time linear periodic systems, can one develop algorithms that compute frequency responses efficiently?",
+    "evidence": [
+      {
+        "page": 12,
+        "quote": "For continuous-time periodic systems, there are no algorithms for efficient computation of frequency responses"
+      }
+    ]
+  },
+  "artifact": {
+    "self_contained_problem": "Consider a continuous-time linear periodic (LTP) state-space system\n\n  dx(t)/dt = A(t) x(t) + B(t) u(t),\n  y(t)     = C(t) x(t) + D(t) u(t),\n\nwhere A(t), B(t), C(t), D(t) are real matrix-valued functions of period T > 0 (i.e., A(t+T) = A(t), and similarly for B, C, D). For such a system, the frequency response is described by the harmonic transfer function (equivalently, the frequency-response operator obtained from the EMP/harmonic-balance representation), which assigns to each frequency ω in a fundamental band an infinite-dimensional operator relating input harmonics u_k e^{i(ω + kΩ)t} (Ω = 2π/T) to output harmonics y_k e^{i(ω + kΩ)t}.\n\nProblem. Devise numerically reliable algorithms that, given the periodic data (A(·), B(·), C(·), D(·)) in a standard representation (e.g. truncated Fourier series, piecewise-constant, or sampled coefficients), compute, in a computationally efficient way, the frequency response of the system at a prescribed grid of frequencies ω, with provable error bounds and complexity that scales favorably with the harmonic truncation order, the state dimension, and the number of evaluation frequencies.\n\nIn particular, produce algorithms that avoid forming and decomposing the full doubly-infinite Toeplitz-like operator at each frequency, exploit structure (sparsity, decay/roll-off of harmonics, monodromy/Floquet factorizations) of the periodic data, and achieve efficiency comparable to that available for the time-invariant case.",
+    "macro_subject": "Applied Mathematics",
+    "category_tag": "linear periodic control systems",
+    "open_status": "partially_solved",
+    "status_search_result": "Several methods exist for computing frequency responses of continuous-time LTP systems via harmonic transfer functions, truncation of the doubly-infinite operator, and harmonic-balance/EMP techniques (Wereley–Hall; Zhou–Hagiwara; and others on H2/H∞ approximation via skew truncation). These provide approximations with convergence results, but a fully general, numerically reliable, and efficient algorithm comparable to LTI frequency-response routines does not appear to be standard. The problem is best classified as partially solved: efficient algorithms exist for specific structured classes, while a general efficient framework remains an active topic.",
+    "status_evidence": [
+      {
+        "title": "Computing frequency response gains of linear continuous-time periodic systems",
+        "url": "https://digital-library.theiet.org/doi/10.1049/ip-cta:20010468",
+        "snippet": "Algorithm for computing frequency response gains of continuous-time LTP systems.",
+        "claim": "Methods for computing frequency response gains of continuous-time LTP systems exist."
+      },
+      {
+        "title": "Frequency-domain analysis of linear time-periodic systems",
+        "url": "https://ieeexplore.ieee.org/document/1556729/",
+        "snippet": "Convergence of truncated representations of the harmonic transfer function; input/output/skew roll-off concepts give efficient low-dimensional approximations.",
+        "claim": "Truncation-based efficient approximations to the harmonic transfer function are available with convergence guarantees."
+      },
+      {
+        "title": "Linear time-periodic dynamical systems: an H2 analysis and a model reduction framework",
+        "url": "https://www.tandfonline.com/doi/full/10.1080/13873954.2017.1382538",
+        "snippet": "H2 analysis and model reduction framework for LTP systems including frequency-domain computations.",
+        "claim": "Recent work develops H2 frequency-domain computational frameworks for LTP systems."
+      }
+    ],
+    "confidence": 0.6
+  },
+  "model": "opus",
+  "effort": "medium",
+  "elapsed_s": 47.52,
+  "validation_warnings": [],
+  "raw_claude_stdout": "{\"type\":\"result\",\"subtype\":\"success\",\"is_error\":false,\"api_error_status\":null,\"duration_ms\":46056,\"duration_api_ms\":40718,\"num_turns\":3,\"result\":\"Sources:\\n- [Computing frequency response gains of linear continuous-time periodic systems](https://digital-library.theiet.org/doi/10.1049/ip-cta:20010468)\\n- [Frequency-domain analysis of linear time-periodic systems (IEEE)](https://ieeexplore.ieee.org/document/1556729/)\\n- [Linear time-periodic dynamical systems: an H2 analysis and model reduction framework](https://www.tandfonline.com/doi/full/10.1080/13873954.2017.1382538)\\n- [Frequency response of linear time periodic systems](https://ieeexplore.ieee.org/document/203516/)\",\"stop_reason\":\"end_turn\",\"session_id\":\"cb1859a5-4760-4c81-934b-0de397cf9d8f\",\"total_cost_usd\":0.10802550000000001,\"usage\":{\"input_tokens\":8,\"cache_creation_input_tokens\":4366,\"cache_read_input_tokens\":12394,\"output_tokens\":1758,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":4366,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[{\"input_tokens\":1,\"output_tokens\":222,\"cache_read_input_tokens\":5602,\"cache_creation_input_tokens\":1449,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":1449},\"type\":\"message\"}],\"speed\":\"standard\"},\"modelUsage\":{\"claude-haiku-4-5-20251001\":{\"inputTokens\":17956,\"outputTokens\":519,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":1,\"costUSD\":0.030551,\"contextWindow\":200000,\"maxOutputTokens\":32000},\"claude-opus-4-7\":{\"inputTokens\":8,\"outputTokens\":1758,\"cacheReadInputTokens\":12394,\"cacheCreationInputTokens\":4366,\"webSearchRequests\":0,\"costUSD\":0.0774745,\"contextWindow\":1000000,\"maxOutputTokens\":64000}},\"permission_denials\":[],\"structured_output\":{\"self_contained_problem\":\"Consider a continuous-time linear periodic (LTP) state-space system\\n\\n  dx(t)/dt = A(t) x(t) + B(t) u(t),\\n  y(t)     = C(t) x(t) + D(t) u(t),\\n\\nwhere A(t), B(t), C(t), D(t) are real matrix-valued functions of period T > 0 (i.e., A(t+T) = A(t), and similarly for B, C, D). For such a system, the frequency response is described by the harmonic transfer function (equivalently, the frequency-response operator obtained from the EMP/harmonic-balance representation), which assigns to each frequency ω in a fundamental band an infinite-dimensional operator relating input harmonics u_k e^{i(ω + kΩ)t} (Ω = 2π/T) to output harmonics y_k e^{i(ω + kΩ)t}.\\n\\nProblem. Devise numerically reliable algorithms that, given the periodic data (A(·), B(·), C(·), D(·)) in a standard representation (e.g. truncated Fourier series, piecewise-constant, or sampled coefficients), compute, in a computationally efficient way, the frequency response of the system at a prescribed grid of frequencies ω, with provable error bounds and complexity that scales favorably with the harmonic truncation order, the state dimension, and the number of evaluation frequencies.\\n\\nIn particular, produce algorithms that avoid forming and decomposing the full doubly-infinite Toeplitz-like operator at each frequency, exploit structure (sparsity, decay/roll-off of harmonics, monodromy/Floquet factorizations) of the periodic data, and achieve efficiency comparable to that available for the time-invariant case.\",\"macro_subject\":\"Applied Mathematics\",\"category_tag\":\"linear periodic control systems\",\"open_status\":\"partially_solved\",\"status_search_result\":\"Several methods exist for computing frequency responses of continuous-time LTP systems via harmonic transfer functions, truncation of the doubly-infinite operator, and harmonic-balance/EMP techniques (Wereley–Hall; Zhou–Hagiwara; and others on H2/H∞ approximation via skew truncation). These provide approximations with convergence results, but a fully general, numerically reliable, and efficient algorithm comparable to LTI frequency-response routines does not appear to be standard. The problem is best classified as partially solved: efficient algorithms exist for specific structured classes, while a general efficient framework remains an active topic.\",\"status_evidence\":[{\"title\":\"Computing frequency response gains of linear continuous-time periodic systems\",\"url\":\"https://digital-library.theiet.org/doi/10.1049/ip-cta:20010468\",\"snippet\":\"Algorithm for computing frequency response gains of continuous-time LTP systems.\",\"claim\":\"Methods for computing frequency response gains of continuous-time LTP systems exist.\"},{\"title\":\"Frequency-domain analysis of linear time-periodic systems\",\"url\":\"https://ieeexplore.ieee.org/document/1556729/\",\"snippet\":\"Convergence of truncated representations of the harmonic transfer function; input/output/skew roll-off concepts give efficient low-dimensional approximations.\",\"claim\":\"Truncation-based efficient approximations to the harmonic transfer function are available with convergence guarantees.\"},{\"title\":\"Linear time-periodic dynamical systems: an H2 analysis and a model reduction framework\",\"url\":\"https://www.tandfonline.com/doi/full/10.1080/13873954.2017.1382538\",\"snippet\":\"H2 analysis and model reduction framework for LTP systems including frequency-domain computations.\",\"claim\":\"Recent work develops H2 frequency-domain computational frameworks for LTP systems.\"}],\"confidence\":0.6},\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"uuid\":\"82e03420-9b99-460e-911c-bdf97b35401f\"}\n"
+}
