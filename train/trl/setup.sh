@@ -8,5 +8,5 @@ uv pip install trl transformers accelerate datasets peft bitsandbytes wandb
 
 uv pip install torch torchvision --index-url https://download.pytorch.org/whl/cu128
 uv pip install -U kernels
-
+uv pip install liger-kernel
 #accelerate launch --config_file fsdp_config.yaml train.py

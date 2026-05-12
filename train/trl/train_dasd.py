@@ -111,7 +111,7 @@ trainer = SFTTrainer(
         # Speed up
         model_init_kwargs={"attn_implementation": "kernels-community/flash-attn2"},
         use_liger_kernel=True,
-        loss_type="chunked_nll"
+        # loss_type="chunked_nll"
     ),
 )
 
