@@ -1,0 +1,61 @@
+{
+  "record": {
+    "global_index": 5693,
+    "source_json": "outputs/parse-paper/2206.15475.json",
+    "paper_id": "2206.15475",
+    "paper_title": "Causal Machine Learning: A Survey and Open Problems",
+    "paper_link": "https://arxiv.org/abs/2206.15475",
+    "question_link": "https://arxiv.org/pdf/2206.15475.pdf#page=60",
+    "question_id": "q_011",
+    "parser_is_solved": "false",
+    "context_brief": "Robustness versus recourse sensitivity",
+    "original_question": "Attribution-based explanations and counterfactual recourse should ideally be robust, meaning small input changes do not cause large explanation jumps, and recourse-sensitive, meaning following the explanation direction can achieve sufficient utility. What practical workarounds can overcome or manage the impossibility of satisfying both properties simultaneously?",
+    "evidence": [
+      {
+        "page": 60,
+        "quote": "Two desirable properties of explanation methods are robustness and recourse sensitivity [162]."
+      },
+      {
+        "page": 60,
+        "quote": "Fokkema et al. [162] point out that attribution methods and counterfactual explanations cannot be robust and recourse sensitive at the same time."
+      },
+      {
+        "page": 60,
+        "quote": "Future work should therefore consider workarounds to circumvent Fokkema et al. [162]’s impossibility result."
+      }
+    ]
+  },
+  "artifact": {
+    "self_contained_problem": "Setting. Let $f:\\mathcal{X}\\to\\mathbb{R}$ be a predictor on an input space $\\mathcal{X}\\subseteq\\mathbb{R}^d$ (interpreted, e.g., as the score of a binary classifier with decision threshold $\\tau$). An attribution-based explanation method is a map $E:\\mathcal{X}\\to\\mathbb{R}^d$ that assigns to each input $x$ a vector of feature weights $E(x)=(E_1(x),\\dots,E_d(x))$. A counterfactual explanation method is a map $C:\\mathcal{X}\\to\\mathcal{X}$ producing for each $x$ a perturbation $\\delta(x)=C(x)-x$ (which can be reinterpreted as an attribution).\n\nTwo desiderata are formulated for such an explanation method $E$ with respect to $f$:\n\\begin{itemize}\n\\item \\emph{Robustness}: $E$ is continuous (or Lipschitz) in $x$; i.e., for every $\\varepsilon>0$ there is $\\delta>0$ such that $\\|x-x'\\|<\\delta$ implies $\\|E(x)-E(x')\\|<\\varepsilon$.\n\\item \\emph{Recourse sensitivity}: for every $x$ with $f(x)<\\tau$ that admits a feasible recourse, moving from $x$ in the direction indicated by $E(x)$ by a bounded step size yields an input $x'$ with $f(x')\\ge\\tau$ (i.e., following the explanation achieves sufficient utility).\n\\end{itemize}\n\nIt is known that for broad classes of predictors $f$, no single-valued attribution method $E$ can simultaneously be robust and recourse-sensitive: any $E$ satisfying recourse sensitivity must be discontinuous, and any continuous $E$ must fail recourse sensitivity on some inputs. The same impossibility extends to counterfactual explanation maps $C$.\n\nProblem. Develop and rigorously analyze practical workarounds that circumvent this impossibility. Concretely, formulate relaxations or alternative formats for explanation methods—such as (i) set-valued attribution maps $E:\\mathcal{X}\\to 2^{\\mathbb{R}^d}$ that return multiple admissible explanations per input, (ii) probabilistic or distribution-valued explanation methods, (iii) explanations defined only on restricted regions of $\\mathcal{X}$ where $f$ satisfies regularity assumptions, or (iv) approximate versions of robustness and recourse sensitivity with quantitative trade-off bounds—and identify sufficient conditions on $f$ and on the explanation format under which both robustness (suitably relaxed) and recourse sensitivity (suitably relaxed) can be guaranteed simultaneously. Characterize the achievable Pareto frontier between the two properties.",
+    "macro_subject": "Statistics and Machine Learning",
+    "category_tag": "Explainable ML / attribution and recourse",
+    "open_status": "open",
+    "status_search_result": "The underlying impossibility theorem (attribution-based explanations cannot be both robust and recourse-sensitive) was established by Fokkema, de Heide, and van Erven (arXiv:2205.15834; JMLR 2023). That work suggests partial workarounds, such as set-valued attribution outputs, and gives sufficient conditions for recourse sensitivity in restricted function classes, but a general, fully satisfactory practical resolution of the trade-off is not established and remains an active research direction.",
+    "status_evidence": [
+      {
+        "title": "Attribution-based Explanations that Provide Recourse Cannot be Robust",
+        "url": "https://arxiv.org/abs/2205.15834",
+        "snippet": "Proves no single attribution method can be both recourse-sensitive and robust; discusses workarounds like set-valued outputs and sufficient conditions for some function classes.",
+        "claim": "Establishes the impossibility result and proposes partial workarounds, leaving a general resolution open."
+      },
+      {
+        "title": "Attribution-based Explanations that Provide Recourse Cannot be Robust (JMLR)",
+        "url": "https://jmlr.org/papers/v24/23-0042.html",
+        "snippet": "Published version of the impossibility theorem covering LIME, SHAP, Integrated Gradients, SmoothGrad, and counterfactual explanations.",
+        "claim": "Confirms the impossibility result is formally established; general practical workarounds remain open."
+      },
+      {
+        "title": "Impossibility Theorems for Feature Attribution",
+        "url": "https://arxiv.org/pdf/2212.11870",
+        "snippet": "Related impossibility results for attribution methods.",
+        "claim": "Indicates ongoing research into limitations of feature attribution methods."
+      }
+    ],
+    "confidence": 0.7
+  },
+  "model": "opus",
+  "effort": "medium",
+  "elapsed_s": 33.0,
+  "validation_warnings": [],
+  "raw_claude_stdout": "{\"type\":\"result\",\"subtype\":\"success\",\"is_error\":false,\"api_error_status\":null,\"duration_ms\":31883,\"duration_api_ms\":30723,\"num_turns\":3,\"result\":\"Sources:\\n- [Attribution-based Explanations that Provide Recourse Cannot be Robust (arXiv)](https://arxiv.org/abs/2205.15834)\\n- [JMLR version](https://jmlr.org/papers/v24/23-0042.html)\\n- [Impossibility Theorems for Feature Attribution](https://arxiv.org/pdf/2212.11870)\",\"stop_reason\":\"end_turn\",\"session_id\":\"5a9d5db6-3e05-46be-b3bf-96f8f1daa7d4\",\"total_cost_usd\":0.11683575000000002,\"usage\":{\"input_tokens\":8,\"cache_creation_input_tokens\":4939,\"cache_read_input_tokens\":12842,\"output_tokens\":2017,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":4939,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[{\"input_tokens\":1,\"output_tokens\":133,\"cache_read_input_tokens\":5837,\"cache_creation_input_tokens\":1787,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":1787},\"type\":\"message\"}],\"speed\":\"standard\"},\"modelUsage\":{\"claude-haiku-4-5-20251001\":{\"inputTokens\":16521,\"outputTokens\":512,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":1,\"costUSD\":0.029081,\"contextWindow\":200000,\"maxOutputTokens\":32000},\"claude-opus-4-7\":{\"inputTokens\":8,\"outputTokens\":2017,\"cacheReadInputTokens\":12842,\"cacheCreationInputTokens\":4939,\"webSearchRequests\":0,\"costUSD\":0.08775475000000002,\"contextWindow\":1000000,\"maxOutputTokens\":64000}},\"permission_denials\":[],\"structured_output\":{\"self_contained_problem\":\"Setting. Let $f:\\\\mathcal{X}\\\\to\\\\mathbb{R}$ be a predictor on an input space $\\\\mathcal{X}\\\\subseteq\\\\mathbb{R}^d$ (interpreted, e.g., as the score of a binary classifier with decision threshold $\\\\tau$). An attribution-based explanation method is a map $E:\\\\mathcal{X}\\\\to\\\\mathbb{R}^d$ that assigns to each input $x$ a vector of feature weights $E(x)=(E_1(x),\\\\dots,E_d(x))$. A counterfactual explanation method is a map $C:\\\\mathcal{X}\\\\to\\\\mathcal{X}$ producing for each $x$ a perturbation $\\\\delta(x)=C(x)-x$ (which can be reinterpreted as an attribution).\\n\\nTwo desiderata are formulated for such an explanation method $E$ with respect to $f$:\\n\\\\begin{itemize}\\n\\\\item \\\\emph{Robustness}: $E$ is continuous (or Lipschitz) in $x$; i.e., for every $\\\\varepsilon>0$ there is $\\\\delta>0$ such that $\\\\|x-x'\\\\|<\\\\delta$ implies $\\\\|E(x)-E(x')\\\\|<\\\\varepsilon$.\\n\\\\item \\\\emph{Recourse sensitivity}: for every $x$ with $f(x)<\\\\tau$ that admits a feasible recourse, moving from $x$ in the direction indicated by $E(x)$ by a bounded step size yields an input $x'$ with $f(x')\\\\ge\\\\tau$ (i.e., following the explanation achieves sufficient utility).\\n\\\\end{itemize}\\n\\nIt is known that for broad classes of predictors $f$, no single-valued attribution method $E$ can simultaneously be robust and recourse-sensitive: any $E$ satisfying recourse sensitivity must be discontinuous, and any continuous $E$ must fail recourse sensitivity on some inputs. The same impossibility extends to counterfactual explanation maps $C$.\\n\\nProblem. Develop and rigorously analyze practical workarounds that circumvent this impossibility. Concretely, formulate relaxations or alternative formats for explanation methods—such as (i) set-valued attribution maps $E:\\\\mathcal{X}\\\\to 2^{\\\\mathbb{R}^d}$ that return multiple admissible explanations per input, (ii) probabilistic or distribution-valued explanation methods, (iii) explanations defined only on restricted regions of $\\\\mathcal{X}$ where $f$ satisfies regularity assumptions, or (iv) approximate versions of robustness and recourse sensitivity with quantitative trade-off bounds—and identify sufficient conditions on $f$ and on the explanation format under which both robustness (suitably relaxed) and recourse sensitivity (suitably relaxed) can be guaranteed simultaneously. Characterize the achievable Pareto frontier between the two properties.\",\"macro_subject\":\"Statistics and Machine Learning\",\"category_tag\":\"Explainable ML / attribution and recourse\",\"open_status\":\"open\",\"status_search_result\":\"The underlying impossibility theorem (attribution-based explanations cannot be both robust and recourse-sensitive) was established by Fokkema, de Heide, and van Erven (arXiv:2205.15834; JMLR 2023). That work suggests partial workarounds, such as set-valued attribution outputs, and gives sufficient conditions for recourse sensitivity in restricted function classes, but a general, fully satisfactory practical resolution of the trade-off is not established and remains an active research direction.\",\"status_evidence\":[{\"title\":\"Attribution-based Explanations that Provide Recourse Cannot be Robust\",\"url\":\"https://arxiv.org/abs/2205.15834\",\"snippet\":\"Proves no single attribution method can be both recourse-sensitive and robust; discusses workarounds like set-valued outputs and sufficient conditions for some function classes.\",\"claim\":\"Establishes the impossibility result and proposes partial workarounds, leaving a general resolution open.\"},{\"title\":\"Attribution-based Explanations that Provide Recourse Cannot be Robust (JMLR)\",\"url\":\"https://jmlr.org/papers/v24/23-0042.html\",\"snippet\":\"Published version of the impossibility theorem covering LIME, SHAP, Integrated Gradients, SmoothGrad, and counterfactual explanations.\",\"claim\":\"Confirms the impossibility result is formally established; general practical workarounds remain open.\"},{\"title\":\"Impossibility Theorems for Feature Attribution\",\"url\":\"https://arxiv.org/pdf/2212.11870\",\"snippet\":\"Related impossibility results for attribution methods.\",\"claim\":\"Indicates ongoing research into limitations of feature attribution methods.\"}],\"confidence\":0.7},\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"uuid\":\"fc090660-9d8f-4201-8676-214b9bbfca23\"}\n"
+}

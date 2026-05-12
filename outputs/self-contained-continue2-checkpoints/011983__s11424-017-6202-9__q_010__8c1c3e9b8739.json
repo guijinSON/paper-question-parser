@@ -1,0 +1,53 @@
+{
+  "record": {
+    "global_index": 11983,
+    "source_json": "outputs/parse-paper/s11424-017-6202-9.json",
+    "paper_id": "s11424-017-6202-9",
+    "paper_title": "Some Open Problems Related to Creative Telescoping",
+    "paper_link": "https://zbmath.org/6770332",
+    "question_link": "https://zbmath.org/6770332",
+    "question_id": "q_010",
+    "parser_is_solved": "false",
+    "context_brief": "Turning telescopers into definite-sum recurrences",
+    "original_question": "Develop an algorithm that starts from a telescoper-certificate relation for a hypergeometric term and correctly turns it into a recurrence for the associated definite sum, while properly handling all issues caused by poles in the certificate.",
+    "evidence": [
+      {
+        "page": 9,
+        "quote": "Problem 6.1 Develop an algorithm that correctly transforms a telescoper-certificate pair for a hypergeometric term into a recurrence for the corresponding definite sum. In particular, the algorithm should properly take care of any possible issues arising from poles in the certificate."
+      }
+    ]
+  },
+  "artifact": {
+    "self_contained_problem": "Let $\\mathbb{K}$ be a field of characteristic zero (e.g., $\\mathbb{Q}$). A bivariate function $T(n,k)$ with values in $\\mathbb{K}(n,k)$ (or more generally a hypergeometric term, meaning $T(n+1,k)/T(n,k)$ and $T(n,k+1)/T(n,k)$ both lie in $\\mathbb{K}(n,k)$) is said to admit a telescoper-certificate pair $(L,G)$ when \n$$L(n,S_n)\\,T(n,k) \\;=\\; G(n,k+1) - G(n,k),$$\nwhere $L(n,S_n)=\\sum_{i=0}^r a_i(n) S_n^i$ is a nonzero linear recurrence operator in the shift $S_n:f(n,k)\\mapsto f(n+1,k)$ with coefficients $a_i(n)\\in\\mathbb{K}(n)$, and $G(n,k) = R(n,k)\\,T(n,k)$ for some rational certificate $R(n,k)\\in\\mathbb{K}(n,k)$.\n\nGiven a summation range, one would like to derive from $(L,G)$ a linear recurrence in $n$ satisfied by the definite sum\n$$S(n) \\;=\\; \\sum_{k\\in E} T(n,k),$$\nwhere $E\\subseteq\\mathbb{Z}$ is a (possibly infinite) summation interval. Naively summing the telescoping identity over $k\\in E$ gives such a recurrence, but the certificate $R(n,k)$ may have poles at integer values of $k$ inside or near $E$, and these poles can introduce spurious or missing boundary contributions and falsify the resulting recurrence.\n\nProblem. Design an algorithm that, given a hypergeometric term $T(n,k)$ together with a telescoper-certificate pair $(L,G)$ as above and a summation range $E$, produces a linear recurrence in $n$ with coefficients in $\\mathbb{K}(n)$ that is provably satisfied by $S(n)$, while correctly handling all contributions arising from poles of the certificate $R(n,k)$ at integer points of the summation range.",
+    "macro_subject": "Theoretical Computer Science",
+    "category_tag": "creative telescoping algorithms",
+    "open_status": "unknown",
+    "status_search_result": "The problem was posed as an open problem in a 2017 survey on creative telescoping. Subsequent work (e.g., reduction-based creative telescoping for definite summation of D-finite functions by Chen et al., and modified Abramov–Petkovšek reductions) has addressed related issues, but I could not find a published source that explicitly claims a complete algorithm fully resolving the pole-handling issue for the telescoper-certificate-to-recurrence transformation in the hypergeometric case. The status remains unclear from available sources.",
+    "status_evidence": [
+      {
+        "title": "Some Open Problems Related to Creative Telescoping",
+        "url": "http://www.mmrc.iss.ac.cn/~schen/CK2016.pdf",
+        "snippet": "Problem 6.1 Develop an algorithm that correctly transforms a telescoper-certificate pair...",
+        "claim": "Original statement of the problem as open in 2017."
+      },
+      {
+        "title": "Reduction-based creative telescoping for definite summation of D-finite functions",
+        "url": "https://www.sciencedirect.com/science/article/abs/pii/S0747717124000336",
+        "snippet": "Reduction-based creative telescoping for definite summation",
+        "claim": "Related recent work but does not explicitly resolve the pole-handling issue for hypergeometric certificates."
+      },
+      {
+        "title": "A Modified Abramov-Petkovšek Reduction and Creative Telescoping",
+        "url": "https://arxiv.org/pdf/1501.04668",
+        "snippet": "Modified Abramov-Petkovsek reduction",
+        "claim": "Addresses related reduction issues for hypergeometric terms."
+      }
+    ],
+    "confidence": 0.6
+  },
+  "model": "opus",
+  "effort": "medium",
+  "elapsed_s": 34.51,
+  "validation_warnings": [],
+  "raw_claude_stdout": "{\"type\":\"result\",\"subtype\":\"success\",\"is_error\":false,\"api_error_status\":null,\"duration_ms\":33372,\"duration_api_ms\":32299,\"num_turns\":3,\"result\":\"Sources:\\n- [Some Open Problems Related to Creative Telescoping (preprint)](http://www.mmrc.iss.ac.cn/~schen/CK2016.pdf)\\n- [Reduction-based creative telescoping for definite summation of D-finite functions](https://www.sciencedirect.com/science/article/abs/pii/S0747717124000336)\\n- [A Modified Abramov–Petkovšek Reduction and Creative Telescoping](https://arxiv.org/pdf/1501.04668)\",\"stop_reason\":\"end_turn\",\"session_id\":\"d3c40de0-6b57-4b46-a8ce-1885fc3918f3\",\"total_cost_usd\":0.122865,\"usage\":{\"input_tokens\":8,\"cache_creation_input_tokens\":4394,\"cache_read_input_tokens\":12437,\"output_tokens\":1810,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":4394,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[{\"input_tokens\":1,\"output_tokens\":176,\"cache_read_input_tokens\":5546,\"cache_creation_input_tokens\":1533,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":1533},\"type\":\"message\"}],\"speed\":\"standard\"},\"modelUsage\":{\"claude-haiku-4-5-20251001\":{\"inputTokens\":31359,\"outputTokens\":507,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":1,\"costUSD\":0.043894,\"contextWindow\":200000,\"maxOutputTokens\":32000},\"claude-opus-4-7\":{\"inputTokens\":8,\"outputTokens\":1810,\"cacheReadInputTokens\":12437,\"cacheCreationInputTokens\":4394,\"webSearchRequests\":0,\"costUSD\":0.078971,\"contextWindow\":1000000,\"maxOutputTokens\":64000}},\"permission_denials\":[],\"structured_output\":{\"self_contained_problem\":\"Let $\\\\mathbb{K}$ be a field of characteristic zero (e.g., $\\\\mathbb{Q}$). A bivariate function $T(n,k)$ with values in $\\\\mathbb{K}(n,k)$ (or more generally a hypergeometric term, meaning $T(n+1,k)/T(n,k)$ and $T(n,k+1)/T(n,k)$ both lie in $\\\\mathbb{K}(n,k)$) is said to admit a telescoper-certificate pair $(L,G)$ when \\n$$L(n,S_n)\\\\,T(n,k) \\\\;=\\\\; G(n,k+1) - G(n,k),$$\\nwhere $L(n,S_n)=\\\\sum_{i=0}^r a_i(n) S_n^i$ is a nonzero linear recurrence operator in the shift $S_n:f(n,k)\\\\mapsto f(n+1,k)$ with coefficients $a_i(n)\\\\in\\\\mathbb{K}(n)$, and $G(n,k) = R(n,k)\\\\,T(n,k)$ for some rational certificate $R(n,k)\\\\in\\\\mathbb{K}(n,k)$.\\n\\nGiven a summation range, one would like to derive from $(L,G)$ a linear recurrence in $n$ satisfied by the definite sum\\n$$S(n) \\\\;=\\\\; \\\\sum_{k\\\\in E} T(n,k),$$\\nwhere $E\\\\subseteq\\\\mathbb{Z}$ is a (possibly infinite) summation interval. Naively summing the telescoping identity over $k\\\\in E$ gives such a recurrence, but the certificate $R(n,k)$ may have poles at integer values of $k$ inside or near $E$, and these poles can introduce spurious or missing boundary contributions and falsify the resulting recurrence.\\n\\nProblem. Design an algorithm that, given a hypergeometric term $T(n,k)$ together with a telescoper-certificate pair $(L,G)$ as above and a summation range $E$, produces a linear recurrence in $n$ with coefficients in $\\\\mathbb{K}(n)$ that is provably satisfied by $S(n)$, while correctly handling all contributions arising from poles of the certificate $R(n,k)$ at integer points of the summation range.\",\"macro_subject\":\"Theoretical Computer Science\",\"category_tag\":\"creative telescoping algorithms\",\"open_status\":\"unknown\",\"status_search_result\":\"The problem was posed as an open problem in a 2017 survey on creative telescoping. Subsequent work (e.g., reduction-based creative telescoping for definite summation of D-finite functions by Chen et al., and modified Abramov–Petkovšek reductions) has addressed related issues, but I could not find a published source that explicitly claims a complete algorithm fully resolving the pole-handling issue for the telescoper-certificate-to-recurrence transformation in the hypergeometric case. The status remains unclear from available sources.\",\"status_evidence\":[{\"title\":\"Some Open Problems Related to Creative Telescoping\",\"url\":\"http://www.mmrc.iss.ac.cn/~schen/CK2016.pdf\",\"snippet\":\"Problem 6.1 Develop an algorithm that correctly transforms a telescoper-certificate pair...\",\"claim\":\"Original statement of the problem as open in 2017.\"},{\"title\":\"Reduction-based creative telescoping for definite summation of D-finite functions\",\"url\":\"https://www.sciencedirect.com/science/article/abs/pii/S0747717124000336\",\"snippet\":\"Reduction-based creative telescoping for definite summation\",\"claim\":\"Related recent work but does not explicitly resolve the pole-handling issue for hypergeometric certificates.\"},{\"title\":\"A Modified Abramov-Petkovšek Reduction and Creative Telescoping\",\"url\":\"https://arxiv.org/pdf/1501.04668\",\"snippet\":\"Modified Abramov-Petkovsek reduction\",\"claim\":\"Addresses related reduction issues for hypergeometric terms.\"}],\"confidence\":0.6},\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"uuid\":\"4e5409bb-b6bc-4994-bee0-ec8d060b3c74\"}\n"
+}

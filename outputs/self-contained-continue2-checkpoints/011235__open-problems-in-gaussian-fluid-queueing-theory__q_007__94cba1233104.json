@@ -1,0 +1,57 @@
+{
+  "record": {
+    "global_index": 11235,
+    "source_json": "outputs/parse-paper/open-problems-in-gaussian-fluid-queueing-theory.json",
+    "paper_id": "open-problems-in-gaussian-fluid-queueing-theory",
+    "paper_title": "Open problems in Gaussian fluid queueing theory",
+    "paper_link": "https://zbmath.org/6232267",
+    "question_link": "https://zbmath.org/6232267",
+    "question_id": "q_007",
+    "parser_is_solved": "false",
+    "context_brief": "Simulation of generalized Pickands constants",
+    "original_question": "Develop a reliable and efficient simulation algorithm for estimating the generalized Pickands constant H_η. The method should avoid the instability of straightforward Monte Carlo schemes based directly on the defining representation of H_η(T)/T and should work for the class of Gaussian processes η considered in the paper.",
+    "evidence": [
+      {
+        "page": 6,
+        "quote": "This explains why the methods needed cannot be straightforward, crude Monte Carlo type of procedures."
+      },
+      {
+        "page": 6,
+        "quote": "Open Problem 4.2 Develop a reliable simulation algorithm for efficient estimation of Hη."
+      }
+    ]
+  },
+  "artifact": {
+    "self_contained_problem": "Let η = {η(t) : t ≥ 0} be a centered Gaussian process with stationary increments, almost surely continuous sample paths, η(0) = 0, and variance function σ²_η(t) = Var η(t) that is regularly varying at infinity with index in (0, 2). For T > 0, define\n   H_η(T) = E[ exp( sup_{t ∈ [0,T]} ( η(t) − σ²_η(t)/2 ) ) ].\nIt is known that the limit\n   H_η = lim_{T → ∞} H_η(T)/T\nexists in (0, ∞); this is the generalized Pickands constant associated with η.\n\nThe problem is to construct a provably reliable and computationally efficient simulation (Monte Carlo) algorithm that produces consistent estimates of H_η with quantifiable error (bias and variance) for the whole class of admissible Gaussian processes η described above. The algorithm should avoid the instability of naive Monte Carlo schemes based directly on the ratio H_η(T)/T (whose variance blows up as T grows, while bias decreases), and should come with rigorous error bounds and a clear prescription for choosing its tuning parameters.",
+    "macro_subject": "Probability",
+    "category_tag": "Pickands constants and Gaussian extremes",
+    "open_status": "partially_solved",
+    "status_search_result": "Dieker and Yakir (Bernoulli, 2014) introduced a representation of Pickands' constants as a plain expectation (no limit), yielding a reliable Monte Carlo estimator with explicit error analysis for the classical fractional-Brownian-motion Pickands constants H_α. This work is widely regarded as resolving the simulation problem in the classical case, and subsequent papers (e.g. on speed of convergence of discrete to continuous Pickands constants, and generalized/Berman-type extensions) have extended the methodology. A fully general, uniformly reliable simulation scheme covering all generalized Pickands constants H_η for arbitrary admissible Gaussian processes η is not established in a single definitive reference, so the problem is best classified as partially solved.",
+    "status_evidence": [
+      {
+        "title": "On asymptotic constants in the theory of extremes for Gaussian processes (Dieker–Yakir)",
+        "url": "https://projecteuclid.org/journals/bernoulli/volume-20/issue-3/On-asymptotic-constants-in-the-theory-of-extremes-for-Gaussian/10.3150/13-BEJ534.full",
+        "snippet": "New representation of Pickands' constants as an expectation, enabling Monte Carlo estimation with detailed error analysis.",
+        "claim": "Provides a reliable simulation method for classical Pickands constants, partially solving the open problem."
+      },
+      {
+        "title": "On the speed of convergence of discrete Pickands constants to continuous ones",
+        "url": "https://arxiv.org/abs/2108.00756",
+        "snippet": "Analyzes the discretization error of Pickands-constant estimators of Dieker–Yakir type.",
+        "claim": "Extends and quantifies error of Dieker–Yakir simulation approach."
+      },
+      {
+        "title": "Generalized Pickands constants and stationary max-stable processes",
+        "url": "https://link.springer.com/article/10.1007/s10687-017-0289-1",
+        "snippet": "Generalized Pickands constants associated with classes of Gaussian and max-stable processes.",
+        "claim": "Provides representations applicable to generalized Pickands constants, supporting simulation extensions."
+      }
+    ],
+    "confidence": 0.7
+  },
+  "model": "opus",
+  "effort": "medium",
+  "elapsed_s": 43.25,
+  "validation_warnings": [],
+  "raw_claude_stdout": "{\"type\":\"result\",\"subtype\":\"success\",\"is_error\":false,\"api_error_status\":null,\"duration_ms\":41630,\"duration_api_ms\":38586,\"num_turns\":4,\"result\":\"Sources:\\n- [Dieker–Yakir, On asymptotic constants in the theory of extremes for Gaussian processes (Bernoulli, 2014)](https://projecteuclid.org/journals/bernoulli/volume-20/issue-3/On-asymptotic-constants-in-the-theory-of-extremes-for-Gaussian/10.3150/13-BEJ534.full)\\n- [On the speed of convergence of discrete Pickands constants to continuous ones](https://arxiv.org/abs/2108.00756)\\n- [Generalized Pickands constants and stationary max-stable processes](https://link.springer.com/article/10.1007/s10687-017-0289-1)\\n- [On Numerical Computation of Pickands Constants](https://www.researchgate.net/publication/281764953_On_Numerical_Computation_of_Pickands_Constants)\",\"stop_reason\":\"end_turn\",\"session_id\":\"ebac556e-cc9b-43de-bea8-299d44ae4fb2\",\"total_cost_usd\":0.16038975,\"usage\":{\"input_tokens\":9,\"cache_creation_input_tokens\":5893,\"cache_read_input_tokens\":19639,\"output_tokens\":1918,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":5893,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[{\"input_tokens\":1,\"output_tokens\":292,\"cache_read_input_tokens\":7127,\"cache_creation_input_tokens\":1451,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":1451},\"type\":\"message\"}],\"speed\":\"standard\"},\"modelUsage\":{\"claude-haiku-4-5-20251001\":{\"inputTokens\":40904,\"outputTokens\":968,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":2,\"costUSD\":0.065744,\"contextWindow\":200000,\"maxOutputTokens\":32000},\"claude-opus-4-7\":{\"inputTokens\":9,\"outputTokens\":1918,\"cacheReadInputTokens\":19639,\"cacheCreationInputTokens\":5893,\"webSearchRequests\":0,\"costUSD\":0.09464575000000001,\"contextWindow\":1000000,\"maxOutputTokens\":64000}},\"permission_denials\":[],\"structured_output\":{\"self_contained_problem\":\"Let η = {η(t) : t ≥ 0} be a centered Gaussian process with stationary increments, almost surely continuous sample paths, η(0) = 0, and variance function σ²_η(t) = Var η(t) that is regularly varying at infinity with index in (0, 2). For T > 0, define\\n   H_η(T) = E[ exp( sup_{t ∈ [0,T]} ( η(t) − σ²_η(t)/2 ) ) ].\\nIt is known that the limit\\n   H_η = lim_{T → ∞} H_η(T)/T\\nexists in (0, ∞); this is the generalized Pickands constant associated with η.\\n\\nThe problem is to construct a provably reliable and computationally efficient simulation (Monte Carlo) algorithm that produces consistent estimates of H_η with quantifiable error (bias and variance) for the whole class of admissible Gaussian processes η described above. The algorithm should avoid the instability of naive Monte Carlo schemes based directly on the ratio H_η(T)/T (whose variance blows up as T grows, while bias decreases), and should come with rigorous error bounds and a clear prescription for choosing its tuning parameters.\",\"macro_subject\":\"Probability\",\"category_tag\":\"Pickands constants and Gaussian extremes\",\"open_status\":\"partially_solved\",\"status_search_result\":\"Dieker and Yakir (Bernoulli, 2014) introduced a representation of Pickands' constants as a plain expectation (no limit), yielding a reliable Monte Carlo estimator with explicit error analysis for the classical fractional-Brownian-motion Pickands constants H_α. This work is widely regarded as resolving the simulation problem in the classical case, and subsequent papers (e.g. on speed of convergence of discrete to continuous Pickands constants, and generalized/Berman-type extensions) have extended the methodology. A fully general, uniformly reliable simulation scheme covering all generalized Pickands constants H_η for arbitrary admissible Gaussian processes η is not established in a single definitive reference, so the problem is best classified as partially solved.\",\"status_evidence\":[{\"title\":\"On asymptotic constants in the theory of extremes for Gaussian processes (Dieker–Yakir)\",\"url\":\"https://projecteuclid.org/journals/bernoulli/volume-20/issue-3/On-asymptotic-constants-in-the-theory-of-extremes-for-Gaussian/10.3150/13-BEJ534.full\",\"snippet\":\"New representation of Pickands' constants as an expectation, enabling Monte Carlo estimation with detailed error analysis.\",\"claim\":\"Provides a reliable simulation method for classical Pickands constants, partially solving the open problem.\"},{\"title\":\"On the speed of convergence of discrete Pickands constants to continuous ones\",\"url\":\"https://arxiv.org/abs/2108.00756\",\"snippet\":\"Analyzes the discretization error of Pickands-constant estimators of Dieker–Yakir type.\",\"claim\":\"Extends and quantifies error of Dieker–Yakir simulation approach.\"},{\"title\":\"Generalized Pickands constants and stationary max-stable processes\",\"url\":\"https://link.springer.com/article/10.1007/s10687-017-0289-1\",\"snippet\":\"Generalized Pickands constants associated with classes of Gaussian and max-stable processes.\",\"claim\":\"Provides representations applicable to generalized Pickands constants, supporting simulation extensions.\"}],\"confidence\":0.7},\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"uuid\":\"dc061ca0-d0cf-44e5-a2d3-91c703e6071f\"}\n"
+}

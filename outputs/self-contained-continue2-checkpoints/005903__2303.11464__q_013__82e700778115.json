@@ -1,0 +1,57 @@
+{
+  "record": {
+    "global_index": 5903,
+    "source_json": "outputs/parse-paper/2303.11464.json",
+    "paper_id": "2303.11464",
+    "paper_title": "Seven open problems in applied combinatorics",
+    "paper_link": "https://zbmath.org/7676351",
+    "question_link": "https://zbmath.org/7676351",
+    "question_id": "q_013",
+    "parser_is_solved": "false",
+    "context_brief": "DAG reversal under memory and cost constraints",
+    "original_question": "Let G be a directed acyclic graph arising from a numerical program, and suppose one wants to reverse G while using persistent memory of size at most M and computational cost at most O, where persistent memory stores values that cannot be recomputed for free and computational cost counts the work needed to recover overwritten intermediate values during reversal. Given integers M≥n and O≥0, determine whether G can be reversed within persistent memory at most M and computational cost at most O.",
+    "evidence": [
+      {
+        "page": 27,
+        "quote": "The combinatorial DAG Reversal problem aims to minimize the computational cost of data flow reversal in limited (≪ O(p^2)) persistent memory."
+      },
+      {
+        "page": 27,
+        "quote": "Open Problem 5.1 (DAG Reversal). Given a DAG G and two integers M ≥ n and O ≥ 0 can G be reversed within persistent memory of size less than or equal to M with computational cost less than or equal to O?"
+      }
+    ]
+  },
+  "artifact": {
+    "self_contained_problem": "Let G = (V, E) be a directed acyclic graph with |V| = n vertices, modeling the data flow of a straight-line numerical program: each vertex represents an intermediate value, and an edge u → v indicates that the value at v depends directly on the value at u.\n\nA \"reversal\" of G is a schedule that outputs the values associated with the vertices of G in reverse topological order, subject to the following rules:\n- At any moment in time, a subset of vertex values is held in \"persistent memory\"; values not in persistent memory have been discarded and, if needed again, must be recomputed from currently stored values by following the edges of G.\n- The \"persistent memory\" usage at any time is the number of values simultaneously stored.\n- The \"computational cost\" of the schedule is the total number of (re)computations of vertex values performed during the reversal (each evaluation of a vertex from its predecessors counts as one unit of cost).\n\nGiven G together with two integers M ≥ n and O ≥ 0, decide whether there exists a reversal schedule of G that uses persistent memory of size at most M at all times and incurs total computational cost at most O.\n\nProvide an algorithm (or a characterization) that decides this question, and analyze its complexity.",
+    "macro_subject": "Theoretical Computer Science",
+    "category_tag": "DAG reversal and checkpointing",
+    "open_status": "partially_solved",
+    "status_search_result": "The DAG Reversal decision problem has been shown to be NP-complete (Naumann, \"DAG reversal is NP-complete\", J. Discrete Algorithms, 2009), so no polynomial-time decision algorithm is expected. However, the problem is still considered open in the sense of finding efficient exact algorithms, good approximation algorithms, and characterizations for structurally restricted DAGs; ongoing work focuses on special cases and heuristics for practical (e.g., automatic differentiation) instances.",
+    "status_evidence": [
+      {
+        "title": "DAG reversal is NP-complete",
+        "url": "https://www.sciencedirect.com/science/article/pii/S1570866708000737",
+        "snippet": "The minimization of the associated computational cost in terms of the number of performed arithmetic operations is shown to be NP-complete.",
+        "claim": "The decision version of DAG reversal is NP-complete."
+      },
+      {
+        "title": "On optimal DAG reversal",
+        "url": "https://www.researchgate.net/publication/228731749_On_optimal_DAG_reversal",
+        "snippet": "Optimal reversal of directed acyclic graphs of numerical simulation programs with upper bound on persistent memory; ongoing study of special cases and heuristics.",
+        "claim": "Research continues on special cases and heuristics for optimal DAG reversal."
+      },
+      {
+        "title": "Seven open problems in applied combinatorics",
+        "url": "https://arxiv.org/pdf/2303.11464",
+        "snippet": "Open Problem 5.1 (DAG Reversal). Given a DAG G and two integers M ≥ n and O ≥ 0 can G be reversed within persistent memory ≤ M with computational cost ≤ O?",
+        "claim": "The problem is highlighted as an open problem in applied combinatorics."
+      }
+    ],
+    "confidence": 0.6
+  },
+  "model": "opus",
+  "effort": "medium",
+  "elapsed_s": 31.08,
+  "validation_warnings": [],
+  "raw_claude_stdout": "{\"type\":\"result\",\"subtype\":\"success\",\"is_error\":false,\"api_error_status\":null,\"duration_ms\":29729,\"duration_api_ms\":28929,\"num_turns\":3,\"result\":\"Sources:\\n- [DAG reversal is NP-complete - ScienceDirect](https://www.sciencedirect.com/science/article/pii/S1570866708000737)\\n- [On optimal DAG reversal](https://www.researchgate.net/publication/228731749_On_optimal_DAG_reversal)\\n- [Seven open problems in applied combinatorics](https://arxiv.org/pdf/2303.11464)\",\"stop_reason\":\"end_turn\",\"session_id\":\"e4160192-66ed-498e-94dc-918a5d8f1775\",\"total_cost_usd\":0.11797274999999999,\"usage\":{\"input_tokens\":8,\"cache_creation_input_tokens\":4477,\"cache_read_input_tokens\":12735,\"output_tokens\":1670,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":4477,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[{\"input_tokens\":1,\"output_tokens\":143,\"cache_read_input_tokens\":5720,\"cache_creation_input_tokens\":1442,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":1442},\"type\":\"message\"}],\"speed\":\"standard\"},\"modelUsage\":{\"claude-haiku-4-5-20251001\":{\"inputTokens\":29239,\"outputTokens\":519,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":1,\"costUSD\":0.041833999999999996,\"contextWindow\":200000,\"maxOutputTokens\":32000},\"claude-opus-4-7\":{\"inputTokens\":8,\"outputTokens\":1670,\"cacheReadInputTokens\":12735,\"cacheCreationInputTokens\":4477,\"webSearchRequests\":0,\"costUSD\":0.07613874999999999,\"contextWindow\":1000000,\"maxOutputTokens\":64000}},\"permission_denials\":[],\"structured_output\":{\"self_contained_problem\":\"Let G = (V, E) be a directed acyclic graph with |V| = n vertices, modeling the data flow of a straight-line numerical program: each vertex represents an intermediate value, and an edge u → v indicates that the value at v depends directly on the value at u.\\n\\nA \\\"reversal\\\" of G is a schedule that outputs the values associated with the vertices of G in reverse topological order, subject to the following rules:\\n- At any moment in time, a subset of vertex values is held in \\\"persistent memory\\\"; values not in persistent memory have been discarded and, if needed again, must be recomputed from currently stored values by following the edges of G.\\n- The \\\"persistent memory\\\" usage at any time is the number of values simultaneously stored.\\n- The \\\"computational cost\\\" of the schedule is the total number of (re)computations of vertex values performed during the reversal (each evaluation of a vertex from its predecessors counts as one unit of cost).\\n\\nGiven G together with two integers M ≥ n and O ≥ 0, decide whether there exists a reversal schedule of G that uses persistent memory of size at most M at all times and incurs total computational cost at most O.\\n\\nProvide an algorithm (or a characterization) that decides this question, and analyze its complexity.\",\"macro_subject\":\"Theoretical Computer Science\",\"category_tag\":\"DAG reversal and checkpointing\",\"open_status\":\"partially_solved\",\"status_search_result\":\"The DAG Reversal decision problem has been shown to be NP-complete (Naumann, \\\"DAG reversal is NP-complete\\\", J. Discrete Algorithms, 2009), so no polynomial-time decision algorithm is expected. However, the problem is still considered open in the sense of finding efficient exact algorithms, good approximation algorithms, and characterizations for structurally restricted DAGs; ongoing work focuses on special cases and heuristics for practical (e.g., automatic differentiation) instances.\",\"status_evidence\":[{\"title\":\"DAG reversal is NP-complete\",\"url\":\"https://www.sciencedirect.com/science/article/pii/S1570866708000737\",\"snippet\":\"The minimization of the associated computational cost in terms of the number of performed arithmetic operations is shown to be NP-complete.\",\"claim\":\"The decision version of DAG reversal is NP-complete.\"},{\"title\":\"On optimal DAG reversal\",\"url\":\"https://www.researchgate.net/publication/228731749_On_optimal_DAG_reversal\",\"snippet\":\"Optimal reversal of directed acyclic graphs of numerical simulation programs with upper bound on persistent memory; ongoing study of special cases and heuristics.\",\"claim\":\"Research continues on special cases and heuristics for optimal DAG reversal.\"},{\"title\":\"Seven open problems in applied combinatorics\",\"url\":\"https://arxiv.org/pdf/2303.11464\",\"snippet\":\"Open Problem 5.1 (DAG Reversal). Given a DAG G and two integers M ≥ n and O ≥ 0 can G be reversed within persistent memory ≤ M with computational cost ≤ O?\",\"claim\":\"The problem is highlighted as an open problem in applied combinatorics.\"}],\"confidence\":0.6},\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"uuid\":\"084502f3-68ac-4d69-84dc-b530d1df4d07\"}\n"
+}

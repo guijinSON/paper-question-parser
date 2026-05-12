@@ -1,0 +1,49 @@
+{
+  "record": {
+    "global_index": 5687,
+    "source_json": "outputs/parse-paper/2206.15475.json",
+    "paper_id": "2206.15475",
+    "paper_title": "Causal Machine Learning: A Survey and Open Problems",
+    "paper_link": "https://arxiv.org/abs/2206.15475",
+    "question_link": "https://arxiv.org/pdf/2206.15475.pdf#page=48",
+    "question_id": "q_005",
+    "parser_is_solved": "false",
+    "context_brief": "Scaling structural assignment learning",
+    "original_question": "Structural assignment learning methods in causal generative modeling learn the functions connecting variables in a structural causal model so they can generate interventional or counterfactual samples. How can these methods scale beyond small causal graphs while still allowing flexible counterfactual generation over larger real scientific systems?",
+    "evidence": [
+      {
+        "page": 48,
+        "quote": "In applied sciences, we often want to model higher-order causal graphs and flexibly generate counterfactual samples from them to capture real-life dynamics, such as in cell biology [119, 120]."
+      },
+      {
+        "page": 48,
+        "quote": "Yet, the approaches reviewed in Sec. 4.1 do not demonstrate results over causal graphs of order larger than 5, except for DCEVAE (Sec. 4.1.3) which amortizes the graph assignments."
+      },
+      {
+        "page": 48,
+        "quote": "Hence, how to tackle the scalability of the underlying causal graphs in structural assignment learning remains an open problem."
+      }
+    ]
+  },
+  "artifact": {
+    "category_tag": "causal generative modeling",
+    "confidence": 0.6,
+    "macro_subject": "Statistics and Machine Learning",
+    "open_status": "open",
+    "self_contained_problem": "Let $G=(V,E)$ be a directed acyclic graph on $n$ vertices representing a structural causal model (SCM). To each vertex $i \\in V$ associate an observed variable $X_i$, an exogenous noise variable $U_i$ with known distribution $P_{U_i}$ (the $U_i$ mutually independent), and a structural assignment $f_i$ such that\n$$X_i = f_i\\!\\left(\\{X_j : j \\in \\mathrm{pa}_G(i)\\},\\, U_i\\right),$$\nwhere $\\mathrm{pa}_G(i)$ denotes the parents of $i$ in $G$. Given an interventional distribution induced by the $\\mathrm{do}$-operator $\\mathrm{do}(X_S = x_S)$ for a subset $S\\subseteq V$, and a counterfactual distribution defined by Pearl's three-step abduction–action–prediction procedure, a structural assignment learning method takes as input (i) the graph $G$, and (ii) i.i.d. samples from the observational distribution of $(X_1,\\dots,X_n)$, and outputs estimators $\\widehat f_1,\\dots,\\widehat f_n$ from which interventional and counterfactual samples can be drawn.\n\nDesign a structural assignment learning procedure that simultaneously:\n(a) admits a flexible nonparametric function class for each $\\widehat f_i$ capable of representing arbitrary measurable assignments (e.g., neural-network parameterizations producing tractable counterfactual sampling),\n(b) scales to causal graphs with $n \\gg 5$ vertices — in particular, supports graphs whose order is comparable to that of large applied scientific systems such as gene regulatory networks with hundreds or thousands of nodes — while keeping computational and sample complexity polynomial in $n$ and the maximal in-degree of $G$,\n(c) preserves identifiability/consistency of the interventional and counterfactual distributions in the large-$n$ regime,\nand prove guarantees (consistency, sample complexity, or approximation bounds) for the resulting interventional and counterfactual sampling.",
+    "status_search_result": "The question is posed as an open research direction in causal machine learning. Recent work (e.g., diffusion-based causal models, causal normalizing flows, amortized SCM learning) has progressed on scaling counterfactual generation, but a general solution providing flexible counterfactual sampling with theoretical guarantees on large real-world causal graphs has not been established, so the problem remains broadly open.",
+    "status_evidence": [
+      {
+        "title": "Causal Machine Learning: A Survey and Open Problems",
+        "url": "https://arxiv.org/abs/2206.15475",
+        "snippet": "how to tackle the scalability of the underlying causal graphs in structural assignment learning remains an open problem",
+        "claim": "Listed as an open problem in the causal ML survey."
+      }
+    ]
+  },
+  "model": "opus",
+  "effort": "medium",
+  "elapsed_s": 20.37,
+  "validation_warnings": [],
+  "raw_claude_stdout": "{\"type\":\"result\",\"subtype\":\"success\",\"is_error\":false,\"api_error_status\":null,\"duration_ms\":19260,\"duration_api_ms\":20198,\"num_turns\":2,\"result\":\"I've created the dataset row. The problem concerns scaling structural causal model assignment learning to large graphs while retaining flexible counterfactual generation, classified under Statistics/ML with category \\\"causal generative modeling\\\" and marked as open based on the survey's open-problem framing.\\n\\nSources:\\n- [Causal Machine Learning: A Survey and Open Problems](https://arxiv.org/abs/2206.15475)\",\"stop_reason\":\"end_turn\",\"session_id\":\"7ab1d438-27c2-41ed-bf0e-e159521760e1\",\"total_cost_usd\":0.056954250000000005,\"usage\":{\"input_tokens\":7,\"cache_creation_input_tokens\":2933,\"cache_read_input_tokens\":7048,\"output_tokens\":1364,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":2933,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[{\"input_tokens\":1,\"output_tokens\":138,\"cache_read_input_tokens\":4363,\"cache_creation_input_tokens\":1255,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":1255},\"type\":\"message\"}],\"speed\":\"standard\"},\"modelUsage\":{\"claude-haiku-4-5-20251001\":{\"inputTokens\":879,\"outputTokens\":17,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":0,\"costUSD\":0.000964,\"contextWindow\":200000,\"maxOutputTokens\":32000},\"claude-opus-4-7\":{\"inputTokens\":7,\"outputTokens\":1364,\"cacheReadInputTokens\":7048,\"cacheCreationInputTokens\":2933,\"webSearchRequests\":0,\"costUSD\":0.055990250000000005,\"contextWindow\":1000000,\"maxOutputTokens\":64000}},\"permission_denials\":[],\"structured_output\":{\"category_tag\":\"causal generative modeling\",\"confidence\":0.6,\"macro_subject\":\"Statistics and Machine Learning\",\"open_status\":\"open\",\"self_contained_problem\":\"Let $G=(V,E)$ be a directed acyclic graph on $n$ vertices representing a structural causal model (SCM). To each vertex $i \\\\in V$ associate an observed variable $X_i$, an exogenous noise variable $U_i$ with known distribution $P_{U_i}$ (the $U_i$ mutually independent), and a structural assignment $f_i$ such that\\n$$X_i = f_i\\\\!\\\\left(\\\\{X_j : j \\\\in \\\\mathrm{pa}_G(i)\\\\},\\\\, U_i\\\\right),$$\\nwhere $\\\\mathrm{pa}_G(i)$ denotes the parents of $i$ in $G$. Given an interventional distribution induced by the $\\\\mathrm{do}$-operator $\\\\mathrm{do}(X_S = x_S)$ for a subset $S\\\\subseteq V$, and a counterfactual distribution defined by Pearl's three-step abduction–action–prediction procedure, a structural assignment learning method takes as input (i) the graph $G$, and (ii) i.i.d. samples from the observational distribution of $(X_1,\\\\dots,X_n)$, and outputs estimators $\\\\widehat f_1,\\\\dots,\\\\widehat f_n$ from which interventional and counterfactual samples can be drawn.\\n\\nDesign a structural assignment learning procedure that simultaneously:\\n(a) admits a flexible nonparametric function class for each $\\\\widehat f_i$ capable of representing arbitrary measurable assignments (e.g., neural-network parameterizations producing tractable counterfactual sampling),\\n(b) scales to causal graphs with $n \\\\gg 5$ vertices — in particular, supports graphs whose order is comparable to that of large applied scientific systems such as gene regulatory networks with hundreds or thousands of nodes — while keeping computational and sample complexity polynomial in $n$ and the maximal in-degree of $G$,\\n(c) preserves identifiability/consistency of the interventional and counterfactual distributions in the large-$n$ regime,\\nand prove guarantees (consistency, sample complexity, or approximation bounds) for the resulting interventional and counterfactual sampling.\",\"status_search_result\":\"The question is posed as an open research direction in causal machine learning. Recent work (e.g., diffusion-based causal models, causal normalizing flows, amortized SCM learning) has progressed on scaling counterfactual generation, but a general solution providing flexible counterfactual sampling with theoretical guarantees on large real-world causal graphs has not been established, so the problem remains broadly open.\",\"status_evidence\":[{\"title\":\"Causal Machine Learning: A Survey and Open Problems\",\"url\":\"https://arxiv.org/abs/2206.15475\",\"snippet\":\"how to tackle the scalability of the underlying causal graphs in structural assignment learning remains an open problem\",\"claim\":\"Listed as an open problem in the causal ML survey.\"}]},\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"uuid\":\"012a0726-61e8-4709-ab1f-64082dc54961\"}\n"
+}

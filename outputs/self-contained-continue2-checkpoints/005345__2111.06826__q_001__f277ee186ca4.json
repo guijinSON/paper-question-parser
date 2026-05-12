@@ -1,0 +1,59 @@
+{
+  "record": {
+    "global_index": 5345,
+    "source_json": "outputs/parse-paper/2111.06826.json",
+    "paper_id": "2111.06826",
+    "paper_title": "",
+    "paper_link": "https://arxiv.org/abs/2111.06826",
+    "question_link": "https://arxiv.org/pdf/2111.06826.pdf#page=2",
+    "question_id": "q_001",
+    "parser_is_solved": "false",
+    "context_brief": "finite-sample KL risk for exponential-family MLE and MAP",
+    "original_question": "Let p(· | θ*) be a well-specified exponential-family distribution, let T(X) be its sufficient statistic, let μ* = E_{θ*}[T(X)] be the mean parameter, and let D_n = (X_1, …, X_n) be iid samples. The maximum-likelihood estimator uses the empirical mean (1/n) ∑_i T_i, while the conjugate maximum a posteriori estimator with prior hyperparameters (n_0, μ_0) uses (n_0μ_0 + ∑_i T_i)/(n_0 + n). Find non-asymptotic upper bounds, valid for finite sample size n and for a broad class of exponential families including small-sample regimes, for the frequentist risk measured by the expected Kullback-Leibler divergence from the true model to these estimators, equivalently the expected Bregman divergence BA*(μ*; (1/n) ∑_i T_i) for MLE and BA*(μ*; (n_0μ_0 + ∑_i T_i)/(n_0 + n)) for MAP, where the final upper bounds should not themselves leave an expectation over the dataset.",
+    "evidence": [
+      {
+        "page": 2,
+        "quote": "Find an upper bound on the expected value of KL(pθ* ||pθ̂MLE/MAP_n) ."
+      },
+      {
+        "page": 3,
+        "quote": "Open Problem 1 (Upper-bounding MAP and MLE). Upper bound the following quantities: MLE: E_Dn [ BA* ( Eθ* [T]; 1/n ∑_i T_i ) ] MAP: E_Dn [ BA* ( Eθ* [T]; (n0μ0 + ∑_i T_i)/(n0 + n) ) ], where the expectation is on the data Dn = (T1, . . . , Tn)."
+      },
+      {
+        "page": 4,
+        "quote": "More explicitly, we want an upper bound that does not involve this expectation over the dataset."
+      },
+      {
+        "page": 4,
+        "quote": "However, we have yet to find a solution encompassing both a broad range of exponential families and applicable to small sample sizes n . d."
+      }
+    ]
+  },
+  "artifact": {
+    "self_contained_problem": "Let $\\{p(\\cdot\\mid\\theta) : \\theta\\in\\Theta\\}$ be a regular exponential family on a sample space $\\mathcal{X}$ with sufficient statistic $T:\\mathcal{X}\\to\\mathbb{R}^d$, log-partition function $A(\\theta)$, and densities $p(x\\mid\\theta)=h(x)\\exp(\\langle\\theta,T(x)\\rangle-A(\\theta))$ with respect to some base measure. Let $A^*$ denote the convex conjugate of $A$, so that the mean parameter $\\mu=\\nabla A(\\theta)$ and the natural parameter $\\theta=\\nabla A^*(\\mu)$ are in bijection, and for any two parameters one has the duality $\\mathrm{KL}(p(\\cdot\\mid\\theta_1)\\,\\|\\,p(\\cdot\\mid\\theta_2)) = B_{A^*}(\\mu_1;\\mu_2)$, where $B_{A^*}(u;v)=A^*(u)-A^*(v)-\\langle\\nabla A^*(v),u-v\\rangle$ is the Bregman divergence induced by $A^*$.\n\nFix a true parameter $\\theta^*\\in\\Theta$ with mean $\\mu^*=\\mathbb{E}_{\\theta^*}[T(X)]$, and let $D_n=(X_1,\\ldots,X_n)$ be i.i.d.\\ samples from $p(\\cdot\\mid\\theta^*)$. Define:\n\\begin{itemize}\n\\item the maximum likelihood estimator in mean coordinates: $\\hat\\mu^{\\mathrm{MLE}}_n=\\tfrac{1}{n}\\sum_{i=1}^n T(X_i)$;\n\\item the conjugate MAP estimator with hyperparameters $(n_0,\\mu_0)$ (with $n_0>0$ and $\\mu_0$ in the interior of the mean-parameter domain): $\\hat\\mu^{\\mathrm{MAP}}_n=\\dfrac{n_0\\mu_0+\\sum_{i=1}^n T(X_i)}{n_0+n}$.\n\\end{itemize}\n\nProvide non-asymptotic, deterministic (i.e.\\ no remaining expectation over $D_n$) upper bounds on\n$$\\mathbb{E}_{D_n}\\bigl[B_{A^*}(\\mu^*;\\hat\\mu^{\\mathrm{MLE}}_n)\\bigr] \\quad\\text{and}\\quad \\mathbb{E}_{D_n}\\bigl[B_{A^*}(\\mu^*;\\hat\\mu^{\\mathrm{MAP}}_n)\\bigr],$$\nthat are valid for finite $n$, hold across a broad class of regular exponential families (including the regime where $n$ is small relative to the dimension $d$), and recover the correct order of the asymptotic Fisher-information rate as $n\\to\\infty$.",
+    "macro_subject": "Statistics and Machine Learning",
+    "category_tag": "Non-asymptotic risk for exponential-family estimators",
+    "open_status": "open",
+    "status_search_result": "The problem was posed as an open problem in late 2021 on bounding the expected KL/Bregman risk of the MLE and conjugate MAP for exponential families in a non-asymptotic, finite-sample, broad-family manner. No general solution covering both broad exponential families and the small-sample regime appears in subsequent literature; the original posting explicitly notes the absence of such a result, and follow-up work (e.g., on exponential-family KL identities and SMD-type analyses) does not provide a comprehensive resolution.",
+    "status_evidence": [
+      {
+        "title": "Convergence Rates for the MAP of an Exponential Family and Stochastic Mirror Descent -- an Open Problem",
+        "url": "https://arxiv.org/abs/2111.06826",
+        "snippet": "Considers upper bounding the expected log-likelihood sub-optimality of MLE / conjugate MAP for an exponential family in a non-asymptotic way; no general solution found in the literature, in particular not for Gaussians or few-samples regimes.",
+        "claim": "The bound is posed as an open problem with no known general solution at time of posting."
+      },
+      {
+        "title": "Exponential families from a single KL identity",
+        "url": "https://arxiv.org/abs/2604.28036",
+        "snippet": "Recent work revisiting KL identities for exponential families; does not provide a general finite-sample upper bound on the expected KL of MLE/MAP across broad families and small n.",
+        "claim": "Subsequent related work does not resolve the open problem in full generality."
+      }
+    ],
+    "confidence": 0.8
+  },
+  "model": "opus",
+  "effort": "medium",
+  "elapsed_s": 45.91,
+  "validation_warnings": [],
+  "raw_claude_stdout": "{\"type\":\"result\",\"subtype\":\"success\",\"is_error\":false,\"api_error_status\":null,\"duration_ms\":44785,\"duration_api_ms\":42334,\"num_turns\":4,\"result\":\"Provided the structured JSON row.\\n\\nSources:\\n- [arXiv:2111.06826 — Convergence Rates for the MAP of an Exponential Family and SMD: an Open Problem](https://arxiv.org/abs/2111.06826)\\n- [arXiv:2604.28036 — Exponential families from a single KL identity](https://arxiv.org/abs/2604.28036)\",\"stop_reason\":\"end_turn\",\"session_id\":\"d2da9b03-f76f-4933-9eb8-3a30bba64518\",\"total_cost_usd\":0.16085349999999998,\"usage\":{\"input_tokens\":9,\"cache_creation_input_tokens\":6218,\"cache_read_input_tokens\":20524,\"output_tokens\":2065,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":6218,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[{\"input_tokens\":1,\"output_tokens\":131,\"cache_read_input_tokens\":7162,\"cache_creation_input_tokens\":1741,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":1741},\"type\":\"message\"}],\"speed\":\"standard\"},\"modelUsage\":{\"claude-haiku-4-5-20251001\":{\"inputTokens\":36209,\"outputTokens\":770,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":2,\"costUSD\":0.060059,\"contextWindow\":200000,\"maxOutputTokens\":32000},\"claude-opus-4-7\":{\"inputTokens\":9,\"outputTokens\":2065,\"cacheReadInputTokens\":20524,\"cacheCreationInputTokens\":6218,\"webSearchRequests\":0,\"costUSD\":0.1007945,\"contextWindow\":1000000,\"maxOutputTokens\":64000}},\"permission_denials\":[],\"structured_output\":{\"self_contained_problem\":\"Let $\\\\{p(\\\\cdot\\\\mid\\\\theta) : \\\\theta\\\\in\\\\Theta\\\\}$ be a regular exponential family on a sample space $\\\\mathcal{X}$ with sufficient statistic $T:\\\\mathcal{X}\\\\to\\\\mathbb{R}^d$, log-partition function $A(\\\\theta)$, and densities $p(x\\\\mid\\\\theta)=h(x)\\\\exp(\\\\langle\\\\theta,T(x)\\\\rangle-A(\\\\theta))$ with respect to some base measure. Let $A^*$ denote the convex conjugate of $A$, so that the mean parameter $\\\\mu=\\\\nabla A(\\\\theta)$ and the natural parameter $\\\\theta=\\\\nabla A^*(\\\\mu)$ are in bijection, and for any two parameters one has the duality $\\\\mathrm{KL}(p(\\\\cdot\\\\mid\\\\theta_1)\\\\,\\\\|\\\\,p(\\\\cdot\\\\mid\\\\theta_2)) = B_{A^*}(\\\\mu_1;\\\\mu_2)$, where $B_{A^*}(u;v)=A^*(u)-A^*(v)-\\\\langle\\\\nabla A^*(v),u-v\\\\rangle$ is the Bregman divergence induced by $A^*$.\\n\\nFix a true parameter $\\\\theta^*\\\\in\\\\Theta$ with mean $\\\\mu^*=\\\\mathbb{E}_{\\\\theta^*}[T(X)]$, and let $D_n=(X_1,\\\\ldots,X_n)$ be i.i.d.\\\\ samples from $p(\\\\cdot\\\\mid\\\\theta^*)$. Define:\\n\\\\begin{itemize}\\n\\\\item the maximum likelihood estimator in mean coordinates: $\\\\hat\\\\mu^{\\\\mathrm{MLE}}_n=\\\\tfrac{1}{n}\\\\sum_{i=1}^n T(X_i)$;\\n\\\\item the conjugate MAP estimator with hyperparameters $(n_0,\\\\mu_0)$ (with $n_0>0$ and $\\\\mu_0$ in the interior of the mean-parameter domain): $\\\\hat\\\\mu^{\\\\mathrm{MAP}}_n=\\\\dfrac{n_0\\\\mu_0+\\\\sum_{i=1}^n T(X_i)}{n_0+n}$.\\n\\\\end{itemize}\\n\\nProvide non-asymptotic, deterministic (i.e.\\\\ no remaining expectation over $D_n$) upper bounds on\\n$$\\\\mathbb{E}_{D_n}\\\\bigl[B_{A^*}(\\\\mu^*;\\\\hat\\\\mu^{\\\\mathrm{MLE}}_n)\\\\bigr] \\\\quad\\\\text{and}\\\\quad \\\\mathbb{E}_{D_n}\\\\bigl[B_{A^*}(\\\\mu^*;\\\\hat\\\\mu^{\\\\mathrm{MAP}}_n)\\\\bigr],$$\\nthat are valid for finite $n$, hold across a broad class of regular exponential families (including the regime where $n$ is small relative to the dimension $d$), and recover the correct order of the asymptotic Fisher-information rate as $n\\\\to\\\\infty$.\",\"macro_subject\":\"Statistics and Machine Learning\",\"category_tag\":\"Non-asymptotic risk for exponential-family estimators\",\"open_status\":\"open\",\"status_search_result\":\"The problem was posed as an open problem in late 2021 on bounding the expected KL/Bregman risk of the MLE and conjugate MAP for exponential families in a non-asymptotic, finite-sample, broad-family manner. No general solution covering both broad exponential families and the small-sample regime appears in subsequent literature; the original posting explicitly notes the absence of such a result, and follow-up work (e.g., on exponential-family KL identities and SMD-type analyses) does not provide a comprehensive resolution.\",\"status_evidence\":[{\"title\":\"Convergence Rates for the MAP of an Exponential Family and Stochastic Mirror Descent -- an Open Problem\",\"url\":\"https://arxiv.org/abs/2111.06826\",\"snippet\":\"Considers upper bounding the expected log-likelihood sub-optimality of MLE / conjugate MAP for an exponential family in a non-asymptotic way; no general solution found in the literature, in particular not for Gaussians or few-samples regimes.\",\"claim\":\"The bound is posed as an open problem with no known general solution at time of posting.\"},{\"title\":\"Exponential families from a single KL identity\",\"url\":\"https://arxiv.org/abs/2604.28036\",\"snippet\":\"Recent work revisiting KL identities for exponential families; does not provide a general finite-sample upper bound on the expected KL of MLE/MAP across broad families and small n.\",\"claim\":\"Subsequent related work does not resolve the open problem in full generality.\"}],\"confidence\":0.8},\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"uuid\":\"852dc072-ab67-49e2-acaf-01a5be29d7be\"}\n"
+}

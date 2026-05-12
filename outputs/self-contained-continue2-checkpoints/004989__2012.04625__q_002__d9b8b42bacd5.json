@@ -1,0 +1,51 @@
+{
+  "record": {
+    "global_index": 4989,
+    "source_json": "outputs/parse-paper/2012.04625.json",
+    "paper_id": "2012.04625",
+    "paper_title": "",
+    "paper_link": "https://arxiv.org/abs/2012.04625",
+    "question_link": "https://arxiv.org/pdf/2012.04625.pdf#page=5",
+    "question_id": "q_002",
+    "parser_is_solved": "false",
+    "context_brief": "van der Corput graph structure",
+    "original_question": "For the van der Corput sequence in base 2, where a_n is obtained by writing n in base 2, reversing the digits, and interpreting the result as a real number in [0,1], build the associated 4-regular graph from the first N distinct terms using adjacency in original order and in sorted order. Give a rigorous explanation of the highly nontrivial structure that these graphs exhibit, rather than only the empirical pictures reported in the paper.",
+    "evidence": [
+      {
+        "page": 5,
+        "quote": "The van der Corput sequence (in base 2) is another classical object in discrete mathematics. Its definition is somewhat whimsical: the element a_n is obtained by writing n in base 2, then reversing the order of the digits and then interpreting the resulting element as a real in [0, 1]."
+      },
+      {
+        "page": 5,
+        "quote": "The arising graphs were already discussed in [19] and seem to have interesting and highly nontrivial structure, we refer to Fig. 2."
+      }
+    ]
+  },
+  "artifact": {
+    "self_contained_problem": "Define the van der Corput sequence in base 2 as follows: for each positive integer n with binary expansion n = sum_{k>=0} b_k 2^k (b_k in {0,1}), set\n  a_n = sum_{k>=0} b_k 2^{-(k+1)} in [0,1].\nFor a fixed integer N >= 1, consider the first N terms a_1, a_2, ..., a_N (which are pairwise distinct). Let pi be the permutation of {1,...,N} for which a_{pi(1)} < a_{pi(2)} < ... < a_{pi(N)} (the sorted order). Build the \"sequence graph\" G_N on vertex set {1,...,N} by joining, for each i, the vertex i to its two neighbors in the original order (i-1 and i+1, when they exist) and to its two neighbors in the sorted order (pi(j-1) and pi(j+1) when pi(j)=i). Apart from a bounded number of low-degree vertices near the ends, G_N is 4-regular.\n\nProblem: Give a rigorous description and proof of the asymptotic combinatorial / geometric structure of the family of graphs {G_N}_{N>=1} arising from the base-2 van der Corput sequence. In particular, identify and prove the structural features observed empirically (e.g., regular block patterns, embeddings into a specific surface, automorphism/recursion properties), going beyond numerical pictures to a complete theorem describing G_N for all N.",
+    "macro_subject": "Combinatorics",
+    "category_tag": "Sequence graphs of low-discrepancy sequences",
+    "open_status": "partially_solved",
+    "status_search_result": "A 2025 preprint shows that the 4-regular graphs built from the base-2 van der Corput sequence embed into the Chamanara translation surface (up to possible removal of one edge), giving a structural geometric explanation. Earlier work by Korssjoen, Li, Steinerberger, Tripathi and Zhang catalogued empirical features. A complete rigorous description of the full combinatorial structure of these graphs does not yet appear to be established, but substantial progress has been made.",
+    "status_evidence": [
+      {
+        "title": "Obtaining the Chamanara Surface from the van der Corput sequence",
+        "url": "https://arxiv.org/abs/2511.00311",
+        "snippet": "The graphs constructed from the binary van der Corput sequence can be embedded into the Chamanara surface, with the possible removal of one edge.",
+        "claim": "Structural identification of the van der Corput sequence graphs via embedding into the Chamanara translation surface."
+      },
+      {
+        "title": "Finding structure in sequences of real numbers via graph theory: a problem list",
+        "url": "https://arxiv.org/pdf/2012.04625",
+        "snippet": "The arising graphs ... seem to have interesting and highly nontrivial structure.",
+        "claim": "The structural problem for van der Corput sequence graphs was posed as open."
+      }
+    ],
+    "confidence": 0.7
+  },
+  "model": "opus",
+  "effort": "medium",
+  "elapsed_s": 27.79,
+  "validation_warnings": [],
+  "raw_claude_stdout": "{\"type\":\"result\",\"subtype\":\"success\",\"is_error\":false,\"api_error_status\":null,\"duration_ms\":26608,\"duration_api_ms\":25720,\"num_turns\":3,\"result\":\"Sources:\\n- [Obtaining the Chamanara Surface from the van der Corput sequence](https://arxiv.org/abs/2511.00311)\\n- [Finding structure in sequences of real numbers via graph theory: a problem list](https://arxiv.org/pdf/2012.04625)\",\"stop_reason\":\"end_turn\",\"session_id\":\"f7c68bc3-98d4-490c-add6-f4aba601101b\",\"total_cost_usd\":0.10077399999999999,\"usage\":{\"input_tokens\":8,\"cache_creation_input_tokens\":4074,\"cache_read_input_tokens\":12605,\"output_tokens\":1371,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":4074,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[{\"input_tokens\":1,\"output_tokens\":101,\"cache_read_input_tokens\":5591,\"cache_creation_input_tokens\":1168,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":1168},\"type\":\"message\"}],\"speed\":\"standard\"},\"modelUsage\":{\"claude-haiku-4-5-20251001\":{\"inputTokens\":22604,\"outputTokens\":418,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":1,\"costUSD\":0.034693999999999996,\"contextWindow\":200000,\"maxOutputTokens\":32000},\"claude-opus-4-7\":{\"inputTokens\":8,\"outputTokens\":1371,\"cacheReadInputTokens\":12605,\"cacheCreationInputTokens\":4074,\"webSearchRequests\":0,\"costUSD\":0.06608,\"contextWindow\":1000000,\"maxOutputTokens\":64000}},\"permission_denials\":[],\"structured_output\":{\"self_contained_problem\":\"Define the van der Corput sequence in base 2 as follows: for each positive integer n with binary expansion n = sum_{k>=0} b_k 2^k (b_k in {0,1}), set\\n  a_n = sum_{k>=0} b_k 2^{-(k+1)} in [0,1].\\nFor a fixed integer N >= 1, consider the first N terms a_1, a_2, ..., a_N (which are pairwise distinct). Let pi be the permutation of {1,...,N} for which a_{pi(1)} < a_{pi(2)} < ... < a_{pi(N)} (the sorted order). Build the \\\"sequence graph\\\" G_N on vertex set {1,...,N} by joining, for each i, the vertex i to its two neighbors in the original order (i-1 and i+1, when they exist) and to its two neighbors in the sorted order (pi(j-1) and pi(j+1) when pi(j)=i). Apart from a bounded number of low-degree vertices near the ends, G_N is 4-regular.\\n\\nProblem: Give a rigorous description and proof of the asymptotic combinatorial / geometric structure of the family of graphs {G_N}_{N>=1} arising from the base-2 van der Corput sequence. In particular, identify and prove the structural features observed empirically (e.g., regular block patterns, embeddings into a specific surface, automorphism/recursion properties), going beyond numerical pictures to a complete theorem describing G_N for all N.\",\"macro_subject\":\"Combinatorics\",\"category_tag\":\"Sequence graphs of low-discrepancy sequences\",\"open_status\":\"partially_solved\",\"status_search_result\":\"A 2025 preprint shows that the 4-regular graphs built from the base-2 van der Corput sequence embed into the Chamanara translation surface (up to possible removal of one edge), giving a structural geometric explanation. Earlier work by Korssjoen, Li, Steinerberger, Tripathi and Zhang catalogued empirical features. A complete rigorous description of the full combinatorial structure of these graphs does not yet appear to be established, but substantial progress has been made.\",\"status_evidence\":[{\"title\":\"Obtaining the Chamanara Surface from the van der Corput sequence\",\"url\":\"https://arxiv.org/abs/2511.00311\",\"snippet\":\"The graphs constructed from the binary van der Corput sequence can be embedded into the Chamanara surface, with the possible removal of one edge.\",\"claim\":\"Structural identification of the van der Corput sequence graphs via embedding into the Chamanara translation surface.\"},{\"title\":\"Finding structure in sequences of real numbers via graph theory: a problem list\",\"url\":\"https://arxiv.org/pdf/2012.04625\",\"snippet\":\"The arising graphs ... seem to have interesting and highly nontrivial structure.\",\"claim\":\"The structural problem for van der Corput sequence graphs was posed as open.\"}],\"confidence\":0.7},\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"uuid\":\"61ff766b-5cf5-4043-bede-0bd95d5b6f0d\"}\n"
+}

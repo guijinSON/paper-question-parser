@@ -1,0 +1,53 @@
+{
+  "record": {
+    "global_index": 12057,
+    "source_json": "outputs/parse-paper/selected_open_problems_matching_preferences.json",
+    "paper_id": "selected_open_problems_matching_preferences",
+    "paper_title": "Selected open problems in Matching Under Preferences",
+    "paper_link": "https://zbmath.org/7150619",
+    "question_link": "https://zbmath.org/7150619",
+    "question_id": "q_019",
+    "parser_is_solved": "false",
+    "context_brief": "improving weighted straight skeleton algorithms",
+    "original_question": "Can the current O(N^5) upper bound for computing the weighted straight skeleton of a polygon be improved, perhaps by exploiting additional structure in the associated Stable Roommates instance used by the reduction?",
+    "evidence": [
+      {
+        "page": 19,
+        "quote": "They conjectured that this running time can be improved. A deeper insight into the structure of the underlying sr instance might lead to such an improvement in the efficiency of the algorithm."
+      }
+    ]
+  },
+  "artifact": {
+    "self_contained_problem": "Background. The straight skeleton of a simple polygon P in the plane is the geometric structure traced out by the vertices of P as each edge of P is translated inward at unit speed in the direction of its inward normal (with edges shrinking, splitting, or merging according to the standard wavefront-propagation rules). In the weighted version, each edge e of P is assigned a positive real weight w(e), and during the propagation edge e moves inward with speed w(e); the trajectories of vertices over time then form the weighted straight skeleton of (P, w).\n\nOne known approach to computing the weighted straight skeleton of an n-vertex polygon reduces the problem to solving an associated Stable Roommates instance (an instance of the matching-under-preferences problem in which 2k agents must be paired up so that no two unmatched agents mutually prefer each other to their assigned partners) and yields an algorithm with running time O(N^5), where N is a polynomial-size parameter derived from the input polygon.\n\nProblem. Improve the O(N^5) upper bound for computing the weighted straight skeleton of an arbitrary simple polygon in the plane. In particular, decide whether a deeper exploitation of the structural properties of the Stable Roommates instance produced by the reduction (for example, special structure in the agents' preference lists arising from the geometry of P) can be used to design an algorithm with worst-case running time asymptotically faster than O(N^5).",
+    "macro_subject": "Theoretical Computer Science",
+    "category_tag": "computational geometry algorithms",
+    "open_status": "unknown",
+    "status_search_result": "Recent work on weighted straight skeletons (including a 2020 predictor–corrector incremental algorithm and CGAL's 2023 implementation for positive weights) has produced practical improvements and special-case results (e.g., O(n log n) for monotone polygons with positive weights, O(n) for convex polygons), but I did not find a published worst-case improvement over the O(N^5)-type bound coming from the Stable Roommates reduction for arbitrary polygons with general (possibly negative) weights. The status of the specific question—whether the structure of the underlying SR instance can be exploited to beat O(N^5)—appears unresolved in the sources located.",
+    "status_evidence": [
+      {
+        "title": "A universal predictor-corrector type incremental algorithm for weighted straight skeletons",
+        "url": "https://arxiv.org/abs/2011.07107",
+        "snippet": "Incremental algorithm for constructing weighted straight skeletons based on deforming polygons.",
+        "claim": "Recent algorithmic work on weighted straight skeletons exists but does not announce a worst-case improvement over the O(N^5) reduction-based bound for general polygons."
+      },
+      {
+        "title": "New in CGAL: Weighted Straight Skeletons (2023)",
+        "url": "https://www.cgal.org/2023/05/09/improved_straight_skeleton/",
+        "snippet": "CGAL added support for weighted straight skeletons in 2023, restricted to positive weights.",
+        "claim": "Practical/implementation progress has occurred but does not resolve the asymptotic complexity question for arbitrary weights."
+      },
+      {
+        "title": "A simple algorithm for computing positively weighted straight skeletons of monotone polygons",
+        "url": "https://www.sciencedirect.com/science/article/pii/S0020019014001987",
+        "snippet": "O(n log n) algorithm for monotone polygons with positive weights.",
+        "claim": "Improvements are known only in restricted special cases, not for the general weighted setting addressed by the SR-based reduction."
+      }
+    ],
+    "confidence": 0.6
+  },
+  "model": "opus",
+  "effort": "medium",
+  "elapsed_s": 37.78,
+  "validation_warnings": [],
+  "raw_claude_stdout": "{\"type\":\"result\",\"subtype\":\"success\",\"is_error\":false,\"api_error_status\":null,\"duration_ms\":36608,\"duration_api_ms\":35269,\"num_turns\":3,\"result\":\"Provided the structured dataset row.\\n\\nSources:\\n- [Weighted straight skeletons in the plane (PMC)](https://pmc.ncbi.nlm.nih.gov/articles/PMC4235777/)\\n- [Predictor-corrector incremental algorithm for weighted straight skeletons (arXiv:2011.07107)](https://arxiv.org/abs/2011.07107)\\n- [CGAL: Weighted Straight Skeletons (2023)](https://www.cgal.org/2023/05/09/improved_straight_skeleton/)\\n- [Monotone polygons positively weighted skeleton](https://www.sciencedirect.com/science/article/pii/S0020019014001987)\",\"stop_reason\":\"end_turn\",\"session_id\":\"b30a533a-1bf1-4fed-9faf-dd724f4b26e5\",\"total_cost_usd\":0.1057045,\"usage\":{\"input_tokens\":8,\"cache_creation_input_tokens\":4218,\"cache_read_input_tokens\":12384,\"output_tokens\":1705,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":4218,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[{\"input_tokens\":1,\"output_tokens\":236,\"cache_read_input_tokens\":5533,\"cache_creation_input_tokens\":1370,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":1370},\"type\":\"message\"}],\"speed\":\"standard\"},\"modelUsage\":{\"claude-haiku-4-5-20251001\":{\"inputTokens\":18105,\"outputTokens\":476,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":1,\"costUSD\":0.030485000000000005,\"contextWindow\":200000,\"maxOutputTokens\":32000},\"claude-opus-4-7\":{\"inputTokens\":8,\"outputTokens\":1705,\"cacheReadInputTokens\":12384,\"cacheCreationInputTokens\":4218,\"webSearchRequests\":0,\"costUSD\":0.0752195,\"contextWindow\":1000000,\"maxOutputTokens\":64000}},\"permission_denials\":[],\"structured_output\":{\"self_contained_problem\":\"Background. The straight skeleton of a simple polygon P in the plane is the geometric structure traced out by the vertices of P as each edge of P is translated inward at unit speed in the direction of its inward normal (with edges shrinking, splitting, or merging according to the standard wavefront-propagation rules). In the weighted version, each edge e of P is assigned a positive real weight w(e), and during the propagation edge e moves inward with speed w(e); the trajectories of vertices over time then form the weighted straight skeleton of (P, w).\\n\\nOne known approach to computing the weighted straight skeleton of an n-vertex polygon reduces the problem to solving an associated Stable Roommates instance (an instance of the matching-under-preferences problem in which 2k agents must be paired up so that no two unmatched agents mutually prefer each other to their assigned partners) and yields an algorithm with running time O(N^5), where N is a polynomial-size parameter derived from the input polygon.\\n\\nProblem. Improve the O(N^5) upper bound for computing the weighted straight skeleton of an arbitrary simple polygon in the plane. In particular, decide whether a deeper exploitation of the structural properties of the Stable Roommates instance produced by the reduction (for example, special structure in the agents' preference lists arising from the geometry of P) can be used to design an algorithm with worst-case running time asymptotically faster than O(N^5).\",\"macro_subject\":\"Theoretical Computer Science\",\"category_tag\":\"computational geometry algorithms\",\"open_status\":\"unknown\",\"status_search_result\":\"Recent work on weighted straight skeletons (including a 2020 predictor–corrector incremental algorithm and CGAL's 2023 implementation for positive weights) has produced practical improvements and special-case results (e.g., O(n log n) for monotone polygons with positive weights, O(n) for convex polygons), but I did not find a published worst-case improvement over the O(N^5)-type bound coming from the Stable Roommates reduction for arbitrary polygons with general (possibly negative) weights. The status of the specific question—whether the structure of the underlying SR instance can be exploited to beat O(N^5)—appears unresolved in the sources located.\",\"status_evidence\":[{\"title\":\"A universal predictor-corrector type incremental algorithm for weighted straight skeletons\",\"url\":\"https://arxiv.org/abs/2011.07107\",\"snippet\":\"Incremental algorithm for constructing weighted straight skeletons based on deforming polygons.\",\"claim\":\"Recent algorithmic work on weighted straight skeletons exists but does not announce a worst-case improvement over the O(N^5) reduction-based bound for general polygons.\"},{\"title\":\"New in CGAL: Weighted Straight Skeletons (2023)\",\"url\":\"https://www.cgal.org/2023/05/09/improved_straight_skeleton/\",\"snippet\":\"CGAL added support for weighted straight skeletons in 2023, restricted to positive weights.\",\"claim\":\"Practical/implementation progress has occurred but does not resolve the asymptotic complexity question for arbitrary weights.\"},{\"title\":\"A simple algorithm for computing positively weighted straight skeletons of monotone polygons\",\"url\":\"https://www.sciencedirect.com/science/article/pii/S0020019014001987\",\"snippet\":\"O(n log n) algorithm for monotone polygons with positive weights.\",\"claim\":\"Improvements are known only in restricted special cases, not for the general weighted setting addressed by the SR-based reduction.\"}],\"confidence\":0.6},\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"uuid\":\"67ad3df2-2436-4802-83c7-424890b401dc\"}\n"
+}

@@ -1,0 +1,69 @@
+{
+  "record": {
+    "global_index": 5847,
+    "source_json": "outputs/parse-paper/2301.05284.json",
+    "paper_id": "2301.05284",
+    "paper_title": "Concrete examples of the rate of convergence of Chernoff approximations: numerical results for the heat semigroup and open questions on them (with appendix: full list of pictures and Python code)",
+    "paper_link": "https://arxiv.org/abs/2301.05284",
+    "question_link": "https://arxiv.org/pdf/2301.05284.pdf#page=40",
+    "question_id": "q_006",
+    "parser_is_solved": "false",
+    "context_brief": "Linear dependence on low Hölder exponent",
+    "original_question": "For the heat equation u_t(t,x)=u_xx(t,x) on the real line, work in the Banach space UC_b(R) of bounded uniformly continuous real functions with the sup norm. Let Lf=f'' generate the heat semigroup e^{tL}. For t=1/2, compare the exact solution e^{tL}u0 with Chernoff products G(t/n)^n u0 and S(t/n)^n u0, where G is first-order Chernoff tangent to L and S is second-order Chernoff tangent to L. Write d_n^G=||e^{tL}u0-G(t/n)^n u0|| and d_n^S=||e^{tL}u0-S(t/n)^n u0||, and estimate log d_n approximately as alpha log n plus beta, where alpha is the order of decreasing error and beta is the free term. For the low-regularity families u0(x)=|sin x|^xi and u0(x)=exp(-|x|^xi), where xi is the Hölder or smoothness exponent and 0<xi<1, why do both estimated orders alpha_G and alpha_S appear to depend linearly on xi? Is there a theorem predicting this linear dependence, and what constants or structural features determine the slopes for the trigonometric and exponential families?",
+    "evidence": [
+      {
+        "page": 40,
+        "quote": "We know that (e tL)t≥0 is aC 0-semigroup in the Banach spaceF=U C b(R) of all uniformly continuous and bounded functionsf:R→R,∥f∥= sup x∈R |f(x)|. For eacht≥0 we introduce linear bounded operators G(t) andS(t) inFas (G(t)f)(x) = 1 2 f(x) + 1 4 f(x+ 2 √ t) + 1 4 f(x−2 √ t), (S(t)f)(x) = 2 3 f(x) + 1 6 f(x+ √ 6t) + 1 6 f(x− √ 6t)."
+      },
+      {
+        "page": 40,
+        "quote": "Paul Chernoff’s theorem [3] implies that for eacht >0, eachu 0 ∈ Fsequences dG n =∥e tLu0 −G(t/n) nu0∥, d S n =∥e tLu0 −S(t/n) nu0∥ converge to 0 asn→ ∞, but it saysnothingabout the rate of convergence."
+      },
+      {
+        "page": 40,
+        "quote": "For all of them, we numerically calculated lnd G n ≈α G lnn+β G,lnd S n ≈α S lnn+β S. We callαthe order of decreasing error,βthe free term of decreasing error."
+      },
+      {
+        "page": 26,
+        "quote": "We use the letterξto denote the smoothness class of the initial condition. We use lettersα S andβ S for the Chernoff functionS, andα G andβ G for the Chernoff functionG."
+      },
+      {
+        "page": 42,
+        "quote": "4. Forξ∈(0,1) dependence ofα S andα G onξseems to belinearfor both trigonometric and exponentialu 0."
+      }
+    ]
+  },
+  "artifact": {
+    "self_contained_problem": "Consider the heat equation u_t(t,x) = u_{xx}(t,x) for (t,x) ∈ [0,∞) × ℝ on the Banach space F = UC_b(ℝ) of bounded uniformly continuous real-valued functions on ℝ with the sup norm ‖f‖ = sup_{x∈ℝ}|f(x)|. The operator L f = f'' generates the heat C_0-semigroup (e^{tL})_{t≥0} on F.\n\nDefine two families of bounded linear operators on F by\n\n  (G(t)f)(x) = (1/2) f(x) + (1/4) f(x + 2√t) + (1/4) f(x − 2√t),\n  (S(t)f)(x) = (2/3) f(x) + (1/6) f(x + √(6t)) + (1/6) f(x − √(6t)),\n\nso that G is Chernoff-tangent to L of first order and S is Chernoff-tangent to L of second order. By Chernoff's theorem, for every t > 0 and every u_0 ∈ F,\n\n  d_n^G(t,u_0) := ‖e^{tL} u_0 − G(t/n)^n u_0‖ → 0,\n  d_n^S(t,u_0) := ‖e^{tL} u_0 − S(t/n)^n u_0‖ → 0 as n → ∞.\n\nFix t = 1/2 and, for each parameter ξ ∈ (0,1), consider the two families of initial data\n\n  u_0^{(sin)}(x) = |sin x|^ξ,    u_0^{(exp)}(x) = exp(−|x|^ξ),\n\nboth of which lie in F and belong to the Hölder class of exponent ξ. Empirically one finds a power-law decay\n\n  log d_n^G ≈ α_G(ξ) log n + β_G(ξ),   log d_n^S ≈ α_S(ξ) log n + β_S(ξ),\n\nand α_G(ξ) and α_S(ξ) each appear to be linear functions of ξ on (0,1) for both families.\n\nProblem. Prove (or disprove) that for these two families of low-regularity initial conditions, the orders of decrease α_G(ξ) and α_S(ξ) of the Chernoff approximation error depend linearly on the Hölder/smoothness exponent ξ ∈ (0,1), and identify the slopes and intercepts of these linear dependences in terms of the structure of the Chernoff functions G and S and of the initial-data family (trigonometric |sin x|^ξ versus exponential exp(−|x|^ξ)). In particular, provide a theorem that predicts the observed linear dependence and explains why the slopes differ between the trigonometric and exponential families.",
+    "macro_subject": "Analysis",
+    "category_tag": "Chernoff approximations of operator semigroups",
+    "open_status": "open",
+    "status_search_result": "The question is posed as a numerical/empirical observation seeking a theoretical explanation; recent literature on Chernoff-approximation convergence rates (e.g. upper/lower estimates in the Chernoff product formula, Israel J. Math. 2024; convergence-rate results for Hölder initial data for convex monotone semigroups, 2025) provides general Hölder-type bounds but no source found explicitly proves the conjectured linear dependence of α_G(ξ) and α_S(ξ) on the smoothness exponent ξ for these specific |sin x|^ξ and exp(−|x|^ξ) families. The problem appears to remain open.",
+    "status_evidence": [
+      {
+        "title": "Upper and lower estimates for rate of convergence in the Chernoff product formula for semigroups of operators",
+        "url": "https://link.springer.com/article/10.1007/s11856-024-2678-x",
+        "snippet": "Provides general upper and lower estimates for Chernoff product convergence rates, but not the specific linear-in-ξ behavior for the families considered.",
+        "claim": "General theory gives bounds but does not directly settle the linear dependence on ξ."
+      },
+      {
+        "title": "Convergence rates for Chernoff-type approximations of convex monotone semigroups",
+        "url": "https://www.sciencedirect.com/science/article/pii/S0304414925001413",
+        "snippet": "Explicit convergence rates for Chernoff-type approximations when initial data are Hölder continuous.",
+        "claim": "Hölder-class rates have been studied, but not in the specific empirical-slope form asked here."
+      },
+      {
+        "title": "Concrete examples of the rate of convergence of Chernoff approximations",
+        "url": "https://arxiv.org/abs/2301.05284",
+        "snippet": "Numerical observation of approximately linear dependence of α on ξ, posed as an open question.",
+        "claim": "The linear dependence is observed numerically and posed as an open theoretical question."
+      }
+    ],
+    "confidence": 0.7
+  },
+  "model": "opus",
+  "effort": "medium",
+  "elapsed_s": 33.05,
+  "validation_warnings": [],
+  "raw_claude_stdout": "{\"type\":\"result\",\"subtype\":\"success\",\"is_error\":false,\"api_error_status\":null,\"duration_ms\":31995,\"duration_api_ms\":30854,\"num_turns\":3,\"result\":\"Sources:\\n- [arXiv:2301.05284](https://arxiv.org/abs/2301.05284)\\n- [Upper and lower estimates for rate of convergence in the Chernoff product formula](https://link.springer.com/article/10.1007/s11856-024-2678-x)\\n- [Convergence rates for Chernoff-type approximations of convex monotone semigroups](https://www.sciencedirect.com/science/article/pii/S0304414925001413)\\n- [Rate of Convergence of Chernoff Approximations of Operator C_0-Semigroups](https://link.springer.com/article/10.1134/S0001434622010345)\",\"stop_reason\":\"end_turn\",\"session_id\":\"f65f1fb9-7cf7-4ebe-899b-1a8a058bdfa0\",\"total_cost_usd\":0.129311,\"usage\":{\"input_tokens\":8,\"cache_creation_input_tokens\":5522,\"cache_read_input_tokens\":14133,\"output_tokens\":2118,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":5522,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[{\"input_tokens\":1,\"output_tokens\":215,\"cache_read_input_tokens\":6398,\"cache_creation_input_tokens\":1809,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":1809},\"type\":\"message\"}],\"speed\":\"standard\"},\"modelUsage\":{\"claude-haiku-4-5-20251001\":{\"inputTokens\":22432,\"outputTokens\":462,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":1,\"costUSD\":0.034741999999999995,\"contextWindow\":200000,\"maxOutputTokens\":32000},\"claude-opus-4-7\":{\"inputTokens\":8,\"outputTokens\":2118,\"cacheReadInputTokens\":14133,\"cacheCreationInputTokens\":5522,\"webSearchRequests\":0,\"costUSD\":0.09456899999999999,\"contextWindow\":1000000,\"maxOutputTokens\":64000}},\"permission_denials\":[],\"structured_output\":{\"self_contained_problem\":\"Consider the heat equation u_t(t,x) = u_{xx}(t,x) for (t,x) ∈ [0,∞) × ℝ on the Banach space F = UC_b(ℝ) of bounded uniformly continuous real-valued functions on ℝ with the sup norm ‖f‖ = sup_{x∈ℝ}|f(x)|. The operator L f = f'' generates the heat C_0-semigroup (e^{tL})_{t≥0} on F.\\n\\nDefine two families of bounded linear operators on F by\\n\\n  (G(t)f)(x) = (1/2) f(x) + (1/4) f(x + 2√t) + (1/4) f(x − 2√t),\\n  (S(t)f)(x) = (2/3) f(x) + (1/6) f(x + √(6t)) + (1/6) f(x − √(6t)),\\n\\nso that G is Chernoff-tangent to L of first order and S is Chernoff-tangent to L of second order. By Chernoff's theorem, for every t > 0 and every u_0 ∈ F,\\n\\n  d_n^G(t,u_0) := ‖e^{tL} u_0 − G(t/n)^n u_0‖ → 0,\\n  d_n^S(t,u_0) := ‖e^{tL} u_0 − S(t/n)^n u_0‖ → 0 as n → ∞.\\n\\nFix t = 1/2 and, for each parameter ξ ∈ (0,1), consider the two families of initial data\\n\\n  u_0^{(sin)}(x) = |sin x|^ξ,    u_0^{(exp)}(x) = exp(−|x|^ξ),\\n\\nboth of which lie in F and belong to the Hölder class of exponent ξ. Empirically one finds a power-law decay\\n\\n  log d_n^G ≈ α_G(ξ) log n + β_G(ξ),   log d_n^S ≈ α_S(ξ) log n + β_S(ξ),\\n\\nand α_G(ξ) and α_S(ξ) each appear to be linear functions of ξ on (0,1) for both families.\\n\\nProblem. Prove (or disprove) that for these two families of low-regularity initial conditions, the orders of decrease α_G(ξ) and α_S(ξ) of the Chernoff approximation error depend linearly on the Hölder/smoothness exponent ξ ∈ (0,1), and identify the slopes and intercepts of these linear dependences in terms of the structure of the Chernoff functions G and S and of the initial-data family (trigonometric |sin x|^ξ versus exponential exp(−|x|^ξ)). In particular, provide a theorem that predicts the observed linear dependence and explains why the slopes differ between the trigonometric and exponential families.\",\"macro_subject\":\"Analysis\",\"category_tag\":\"Chernoff approximations of operator semigroups\",\"open_status\":\"open\",\"status_search_result\":\"The question is posed as a numerical/empirical observation seeking a theoretical explanation; recent literature on Chernoff-approximation convergence rates (e.g. upper/lower estimates in the Chernoff product formula, Israel J. Math. 2024; convergence-rate results for Hölder initial data for convex monotone semigroups, 2025) provides general Hölder-type bounds but no source found explicitly proves the conjectured linear dependence of α_G(ξ) and α_S(ξ) on the smoothness exponent ξ for these specific |sin x|^ξ and exp(−|x|^ξ) families. The problem appears to remain open.\",\"status_evidence\":[{\"title\":\"Upper and lower estimates for rate of convergence in the Chernoff product formula for semigroups of operators\",\"url\":\"https://link.springer.com/article/10.1007/s11856-024-2678-x\",\"snippet\":\"Provides general upper and lower estimates for Chernoff product convergence rates, but not the specific linear-in-ξ behavior for the families considered.\",\"claim\":\"General theory gives bounds but does not directly settle the linear dependence on ξ.\"},{\"title\":\"Convergence rates for Chernoff-type approximations of convex monotone semigroups\",\"url\":\"https://www.sciencedirect.com/science/article/pii/S0304414925001413\",\"snippet\":\"Explicit convergence rates for Chernoff-type approximations when initial data are Hölder continuous.\",\"claim\":\"Hölder-class rates have been studied, but not in the specific empirical-slope form asked here.\"},{\"title\":\"Concrete examples of the rate of convergence of Chernoff approximations\",\"url\":\"https://arxiv.org/abs/2301.05284\",\"snippet\":\"Numerical observation of approximately linear dependence of α on ξ, posed as an open question.\",\"claim\":\"The linear dependence is observed numerically and posed as an open theoretical question.\"}],\"confidence\":0.7},\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"uuid\":\"06f3dbbe-2044-47b0-b167-b2c21942402d\"}\n"
+}

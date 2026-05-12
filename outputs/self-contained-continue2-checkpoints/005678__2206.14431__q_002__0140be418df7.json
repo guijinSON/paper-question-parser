@@ -1,0 +1,51 @@
+{
+  "record": {
+    "global_index": 5678,
+    "source_json": "outputs/parse-paper/2206.14431.json",
+    "paper_id": "2206.14431",
+    "paper_title": "",
+    "paper_link": "https://arxiv.org/abs/2206.14431",
+    "question_link": "https://arxiv.org/pdf/2206.14431.pdf#page=3",
+    "question_id": "q_002",
+    "parser_is_solved": "false",
+    "context_brief": "Adaptive greediness in tree induction",
+    "original_question": "Can a proper learning algorithm for size-s decision trees vary its amount of greediness across levels of the constructed tree, by searching over different numbers k of highly influential variables at different steps, in a way that preserves high accuracy while improving the runtime to polynomial time? In particular, is it enough to use k = polylog(s) near the top of the tree and then switch to constant k lower down?",
+    "evidence": [
+      {
+        "page": 3,
+        "quote": "Perhaps k need not be so big at every iteration? Can algorithms that choose a different amount of greediness (different k) at each step maintain accuracy while improving runtime?"
+      },
+      {
+        "page": 3,
+        "quote": "For example, it's not hard to show that an algorithm that uses k = polylog(s) for the first log s / log log s levels, and then k = O(1) for the remaining log s - log s / log log s would run in poly-time. Is such adaptive greediness sufficient to learn an accurate tree?"
+      }
+    ]
+  },
+  "artifact": {
+    "self_contained_problem": "Consider the problem of properly learning size-$s$ decision trees over $\\{0,1\\}^n$ under the uniform distribution. A size-$s$ decision tree is a binary tree with at most $s$ leaves, each internal node labeled by a variable $x_i$ and each leaf labeled by $\\{0,1\\}$; it computes a Boolean function in the natural way. Given query (or sample) access to an unknown function $f:\\{0,1\\}^n\\to\\{0,1\\}$ that is computable by a size-$s$ decision tree, a proper learning algorithm must output a size-$s$ decision tree hypothesis $h$ with $\\Pr_x[h(x)\\ne f(x)]\\le\\varepsilon$.\n\nA natural family of greedy top-down induction algorithms operates as follows: at each internal node currently being grown, restricted to the subcube consistent with the path from the root, compute the $k$ variables of highest (Fourier) influence on $f$ under that conditioning, recursively try each as the split, and pick the one that minimizes a loss criterion (e.g., expected impurity). The parameter $k$ controls the greediness/runtime tradeoff: $k=1$ is the classical greedy heuristic (fast but inaccurate in general), while $k$ as large as $s^{O(\\log\\log s)}$ is known to yield an accurate proper learner but only in quasi-polynomial time.\n\nQuestion: Does there exist a proper learning algorithm of the above form whose parameter $k$ is allowed to vary across levels of the tree, such that the algorithm runs in time $\\mathrm{poly}(n,s,1/\\varepsilon)$ and outputs, with high probability, a size-$s$ decision tree hypothesis that is $\\varepsilon$-close to $f$? In particular, is the following schedule sufficient: use $k=\\mathrm{polylog}(s)$ for the top $\\log s/\\log\\log s$ levels of the constructed tree, and $k=O(1)$ for the remaining levels?",
+    "macro_subject": "Theoretical Computer Science",
+    "category_tag": "Properly learning decision trees",
+    "open_status": "open",
+    "status_search_result": "This is posed as an open problem regarding properly learning decision trees in polynomial time. The current best result is an almost-polynomial (quasi-polynomial) time proper learner, and whether adaptive greediness with polylog(s) at the top and O(1) lower down suffices to achieve a polynomial-time accurate proper learner remains an unresolved direction in this line of work.",
+    "status_evidence": [
+      {
+        "title": "Open Problem: Properly learning decision trees in polynomial time?",
+        "url": "https://deepai.org/publication/open-problem-properly-learning-decision-trees-in-polynomial-time",
+        "snippet": "Open problem on whether decision trees can be properly learned in polynomial time.",
+        "claim": "The polynomial-time proper learnability of size-s decision trees is explicitly stated as an open problem."
+      },
+      {
+        "title": "Properly learning decision trees in almost polynomial time",
+        "url": "https://arxiv.org/pdf/2109.00637",
+        "snippet": "Almost-polynomial time proper learning algorithm for decision trees.",
+        "claim": "Current best known proper learner runs in quasi-polynomial (almost polynomial) time, not polynomial."
+      }
+    ],
+    "confidence": 0.8
+  },
+  "model": "opus",
+  "effort": "medium",
+  "elapsed_s": 28.67,
+  "validation_warnings": [],
+  "raw_claude_stdout": "{\"type\":\"result\",\"subtype\":\"success\",\"is_error\":false,\"api_error_status\":null,\"duration_ms\":27525,\"duration_api_ms\":26782,\"num_turns\":3,\"result\":\"Sources:\\n- [Open Problem: Properly learning decision trees in polynomial time?](https://deepai.org/publication/open-problem-properly-learning-decision-trees-in-polynomial-time)\\n- [Properly learning decision trees in almost polynomial time](https://arxiv.org/pdf/2109.00637)\",\"stop_reason\":\"end_turn\",\"session_id\":\"d9f292e8-292e-490e-8eed-0c35612a4708\",\"total_cost_usd\":0.09899374999999999,\"usage\":{\"input_tokens\":8,\"cache_creation_input_tokens\":4331,\"cache_read_input_tokens\":12730,\"output_tokens\":1516,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":4331,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[{\"input_tokens\":1,\"output_tokens\":111,\"cache_read_input_tokens\":5717,\"cache_creation_input_tokens\":1299,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":1299},\"type\":\"message\"}],\"speed\":\"standard\"},\"modelUsage\":{\"claude-haiku-4-5-20251001\":{\"inputTokens\":15405,\"outputTokens\":443,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":1,\"costUSD\":0.02762,\"contextWindow\":200000,\"maxOutputTokens\":32000},\"claude-opus-4-7\":{\"inputTokens\":8,\"outputTokens\":1516,\"cacheReadInputTokens\":12730,\"cacheCreationInputTokens\":4331,\"webSearchRequests\":0,\"costUSD\":0.07137375,\"contextWindow\":1000000,\"maxOutputTokens\":64000}},\"permission_denials\":[],\"structured_output\":{\"self_contained_problem\":\"Consider the problem of properly learning size-$s$ decision trees over $\\\\{0,1\\\\}^n$ under the uniform distribution. A size-$s$ decision tree is a binary tree with at most $s$ leaves, each internal node labeled by a variable $x_i$ and each leaf labeled by $\\\\{0,1\\\\}$; it computes a Boolean function in the natural way. Given query (or sample) access to an unknown function $f:\\\\{0,1\\\\}^n\\\\to\\\\{0,1\\\\}$ that is computable by a size-$s$ decision tree, a proper learning algorithm must output a size-$s$ decision tree hypothesis $h$ with $\\\\Pr_x[h(x)\\\\ne f(x)]\\\\le\\\\varepsilon$.\\n\\nA natural family of greedy top-down induction algorithms operates as follows: at each internal node currently being grown, restricted to the subcube consistent with the path from the root, compute the $k$ variables of highest (Fourier) influence on $f$ under that conditioning, recursively try each as the split, and pick the one that minimizes a loss criterion (e.g., expected impurity). The parameter $k$ controls the greediness/runtime tradeoff: $k=1$ is the classical greedy heuristic (fast but inaccurate in general), while $k$ as large as $s^{O(\\\\log\\\\log s)}$ is known to yield an accurate proper learner but only in quasi-polynomial time.\\n\\nQuestion: Does there exist a proper learning algorithm of the above form whose parameter $k$ is allowed to vary across levels of the tree, such that the algorithm runs in time $\\\\mathrm{poly}(n,s,1/\\\\varepsilon)$ and outputs, with high probability, a size-$s$ decision tree hypothesis that is $\\\\varepsilon$-close to $f$? In particular, is the following schedule sufficient: use $k=\\\\mathrm{polylog}(s)$ for the top $\\\\log s/\\\\log\\\\log s$ levels of the constructed tree, and $k=O(1)$ for the remaining levels?\",\"macro_subject\":\"Theoretical Computer Science\",\"category_tag\":\"Properly learning decision trees\",\"open_status\":\"open\",\"status_search_result\":\"This is posed as an open problem regarding properly learning decision trees in polynomial time. The current best result is an almost-polynomial (quasi-polynomial) time proper learner, and whether adaptive greediness with polylog(s) at the top and O(1) lower down suffices to achieve a polynomial-time accurate proper learner remains an unresolved direction in this line of work.\",\"status_evidence\":[{\"title\":\"Open Problem: Properly learning decision trees in polynomial time?\",\"url\":\"https://deepai.org/publication/open-problem-properly-learning-decision-trees-in-polynomial-time\",\"snippet\":\"Open problem on whether decision trees can be properly learned in polynomial time.\",\"claim\":\"The polynomial-time proper learnability of size-s decision trees is explicitly stated as an open problem.\"},{\"title\":\"Properly learning decision trees in almost polynomial time\",\"url\":\"https://arxiv.org/pdf/2109.00637\",\"snippet\":\"Almost-polynomial time proper learning algorithm for decision trees.\",\"claim\":\"Current best known proper learner runs in quasi-polynomial (almost polynomial) time, not polynomial.\"}],\"confidence\":0.8},\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"uuid\":\"d3477dac-4a45-4445-95f6-25d7f8c4c0c2\"}\n"
+}

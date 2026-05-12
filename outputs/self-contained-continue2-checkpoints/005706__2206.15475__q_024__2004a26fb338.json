@@ -1,0 +1,65 @@
+{
+  "record": {
+    "global_index": 5706,
+    "source_json": "outputs/parse-paper/2206.15475.json",
+    "paper_id": "2206.15475",
+    "paper_title": "Causal Machine Learning: A Survey and Open Problems",
+    "paper_link": "https://arxiv.org/abs/2206.15475",
+    "question_link": "https://arxiv.org/pdf/2206.15475.pdf#page=130",
+    "question_id": "q_024",
+    "parser_is_solved": "false",
+    "context_brief": "Ground-truth causal evaluation data",
+    "original_question": "Causal machine learning needs interventional and counterfactual ground-truth benchmarks, but real-world interventions are often expensive, unethical, or time-consuming and counterfactuals are unobservable by definition. How can the field obtain, simulate, or validate enough reliable ground-truth evaluation data without overfitting to manipulable simulations?",
+    "evidence": [
+      {
+        "page": 130,
+        "quote": "One of the biggest open problems in CausalML is the lack of public benchmark resources to train and evaluate causal models."
+      },
+      {
+        "page": 130,
+        "quote": "Cheng et al. [419] find that the reason for this lack of benchmarks is the difficulty of observing interventions in the real world because the necessary experimental conditions in the form of randomized control trials (RCTs) are often expensive, unethical, or time-consuming."
+      },
+      {
+        "page": 130,
+        "quote": "Evaluating estimated counterfactuals is even worse: by definition, we cannot observe them, rendering the availability of ground-truth real-world counterfactuals impossible [420]."
+      },
+      {
+        "page": 130,
+        "quote": "Moreover, a curse of the need for simulated data is its manipulability and the consequent lack of consistency across papers."
+      }
+    ]
+  },
+  "artifact": {
+    "category_tag": "causal inference benchmarks",
+    "confidence": 0.9,
+    "macro_subject": "Statistics and Machine Learning",
+    "open_status": "open",
+    "self_contained_problem": "Causal machine learning aims to estimate interventional distributions P(Y | do(X=x)) and counterfactual quantities Y_{X=x}(u) (the value Y would take for unit u had X been set to x) from data, and to evaluate predictive models of these quantities. Reliable benchmarking requires ground-truth labels for such interventional and counterfactual quantities. However: (i) interventional data from randomized controlled trials is often expensive, unethical, or infeasible to collect at scale; (ii) counterfactual outcomes are by definition not jointly observable on the same unit (the fundamental problem of causal inference); and (iii) fully synthetic simulators are manipulable—different generative choices can favor different methods—leading to a lack of consistent, comparable benchmarks across studies.\n\nProblem. Devise a principled methodology to obtain, simulate, or validate ground-truth interventional and counterfactual evaluation data for causal machine learning that:\n(a) yields benchmarks against which competing causal estimators can be ranked in a reproducible and theoretically justified way;\n(b) provides quantifiable guarantees (e.g., bounds, identifiability conditions, or statistical tests) that estimator performance on the benchmark reflects performance on real-world causal tasks;\n(c) is robust to \"simulator overfitting\", meaning that no estimator can be made to perform well merely by exploiting design choices in the data-generating process; and\n(d) addresses counterfactual evaluation despite the impossibility of jointly observing factual and counterfactual outcomes on the same unit, e.g., via semi-synthetic constructions anchored to real RCT data, partial identification, or validation schemes that combine observational data with limited experimental data.\n\nFormalize such a methodology and prove its validity, or establish impossibility results characterizing the limits of ground-truth causal evaluation in the absence of additional experimental access.",
+    "status_search_result": "The need for reliable interventional/counterfactual benchmarks remains a widely recognized open problem in causal machine learning. While many semi-synthetic benchmarks (IHDP, ACIC, Twins, JustCause, CausalBench, etc.) and theoretical work on partial identification continue to appear, no consensus methodology resolves simulator manipulability or provides ground-truth counterfactual evaluation; recent surveys and benchmark papers (2023–2025) continue to list this as a major unresolved challenge.",
+    "status_evidence": [
+      {
+        "title": "CausalBench: A Large-scale Benchmark for Network Inference from Single-cell Perturbation Data",
+        "url": "https://arxiv.org/abs/2210.17283",
+        "snippet": "Existing benchmarks for evaluating causal discovery rely heavily on synthetic data, limiting their applicability to real-world settings.",
+        "claim": "Recent benchmark efforts continue to highlight the lack of real-world interventional ground truth."
+      },
+      {
+        "title": "JustCause: A framework for evaluating causal inference methods",
+        "url": "https://github.com/inovex/justcause",
+        "snippet": "Semi-synthetic benchmarks are used because true counterfactuals cannot be observed in real data.",
+        "claim": "Counterfactual ground truth in real data remains unavailable; semi-synthetic constructions are the standard partial workaround."
+      },
+      {
+        "title": "Causal Machine Learning: A Survey and Open Problems",
+        "url": "https://arxiv.org/abs/2206.15475",
+        "snippet": "One of the biggest open problems in CausalML is the lack of public benchmark resources to train and evaluate causal models.",
+        "claim": "Listed as an open problem in a recent survey."
+      }
+    ]
+  },
+  "model": "opus",
+  "effort": "medium",
+  "elapsed_s": 26.48,
+  "validation_warnings": [],
+  "raw_claude_stdout": "{\"type\":\"result\",\"subtype\":\"success\",\"is_error\":false,\"api_error_status\":null,\"duration_ms\":24682,\"duration_api_ms\":25587,\"num_turns\":2,\"result\":\"Provided the structured dataset row.\\n\\nSources:\\n- [Causal Machine Learning: A Survey and Open Problems](https://arxiv.org/abs/2206.15475)\\n- [CausalBench](https://arxiv.org/abs/2210.17283)\",\"stop_reason\":\"end_turn\",\"session_id\":\"220862dd-0d21-4229-9327-56ba8b5b6772\",\"total_cost_usd\":0.06389600000000001,\"usage\":{\"input_tokens\":7,\"cache_creation_input_tokens\":3264,\"cache_read_input_tokens\":7132,\"output_tokens\":1554,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":3264,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[{\"input_tokens\":1,\"output_tokens\":89,\"cache_read_input_tokens\":4447,\"cache_creation_input_tokens\":1502,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":1502},\"type\":\"message\"}],\"speed\":\"standard\"},\"modelUsage\":{\"claude-haiku-4-5-20251001\":{\"inputTokens\":950,\"outputTokens\":19,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":0,\"costUSD\":0.001045,\"contextWindow\":200000,\"maxOutputTokens\":32000},\"claude-opus-4-7\":{\"inputTokens\":7,\"outputTokens\":1554,\"cacheReadInputTokens\":7132,\"cacheCreationInputTokens\":3264,\"webSearchRequests\":0,\"costUSD\":0.062851,\"contextWindow\":1000000,\"maxOutputTokens\":64000}},\"permission_denials\":[],\"structured_output\":{\"category_tag\":\"causal inference benchmarks\",\"confidence\":0.9,\"macro_subject\":\"Statistics and Machine Learning\",\"open_status\":\"open\",\"self_contained_problem\":\"Causal machine learning aims to estimate interventional distributions P(Y | do(X=x)) and counterfactual quantities Y_{X=x}(u) (the value Y would take for unit u had X been set to x) from data, and to evaluate predictive models of these quantities. Reliable benchmarking requires ground-truth labels for such interventional and counterfactual quantities. However: (i) interventional data from randomized controlled trials is often expensive, unethical, or infeasible to collect at scale; (ii) counterfactual outcomes are by definition not jointly observable on the same unit (the fundamental problem of causal inference); and (iii) fully synthetic simulators are manipulable—different generative choices can favor different methods—leading to a lack of consistent, comparable benchmarks across studies.\\n\\nProblem. Devise a principled methodology to obtain, simulate, or validate ground-truth interventional and counterfactual evaluation data for causal machine learning that:\\n(a) yields benchmarks against which competing causal estimators can be ranked in a reproducible and theoretically justified way;\\n(b) provides quantifiable guarantees (e.g., bounds, identifiability conditions, or statistical tests) that estimator performance on the benchmark reflects performance on real-world causal tasks;\\n(c) is robust to \\\"simulator overfitting\\\", meaning that no estimator can be made to perform well merely by exploiting design choices in the data-generating process; and\\n(d) addresses counterfactual evaluation despite the impossibility of jointly observing factual and counterfactual outcomes on the same unit, e.g., via semi-synthetic constructions anchored to real RCT data, partial identification, or validation schemes that combine observational data with limited experimental data.\\n\\nFormalize such a methodology and prove its validity, or establish impossibility results characterizing the limits of ground-truth causal evaluation in the absence of additional experimental access.\",\"status_search_result\":\"The need for reliable interventional/counterfactual benchmarks remains a widely recognized open problem in causal machine learning. While many semi-synthetic benchmarks (IHDP, ACIC, Twins, JustCause, CausalBench, etc.) and theoretical work on partial identification continue to appear, no consensus methodology resolves simulator manipulability or provides ground-truth counterfactual evaluation; recent surveys and benchmark papers (2023–2025) continue to list this as a major unresolved challenge.\",\"status_evidence\":[{\"title\":\"CausalBench: A Large-scale Benchmark for Network Inference from Single-cell Perturbation Data\",\"url\":\"https://arxiv.org/abs/2210.17283\",\"snippet\":\"Existing benchmarks for evaluating causal discovery rely heavily on synthetic data, limiting their applicability to real-world settings.\",\"claim\":\"Recent benchmark efforts continue to highlight the lack of real-world interventional ground truth.\"},{\"title\":\"JustCause: A framework for evaluating causal inference methods\",\"url\":\"https://github.com/inovex/justcause\",\"snippet\":\"Semi-synthetic benchmarks are used because true counterfactuals cannot be observed in real data.\",\"claim\":\"Counterfactual ground truth in real data remains unavailable; semi-synthetic constructions are the standard partial workaround.\"},{\"title\":\"Causal Machine Learning: A Survey and Open Problems\",\"url\":\"https://arxiv.org/abs/2206.15475\",\"snippet\":\"One of the biggest open problems in CausalML is the lack of public benchmark resources to train and evaluate causal models.\",\"claim\":\"Listed as an open problem in a recent survey.\"}]},\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"uuid\":\"fc6e1730-ec47-4538-9bab-1ac91945ebaa\"}\n"
+}

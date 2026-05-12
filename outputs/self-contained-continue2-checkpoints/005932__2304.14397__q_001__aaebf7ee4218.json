@@ -1,0 +1,59 @@
+{
+  "record": {
+    "global_index": 5932,
+    "source_json": "outputs/parse-paper/2304.14397.json",
+    "paper_id": "2304.14397",
+    "paper_title": "Private Information Retrieval and Its Applications: An Introduction, Open Problems, Future Directions",
+    "paper_link": "https://arxiv.org/abs/2304.14397",
+    "question_link": "https://arxiv.org/pdf/2304.14397.pdf#page=8",
+    "question_id": "q_001",
+    "parser_is_solved": "false",
+    "context_brief": "Fundamental limits for PRUW and PSU-based FSL",
+    "original_question": "For private read-update-write (PRUW), where a user downloads a chosen section of a data-storage system, updates it, and uploads the updates back without revealing the downloaded or uploaded content or their positions, and for PSU-based federated submodel learning (FSL), where private set union and symmetric private information retrieval are used so the server learns only the union or aggregate of submodels updated by clients rather than any individual client contribution, what are the fundamental converse limits on performance metrics such as read-write communication cost, and do those limits lead to capacity characterizations for PRUW and PSU-based FSL?",
+    "evidence": [
+      {
+        "page": 8,
+        "quote": "Private read-update-write (PRUW) [26]–[29] is the concept where a user downloads, updates and uploads the updates back to a chosen section of a data storage system, without revealing the content downloaded, uploaded or their positions, e.g., updated section index. PRUW is essentially the combination of private reading and private writing described previously."
+      },
+      {
+        "page": 8,
+        "quote": "The reading and writing costs are defined as the total number of bits downloaded and uploaded, normalized by the size of a submodel. The total cost is the sum of the reading and writing costs."
+      },
+      {
+        "page": 7,
+        "quote": "Therefore, [19] proposes a new private FSL approach which is based on PSU and SPIR. The core idea behind this scheme is to preserve client-side privacy by not allowing the server to learn any information beyond the subset of submodels (or the aggregation of updates of these submodels) collectively updated by the clients, i.e., the server learns nothing about any individual client’s contribution to the ultimate result."
+      },
+      {
+        "page": 12,
+        "quote": "Fundamental limits on performance metrics, i.e., converse results, have not yet been established for both PRUW and PSU based FSL. Investigating the fundamental limits is an interesting open problem, which might lead to capacity results of PRUW and PSU based FSL."
+      }
+    ]
+  },
+  "artifact": {
+    "self_contained_problem": "Consider the following two information-theoretic privacy settings.\n\n(1) Private Read-Update-Write (PRUW). A data-storage system consists of N non-colluding databases, each storing M submodels (sections) of equal size L over a finite field. A user wishes to (a) download exactly one chosen submodel indexed by θ ∈ {1,...,M}, (b) compute a local update to that submodel, and (c) upload the update back so that the corresponding stored submodel is correctly modified, while every other stored submodel is unchanged. The privacy requirement is that, from the queries, answers, and uploaded symbols observed by any single database, no information is revealed about the index θ or about the values of the downloaded and uploaded symbols. Define the reading cost D as the expected number of bits downloaded per database normalized by L, the writing cost U as the expected number of bits uploaded per database normalized by L, and the total communication cost as C = D + U.\n\n(2) PSU-based Federated Submodel Learning (FSL). A central server stores a model partitioned into M submodels. In each training round, a set of clients each selects a private subset of submodels to update. Using a combination of Private Set Union (PSU) and Symmetric Private Information Retrieval (SPIR), the protocol must ensure that the server learns only the union (or the aggregate of updates over that union) of the submodels collectively updated by the clients, and nothing about any individual client's chosen subset or its specific contribution; clients similarly learn nothing about the other clients' selections. Define analogous per-round communication costs (download + upload, normalized appropriately).\n\nProblem. Establish tight converse (impossibility) bounds on the achievable reading cost, writing cost, and total communication cost for PRUW, and on the analogous communication costs for PSU-based FSL, that match the best known achievable schemes. Equivalently, determine the capacity (the infimum of the total normalized communication cost over all valid schemes) of PRUW and of PSU-based FSL.",
+    "macro_subject": "Applied Mathematics",
+    "category_tag": "Information-theoretic private information retrieval",
+    "open_status": "open",
+    "status_search_result": "Recent works on PRUW and PSU-based FSL focus on achievable schemes (with and without sparsification, storage constraints, and heterogeneous databases) and provide only partial lower bounds. No matching converse establishing the capacity of PRUW or PSU-based FSL appears in the literature, so the problem appears to remain open.",
+    "status_evidence": [
+      {
+        "title": "Private Read Update Write (PRUW) in FSL: Communication Efficient Schemes With and Without Sparsification",
+        "url": "https://arxiv.org/abs/2209.04421",
+        "snippet": "Introduces achievable PRUW schemes with top-r and random sparsification; provides upper bounds on cost, not matching converses.",
+        "claim": "Existing PRUW work provides achievable schemes and partial lower bounds, but no capacity characterization."
+      },
+      {
+        "title": "Private Read Update Write (PRUW) with Storage Constrained Databases",
+        "url": "https://arxiv.org/abs/2202.03400",
+        "snippet": "Provides lower bounds on achievable costs and constructions for storage-constrained PRUW; does not establish tight converse.",
+        "claim": "Lower bounds exist but are not shown to match achievability, leaving capacity open."
+      }
+    ],
+    "confidence": 0.8
+  },
+  "model": "opus",
+  "effort": "medium",
+  "elapsed_s": 30.32,
+  "validation_warnings": [],
+  "raw_claude_stdout": "{\"type\":\"result\",\"subtype\":\"success\",\"is_error\":false,\"api_error_status\":null,\"duration_ms\":29154,\"duration_api_ms\":28519,\"num_turns\":3,\"result\":\"Sources:\\n- [PRUW in FSL: Communication Efficient Schemes With and Without Sparsification (arXiv:2209.04421)](https://arxiv.org/abs/2209.04421)\\n- [PRUW with Storage Constrained Databases (arXiv:2202.03400)](https://arxiv.org/abs/2202.03400)\\n- [Private Federated Submodel Learning with Sparsification (arXiv:2205.15992)](https://arxiv.org/abs/2205.15992)\",\"stop_reason\":\"end_turn\",\"session_id\":\"fb02be1c-3669-4f0d-a76a-91cc7c392650\",\"total_cost_usd\":0.102907,\"usage\":{\"input_tokens\":8,\"cache_creation_input_tokens\":4812,\"cache_read_input_tokens\":13584,\"output_tokens\":1585,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":4812,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[{\"input_tokens\":1,\"output_tokens\":172,\"cache_read_input_tokens\":6191,\"cache_creation_input_tokens\":1306,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":1306},\"type\":\"message\"}],\"speed\":\"standard\"},\"modelUsage\":{\"claude-haiku-4-5-20251001\":{\"inputTokens\":13955,\"outputTokens\":484,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":1,\"costUSD\":0.026375000000000003,\"contextWindow\":200000,\"maxOutputTokens\":32000},\"claude-opus-4-7\":{\"inputTokens\":8,\"outputTokens\":1585,\"cacheReadInputTokens\":13584,\"cacheCreationInputTokens\":4812,\"webSearchRequests\":0,\"costUSD\":0.07653199999999999,\"contextWindow\":1000000,\"maxOutputTokens\":64000}},\"permission_denials\":[],\"structured_output\":{\"self_contained_problem\":\"Consider the following two information-theoretic privacy settings.\\n\\n(1) Private Read-Update-Write (PRUW). A data-storage system consists of N non-colluding databases, each storing M submodels (sections) of equal size L over a finite field. A user wishes to (a) download exactly one chosen submodel indexed by θ ∈ {1,...,M}, (b) compute a local update to that submodel, and (c) upload the update back so that the corresponding stored submodel is correctly modified, while every other stored submodel is unchanged. The privacy requirement is that, from the queries, answers, and uploaded symbols observed by any single database, no information is revealed about the index θ or about the values of the downloaded and uploaded symbols. Define the reading cost D as the expected number of bits downloaded per database normalized by L, the writing cost U as the expected number of bits uploaded per database normalized by L, and the total communication cost as C = D + U.\\n\\n(2) PSU-based Federated Submodel Learning (FSL). A central server stores a model partitioned into M submodels. In each training round, a set of clients each selects a private subset of submodels to update. Using a combination of Private Set Union (PSU) and Symmetric Private Information Retrieval (SPIR), the protocol must ensure that the server learns only the union (or the aggregate of updates over that union) of the submodels collectively updated by the clients, and nothing about any individual client's chosen subset or its specific contribution; clients similarly learn nothing about the other clients' selections. Define analogous per-round communication costs (download + upload, normalized appropriately).\\n\\nProblem. Establish tight converse (impossibility) bounds on the achievable reading cost, writing cost, and total communication cost for PRUW, and on the analogous communication costs for PSU-based FSL, that match the best known achievable schemes. Equivalently, determine the capacity (the infimum of the total normalized communication cost over all valid schemes) of PRUW and of PSU-based FSL.\",\"macro_subject\":\"Applied Mathematics\",\"category_tag\":\"Information-theoretic private information retrieval\",\"open_status\":\"open\",\"status_search_result\":\"Recent works on PRUW and PSU-based FSL focus on achievable schemes (with and without sparsification, storage constraints, and heterogeneous databases) and provide only partial lower bounds. No matching converse establishing the capacity of PRUW or PSU-based FSL appears in the literature, so the problem appears to remain open.\",\"status_evidence\":[{\"title\":\"Private Read Update Write (PRUW) in FSL: Communication Efficient Schemes With and Without Sparsification\",\"url\":\"https://arxiv.org/abs/2209.04421\",\"snippet\":\"Introduces achievable PRUW schemes with top-r and random sparsification; provides upper bounds on cost, not matching converses.\",\"claim\":\"Existing PRUW work provides achievable schemes and partial lower bounds, but no capacity characterization.\"},{\"title\":\"Private Read Update Write (PRUW) with Storage Constrained Databases\",\"url\":\"https://arxiv.org/abs/2202.03400\",\"snippet\":\"Provides lower bounds on achievable costs and constructions for storage-constrained PRUW; does not establish tight converse.\",\"claim\":\"Lower bounds exist but are not shown to match achievability, leaving capacity open.\"}],\"confidence\":0.8},\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"uuid\":\"34be6939-c50a-47d2-81d3-8a2919c33bda\"}\n"
+}

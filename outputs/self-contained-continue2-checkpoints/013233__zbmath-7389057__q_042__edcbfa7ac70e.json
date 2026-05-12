@@ -1,0 +1,53 @@
+{
+  "record": {
+    "global_index": 13233,
+    "source_json": "outputs/parse-paper/zbmath_7389057.json",
+    "paper_id": "zbmath/7389057",
+    "paper_title": "Advances and Open Problems in Federated Learning",
+    "paper_link": "https://zbmath.org/7389057",
+    "question_link": "https://zbmath.org/7389057",
+    "question_id": "q_042",
+    "parser_is_solved": "false",
+    "context_brief": "federated datasets",
+    "original_question": "How can the federated-learning community develop new datasets that better represent real-world federated problems, including unbalanced and non-IID client partitions, scale-sensitive cross-device scenarios, metadata such as timestamps or geolocation, and feature-partitioned cross-silo datasets?",
+    "evidence": [
+      {
+        "page": "HTML lines 2199-2203",
+        "quote": "Developing new federated learning datasets"
+      }
+    ]
+  },
+  "artifact": {
+    "category_tag": "federated learning benchmarks",
+    "confidence": 0.6,
+    "macro_subject": "Statistics and Machine Learning",
+    "open_status": "open",
+    "self_contained_problem": "Design a methodology for constructing benchmark datasets for federated learning that faithfully reflect realistic deployment conditions. A federated learning setting consists of a (possibly very large) collection of clients $\\{C_i\\}_{i\\in I}$, each holding a local dataset $D_i$ drawn from a client-specific distribution $P_i$ over a feature-label space $\\mathcal{X}\\times\\mathcal{Y}$. Construct a family of benchmark datasets satisfying all of the following properties simultaneously:\n\n1. (Unbalanced partitions) The sizes $|D_i|$ follow a heavy-tailed distribution across clients, reflecting real-world participation imbalance.\n2. (Non-IID partitions) The local distributions $P_i$ differ across clients in label distribution, feature distribution, and/or conditional distribution $P_i(y\\mid x)$, in ways quantifiably similar to those observed in real federated deployments.\n3. (Cross-device scale sensitivity) The benchmark supports the cross-device regime, with $|I|$ on the order of $10^6$ or more clients, each holding a small $D_i$, and includes mechanisms to evaluate algorithms whose behavior is sensitive to the total number of participating clients.\n4. (Metadata) Each example or each client carries auxiliary metadata such as timestamps and geolocation tags, enabling study of temporal drift, non-stationarity, and spatial heterogeneity.\n5. (Feature-partitioned cross-silo data) The benchmark includes a vertical federated learning variant in which a fixed set of entities is described by disjoint feature subsets $\\mathcal{X}=\\mathcal{X}_1\\times\\cdots\\times\\mathcal{X}_k$ held by distinct silos, with consistent entity-linking information.\n\nProvide rigorous criteria (e.g., quantitative measures of non-IIDness, imbalance, and drift) under which a proposed dataset family is declared representative of real-world federated problems, and exhibit such a dataset family meeting these criteria.",
+    "status_search_result": "This is an open research direction in federated learning. While several benchmark suites (LEAF, FedScale, FLamby, TFF datasets) have partially addressed unbalanced, non-IID, and cross-device settings, no single benchmark family is widely accepted as covering all listed properties (scale, metadata such as timestamps/geolocation, and vertical/feature-partitioned cross-silo data) with rigorous representativeness criteria. The problem remains open as a community goal.",
+    "status_evidence": [
+      {
+        "title": "FedScale: Benchmarking Model and System Performance of Federated Learning at Scale",
+        "url": "https://arxiv.org/abs/2105.11367",
+        "snippet": "FedScale provides realistic datasets at large scale for cross-device FL benchmarking.",
+        "claim": "Partial progress toward scale-sensitive cross-device benchmarks exists, but coverage of all desiderata is incomplete."
+      },
+      {
+        "title": "LEAF: A Benchmark for Federated Settings",
+        "url": "https://arxiv.org/abs/1812.01097",
+        "snippet": "LEAF provides federated datasets with natural non-IID partitions.",
+        "claim": "Existing benchmarks address some but not all of the listed properties."
+      },
+      {
+        "title": "FLamby: Datasets and Benchmarks for Cross-Silo Federated Learning in Healthcare",
+        "url": "https://arxiv.org/abs/2210.04620",
+        "snippet": "Cross-silo benchmarks in healthcare; does not cover vertical FL broadly.",
+        "claim": "Cross-silo feature-partitioned (vertical) benchmarks remain underdeveloped."
+      }
+    ]
+  },
+  "model": "opus",
+  "effort": "medium",
+  "elapsed_s": 21.31,
+  "validation_warnings": [],
+  "raw_claude_stdout": "{\"type\":\"result\",\"subtype\":\"success\",\"is_error\":false,\"api_error_status\":null,\"duration_ms\":19566,\"duration_api_ms\":20678,\"num_turns\":2,\"result\":\"I've produced the dataset row. The problem is framed as a constructive benchmark-design problem with five explicit desiderata, classified under Statistics and Machine Learning / federated learning benchmarks, and marked as open based on existing partial benchmark efforts (LEAF, FedScale, FLamby) that do not jointly satisfy all criteria.\",\"stop_reason\":\"end_turn\",\"session_id\":\"c78958cf-82ab-41cb-876b-3d3fab59a38f\",\"total_cost_usd\":0.060882500000000006,\"usage\":{\"input_tokens\":7,\"cache_creation_input_tokens\":2656,\"cache_read_input_tokens\":6499,\"output_tokens\":1607,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":2656,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[{\"input_tokens\":1,\"output_tokens\":117,\"cache_read_input_tokens\":3814,\"cache_creation_input_tokens\":1527,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":1527},\"type\":\"message\"}],\"speed\":\"standard\"},\"modelUsage\":{\"claude-haiku-4-5-20251001\":{\"inputTokens\":718,\"outputTokens\":21,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":0,\"costUSD\":0.000823,\"contextWindow\":200000,\"maxOutputTokens\":32000},\"claude-opus-4-7\":{\"inputTokens\":7,\"outputTokens\":1607,\"cacheReadInputTokens\":6499,\"cacheCreationInputTokens\":2656,\"webSearchRequests\":0,\"costUSD\":0.0600595,\"contextWindow\":1000000,\"maxOutputTokens\":64000}},\"permission_denials\":[],\"structured_output\":{\"category_tag\":\"federated learning benchmarks\",\"confidence\":0.6,\"macro_subject\":\"Statistics and Machine Learning\",\"open_status\":\"open\",\"self_contained_problem\":\"Design a methodology for constructing benchmark datasets for federated learning that faithfully reflect realistic deployment conditions. A federated learning setting consists of a (possibly very large) collection of clients $\\\\{C_i\\\\}_{i\\\\in I}$, each holding a local dataset $D_i$ drawn from a client-specific distribution $P_i$ over a feature-label space $\\\\mathcal{X}\\\\times\\\\mathcal{Y}$. Construct a family of benchmark datasets satisfying all of the following properties simultaneously:\\n\\n1. (Unbalanced partitions) The sizes $|D_i|$ follow a heavy-tailed distribution across clients, reflecting real-world participation imbalance.\\n2. (Non-IID partitions) The local distributions $P_i$ differ across clients in label distribution, feature distribution, and/or conditional distribution $P_i(y\\\\mid x)$, in ways quantifiably similar to those observed in real federated deployments.\\n3. (Cross-device scale sensitivity) The benchmark supports the cross-device regime, with $|I|$ on the order of $10^6$ or more clients, each holding a small $D_i$, and includes mechanisms to evaluate algorithms whose behavior is sensitive to the total number of participating clients.\\n4. (Metadata) Each example or each client carries auxiliary metadata such as timestamps and geolocation tags, enabling study of temporal drift, non-stationarity, and spatial heterogeneity.\\n5. (Feature-partitioned cross-silo data) The benchmark includes a vertical federated learning variant in which a fixed set of entities is described by disjoint feature subsets $\\\\mathcal{X}=\\\\mathcal{X}_1\\\\times\\\\cdots\\\\times\\\\mathcal{X}_k$ held by distinct silos, with consistent entity-linking information.\\n\\nProvide rigorous criteria (e.g., quantitative measures of non-IIDness, imbalance, and drift) under which a proposed dataset family is declared representative of real-world federated problems, and exhibit such a dataset family meeting these criteria.\",\"status_search_result\":\"This is an open research direction in federated learning. While several benchmark suites (LEAF, FedScale, FLamby, TFF datasets) have partially addressed unbalanced, non-IID, and cross-device settings, no single benchmark family is widely accepted as covering all listed properties (scale, metadata such as timestamps/geolocation, and vertical/feature-partitioned cross-silo data) with rigorous representativeness criteria. The problem remains open as a community goal.\",\"status_evidence\":[{\"title\":\"FedScale: Benchmarking Model and System Performance of Federated Learning at Scale\",\"url\":\"https://arxiv.org/abs/2105.11367\",\"snippet\":\"FedScale provides realistic datasets at large scale for cross-device FL benchmarking.\",\"claim\":\"Partial progress toward scale-sensitive cross-device benchmarks exists, but coverage of all desiderata is incomplete.\"},{\"title\":\"LEAF: A Benchmark for Federated Settings\",\"url\":\"https://arxiv.org/abs/1812.01097\",\"snippet\":\"LEAF provides federated datasets with natural non-IID partitions.\",\"claim\":\"Existing benchmarks address some but not all of the listed properties.\"},{\"title\":\"FLamby: Datasets and Benchmarks for Cross-Silo Federated Learning in Healthcare\",\"url\":\"https://arxiv.org/abs/2210.04620\",\"snippet\":\"Cross-silo benchmarks in healthcare; does not cover vertical FL broadly.\",\"claim\":\"Cross-silo feature-partitioned (vertical) benchmarks remain underdeveloped.\"}]},\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"uuid\":\"d55e9a8d-2bcf-4101-b558-31d804187c7a\"}\n"
+}

@@ -1,0 +1,47 @@
+{
+  "record": {
+    "global_index": 11271,
+    "source_json": "outputs/parse-paper/open-problems-in-queueing-theory-inspired-by-datacenter-computing.json",
+    "paper_id": "open-problems-in-queueing-theory-inspired-by-datacenter-computing",
+    "paper_title": "Open problems in queueing theory inspired by datacenter computing",
+    "paper_link": "https://zbmath.org/7433968",
+    "question_link": "https://zbmath.org/7433968",
+    "question_id": "q_008",
+    "parser_is_solved": "false",
+    "context_brief": "Two speedup classes",
+    "original_question": "Suppose there are two classes of jobs with strictly ranked speedup functions, all job sizes are unknown but are independently drawn from the same exponential distribution, and the scheduler must allocate servers to maximize performance. What allocation policy minimizes mean response time in this two-speedup-function setting?",
+    "evidence": [
+      {
+        "page": 11,
+        "quote": "Even in the simplest case described above, where there are only two strictly ranked speedup functions, and where all jobs have inherent sizes drawn from the same exponential distribution, finding the optimal allocation policy is still an open problem."
+      }
+    ]
+  },
+  "artifact": {
+    "category_tag": "parallel job scheduling with speedup functions",
+    "confidence": 0.6,
+    "macro_subject": "Applied Mathematics",
+    "open_status": "open",
+    "self_contained_problem": "Consider an M/M/k-style queueing system with k identical servers and Poisson job arrivals at rate $\\lambda$. Each arriving job belongs to one of two classes $A$ or $B$. A job in class $c\\in\\{A,B\\}$, when allocated $n\\in\\{1,2,\\dots,k\\}$ servers, is processed at instantaneous speedup rate $s_c(n)$; the speedup functions $s_A,s_B:\\{1,\\dots,k\\}\\to\\mathbb{R}_{\\ge0}$ are fixed, nondecreasing, and strictly ranked in the sense that $s_A(n) > s_B(n)$ for all $n\\ge 1$ (and both satisfy $s_c(1)=1$). Every job has an inherent size $X$ drawn independently from a common exponential distribution with mean $1/\\mu$; if a job of inherent size $x$ is allocated $n(t)$ servers at time $t$, it completes at the first time $T$ at which $\\int_0^T s_c(n(t))\\,dt = x$. The scheduler observes the class of each job in the system but not its remaining size, and at every moment must partition the $k$ servers among the jobs currently present (servers may be left idle, and a job receives a nonnegative integer number of servers). \n\nDetermine the allocation (scheduling) policy that minimizes the long-run mean response time (expected sojourn time) of jobs in this two-class, two-speedup-function system.",
+    "status_search_result": "Recent works (2024–2025) study related multi-class parallelizable job scheduling problems and provide asymptotically optimal policies (e.g., Least-Parallelizable-First in light traffic and SERPT-type in heavy traffic) and structural rules such as the Consistent Derivative Ratio rule for concave speedups, but no source found establishes the exact optimal allocation policy for the two-class exponential-size setting. The problem appears to remain open.",
+    "status_evidence": [
+      {
+        "title": "Asymptotically Optimal Scheduling of Multiple Parallelizable Job Classes",
+        "url": "https://arxiv.org/html/2404.00346",
+        "snippet": "In lighter-load regimes, LPF is optimal; in heavier-load regimes, SERPT-like priority is optimal.",
+        "claim": "Only asymptotic optimality results are established for multi-class speedup scheduling, not exact optimal policies."
+      },
+      {
+        "title": "Optimal Parallel Scheduling under Concave Speedup Functions",
+        "url": "https://arxiv.org/html/2509.01811",
+        "snippet": "Introduces the Consistent Derivative Ratio rule as a structural characterization of optimal parallel scheduling.",
+        "claim": "Structural rules are derived but the exact optimal policy for two strictly ranked speedup classes with exponential sizes is not resolved."
+      }
+    ]
+  },
+  "model": "opus",
+  "effort": "medium",
+  "elapsed_s": 31.73,
+  "validation_warnings": [],
+  "raw_claude_stdout": "{\"type\":\"result\",\"subtype\":\"success\",\"is_error\":false,\"api_error_status\":null,\"duration_ms\":29968,\"duration_api_ms\":29251,\"num_turns\":3,\"result\":\"I've produced the dataset row.\\n\\nSources:\\n- [Asymptotically Optimal Scheduling of Multiple Parallelizable Job Classes](https://arxiv.org/html/2404.00346)\\n- [Optimal Parallel Scheduling under Concave Speedup Functions](https://arxiv.org/html/2509.01811)\\n- [Optimal Scheduling of Parallel Jobs with Unknown Service Requirements](https://www.cs.cmu.edu/~harchol/Papers/IGI21.pdf)\\n- [heSRPT: Parallel scheduling to minimize mean slowdown](https://www.cs.cmu.edu/~harchol/Papers/Performance20b.pdf)\",\"stop_reason\":\"end_turn\",\"session_id\":\"431d56b7-5fc3-43a9-9b79-0d807db30194\",\"total_cost_usd\":0.1060085,\"usage\":{\"input_tokens\":8,\"cache_creation_input_tokens\":4206,\"cache_read_input_tokens\":12614,\"output_tokens\":1517,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":4206,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[{\"input_tokens\":1,\"output_tokens\":242,\"cache_read_input_tokens\":5709,\"cache_creation_input_tokens\":1182,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":1182},\"type\":\"message\"}],\"speed\":\"standard\"},\"modelUsage\":{\"claude-haiku-4-5-20251001\":{\"inputTokens\":22769,\"outputTokens\":536,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":1,\"costUSD\":0.035449,\"contextWindow\":200000,\"maxOutputTokens\":32000},\"claude-opus-4-7\":{\"inputTokens\":8,\"outputTokens\":1517,\"cacheReadInputTokens\":12614,\"cacheCreationInputTokens\":4206,\"webSearchRequests\":0,\"costUSD\":0.0705595,\"contextWindow\":1000000,\"maxOutputTokens\":64000}},\"permission_denials\":[],\"structured_output\":{\"category_tag\":\"parallel job scheduling with speedup functions\",\"confidence\":0.6,\"macro_subject\":\"Applied Mathematics\",\"open_status\":\"open\",\"self_contained_problem\":\"Consider an M/M/k-style queueing system with k identical servers and Poisson job arrivals at rate $\\\\lambda$. Each arriving job belongs to one of two classes $A$ or $B$. A job in class $c\\\\in\\\\{A,B\\\\}$, when allocated $n\\\\in\\\\{1,2,\\\\dots,k\\\\}$ servers, is processed at instantaneous speedup rate $s_c(n)$; the speedup functions $s_A,s_B:\\\\{1,\\\\dots,k\\\\}\\\\to\\\\mathbb{R}_{\\\\ge0}$ are fixed, nondecreasing, and strictly ranked in the sense that $s_A(n) > s_B(n)$ for all $n\\\\ge 1$ (and both satisfy $s_c(1)=1$). Every job has an inherent size $X$ drawn independently from a common exponential distribution with mean $1/\\\\mu$; if a job of inherent size $x$ is allocated $n(t)$ servers at time $t$, it completes at the first time $T$ at which $\\\\int_0^T s_c(n(t))\\\\,dt = x$. The scheduler observes the class of each job in the system but not its remaining size, and at every moment must partition the $k$ servers among the jobs currently present (servers may be left idle, and a job receives a nonnegative integer number of servers). \\n\\nDetermine the allocation (scheduling) policy that minimizes the long-run mean response time (expected sojourn time) of jobs in this two-class, two-speedup-function system.\",\"status_search_result\":\"Recent works (2024–2025) study related multi-class parallelizable job scheduling problems and provide asymptotically optimal policies (e.g., Least-Parallelizable-First in light traffic and SERPT-type in heavy traffic) and structural rules such as the Consistent Derivative Ratio rule for concave speedups, but no source found establishes the exact optimal allocation policy for the two-class exponential-size setting. The problem appears to remain open.\",\"status_evidence\":[{\"title\":\"Asymptotically Optimal Scheduling of Multiple Parallelizable Job Classes\",\"url\":\"https://arxiv.org/html/2404.00346\",\"snippet\":\"In lighter-load regimes, LPF is optimal; in heavier-load regimes, SERPT-like priority is optimal.\",\"claim\":\"Only asymptotic optimality results are established for multi-class speedup scheduling, not exact optimal policies.\"},{\"title\":\"Optimal Parallel Scheduling under Concave Speedup Functions\",\"url\":\"https://arxiv.org/html/2509.01811\",\"snippet\":\"Introduces the Consistent Derivative Ratio rule as a structural characterization of optimal parallel scheduling.\",\"claim\":\"Structural rules are derived but the exact optimal policy for two strictly ranked speedup classes with exponential sizes is not resolved.\"}]},\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"uuid\":\"4c5527cb-696c-49ef-a0ad-f7fdd3797759\"}\n"
+}

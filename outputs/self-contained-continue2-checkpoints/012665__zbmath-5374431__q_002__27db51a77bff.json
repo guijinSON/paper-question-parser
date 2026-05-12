@@ -1,0 +1,55 @@
+{
+  "record": {
+    "global_index": 12665,
+    "source_json": "outputs/parse-paper/zbmath-5374431.json",
+    "paper_id": "zbmath/5374431",
+    "paper_title": "Ten Open Problems in Grammatical Inference",
+    "paper_link": "https://zbmath.org/5374431",
+    "question_link": "https://zbmath.org/5374431",
+    "question_id": "q_002",
+    "parser_is_solved": "false",
+    "context_brief": "Polynomial recognition of k-acceptable samples",
+    "original_question": "Given a finite positive-negative sample ⟨X+, X−⟩ over a ranked alphabet and an integer k, can one decide in polynomial time whether the sample is k-acceptable, meaning that there exists a k-edge deterministic finite-state automaton consistent with all positive and negative examples? A k-edge deterministic finite-state automaton is a DFA-like model over a partially ordered alphabet whose outgoing transitions from each state are specified by at most k ordered symbol intervals, with distinct transition intervals from the same state disjoint.",
+    "evidence": [
+      {
+        "page": 36,
+        "quote": "A ranked alphabet ⟨Σ, ≤⟩is an alphabet Σ with a relation ≤Σ which is a partial order (reflexive, antisymmetric and transitive) over Σ."
+      },
+      {
+        "page": 37,
+        "quote": "Definition 9. A sample ⟨X+, X−⟩is k-acceptable if there is a k-edge Dfa consistent with the data."
+      },
+      {
+        "page": 37,
+        "quote": "Problem 2. Given a sample ⟨X+, X−⟩, can we decide in polynomial time if a sample is k-acceptable?"
+      }
+    ]
+  },
+  "artifact": {
+    "self_contained_problem": "Setup. A ranked alphabet is a pair (Σ, ≤) where Σ is a finite alphabet and ≤ is a partial order on Σ. An interval of (Σ, ≤) is a subset of Σ of the form [a,b] = { c ∈ Σ : a ≤ c ≤ b }. A k-edge deterministic finite-state automaton over (Σ, ≤) is a tuple A = (Q, Σ, δ, q₀, F) where Q is a finite set of states, q₀ ∈ Q is the initial state, F ⊆ Q is the set of accepting states, and δ associates to each state q ∈ Q a set of at most k labeled transitions of the form (I, q′), where I is an interval of (Σ, ≤) and q′ ∈ Q, with the requirement that any two distinct intervals appearing on outgoing transitions from the same state are disjoint. A word w = a₁a₂…aₙ ∈ Σ* is accepted by A if there is a sequence of states q₀, q₁, …, qₙ with qₙ ∈ F such that for every i ∈ {1,…,n}, the state qᵢ₋₁ has an outgoing transition (Iᵢ, qᵢ) with aᵢ ∈ Iᵢ.\n\nSample. A sample is a pair ⟨X⁺, X⁻⟩ of finite disjoint subsets of Σ*. A k-edge DFA A is consistent with ⟨X⁺, X⁻⟩ if every word in X⁺ is accepted by A and no word in X⁻ is accepted by A. The sample ⟨X⁺, X⁻⟩ is k-acceptable if some k-edge DFA over (Σ, ≤) is consistent with it.\n\nProblem. Given a finite ranked alphabet (Σ, ≤), a positive integer k, and a finite sample ⟨X⁺, X⁻⟩ over Σ, is there an algorithm that decides in time polynomial in the total size of the input (k, the description of (Σ, ≤), and the sample) whether ⟨X⁺, X⁻⟩ is k-acceptable?",
+    "macro_subject": "Theoretical Computer Science",
+    "category_tag": "Grammatical inference / DFA learning",
+    "open_status": "open",
+    "status_search_result": "The k-acceptability decision problem for k-edge DFAs over a ranked alphabet is listed as an open problem in the grammatical-inference open-problems literature. A web search did not turn up a published solution; related results address NP-hardness of producing minimal consistent DFAs and polynomial algorithms only under additional sample constraints, but none directly resolve polynomial decidability of k-acceptability for the k-edge DFA model defined here.",
+    "status_evidence": [
+      {
+        "title": "A 2-edge DFA — k-acceptable sample definition",
+        "url": "https://www.researchgate.net/figure/A-2-edge-Dfa-Definition-9-A-sample-X-X-is-k-acceptable-if-there-is-a-k-edge-Dfa_fig1_221523297",
+        "snippet": "A sample ⟨X+,X−⟩ is k-acceptable if there is a k-edge DFA consistent with the data.",
+        "claim": "Confirms the definition and that polynomial-time decidability of k-acceptability is posed as an open question."
+      },
+      {
+        "title": "Minimal consistent DFA from sample strings",
+        "url": "https://link.springer.com/article/10.1007/s00236-020-00365-8",
+        "snippet": "Producing a minimal DFA consistent with a sample is NP-hard in general; polynomial algorithms exist only under constraints on the sample.",
+        "claim": "Related hardness results suggest k-acceptability is non-trivial; no resolution of the specific k-edge DFA k-acceptability problem found."
+      }
+    ],
+    "confidence": 0.6
+  },
+  "model": "opus",
+  "effort": "medium",
+  "elapsed_s": 30.78,
+  "validation_warnings": [],
+  "raw_claude_stdout": "{\"type\":\"result\",\"subtype\":\"success\",\"is_error\":false,\"api_error_status\":null,\"duration_ms\":29692,\"duration_api_ms\":29013,\"num_turns\":3,\"result\":\"Sources:\\n- [ResearchGate – k-acceptable sample / k-edge DFA](https://www.researchgate.net/figure/A-2-edge-Dfa-Definition-9-A-sample-X-X-is-k-acceptable-if-there-is-a-k-edge-Dfa_fig1_221523297)\\n- [Minimal consistent DFA from sample strings (Acta Informatica)](https://link.springer.com/article/10.1007/s00236-020-00365-8)\",\"stop_reason\":\"end_turn\",\"session_id\":\"7065b432-188f-48c8-996a-221c0e0ce6fd\",\"total_cost_usd\":0.11368275,\"usage\":{\"input_tokens\":8,\"cache_creation_input_tokens\":4629,\"cache_read_input_tokens\":12937,\"output_tokens\":1766,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":4629,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[{\"input_tokens\":1,\"output_tokens\":166,\"cache_read_input_tokens\":5831,\"cache_creation_input_tokens\":1483,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":1483},\"type\":\"message\"}],\"speed\":\"standard\"},\"modelUsage\":{\"claude-haiku-4-5-20251001\":{\"inputTokens\":22033,\"outputTokens\":412,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":1,\"costUSD\":0.034093,\"contextWindow\":200000,\"maxOutputTokens\":32000},\"claude-opus-4-7\":{\"inputTokens\":8,\"outputTokens\":1766,\"cacheReadInputTokens\":12937,\"cacheCreationInputTokens\":4629,\"webSearchRequests\":0,\"costUSD\":0.07958975,\"contextWindow\":1000000,\"maxOutputTokens\":64000}},\"permission_denials\":[],\"structured_output\":{\"self_contained_problem\":\"Setup. A ranked alphabet is a pair (Σ, ≤) where Σ is a finite alphabet and ≤ is a partial order on Σ. An interval of (Σ, ≤) is a subset of Σ of the form [a,b] = { c ∈ Σ : a ≤ c ≤ b }. A k-edge deterministic finite-state automaton over (Σ, ≤) is a tuple A = (Q, Σ, δ, q₀, F) where Q is a finite set of states, q₀ ∈ Q is the initial state, F ⊆ Q is the set of accepting states, and δ associates to each state q ∈ Q a set of at most k labeled transitions of the form (I, q′), where I is an interval of (Σ, ≤) and q′ ∈ Q, with the requirement that any two distinct intervals appearing on outgoing transitions from the same state are disjoint. A word w = a₁a₂…aₙ ∈ Σ* is accepted by A if there is a sequence of states q₀, q₁, …, qₙ with qₙ ∈ F such that for every i ∈ {1,…,n}, the state qᵢ₋₁ has an outgoing transition (Iᵢ, qᵢ) with aᵢ ∈ Iᵢ.\\n\\nSample. A sample is a pair ⟨X⁺, X⁻⟩ of finite disjoint subsets of Σ*. A k-edge DFA A is consistent with ⟨X⁺, X⁻⟩ if every word in X⁺ is accepted by A and no word in X⁻ is accepted by A. The sample ⟨X⁺, X⁻⟩ is k-acceptable if some k-edge DFA over (Σ, ≤) is consistent with it.\\n\\nProblem. Given a finite ranked alphabet (Σ, ≤), a positive integer k, and a finite sample ⟨X⁺, X⁻⟩ over Σ, is there an algorithm that decides in time polynomial in the total size of the input (k, the description of (Σ, ≤), and the sample) whether ⟨X⁺, X⁻⟩ is k-acceptable?\",\"macro_subject\":\"Theoretical Computer Science\",\"category_tag\":\"Grammatical inference / DFA learning\",\"open_status\":\"open\",\"status_search_result\":\"The k-acceptability decision problem for k-edge DFAs over a ranked alphabet is listed as an open problem in the grammatical-inference open-problems literature. A web search did not turn up a published solution; related results address NP-hardness of producing minimal consistent DFAs and polynomial algorithms only under additional sample constraints, but none directly resolve polynomial decidability of k-acceptability for the k-edge DFA model defined here.\",\"status_evidence\":[{\"title\":\"A 2-edge DFA — k-acceptable sample definition\",\"url\":\"https://www.researchgate.net/figure/A-2-edge-Dfa-Definition-9-A-sample-X-X-is-k-acceptable-if-there-is-a-k-edge-Dfa_fig1_221523297\",\"snippet\":\"A sample ⟨X+,X−⟩ is k-acceptable if there is a k-edge DFA consistent with the data.\",\"claim\":\"Confirms the definition and that polynomial-time decidability of k-acceptability is posed as an open question.\"},{\"title\":\"Minimal consistent DFA from sample strings\",\"url\":\"https://link.springer.com/article/10.1007/s00236-020-00365-8\",\"snippet\":\"Producing a minimal DFA consistent with a sample is NP-hard in general; polynomial algorithms exist only under constraints on the sample.\",\"claim\":\"Related hardness results suggest k-acceptability is non-trivial; no resolution of the specific k-edge DFA k-acceptability problem found.\"}],\"confidence\":0.6},\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"uuid\":\"13ebdc2d-d991-4764-8193-fb6d9413b23e\"}\n"
+}

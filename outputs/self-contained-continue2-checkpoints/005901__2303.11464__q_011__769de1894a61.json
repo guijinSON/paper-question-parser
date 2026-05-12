@@ -1,0 +1,57 @@
+{
+  "record": {
+    "global_index": 5901,
+    "source_json": "outputs/parse-paper/2303.11464.json",
+    "paper_id": "2303.11464",
+    "paper_title": "Seven open problems in applied combinatorics",
+    "paper_link": "https://zbmath.org/7676351",
+    "question_link": "https://zbmath.org/7676351",
+    "question_id": "q_011",
+    "parser_is_solved": "false",
+    "context_brief": "Edge elimination in DAGs",
+    "original_question": "Let G=(V,E) be a directed acyclic graph. In front-elimination of an edge (i,j), one removes that edge and adds edges from i to every successor of j; in back-elimination, one removes (i,j) and adds edges from every predecessor of i to j. A complete edge elimination sequence is a sequence of such eliminations that transforms G into the corresponding bipartite DAG representation of the Jacobian, and its cost is the sum of the individual elimination costs. Given G and an integer k≥0, determine whether there exists a complete edge elimination sequence whose total cost is at most k.",
+    "evidence": [
+      {
+        "page": 23,
+        "quote": "Definition 4.1 (Edge Elimination). Let G = (V, E) and (i, j) ∈ E. Front-elimination of (i, j) yields ... Back-elimination of (i, j) yields ... By the chain rule of differentiation, all complete edge elimination sequences transform G into a bipartite dag representing the Jacobian matrix of the underlying numerical program. The cost of an edge elimination sequence is the sum of the costs of the individual edge eliminations."
+      },
+      {
+        "page": 23,
+        "quote": "Open Problem 4.1 (Edge Elimination). Given a directed acyclic graph G and a positive integer k ≥ 0, is there a complete edge elimination sequence with cost less than or equal to k?"
+      }
+    ]
+  },
+  "artifact": {
+    "self_contained_problem": "Let G=(V,E) be a directed acyclic graph in which each edge (i,j)∈E carries a numerical weight (the local partial derivative of the elementary operation at vertex j with respect to its predecessor i). For an edge (i,j)∈E, define two elimination operations:\n\n- Front-elimination of (i,j): remove the edge (i,j); then, for every successor k of j (i.e., every k with (j,k)∈E at the current moment), add an edge (i,k) whose weight is incremented by the product of the weights of (i,j) and (j,k); if (i,k) already exists its weight is updated by summing. The cost of this operation is the number of successors of j.\n- Back-elimination of (i,j): remove (i,j); then, for every predecessor h of i, add an edge (h,j) whose weight is incremented by the product of the weights of (h,i) and (i,j); if (h,j) already exists its weight is updated. The cost is the number of predecessors of i.\n\nCall a sequence of front- and back-eliminations a complete edge elimination sequence if its application transforms G into the bipartite directed acyclic graph whose only edges go directly from minimal (input) vertices to maximal (output) vertices, with edge weights equal to the entries of the Jacobian of the function represented by G. The cost of such a sequence is the sum of the costs of its individual eliminations.\n\nDecide the following problem: given a directed acyclic graph G as above and a non-negative integer k, does there exist a complete edge elimination sequence for G whose total cost is at most k? In particular, determine the computational complexity of this decision problem.",
+    "macro_subject": "Theoretical Computer Science",
+    "category_tag": "Edge elimination in computational DAGs",
+    "open_status": "open",
+    "status_search_result": "The related vertex-elimination version (Optimal Jacobian Accumulation) was shown NP-complete by Naumann (2008), and a 2025 preprint extends NP-completeness to Structural Optimal Jacobian Accumulation and Minimum Edge Count under vertex elimination. The edge-elimination decision problem as stated, however, does not appear to have been resolved in the literature; it is still listed as an open problem in surveys of applied combinatorics and AD.",
+    "status_evidence": [
+      {
+        "title": "Optimal Jacobian accumulation is NP-complete",
+        "url": "https://link.springer.com/article/10.1007/s10107-006-0042-z",
+        "snippet": "Naumann proves that optimal Jacobian accumulation by vertex elimination on a DAG is NP-complete.",
+        "claim": "The vertex-elimination variant is NP-complete, but the edge-elimination decision problem is not addressed."
+      },
+      {
+        "title": "Structural Optimal Jacobian Accumulation and Minimum Edge Count are NP-Complete Under Vertex Elimination",
+        "url": "https://arxiv.org/abs/2506.17521",
+        "snippet": "Recent work establishes NP-completeness of Structural OJA and Minimum Edge Count under vertex elimination.",
+        "claim": "Recent advances target vertex elimination; edge-elimination cost minimization remains open."
+      },
+      {
+        "title": "DAG reversal is NP-complete",
+        "url": "https://www.sciencedirect.com/science/article/pii/S1570866708000737",
+        "snippet": "Related NP-completeness for DAG reversal in algorithmic differentiation.",
+        "claim": "Edge elimination cost optimization is a distinct combinatorial problem still open in the AD literature."
+      }
+    ],
+    "confidence": 0.7
+  },
+  "model": "opus",
+  "effort": "medium",
+  "elapsed_s": 44.2,
+  "validation_warnings": [],
+  "raw_claude_stdout": "{\"type\":\"result\",\"subtype\":\"success\",\"is_error\":false,\"api_error_status\":null,\"duration_ms\":42955,\"duration_api_ms\":39991,\"num_turns\":4,\"result\":\"Sources:\\n- [Optimal Jacobian accumulation is NP-complete](https://link.springer.com/article/10.1007/s10107-006-0042-z)\\n- [Structural Optimal Jacobian Accumulation and Minimum Edge Count are NP-Complete Under Vertex Elimination](https://arxiv.org/abs/2506.17521)\\n- [DAG reversal is NP-complete](https://www.sciencedirect.com/science/article/pii/S1570866708000737)\",\"stop_reason\":\"end_turn\",\"session_id\":\"2f2de486-7eda-4bf9-a124-b92c3aa51bf1\",\"total_cost_usd\":0.1650155,\"usage\":{\"input_tokens\":9,\"cache_creation_input_tokens\":6220,\"cache_read_input_tokens\":20531,\"output_tokens\":1964,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":6220,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[{\"input_tokens\":1,\"output_tokens\":168,\"cache_read_input_tokens\":7431,\"cache_creation_input_tokens\":1474,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":1474},\"type\":\"message\"}],\"speed\":\"standard\"},\"modelUsage\":{\"claude-haiku-4-5-20251001\":{\"inputTokens\":42045,\"outputTokens\":937,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":2,\"costUSD\":0.06673,\"contextWindow\":200000,\"maxOutputTokens\":32000},\"claude-opus-4-7\":{\"inputTokens\":9,\"outputTokens\":1964,\"cacheReadInputTokens\":20531,\"cacheCreationInputTokens\":6220,\"webSearchRequests\":0,\"costUSD\":0.0982855,\"contextWindow\":1000000,\"maxOutputTokens\":64000}},\"permission_denials\":[],\"structured_output\":{\"self_contained_problem\":\"Let G=(V,E) be a directed acyclic graph in which each edge (i,j)∈E carries a numerical weight (the local partial derivative of the elementary operation at vertex j with respect to its predecessor i). For an edge (i,j)∈E, define two elimination operations:\\n\\n- Front-elimination of (i,j): remove the edge (i,j); then, for every successor k of j (i.e., every k with (j,k)∈E at the current moment), add an edge (i,k) whose weight is incremented by the product of the weights of (i,j) and (j,k); if (i,k) already exists its weight is updated by summing. The cost of this operation is the number of successors of j.\\n- Back-elimination of (i,j): remove (i,j); then, for every predecessor h of i, add an edge (h,j) whose weight is incremented by the product of the weights of (h,i) and (i,j); if (h,j) already exists its weight is updated. The cost is the number of predecessors of i.\\n\\nCall a sequence of front- and back-eliminations a complete edge elimination sequence if its application transforms G into the bipartite directed acyclic graph whose only edges go directly from minimal (input) vertices to maximal (output) vertices, with edge weights equal to the entries of the Jacobian of the function represented by G. The cost of such a sequence is the sum of the costs of its individual eliminations.\\n\\nDecide the following problem: given a directed acyclic graph G as above and a non-negative integer k, does there exist a complete edge elimination sequence for G whose total cost is at most k? In particular, determine the computational complexity of this decision problem.\",\"macro_subject\":\"Theoretical Computer Science\",\"category_tag\":\"Edge elimination in computational DAGs\",\"open_status\":\"open\",\"status_search_result\":\"The related vertex-elimination version (Optimal Jacobian Accumulation) was shown NP-complete by Naumann (2008), and a 2025 preprint extends NP-completeness to Structural Optimal Jacobian Accumulation and Minimum Edge Count under vertex elimination. The edge-elimination decision problem as stated, however, does not appear to have been resolved in the literature; it is still listed as an open problem in surveys of applied combinatorics and AD.\",\"status_evidence\":[{\"title\":\"Optimal Jacobian accumulation is NP-complete\",\"url\":\"https://link.springer.com/article/10.1007/s10107-006-0042-z\",\"snippet\":\"Naumann proves that optimal Jacobian accumulation by vertex elimination on a DAG is NP-complete.\",\"claim\":\"The vertex-elimination variant is NP-complete, but the edge-elimination decision problem is not addressed.\"},{\"title\":\"Structural Optimal Jacobian Accumulation and Minimum Edge Count are NP-Complete Under Vertex Elimination\",\"url\":\"https://arxiv.org/abs/2506.17521\",\"snippet\":\"Recent work establishes NP-completeness of Structural OJA and Minimum Edge Count under vertex elimination.\",\"claim\":\"Recent advances target vertex elimination; edge-elimination cost minimization remains open.\"},{\"title\":\"DAG reversal is NP-complete\",\"url\":\"https://www.sciencedirect.com/science/article/pii/S1570866708000737\",\"snippet\":\"Related NP-completeness for DAG reversal in algorithmic differentiation.\",\"claim\":\"Edge elimination cost optimization is a distinct combinatorial problem still open in the AD literature.\"}],\"confidence\":0.7},\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"uuid\":\"81f87b59-a983-46a8-ae2c-71c830b83ae8\"}\n"
+}

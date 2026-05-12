@@ -1,0 +1,53 @@
+{
+  "record": {
+    "global_index": 11265,
+    "source_json": "outputs/parse-paper/open-problems-in-queueing-theory-inspired-by-datacenter-computing.json",
+    "paper_id": "open-problems-in-queueing-theory-inspired-by-datacenter-computing",
+    "paper_title": "Open problems in queueing theory inspired by datacenter computing",
+    "paper_link": "https://zbmath.org/7433968",
+    "question_link": "https://zbmath.org/7433968",
+    "question_id": "q_002",
+    "parser_is_solved": "false",
+    "context_brief": "Multiserver stability region",
+    "original_question": "In the multiserver job model, where jobs may request different numbers of servers and may have different service-time distributions, what is the exact stability region beyond the currently understood special cases such as identical exponential durations or the two-class exponential case?",
+    "evidence": [
+      {
+        "page": 5,
+        "quote": "Very recently, Grosof et al. [82] derived a simple closed-form expression for the stability region of the multiserver job model where jobs have different exponential service time durations. Unfortunately, the work in [82] is limited to the case of only two classes. Characterizing the stability region in a more general setting is an open problem."
+      }
+    ]
+  },
+  "artifact": {
+    "self_contained_problem": "Consider a continuous-time multiserver-job queueing model defined as follows. There are k servers and J classes of jobs. Class-j jobs arrive according to independent Poisson processes with rates λ_j (j = 1, ..., J), each class-j job requires simultaneous use of exactly s_j ∈ {1, ..., k} servers for the entire duration of its service, and class-j service times are i.i.d. samples from a distribution F_j with mean 1/μ_j. Jobs are served in first-come-first-served (FCFS) order: the head-of-line job waits until s_j servers become simultaneously available, and jobs may pass one another only when blocked by capacity. A job in service cannot be preempted, and idle servers cannot work on waiting jobs that need more servers than currently available.\n\nDefine the system to be stable if the number-in-system process is positive recurrent. Determine, in closed form, the exact stability region — that is, the set of arrival-rate vectors (λ_1, ..., λ_J) for which the system is stable — as a function of (k, {s_j}, {F_j}, {μ_j}), in the general setting of arbitrarily many classes J ≥ 2 with possibly distinct server requirements s_j and possibly non-exponential service-time distributions F_j.\n\n(Known special cases include: (i) all classes share a common exponential service-time distribution but may have different server requirements; (ii) J = 2 classes with class-dependent exponential service-time distributions. The problem asks for the characterization in the remaining general cases.)",
+    "macro_subject": "Probability",
+    "category_tag": "Multiserver queueing stability",
+    "open_status": "partially_solved",
+    "status_search_result": "Recent work by Grosof, Harchol-Balter, and Scheller-Wolf (\"New Stability Results for Multiserver-Job Models via Product-form Saturated Systems\", MAMA/SIGMETRICS PER, 2023) extends stability characterizations beyond the two-class exponential case using product-form saturated systems, but a fully general closed-form characterization for arbitrary numbers of classes with distinct (and possibly non-exponential) service distributions is not yet available. The problem remains open in full generality, with active partial progress.",
+    "status_evidence": [
+      {
+        "title": "New Stability Results for Multiserver-job Models via Product-form Saturated Systems",
+        "url": "https://dl.acm.org/doi/10.1145/3626570.3626574",
+        "snippet": "Product-form saturated systems used to derive new stability results for multiserver-job models beyond previously known cases.",
+        "claim": "Partial extensions beyond the two-class exponential setting exist but do not give a fully general closed-form stability region."
+      },
+      {
+        "title": "Stability for Two-class Multiserver-job Systems (arXiv:2010.00631)",
+        "url": "https://arxiv.org/abs/2010.00631",
+        "snippet": "Closed-form stability region for the two-class multiserver-job system with class-dependent exponential service times.",
+        "claim": "The two-class exponential case is solved; general multi-class/non-exponential case is not."
+      },
+      {
+        "title": "The Multiserver-Job Stochastic Recurrence Equation for Cloud Computing Performance Evaluation",
+        "url": "https://arxiv.org/html/2601.20653",
+        "snippet": "No general results for FCFS MJQM with arbitrary class counts and non-exponential service distributions; alternative tools (stochastic recurrence) are introduced.",
+        "claim": "The general-case stability region remains an open problem."
+      }
+    ],
+    "confidence": 0.8
+  },
+  "model": "opus",
+  "effort": "medium",
+  "elapsed_s": 56.55,
+  "validation_warnings": [],
+  "raw_claude_stdout": "{\"type\":\"result\",\"subtype\":\"success\",\"is_error\":false,\"api_error_status\":null,\"duration_ms\":55198,\"duration_api_ms\":45561,\"num_turns\":5,\"result\":\"Sources:\\n- [New Stability Results for Multiserver-job Models via Product-form Saturated Systems](https://dl.acm.org/doi/10.1145/3626570.3626574)\\n- [Stability for Two-class Multiserver-job Systems (arXiv)](https://arxiv.org/abs/2010.00631)\\n- [The Multiserver-Job Stochastic Recurrence Equation](https://arxiv.org/html/2601.20653)\",\"stop_reason\":\"end_turn\",\"session_id\":\"9daf7f93-5f62-4205-8a60-eda44678e111\",\"total_cost_usd\":0.232736,\"usage\":{\"input_tokens\":10,\"cache_creation_input_tokens\":5996,\"cache_read_input_tokens\":25862,\"output_tokens\":1881,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":5996,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[{\"input_tokens\":1,\"output_tokens\":155,\"cache_read_input_tokens\":7281,\"cache_creation_input_tokens\":1400,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":1400},\"type\":\"message\"}],\"speed\":\"standard\"},\"modelUsage\":{\"claude-haiku-4-5-20251001\":{\"inputTokens\":110090,\"outputTokens\":1033,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":2,\"costUSD\":0.13525500000000001,\"contextWindow\":200000,\"maxOutputTokens\":32000},\"claude-opus-4-7\":{\"inputTokens\":10,\"outputTokens\":1881,\"cacheReadInputTokens\":25862,\"cacheCreationInputTokens\":5996,\"webSearchRequests\":0,\"costUSD\":0.09748100000000001,\"contextWindow\":1000000,\"maxOutputTokens\":64000}},\"permission_denials\":[],\"structured_output\":{\"self_contained_problem\":\"Consider a continuous-time multiserver-job queueing model defined as follows. There are k servers and J classes of jobs. Class-j jobs arrive according to independent Poisson processes with rates λ_j (j = 1, ..., J), each class-j job requires simultaneous use of exactly s_j ∈ {1, ..., k} servers for the entire duration of its service, and class-j service times are i.i.d. samples from a distribution F_j with mean 1/μ_j. Jobs are served in first-come-first-served (FCFS) order: the head-of-line job waits until s_j servers become simultaneously available, and jobs may pass one another only when blocked by capacity. A job in service cannot be preempted, and idle servers cannot work on waiting jobs that need more servers than currently available.\\n\\nDefine the system to be stable if the number-in-system process is positive recurrent. Determine, in closed form, the exact stability region — that is, the set of arrival-rate vectors (λ_1, ..., λ_J) for which the system is stable — as a function of (k, {s_j}, {F_j}, {μ_j}), in the general setting of arbitrarily many classes J ≥ 2 with possibly distinct server requirements s_j and possibly non-exponential service-time distributions F_j.\\n\\n(Known special cases include: (i) all classes share a common exponential service-time distribution but may have different server requirements; (ii) J = 2 classes with class-dependent exponential service-time distributions. The problem asks for the characterization in the remaining general cases.)\",\"macro_subject\":\"Probability\",\"category_tag\":\"Multiserver queueing stability\",\"open_status\":\"partially_solved\",\"status_search_result\":\"Recent work by Grosof, Harchol-Balter, and Scheller-Wolf (\\\"New Stability Results for Multiserver-Job Models via Product-form Saturated Systems\\\", MAMA/SIGMETRICS PER, 2023) extends stability characterizations beyond the two-class exponential case using product-form saturated systems, but a fully general closed-form characterization for arbitrary numbers of classes with distinct (and possibly non-exponential) service distributions is not yet available. The problem remains open in full generality, with active partial progress.\",\"status_evidence\":[{\"title\":\"New Stability Results for Multiserver-job Models via Product-form Saturated Systems\",\"url\":\"https://dl.acm.org/doi/10.1145/3626570.3626574\",\"snippet\":\"Product-form saturated systems used to derive new stability results for multiserver-job models beyond previously known cases.\",\"claim\":\"Partial extensions beyond the two-class exponential setting exist but do not give a fully general closed-form stability region.\"},{\"title\":\"Stability for Two-class Multiserver-job Systems (arXiv:2010.00631)\",\"url\":\"https://arxiv.org/abs/2010.00631\",\"snippet\":\"Closed-form stability region for the two-class multiserver-job system with class-dependent exponential service times.\",\"claim\":\"The two-class exponential case is solved; general multi-class/non-exponential case is not.\"},{\"title\":\"The Multiserver-Job Stochastic Recurrence Equation for Cloud Computing Performance Evaluation\",\"url\":\"https://arxiv.org/html/2601.20653\",\"snippet\":\"No general results for FCFS MJQM with arbitrary class counts and non-exponential service distributions; alternative tools (stochastic recurrence) are introduced.\",\"claim\":\"The general-case stability region remains an open problem.\"}],\"confidence\":0.8},\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"uuid\":\"fd0f4aa9-9888-4652-9635-0beb4429526e\"}\n"
+}

@@ -1,0 +1,57 @@
+{
+  "record": {
+    "global_index": 5103,
+    "source_json": "outputs/parse-paper/2107.09542.json",
+    "paper_id": "2107.09542",
+    "paper_title": "Open Problem: Is There an Online Learning Algorithm That Learns Whenever Online Learning Is Possible?",
+    "paper_link": "https://arxiv.org/abs/2107.09542",
+    "question_link": "https://arxiv.org/pdf/2107.09542.pdf#page=1",
+    "question_id": "q_001",
+    "parser_is_solved": "false",
+    "context_brief": "Optimistically universal online learning",
+    "original_question": "Consider realizable binary online learning over a nonempty instance space X with measurable target concepts f*: X → {0,1}. At each time t, after observing the past labeled examples (X_s, f*(X_s)) for s < t and the current instance X_t, an online learning algorithm predicts a label in {0,1}; its mistakes are the times when the prediction differs from f*(X_t). For a possibly random instance sequence X independent of the learner's internal randomness, weak universal consistency under X means that, for every measurable f*, the expected number of mistakes through time T is o(T), while strong universal consistency under X means that, for every measurable f*, the number of mistakes through time T is o(T) almost surely. Universal online learning is possible under X if some online learning algorithm has the corresponding universal consistency property under X. Does there exist a single optimistically universal online learning algorithm, meaning a single algorithm that is weakly, respectively strongly, universally consistent under every instance sequence X for which weak, respectively strong, universal online learning is possible under X?",
+    "evidence": [
+      {
+        "page": 1,
+        "quote": "One of the most classical topics in learning theory is online learning, wherein a learning algorithm observes a stream of data points X_t from a space X, and for each time t ∈ N it makes a prediction Ŷ_t ∈ {0,1}, after which it observes the target label Y_t ∈ {0,1}. The prediction Ŷ_t may depend on the past observations ((X_s,Y_s),s<t) and X_t, but nothing else: that is, Ŷ_t = f_t(X_{1:(t−1)},Y_{1:(t−1)},X_t) for a (possibly randomized) function f_t. The objective is to make few mistakes: that is, few times t for which Ŷ_t ≠ Y_t. In particular, we are most interested in achieving a number of mistakes among {(X_t,Y_t)}_{t≤T} growing sublinearly in T: that is, o(T) mistakes."
+      },
+      {
+        "page": 2,
+        "quote": "Definition 1 For a (possibly random) sequence X = {X_t}_{t∈N}, an online learning algorithm f_t : X^{t−1} × {0,1}^{t−1} × X → {0,1} (possibly randomized, independent of X) is weakly universally consistent under X if, for every (measurable) f* : X → {0,1}, E[∑_{t=1}^T 1[f_t(X_{1:(t−1)},f*(X_{1:(t−1)}),X_t) ≠ f*(X_t)]] = o(T), and is strongly universally consistent under X if, for every (measurable) f* : X → {0,1}, ∑_{t=1}^T 1[f_t(X_{1:(t−1)},f*(X_{1:(t−1)}),X_t) ≠ f*(X_t)] = o(T) (a.s.)."
+      },
+      {
+        "page": 2,
+        "quote": "Definition 2 For a (possibly random) sequence X, we say (weak/strong) universal online learning is possible under X if there exists an online learning algorithm that is (weakly/strongly) universally consistent under X."
+      },
+      {
+        "page": 2,
+        "quote": "Definition 3 An online learning algorithm is optimistically (weakly/strongly) universal if it is (weakly/strongly) universally consistent under every X such that (weak/strong) universal online learning is possible under X."
+      },
+      {
+        "page": 3,
+        "quote": "Open Problem 1 Does there exist an optimistically universal online learning algorithm? (in either the weak or strong sense)"
+      }
+    ]
+  },
+  "artifact": {
+    "self_contained_problem": "Let X be a nonempty instance space equipped with a sigma-algebra. A target concept is a measurable function f*: X → {0,1}. An online learning algorithm is a sequence of (possibly randomized) measurable functions f_t: X^{t-1} × {0,1}^{t-1} × X → {0,1}, t ∈ ℕ, whose internal randomization is independent of any data sequence considered. Given a (possibly random) instance sequence X = (X_t)_{t∈ℕ} taking values in X and independent of the algorithm's internal randomness, and a target concept f*, the algorithm's prediction at time t is Ŷ_t = f_t(X_{1:(t-1)}, f*(X_{1:(t-1)}), X_t), and a mistake occurs at time t when Ŷ_t ≠ f*(X_t).\n\nSay that the algorithm is weakly universally consistent under X if, for every measurable f*: X → {0,1},\n  E[∑_{t=1}^T 1{Ŷ_t ≠ f*(X_t)}] = o(T) as T → ∞,\nand strongly universally consistent under X if, for every measurable f*: X → {0,1},\n  ∑_{t=1}^T 1{Ŷ_t ≠ f*(X_t)} = o(T) almost surely as T → ∞.\n\nSay that weak (respectively strong) universal online learning is possible under X if some online learning algorithm is weakly (respectively strongly) universally consistent under X. An online learning algorithm is called optimistically weakly (respectively strongly) universal if it is weakly (respectively strongly) universally consistent under every instance sequence X for which weak (respectively strong) universal online learning is possible.\n\nQuestion: Does there exist an optimistically weakly universal online learning algorithm? Does there exist an optimistically strongly universal online learning algorithm?",
+    "macro_subject": "Statistics and Machine Learning",
+    "category_tag": "Universal online learning",
+    "open_status": "solved",
+    "status_search_result": "The open problem was resolved by Blanchard (2022), \"Universal Online Learning: an Optimistically Universal Learning Rule\" (COLT 2022 / arXiv:2201.05947), which constructs a variant of the 1-nearest-neighbor rule that is optimistically universal in both the weak and strong senses for realizable binary online learning, thereby closing the COLT 2021 open problem.",
+    "status_evidence": [
+      {
+        "title": "Universal Online Learning: an Optimistically Universal Learning Rule",
+        "url": "https://arxiv.org/abs/2201.05947",
+        "snippet": "a novel variant of 1-nearest neighbors which is optimistically universal for general input and value spaces in both strong and weak settings; closes COLT 2021 open problems posed by Hanneke on universal online learning.",
+        "claim": "An optimistically universal online learning rule exists in both weak and strong senses, resolving the question."
+      }
+    ],
+    "confidence": 0.9
+  },
+  "model": "opus",
+  "effort": "medium",
+  "elapsed_s": 29.53,
+  "validation_warnings": [],
+  "raw_claude_stdout": "{\"type\":\"result\",\"subtype\":\"success\",\"is_error\":false,\"api_error_status\":null,\"duration_ms\":28452,\"duration_api_ms\":26525,\"num_turns\":3,\"result\":\"Sources:\\n- [Universal Online Learning: an Optimistically Universal Learning Rule (arXiv:2201.05947)](https://arxiv.org/abs/2201.05947)\\n- [PMLR v178 Blanchard 2022](https://proceedings.mlr.press/v178/blanchard22b.html)\",\"stop_reason\":\"end_turn\",\"session_id\":\"a9b8389e-3216-4710-b20e-887570419d72\",\"total_cost_usd\":0.10583574999999999,\"usage\":{\"input_tokens\":8,\"cache_creation_input_tokens\":5059,\"cache_read_input_tokens\":14454,\"output_tokens\":1378,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":5059,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[{\"input_tokens\":1,\"output_tokens\":110,\"cache_read_input_tokens\":6571,\"cache_creation_input_tokens\":1173,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":1173},\"type\":\"message\"}],\"speed\":\"standard\"},\"modelUsage\":{\"claude-haiku-4-5-20251001\":{\"inputTokens\":19800,\"outputTokens\":540,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":1,\"costUSD\":0.032499999999999994,\"contextWindow\":200000,\"maxOutputTokens\":32000},\"claude-opus-4-7\":{\"inputTokens\":8,\"outputTokens\":1378,\"cacheReadInputTokens\":14454,\"cacheCreationInputTokens\":5059,\"webSearchRequests\":0,\"costUSD\":0.07333575,\"contextWindow\":1000000,\"maxOutputTokens\":64000}},\"permission_denials\":[],\"structured_output\":{\"self_contained_problem\":\"Let X be a nonempty instance space equipped with a sigma-algebra. A target concept is a measurable function f*: X → {0,1}. An online learning algorithm is a sequence of (possibly randomized) measurable functions f_t: X^{t-1} × {0,1}^{t-1} × X → {0,1}, t ∈ ℕ, whose internal randomization is independent of any data sequence considered. Given a (possibly random) instance sequence X = (X_t)_{t∈ℕ} taking values in X and independent of the algorithm's internal randomness, and a target concept f*, the algorithm's prediction at time t is Ŷ_t = f_t(X_{1:(t-1)}, f*(X_{1:(t-1)}), X_t), and a mistake occurs at time t when Ŷ_t ≠ f*(X_t).\\n\\nSay that the algorithm is weakly universally consistent under X if, for every measurable f*: X → {0,1},\\n  E[∑_{t=1}^T 1{Ŷ_t ≠ f*(X_t)}] = o(T) as T → ∞,\\nand strongly universally consistent under X if, for every measurable f*: X → {0,1},\\n  ∑_{t=1}^T 1{Ŷ_t ≠ f*(X_t)} = o(T) almost surely as T → ∞.\\n\\nSay that weak (respectively strong) universal online learning is possible under X if some online learning algorithm is weakly (respectively strongly) universally consistent under X. An online learning algorithm is called optimistically weakly (respectively strongly) universal if it is weakly (respectively strongly) universally consistent under every instance sequence X for which weak (respectively strong) universal online learning is possible.\\n\\nQuestion: Does there exist an optimistically weakly universal online learning algorithm? Does there exist an optimistically strongly universal online learning algorithm?\",\"macro_subject\":\"Statistics and Machine Learning\",\"category_tag\":\"Universal online learning\",\"open_status\":\"solved\",\"status_search_result\":\"The open problem was resolved by Blanchard (2022), \\\"Universal Online Learning: an Optimistically Universal Learning Rule\\\" (COLT 2022 / arXiv:2201.05947), which constructs a variant of the 1-nearest-neighbor rule that is optimistically universal in both the weak and strong senses for realizable binary online learning, thereby closing the COLT 2021 open problem.\",\"status_evidence\":[{\"title\":\"Universal Online Learning: an Optimistically Universal Learning Rule\",\"url\":\"https://arxiv.org/abs/2201.05947\",\"snippet\":\"a novel variant of 1-nearest neighbors which is optimistically universal for general input and value spaces in both strong and weak settings; closes COLT 2021 open problems posed by Hanneke on universal online learning.\",\"claim\":\"An optimistically universal online learning rule exists in both weak and strong senses, resolving the question.\"}],\"confidence\":0.9},\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"uuid\":\"7384ed44-791b-4fe4-a80f-3aea0515ba37\"}\n"
+}

@@ -1,0 +1,67 @@
+{
+  "record": {
+    "global_index": 5698,
+    "source_json": "outputs/parse-paper/2206.15475.json",
+    "paper_id": "2206.15475",
+    "paper_title": "Causal Machine Learning: A Survey and Open Problems",
+    "paper_link": "https://arxiv.org/abs/2206.15475",
+    "question_link": "https://arxiv.org/pdf/2206.15475.pdf#page=69",
+    "question_id": "q_016",
+    "parser_is_solved": "false",
+    "context_brief": "Trade-offs between fairness criteria",
+    "original_question": "Different causal or statistical fairness criteria can be mutually incompatible. How should practitioners balance trade-offs among multiple admissible fairness criteria, and what adverse consequences arise from optimizing one causal fairness criterion over another?",
+    "evidence": [
+      {
+        "page": 69,
+        "quote": "Kleinberg et al. [200], Corbett-Davies et al. [201], Chouldechova [202] show that fairness criteria can be opposed to each other, and sometimes, one cannot have multiple criteria simultaneously satisfied."
+      },
+      {
+        "page": 69,
+        "quote": "Hence, in practice, the trade-off between multiple admissible criteria has to be balanced."
+      },
+      {
+        "page": 69,
+        "quote": "Similarly, Nilforoshan et al. [204] highlight limitations and potential adverse consequences of causal fairness criteria."
+      }
+    ]
+  },
+  "artifact": {
+    "self_contained_problem": "Consider a predictive model used for decision-making over individuals belonging to different demographic groups. Several formal fairness criteria have been proposed for such models, including statistical criteria (e.g., demographic parity, equalized odds, calibration within groups) and causal criteria formulated on a structural causal model with a designated sensitive attribute (e.g., counterfactual fairness, path-specific causal effects vanishing along illegitimate pathways, individual counterfactual equity).\n\nIt is known that, under mild and realistic conditions on the data distribution and underlying causal graph, certain pairs or triples of these criteria cannot all be satisfied simultaneously by a single nontrivial predictor.\n\nProvide a principled framework that addresses the following:\n\n1. Given a collection of admissible fairness criteria F₁, …, F_k (each a functional or constraint on a predictor f and the joint distribution of features, sensitive attribute, and outcome) that are mutually incompatible, formulate quantitative trade-off measures that allow a practitioner to balance partial satisfaction of each criterion. Characterize the Pareto frontier of predictors with respect to (F₁, …, F_k) together with a utility/accuracy objective.\n\n2. For causal fairness criteria specifically, identify and prove which adverse consequences (e.g., harm to the protected group, violations of individual-level monotonicity, decreases in welfare for every group, infeasibility outside trivial constant predictors) necessarily follow from enforcing one causal fairness criterion exactly while ignoring others. Provide impossibility results and matching constructions describing when optimizing a single causal fairness criterion produces predictors that are normatively worse than a baseline.\n\n3. Give guidance, in the form of theorems linking modeling assumptions (causal graph structure, choice of legitimate vs. illegitimate paths, utility function) to a preferred trade-off or aggregation rule among (F₁, …, F_k).",
+    "macro_subject": "Statistics and Machine Learning",
+    "category_tag": "Causal algorithmic fairness",
+    "open_status": "partially_solved",
+    "status_search_result": "Incompatibility results among statistical fairness criteria are well established, and recent work (Nilforoshan et al. 2022 on causal conceptions of fairness; Zehlike, Loosley et al. on going beyond incompatibility; FAIM interpolation algorithms; FiND-world frameworks; and 2024–2025 work on causal fairness–accuracy Pareto trade-offs) has produced partial characterizations of adverse consequences and trade-off frameworks. However, a unified principled framework that fully balances all admissible causal and statistical criteria and exhaustively classifies adverse consequences remains an active and unresolved research direction.",
+    "status_evidence": [
+      {
+        "title": "Beyond incompatibility: Trade-offs between mutually exclusive fairness criteria",
+        "url": "https://www.sciencedirect.com/science/article/pii/S0004370224002169",
+        "snippet": "Proposes FAIM, a continuous interpolation between incompatible fairness criteria, partially addressing trade-offs.",
+        "claim": "Partial progress on balancing incompatible fairness criteria via interpolation."
+      },
+      {
+        "title": "Fairness-Accuracy Trade-Offs: A Causal Perspective",
+        "url": "https://arxiv.org/html/2405.15443v1",
+        "snippet": "Notes that fairness-utility trade-offs are largely unexplored in the causal fairness literature, with exceptions such as Nilforoshan et al. 2022.",
+        "claim": "Causal fairness trade-offs remain an active research area as of 2024–2025."
+      },
+      {
+        "title": "The Measure and Mismeasure of Fairness",
+        "url": "https://arxiv.org/pdf/1808.00023",
+        "snippet": "Argues several formal fairness criteria are mutually incompatible and can harm protected groups.",
+        "claim": "Foundational evidence that optimizing one fairness criterion can produce adverse consequences."
+      },
+      {
+        "title": "Overcoming Fairness Trade-offs via Pre-processing: A Causal Perspective",
+        "url": "https://arxiv.org/html/2501.14710v1",
+        "snippet": "FiND-world framework shows multiple fairness metrics can be naturally satisfied under particular causal assumptions.",
+        "claim": "Recent partial resolutions exist under specific causal modeling assumptions."
+      }
+    ],
+    "confidence": 0.7
+  },
+  "model": "opus",
+  "effort": "medium",
+  "elapsed_s": 37.21,
+  "validation_warnings": [],
+  "raw_claude_stdout": "{\"type\":\"result\",\"subtype\":\"success\",\"is_error\":false,\"api_error_status\":null,\"duration_ms\":35993,\"duration_api_ms\":34996,\"num_turns\":3,\"result\":\"Provided.\\n\\nSources:\\n- [Beyond incompatibility (ScienceDirect)](https://www.sciencedirect.com/science/article/pii/S0004370224002169)\\n- [Fairness-Accuracy Trade-Offs: A Causal Perspective](https://arxiv.org/html/2405.15443v1)\\n- [The Measure and Mismeasure of Fairness](https://arxiv.org/pdf/1808.00023)\\n- [Overcoming Fairness Trade-offs via Pre-processing](https://arxiv.org/html/2501.14710v1)\",\"stop_reason\":\"end_turn\",\"session_id\":\"aa3b1b08-56d4-4cd2-b20c-7d31301723ad\",\"total_cost_usd\":0.12016725,\"usage\":{\"input_tokens\":8,\"cache_creation_input_tokens\":4761,\"cache_read_input_tokens\":12798,\"output_tokens\":1960,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":4761,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[{\"input_tokens\":1,\"output_tokens\":196,\"cache_read_input_tokens\":5787,\"cache_creation_input_tokens\":1659,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":1659},\"type\":\"message\"}],\"speed\":\"standard\"},\"modelUsage\":{\"claude-haiku-4-5-20251001\":{\"inputTokens\":22347,\"outputTokens\":525,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":1,\"costUSD\":0.034972,\"contextWindow\":200000,\"maxOutputTokens\":32000},\"claude-opus-4-7\":{\"inputTokens\":8,\"outputTokens\":1960,\"cacheReadInputTokens\":12798,\"cacheCreationInputTokens\":4761,\"webSearchRequests\":0,\"costUSD\":0.08519525,\"contextWindow\":1000000,\"maxOutputTokens\":64000}},\"permission_denials\":[],\"structured_output\":{\"self_contained_problem\":\"Consider a predictive model used for decision-making over individuals belonging to different demographic groups. Several formal fairness criteria have been proposed for such models, including statistical criteria (e.g., demographic parity, equalized odds, calibration within groups) and causal criteria formulated on a structural causal model with a designated sensitive attribute (e.g., counterfactual fairness, path-specific causal effects vanishing along illegitimate pathways, individual counterfactual equity).\\n\\nIt is known that, under mild and realistic conditions on the data distribution and underlying causal graph, certain pairs or triples of these criteria cannot all be satisfied simultaneously by a single nontrivial predictor.\\n\\nProvide a principled framework that addresses the following:\\n\\n1. Given a collection of admissible fairness criteria F₁, …, F_k (each a functional or constraint on a predictor f and the joint distribution of features, sensitive attribute, and outcome) that are mutually incompatible, formulate quantitative trade-off measures that allow a practitioner to balance partial satisfaction of each criterion. Characterize the Pareto frontier of predictors with respect to (F₁, …, F_k) together with a utility/accuracy objective.\\n\\n2. For causal fairness criteria specifically, identify and prove which adverse consequences (e.g., harm to the protected group, violations of individual-level monotonicity, decreases in welfare for every group, infeasibility outside trivial constant predictors) necessarily follow from enforcing one causal fairness criterion exactly while ignoring others. Provide impossibility results and matching constructions describing when optimizing a single causal fairness criterion produces predictors that are normatively worse than a baseline.\\n\\n3. Give guidance, in the form of theorems linking modeling assumptions (causal graph structure, choice of legitimate vs. illegitimate paths, utility function) to a preferred trade-off or aggregation rule among (F₁, …, F_k).\",\"macro_subject\":\"Statistics and Machine Learning\",\"category_tag\":\"Causal algorithmic fairness\",\"open_status\":\"partially_solved\",\"status_search_result\":\"Incompatibility results among statistical fairness criteria are well established, and recent work (Nilforoshan et al. 2022 on causal conceptions of fairness; Zehlike, Loosley et al. on going beyond incompatibility; FAIM interpolation algorithms; FiND-world frameworks; and 2024–2025 work on causal fairness–accuracy Pareto trade-offs) has produced partial characterizations of adverse consequences and trade-off frameworks. However, a unified principled framework that fully balances all admissible causal and statistical criteria and exhaustively classifies adverse consequences remains an active and unresolved research direction.\",\"status_evidence\":[{\"title\":\"Beyond incompatibility: Trade-offs between mutually exclusive fairness criteria\",\"url\":\"https://www.sciencedirect.com/science/article/pii/S0004370224002169\",\"snippet\":\"Proposes FAIM, a continuous interpolation between incompatible fairness criteria, partially addressing trade-offs.\",\"claim\":\"Partial progress on balancing incompatible fairness criteria via interpolation.\"},{\"title\":\"Fairness-Accuracy Trade-Offs: A Causal Perspective\",\"url\":\"https://arxiv.org/html/2405.15443v1\",\"snippet\":\"Notes that fairness-utility trade-offs are largely unexplored in the causal fairness literature, with exceptions such as Nilforoshan et al. 2022.\",\"claim\":\"Causal fairness trade-offs remain an active research area as of 2024–2025.\"},{\"title\":\"The Measure and Mismeasure of Fairness\",\"url\":\"https://arxiv.org/pdf/1808.00023\",\"snippet\":\"Argues several formal fairness criteria are mutually incompatible and can harm protected groups.\",\"claim\":\"Foundational evidence that optimizing one fairness criterion can produce adverse consequences.\"},{\"title\":\"Overcoming Fairness Trade-offs via Pre-processing: A Causal Perspective\",\"url\":\"https://arxiv.org/html/2501.14710v1\",\"snippet\":\"FiND-world framework shows multiple fairness metrics can be naturally satisfied under particular causal assumptions.\",\"claim\":\"Recent partial resolutions exist under specific causal modeling assumptions.\"}],\"confidence\":0.7},\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"uuid\":\"a188729c-a2ff-419a-b951-19a8fef45fe3\"}\n"
+}

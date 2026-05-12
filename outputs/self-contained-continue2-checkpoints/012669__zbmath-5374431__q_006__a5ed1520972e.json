@@ -1,0 +1,55 @@
+{
+  "record": {
+    "global_index": 12669,
+    "source_json": "outputs/parse-paper/zbmath-5374431.json",
+    "paper_id": "zbmath/5374431",
+    "paper_title": "Ten Open Problems in Grammatical Inference",
+    "paper_link": "https://zbmath.org/5374431",
+    "question_link": "https://zbmath.org/5374431",
+    "question_id": "q_006",
+    "parser_is_solved": "false",
+    "context_brief": "Testing equivalence of SDFAs from samples",
+    "original_question": "Given two finite samples drawn from stochastic deterministic finite automata A and B, can one design an algorithm, or prove that no such algorithm exists, that decides with high probability whether the two induced string distributions are equivalent or close? Formally, for a distance d between distributions and parameters ε, δ > 0, the algorithm should determine from samples whether d(DA, DB) < ε with probability at least 1 − δ, with sample size and running time polynomial in the automata sizes, 1/ε, and 1/δ.",
+    "evidence": [
+      {
+        "page": 39,
+        "quote": "A stochastic language D is a probability distribution over Σ?."
+      },
+      {
+        "page": 39,
+        "quote": "Problem 5. Find an algorithm (or prove that it does not exist) that, given 2 samples extracted from Sdfa A and B, will tell us with high probability if A and B are equivalent (or close)."
+      },
+      {
+        "page": 39,
+        "quote": "given ϵ, δ > 0, find an algorithm that given 2 samples extracted from Sdfa A and B, will tell us if d(DA, DB) < ϵ with probability at least 1 −δ."
+      }
+    ]
+  },
+  "artifact": {
+    "self_contained_problem": "Let Σ be a finite alphabet. A stochastic deterministic finite automaton (SDFA) is a tuple A = (Q, Σ, q0, δ, p, f), where Q is a finite set of states, q0 ∈ Q is the initial state, δ : Q × Σ → Q is a (partial) deterministic transition function, p : Q × Σ → [0,1] assigns a probability to each transition, and f : Q → [0,1] assigns a halting (final) probability, with the normalization f(q) + Σ_{a∈Σ} p(q,a) = 1 for every q ∈ Q. Such an automaton induces a probability distribution D_A over Σ* in the natural way: the probability of a string w = a_1 … a_n is f(q_n) · Π_{i=1}^{n} p(q_{i-1}, a_i), where q_i = δ(q_{i-1}, a_i).\n\nFix a distance d between probability distributions on Σ* (for instance the total variation distance or the L_∞ distance). The problem is the following:\n\nEither exhibit an algorithm, or prove that none exists, that takes as input\n • two finite i.i.d. samples S_A and S_B drawn respectively from D_A and D_B for two unknown SDFAs A and B,\n • parameters ε > 0 and δ ∈ (0,1),\nand outputs a decision of whether d(D_A, D_B) < ε, with the following guarantees:\n (i) the answer is correct with probability at least 1 − δ;\n (ii) the required sample sizes |S_A|, |S_B| and the running time are bounded by a polynomial in |A|, |B|, 1/ε, and 1/δ.\n\nDetermine whether such an algorithm exists and, if so, construct one; otherwise prove an impossibility result.",
+    "macro_subject": "Theoretical Computer Science",
+    "category_tag": "stochastic automata equivalence testing",
+    "open_status": "unknown",
+    "status_search_result": "Web search did not surface a definitive resolution of the sample-based approximate equivalence-testing problem for stochastic DFAs with polynomial sample and time complexity. Related work shows polynomial-time exact equivalence testing for various deterministic automata models and learnability results for SDFAs, but no source confirms an affirmative or negative answer to the precise approximate-equivalence-from-samples question. The status is therefore reported as unknown.",
+    "status_evidence": [
+      {
+        "title": "Learning Stochastic Finite Automata",
+        "url": "https://grfia.dlsi.ua.es/repositori/grfia/pubs/143/icgi.pdf",
+        "snippet": "Stochastic deterministic finite automata cannot be identified from only a polynomial quantity of data; deterministic regular grammars can be learned from stochastic samples in polynomial time under restricted conditions.",
+        "claim": "Learning SDFAs from polynomial samples faces inherent limitations, but no resolution of the sample-based approximate equivalence question is given."
+      },
+      {
+        "title": "Equivalence Testing of Weighted Automata over Partially Commutative Monoids",
+        "url": "https://arxiv.org/pdf/2002.08633",
+        "snippet": "Polynomial-time equivalence testing results are available for various weighted/deterministic automata models.",
+        "claim": "Exact equivalence testing has polynomial algorithms in related automata models, but the sample-based stochastic variant is not addressed."
+      }
+    ],
+    "confidence": 0.6
+  },
+  "model": "opus",
+  "effort": "medium",
+  "elapsed_s": 33.41,
+  "validation_warnings": [],
+  "raw_claude_stdout": "{\"type\":\"result\",\"subtype\":\"success\",\"is_error\":false,\"api_error_status\":null,\"duration_ms\":32000,\"duration_api_ms\":30415,\"num_turns\":3,\"result\":\"I've produced the dataset row.\\n\\nSources:\\n- [Learning Stochastic Finite Automata](https://grfia.dlsi.ua.es/repositori/grfia/pubs/143/icgi.pdf)\\n- [Equivalence Testing of Weighted Automata over Partially Commutative Monoids](https://arxiv.org/pdf/2002.08633)\\n- [Learning Stochastic Finite Automata (Springer)](https://link.springer.com/chapter/10.1007/978-3-540-30195-0_16)\",\"stop_reason\":\"end_turn\",\"session_id\":\"6fd1e3c7-aabb-4581-be0c-fc3d5c87e85a\",\"total_cost_usd\":0.10482275000000002,\"usage\":{\"input_tokens\":8,\"cache_creation_input_tokens\":4471,\"cache_read_input_tokens\":12910,\"output_tokens\":1615,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":4471,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[{\"input_tokens\":1,\"output_tokens\":180,\"cache_read_input_tokens\":5826,\"cache_creation_input_tokens\":1330,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":1330},\"type\":\"message\"}],\"speed\":\"standard\"},\"modelUsage\":{\"claude-haiku-4-5-20251001\":{\"inputTokens\":17624,\"outputTokens\":477,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":1,\"costUSD\":0.030009,\"contextWindow\":200000,\"maxOutputTokens\":32000},\"claude-opus-4-7\":{\"inputTokens\":8,\"outputTokens\":1615,\"cacheReadInputTokens\":12910,\"cacheCreationInputTokens\":4471,\"webSearchRequests\":0,\"costUSD\":0.07481375000000001,\"contextWindow\":1000000,\"maxOutputTokens\":64000}},\"permission_denials\":[],\"structured_output\":{\"self_contained_problem\":\"Let Σ be a finite alphabet. A stochastic deterministic finite automaton (SDFA) is a tuple A = (Q, Σ, q0, δ, p, f), where Q is a finite set of states, q0 ∈ Q is the initial state, δ : Q × Σ → Q is a (partial) deterministic transition function, p : Q × Σ → [0,1] assigns a probability to each transition, and f : Q → [0,1] assigns a halting (final) probability, with the normalization f(q) + Σ_{a∈Σ} p(q,a) = 1 for every q ∈ Q. Such an automaton induces a probability distribution D_A over Σ* in the natural way: the probability of a string w = a_1 … a_n is f(q_n) · Π_{i=1}^{n} p(q_{i-1}, a_i), where q_i = δ(q_{i-1}, a_i).\\n\\nFix a distance d between probability distributions on Σ* (for instance the total variation distance or the L_∞ distance). The problem is the following:\\n\\nEither exhibit an algorithm, or prove that none exists, that takes as input\\n • two finite i.i.d. samples S_A and S_B drawn respectively from D_A and D_B for two unknown SDFAs A and B,\\n • parameters ε > 0 and δ ∈ (0,1),\\nand outputs a decision of whether d(D_A, D_B) < ε, with the following guarantees:\\n (i) the answer is correct with probability at least 1 − δ;\\n (ii) the required sample sizes |S_A|, |S_B| and the running time are bounded by a polynomial in |A|, |B|, 1/ε, and 1/δ.\\n\\nDetermine whether such an algorithm exists and, if so, construct one; otherwise prove an impossibility result.\",\"macro_subject\":\"Theoretical Computer Science\",\"category_tag\":\"stochastic automata equivalence testing\",\"open_status\":\"unknown\",\"status_search_result\":\"Web search did not surface a definitive resolution of the sample-based approximate equivalence-testing problem for stochastic DFAs with polynomial sample and time complexity. Related work shows polynomial-time exact equivalence testing for various deterministic automata models and learnability results for SDFAs, but no source confirms an affirmative or negative answer to the precise approximate-equivalence-from-samples question. The status is therefore reported as unknown.\",\"status_evidence\":[{\"title\":\"Learning Stochastic Finite Automata\",\"url\":\"https://grfia.dlsi.ua.es/repositori/grfia/pubs/143/icgi.pdf\",\"snippet\":\"Stochastic deterministic finite automata cannot be identified from only a polynomial quantity of data; deterministic regular grammars can be learned from stochastic samples in polynomial time under restricted conditions.\",\"claim\":\"Learning SDFAs from polynomial samples faces inherent limitations, but no resolution of the sample-based approximate equivalence question is given.\"},{\"title\":\"Equivalence Testing of Weighted Automata over Partially Commutative Monoids\",\"url\":\"https://arxiv.org/pdf/2002.08633\",\"snippet\":\"Polynomial-time equivalence testing results are available for various weighted/deterministic automata models.\",\"claim\":\"Exact equivalence testing has polynomial algorithms in related automata models, but the sample-based stochastic variant is not addressed.\"}],\"confidence\":0.6},\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"uuid\":\"0342d57f-5bf5-49b9-bd19-ca378e161e8f\"}\n"
+}

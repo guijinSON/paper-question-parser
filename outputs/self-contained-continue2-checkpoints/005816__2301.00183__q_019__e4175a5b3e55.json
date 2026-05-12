@@ -1,0 +1,59 @@
+{
+  "record": {
+    "global_index": 5816,
+    "source_json": "outputs/parse-paper/2301.00183.json",
+    "paper_id": "2301.00183",
+    "paper_title": "Modeling social resilience: Questions, answers, open problems",
+    "paper_link": "https://arxiv.org/abs/2301.00183",
+    "question_link": "https://arxiv.org/pdf/2301.00183.pdf#page=36",
+    "question_id": "q_019",
+    "parser_is_solved": "false",
+    "context_brief": "Repository-derived interaction data",
+    "original_question": "How can data needed for social-resilience modeling be obtained from repositories of social organizations? The question should include extracting fine-grained interaction records from repositories such as git, constructing bipartite and projected collaboration networks, and deriving additional information about productivity or hierarchy.",
+    "evidence": [
+      {
+        "page": 36,
+        "quote": "Questions • How can we obtain such data from repositories of social organizations?"
+      },
+      {
+        "page": 36,
+        "quote": "These contain ﬁne-grained records of all changes made to the software, together with information who changed it, what was changed and when."
+      },
+      {
+        "page": 36,
+        "quote": "We developed a software package, git2net, that is able to extract this information, to create bipartite networks and their projections into an interaction network between developers"
+      },
+      {
+        "page": 36,
+        "quote": "analyzing the amount of code changes can quantify the productivity of developers and analyzing the sequence of code changes gives insights into their hierarchical structure."
+      }
+    ]
+  },
+  "artifact": {
+    "self_contained_problem": "Consider a social organization whose collaborative activity is recorded in a version-control repository (e.g., a git repository) that logs, for every change, the developer who made the change, the file(s) and code regions affected, and a timestamp. Formalize and solve the following modeling problem:\n\n(a) Define an extraction procedure that maps the raw commit history to a time-stamped bipartite interaction record B = {(d_i, f_i, t_i, Δ_i)}, where d_i is a developer, f_i is a file (or finer code unit), t_i is a time, and Δ_i quantifies the magnitude/type of the change (e.g., number of lines added/edited, edit-distance based weights).\n\n(b) From B, construct (i) the bipartite developer–artifact network G_B = (D ∪ F, E_B) with weighted edges encoding aggregated contributions, and (ii) its one-mode projection G_D = (D, E_D) onto developers, specifying a co-editing rule (e.g., two developers are linked when they edit overlapping code regions within a temporal window τ) and a weighting scheme on E_D.\n\n(c) Derive from B and G_D quantitative proxies for (i) individual and collective productivity (e.g., functionals of the contribution weights Δ_i over time) and (ii) hierarchy among developers (e.g., orderings inferred from the temporal sequence of edits to shared code, such as who edits whose code).\n\nQuestion: Provide such an extraction-and-construction framework, prove that the resulting networks and derived measures are well-defined (independent of irrelevant repository artifacts such as merge commits or whitespace edits), and characterize their statistical properties (degree distributions, temporal motifs, hierarchy indices) for collaborative-software repositories.",
+    "macro_subject": "Applied Mathematics",
+    "category_tag": "Collaboration networks from version-control data",
+    "open_status": "partially_solved",
+    "status_search_result": "A software tool (git2net) and associated methodology exist for extracting fine-grained co-editing interactions from git repositories and constructing bipartite and projected developer networks, and follow-up work uses these to study productivity and hierarchy. The general modeling question of how to best derive social-resilience-relevant data from such repositories remains an ongoing research program rather than a closed mathematical problem.",
+    "status_evidence": [
+      {
+        "title": "git2net - Mining Time-Stamped Co-Editing Networks from Git Repositories",
+        "url": "https://arxiv.org/abs/1903.10180",
+        "snippet": "We present git2net, a python package that facilitates the extraction of fine-grained co-editing networks from git repositories.",
+        "claim": "A method/tool exists that extracts fine-grained co-editing bipartite and projected networks from git repositories."
+      },
+      {
+        "title": "Modeling social resilience: Questions, answers, open problems",
+        "url": "https://arxiv.org/abs/2301.00183",
+        "snippet": "Open problems regarding obtaining data for social-resilience modeling from organizational repositories.",
+        "claim": "The broader modeling question is presented as an open research problem."
+      }
+    ],
+    "confidence": 0.5
+  },
+  "model": "opus",
+  "effort": "medium",
+  "elapsed_s": 20.0,
+  "validation_warnings": [],
+  "raw_claude_stdout": "{\"type\":\"result\",\"subtype\":\"success\",\"is_error\":false,\"api_error_status\":null,\"duration_ms\":18827,\"duration_api_ms\":20160,\"num_turns\":2,\"result\":\"I've produced the dataset row. Sources:\\n- [git2net (arXiv:1903.10180)](https://arxiv.org/abs/1903.10180)\\n- [Modeling social resilience (arXiv:2301.00183)](https://arxiv.org/abs/2301.00183)\",\"stop_reason\":\"end_turn\",\"session_id\":\"77253c7b-f2b7-4505-bfcb-004b52c41a03\",\"total_cost_usd\":0.0561095,\"usage\":{\"input_tokens\":7,\"cache_creation_input_tokens\":2932,\"cache_read_input_tokens\":7035,\"output_tokens\":1331,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":2932,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[{\"input_tokens\":1,\"output_tokens\":97,\"cache_read_input_tokens\":4350,\"cache_creation_input_tokens\":1267,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":1267},\"type\":\"message\"}],\"speed\":\"standard\"},\"modelUsage\":{\"claude-haiku-4-5-20251001\":{\"inputTokens\":882,\"outputTokens\":15,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":0,\"costUSD\":0.000957,\"contextWindow\":200000,\"maxOutputTokens\":32000},\"claude-opus-4-7\":{\"inputTokens\":7,\"outputTokens\":1331,\"cacheReadInputTokens\":7035,\"cacheCreationInputTokens\":2932,\"webSearchRequests\":0,\"costUSD\":0.0551525,\"contextWindow\":1000000,\"maxOutputTokens\":64000}},\"permission_denials\":[],\"structured_output\":{\"self_contained_problem\":\"Consider a social organization whose collaborative activity is recorded in a version-control repository (e.g., a git repository) that logs, for every change, the developer who made the change, the file(s) and code regions affected, and a timestamp. Formalize and solve the following modeling problem:\\n\\n(a) Define an extraction procedure that maps the raw commit history to a time-stamped bipartite interaction record B = {(d_i, f_i, t_i, Δ_i)}, where d_i is a developer, f_i is a file (or finer code unit), t_i is a time, and Δ_i quantifies the magnitude/type of the change (e.g., number of lines added/edited, edit-distance based weights).\\n\\n(b) From B, construct (i) the bipartite developer–artifact network G_B = (D ∪ F, E_B) with weighted edges encoding aggregated contributions, and (ii) its one-mode projection G_D = (D, E_D) onto developers, specifying a co-editing rule (e.g., two developers are linked when they edit overlapping code regions within a temporal window τ) and a weighting scheme on E_D.\\n\\n(c) Derive from B and G_D quantitative proxies for (i) individual and collective productivity (e.g., functionals of the contribution weights Δ_i over time) and (ii) hierarchy among developers (e.g., orderings inferred from the temporal sequence of edits to shared code, such as who edits whose code).\\n\\nQuestion: Provide such an extraction-and-construction framework, prove that the resulting networks and derived measures are well-defined (independent of irrelevant repository artifacts such as merge commits or whitespace edits), and characterize their statistical properties (degree distributions, temporal motifs, hierarchy indices) for collaborative-software repositories.\",\"macro_subject\":\"Applied Mathematics\",\"category_tag\":\"Collaboration networks from version-control data\",\"open_status\":\"partially_solved\",\"status_search_result\":\"A software tool (git2net) and associated methodology exist for extracting fine-grained co-editing interactions from git repositories and constructing bipartite and projected developer networks, and follow-up work uses these to study productivity and hierarchy. The general modeling question of how to best derive social-resilience-relevant data from such repositories remains an ongoing research program rather than a closed mathematical problem.\",\"status_evidence\":[{\"title\":\"git2net - Mining Time-Stamped Co-Editing Networks from Git Repositories\",\"url\":\"https://arxiv.org/abs/1903.10180\",\"snippet\":\"We present git2net, a python package that facilitates the extraction of fine-grained co-editing networks from git repositories.\",\"claim\":\"A method/tool exists that extracts fine-grained co-editing bipartite and projected networks from git repositories.\"},{\"title\":\"Modeling social resilience: Questions, answers, open problems\",\"url\":\"https://arxiv.org/abs/2301.00183\",\"snippet\":\"Open problems regarding obtaining data for social-resilience modeling from organizational repositories.\",\"claim\":\"The broader modeling question is presented as an open research problem.\"}],\"confidence\":0.5},\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"uuid\":\"22cdbcbd-60f8-4a9a-9058-139160b1ddf6\"}\n"
+}

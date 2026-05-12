@@ -1,0 +1,47 @@
+{
+  "record": {
+    "global_index": 11255,
+    "source_json": "outputs/parse-paper/open-problems-in-geometric-methods-for-instance-based-learning.json",
+    "paper_id": "open-problems-in-geometric-methods-for-instance-based-learning",
+    "paper_title": "Open Problems in Geometric Methods for Instance-Based Learning",
+    "paper_link": "https://zbmath.org/5667357",
+    "question_link": "https://zbmath.org/5667357",
+    "question_id": "q_020",
+    "parser_is_solved": "false",
+    "context_brief": "Dynamic proximity-graph updates",
+    "original_question": "Can one design efficient algorithms for inserting and deleting vertices in useful proximity graphs such as the Gabriel graph, the relative-neighborhood graph, and the rectangular-influence graph, so that rotation-based or related error-estimation procedures can be carried out efficiently?",
+    "evidence": [
+      {
+        "page": 9,
+        "quote": "Hence it would be desirable to have efficient algorithms for in￾serting and deleting vertices from the most useful proximity graphs such as the Gabriel graph, the relative-neighborhood graph and the rectangular-influence graph."
+      }
+    ]
+  },
+  "artifact": {
+    "self_contained_problem": "Let $S \\subset \\mathbb{R}^2$ be a finite set of points in general position. Recall the following proximity graphs on $S$:\n\n- The Gabriel graph $\\mathrm{GG}(S)$: vertices $p,q \\in S$ are joined by an edge iff the closed disk with diameter $pq$ contains no point of $S \\setminus \\{p,q\\}$.\n- The relative-neighborhood graph $\\mathrm{RNG}(S)$: $p,q$ are joined iff the lune $\\{x : \\|x-p\\| < \\|p-q\\|\\} \\cap \\{x : \\|x-q\\| < \\|p-q\\|\\}$ contains no point of $S \\setminus \\{p,q\\}$.\n- The rectangular-influence graph: $p,q$ are joined iff the axis-aligned rectangle having $p$ and $q$ as opposite corners contains no point of $S \\setminus \\{p,q\\}$.\n\nDesign data structures and algorithms that maintain each of these three graphs under the operations of inserting a point into $S$ and deleting a point from $S$, with provably efficient (sub-linear amortized or polylogarithmic) update times per operation, while supporting the queries on graph adjacencies needed for rotation-based and related error-estimation procedures used in instance-based learning. Establish the best possible update-time bounds and matching lower bounds.",
+    "macro_subject": "Theoretical Computer Science",
+    "category_tag": "Dynamic proximity graphs",
+    "open_status": "unknown",
+    "status_search_result": "A web search did not surface algorithms specifically aimed at fully dynamic vertex insertion/deletion for the Gabriel graph, relative-neighborhood graph, and rectangular-influence graph with provable efficient update bounds. While these graphs are well-studied as subgraphs of the Delaunay triangulation (which itself admits dynamic algorithms), no definitive resolution to the combined question was located, so the status is best classified as unknown/partially addressed.",
+    "status_evidence": [
+      {
+        "title": "Gabriel graph - Wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Gabriel_graph",
+        "snippet": "Gabriel graphs are subgraphs of the corresponding Delaunay triangulation; an edge of the Delaunay triangulation is in the Gabriel graph iff it intersects the corresponding Voronoi edge.",
+        "claim": "Standard static construction is known via Delaunay triangulation, but no fully dynamic vertex-update algorithm specific to Gabriel/RNG/rectangular-influence graphs is cited."
+      },
+      {
+        "title": "Efficient Computation of Elliptic Gabriel Graph",
+        "url": "https://link.springer.com/chapter/10.1007/11751540_47",
+        "snippet": "Discusses efficient static construction of Gabriel-type graphs.",
+        "claim": "Work on efficient construction exists but does not address dynamic insertion/deletion with provable bounds for all three graphs."
+      }
+    ],
+    "confidence": 0.55
+  },
+  "model": "opus",
+  "effort": "medium",
+  "elapsed_s": 28.86,
+  "validation_warnings": [],
+  "raw_claude_stdout": "{\"type\":\"result\",\"subtype\":\"success\",\"is_error\":false,\"api_error_status\":null,\"duration_ms\":26591,\"duration_api_ms\":25689,\"num_turns\":3,\"result\":\"Sources:\\n- [Gabriel graph - Wikipedia](https://en.wikipedia.org/wiki/Gabriel_graph)\\n- [Efficient Computation of Elliptic Gabriel Graph](https://link.springer.com/chapter/10.1007/11751540_47)\\n- [Graphclass: relative neighbourhood graph](https://graphclasses.org/classes/gc_1224.html)\",\"stop_reason\":\"end_turn\",\"session_id\":\"4d124260-72ac-482d-84b1-d4838323d883\",\"total_cost_usd\":0.10028524999999999,\"usage\":{\"input_tokens\":8,\"cache_creation_input_tokens\":4123,\"cache_read_input_tokens\":12529,\"output_tokens\":1429,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":4123,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[{\"input_tokens\":1,\"output_tokens\":141,\"cache_read_input_tokens\":5619,\"cache_creation_input_tokens\":1189,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":1189},\"type\":\"message\"}],\"speed\":\"standard\"},\"modelUsage\":{\"claude-haiku-4-5-20251001\":{\"inputTokens\":19972,\"outputTokens\":503,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":1,\"costUSD\":0.032487,\"contextWindow\":200000,\"maxOutputTokens\":32000},\"claude-opus-4-7\":{\"inputTokens\":8,\"outputTokens\":1429,\"cacheReadInputTokens\":12529,\"cacheCreationInputTokens\":4123,\"webSearchRequests\":0,\"costUSD\":0.06779825,\"contextWindow\":1000000,\"maxOutputTokens\":64000}},\"permission_denials\":[],\"structured_output\":{\"self_contained_problem\":\"Let $S \\\\subset \\\\mathbb{R}^2$ be a finite set of points in general position. Recall the following proximity graphs on $S$:\\n\\n- The Gabriel graph $\\\\mathrm{GG}(S)$: vertices $p,q \\\\in S$ are joined by an edge iff the closed disk with diameter $pq$ contains no point of $S \\\\setminus \\\\{p,q\\\\}$.\\n- The relative-neighborhood graph $\\\\mathrm{RNG}(S)$: $p,q$ are joined iff the lune $\\\\{x : \\\\|x-p\\\\| < \\\\|p-q\\\\|\\\\} \\\\cap \\\\{x : \\\\|x-q\\\\| < \\\\|p-q\\\\|\\\\}$ contains no point of $S \\\\setminus \\\\{p,q\\\\}$.\\n- The rectangular-influence graph: $p,q$ are joined iff the axis-aligned rectangle having $p$ and $q$ as opposite corners contains no point of $S \\\\setminus \\\\{p,q\\\\}$.\\n\\nDesign data structures and algorithms that maintain each of these three graphs under the operations of inserting a point into $S$ and deleting a point from $S$, with provably efficient (sub-linear amortized or polylogarithmic) update times per operation, while supporting the queries on graph adjacencies needed for rotation-based and related error-estimation procedures used in instance-based learning. Establish the best possible update-time bounds and matching lower bounds.\",\"macro_subject\":\"Theoretical Computer Science\",\"category_tag\":\"Dynamic proximity graphs\",\"open_status\":\"unknown\",\"status_search_result\":\"A web search did not surface algorithms specifically aimed at fully dynamic vertex insertion/deletion for the Gabriel graph, relative-neighborhood graph, and rectangular-influence graph with provable efficient update bounds. While these graphs are well-studied as subgraphs of the Delaunay triangulation (which itself admits dynamic algorithms), no definitive resolution to the combined question was located, so the status is best classified as unknown/partially addressed.\",\"status_evidence\":[{\"title\":\"Gabriel graph - Wikipedia\",\"url\":\"https://en.wikipedia.org/wiki/Gabriel_graph\",\"snippet\":\"Gabriel graphs are subgraphs of the corresponding Delaunay triangulation; an edge of the Delaunay triangulation is in the Gabriel graph iff it intersects the corresponding Voronoi edge.\",\"claim\":\"Standard static construction is known via Delaunay triangulation, but no fully dynamic vertex-update algorithm specific to Gabriel/RNG/rectangular-influence graphs is cited.\"},{\"title\":\"Efficient Computation of Elliptic Gabriel Graph\",\"url\":\"https://link.springer.com/chapter/10.1007/11751540_47\",\"snippet\":\"Discusses efficient static construction of Gabriel-type graphs.\",\"claim\":\"Work on efficient construction exists but does not address dynamic insertion/deletion with provable bounds for all three graphs.\"}],\"confidence\":0.55},\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"uuid\":\"e3fefd8a-0fd7-495d-8e78-fd67004a6cfc\"}\n"
+}

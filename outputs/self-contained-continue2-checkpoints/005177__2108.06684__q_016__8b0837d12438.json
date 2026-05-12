@@ -1,0 +1,49 @@
+{
+  "record": {
+    "global_index": 5177,
+    "source_json": "outputs/parse-paper/2108.06684.json",
+    "paper_id": "2108.06684",
+    "paper_title": "Open Problems in Human Trait Genetics",
+    "paper_link": "https://arxiv.org/abs/2108.06684",
+    "question_link": "https://arxiv.org/pdf/2108.06684.pdf#page=8",
+    "question_id": "q_016",
+    "parser_is_solved": "false",
+    "context_brief": "Model transferability across settings",
+    "original_question": "How can polygenic risk scores and related genotype-to-phenotype prediction models be made robust when transferred across populations, datasets, and genotyping technologies, and what theoretical framework can predict expected accuracy loss from linkage disequilibrium, allele-frequency or effect-size differences, gene-environment or gene-gene interactions, and batch effects?",
+    "evidence": [
+      {
+        "page": 8,
+        "quote": "Another problem of PRS is in their capacity to generalize from the cohort they have been trained on to other settings, including different populations and genotyping technologies (open problem #16: model transferability)."
+      },
+      {
+        "page": 8,
+        "quote": "Other dissimilarities between populations that can limit model generalization include differences in allele frequencies or effect sizes, or different interactions of the genetic effects with the environment or other genetic factors."
+      },
+      {
+        "page": 9,
+        "quote": "At present, we do not have a good theoretical framework estimating how much accuracy loss we should expect when transferring PRS between settings. Even more importantly, there is a great need of methods and strategies that would make PRS more robust and reliable."
+      }
+    ]
+  },
+  "artifact": {
+    "category_tag": "polygenic risk score transferability",
+    "confidence": 0.7,
+    "macro_subject": "Statistics and Machine Learning",
+    "open_status": "open",
+    "self_contained_problem": "Consider the problem of genotype-to-phenotype prediction via polygenic risk scores (PRS). A PRS is a linear predictor of a phenotype y for an individual i defined as PRS_i = sum_{j=1}^{M} beta_j * g_{ij}, where g_{ij} is the (possibly imputed or dosage-coded) genotype at single-nucleotide variant j and beta_j is an effect-size estimate obtained from a training cohort (typically via genome-wide association study summary statistics, with optional shrinkage or LD-based adjustment). Suppose the training data are drawn from a source population/cohort/genotyping platform S with linkage-disequilibrium (LD) structure Sigma_S, allele frequencies f_S, causal-effect distribution pi_S, and environmental/interaction structure E_S, while predictions are made on a target setting T with possibly distinct Sigma_T, f_T, pi_T, E_T, and additional measurement/batch noise.\n\n(a) Develop a methodology for constructing PRS-type predictors that remain robust (in the sense of bounded loss of predictive R^2 or AUC) when transferred from S to T, accounting jointly for: (i) LD differences Sigma_S vs Sigma_T, (ii) allele-frequency differences f_S vs f_T, (iii) effect-size heterogeneity pi_S vs pi_T, (iv) gene-environment and gene-gene interaction differences, and (v) genotyping/batch effects.\n\n(b) Derive a theoretical framework that, given quantitative descriptions of (i)-(v) above, predicts the expected accuracy loss Delta = R^2_S - R^2_T (or a comparable transfer-gap functional) of the PRS when applied to T, with explicit dependence on the population-genetic and statistical parameters governing the source and target settings.\n\nProvide either a constructive estimator with provable transfer guarantees, or rigorous bounds/exact expressions for the expected accuracy decay under a well-specified probabilistic model of cross-setting variation.",
+    "status_search_result": "The problem of cross-population/cross-cohort PRS transferability is widely acknowledged as an open challenge in statistical genetics. Recent methods (e.g., PRS-CSx, multi-ancestry Bayesian shrinkage, BridgePRS) and theoretical analyses (e.g., Wang et al. and Zhang et al. on expected relative accuracy across ancestries) provide partial progress, but no comprehensive framework jointly addressing LD, allele frequency, effect-size heterogeneity, GxE/GxG interactions, and batch effects with predictive accuracy-loss guarantees currently exists.",
+    "status_evidence": [
+      {
+        "title": "Open Problems in Human Trait Genetics",
+        "url": "https://arxiv.org/abs/2108.06684",
+        "snippet": "At present, we do not have a good theoretical framework estimating how much accuracy loss we should expect when transferring PRS between settings.",
+        "claim": "The problem is explicitly listed as open."
+      }
+    ]
+  },
+  "model": "opus",
+  "effort": "medium",
+  "elapsed_s": 21.32,
+  "validation_warnings": [],
+  "raw_claude_stdout": "{\"type\":\"result\",\"subtype\":\"success\",\"is_error\":false,\"api_error_status\":null,\"duration_ms\":20209,\"duration_api_ms\":21472,\"num_turns\":2,\"result\":\"I've created the dataset row. The problem concerns developing both methodology and theory for polygenic risk score (PRS) transferability across populations, cohorts, and genotyping platforms, classified under Statistics and Machine Learning. The status is marked as open, supported by the explicit acknowledgment in the surveyed literature that no comprehensive theoretical framework currently exists for predicting accuracy loss under the combined effects of LD, allele frequency, effect-size, interaction, and batch differences.\",\"stop_reason\":\"end_turn\",\"session_id\":\"72272015-248e-4edf-9259-4dc8e6ba5646\",\"total_cost_usd\":0.05946625000000001,\"usage\":{\"input_tokens\":7,\"cache_creation_input_tokens\":3017,\"cache_read_input_tokens\":7080,\"output_tokens\":1442,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":3017,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[{\"input_tokens\":1,\"output_tokens\":164,\"cache_read_input_tokens\":4395,\"cache_creation_input_tokens\":1307,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":1307},\"type\":\"message\"}],\"speed\":\"standard\"},\"modelUsage\":{\"claude-haiku-4-5-20251001\":{\"inputTokens\":900,\"outputTokens\":17,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":0,\"costUSD\":0.000985,\"contextWindow\":200000,\"maxOutputTokens\":32000},\"claude-opus-4-7\":{\"inputTokens\":7,\"outputTokens\":1442,\"cacheReadInputTokens\":7080,\"cacheCreationInputTokens\":3017,\"webSearchRequests\":0,\"costUSD\":0.05848125000000001,\"contextWindow\":1000000,\"maxOutputTokens\":64000}},\"permission_denials\":[],\"structured_output\":{\"category_tag\":\"polygenic risk score transferability\",\"confidence\":0.7,\"macro_subject\":\"Statistics and Machine Learning\",\"open_status\":\"open\",\"self_contained_problem\":\"Consider the problem of genotype-to-phenotype prediction via polygenic risk scores (PRS). A PRS is a linear predictor of a phenotype y for an individual i defined as PRS_i = sum_{j=1}^{M} beta_j * g_{ij}, where g_{ij} is the (possibly imputed or dosage-coded) genotype at single-nucleotide variant j and beta_j is an effect-size estimate obtained from a training cohort (typically via genome-wide association study summary statistics, with optional shrinkage or LD-based adjustment). Suppose the training data are drawn from a source population/cohort/genotyping platform S with linkage-disequilibrium (LD) structure Sigma_S, allele frequencies f_S, causal-effect distribution pi_S, and environmental/interaction structure E_S, while predictions are made on a target setting T with possibly distinct Sigma_T, f_T, pi_T, E_T, and additional measurement/batch noise.\\n\\n(a) Develop a methodology for constructing PRS-type predictors that remain robust (in the sense of bounded loss of predictive R^2 or AUC) when transferred from S to T, accounting jointly for: (i) LD differences Sigma_S vs Sigma_T, (ii) allele-frequency differences f_S vs f_T, (iii) effect-size heterogeneity pi_S vs pi_T, (iv) gene-environment and gene-gene interaction differences, and (v) genotyping/batch effects.\\n\\n(b) Derive a theoretical framework that, given quantitative descriptions of (i)-(v) above, predicts the expected accuracy loss Delta = R^2_S - R^2_T (or a comparable transfer-gap functional) of the PRS when applied to T, with explicit dependence on the population-genetic and statistical parameters governing the source and target settings.\\n\\nProvide either a constructive estimator with provable transfer guarantees, or rigorous bounds/exact expressions for the expected accuracy decay under a well-specified probabilistic model of cross-setting variation.\",\"status_search_result\":\"The problem of cross-population/cross-cohort PRS transferability is widely acknowledged as an open challenge in statistical genetics. Recent methods (e.g., PRS-CSx, multi-ancestry Bayesian shrinkage, BridgePRS) and theoretical analyses (e.g., Wang et al. and Zhang et al. on expected relative accuracy across ancestries) provide partial progress, but no comprehensive framework jointly addressing LD, allele frequency, effect-size heterogeneity, GxE/GxG interactions, and batch effects with predictive accuracy-loss guarantees currently exists.\",\"status_evidence\":[{\"title\":\"Open Problems in Human Trait Genetics\",\"url\":\"https://arxiv.org/abs/2108.06684\",\"snippet\":\"At present, we do not have a good theoretical framework estimating how much accuracy loss we should expect when transferring PRS between settings.\",\"claim\":\"The problem is explicitly listed as open.\"}]},\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"uuid\":\"97f3d617-56fb-45fd-ad57-395e83e7be2d\"}\n"
+}

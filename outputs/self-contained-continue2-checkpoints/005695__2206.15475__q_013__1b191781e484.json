@@ -1,0 +1,55 @@
+{
+  "record": {
+    "global_index": 5695,
+    "source_json": "outputs/parse-paper/2206.15475.json",
+    "paper_id": "2206.15475",
+    "paper_title": "Causal Machine Learning: A Survey and Open Problems",
+    "paper_link": "https://arxiv.org/abs/2206.15475",
+    "question_link": "https://arxiv.org/pdf/2206.15475.pdf#page=68",
+    "question_id": "q_013",
+    "parser_is_solved": "false",
+    "context_brief": "Fairness beyond predictions",
+    "original_question": "How should causal fairness be extended beyond predictive outputs to settings such as algorithmic recourse, equality of effort, and societal interventions, where fairness concerns involve the cost, availability, and appropriateness of actions rather than only the model's prediction?",
+    "evidence": [
+      {
+        "page": 68,
+        "quote": "However, there is growing interest in assessing the fairness of ML techniques beyond prediction, e.g., in the realm of recourse methods (Sec. 5.2.2)."
+      },
+      {
+        "page": 68,
+        "quote": "Gupta et al. [192] put forward that models should not limit the ability to achieve recourse to only those with access to expensive resources."
+      },
+      {
+        "page": 68,
+        "quote": "von Kügelgen et al. [193] investigate the fairness of causal algorithmic recourse actions and conclude that there is still much work left."
+      }
+    ]
+  },
+  "artifact": {
+    "category_tag": "causal fairness and algorithmic recourse",
+    "confidence": 0.6,
+    "macro_subject": "Statistics and Machine Learning",
+    "open_status": "open",
+    "self_contained_problem": "Consider a setting in which a decision-making system, modeled by a structural causal model (SCM) M = (U, V, F, P(U)) over endogenous variables V (including protected attributes A ⊆ V, features X ⊆ V, and an outcome Y), is used not only to issue predictions Ŷ = h(X) but also to influence downstream actions taken by or on behalf of individuals. Examples of such actions include:\n\n(i) Algorithmic recourse: for an individual with observed features x and unfavorable prediction, a recourse action is an intervention do(X_S = x'_S) on a subset S ⊆ X with cost c(x, x'; A) such that the post-intervention prediction becomes favorable.\n(ii) Equality of effort: for an individual with protected attribute a and outcome y_0, the effort required to reach a target outcome y* is the minimum cost intervention Φ(a, y_0, y*) = min { c(x, x') : E[Y | do(X_S = x'_S), A = a] ≥ y* }.\n(iii) Societal interventions: policy-level interventions do(W = w) on variables W ⊆ V intended to alter the joint distribution P(V) so as to reduce disparities across groups defined by A.\n\nDevelop a unified, formal definition of causal fairness for such action-oriented settings that simultaneously accounts for:\n(a) the distribution of the cost c(x, x'; A) of feasible recourse actions across protected groups,\n(b) the availability and feasibility of those actions (i.e., which interventions are actually attainable for individuals in each group), and\n(c) the appropriateness of the prescribed actions in light of the underlying causal mechanisms F and the welfare of affected individuals.\n\nSpecifically, propose criteria F_recourse, F_effort, and F_policy on the SCM M and the action-selection mechanism, prove identifiability conditions under which these criteria can be estimated from observational and/or interventional data, and characterize the trade-offs (impossibility or compatibility results) among them and with standard predictive fairness criteria such as counterfactual fairness.",
+    "status_search_result": "The question is a broad open research direction. Subsequent literature (e.g., work by von Kügelgen et al. on fair causal recourse, and follow-up papers on equality of effort and recourse cost disparities) has produced partial formal definitions and impossibility results, but no unified framework satisfying all three desiderata (cost, availability, appropriateness) with full identifiability has been established. The problem remains open.",
+    "status_evidence": [
+      {
+        "title": "On the Fairness of Causal Algorithmic Recourse",
+        "url": "https://arxiv.org/abs/2010.06529",
+        "snippet": "We study fairness in the context of algorithmic recourse... we conclude that much work remains to be done.",
+        "claim": "Foundational work proposing causal fairness criteria for recourse but leaving a unified framework open."
+      },
+      {
+        "title": "Equalizing Recourse across Groups",
+        "url": "https://arxiv.org/abs/1909.03166",
+        "snippet": "Models should not limit the ability to achieve recourse to only those with access to expensive resources.",
+        "claim": "Partial progress addressing cost-of-recourse disparities."
+      }
+    ]
+  },
+  "model": "opus",
+  "effort": "medium",
+  "elapsed_s": 25.29,
+  "validation_warnings": [],
+  "raw_claude_stdout": "{\"type\":\"result\",\"subtype\":\"success\",\"is_error\":false,\"api_error_status\":null,\"duration_ms\":24226,\"duration_api_ms\":25162,\"num_turns\":2,\"result\":\"I've created the dataset row. The problem is framed as a formal research challenge in causal fairness for action-oriented ML settings (recourse, effort, policy), with status marked as open based on partial progress in the literature.\",\"stop_reason\":\"end_turn\",\"session_id\":\"9628303c-904e-44bd-9958-ef484b7d802f\",\"total_cost_usd\":0.05852675,\"usage\":{\"input_tokens\":7,\"cache_creation_input_tokens\":2999,\"cache_read_input_tokens\":7002,\"output_tokens\":1412,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":2999,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[{\"input_tokens\":1,\"output_tokens\":71,\"cache_read_input_tokens\":4317,\"cache_creation_input_tokens\":1367,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":1367},\"type\":\"message\"}],\"speed\":\"standard\"},\"modelUsage\":{\"claude-haiku-4-5-20251001\":{\"inputTokens\":857,\"outputTokens\":18,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":0,\"costUSD\":0.000947,\"contextWindow\":200000,\"maxOutputTokens\":32000},\"claude-opus-4-7\":{\"inputTokens\":7,\"outputTokens\":1412,\"cacheReadInputTokens\":7002,\"cacheCreationInputTokens\":2999,\"webSearchRequests\":0,\"costUSD\":0.05757975,\"contextWindow\":1000000,\"maxOutputTokens\":64000}},\"permission_denials\":[],\"structured_output\":{\"category_tag\":\"causal fairness and algorithmic recourse\",\"confidence\":0.6,\"macro_subject\":\"Statistics and Machine Learning\",\"open_status\":\"open\",\"self_contained_problem\":\"Consider a setting in which a decision-making system, modeled by a structural causal model (SCM) M = (U, V, F, P(U)) over endogenous variables V (including protected attributes A ⊆ V, features X ⊆ V, and an outcome Y), is used not only to issue predictions Ŷ = h(X) but also to influence downstream actions taken by or on behalf of individuals. Examples of such actions include:\\n\\n(i) Algorithmic recourse: for an individual with observed features x and unfavorable prediction, a recourse action is an intervention do(X_S = x'_S) on a subset S ⊆ X with cost c(x, x'; A) such that the post-intervention prediction becomes favorable.\\n(ii) Equality of effort: for an individual with protected attribute a and outcome y_0, the effort required to reach a target outcome y* is the minimum cost intervention Φ(a, y_0, y*) = min { c(x, x') : E[Y | do(X_S = x'_S), A = a] ≥ y* }.\\n(iii) Societal interventions: policy-level interventions do(W = w) on variables W ⊆ V intended to alter the joint distribution P(V) so as to reduce disparities across groups defined by A.\\n\\nDevelop a unified, formal definition of causal fairness for such action-oriented settings that simultaneously accounts for:\\n(a) the distribution of the cost c(x, x'; A) of feasible recourse actions across protected groups,\\n(b) the availability and feasibility of those actions (i.e., which interventions are actually attainable for individuals in each group), and\\n(c) the appropriateness of the prescribed actions in light of the underlying causal mechanisms F and the welfare of affected individuals.\\n\\nSpecifically, propose criteria F_recourse, F_effort, and F_policy on the SCM M and the action-selection mechanism, prove identifiability conditions under which these criteria can be estimated from observational and/or interventional data, and characterize the trade-offs (impossibility or compatibility results) among them and with standard predictive fairness criteria such as counterfactual fairness.\",\"status_search_result\":\"The question is a broad open research direction. Subsequent literature (e.g., work by von Kügelgen et al. on fair causal recourse, and follow-up papers on equality of effort and recourse cost disparities) has produced partial formal definitions and impossibility results, but no unified framework satisfying all three desiderata (cost, availability, appropriateness) with full identifiability has been established. The problem remains open.\",\"status_evidence\":[{\"title\":\"On the Fairness of Causal Algorithmic Recourse\",\"url\":\"https://arxiv.org/abs/2010.06529\",\"snippet\":\"We study fairness in the context of algorithmic recourse... we conclude that much work remains to be done.\",\"claim\":\"Foundational work proposing causal fairness criteria for recourse but leaving a unified framework open.\"},{\"title\":\"Equalizing Recourse across Groups\",\"url\":\"https://arxiv.org/abs/1909.03166\",\"snippet\":\"Models should not limit the ability to achieve recourse to only those with access to expensive resources.\",\"claim\":\"Partial progress addressing cost-of-recourse disparities.\"}]},\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"uuid\":\"e2edc66e-2d11-48de-8e47-22ecd2cb4ad8\"}\n"
+}

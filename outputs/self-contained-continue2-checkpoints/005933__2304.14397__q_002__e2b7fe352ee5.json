@@ -1,0 +1,55 @@
+{
+  "record": {
+    "global_index": 5933,
+    "source_json": "outputs/parse-paper/2304.14397.json",
+    "paper_id": "2304.14397",
+    "paper_title": "Private Information Retrieval and Its Applications: An Introduction, Open Problems, Future Directions",
+    "paper_link": "https://arxiv.org/abs/2304.14397",
+    "question_link": "https://arxiv.org/pdf/2304.14397.pdf#page=8",
+    "question_id": "q_002",
+    "parser_is_solved": "false",
+    "context_brief": "Adversarially robust private read-write schemes",
+    "original_question": "How can private read-write schemes for PRUW and PSU-based FSL be designed so that, in addition to preserving the intended private reading, private writing, and client-side privacy properties of those settings, they remain robust against adversaries and/or eavesdroppers?",
+    "evidence": [
+      {
+        "page": 8,
+        "quote": "Private read-update-write (PRUW) [26]–[29] is the concept where a user downloads, updates and uploads the updates back to a chosen section of a data storage system, without revealing the content downloaded, uploaded or their positions, e.g., updated section index. PRUW is essentially the combination of private reading and private writing described previously."
+      },
+      {
+        "page": 7,
+        "quote": "Therefore, [19] proposes a new private FSL approach which is based on PSU and SPIR. The core idea behind this scheme is to preserve client-side privacy by not allowing the server to learn any information beyond the subset of submodels (or the aggregation of updates of these submodels) collectively updated by the clients, i.e., the server learns nothing about any individual client’s contribution to the ultimate result."
+      },
+      {
+        "page": 12,
+        "quote": "A practical and interesting future direction related to both PRUW and PSU based FSL is to develop private read-write schemes that are robust against adversaries or/and eavesdroppers."
+      }
+    ]
+  },
+  "artifact": {
+    "category_tag": "Private information retrieval",
+    "confidence": 0.7,
+    "macro_subject": "Theoretical Computer Science",
+    "open_status": "open",
+    "self_contained_problem": "Consider a distributed storage system consisting of N non-colluding servers, each storing (coded) copies of a database organized into M sections (submodels). A client wishes to perform a private read-update-write (PRUW) operation: in each round the client (i) downloads the content of a chosen section θ ∈ {1,…,M}, (ii) computes an update, and (iii) writes the update back to section θ, while satisfying:\\n\\n  (R1) Private reading: each individual server learns nothing about θ from the queries used to read.\\n  (R2) Private writing: each individual server learns nothing about θ from the uploaded update, and learns nothing about the value of the update itself.\\n  (R3) Storage consistency: after the write, the stored database equals the previous database with section θ replaced by its updated value.\\n\\nIn the federated submodel learning (FSL) variant, multiple clients participate; the scheme is additionally required to satisfy client-side privacy via private set union (PSU) combined with symmetric PIR (SPIR): the servers should learn only the union of submodel indices updated by the set of clients (or the aggregate of updates to those submodels), and nothing about any individual client's chosen index or update.\\n\\nNow introduce adversarial parties: a subset A of up to a (out of N) servers may be Byzantine, returning arbitrarily corrupted responses and arbitrarily deviating from the protocol, and an external eavesdropper may observe the transmissions to/from up to e servers. \\n\\nProblem: Design PRUW schemes, and PSU+SPIR–based private FSL schemes, that simultaneously\\n  (a) preserve properties (R1)–(R3) (and, for FSL, client-side privacy as above) against any T-subset of colluding honest-but-curious servers,\\n  (b) allow the client(s) to correctly recover the desired reads and produce correct updates to the database despite the actions of any a Byzantine servers,\\n  (c) guarantee that an eavesdropper observing any e of the communication links learns nothing (in the information-theoretic sense) about θ, the read content, or the update,\\nand characterize the optimal read and write communication rates (capacities) of such schemes as functions of (N, T, a, e, M).",
+    "status_search_result": "The question is posed as a future research direction for combining adversarial/eavesdropper robustness with PRUW and PSU-based private FSL. While individual robust/Byzantine/eavesdropper PIR results exist, no general capacity-achieving construction for robust PRUW and robust PSU+SPIR-based FSL is established. The problem appears to remain open.",
+    "status_evidence": [
+      {
+        "title": "Private Read-Update-Write with Controllable Information Leakage",
+        "url": "https://arxiv.org/abs/2210.13242",
+        "snippet": "Studies PRUW capacity without adversary/eavesdropper robustness.",
+        "claim": "Existing PRUW results do not address adversarial/eavesdropper robustness as a unified problem."
+      },
+      {
+        "title": "Private Federated Submodel Learning via Private Set Union",
+        "url": "https://arxiv.org/abs/2301.07686",
+        "snippet": "Introduces PSU+SPIR-based FSL preserving client-side privacy, without considering Byzantine/eavesdropping servers.",
+        "claim": "PSU-based FSL formulations do not yet incorporate Byzantine/eavesdropping adversaries."
+      }
+    ]
+  },
+  "model": "opus",
+  "effort": "medium",
+  "elapsed_s": 22.46,
+  "validation_warnings": [],
+  "raw_claude_stdout": "{\"type\":\"result\",\"subtype\":\"success\",\"is_error\":false,\"api_error_status\":null,\"duration_ms\":20382,\"duration_api_ms\":21489,\"num_turns\":2,\"result\":\"Provided structured output for the open research problem on designing PRUW and PSU-based FSL schemes that remain robust against Byzantine adversaries and eavesdroppers.\",\"stop_reason\":\"end_turn\",\"session_id\":\"ccc93062-d212-450b-a0ad-aaa7b6021a6e\",\"total_cost_usd\":0.06045725,\"usage\":{\"input_tokens\":7,\"cache_creation_input_tokens\":3203,\"cache_read_input_tokens\":7169,\"output_tokens\":1430,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":3203,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[{\"input_tokens\":1,\"output_tokens\":59,\"cache_read_input_tokens\":4484,\"cache_creation_input_tokens\":1404,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":1404},\"type\":\"message\"}],\"speed\":\"standard\"},\"modelUsage\":{\"claude-haiku-4-5-20251001\":{\"inputTokens\":979,\"outputTokens\":18,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":0,\"costUSD\":0.001069,\"contextWindow\":200000,\"maxOutputTokens\":32000},\"claude-opus-4-7\":{\"inputTokens\":7,\"outputTokens\":1430,\"cacheReadInputTokens\":7169,\"cacheCreationInputTokens\":3203,\"webSearchRequests\":0,\"costUSD\":0.05938825,\"contextWindow\":1000000,\"maxOutputTokens\":64000}},\"permission_denials\":[],\"structured_output\":{\"category_tag\":\"Private information retrieval\",\"confidence\":0.7,\"macro_subject\":\"Theoretical Computer Science\",\"open_status\":\"open\",\"self_contained_problem\":\"Consider a distributed storage system consisting of N non-colluding servers, each storing (coded) copies of a database organized into M sections (submodels). A client wishes to perform a private read-update-write (PRUW) operation: in each round the client (i) downloads the content of a chosen section θ ∈ {1,…,M}, (ii) computes an update, and (iii) writes the update back to section θ, while satisfying:\\\\n\\\\n  (R1) Private reading: each individual server learns nothing about θ from the queries used to read.\\\\n  (R2) Private writing: each individual server learns nothing about θ from the uploaded update, and learns nothing about the value of the update itself.\\\\n  (R3) Storage consistency: after the write, the stored database equals the previous database with section θ replaced by its updated value.\\\\n\\\\nIn the federated submodel learning (FSL) variant, multiple clients participate; the scheme is additionally required to satisfy client-side privacy via private set union (PSU) combined with symmetric PIR (SPIR): the servers should learn only the union of submodel indices updated by the set of clients (or the aggregate of updates to those submodels), and nothing about any individual client's chosen index or update.\\\\n\\\\nNow introduce adversarial parties: a subset A of up to a (out of N) servers may be Byzantine, returning arbitrarily corrupted responses and arbitrarily deviating from the protocol, and an external eavesdropper may observe the transmissions to/from up to e servers. \\\\n\\\\nProblem: Design PRUW schemes, and PSU+SPIR–based private FSL schemes, that simultaneously\\\\n  (a) preserve properties (R1)–(R3) (and, for FSL, client-side privacy as above) against any T-subset of colluding honest-but-curious servers,\\\\n  (b) allow the client(s) to correctly recover the desired reads and produce correct updates to the database despite the actions of any a Byzantine servers,\\\\n  (c) guarantee that an eavesdropper observing any e of the communication links learns nothing (in the information-theoretic sense) about θ, the read content, or the update,\\\\nand characterize the optimal read and write communication rates (capacities) of such schemes as functions of (N, T, a, e, M).\",\"status_search_result\":\"The question is posed as a future research direction for combining adversarial/eavesdropper robustness with PRUW and PSU-based private FSL. While individual robust/Byzantine/eavesdropper PIR results exist, no general capacity-achieving construction for robust PRUW and robust PSU+SPIR-based FSL is established. The problem appears to remain open.\",\"status_evidence\":[{\"title\":\"Private Read-Update-Write with Controllable Information Leakage\",\"url\":\"https://arxiv.org/abs/2210.13242\",\"snippet\":\"Studies PRUW capacity without adversary/eavesdropper robustness.\",\"claim\":\"Existing PRUW results do not address adversarial/eavesdropper robustness as a unified problem.\"},{\"title\":\"Private Federated Submodel Learning via Private Set Union\",\"url\":\"https://arxiv.org/abs/2301.07686\",\"snippet\":\"Introduces PSU+SPIR-based FSL preserving client-side privacy, without considering Byzantine/eavesdropping servers.\",\"claim\":\"PSU-based FSL formulations do not yet incorporate Byzantine/eavesdropping adversaries.\"}]},\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"uuid\":\"e133b369-89cd-4fe4-b814-d9bf87c661fc\"}\n"
+}

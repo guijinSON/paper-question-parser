@@ -1,0 +1,45 @@
+{
+  "record": {
+    "global_index": 5902,
+    "source_json": "outputs/parse-paper/2303.11464.json",
+    "paper_id": "2303.11464",
+    "paper_title": "Seven open problems in applied combinatorics",
+    "paper_link": "https://zbmath.org/7676351",
+    "question_link": "https://zbmath.org/7676351",
+    "question_id": "q_012",
+    "parser_is_solved": "false",
+    "context_brief": "Vertex elimination in DAGs",
+    "original_question": "Let G=(V,E) be a directed acyclic graph. Eliminating a vertex j removes j and adds every edge (i,k) with i a predecessor of j and k a successor of j; the cost of eliminating j is |P_j|·|S_j|. A complete vertex elimination sequence is a sequence of such eliminations that transforms G into the corresponding bipartite DAG representation of the Jacobian, and its cost is the sum of the individual elimination costs. Given G and an integer k≥0, determine whether there exists a complete vertex elimination sequence whose total cost is at most k.",
+    "evidence": [
+      {
+        "page": 24,
+        "quote": "Definition 4.2 (Vertex Elimination). Let G = (V, E) and j ∈ V. Elimination of j yields ... at the cost of |Pj| · |Sj|. ... all complete vertex elimination sequences transform G into a bipartite dag representing the Jacobian matrix of the underlying numerical program. The cost of a vertex elimination sequence is the sum of the costs of the individual vertex eliminations."
+      },
+      {
+        "page": 24,
+        "quote": "Open Problem 4.2 (Vertex Elimination). Given a directed acyclic graph G and a positive integer k ≥ 0, is there a complete vertex elimination sequence with cost less than or equal to k?"
+      }
+    ]
+  },
+  "artifact": {
+    "self_contained_problem": "Let $G=(V,E)$ be a directed acyclic graph with a set of source (input) vertices and a set of sink (output) vertices. For an intermediate (non-source, non-sink) vertex $j\\in V$, let $P_j=\\{i\\in V:(i,j)\\in E\\}$ denote its set of predecessors and $S_j=\\{k\\in V:(j,k)\\in E\\}$ its set of successors. The operation of eliminating vertex $j$ consists of (i) inserting, for every pair $(i,k)\\in P_j\\times S_j$, the edge $(i,k)$ into the graph (if $(i,k)$ already exists, no duplicate is added), and (ii) removing $j$ together with all edges incident to $j$. The cost of this elimination is defined to be $|P_j|\\cdot|S_j|$.\n\nA complete vertex elimination sequence is a sequence of vertex eliminations applied to intermediate vertices of $G$ (and of the intermediate graphs produced along the way) which, when carried out in order, eliminates every intermediate vertex, leaving a bipartite directed acyclic graph whose edges go only from sources to sinks. The cost of the sequence is the sum of the costs of its individual eliminations.\n\nDecision problem: Given a directed acyclic graph $G$ (with specified sources and sinks) and a nonnegative integer $k$, decide whether there exists a complete vertex elimination sequence for $G$ whose total cost is at most $k$. Determine the computational complexity of this decision problem.",
+    "macro_subject": "Theoretical Computer Science",
+    "category_tag": "Vertex elimination in DAGs",
+    "open_status": "solved",
+    "status_search_result": "A 2025 preprint (\"Structural Optimal Jacobian Accumulation and Minimum Edge Count are NP-Complete Under Vertex Elimination\", arXiv:2506.17521) establishes NP-completeness of the structural optimal Jacobian accumulation problem under vertex elimination, resolving the long-standing open complexity question. The paper also provides an O*(2^n)-time exact algorithm that is essentially tight under the exponential time hypothesis.",
+    "status_evidence": [
+      {
+        "title": "Structural Optimal Jacobian Accumulation and Minimum Edge Count are NP-Complete Under Vertex Elimination",
+        "url": "https://arxiv.org/abs/2506.17521",
+        "snippet": "Both problems are NP-complete, resolving longstanding open questions; provides O*(2^n)-time exact algorithms essentially tight under ETH.",
+        "claim": "The vertex-elimination Jacobian accumulation decision problem is NP-complete."
+      }
+    ],
+    "confidence": 0.7
+  },
+  "model": "opus",
+  "effort": "medium",
+  "elapsed_s": 26.58,
+  "validation_warnings": [],
+  "raw_claude_stdout": "{\"type\":\"result\",\"subtype\":\"success\",\"is_error\":false,\"api_error_status\":null,\"duration_ms\":25518,\"duration_api_ms\":25111,\"num_turns\":3,\"result\":\"Sources:\\n- [Structural Optimal Jacobian Accumulation and Minimum Edge Count are NP-Complete Under Vertex Elimination](https://arxiv.org/abs/2506.17521)\",\"stop_reason\":\"end_turn\",\"session_id\":\"ebcc7388-e964-4109-b94a-3a852f2cce39\",\"total_cost_usd\":0.09979275000000001,\"usage\":{\"input_tokens\":8,\"cache_creation_input_tokens\":4345,\"cache_read_input_tokens\":13085,\"output_tokens\":1281,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":4345,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[{\"input_tokens\":1,\"output_tokens\":74,\"cache_read_input_tokens\":5944,\"cache_creation_input_tokens\":1086,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":1086},\"type\":\"message\"}],\"speed\":\"standard\"},\"modelUsage\":{\"claude-haiku-4-5-20251001\":{\"inputTokens\":21429,\"outputTokens\":520,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":1,\"costUSD\":0.034029000000000004,\"contextWindow\":200000,\"maxOutputTokens\":32000},\"claude-opus-4-7\":{\"inputTokens\":8,\"outputTokens\":1281,\"cacheReadInputTokens\":13085,\"cacheCreationInputTokens\":4345,\"webSearchRequests\":0,\"costUSD\":0.06576375000000001,\"contextWindow\":1000000,\"maxOutputTokens\":64000}},\"permission_denials\":[],\"structured_output\":{\"self_contained_problem\":\"Let $G=(V,E)$ be a directed acyclic graph with a set of source (input) vertices and a set of sink (output) vertices. For an intermediate (non-source, non-sink) vertex $j\\\\in V$, let $P_j=\\\\{i\\\\in V:(i,j)\\\\in E\\\\}$ denote its set of predecessors and $S_j=\\\\{k\\\\in V:(j,k)\\\\in E\\\\}$ its set of successors. The operation of eliminating vertex $j$ consists of (i) inserting, for every pair $(i,k)\\\\in P_j\\\\times S_j$, the edge $(i,k)$ into the graph (if $(i,k)$ already exists, no duplicate is added), and (ii) removing $j$ together with all edges incident to $j$. The cost of this elimination is defined to be $|P_j|\\\\cdot|S_j|$.\\n\\nA complete vertex elimination sequence is a sequence of vertex eliminations applied to intermediate vertices of $G$ (and of the intermediate graphs produced along the way) which, when carried out in order, eliminates every intermediate vertex, leaving a bipartite directed acyclic graph whose edges go only from sources to sinks. The cost of the sequence is the sum of the costs of its individual eliminations.\\n\\nDecision problem: Given a directed acyclic graph $G$ (with specified sources and sinks) and a nonnegative integer $k$, decide whether there exists a complete vertex elimination sequence for $G$ whose total cost is at most $k$. Determine the computational complexity of this decision problem.\",\"macro_subject\":\"Theoretical Computer Science\",\"category_tag\":\"Vertex elimination in DAGs\",\"open_status\":\"solved\",\"status_search_result\":\"A 2025 preprint (\\\"Structural Optimal Jacobian Accumulation and Minimum Edge Count are NP-Complete Under Vertex Elimination\\\", arXiv:2506.17521) establishes NP-completeness of the structural optimal Jacobian accumulation problem under vertex elimination, resolving the long-standing open complexity question. The paper also provides an O*(2^n)-time exact algorithm that is essentially tight under the exponential time hypothesis.\",\"status_evidence\":[{\"title\":\"Structural Optimal Jacobian Accumulation and Minimum Edge Count are NP-Complete Under Vertex Elimination\",\"url\":\"https://arxiv.org/abs/2506.17521\",\"snippet\":\"Both problems are NP-complete, resolving longstanding open questions; provides O*(2^n)-time exact algorithms essentially tight under ETH.\",\"claim\":\"The vertex-elimination Jacobian accumulation decision problem is NP-complete.\"}],\"confidence\":0.7},\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"uuid\":\"252bb98c-1dfc-4195-972d-4d1fdf1c3488\"}\n"
+}

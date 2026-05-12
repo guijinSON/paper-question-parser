@@ -1,0 +1,53 @@
+{
+  "record": {
+    "global_index": 11267,
+    "source_json": "outputs/parse-paper/open-problems-in-queueing-theory-inspired-by-datacenter-computing.json",
+    "paper_id": "open-problems-in-queueing-theory-inspired-by-datacenter-computing",
+    "paper_title": "Open problems in queueing theory inspired by datacenter computing",
+    "paper_link": "https://zbmath.org/7433968",
+    "question_link": "https://zbmath.org/7433968",
+    "question_id": "q_004",
+    "parser_is_solved": "false",
+    "context_brief": "Unknown sizes with common speedup",
+    "original_question": "Suppose jobs arrive over time to a system with a fixed number n of servers, all jobs share the same concave, sublinear speedup function s(k), and each job's inherent size is unknown at arrival but is drawn from a non-exponential distribution. What server-allocation policy minimizes mean response time in this setting?",
+    "evidence": [
+      {
+        "page": 8,
+        "quote": "If we consider the same setting as in [34], but where the inherent job size distribution is not exponential, then finding the optimal server allocation policy is an open problem."
+      }
+    ]
+  },
+  "artifact": {
+    "self_contained_problem": "Consider a queueing system with a fixed number $n$ of identical servers. Jobs arrive over time according to some stochastic arrival process. Each job $j$ has an inherent (sequential) size $X_j$ that is unknown at the time of arrival; the sizes $X_j$ are i.i.d. samples from a known distribution $F$ that is not exponential (and in particular need not be memoryless). All jobs share a common speedup function $s:\\{1,2,\\dots,n\\}\\to\\mathbb{R}_{\\ge 0}$ which is concave and sublinear (i.e., $s(k+1)-s(k)$ is non-increasing in $k$ and $s(k)<k\\,s(1)$ for $k\\ge 2$). If at a given instant a job is allocated $k$ servers, then it processes its remaining inherent work at rate $s(k)$. Allocations may be changed continuously over time, subject to the constraint that the total number of servers allocated to active jobs is at most $n$ (and jobs may be served in parallel, preempted, and reallocated at no cost). The response time of a job is the time between its arrival and its completion.\n\nDetermine the server-allocation policy (a mapping from the system state, namely the set of jobs in the system and their ages, to an allocation of the $n$ servers among them) that minimizes the mean response time in steady state.",
+    "macro_subject": "Applied Mathematics",
+    "category_tag": "Parallel job scheduling in queueing theory",
+    "open_status": "unknown",
+    "status_search_result": "Recent works (2024–2026) have advanced the theory of optimal scheduling for parallelizable jobs with concave speedup functions, including the Consistent Derivative Ratio rule and SmartFill / General Water-Filling algorithms for known sizes, and ServerFilling-Gittins for unknown sizes in related multiserver-job models. However, none of these works appears to give a definitive solution for the specific setting of unknown inherent sizes drawn from a general (non-exponential) distribution with a common concave sublinear speedup on a fixed number of servers. The status thus appears unresolved in full generality.",
+    "status_evidence": [
+      {
+        "title": "Optimal Parallel Scheduling under Concave Speedup Functions",
+        "url": "https://arxiv.org/html/2509.01811",
+        "snippet": "Prior work assumes job sizes are unknown and drawn from an exponential distribution; this paper studies known sizes with general concave speedups via the CDR rule and SmartFill.",
+        "claim": "The general non-exponential unknown-size case is not directly resolved; recent progress focuses on known-size or exponential-size settings."
+      },
+      {
+        "title": "On Optimal Server Allocation for Moldable Jobs with Concave Speed-Up",
+        "url": "https://arxiv.org/abs/2406.09427",
+        "snippet": "Optimal server allocation for moldable jobs with concave speed-up functions under stochastic arrivals.",
+        "claim": "Related work addresses moldable concave speedup scheduling but under specific distributional assumptions."
+      },
+      {
+        "title": "Optimal Scheduling of Parallel Jobs with Unknown Service Requirements",
+        "url": "https://www.cs.cmu.edu/~harchol/Papers/IGI21.pdf",
+        "snippet": "Studies unknown job sizes with speedup, baseline case with exponential assumptions.",
+        "claim": "The non-exponential unknown-size variant remains the open question highlighted as future work."
+      }
+    ],
+    "confidence": 0.7
+  },
+  "model": "opus",
+  "effort": "medium",
+  "elapsed_s": 31.98,
+  "validation_warnings": [],
+  "raw_claude_stdout": "{\"type\":\"result\",\"subtype\":\"success\",\"is_error\":false,\"api_error_status\":null,\"duration_ms\":30720,\"duration_api_ms\":29704,\"num_turns\":3,\"result\":\"Sources:\\n- [Optimal Parallel Scheduling under Concave Speedup Functions](https://arxiv.org/html/2509.01811)\\n- [On Optimal Server Allocation for Moldable Jobs with Concave Speed-Up](https://arxiv.org/abs/2406.09427)\\n- [Optimal Scheduling of Parallel Jobs with Unknown Service Requirements](https://www.cs.cmu.edu/~harchol/Papers/IGI21.pdf)\\n- [Optimal Scheduling in Multiserver Queues (Grosof thesis)](https://www.csd.cmu.edu/sites/default/files/phd-thesis/CMU-CS-23-128.pdf)\",\"stop_reason\":\"end_turn\",\"session_id\":\"63c3f53f-2c2b-4cba-982f-3867aaa19a3e\",\"total_cost_usd\":0.115143,\"usage\":{\"input_tokens\":8,\"cache_creation_input_tokens\":4248,\"cache_read_input_tokens\":12484,\"output_tokens\":1674,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":4248,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[{\"input_tokens\":1,\"output_tokens\":244,\"cache_read_input_tokens\":5593,\"cache_creation_input_tokens\":1340,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":1340},\"type\":\"message\"}],\"speed\":\"standard\"},\"modelUsage\":{\"claude-haiku-4-5-20251001\":{\"inputTokens\":28066,\"outputTokens\":479,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":1,\"costUSD\":0.040461000000000004,\"contextWindow\":200000,\"maxOutputTokens\":32000},\"claude-opus-4-7\":{\"inputTokens\":8,\"outputTokens\":1674,\"cacheReadInputTokens\":12484,\"cacheCreationInputTokens\":4248,\"webSearchRequests\":0,\"costUSD\":0.074682,\"contextWindow\":1000000,\"maxOutputTokens\":64000}},\"permission_denials\":[],\"structured_output\":{\"self_contained_problem\":\"Consider a queueing system with a fixed number $n$ of identical servers. Jobs arrive over time according to some stochastic arrival process. Each job $j$ has an inherent (sequential) size $X_j$ that is unknown at the time of arrival; the sizes $X_j$ are i.i.d. samples from a known distribution $F$ that is not exponential (and in particular need not be memoryless). All jobs share a common speedup function $s:\\\\{1,2,\\\\dots,n\\\\}\\\\to\\\\mathbb{R}_{\\\\ge 0}$ which is concave and sublinear (i.e., $s(k+1)-s(k)$ is non-increasing in $k$ and $s(k)<k\\\\,s(1)$ for $k\\\\ge 2$). If at a given instant a job is allocated $k$ servers, then it processes its remaining inherent work at rate $s(k)$. Allocations may be changed continuously over time, subject to the constraint that the total number of servers allocated to active jobs is at most $n$ (and jobs may be served in parallel, preempted, and reallocated at no cost). The response time of a job is the time between its arrival and its completion.\\n\\nDetermine the server-allocation policy (a mapping from the system state, namely the set of jobs in the system and their ages, to an allocation of the $n$ servers among them) that minimizes the mean response time in steady state.\",\"macro_subject\":\"Applied Mathematics\",\"category_tag\":\"Parallel job scheduling in queueing theory\",\"open_status\":\"unknown\",\"status_search_result\":\"Recent works (2024–2026) have advanced the theory of optimal scheduling for parallelizable jobs with concave speedup functions, including the Consistent Derivative Ratio rule and SmartFill / General Water-Filling algorithms for known sizes, and ServerFilling-Gittins for unknown sizes in related multiserver-job models. However, none of these works appears to give a definitive solution for the specific setting of unknown inherent sizes drawn from a general (non-exponential) distribution with a common concave sublinear speedup on a fixed number of servers. The status thus appears unresolved in full generality.\",\"status_evidence\":[{\"title\":\"Optimal Parallel Scheduling under Concave Speedup Functions\",\"url\":\"https://arxiv.org/html/2509.01811\",\"snippet\":\"Prior work assumes job sizes are unknown and drawn from an exponential distribution; this paper studies known sizes with general concave speedups via the CDR rule and SmartFill.\",\"claim\":\"The general non-exponential unknown-size case is not directly resolved; recent progress focuses on known-size or exponential-size settings.\"},{\"title\":\"On Optimal Server Allocation for Moldable Jobs with Concave Speed-Up\",\"url\":\"https://arxiv.org/abs/2406.09427\",\"snippet\":\"Optimal server allocation for moldable jobs with concave speed-up functions under stochastic arrivals.\",\"claim\":\"Related work addresses moldable concave speedup scheduling but under specific distributional assumptions.\"},{\"title\":\"Optimal Scheduling of Parallel Jobs with Unknown Service Requirements\",\"url\":\"https://www.cs.cmu.edu/~harchol/Papers/IGI21.pdf\",\"snippet\":\"Studies unknown job sizes with speedup, baseline case with exponential assumptions.\",\"claim\":\"The non-exponential unknown-size variant remains the open question highlighted as future work.\"}],\"confidence\":0.7},\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"uuid\":\"43b6b008-da14-4459-9be1-5c93c0c10f01\"}\n"
+}

@@ -1,0 +1,53 @@
+{
+  "record": {
+    "global_index": 11247,
+    "source_json": "outputs/parse-paper/open-problems-in-geometric-methods-for-instance-based-learning.json",
+    "paper_id": "open-problems-in-geometric-methods-for-instance-based-learning",
+    "paper_title": "Open Problems in Geometric Methods for Instance-Based Learning",
+    "paper_link": "https://zbmath.org/5667357",
+    "question_link": "https://zbmath.org/5667357",
+    "question_id": "q_012",
+    "parser_is_solved": "false",
+    "context_brief": "Neural-network realization of NN rules",
+    "original_question": "What is the smallest neural network that can implement nearest-neighbor decision rules?",
+    "evidence": [
+      {
+        "page": 3,
+        "quote": "What is the smallest neural network that can implement nearest neighbor decision rules?"
+      }
+    ]
+  },
+  "artifact": {
+    "self_contained_problem": "Let $S = \\{(x_1, y_1), \\dots, (x_n, y_n)\\} \\subset \\mathbb{R}^d \\times \\{1, \\dots, k\\}$ be a finite labeled training set with all $x_i$ distinct. The nearest-neighbor decision rule $f_S : \\mathbb{R}^d \\to \\{1, \\dots, k\\}$ is defined (up to ties on a measure-zero set) by \n$$f_S(x) = y_{i^*(x)}, \\qquad i^*(x) \\in \\arg\\min_{1 \\le i \\le n} \\|x - x_i\\|_2.$$\nA feedforward neural network is a directed acyclic computational graph whose nodes (neurons) compute, on inputs $z \\in \\mathbb{R}^m$, an output of the form $\\sigma(w^\\top z + b)$ for some weights $w \\in \\mathbb{R}^m$, bias $b \\in \\mathbb{R}$, and a fixed activation function $\\sigma$ (e.g. threshold, ReLU, or sigmoid). The size of the network is the total number of neurons (or, equivalently, one may also count layers, weights, and bit-precision of parameters).\n\nProblem. Determine the smallest feedforward neural network (in terms of number of neurons, depth, and number of parameters) such that, for every finite labeled set $S$ in $\\mathbb{R}^d$, there exist parameter values making the network compute $f_S$ on $\\mathbb{R}^d$ (except possibly on the measure-zero tie set). More precisely, characterize the minimum size, depth, and weight complexity—as functions of $n$, $d$, and $k$—of a neural network architecture that exactly realizes the nearest-neighbor classifier of any such training set.",
+    "macro_subject": "Theoretical Computer Science",
+    "category_tag": "Neural network complexity of nearest-neighbor rules",
+    "open_status": "partially_solved",
+    "status_search_result": "Several constructions are known: a 1-nearest-neighbor classifier on n training points in R^d can be implemented by a 3-layer network of size O(nd), and synchronous neural architectures for k-NN have been proposed. Recent work on \"Nearest Neighbor Representations of Neural Circuits\" (2024) studies related complexity questions. However, tight lower bounds on the minimum number of neurons, depth, and weight precision required to realize arbitrary NN classifiers do not appear to be fully established, so the optimization aspect of the question remains only partially resolved.",
+    "status_evidence": [
+      {
+        "title": "On neural-network implementations of k-nearest neighbor pattern classifiers",
+        "url": "https://www.researchgate.net/publication/3322964_On_neural-network_implementations_of_k-nearest_neighbor_pattern_classifiers",
+        "snippet": "A novel neural-network architecture which implements the k-NN rule has been presented...",
+        "claim": "Explicit neural-network architectures realizing the k-NN rule are known."
+      },
+      {
+        "title": "Nearest Neighbor Representations of Neural Circuits",
+        "url": "https://arxiv.org/html/2402.08751",
+        "snippet": "Studies representations connecting neural circuits and nearest neighbor rules.",
+        "claim": "Complexity questions relating NN classifiers to neural circuit size remain active."
+      },
+      {
+        "title": "K Nearest Neighbor as a Neural Network",
+        "url": "https://ogunlao.github.io/2020/05/23/knn-as-a-neural-network.html",
+        "snippet": "A 1-Nearest Neighbor can be expressed as a 3 layer neural network using the given datapoints.",
+        "claim": "A 3-layer construction of size O(nd) is known, giving an upper bound."
+      }
+    ],
+    "confidence": 0.5
+  },
+  "model": "opus",
+  "effort": "medium",
+  "elapsed_s": 31.92,
+  "validation_warnings": [],
+  "raw_claude_stdout": "{\"type\":\"result\",\"subtype\":\"success\",\"is_error\":false,\"api_error_status\":null,\"duration_ms\":30677,\"duration_api_ms\":30110,\"num_turns\":3,\"result\":\"Sources:\\n- [On neural-network implementations of k-nearest neighbor pattern classifiers](https://www.researchgate.net/publication/3322964_On_neural-network_implementations_of_k-nearest_neighbor_pattern_classifiers)\\n- [Nearest Neighbor Representations of Neural Circuits](https://arxiv.org/html/2402.08751)\\n- [K Nearest Neighbor as a Neural Network](https://ogunlao.github.io/2020/05/23/knn-as-a-neural-network.html)\",\"stop_reason\":\"end_turn\",\"session_id\":\"9d7adb11-254c-43b3-81db-7bb30b1b11be\",\"total_cost_usd\":0.10695550000000001,\"usage\":{\"input_tokens\":8,\"cache_creation_input_tokens\":4204,\"cache_read_input_tokens\":12247,\"output_tokens\":1700,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":4204,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[{\"input_tokens\":1,\"output_tokens\":183,\"cache_read_input_tokens\":5455,\"cache_creation_input_tokens\":1434,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":1434},\"type\":\"message\"}],\"speed\":\"standard\"},\"modelUsage\":{\"claude-haiku-4-5-20251001\":{\"inputTokens\":19772,\"outputTokens\":449,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":1,\"costUSD\":0.032017000000000004,\"contextWindow\":200000,\"maxOutputTokens\":32000},\"claude-opus-4-7\":{\"inputTokens\":8,\"outputTokens\":1700,\"cacheReadInputTokens\":12247,\"cacheCreationInputTokens\":4204,\"webSearchRequests\":0,\"costUSD\":0.07493849999999999,\"contextWindow\":1000000,\"maxOutputTokens\":64000}},\"permission_denials\":[],\"structured_output\":{\"self_contained_problem\":\"Let $S = \\\\{(x_1, y_1), \\\\dots, (x_n, y_n)\\\\} \\\\subset \\\\mathbb{R}^d \\\\times \\\\{1, \\\\dots, k\\\\}$ be a finite labeled training set with all $x_i$ distinct. The nearest-neighbor decision rule $f_S : \\\\mathbb{R}^d \\\\to \\\\{1, \\\\dots, k\\\\}$ is defined (up to ties on a measure-zero set) by \\n$$f_S(x) = y_{i^*(x)}, \\\\qquad i^*(x) \\\\in \\\\arg\\\\min_{1 \\\\le i \\\\le n} \\\\|x - x_i\\\\|_2.$$\\nA feedforward neural network is a directed acyclic computational graph whose nodes (neurons) compute, on inputs $z \\\\in \\\\mathbb{R}^m$, an output of the form $\\\\sigma(w^\\\\top z + b)$ for some weights $w \\\\in \\\\mathbb{R}^m$, bias $b \\\\in \\\\mathbb{R}$, and a fixed activation function $\\\\sigma$ (e.g. threshold, ReLU, or sigmoid). The size of the network is the total number of neurons (or, equivalently, one may also count layers, weights, and bit-precision of parameters).\\n\\nProblem. Determine the smallest feedforward neural network (in terms of number of neurons, depth, and number of parameters) such that, for every finite labeled set $S$ in $\\\\mathbb{R}^d$, there exist parameter values making the network compute $f_S$ on $\\\\mathbb{R}^d$ (except possibly on the measure-zero tie set). More precisely, characterize the minimum size, depth, and weight complexity—as functions of $n$, $d$, and $k$—of a neural network architecture that exactly realizes the nearest-neighbor classifier of any such training set.\",\"macro_subject\":\"Theoretical Computer Science\",\"category_tag\":\"Neural network complexity of nearest-neighbor rules\",\"open_status\":\"partially_solved\",\"status_search_result\":\"Several constructions are known: a 1-nearest-neighbor classifier on n training points in R^d can be implemented by a 3-layer network of size O(nd), and synchronous neural architectures for k-NN have been proposed. Recent work on \\\"Nearest Neighbor Representations of Neural Circuits\\\" (2024) studies related complexity questions. However, tight lower bounds on the minimum number of neurons, depth, and weight precision required to realize arbitrary NN classifiers do not appear to be fully established, so the optimization aspect of the question remains only partially resolved.\",\"status_evidence\":[{\"title\":\"On neural-network implementations of k-nearest neighbor pattern classifiers\",\"url\":\"https://www.researchgate.net/publication/3322964_On_neural-network_implementations_of_k-nearest_neighbor_pattern_classifiers\",\"snippet\":\"A novel neural-network architecture which implements the k-NN rule has been presented...\",\"claim\":\"Explicit neural-network architectures realizing the k-NN rule are known.\"},{\"title\":\"Nearest Neighbor Representations of Neural Circuits\",\"url\":\"https://arxiv.org/html/2402.08751\",\"snippet\":\"Studies representations connecting neural circuits and nearest neighbor rules.\",\"claim\":\"Complexity questions relating NN classifiers to neural circuit size remain active.\"},{\"title\":\"K Nearest Neighbor as a Neural Network\",\"url\":\"https://ogunlao.github.io/2020/05/23/knn-as-a-neural-network.html\",\"snippet\":\"A 1-Nearest Neighbor can be expressed as a 3 layer neural network using the given datapoints.\",\"claim\":\"A 3-layer construction of size O(nd) is known, giving an upper bound.\"}],\"confidence\":0.5},\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"uuid\":\"40e02fc1-8608-474d-b99a-0c38181e1c94\"}\n"
+}

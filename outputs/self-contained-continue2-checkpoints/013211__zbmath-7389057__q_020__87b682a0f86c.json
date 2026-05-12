@@ -1,0 +1,59 @@
+{
+  "record": {
+    "global_index": 13211,
+    "source_json": "outputs/parse-paper/zbmath_7389057.json",
+    "paper_id": "zbmath/7389057",
+    "paper_title": "Advances and Open Problems in Federated Learning",
+    "paper_link": "https://zbmath.org/7389057",
+    "question_link": "https://zbmath.org/7389057",
+    "question_id": "q_020",
+    "parser_is_solved": "false",
+    "context_brief": "DP implementation auditing",
+    "original_question": "How can federated-learning implementations of differential privacy be audited for correctness, including black-box testing methods for systems whose organizations do not open-source their code?",
+    "evidence": [
+      {
+        "page": "HTML lines 872-873",
+        "quote": "What techniques can be used for testing FL-implementations for correctness?"
+      }
+    ]
+  },
+  "artifact": {
+    "self_contained_problem": "Let $\\mathcal{M}$ denote a randomized mechanism implemented as part of a federated learning system that claims to satisfy $(\\varepsilon,\\delta)$-differential privacy: for all neighboring data sets $D, D'$ (differing in one client's record) and all measurable output sets $S$,\n$$\\Pr[\\mathcal{M}(D)\\in S]\\le e^{\\varepsilon}\\Pr[\\mathcal{M}(D')\\in S]+\\delta.$$\nSuppose the implementation of $\\mathcal{M}$ is operated by an organization that does not release its source code, so the auditor only has black-box query access: the auditor may choose inputs (subject to realistic constraints on participation as a federated client) and observe the (possibly aggregated) outputs of $\\mathcal{M}$, but cannot inspect internal state, randomness, or code.\n\nDevelop a methodology for auditing such a federated-learning implementation of differential privacy for correctness. Concretely:\n\n1. Define a black-box auditing procedure $A$ that, given query access to $\\mathcal{M}$ and a claimed privacy budget $(\\varepsilon,\\delta)$, outputs either \"accept\" or \"reject\" together with a statistical guarantee (e.g., a lower bound $\\hat\\varepsilon$ on the true privacy parameter with controlled Type I error).\n2. Provide testing techniques applicable when the auditor cannot open-source-inspect the system, including the design of adversarial neighboring inputs (canaries), choice of test statistics, and methods that remain valid under the federated setting (multiple clients, secure aggregation, server-side noise).\n3. Establish sample-complexity bounds and soundness/completeness guarantees showing that, under stated assumptions on the access model, common implementation bugs that violate $(\\varepsilon,\\delta)$-DP are detected with high probability.",
+    "macro_subject": "Theoretical Computer Science",
+    "category_tag": "Differential privacy auditing",
+    "open_status": "partially_solved",
+    "status_search_result": "Active research has produced multiple black-box and gray-box auditing methods for differentially private mechanisms (e.g., tight black-box auditing of DP-SGD, f-DP-based black-box estimation, sequential anytime-valid tests, and gray-box library audits). These provide partial answers — particularly for DP-SGD and standalone DP libraries — but a fully general, sample-efficient black-box auditing methodology tailored to closed-source federated learning systems with secure aggregation remains an active and only partially resolved problem.",
+    "status_evidence": [
+      {
+        "title": "Nearly Tight Black-Box Auditing of Differentially Private Machine Learning",
+        "url": "https://arxiv.org/html/2405.14106v4",
+        "snippet": "presents an auditing procedure for the DP-SGD algorithm in the black-box threat model that is substantially tighter than prior work",
+        "claim": "Black-box auditing of DP-SGD has been substantially advanced, indicating partial progress."
+      },
+      {
+        "title": "Auditing Differential Privacy in the Black-Box Setting",
+        "url": "https://arxiv.org/abs/2503.12045",
+        "snippet": "novel theoretical framework for auditing differential privacy in a black-box setting, leveraging f-differential privacy with controlled Type I/II errors",
+        "claim": "General black-box auditing frameworks have been proposed but remain under active development."
+      },
+      {
+        "title": "Privacy in Theory, Bugs in Practice: Grey-Box Auditing of Differential Privacy Libraries",
+        "url": "https://arxiv.org/html/2602.17454",
+        "snippet": "bugs that lead to DP violations have been found in several DP-SGD implementations ... gray-box auditing paradigm that assumes access to the underlying implementation",
+        "claim": "Implementation bugs are still being uncovered; gray-box (not pure black-box) access is often needed."
+      },
+      {
+        "title": "Sequentially Auditing Differential Privacy",
+        "url": "https://arxiv.org/html/2509.07055v1",
+        "snippet": "practical sequential test for auditing differential privacy guarantees of black-box mechanisms ... anytime-valid inference",
+        "claim": "New sequential black-box auditing tests continue to appear, showing the area is still developing."
+      }
+    ],
+    "confidence": 0.75
+  },
+  "model": "opus",
+  "effort": "medium",
+  "elapsed_s": 37.23,
+  "validation_warnings": [],
+  "raw_claude_stdout": "{\"type\":\"result\",\"subtype\":\"success\",\"is_error\":false,\"api_error_status\":null,\"duration_ms\":36229,\"duration_api_ms\":34305,\"num_turns\":3,\"result\":\"Sources:\\n- [Nearly Tight Black-Box Auditing of DP-ML](https://arxiv.org/html/2405.14106v4)\\n- [Auditing Differential Privacy in the Black-Box Setting](https://arxiv.org/abs/2503.12045)\\n- [Grey-Box Auditing of DP Libraries](https://arxiv.org/html/2602.17454)\\n- [Sequentially Auditing Differential Privacy](https://arxiv.org/html/2509.07055v1)\\n- [General-Purpose f-DP Estimation in a Black-Box Setting](https://arxiv.org/html/2502.07066v1)\",\"stop_reason\":\"end_turn\",\"session_id\":\"63941d65-c749-4e6b-b649-c5ad2c88a840\",\"total_cost_usd\":0.11168225000000001,\"usage\":{\"input_tokens\":8,\"cache_creation_input_tokens\":4147,\"cache_read_input_tokens\":11681,\"output_tokens\":1935,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":4147,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[{\"input_tokens\":1,\"output_tokens\":220,\"cache_read_input_tokens\":5214,\"cache_creation_input_tokens\":1618,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":1618},\"type\":\"message\"}],\"speed\":\"standard\"},\"modelUsage\":{\"claude-haiku-4-5-20251001\":{\"inputTokens\":18703,\"outputTokens\":561,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":1,\"costUSD\":0.031508,\"contextWindow\":200000,\"maxOutputTokens\":32000},\"claude-opus-4-7\":{\"inputTokens\":8,\"outputTokens\":1935,\"cacheReadInputTokens\":11681,\"cacheCreationInputTokens\":4147,\"webSearchRequests\":0,\"costUSD\":0.08017425,\"contextWindow\":1000000,\"maxOutputTokens\":64000}},\"permission_denials\":[],\"structured_output\":{\"self_contained_problem\":\"Let $\\\\mathcal{M}$ denote a randomized mechanism implemented as part of a federated learning system that claims to satisfy $(\\\\varepsilon,\\\\delta)$-differential privacy: for all neighboring data sets $D, D'$ (differing in one client's record) and all measurable output sets $S$,\\n$$\\\\Pr[\\\\mathcal{M}(D)\\\\in S]\\\\le e^{\\\\varepsilon}\\\\Pr[\\\\mathcal{M}(D')\\\\in S]+\\\\delta.$$\\nSuppose the implementation of $\\\\mathcal{M}$ is operated by an organization that does not release its source code, so the auditor only has black-box query access: the auditor may choose inputs (subject to realistic constraints on participation as a federated client) and observe the (possibly aggregated) outputs of $\\\\mathcal{M}$, but cannot inspect internal state, randomness, or code.\\n\\nDevelop a methodology for auditing such a federated-learning implementation of differential privacy for correctness. Concretely:\\n\\n1. Define a black-box auditing procedure $A$ that, given query access to $\\\\mathcal{M}$ and a claimed privacy budget $(\\\\varepsilon,\\\\delta)$, outputs either \\\"accept\\\" or \\\"reject\\\" together with a statistical guarantee (e.g., a lower bound $\\\\hat\\\\varepsilon$ on the true privacy parameter with controlled Type I error).\\n2. Provide testing techniques applicable when the auditor cannot open-source-inspect the system, including the design of adversarial neighboring inputs (canaries), choice of test statistics, and methods that remain valid under the federated setting (multiple clients, secure aggregation, server-side noise).\\n3. Establish sample-complexity bounds and soundness/completeness guarantees showing that, under stated assumptions on the access model, common implementation bugs that violate $(\\\\varepsilon,\\\\delta)$-DP are detected with high probability.\",\"macro_subject\":\"Theoretical Computer Science\",\"category_tag\":\"Differential privacy auditing\",\"open_status\":\"partially_solved\",\"status_search_result\":\"Active research has produced multiple black-box and gray-box auditing methods for differentially private mechanisms (e.g., tight black-box auditing of DP-SGD, f-DP-based black-box estimation, sequential anytime-valid tests, and gray-box library audits). These provide partial answers — particularly for DP-SGD and standalone DP libraries — but a fully general, sample-efficient black-box auditing methodology tailored to closed-source federated learning systems with secure aggregation remains an active and only partially resolved problem.\",\"status_evidence\":[{\"title\":\"Nearly Tight Black-Box Auditing of Differentially Private Machine Learning\",\"url\":\"https://arxiv.org/html/2405.14106v4\",\"snippet\":\"presents an auditing procedure for the DP-SGD algorithm in the black-box threat model that is substantially tighter than prior work\",\"claim\":\"Black-box auditing of DP-SGD has been substantially advanced, indicating partial progress.\"},{\"title\":\"Auditing Differential Privacy in the Black-Box Setting\",\"url\":\"https://arxiv.org/abs/2503.12045\",\"snippet\":\"novel theoretical framework for auditing differential privacy in a black-box setting, leveraging f-differential privacy with controlled Type I/II errors\",\"claim\":\"General black-box auditing frameworks have been proposed but remain under active development.\"},{\"title\":\"Privacy in Theory, Bugs in Practice: Grey-Box Auditing of Differential Privacy Libraries\",\"url\":\"https://arxiv.org/html/2602.17454\",\"snippet\":\"bugs that lead to DP violations have been found in several DP-SGD implementations ... gray-box auditing paradigm that assumes access to the underlying implementation\",\"claim\":\"Implementation bugs are still being uncovered; gray-box (not pure black-box) access is often needed.\"},{\"title\":\"Sequentially Auditing Differential Privacy\",\"url\":\"https://arxiv.org/html/2509.07055v1\",\"snippet\":\"practical sequential test for auditing differential privacy guarantees of black-box mechanisms ... anytime-valid inference\",\"claim\":\"New sequential black-box auditing tests continue to appear, showing the area is still developing.\"}],\"confidence\":0.75},\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"uuid\":\"1b85aadd-1b11-4168-a6d7-30ef654d4e35\"}\n"
+}

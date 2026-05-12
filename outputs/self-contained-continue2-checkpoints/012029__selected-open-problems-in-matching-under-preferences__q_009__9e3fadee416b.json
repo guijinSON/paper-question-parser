@@ -1,0 +1,53 @@
+{
+  "record": {
+    "global_index": 12029,
+    "source_json": "outputs/parse-paper/selected-open-problems-in-matching-under-preferences.json",
+    "paper_id": "selected-open-problems-in-matching-under-preferences",
+    "paper_title": "Selected open problems in Matching Under Preferences",
+    "paper_link": "https://zbmath.org/7150619",
+    "question_link": "https://zbmath.org/7150619",
+    "question_id": "q_009",
+    "parser_is_solved": "false",
+    "context_brief": "Stable marriage; divorce digraph reachability",
+    "original_question": "Given a Stable Marriage instance I and a matching M_0, determine the computational complexity of deciding whether the divorce digraph D_I contains a directed path from the vertex v_{M_0} to a sink vertex, equivalently to some stable matching.",
+    "evidence": [
+      {
+        "page": 13,
+        "quote": "This leads to a natural open question, namely to resolve the complexity of the following decision problem: given an sm instance I and a matching M0, is there a path in D_I from v_M0 to a sink vertex?"
+      }
+    ]
+  },
+  "artifact": {
+    "self_contained_problem": "Let I be an instance of the Stable Marriage problem: a set of n men and n women, each providing a strict, complete preference list over the members of the opposite sex. A matching M is a set of disjoint man–woman pairs that saturates everyone. A pair (m,w) ∉ M is a blocking pair of M if m prefers w to his partner in M and w prefers m to her partner in M; M is stable if it has no blocking pair.\n\nDefine the divorce digraph D_I as follows. Its vertices are all (perfect) matchings of I. For every matching M and every blocking pair (m,w) of M, place a directed arc from M to the matching M' obtained from M by \"satisfying\" (m,w), i.e., by pairing m with w and re-pairing their previous partners with each other (so M' differs from M only on these two pairs). The sinks of D_I are exactly the stable matchings of I.\n\nDecision problem. Given as input a Stable Marriage instance I together with a (not necessarily stable) matching M_0 of I, determine the computational complexity of deciding whether D_I contains a directed path from the vertex M_0 to some sink, equivalently, whether some sequence of blocking-pair resolutions starting from M_0 reaches a stable matching.",
+    "macro_subject": "Theoretical Computer Science",
+    "category_tag": "Stable matching complexity",
+    "open_status": "open",
+    "status_search_result": "Recent work on \"paths to stability\" for the stable marriage problem (including a 2023 paper on Improved Paths to Stability) continues to study reachability in the divorce digraph, but does not report a resolution of the complexity of deciding whether a given starting matching can reach a stable matching via blocking-pair resolutions. No source found that settles this decision problem; it appears still open.",
+    "status_evidence": [
+      {
+        "title": "Improved Paths to Stability for the Stable Marriage Problem",
+        "url": "https://link.springer.com/chapter/10.1007/978-3-031-44274-2_11",
+        "snippet": "Algorithms that start from an arbitrary matching and iteratively resolve blocking pairs to reach a stable matching; complexity questions on the divorce digraph remain studied.",
+        "claim": "Recent literature continues to study divorce-digraph reachability without settling the decision complexity."
+      },
+      {
+        "title": "Divorce Digraph -- from Wolfram MathWorld",
+        "url": "https://mathworld.wolfram.com/DivorceDigraph.html",
+        "snippet": "A divorce digraph encodes blocking-pair resolutions among matchings; stable matchings are its sinks.",
+        "claim": "Defines the divorce digraph used in the problem."
+      },
+      {
+        "title": "Paths to marriage stability",
+        "url": "https://www.sciencedirect.com/science/article/pii/0166218X9400026A",
+        "snippet": "Studies sequences of blocking-pair resolutions leading to stable matchings.",
+        "claim": "Background work on paths to stability without resolving the stated decision complexity."
+      }
+    ],
+    "confidence": 0.6
+  },
+  "model": "opus",
+  "effort": "medium",
+  "elapsed_s": 31.27,
+  "validation_warnings": [],
+  "raw_claude_stdout": "{\"type\":\"result\",\"subtype\":\"success\",\"is_error\":false,\"api_error_status\":null,\"duration_ms\":29883,\"duration_api_ms\":28938,\"num_turns\":3,\"result\":\"Provided structured output.\\n\\nSources:\\n- [Improved Paths to Stability for the Stable Marriage Problem](https://link.springer.com/chapter/10.1007/978-3-031-44274-2_11)\\n- [Divorce Digraph -- Wolfram MathWorld](https://mathworld.wolfram.com/DivorceDigraph.html)\\n- [Paths to marriage stability](https://www.sciencedirect.com/science/article/pii/0166218X9400026A)\",\"stop_reason\":\"end_turn\",\"session_id\":\"18870675-7a58-4387-82af-f03f59f3a98d\",\"total_cost_usd\":0.09543574999999999,\"usage\":{\"input_tokens\":8,\"cache_creation_input_tokens\":3985,\"cache_read_input_tokens\":12373,\"output_tokens\":1422,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":3985,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[{\"input_tokens\":1,\"output_tokens\":164,\"cache_read_input_tokens\":5494,\"cache_creation_input_tokens\":1176,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":1176},\"type\":\"message\"}],\"speed\":\"standard\"},\"modelUsage\":{\"claude-haiku-4-5-20251001\":{\"inputTokens\":16253,\"outputTokens\":500,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":1,\"costUSD\":0.028752999999999997,\"contextWindow\":200000,\"maxOutputTokens\":32000},\"claude-opus-4-7\":{\"inputTokens\":8,\"outputTokens\":1422,\"cacheReadInputTokens\":12373,\"cacheCreationInputTokens\":3985,\"webSearchRequests\":0,\"costUSD\":0.06668275,\"contextWindow\":1000000,\"maxOutputTokens\":64000}},\"permission_denials\":[],\"structured_output\":{\"self_contained_problem\":\"Let I be an instance of the Stable Marriage problem: a set of n men and n women, each providing a strict, complete preference list over the members of the opposite sex. A matching M is a set of disjoint man–woman pairs that saturates everyone. A pair (m,w) ∉ M is a blocking pair of M if m prefers w to his partner in M and w prefers m to her partner in M; M is stable if it has no blocking pair.\\n\\nDefine the divorce digraph D_I as follows. Its vertices are all (perfect) matchings of I. For every matching M and every blocking pair (m,w) of M, place a directed arc from M to the matching M' obtained from M by \\\"satisfying\\\" (m,w), i.e., by pairing m with w and re-pairing their previous partners with each other (so M' differs from M only on these two pairs). The sinks of D_I are exactly the stable matchings of I.\\n\\nDecision problem. Given as input a Stable Marriage instance I together with a (not necessarily stable) matching M_0 of I, determine the computational complexity of deciding whether D_I contains a directed path from the vertex M_0 to some sink, equivalently, whether some sequence of blocking-pair resolutions starting from M_0 reaches a stable matching.\",\"macro_subject\":\"Theoretical Computer Science\",\"category_tag\":\"Stable matching complexity\",\"open_status\":\"open\",\"status_search_result\":\"Recent work on \\\"paths to stability\\\" for the stable marriage problem (including a 2023 paper on Improved Paths to Stability) continues to study reachability in the divorce digraph, but does not report a resolution of the complexity of deciding whether a given starting matching can reach a stable matching via blocking-pair resolutions. No source found that settles this decision problem; it appears still open.\",\"status_evidence\":[{\"title\":\"Improved Paths to Stability for the Stable Marriage Problem\",\"url\":\"https://link.springer.com/chapter/10.1007/978-3-031-44274-2_11\",\"snippet\":\"Algorithms that start from an arbitrary matching and iteratively resolve blocking pairs to reach a stable matching; complexity questions on the divorce digraph remain studied.\",\"claim\":\"Recent literature continues to study divorce-digraph reachability without settling the decision complexity.\"},{\"title\":\"Divorce Digraph -- from Wolfram MathWorld\",\"url\":\"https://mathworld.wolfram.com/DivorceDigraph.html\",\"snippet\":\"A divorce digraph encodes blocking-pair resolutions among matchings; stable matchings are its sinks.\",\"claim\":\"Defines the divorce digraph used in the problem.\"},{\"title\":\"Paths to marriage stability\",\"url\":\"https://www.sciencedirect.com/science/article/pii/0166218X9400026A\",\"snippet\":\"Studies sequences of blocking-pair resolutions leading to stable matchings.\",\"claim\":\"Background work on paths to stability without resolving the stated decision complexity.\"}],\"confidence\":0.6},\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"uuid\":\"f0659d1b-fc00-4f01-87ac-536179ac567b\"}\n"
+}

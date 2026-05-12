@@ -1,0 +1,53 @@
+{
+  "record": {
+    "global_index": 12673,
+    "source_json": "outputs/parse-paper/zbmath-5374431.json",
+    "paper_id": "zbmath/5374431",
+    "paper_title": "Ten Open Problems in Grammatical Inference",
+    "paper_link": "https://zbmath.org/5374431",
+    "question_link": "https://zbmath.org/5374431",
+    "question_id": "q_010",
+    "parser_is_solved": "false",
+    "context_brief": "General negotiation learning game",
+    "original_question": "In the negotiation model where two adversaries have regular languages L1 and L2 represented by deterministic finite automata and each wants to identify the common language L1 ∩ L2, what are good strategies for the general game? Each player may query the opponent only with strings from its own language, learns from yes/no answers, and is penalized by errors when a proposed string receives a negative answer. The open problem includes whether identification can be avoided, whether no-win situations exist, whether nearly identical lock-automata-like strategies force prohibitively long membership-query learning, and what happens when both players settle for a common stalemate language that is only a subset of the target.",
+    "evidence": [
+      {
+        "page": 41,
+        "quote": "The goal for each is to learn the common language, i.e. language L1∩L2."
+      },
+      {
+        "page": 41,
+        "quote": "The rule is that each adversary can only query the opponent by asking questions from his own language."
+      },
+      {
+        "page": 42,
+        "quote": "Problem 9. Study the general problem. What is a good strategy? Can identification be avoided? Are there any “no win” situations?"
+      },
+      {
+        "page": 42,
+        "quote": "An intriguing question is: what happens if both opponents “agree” on a stalemate position, i.e. are satisfied with an identical language L which in fact is a subset of the target?"
+      }
+    ]
+  },
+  "artifact": {
+    "self_contained_problem": "Consider the following two-player negotiation game between adversaries A1 and A2. Each player Ai (i=1,2) holds a regular language Li ⊆ Σ* over a fixed finite alphabet Σ, given by a deterministic finite automaton known only to that player. The common (target) language is L* = L1 ∩ L2, and the goal of each player is to identify L*.\n\nThe game proceeds in rounds. On each turn, the active player Ai chooses a string w ∈ Li (a player may query only with strings from its own language) and submits it to the opponent Aj, who answers truthfully \"yes\" if w ∈ Lj and \"no\" otherwise. Each player updates an internal hypothesis from the yes/no information accumulated, and at any time a player may propose a string as a \"candidate member of L*\"; if such a proposal receives the answer \"no\", the proposing player incurs a penalty (error). A player \"wins\" by identifying L* (i.e., converging to a description of L1 ∩ L2) with fewer errors than the opponent, or by forcing a configuration favorable under an agreed payoff.\n\nAddress the following questions about this game:\n\n1. Devise a good general strategy for each player (a query/hypothesis policy) that controls the number of errors while making progress toward identifying L1 ∩ L2.\n\n2. Determine whether a player can avoid being identified — i.e., whether there exist strategies under which the opponent provably fails to learn L1 ∩ L2 in polynomial time / with polynomially many errors.\n\n3. Determine whether \"no-win\" situations exist: pairs (L1, L2) and strategy profiles for which neither player can identify L* with bounded error.\n\n4. Analyze the case where L1 and L2 are nearly identical \"lock-automata-like\" languages (i.e., constructed so that membership queries require exponentially many strings to distinguish key states): does this force prohibitively long membership-query interaction before identification?\n\n5. Analyze the variant in which the two players \"agree\" on a stalemate: both settle on a common hypothesis language L ⊆ L1 ∩ L2 that is a strict subset of the true target L*. Characterize when such stable stalemates are possible and what the equilibria of the game look like.",
+    "macro_subject": "Theoretical Computer Science",
+    "category_tag": "Grammatical inference and learning games",
+    "open_status": "open",
+    "status_search_result": "The negotiation-learning game between two players holding regular languages and seeking to identify their intersection was posed as one of ten open problems in grammatical inference (problem on the general negotiation game). A web search did not surface any follow-up paper resolving the general strategy, the existence of no-win situations, the lock-automata lower bound, or the stalemate-subset variant. The problem appears to still be open.",
+    "status_evidence": [
+      {
+        "title": "Ten Open Problems in Grammatical Inference",
+        "url": "https://link.springer.com/chapter/10.1007/11872436_4",
+        "snippet": "de la Higuera's list of ten open problems in grammatical inference, including the negotiation/learning-game problem.",
+        "claim": "The problem is stated as an open problem in this collection, and no resolution was found in the literature search."
+      }
+    ],
+    "confidence": 0.55
+  },
+  "model": "opus",
+  "effort": "medium",
+  "elapsed_s": 38.89,
+  "validation_warnings": [],
+  "raw_claude_stdout": "{\"type\":\"result\",\"subtype\":\"success\",\"is_error\":false,\"api_error_status\":null,\"duration_ms\":37607,\"duration_api_ms\":36445,\"num_turns\":3,\"result\":\"Provided.\\n\\nSources:\\n- [Ten Open Problems in Grammatical Inference | SpringerLink](https://link.springer.com/chapter/10.1007/11872436_4)\",\"stop_reason\":\"end_turn\",\"session_id\":\"d52e64a1-8e6e-4d64-97d6-4a90f0c56693\",\"total_cost_usd\":0.09673875,\"usage\":{\"input_tokens\":8,\"cache_creation_input_tokens\":4203,\"cache_read_input_tokens\":12778,\"output_tokens\":1436,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":4203,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[{\"input_tokens\":1,\"output_tokens\":65,\"cache_read_input_tokens\":5654,\"cache_creation_input_tokens\":1234,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":1234},\"type\":\"message\"}],\"speed\":\"standard\"},\"modelUsage\":{\"claude-haiku-4-5-20251001\":{\"inputTokens\":16626,\"outputTokens\":303,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":1,\"costUSD\":0.028141,\"contextWindow\":200000,\"maxOutputTokens\":32000},\"claude-opus-4-7\":{\"inputTokens\":8,\"outputTokens\":1436,\"cacheReadInputTokens\":12778,\"cacheCreationInputTokens\":4203,\"webSearchRequests\":0,\"costUSD\":0.06859775,\"contextWindow\":1000000,\"maxOutputTokens\":64000}},\"permission_denials\":[],\"structured_output\":{\"self_contained_problem\":\"Consider the following two-player negotiation game between adversaries A1 and A2. Each player Ai (i=1,2) holds a regular language Li ⊆ Σ* over a fixed finite alphabet Σ, given by a deterministic finite automaton known only to that player. The common (target) language is L* = L1 ∩ L2, and the goal of each player is to identify L*.\\n\\nThe game proceeds in rounds. On each turn, the active player Ai chooses a string w ∈ Li (a player may query only with strings from its own language) and submits it to the opponent Aj, who answers truthfully \\\"yes\\\" if w ∈ Lj and \\\"no\\\" otherwise. Each player updates an internal hypothesis from the yes/no information accumulated, and at any time a player may propose a string as a \\\"candidate member of L*\\\"; if such a proposal receives the answer \\\"no\\\", the proposing player incurs a penalty (error). A player \\\"wins\\\" by identifying L* (i.e., converging to a description of L1 ∩ L2) with fewer errors than the opponent, or by forcing a configuration favorable under an agreed payoff.\\n\\nAddress the following questions about this game:\\n\\n1. Devise a good general strategy for each player (a query/hypothesis policy) that controls the number of errors while making progress toward identifying L1 ∩ L2.\\n\\n2. Determine whether a player can avoid being identified — i.e., whether there exist strategies under which the opponent provably fails to learn L1 ∩ L2 in polynomial time / with polynomially many errors.\\n\\n3. Determine whether \\\"no-win\\\" situations exist: pairs (L1, L2) and strategy profiles for which neither player can identify L* with bounded error.\\n\\n4. Analyze the case where L1 and L2 are nearly identical \\\"lock-automata-like\\\" languages (i.e., constructed so that membership queries require exponentially many strings to distinguish key states): does this force prohibitively long membership-query interaction before identification?\\n\\n5. Analyze the variant in which the two players \\\"agree\\\" on a stalemate: both settle on a common hypothesis language L ⊆ L1 ∩ L2 that is a strict subset of the true target L*. Characterize when such stable stalemates are possible and what the equilibria of the game look like.\",\"macro_subject\":\"Theoretical Computer Science\",\"category_tag\":\"Grammatical inference and learning games\",\"open_status\":\"open\",\"status_search_result\":\"The negotiation-learning game between two players holding regular languages and seeking to identify their intersection was posed as one of ten open problems in grammatical inference (problem on the general negotiation game). A web search did not surface any follow-up paper resolving the general strategy, the existence of no-win situations, the lock-automata lower bound, or the stalemate-subset variant. The problem appears to still be open.\",\"status_evidence\":[{\"title\":\"Ten Open Problems in Grammatical Inference\",\"url\":\"https://link.springer.com/chapter/10.1007/11872436_4\",\"snippet\":\"de la Higuera's list of ten open problems in grammatical inference, including the negotiation/learning-game problem.\",\"claim\":\"The problem is stated as an open problem in this collection, and no resolution was found in the literature search.\"}],\"confidence\":0.55},\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"uuid\":\"82de6355-6ac0-4196-9073-adec7d7095e9\"}\n"
+}

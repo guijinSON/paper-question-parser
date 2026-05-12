@@ -1,0 +1,47 @@
+{
+  "record": {
+    "global_index": 11249,
+    "source_json": "outputs/parse-paper/open-problems-in-geometric-methods-for-instance-based-learning.json",
+    "paper_id": "open-problems-in-geometric-methods-for-instance-based-learning",
+    "paper_title": "Open Problems in Geometric Methods for Instance-Based Learning",
+    "paper_link": "https://zbmath.org/5667357",
+    "question_link": "https://zbmath.org/5667357",
+    "question_id": "q_014",
+    "parser_is_solved": "false",
+    "context_brief": "Complexity of RNN reduction",
+    "original_question": "What is the computational complexity of computing the reduced training-set-consistent subset produced by Gates' reduced nearest neighbor rule after CNN post-processing?",
+    "evidence": [
+      {
+        "page": 4,
+        "quote": "The complexity of computing such a reduced consistent subset is an open problem."
+      }
+    ]
+  },
+  "artifact": {
+    "self_contained_problem": "Let $T = \\{(x_1, y_1), \\dots, (x_n, y_n)\\} \\subset \\mathbb{R}^d \\times \\mathcal{C}$ be a labeled training set, where $\\mathcal{C}$ is a finite set of class labels. For a subset $S \\subseteq T$, the 1-nearest-neighbor classifier $\\mathrm{NN}_S : \\mathbb{R}^d \\to \\mathcal{C}$ assigns to each point $x \\in \\mathbb{R}^d$ the label of the element of $S$ closest to $x$ in Euclidean distance (with ties broken by a fixed rule). The subset $S$ is said to be training-set-consistent with respect to $T$ if $\\mathrm{NN}_S(x_i) = y_i$ for every $(x_i, y_i) \\in T$.\n\nDefine the following two-stage reduction procedure on $T$:\n\n1. (Condensed Nearest Neighbor, CNN) Initialize $S \\subseteq T$ by Hart's procedure: start with one arbitrarily chosen element of $T$ placed in $S$, then iterate through the remaining points of $T$ (in a fixed order), adding to $S$ any point that is currently misclassified by $\\mathrm{NN}_S$; repeat passes over $T$ until no more points are added.\n\n2. (Reduced Nearest Neighbor, RNN, post-processing) Given the output $S$ of step 1, iterate through the points of $S$ (in a fixed order) and remove any point whose removal leaves a subset that is still training-set-consistent with $T$; continue until no further removal is possible. Let $S^\\ast \\subseteq S$ denote the resulting set.\n\nDetermine the computational complexity, as a function of $n$ and $d$, of computing $S^\\ast$ from the input $T$.",
+    "macro_subject": "Theoretical Computer Science",
+    "category_tag": "nearest neighbor rule complexity",
+    "open_status": "unknown",
+    "status_search_result": "Surveys of nearest-neighbor condensation techniques describe RNN as roughly twice as costly as CNN in practice, but no formal tight complexity bound for computing the RNN-reduced consistent subset after CNN post-processing was located in the search. The precise computational complexity appears to remain unresolved in the literature reviewed.",
+    "status_evidence": [
+      {
+        "title": "Survey of Nearest Neighbor Condensing Techniques",
+        "url": "https://thesai.org/Downloads/Volume2No11/Paper%2010-%20Survey%20of%20Nearest%20Neighbor%20Condensing%20Techniques.pdf",
+        "snippet": "RNN removes instances as long as the remaining instances do not lose the property of being a consistent subset; the additional time is usually more than twice that of CNN.",
+        "claim": "RNN is described qualitatively as costlier than CNN but no formal complexity bound is given."
+      },
+      {
+        "title": "The Reduced Nearest Neighbor Rule (Gates, 1972)",
+        "url": "https://sci2s.ugr.es/keel/pdf/algorithm/articulo/gates1972.pdf",
+        "snippet": "Gates' original note introduces RNN as a post-processing of CNN, removing patterns whose deletion preserves consistency.",
+        "claim": "The original definition of the RNN rule does not establish its computational complexity."
+      }
+    ],
+    "confidence": 0.6
+  },
+  "model": "opus",
+  "effort": "medium",
+  "elapsed_s": 37.1,
+  "validation_warnings": [],
+  "raw_claude_stdout": "{\"type\":\"result\",\"subtype\":\"success\",\"is_error\":false,\"api_error_status\":null,\"duration_ms\":35821,\"duration_api_ms\":31908,\"num_turns\":3,\"result\":\"Sources:\\n- [Gates 1972 — The Reduced Nearest Neighbor Rule](https://sci2s.ugr.es/keel/pdf/algorithm/articulo/gates1972.pdf)\\n- [Survey of Nearest Neighbor Condensing Techniques](https://thesai.org/Downloads/Volume2No11/Paper%2010-%20Survey%20of%20Nearest%20Neighbor%20Condensing%20Techniques.pdf)\\n- [Fast Condensed Nearest Neighbor Rule (Angiulli)](https://icml.cc/Conferences/2005/proceedings/papers/004_Fast_Angiulli.pdf)\\n- [Finding Small Consistent Subset for the Nearest Neighbor Classifier](https://link.springer.com/chapter/10.1007/978-3-642-10268-4_54)\",\"stop_reason\":\"end_turn\",\"session_id\":\"c57511da-36ec-4198-b225-9d595fff3945\",\"total_cost_usd\":0.107322,\"usage\":{\"input_tokens\":8,\"cache_creation_input_tokens\":4228,\"cache_read_input_tokens\":12414,\"output_tokens\":1712,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":4228,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[{\"input_tokens\":1,\"output_tokens\":297,\"cache_read_input_tokens\":5600,\"cache_creation_input_tokens\":1313,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":1313},\"type\":\"message\"}],\"speed\":\"standard\"},\"modelUsage\":{\"claude-haiku-4-5-20251001\":{\"inputTokens\":19675,\"outputTokens\":435,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":1,\"costUSD\":0.031849999999999996,\"contextWindow\":200000,\"maxOutputTokens\":32000},\"claude-opus-4-7\":{\"inputTokens\":8,\"outputTokens\":1712,\"cacheReadInputTokens\":12414,\"cacheCreationInputTokens\":4228,\"webSearchRequests\":0,\"costUSD\":0.075472,\"contextWindow\":1000000,\"maxOutputTokens\":64000}},\"permission_denials\":[],\"structured_output\":{\"self_contained_problem\":\"Let $T = \\\\{(x_1, y_1), \\\\dots, (x_n, y_n)\\\\} \\\\subset \\\\mathbb{R}^d \\\\times \\\\mathcal{C}$ be a labeled training set, where $\\\\mathcal{C}$ is a finite set of class labels. For a subset $S \\\\subseteq T$, the 1-nearest-neighbor classifier $\\\\mathrm{NN}_S : \\\\mathbb{R}^d \\\\to \\\\mathcal{C}$ assigns to each point $x \\\\in \\\\mathbb{R}^d$ the label of the element of $S$ closest to $x$ in Euclidean distance (with ties broken by a fixed rule). The subset $S$ is said to be training-set-consistent with respect to $T$ if $\\\\mathrm{NN}_S(x_i) = y_i$ for every $(x_i, y_i) \\\\in T$.\\n\\nDefine the following two-stage reduction procedure on $T$:\\n\\n1. (Condensed Nearest Neighbor, CNN) Initialize $S \\\\subseteq T$ by Hart's procedure: start with one arbitrarily chosen element of $T$ placed in $S$, then iterate through the remaining points of $T$ (in a fixed order), adding to $S$ any point that is currently misclassified by $\\\\mathrm{NN}_S$; repeat passes over $T$ until no more points are added.\\n\\n2. (Reduced Nearest Neighbor, RNN, post-processing) Given the output $S$ of step 1, iterate through the points of $S$ (in a fixed order) and remove any point whose removal leaves a subset that is still training-set-consistent with $T$; continue until no further removal is possible. Let $S^\\\\ast \\\\subseteq S$ denote the resulting set.\\n\\nDetermine the computational complexity, as a function of $n$ and $d$, of computing $S^\\\\ast$ from the input $T$.\",\"macro_subject\":\"Theoretical Computer Science\",\"category_tag\":\"nearest neighbor rule complexity\",\"open_status\":\"unknown\",\"status_search_result\":\"Surveys of nearest-neighbor condensation techniques describe RNN as roughly twice as costly as CNN in practice, but no formal tight complexity bound for computing the RNN-reduced consistent subset after CNN post-processing was located in the search. The precise computational complexity appears to remain unresolved in the literature reviewed.\",\"status_evidence\":[{\"title\":\"Survey of Nearest Neighbor Condensing Techniques\",\"url\":\"https://thesai.org/Downloads/Volume2No11/Paper%2010-%20Survey%20of%20Nearest%20Neighbor%20Condensing%20Techniques.pdf\",\"snippet\":\"RNN removes instances as long as the remaining instances do not lose the property of being a consistent subset; the additional time is usually more than twice that of CNN.\",\"claim\":\"RNN is described qualitatively as costlier than CNN but no formal complexity bound is given.\"},{\"title\":\"The Reduced Nearest Neighbor Rule (Gates, 1972)\",\"url\":\"https://sci2s.ugr.es/keel/pdf/algorithm/articulo/gates1972.pdf\",\"snippet\":\"Gates' original note introduces RNN as a post-processing of CNN, removing patterns whose deletion preserves consistency.\",\"claim\":\"The original definition of the RNN rule does not establish its computational complexity.\"}],\"confidence\":0.6},\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"uuid\":\"fdbf2a3d-717c-4c8b-acca-389ae200d701\"}\n"
+}

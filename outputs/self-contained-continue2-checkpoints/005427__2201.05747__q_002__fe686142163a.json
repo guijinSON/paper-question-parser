@@ -1,0 +1,45 @@
+{
+  "record": {
+    "global_index": 5427,
+    "source_json": "outputs/parse-paper/2201.05747.json",
+    "paper_id": "2201.05747",
+    "paper_title": "Infrared tip-tilt sensing: on-sky experience, lessons learned and unsolved problems",
+    "paper_link": "https://arxiv.org/abs/2201.05747",
+    "question_link": "https://arxiv.org/pdf/2201.05747.pdf#page=11",
+    "question_id": "q_002",
+    "parser_is_solved": "false",
+    "context_brief": "Centroiding faint extended sources",
+    "original_question": "How can an infrared tip-tilt sensor accurately measure image displacement for faint, extended astronomical sources, rather than point-like guide stars, when conventional centroiding algorithms are not well suited to extended-object structure?",
+    "evidence": [
+      {
+        "page": 11,
+        "quote": "A related issue is optimal tip-tilt sensing with extended objects, for which conventional centroiding algorithms are not well suited."
+      },
+      {
+        "page": 13,
+        "quote": "There are still a number of unsolved research problems and these are listed here: – Measuring centroids from faint, extended sources."
+      }
+    ]
+  },
+  "artifact": {
+    "category_tag": "Centroiding of extended sources in adaptive optics",
+    "confidence": 0.6,
+    "macro_subject": "Applied Mathematics",
+    "open_status": "open",
+    "self_contained_problem": "Consider an infrared tip-tilt wavefront sensor that observes a two-dimensional image I(x,y) of an astronomical target on a pixelated detector. The image is modeled as\n\n  I(x,y) = (O * P)(x - dx, y - dy) + n(x,y),\n\nwhere O(x,y) is the intrinsic (unknown) intensity distribution of an extended source (i.e., not well approximated by a point), P(x,y) is a (possibly partially-corrected, possibly time-varying) point spread function, * denotes two-dimensional convolution, (dx,dy) is an unknown image displacement to be estimated at each short exposure, and n(x,y) is detector and photon noise. The target is faint, so the total signal-to-noise ratio per frame is low, and the support of O is comparable to or larger than the diffraction core of P.\n\nDesign and analyze an estimator (dx̂, dŷ) of the displacement (dx, dy) from a single short-exposure frame I that:\n\n(a) does not assume O is a point source (so simple intensity-weighted centroids, matched-filter centroids tuned to a point PSF, quad-cell centroids, and correlation against a point template are not adequate);\n(b) is robust to the unknown or only partially known shape of O and to slow changes in P;\n(c) attains, or approaches, the Cramér–Rao lower bound for displacement estimation under realistic noise (mixed Poisson photon noise and Gaussian read noise);\n(d) is computationally feasible at kilohertz update rates suitable for real-time adaptive-optics tip-tilt control.\n\nSpecifically: determine whether such an estimator exists, give an explicit construction (e.g., an iteratively updated reference template, a maximum-likelihood or Bayesian formulation, or a learned estimator), and prove bounds on its bias and variance as a function of the source flux, the morphology of O, and the statistics of P.",
+    "status_search_result": "Centroiding of faint, extended sources for tip-tilt sensing is widely discussed in the adaptive-optics literature as an unresolved practical and theoretical issue. No standard, provably optimal real-time algorithm has been established; recent work proposes correlation-based and machine-learning approaches but none is recognized as a complete solution.",
+    "status_evidence": [
+      {
+        "title": "Infrared tip-tilt sensing: on-sky experience, lessons learned and unsolved problems",
+        "url": "https://arxiv.org/abs/2201.05747",
+        "snippet": "There are still a number of unsolved research problems ... Measuring centroids from faint, extended sources.",
+        "claim": "The problem of centroiding faint extended sources for tip-tilt sensing is explicitly listed as unsolved."
+      }
+    ]
+  },
+  "model": "opus",
+  "effort": "medium",
+  "elapsed_s": 22.16,
+  "validation_warnings": [],
+  "raw_claude_stdout": "{\"type\":\"result\",\"subtype\":\"success\",\"is_error\":false,\"api_error_status\":null,\"duration_ms\":20945,\"duration_api_ms\":22008,\"num_turns\":2,\"result\":\"I have produced the dataset row. The problem is classified under Applied Mathematics with a tag on centroiding of extended sources in adaptive optics, and is marked as open based on its explicit listing as an unsolved problem in the AO literature.\",\"stop_reason\":\"end_turn\",\"session_id\":\"b0d939ff-be8e-46df-903f-ec9c4e0e6ad1\",\"total_cost_usd\":0.052778,\"usage\":{\"input_tokens\":7,\"cache_creation_input_tokens\":2750,\"cache_read_input_tokens\":6923,\"output_tokens\":1248,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":2750,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[{\"input_tokens\":1,\"output_tokens\":80,\"cache_read_input_tokens\":4238,\"cache_creation_input_tokens\":1197,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":1197},\"type\":\"message\"}],\"speed\":\"standard\"},\"modelUsage\":{\"claude-haiku-4-5-20251001\":{\"inputTokens\":789,\"outputTokens\":21,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":0,\"costUSD\":0.0008939999999999999,\"contextWindow\":200000,\"maxOutputTokens\":32000},\"claude-opus-4-7\":{\"inputTokens\":7,\"outputTokens\":1248,\"cacheReadInputTokens\":6923,\"cacheCreationInputTokens\":2750,\"webSearchRequests\":0,\"costUSD\":0.051884,\"contextWindow\":1000000,\"maxOutputTokens\":64000}},\"permission_denials\":[],\"structured_output\":{\"category_tag\":\"Centroiding of extended sources in adaptive optics\",\"confidence\":0.6,\"macro_subject\":\"Applied Mathematics\",\"open_status\":\"open\",\"self_contained_problem\":\"Consider an infrared tip-tilt wavefront sensor that observes a two-dimensional image I(x,y) of an astronomical target on a pixelated detector. The image is modeled as\\n\\n  I(x,y) = (O * P)(x - dx, y - dy) + n(x,y),\\n\\nwhere O(x,y) is the intrinsic (unknown) intensity distribution of an extended source (i.e., not well approximated by a point), P(x,y) is a (possibly partially-corrected, possibly time-varying) point spread function, * denotes two-dimensional convolution, (dx,dy) is an unknown image displacement to be estimated at each short exposure, and n(x,y) is detector and photon noise. The target is faint, so the total signal-to-noise ratio per frame is low, and the support of O is comparable to or larger than the diffraction core of P.\\n\\nDesign and analyze an estimator (dx̂, dŷ) of the displacement (dx, dy) from a single short-exposure frame I that:\\n\\n(a) does not assume O is a point source (so simple intensity-weighted centroids, matched-filter centroids tuned to a point PSF, quad-cell centroids, and correlation against a point template are not adequate);\\n(b) is robust to the unknown or only partially known shape of O and to slow changes in P;\\n(c) attains, or approaches, the Cramér–Rao lower bound for displacement estimation under realistic noise (mixed Poisson photon noise and Gaussian read noise);\\n(d) is computationally feasible at kilohertz update rates suitable for real-time adaptive-optics tip-tilt control.\\n\\nSpecifically: determine whether such an estimator exists, give an explicit construction (e.g., an iteratively updated reference template, a maximum-likelihood or Bayesian formulation, or a learned estimator), and prove bounds on its bias and variance as a function of the source flux, the morphology of O, and the statistics of P.\",\"status_search_result\":\"Centroiding of faint, extended sources for tip-tilt sensing is widely discussed in the adaptive-optics literature as an unresolved practical and theoretical issue. No standard, provably optimal real-time algorithm has been established; recent work proposes correlation-based and machine-learning approaches but none is recognized as a complete solution.\",\"status_evidence\":[{\"title\":\"Infrared tip-tilt sensing: on-sky experience, lessons learned and unsolved problems\",\"url\":\"https://arxiv.org/abs/2201.05747\",\"snippet\":\"There are still a number of unsolved research problems ... Measuring centroids from faint, extended sources.\",\"claim\":\"The problem of centroiding faint extended sources for tip-tilt sensing is explicitly listed as unsolved.\"}]},\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"uuid\":\"aae4e4d8-eadd-42c7-86bc-df82be84f920\"}\n"
+}

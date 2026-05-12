@@ -1,0 +1,53 @@
+{
+  "record": {
+    "global_index": 11237,
+    "source_json": "outputs/parse-paper/open-problems-in-geometric-methods-for-instance-based-learning.json",
+    "paper_id": "open-problems-in-geometric-methods-for-instance-based-learning",
+    "paper_title": "Open Problems in Geometric Methods for Instance-Based Learning",
+    "paper_link": "https://zbmath.org/5667357",
+    "question_link": "https://zbmath.org/5667357",
+    "question_id": "q_002",
+    "parser_is_solved": "false",
+    "context_brief": "Finite-sample performance of k-NN",
+    "original_question": "What is the finite-sample performance of the k-nearest-neighbor decision rule when the training set is finite rather than infinite?",
+    "evidence": [
+      {
+        "page": 3,
+        "quote": "How fast does the error rate Pe[k-NN] approach the Bayes error Pe as n approaches infinity, and what is the finite-sample performance of the k-NN-rule"
+      }
+    ]
+  },
+  "artifact": {
+    "self_contained_problem": "Let $(X,Y)$ be a random pair taking values in $\\mathbb{R}^d \\times \\{1,2,\\dots,M\\}$ with joint distribution $\\mathbb{P}$, and let the regression/posterior functions be $\\eta_j(x) = \\mathbb{P}(Y=j \\mid X=x)$ for $j=1,\\dots,M$. The Bayes classifier is $g^*(x) = \\arg\\max_{j} \\eta_j(x)$, with Bayes error $P_e^* = \\mathbb{P}(g^*(X) \\neq Y)$.\n\nGiven an i.i.d. training sample $D_n = \\{(X_i,Y_i)\\}_{i=1}^n$ from $\\mathbb{P}$, and a positive integer $k \\le n$, the $k$-nearest-neighbor ($k$-NN) decision rule $g_{n,k}$ classifies a query point $x \\in \\mathbb{R}^d$ by majority vote among the labels $Y_{(1)}(x),\\dots,Y_{(k)}(x)$ of the $k$ training points whose features $X_{(i)}(x)$ are nearest to $x$ in Euclidean distance (ties broken by a fixed rule). Its conditional error probability is\n$$P_e[k\\text{-NN}](n) = \\mathbb{P}\\big(g_{n,k}(X) \\neq Y \\mid D_n\\big),$$\nand its expected error is $\\mathbb{E}\\,P_e[k\\text{-NN}](n)$.\n\nProvide a quantitative characterization of the finite-sample performance of the $k$-NN rule. Specifically, for general (or suitably specified) distributions $\\mathbb{P}$ on $\\mathbb{R}^d \\times \\{1,\\dots,M\\}$ and finite $n$, determine sharp non-asymptotic upper and lower bounds on\n$$\\mathbb{E}\\,P_e[k\\text{-NN}](n) - P_e^*$$\nas a function of $n$, $k$, the dimension $d$, and meaningful structural parameters of $\\mathbb{P}$ (such as smoothness or margin conditions on $\\eta_j$), and identify the choice of $k = k(n)$ that minimizes this finite-sample excess risk.",
+    "macro_subject": "Statistics and Machine Learning",
+    "category_tag": "k-nearest-neighbor classification",
+    "open_status": "partially_solved",
+    "status_search_result": "Substantial progress has been made on finite-sample bounds for k-NN classification: non-asymptotic high-probability upper bounds in general metric spaces (Chaudhuri–Dasgupta), minimax-optimal rates of order n^{-4/(d+4)} under smoothness and margin (Tsybakov) conditions, and asymptotic expansions of k-NN risk are known. However, sharp distribution-free finite-sample characterizations and matching upper/lower bounds in full generality remain incomplete, so the broad question is best described as partially solved.",
+    "status_evidence": [
+      {
+        "title": "Rates of convergence for nearest neighbor classification (Chaudhuri–Dasgupta)",
+        "url": "https://cseweb.ucsd.edu/~dasgupta/papers/nn-rates.pdf",
+        "snippet": "Finite-sample, distribution-dependent upper bounds on k-NN misclassification in general metric spaces.",
+        "claim": "Non-asymptotic finite-sample bounds for k-NN have been established in general metric spaces."
+      },
+      {
+        "title": "Rate of Convergence of k-Nearest-Neighbor Classification Rule (JMLR)",
+        "url": "https://jmlr.org/papers/volume18/17-755/17-755.pdf",
+        "snippet": "Establishes convergence rates of k-NN classification under smoothness/margin conditions.",
+        "claim": "Convergence rates of k-NN to the Bayes error are characterized under regularity assumptions."
+      },
+      {
+        "title": "Asymptotic expansions of the k-nearest neighbor risk",
+        "url": "https://projecteuclid.org/journals/annals-of-statistics/volume-26/issue-3/Asymptotic-expansions-of-the-k-nearest-neighbor-risk/10.1214/aos/1024691080.pdf",
+        "snippet": "Higher-order asymptotic expansions of the k-NN risk are derived.",
+        "claim": "Asymptotic (but not fully finite-sample sharp) expansions of k-NN risk are available."
+      }
+    ],
+    "confidence": 0.7
+  },
+  "model": "opus",
+  "effort": "medium",
+  "elapsed_s": 32.44,
+  "validation_warnings": [],
+  "raw_claude_stdout": "{\"type\":\"result\",\"subtype\":\"success\",\"is_error\":false,\"api_error_status\":null,\"duration_ms\":31123,\"duration_api_ms\":30462,\"num_turns\":3,\"result\":\"I've produced the dataset row.\\n\\nSources:\\n- [Rates of convergence for nearest neighbor classification (Chaudhuri–Dasgupta)](https://cseweb.ucsd.edu/~dasgupta/papers/nn-rates.pdf)\\n- [Rate of Convergence of k-Nearest-Neighbor Classification Rule (JMLR)](https://jmlr.org/papers/volume18/17-755/17-755.pdf)\\n- [Asymptotic expansions of the k-nearest neighbor risk](https://projecteuclid.org/journals/annals-of-statistics/volume-26/issue-3/Asymptotic-expansions-of-the-k-nearest-neighbor-risk/10.1214/aos/1024691080.pdf)\",\"stop_reason\":\"end_turn\",\"session_id\":\"f460632b-5231-424a-be74-7474714b0cb0\",\"total_cost_usd\":0.11933825,\"usage\":{\"input_tokens\":8,\"cache_creation_input_tokens\":4657,\"cache_read_input_tokens\":12486,\"output_tokens\":2065,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":4657,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[{\"input_tokens\":1,\"output_tokens\":261,\"cache_read_input_tokens\":5647,\"cache_creation_input_tokens\":1695,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":1695},\"type\":\"message\"}],\"speed\":\"standard\"},\"modelUsage\":{\"claude-haiku-4-5-20251001\":{\"inputTokens\":19839,\"outputTokens\":497,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":1,\"costUSD\":0.032324000000000006,\"contextWindow\":200000,\"maxOutputTokens\":32000},\"claude-opus-4-7\":{\"inputTokens\":8,\"outputTokens\":2065,\"cacheReadInputTokens\":12486,\"cacheCreationInputTokens\":4657,\"webSearchRequests\":0,\"costUSD\":0.08701425,\"contextWindow\":1000000,\"maxOutputTokens\":64000}},\"permission_denials\":[],\"structured_output\":{\"self_contained_problem\":\"Let $(X,Y)$ be a random pair taking values in $\\\\mathbb{R}^d \\\\times \\\\{1,2,\\\\dots,M\\\\}$ with joint distribution $\\\\mathbb{P}$, and let the regression/posterior functions be $\\\\eta_j(x) = \\\\mathbb{P}(Y=j \\\\mid X=x)$ for $j=1,\\\\dots,M$. The Bayes classifier is $g^*(x) = \\\\arg\\\\max_{j} \\\\eta_j(x)$, with Bayes error $P_e^* = \\\\mathbb{P}(g^*(X) \\\\neq Y)$.\\n\\nGiven an i.i.d. training sample $D_n = \\\\{(X_i,Y_i)\\\\}_{i=1}^n$ from $\\\\mathbb{P}$, and a positive integer $k \\\\le n$, the $k$-nearest-neighbor ($k$-NN) decision rule $g_{n,k}$ classifies a query point $x \\\\in \\\\mathbb{R}^d$ by majority vote among the labels $Y_{(1)}(x),\\\\dots,Y_{(k)}(x)$ of the $k$ training points whose features $X_{(i)}(x)$ are nearest to $x$ in Euclidean distance (ties broken by a fixed rule). Its conditional error probability is\\n$$P_e[k\\\\text{-NN}](n) = \\\\mathbb{P}\\\\big(g_{n,k}(X) \\\\neq Y \\\\mid D_n\\\\big),$$\\nand its expected error is $\\\\mathbb{E}\\\\,P_e[k\\\\text{-NN}](n)$.\\n\\nProvide a quantitative characterization of the finite-sample performance of the $k$-NN rule. Specifically, for general (or suitably specified) distributions $\\\\mathbb{P}$ on $\\\\mathbb{R}^d \\\\times \\\\{1,\\\\dots,M\\\\}$ and finite $n$, determine sharp non-asymptotic upper and lower bounds on\\n$$\\\\mathbb{E}\\\\,P_e[k\\\\text{-NN}](n) - P_e^*$$\\nas a function of $n$, $k$, the dimension $d$, and meaningful structural parameters of $\\\\mathbb{P}$ (such as smoothness or margin conditions on $\\\\eta_j$), and identify the choice of $k = k(n)$ that minimizes this finite-sample excess risk.\",\"macro_subject\":\"Statistics and Machine Learning\",\"category_tag\":\"k-nearest-neighbor classification\",\"open_status\":\"partially_solved\",\"status_search_result\":\"Substantial progress has been made on finite-sample bounds for k-NN classification: non-asymptotic high-probability upper bounds in general metric spaces (Chaudhuri–Dasgupta), minimax-optimal rates of order n^{-4/(d+4)} under smoothness and margin (Tsybakov) conditions, and asymptotic expansions of k-NN risk are known. However, sharp distribution-free finite-sample characterizations and matching upper/lower bounds in full generality remain incomplete, so the broad question is best described as partially solved.\",\"status_evidence\":[{\"title\":\"Rates of convergence for nearest neighbor classification (Chaudhuri–Dasgupta)\",\"url\":\"https://cseweb.ucsd.edu/~dasgupta/papers/nn-rates.pdf\",\"snippet\":\"Finite-sample, distribution-dependent upper bounds on k-NN misclassification in general metric spaces.\",\"claim\":\"Non-asymptotic finite-sample bounds for k-NN have been established in general metric spaces.\"},{\"title\":\"Rate of Convergence of k-Nearest-Neighbor Classification Rule (JMLR)\",\"url\":\"https://jmlr.org/papers/volume18/17-755/17-755.pdf\",\"snippet\":\"Establishes convergence rates of k-NN classification under smoothness/margin conditions.\",\"claim\":\"Convergence rates of k-NN to the Bayes error are characterized under regularity assumptions.\"},{\"title\":\"Asymptotic expansions of the k-nearest neighbor risk\",\"url\":\"https://projecteuclid.org/journals/annals-of-statistics/volume-26/issue-3/Asymptotic-expansions-of-the-k-nearest-neighbor-risk/10.1214/aos/1024691080.pdf\",\"snippet\":\"Higher-order asymptotic expansions of the k-NN risk are derived.\",\"claim\":\"Asymptotic (but not fully finite-sample sharp) expansions of k-NN risk are available.\"}],\"confidence\":0.7},\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"uuid\":\"f9fa2a79-ffe0-4d3d-a7d5-1bf212c9c41d\"}\n"
+}

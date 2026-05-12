@@ -1,0 +1,61 @@
+{
+  "record": {
+    "global_index": 12705,
+    "source_json": "outputs/parse-paper/zbmath-5873385.json",
+    "paper_id": "zbmath/5873385",
+    "paper_title": "Open Problems in Real-time Scheduling",
+    "paper_link": "https://zbmath.org/5873385",
+    "question_link": "https://zbmath.org/5873385",
+    "question_id": "q_002",
+    "parser_is_solved": "false",
+    "context_brief": "Uniprocessor EDF schedulability",
+    "original_question": "For a preemptive uniprocessor real-time system modeled as a constrained-deadline sporadic task system tau, where each task tau_i = (C_i, D_i, T_i) has relative deadline D_i no larger than its period T_i, determine whether there exists a pseudo-polynomial-time algorithm for deciding Earliest Deadline First schedulability. Earliest Deadline First scheduling always executes the pending job with the earliest deadline, and tau is EDF-schedulable when EDF meets all deadlines for every legal sequence of job arrivals. The source records that weak coNP-hardness is known, leaving the pseudo-polynomial-time decision question open.",
+    "evidence": [
+      {
+        "page": 4,
+        "quote": "The Earliest Deadline First (EDF) scheduling algorithm schedules at each instant in time the job currently awaiting execution that has the earliest deadline."
+      },
+      {
+        "page": 4,
+        "quote": "Problem 2 (Computational complexity of uniprocessor EDF-schedulability analysis – constrained-deadline tasks.) What is the computational complexity of the following problem? Input: Constrained-deadline sporadic task system τ Question: Is τ EDF-schedulable?"
+      },
+      {
+        "page": 5,
+        "quote": "Progress since Dagstuhl. Problem 2 was shown to be weakly coNP-hard by Eisenbrand and Rothvoß in [9]. The outstanding open question is thus whether a pseudo-polynomial time algorithm exists for problem 2."
+      }
+    ]
+  },
+  "artifact": {
+    "self_contained_problem": "Consider a preemptive uniprocessor real-time system specified by a constrained-deadline sporadic task system τ = {τ_1, …, τ_n}. Each task τ_i = (C_i, D_i, T_i) consists of a worst-case execution requirement C_i ∈ ℤ_{>0}, a relative deadline D_i ∈ ℤ_{>0}, and a minimum inter-arrival separation (period) T_i ∈ ℤ_{>0}, subject to C_i ≤ D_i ≤ T_i. A task τ_i releases an (a priori unbounded) sequence of jobs: each released job has execution requirement at most C_i, and two consecutive jobs of τ_i are released at least T_i time units apart; a job released at time r has absolute deadline r + D_i. The Earliest Deadline First (EDF) scheduler is the on-line preemptive scheduler that, at each instant, executes the pending job with the smallest absolute deadline (ties broken arbitrarily). The system τ is EDF-schedulable if, for every legal sequence of job arrivals consistent with the parameters above, EDF completes every job by its absolute deadline. \n\nQuestion: Does there exist an algorithm that, given as input a constrained-deadline sporadic task system τ (with all parameters encoded in binary), decides whether τ is EDF-schedulable and runs in time bounded by a polynomial in n and in the largest numerical parameter max_i max{C_i, D_i, T_i} (i.e., a pseudo-polynomial-time algorithm)? Equivalently, exhibit such an algorithm or prove that none exists (e.g., by establishing strong coNP-hardness).",
+    "macro_subject": "Theoretical Computer Science",
+    "category_tag": "Real-time scheduling complexity",
+    "open_status": "open",
+    "status_search_result": "The exact computational complexity of EDF-schedulability for constrained-deadline sporadic task systems on a uniprocessor remains open. Weak coNP-hardness is known (Eisenbrand–Rothvoß), and processor-demand analysis gives pseudo-polynomial algorithms only under bounded-utilization assumptions; no general pseudo-polynomial-time algorithm or strong coNP-hardness proof has been reported as of 2026.",
+    "status_evidence": [
+      {
+        "title": "A Closer Look at Pseudo-polynomial Time and Its Use in Real-Time Scheduling Theory",
+        "url": "https://link.springer.com/chapter/10.1007/978-3-031-73751-0_10",
+        "snippet": "Discusses pseudo-polynomial time schedulability tests and ongoing efforts to extend them.",
+        "claim": "Pseudo-polynomial schedulability remains a focus of ongoing research with results only under restricted assumptions."
+      },
+      {
+        "title": "EDF-schedulability of synchronous periodic task systems is coNP-hard",
+        "url": "https://www.researchgate.net/publication/41940182_EDF-schedulability_of_synchronous_periodic_task_systems_is_coNP-hard",
+        "snippet": "Eisenbrand and Rothvoß show weak coNP-hardness of EDF schedulability for constrained-deadline systems.",
+        "claim": "Only weak coNP-hardness is known; pseudo-polynomial-time decidability is unresolved."
+      },
+      {
+        "title": "Constant Bandwidth Servers with Constrained Deadlines",
+        "url": "https://retis.santannapisa.it/~a.biondi/papers/CBS_CD_RTNS17.pdf",
+        "snippet": "Processor demand analysis is pseudo-polynomial only when utilization is bounded away from 1.",
+        "claim": "Existing pseudo-polynomial algorithms apply only under bounded-utilization assumptions, not in general."
+      }
+    ],
+    "confidence": 0.8
+  },
+  "model": "opus",
+  "effort": "medium",
+  "elapsed_s": 31.27,
+  "validation_warnings": [],
+  "raw_claude_stdout": "{\"type\":\"result\",\"subtype\":\"success\",\"is_error\":false,\"api_error_status\":null,\"duration_ms\":30014,\"duration_api_ms\":29378,\"num_turns\":3,\"result\":\"Sources:\\n- [A Closer Look at Pseudo-polynomial Time and Its Use in Real-Time Scheduling Theory](https://link.springer.com/chapter/10.1007/978-3-031-73751-0_10)\\n- [EDF-schedulability of synchronous periodic task systems is coNP-hard](https://www.researchgate.net/publication/41940182_EDF-schedulability_of_synchronous_periodic_task_systems_is_coNP-hard)\\n- [Constant Bandwidth Servers with Constrained Deadlines](https://retis.santannapisa.it/~a.biondi/papers/CBS_CD_RTNS17.pdf)\",\"stop_reason\":\"end_turn\",\"session_id\":\"3fc80eb7-9290-4ced-a718-ec2ec99cdcb6\",\"total_cost_usd\":0.11822049999999999,\"usage\":{\"input_tokens\":8,\"cache_creation_input_tokens\":4974,\"cache_read_input_tokens\":13364,\"output_tokens\":1821,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":4974,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[{\"input_tokens\":1,\"output_tokens\":229,\"cache_read_input_tokens\":6154,\"cache_creation_input_tokens\":1505,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":1505},\"type\":\"message\"}],\"speed\":\"standard\"},\"modelUsage\":{\"claude-haiku-4-5-20251001\":{\"inputTokens\":22541,\"outputTokens\":469,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":1,\"costUSD\":0.034886,\"contextWindow\":200000,\"maxOutputTokens\":32000},\"claude-opus-4-7\":{\"inputTokens\":8,\"outputTokens\":1821,\"cacheReadInputTokens\":13364,\"cacheCreationInputTokens\":4974,\"webSearchRequests\":0,\"costUSD\":0.08333449999999999,\"contextWindow\":1000000,\"maxOutputTokens\":64000}},\"permission_denials\":[],\"structured_output\":{\"self_contained_problem\":\"Consider a preemptive uniprocessor real-time system specified by a constrained-deadline sporadic task system τ = {τ_1, …, τ_n}. Each task τ_i = (C_i, D_i, T_i) consists of a worst-case execution requirement C_i ∈ ℤ_{>0}, a relative deadline D_i ∈ ℤ_{>0}, and a minimum inter-arrival separation (period) T_i ∈ ℤ_{>0}, subject to C_i ≤ D_i ≤ T_i. A task τ_i releases an (a priori unbounded) sequence of jobs: each released job has execution requirement at most C_i, and two consecutive jobs of τ_i are released at least T_i time units apart; a job released at time r has absolute deadline r + D_i. The Earliest Deadline First (EDF) scheduler is the on-line preemptive scheduler that, at each instant, executes the pending job with the smallest absolute deadline (ties broken arbitrarily). The system τ is EDF-schedulable if, for every legal sequence of job arrivals consistent with the parameters above, EDF completes every job by its absolute deadline. \\n\\nQuestion: Does there exist an algorithm that, given as input a constrained-deadline sporadic task system τ (with all parameters encoded in binary), decides whether τ is EDF-schedulable and runs in time bounded by a polynomial in n and in the largest numerical parameter max_i max{C_i, D_i, T_i} (i.e., a pseudo-polynomial-time algorithm)? Equivalently, exhibit such an algorithm or prove that none exists (e.g., by establishing strong coNP-hardness).\",\"macro_subject\":\"Theoretical Computer Science\",\"category_tag\":\"Real-time scheduling complexity\",\"open_status\":\"open\",\"status_search_result\":\"The exact computational complexity of EDF-schedulability for constrained-deadline sporadic task systems on a uniprocessor remains open. Weak coNP-hardness is known (Eisenbrand–Rothvoß), and processor-demand analysis gives pseudo-polynomial algorithms only under bounded-utilization assumptions; no general pseudo-polynomial-time algorithm or strong coNP-hardness proof has been reported as of 2026.\",\"status_evidence\":[{\"title\":\"A Closer Look at Pseudo-polynomial Time and Its Use in Real-Time Scheduling Theory\",\"url\":\"https://link.springer.com/chapter/10.1007/978-3-031-73751-0_10\",\"snippet\":\"Discusses pseudo-polynomial time schedulability tests and ongoing efforts to extend them.\",\"claim\":\"Pseudo-polynomial schedulability remains a focus of ongoing research with results only under restricted assumptions.\"},{\"title\":\"EDF-schedulability of synchronous periodic task systems is coNP-hard\",\"url\":\"https://www.researchgate.net/publication/41940182_EDF-schedulability_of_synchronous_periodic_task_systems_is_coNP-hard\",\"snippet\":\"Eisenbrand and Rothvoß show weak coNP-hardness of EDF schedulability for constrained-deadline systems.\",\"claim\":\"Only weak coNP-hardness is known; pseudo-polynomial-time decidability is unresolved.\"},{\"title\":\"Constant Bandwidth Servers with Constrained Deadlines\",\"url\":\"https://retis.santannapisa.it/~a.biondi/papers/CBS_CD_RTNS17.pdf\",\"snippet\":\"Processor demand analysis is pseudo-polynomial only when utilization is bounded away from 1.\",\"claim\":\"Existing pseudo-polynomial algorithms apply only under bounded-utilization assumptions, not in general.\"}],\"confidence\":0.8},\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"uuid\":\"752e19ba-9b8f-4d33-a9e4-45891915187c\"}\n"
+}

@@ -1,0 +1,51 @@
+{
+  "record": {
+    "global_index": 5680,
+    "source_json": "outputs/parse-paper/2206.14431.json",
+    "paper_id": "2206.14431",
+    "paper_title": "",
+    "paper_link": "https://arxiv.org/abs/2206.14431",
+    "question_link": "https://arxiv.org/pdf/2206.14431.pdf#page=3",
+    "question_id": "q_004",
+    "parser_is_solved": "false",
+    "context_brief": "Higher-order splitting criteria",
+    "original_question": "If variable influence alone is not enough to identify a small set of near-optimal splitting choices when properly learning decision trees, does there exist a slightly higher-order splitting criterion that is still efficiently computable and is strong enough to recover such a small candidate set, thereby enabling a polynomial-time proper learning algorithm?",
+    "evidence": [
+      {
+        "page": 3,
+        "quote": "Furthermore, this subset can be identified by estimating the influence of each variable w.r.t. f_pi."
+      },
+      {
+        "page": 3,
+        "quote": "If the influence itself is not enough for identifying a small subset of near-optimal choices, would a slightly \"higher-order\" splitting criterion suffice?"
+      }
+    ]
+  },
+  "artifact": {
+    "self_contained_problem": "Consider the problem of properly learning decision trees under the uniform distribution on {-1,1}^n in the realizable setting with membership query access. Concretely, let f:{-1,1}^n -> {-1,1} be an unknown Boolean function computed by a decision tree of size s, and let epsilon > 0. An algorithm properly learns f if, with high probability, it outputs a decision tree hypothesis h of size poly(s, n, 1/epsilon) satisfying Pr_x[h(x) != f(x)] <= epsilon, where x is uniform on {-1,1}^n.\n\nTop-down decision-tree learning heuristics (such as ID3, C4.5, CART) work by, at each internal node currently labeled by a restriction pi, choosing a variable x_i to split on according to some splitting criterion S(f_pi, i), where f_pi is the subfunction obtained by applying pi to f. A natural criterion is the influence Inf_i(f_pi) of variable i. Define a splitting criterion S to be \"k-th order\" if S(g, i) can be expressed as a function of the values { hat{g}(T) : T subseteq [n], |T| <= k, i in T } of the Fourier coefficients of g of degree at most k containing i; such a criterion is efficiently estimable from uniform random examples (or queries) for any constant k.\n\nQuestion: Does there exist a constant k >= 2 and a k-th order splitting criterion S such that, at every restriction pi reachable during the top-down construction, the variables i maximizing S(f_pi, i) form a set of size poly(s) that contains a near-optimal split (i.e. a split whose use in a greedy top-down procedure yields a decision tree hypothesis of size poly(s,1/epsilon) and error at most epsilon)? Equivalently, can a constant-order splitting criterion be used to obtain a proper learning algorithm for size-s decision trees under the uniform distribution running in time poly(n, s, 1/epsilon)?",
+    "macro_subject": "Theoretical Computer Science",
+    "category_tag": "Proper learning of decision trees",
+    "open_status": "open",
+    "status_search_result": "The best known proper learning algorithm for decision trees under the uniform distribution with queries runs in n^{O(log log n)} time (Blanc, Lange, Qiao, Tan, JACM 2022), still super-polynomial. No polynomial-time proper learning algorithm via a higher-order splitting criterion is reported in the literature; the question of whether a constant-order splitting criterion suffices to obtain such an algorithm appears to remain open.",
+    "status_evidence": [
+      {
+        "title": "Properly Learning Decision Trees in almost Polynomial Time",
+        "url": "https://dl.acm.org/doi/10.1145/3561047",
+        "snippet": "n^{O(log log n)}-time membership query algorithm for properly and agnostically learning decision trees under the uniform distribution.",
+        "claim": "Current best runtime for proper learning of decision trees is n^{O(log log n)}, not polynomial."
+      },
+      {
+        "title": "Properly learning decision trees in almost polynomial time (arXiv)",
+        "url": "https://arxiv.org/abs/2109.00637",
+        "snippet": "Even in the realizable setting, the previous fastest runtime was n^{O(log n)}.",
+        "claim": "Polynomial-time proper learning of decision trees remains unresolved."
+      }
+    ],
+    "confidence": 0.7
+  },
+  "model": "opus",
+  "effort": "medium",
+  "elapsed_s": 35.12,
+  "validation_warnings": [],
+  "raw_claude_stdout": "{\"type\":\"result\",\"subtype\":\"success\",\"is_error\":false,\"api_error_status\":null,\"duration_ms\":33897,\"duration_api_ms\":32613,\"num_turns\":3,\"result\":\"Sources:\\n- [Properly Learning Decision Trees in almost Polynomial Time | JACM](https://dl.acm.org/doi/10.1145/3561047)\\n- [Properly learning decision trees in almost polynomial time (arXiv:2109.00637)](https://arxiv.org/abs/2109.00637)\",\"stop_reason\":\"end_turn\",\"session_id\":\"2723407d-018c-4caf-9382-1d632ac02232\",\"total_cost_usd\":0.10802225,\"usage\":{\"input_tokens\":8,\"cache_creation_input_tokens\":4479,\"cache_read_input_tokens\":12687,\"output_tokens\":1622,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":4479,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[{\"input_tokens\":1,\"output_tokens\":111,\"cache_read_input_tokens\":5759,\"cache_creation_input_tokens\":1405,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":1405},\"type\":\"message\"}],\"speed\":\"standard\"},\"modelUsage\":{\"claude-haiku-4-5-20251001\":{\"inputTokens\":20505,\"outputTokens\":518,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":1,\"costUSD\":0.033095,\"contextWindow\":200000,\"maxOutputTokens\":32000},\"claude-opus-4-7\":{\"inputTokens\":8,\"outputTokens\":1622,\"cacheReadInputTokens\":12687,\"cacheCreationInputTokens\":4479,\"webSearchRequests\":0,\"costUSD\":0.07492725,\"contextWindow\":1000000,\"maxOutputTokens\":64000}},\"permission_denials\":[],\"structured_output\":{\"self_contained_problem\":\"Consider the problem of properly learning decision trees under the uniform distribution on {-1,1}^n in the realizable setting with membership query access. Concretely, let f:{-1,1}^n -> {-1,1} be an unknown Boolean function computed by a decision tree of size s, and let epsilon > 0. An algorithm properly learns f if, with high probability, it outputs a decision tree hypothesis h of size poly(s, n, 1/epsilon) satisfying Pr_x[h(x) != f(x)] <= epsilon, where x is uniform on {-1,1}^n.\\n\\nTop-down decision-tree learning heuristics (such as ID3, C4.5, CART) work by, at each internal node currently labeled by a restriction pi, choosing a variable x_i to split on according to some splitting criterion S(f_pi, i), where f_pi is the subfunction obtained by applying pi to f. A natural criterion is the influence Inf_i(f_pi) of variable i. Define a splitting criterion S to be \\\"k-th order\\\" if S(g, i) can be expressed as a function of the values { hat{g}(T) : T subseteq [n], |T| <= k, i in T } of the Fourier coefficients of g of degree at most k containing i; such a criterion is efficiently estimable from uniform random examples (or queries) for any constant k.\\n\\nQuestion: Does there exist a constant k >= 2 and a k-th order splitting criterion S such that, at every restriction pi reachable during the top-down construction, the variables i maximizing S(f_pi, i) form a set of size poly(s) that contains a near-optimal split (i.e. a split whose use in a greedy top-down procedure yields a decision tree hypothesis of size poly(s,1/epsilon) and error at most epsilon)? Equivalently, can a constant-order splitting criterion be used to obtain a proper learning algorithm for size-s decision trees under the uniform distribution running in time poly(n, s, 1/epsilon)?\",\"macro_subject\":\"Theoretical Computer Science\",\"category_tag\":\"Proper learning of decision trees\",\"open_status\":\"open\",\"status_search_result\":\"The best known proper learning algorithm for decision trees under the uniform distribution with queries runs in n^{O(log log n)} time (Blanc, Lange, Qiao, Tan, JACM 2022), still super-polynomial. No polynomial-time proper learning algorithm via a higher-order splitting criterion is reported in the literature; the question of whether a constant-order splitting criterion suffices to obtain such an algorithm appears to remain open.\",\"status_evidence\":[{\"title\":\"Properly Learning Decision Trees in almost Polynomial Time\",\"url\":\"https://dl.acm.org/doi/10.1145/3561047\",\"snippet\":\"n^{O(log log n)}-time membership query algorithm for properly and agnostically learning decision trees under the uniform distribution.\",\"claim\":\"Current best runtime for proper learning of decision trees is n^{O(log log n)}, not polynomial.\"},{\"title\":\"Properly learning decision trees in almost polynomial time (arXiv)\",\"url\":\"https://arxiv.org/abs/2109.00637\",\"snippet\":\"Even in the realizable setting, the previous fastest runtime was n^{O(log n)}.\",\"claim\":\"Polynomial-time proper learning of decision trees remains unresolved.\"}],\"confidence\":0.7},\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"uuid\":\"12900474-d490-42ac-b809-dab700bac8a8\"}\n"
+}

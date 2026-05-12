@@ -1,0 +1,67 @@
+{
+  "record": {
+    "global_index": 5821,
+    "source_json": "outputs/parse-paper/2301.00183.json",
+    "paper_id": "2301.00183",
+    "paper_title": "Modeling social resilience: Questions, answers, open problems",
+    "paper_link": "https://arxiv.org/abs/2301.00183",
+    "question_link": "https://arxiv.org/pdf/2301.00183.pdf#page=33",
+    "question_id": "q_024",
+    "parser_is_solved": "false",
+    "context_brief": "Correcting structural balance measures",
+    "original_question": "How should shortcomings of classical structural-balance measures be corrected when using signed triads to quantify the robustness of a social organization? The question should account for overlapping triads, weighted signed relations, and differing agent importance or social impact within each triad.",
+    "evidence": [
+      {
+        "page": 33,
+        "quote": "This approach has several shortcomings. First, triads are evaluated independently, i.e., the fact that each agent is likely part of diﬀerent triads at the same time is ignored. Secondly, the diﬀerent weights of each signed relation, ωij, are not taken into account. Thirdly, the importance ri of the agents composing the triad is ignored."
+      },
+      {
+        "page": 33,
+        "quote": "Correcting for these shortcomings is an open discussion."
+      },
+      {
+        "page": 33,
+        "quote": "As a possible alternative we have proposed a new weighted balance measure Tijk that takes into account not only the signs and the weights of the signed relations, but also the impact of the agents involved in the triad."
+      }
+    ]
+  },
+  "artifact": {
+    "self_contained_problem": "Let $G=(V,E,\\omega,\\sigma)$ be a signed weighted social network on a finite set of agents $V$, where each ordered or unordered pair $(i,j)\\in E$ carries a signed weight $\\omega_{ij}\\in\\mathbb{R}$ (with $\\sigma_{ij}=\\operatorname{sgn}(\\omega_{ij})\\in\\{-1,+1\\}$ encoding friendly/antagonistic ties), and each agent $i\\in V$ has an importance (or social-impact) value $r_i\\ge 0$. For a triad $\\{i,j,k\\}\\subseteq V$ with all three edges present, the classical structural-balance indicator is $b_{ijk}=\\sigma_{ij}\\sigma_{jk}\\sigma_{ik}\\in\\{-1,+1\\}$, declaring the triad balanced iff $b_{ijk}=+1$, and the classical balance measure of $G$ is the fraction of balanced triads\n$$B(G)=\\frac{\\#\\{\\{i,j,k\\}: b_{ijk}=+1\\}}{\\#\\{\\{i,j,k\\}\\subseteq V\\text{ triadically closed}\\}}.$$\nThis measure has three structural shortcomings when used as a proxy for the robustness of the organization:\n(i) triads are scored independently, although each agent typically participates in many overlapping triads simultaneously;\n(ii) the magnitudes $\\omega_{ij}$ of the signed relations are ignored;\n(iii) the importance/impact $r_i$ of the agents forming a triad is ignored.\n\nProblem. Construct a balance functional $T:\\mathcal{G}\\to\\mathbb{R}$ on signed weighted networks with agent importances such that:\n(a) at the triad level there is a real-valued triad score $T_{ijk}$ that depends jointly on the signs $\\sigma_{\\cdot\\cdot}$, the weights $\\omega_{\\cdot\\cdot}$, and the agent importances $r_i,r_j,r_k$, and reduces to $b_{ijk}$ in the unweighted, equal-importance limit;\n(b) the aggregation of $\\{T_{ijk}\\}$ into $T(G)$ accounts for the overlap of triads (the same agent or edge belonging to many triads) rather than treating triads as independent samples;\n(c) $T(G)$ is consistent with classical balance on the appropriate degenerate limit and yields a meaningful quantification of the robustness of the organization.\n\nSpecify such a $T_{ijk}$ and aggregation rule, and prove that the resulting measure simultaneously remedies the three shortcomings above while preserving the qualitative content of structural balance.",
+    "macro_subject": "Applied Mathematics",
+    "category_tag": "Signed networks and structural balance",
+    "open_status": "open",
+    "status_search_result": "Recent works (e.g., enhancements of structural balance theory in Frontiers in Human Dynamics 2022, multilevel evaluation in Scientific Reports 2020, transitivity-based measures on arXiv:2006.02565 and arXiv:2405.02798, and weight-evolution models in MDPI 2022) propose various weighted, directed, and multilevel balance measures, but none establishes a single canonical correction that jointly handles overlapping triads, weighted ties, and heterogeneous agent importance. The problem of properly correcting classical balance under these three shortcomings remains an active open discussion.",
+    "status_evidence": [
+      {
+        "title": "Enhancing structural balance theory and measurement",
+        "url": "https://www.frontiersin.org/journals/human-dynamics/articles/10.3389/fhumd.2022.1028393/full",
+        "snippet": "Develops enhanced balance measures for signed digraphs but does not unify weights and agent importance with overlap.",
+        "claim": "Active research on improved balance measures, indicating no settled canonical answer."
+      },
+      {
+        "title": "Structural balance in signed digraphs (arXiv:2006.02565)",
+        "url": "https://arxiv.org/abs/2006.02565",
+        "snippet": "Proposes transitivity-based balance measures for different link signing methods.",
+        "claim": "Continued proposals of new balance measures show problem remains under discussion."
+      },
+      {
+        "title": "Multilevel structural evaluation of signed directed social networks",
+        "url": "https://www.nature.com/articles/s41598-020-71838-6",
+        "snippet": "Introduces multilevel balance measures across triads, subgroups, and full network.",
+        "claim": "Multiple competing frameworks exist; no consensus correction."
+      },
+      {
+        "title": "Structural Balance in Real-World Social Networks (arXiv:2405.02798)",
+        "url": "https://arxiv.org/html/2405.02798v1",
+        "snippet": "Incorporates direction and transitivity in measuring partial balance.",
+        "claim": "Recent 2024 work still proposing refinements, suggesting the question is open."
+      }
+    ],
+    "confidence": 0.7
+  },
+  "model": "opus",
+  "effort": "medium",
+  "elapsed_s": 37.94,
+  "validation_warnings": [],
+  "raw_claude_stdout": "{\"type\":\"result\",\"subtype\":\"success\",\"is_error\":false,\"api_error_status\":null,\"duration_ms\":36891,\"duration_api_ms\":35497,\"num_turns\":3,\"result\":\"I've created the dataset row. The problem is reformulated as a self-contained mathematical question about constructing a balance functional on signed weighted networks with agent importance that simultaneously addresses triad overlap, edge weights, and heterogeneous agent impact.\\n\\nSources:\\n- [Enhancing structural balance theory and measurement](https://www.frontiersin.org/journals/human-dynamics/articles/10.3389/fhumd.2022.1028393/full)\\n- [Structural balance in signed digraphs (arXiv:2006.02565)](https://arxiv.org/abs/2006.02565)\\n- [Multilevel structural evaluation of signed directed social networks](https://www.nature.com/articles/s41598-020-71838-6)\\n- [Structural Balance in Real-World Social Networks (arXiv:2405.02798)](https://arxiv.org/html/2405.02798v1)\\n- [Structural Balance under Weight Evolution of Dynamic Signed Network](https://mdpi.com/2227-7390/10/9/1441/html)\",\"stop_reason\":\"end_turn\",\"session_id\":\"bb1b50ca-c511-4afd-85bd-3dcfeec76050\",\"total_cost_usd\":0.1259985,\"usage\":{\"input_tokens\":8,\"cache_creation_input_tokens\":4960,\"cache_read_input_tokens\":12861,\"output_tokens\":2280,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":4960,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[{\"input_tokens\":1,\"output_tokens\":350,\"cache_read_input_tokens\":5814,\"cache_creation_input_tokens\":1831,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":1831},\"type\":\"message\"}],\"speed\":\"standard\"},\"modelUsage\":{\"claude-haiku-4-5-20251001\":{\"inputTokens\":19013,\"outputTokens\":503,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":1,\"costUSD\":0.03152800000000001,\"contextWindow\":200000,\"maxOutputTokens\":32000},\"claude-opus-4-7\":{\"inputTokens\":8,\"outputTokens\":2280,\"cacheReadInputTokens\":12861,\"cacheCreationInputTokens\":4960,\"webSearchRequests\":0,\"costUSD\":0.0944705,\"contextWindow\":1000000,\"maxOutputTokens\":64000}},\"permission_denials\":[],\"structured_output\":{\"self_contained_problem\":\"Let $G=(V,E,\\\\omega,\\\\sigma)$ be a signed weighted social network on a finite set of agents $V$, where each ordered or unordered pair $(i,j)\\\\in E$ carries a signed weight $\\\\omega_{ij}\\\\in\\\\mathbb{R}$ (with $\\\\sigma_{ij}=\\\\operatorname{sgn}(\\\\omega_{ij})\\\\in\\\\{-1,+1\\\\}$ encoding friendly/antagonistic ties), and each agent $i\\\\in V$ has an importance (or social-impact) value $r_i\\\\ge 0$. For a triad $\\\\{i,j,k\\\\}\\\\subseteq V$ with all three edges present, the classical structural-balance indicator is $b_{ijk}=\\\\sigma_{ij}\\\\sigma_{jk}\\\\sigma_{ik}\\\\in\\\\{-1,+1\\\\}$, declaring the triad balanced iff $b_{ijk}=+1$, and the classical balance measure of $G$ is the fraction of balanced triads\\n$$B(G)=\\\\frac{\\\\#\\\\{\\\\{i,j,k\\\\}: b_{ijk}=+1\\\\}}{\\\\#\\\\{\\\\{i,j,k\\\\}\\\\subseteq V\\\\text{ triadically closed}\\\\}}.$$\\nThis measure has three structural shortcomings when used as a proxy for the robustness of the organization:\\n(i) triads are scored independently, although each agent typically participates in many overlapping triads simultaneously;\\n(ii) the magnitudes $\\\\omega_{ij}$ of the signed relations are ignored;\\n(iii) the importance/impact $r_i$ of the agents forming a triad is ignored.\\n\\nProblem. Construct a balance functional $T:\\\\mathcal{G}\\\\to\\\\mathbb{R}$ on signed weighted networks with agent importances such that:\\n(a) at the triad level there is a real-valued triad score $T_{ijk}$ that depends jointly on the signs $\\\\sigma_{\\\\cdot\\\\cdot}$, the weights $\\\\omega_{\\\\cdot\\\\cdot}$, and the agent importances $r_i,r_j,r_k$, and reduces to $b_{ijk}$ in the unweighted, equal-importance limit;\\n(b) the aggregation of $\\\\{T_{ijk}\\\\}$ into $T(G)$ accounts for the overlap of triads (the same agent or edge belonging to many triads) rather than treating triads as independent samples;\\n(c) $T(G)$ is consistent with classical balance on the appropriate degenerate limit and yields a meaningful quantification of the robustness of the organization.\\n\\nSpecify such a $T_{ijk}$ and aggregation rule, and prove that the resulting measure simultaneously remedies the three shortcomings above while preserving the qualitative content of structural balance.\",\"macro_subject\":\"Applied Mathematics\",\"category_tag\":\"Signed networks and structural balance\",\"open_status\":\"open\",\"status_search_result\":\"Recent works (e.g., enhancements of structural balance theory in Frontiers in Human Dynamics 2022, multilevel evaluation in Scientific Reports 2020, transitivity-based measures on arXiv:2006.02565 and arXiv:2405.02798, and weight-evolution models in MDPI 2022) propose various weighted, directed, and multilevel balance measures, but none establishes a single canonical correction that jointly handles overlapping triads, weighted ties, and heterogeneous agent importance. The problem of properly correcting classical balance under these three shortcomings remains an active open discussion.\",\"status_evidence\":[{\"title\":\"Enhancing structural balance theory and measurement\",\"url\":\"https://www.frontiersin.org/journals/human-dynamics/articles/10.3389/fhumd.2022.1028393/full\",\"snippet\":\"Develops enhanced balance measures for signed digraphs but does not unify weights and agent importance with overlap.\",\"claim\":\"Active research on improved balance measures, indicating no settled canonical answer.\"},{\"title\":\"Structural balance in signed digraphs (arXiv:2006.02565)\",\"url\":\"https://arxiv.org/abs/2006.02565\",\"snippet\":\"Proposes transitivity-based balance measures for different link signing methods.\",\"claim\":\"Continued proposals of new balance measures show problem remains under discussion.\"},{\"title\":\"Multilevel structural evaluation of signed directed social networks\",\"url\":\"https://www.nature.com/articles/s41598-020-71838-6\",\"snippet\":\"Introduces multilevel balance measures across triads, subgroups, and full network.\",\"claim\":\"Multiple competing frameworks exist; no consensus correction.\"},{\"title\":\"Structural Balance in Real-World Social Networks (arXiv:2405.02798)\",\"url\":\"https://arxiv.org/html/2405.02798v1\",\"snippet\":\"Incorporates direction and transitivity in measuring partial balance.\",\"claim\":\"Recent 2024 work still proposing refinements, suggesting the question is open.\"}],\"confidence\":0.7},\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"uuid\":\"d7829d23-582d-4714-8cc6-76b75261fdc0\"}\n"
+}

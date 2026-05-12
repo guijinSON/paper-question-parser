@@ -1,0 +1,57 @@
+{
+  "record": {
+    "global_index": 5869,
+    "source_json": "outputs/parse-paper/2303.00950.json",
+    "paper_id": "2303.00950",
+    "paper_title": "",
+    "paper_link": "https://arxiv.org/abs/2303.00950",
+    "question_link": "https://arxiv.org/pdf/2303.00950.pdf#page=3",
+    "question_id": "q_002",
+    "parser_is_solved": "false",
+    "context_brief": "uniform-sampling benchmark",
+    "original_question": "In the same fixed-budget best arm identification setting, does there exist an algorithm, other than uniform sampling itself, that performs uniformly no worse than uniform sampling for every bandit instance mu in S? The comparison is the asymptotic fixed-budget error exponent discussed in the paper, namely whether the algorithm can achieve a lower or equal value of lim sup_{n->infinity} n / log(1/p_{mu,n}) than the uniform-sampling benchmark for every instance.",
+    "evidence": [
+      {
+        "page": 3,
+        "quote": "One potential algorithm class contains all the algorithms that perform uniformly no worse than uniform sampling, i.e., for any algorithm in this class, it achieves a lower or the same value of lim sup_{n->infinity} n / log(1/p_{mu,n}) for any bandit instance mu in S. This leads to the following open problem."
+      },
+      {
+        "page": 3,
+        "quote": "Open problem 2. This open problem is whether there is an algorithm other than uniform sampling itself that performs uniformly no worse than uniform sampling in the fixed-budget setting."
+      }
+    ]
+  },
+  "artifact": {
+    "self_contained_problem": "Let S be a class of multi-armed bandit instances with K≥2 arms, where each instance μ=(μ_1,…,μ_K)∈S specifies the reward distribution of every arm and has a unique best arm a*(μ)=argmax_i μ_i. In the fixed-budget best-arm identification setting, an algorithm interacts with an instance μ for n rounds: at each round t=1,…,n it selects an arm A_t (possibly depending on past observations and internal randomness), observes a reward drawn from the corresponding distribution, and after round n outputs a guess â_n of the best arm. Let p_{μ,n} := P_μ(â_n ≠ a*(μ)) denote the probability of misidentification. Define the asymptotic error exponent of an algorithm on instance μ as\n\n   E(μ) := limsup_{n→∞}  n / log(1/p_{μ,n}).\n\nA smaller value of E(μ) corresponds to faster (better) asymptotic decay of the error probability. The \"uniform sampling\" algorithm draws each arm equally often (in round-robin or i.i.d. uniform fashion) and outputs the empirical best arm at time n; let E^{unif}(μ) be its error exponent on μ.\n\nQuestion: Does there exist an algorithm π, different from uniform sampling, such that\n\n   E^π(μ) ≤ E^{unif}(μ)   for every instance μ ∈ S,\n\ni.e., an algorithm that performs uniformly no worse than the uniform-sampling benchmark on every bandit instance in the class S?",
+    "macro_subject": "Statistics and Machine Learning",
+    "category_tag": "Fixed-budget best-arm identification",
+    "open_status": "partially_solved",
+    "status_search_result": "Subsequent work has addressed the problem in restricted settings. Degenne (COLT 2023, \"On the existence of a complexity in fixed budget bandit identification\") shows that for several classes (including two-armed Bernoulli bandits / A/B testing) no adaptive algorithm can strictly outperform uniform sampling on all instances, and more generally that any putative instance-uniform complexity must be attained by a static (non-adaptive) procedure. The strict version (no algorithm strictly beats uniform on every instance) is thus resolved negatively in some structured settings, but the general question of whether some non-uniform algorithm attains error exponent ≤ uniform on every instance of a general class S remains open in full generality.",
+    "status_evidence": [
+      {
+        "title": "On the existence of a complexity in fixed budget bandit identification (Degenne, COLT 2023)",
+        "url": "https://arxiv.org/abs/2303.09468",
+        "snippet": "Shows that if a fixed-budget identification task admits an instance-uniform complexity, then that complexity is attained by the best non-adaptive sampling procedure; in particular, for two-armed Bernoulli bandits no algorithm strictly outperforms uniform sampling on all instances.",
+        "claim": "Partial resolution: in several settings (e.g., two-armed Bernoulli), no algorithm strictly beats uniform sampling on every instance."
+      },
+      {
+        "title": "Best Arm Identification with Fixed Budget: A Large Deviation Perspective",
+        "url": "https://arxiv.org/abs/2312.12137",
+        "snippet": "Discusses that adaptive algorithms cannot compete with the static uniform sampling algorithm on all instances and references Degenne (2023).",
+        "claim": "Literature acknowledges partial negative results regarding outperforming uniform sampling uniformly."
+      },
+      {
+        "title": "On Universally Optimal Algorithms for A/B Testing",
+        "url": "https://arxiv.org/html/2308.12000v4",
+        "snippet": "States that for two-armed bandits no algorithm strictly outperforms uniform sampling.",
+        "claim": "Two-armed case is settled; general class remains open."
+      }
+    ],
+    "confidence": 0.7
+  },
+  "model": "opus",
+  "effort": "medium",
+  "elapsed_s": 302.9,
+  "validation_warnings": [],
+  "raw_claude_stdout": "{\"type\":\"result\",\"subtype\":\"success\",\"is_error\":false,\"api_error_status\":null,\"duration_ms\":301534,\"duration_api_ms\":298408,\"num_turns\":4,\"result\":\"Sources:\\n- [On the existence of a complexity in fixed budget bandit identification (Degenne)](https://arxiv.org/abs/2303.09468)\\n- [Best Arm Identification with Fixed Budget: A Large Deviation Perspective](https://arxiv.org/abs/2312.12137)\\n- [On Universally Optimal Algorithms for A/B Testing](https://arxiv.org/html/2308.12000v4)\\n- [Optimal Best Arm Identification with Fixed Budget (Qin, open problem)](https://proceedings.mlr.press/v178/open-problem-qin22a/open-problem-qin22a.pdf)\",\"stop_reason\":\"end_turn\",\"session_id\":\"1cc56681-e530-4652-829e-13be9c033737\",\"total_cost_usd\":0.1645575,\"usage\":{\"input_tokens\":9,\"cache_creation_input_tokens\":5944,\"cache_read_input_tokens\":19807,\"output_tokens\":2041,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":5944,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[{\"input_tokens\":1,\"output_tokens\":222,\"cache_read_input_tokens\":7013,\"cache_creation_input_tokens\":1616,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":1616},\"type\":\"message\"}],\"speed\":\"standard\"},\"modelUsage\":{\"claude-haiku-4-5-20251001\":{\"inputTokens\":42224,\"outputTokens\":842,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":2,\"costUSD\":0.06643399999999999,\"contextWindow\":200000,\"maxOutputTokens\":32000},\"claude-opus-4-7\":{\"inputTokens\":9,\"outputTokens\":2041,\"cacheReadInputTokens\":19807,\"cacheCreationInputTokens\":5944,\"webSearchRequests\":0,\"costUSD\":0.09812349999999999,\"contextWindow\":1000000,\"maxOutputTokens\":64000}},\"permission_denials\":[],\"structured_output\":{\"self_contained_problem\":\"Let S be a class of multi-armed bandit instances with K≥2 arms, where each instance μ=(μ_1,…,μ_K)∈S specifies the reward distribution of every arm and has a unique best arm a*(μ)=argmax_i μ_i. In the fixed-budget best-arm identification setting, an algorithm interacts with an instance μ for n rounds: at each round t=1,…,n it selects an arm A_t (possibly depending on past observations and internal randomness), observes a reward drawn from the corresponding distribution, and after round n outputs a guess â_n of the best arm. Let p_{μ,n} := P_μ(â_n ≠ a*(μ)) denote the probability of misidentification. Define the asymptotic error exponent of an algorithm on instance μ as\\n\\n   E(μ) := limsup_{n→∞}  n / log(1/p_{μ,n}).\\n\\nA smaller value of E(μ) corresponds to faster (better) asymptotic decay of the error probability. The \\\"uniform sampling\\\" algorithm draws each arm equally often (in round-robin or i.i.d. uniform fashion) and outputs the empirical best arm at time n; let E^{unif}(μ) be its error exponent on μ.\\n\\nQuestion: Does there exist an algorithm π, different from uniform sampling, such that\\n\\n   E^π(μ) ≤ E^{unif}(μ)   for every instance μ ∈ S,\\n\\ni.e., an algorithm that performs uniformly no worse than the uniform-sampling benchmark on every bandit instance in the class S?\",\"macro_subject\":\"Statistics and Machine Learning\",\"category_tag\":\"Fixed-budget best-arm identification\",\"open_status\":\"partially_solved\",\"status_search_result\":\"Subsequent work has addressed the problem in restricted settings. Degenne (COLT 2023, \\\"On the existence of a complexity in fixed budget bandit identification\\\") shows that for several classes (including two-armed Bernoulli bandits / A/B testing) no adaptive algorithm can strictly outperform uniform sampling on all instances, and more generally that any putative instance-uniform complexity must be attained by a static (non-adaptive) procedure. The strict version (no algorithm strictly beats uniform on every instance) is thus resolved negatively in some structured settings, but the general question of whether some non-uniform algorithm attains error exponent ≤ uniform on every instance of a general class S remains open in full generality.\",\"status_evidence\":[{\"title\":\"On the existence of a complexity in fixed budget bandit identification (Degenne, COLT 2023)\",\"url\":\"https://arxiv.org/abs/2303.09468\",\"snippet\":\"Shows that if a fixed-budget identification task admits an instance-uniform complexity, then that complexity is attained by the best non-adaptive sampling procedure; in particular, for two-armed Bernoulli bandits no algorithm strictly outperforms uniform sampling on all instances.\",\"claim\":\"Partial resolution: in several settings (e.g., two-armed Bernoulli), no algorithm strictly beats uniform sampling on every instance.\"},{\"title\":\"Best Arm Identification with Fixed Budget: A Large Deviation Perspective\",\"url\":\"https://arxiv.org/abs/2312.12137\",\"snippet\":\"Discusses that adaptive algorithms cannot compete with the static uniform sampling algorithm on all instances and references Degenne (2023).\",\"claim\":\"Literature acknowledges partial negative results regarding outperforming uniform sampling uniformly.\"},{\"title\":\"On Universally Optimal Algorithms for A/B Testing\",\"url\":\"https://arxiv.org/html/2308.12000v4\",\"snippet\":\"States that for two-armed bandits no algorithm strictly outperforms uniform sampling.\",\"claim\":\"Two-armed case is settled; general class remains open.\"}],\"confidence\":0.7},\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"uuid\":\"4a1413b1-e422-4b72-bf74-2af9f5acedd9\"}\n"
+}

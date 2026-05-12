@@ -1,0 +1,53 @@
+{
+  "record": {
+    "global_index": 5681,
+    "source_json": "outputs/parse-paper/2206.14431.json",
+    "paper_id": "2206.14431",
+    "paper_title": "",
+    "paper_link": "https://arxiv.org/abs/2206.14431",
+    "question_link": "https://arxiv.org/pdf/2206.14431.pdf#page=4",
+    "question_id": "q_005",
+    "parser_is_solved": "false",
+    "context_brief": "Monotone-target intermediate milestone",
+    "original_question": "Can one design a polynomial-time proper learner for size-s decision trees under the additional assumption that the unknown target function is monotone? Ideally, can such an algorithm avoid membership queries and use only random examples while still properly learning the monotone decision-tree target?",
+    "evidence": [
+      {
+        "page": 4,
+        "quote": "A promising and independently interesting intermediate step towards Open Problem 1 is to design a polynomial-time proper learner under the assumption that the target function is monotone; potentially even one that uses only random examples."
+      }
+    ]
+  },
+  "artifact": {
+    "self_contained_problem": "Consider Boolean functions $f:\\{0,1\\}^n\\to\\{0,1\\}$. A decision tree of size $s$ is a rooted binary tree with at most $s$ leaves in which each internal node is labeled by a variable $x_i$, each internal node has two outgoing edges labeled $0$ and $1$, and each leaf is labeled $0$ or $1$; such a tree computes a function in the natural way. A function $f$ is monotone if $x\\le y$ (coordinate-wise) implies $f(x)\\le f(y)$. Examples are drawn i.i.d. from the uniform distribution on $\\{0,1\\}^n$ and labeled by an unknown target $f$ that is both monotone and computable by a decision tree of size $s$.\n\nA learning algorithm is called proper if its output hypothesis is itself a decision tree of size at most $\\mathrm{poly}(s,n,1/\\varepsilon)$. The algorithm is said to PAC-learn the class with accuracy $\\varepsilon$ and confidence $\\delta$ if, with probability at least $1-\\delta$, the output hypothesis $h$ satisfies $\\Pr_{x}[h(x)\\ne f(x)]\\le\\varepsilon$.\n\nQuestion: Does there exist an algorithm running in time $\\mathrm{poly}(n,s,1/\\varepsilon,\\log(1/\\delta))$ that properly PAC-learns the class of monotone Boolean functions computable by size-$s$ decision trees under the uniform distribution? In particular, can such a proper learner be obtained using only random labeled examples, without access to membership queries?",
+    "macro_subject": "Theoretical Computer Science",
+    "category_tag": "Proper PAC learning of decision trees",
+    "open_status": "open",
+    "status_search_result": "The proper-learning version for decision trees (even without the monotone restriction) is a well-known open problem; the best known proper learner runs in quasipolynomial / almost-polynomial time and uses membership queries (Blanc–Lange–Qiao–Tan, JACM 2022). For monotone targets, O'Donnell–Servedio (2007) give a polynomial-time improper learner from random examples, but no polynomial-time proper learner is known. The monotone intermediate problem appears to remain open.",
+    "status_evidence": [
+      {
+        "title": "Open Problem: Properly learning decision trees in polynomial time?",
+        "url": "https://proceedings.mlr.press/v178/open-problem-blanc22a.html",
+        "snippet": "The natural open problem is obtaining a polynomial-time algorithm for properly learning decision trees under the uniform distribution.",
+        "claim": "Polynomial-time proper learning of decision trees is posed as an open problem."
+      },
+      {
+        "title": "Properly Learning Decision Trees in almost Polynomial Time (JACM)",
+        "url": "https://dl.acm.org/doi/full/10.1145/3561047",
+        "snippet": "An n^{O(log log n)} time membership query algorithm for properly learning decision trees under the uniform distribution.",
+        "claim": "The current best proper learner is almost-polynomial time and uses membership queries, not polynomial time from random examples."
+      },
+      {
+        "title": "Learning Monotone Decision Trees in Polynomial Time",
+        "url": "http://www.cs.columbia.edu/~rocco/Public/15-os.pdf",
+        "snippet": "An algorithm that learns any monotone Boolean function to any constant accuracy under the uniform distribution in time polynomial in n and in the decision tree size, using random examples only.",
+        "claim": "For monotone targets there is a polynomial-time improper learner from random examples, but it does not output a decision tree (not proper)."
+      }
+    ],
+    "confidence": 0.8
+  },
+  "model": "opus",
+  "effort": "medium",
+  "elapsed_s": 49.96,
+  "validation_warnings": [],
+  "raw_claude_stdout": "{\"type\":\"result\",\"subtype\":\"success\",\"is_error\":false,\"api_error_status\":null,\"duration_ms\":48938,\"duration_api_ms\":39537,\"num_turns\":4,\"result\":\"Structured output submitted.\\n\\nSources:\\n- [Open Problem: Properly learning decision trees in polynomial time?](https://proceedings.mlr.press/v178/open-problem-blanc22a.html)\\n- [Properly Learning Decision Trees in almost Polynomial Time](https://dl.acm.org/doi/full/10.1145/3561047)\\n- [Learning Monotone Decision Trees in Polynomial Time (O'Donnell–Servedio)](http://www.cs.columbia.edu/~rocco/Public/15-os.pdf)\",\"stop_reason\":\"end_turn\",\"session_id\":\"356d6040-8595-4cfa-82b6-3b5a6a0ad18f\",\"total_cost_usd\":0.1555275,\"usage\":{\"input_tokens\":9,\"cache_creation_input_tokens\":5648,\"cache_read_input_tokens\":19345,\"output_tokens\":1925,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":5648,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[{\"input_tokens\":1,\"output_tokens\":190,\"cache_read_input_tokens\":6917,\"cache_creation_input_tokens\":1416,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":1416},\"type\":\"message\"}],\"speed\":\"standard\"},\"modelUsage\":{\"claude-haiku-4-5-20251001\":{\"inputTokens\":38305,\"outputTokens\":816,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":2,\"costUSD\":0.062385,\"contextWindow\":200000,\"maxOutputTokens\":32000},\"claude-opus-4-7\":{\"inputTokens\":9,\"outputTokens\":1925,\"cacheReadInputTokens\":19345,\"cacheCreationInputTokens\":5648,\"webSearchRequests\":0,\"costUSD\":0.09314249999999999,\"contextWindow\":1000000,\"maxOutputTokens\":64000}},\"permission_denials\":[],\"structured_output\":{\"self_contained_problem\":\"Consider Boolean functions $f:\\\\{0,1\\\\}^n\\\\to\\\\{0,1\\\\}$. A decision tree of size $s$ is a rooted binary tree with at most $s$ leaves in which each internal node is labeled by a variable $x_i$, each internal node has two outgoing edges labeled $0$ and $1$, and each leaf is labeled $0$ or $1$; such a tree computes a function in the natural way. A function $f$ is monotone if $x\\\\le y$ (coordinate-wise) implies $f(x)\\\\le f(y)$. Examples are drawn i.i.d. from the uniform distribution on $\\\\{0,1\\\\}^n$ and labeled by an unknown target $f$ that is both monotone and computable by a decision tree of size $s$.\\n\\nA learning algorithm is called proper if its output hypothesis is itself a decision tree of size at most $\\\\mathrm{poly}(s,n,1/\\\\varepsilon)$. The algorithm is said to PAC-learn the class with accuracy $\\\\varepsilon$ and confidence $\\\\delta$ if, with probability at least $1-\\\\delta$, the output hypothesis $h$ satisfies $\\\\Pr_{x}[h(x)\\\\ne f(x)]\\\\le\\\\varepsilon$.\\n\\nQuestion: Does there exist an algorithm running in time $\\\\mathrm{poly}(n,s,1/\\\\varepsilon,\\\\log(1/\\\\delta))$ that properly PAC-learns the class of monotone Boolean functions computable by size-$s$ decision trees under the uniform distribution? In particular, can such a proper learner be obtained using only random labeled examples, without access to membership queries?\",\"macro_subject\":\"Theoretical Computer Science\",\"category_tag\":\"Proper PAC learning of decision trees\",\"open_status\":\"open\",\"status_search_result\":\"The proper-learning version for decision trees (even without the monotone restriction) is a well-known open problem; the best known proper learner runs in quasipolynomial / almost-polynomial time and uses membership queries (Blanc–Lange–Qiao–Tan, JACM 2022). For monotone targets, O'Donnell–Servedio (2007) give a polynomial-time improper learner from random examples, but no polynomial-time proper learner is known. The monotone intermediate problem appears to remain open.\",\"status_evidence\":[{\"title\":\"Open Problem: Properly learning decision trees in polynomial time?\",\"url\":\"https://proceedings.mlr.press/v178/open-problem-blanc22a.html\",\"snippet\":\"The natural open problem is obtaining a polynomial-time algorithm for properly learning decision trees under the uniform distribution.\",\"claim\":\"Polynomial-time proper learning of decision trees is posed as an open problem.\"},{\"title\":\"Properly Learning Decision Trees in almost Polynomial Time (JACM)\",\"url\":\"https://dl.acm.org/doi/full/10.1145/3561047\",\"snippet\":\"An n^{O(log log n)} time membership query algorithm for properly learning decision trees under the uniform distribution.\",\"claim\":\"The current best proper learner is almost-polynomial time and uses membership queries, not polynomial time from random examples.\"},{\"title\":\"Learning Monotone Decision Trees in Polynomial Time\",\"url\":\"http://www.cs.columbia.edu/~rocco/Public/15-os.pdf\",\"snippet\":\"An algorithm that learns any monotone Boolean function to any constant accuracy under the uniform distribution in time polynomial in n and in the decision tree size, using random examples only.\",\"claim\":\"For monotone targets there is a polynomial-time improper learner from random examples, but it does not output a decision tree (not proper).\"}],\"confidence\":0.8},\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"uuid\":\"ccf88298-4dab-467a-93f2-ead87be535e2\"}\n"
+}

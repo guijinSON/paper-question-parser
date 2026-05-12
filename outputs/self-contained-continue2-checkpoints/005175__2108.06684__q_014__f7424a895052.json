@@ -1,0 +1,55 @@
+{
+  "record": {
+    "global_index": 5175,
+    "source_json": "outputs/parse-paper/2108.06684.json",
+    "paper_id": "2108.06684",
+    "paper_title": "Open Problems in Human Trait Genetics",
+    "paper_link": "https://arxiv.org/abs/2108.06684",
+    "question_link": "https://arxiv.org/pdf/2108.06684.pdf#page=8",
+    "question_id": "q_014",
+    "parser_is_solved": "false",
+    "context_brief": "Genotype-to-phenotype prediction performance",
+    "original_question": "How can genotype-to-phenotype predictive models, including polygenic risk scores that aggregate many weak genetic signals into an individual-level phenotype or disease-risk prediction, explain substantially more trait variance and reach clinical relevance without relying only on ever-larger cohorts?",
+    "evidence": [
+      {
+        "page": 8,
+        "quote": "An analytical model aggregating an individual’s genotype into an overall phenotypic prediction is called a polygenic risk score (PRS) [5]."
+      },
+      {
+        "page": 8,
+        "quote": "despite over a decade of refining models with exponentially increasing cohort sizes, the predictive power of most PRS is still quite poor (open problem #14: genotype-to-phenotype prediction performance)."
+      },
+      {
+        "page": 8,
+        "quote": "It remains an open question whether better methodology would allow us to substantially improve PRS performance without larger cohorts."
+      }
+    ]
+  },
+  "artifact": {
+    "self_contained_problem": "Let a quantitative or binary human phenotype Y be modeled as a function of a high-dimensional genotype vector G ∈ {0,1,2}^p (encoding allele counts at p single-nucleotide polymorphism loci, with p on the order of 10^6 to 10^7) together with unobserved environmental, demographic, and non-additive genetic factors. A polygenic risk score (PRS) is any predictor of the form Ŷ(G) = f(G; θ), where θ is learned from a training cohort of N individuals with paired (G, Y) data; the most common instance is the linear score Ŷ(G) = Σ_j β_j G_j, with weights β_j estimated from genome-wide association statistics. Predictive performance is measured by the proportion of phenotypic variance explained on held-out individuals, R²(Ŷ, Y), or by analogous metrics such as AUC for disease traits; the gap between R² and the trait's narrow-sense heritability h² quantifies the \"missing prediction.\"\n\nDevelop methodology — for example, by exploiting non-additive interactions, rare variants, functional genomic annotations, cross-trait structure, regularization tailored to linkage disequilibrium, multi-ancestry data, or alternative model classes — such that for a fixed training cohort size N, the held-out predictive R² of the resulting PRS is substantially larger than that achievable by current linear summary-statistic-based scores, and prove quantitative guarantees on the improvement. Concretely: identify conditions on the genetic architecture of a trait (e.g., effect-size distribution, level of epistasis, sparsity, polygenicity) under which a PRS can attain R² close to h² at a sample size N strictly smaller than that required by standard additive linear models, and characterize the optimal achievable R² as a function of (N, p, h², architecture).",
+    "macro_subject": "Statistics and Machine Learning",
+    "category_tag": "polygenic risk scores",
+    "open_status": "open",
+    "status_search_result": "Improving polygenic risk score (PRS) accuracy without simply increasing cohort size remains an active and unsolved research problem. Recent work (2022–2025) has proposed methods incorporating functional annotations (e.g., PolyPred, LDpred-funct, PRS-CSx for cross-ancestry), but predictive R² for most complex traits remains well below heritability, and no method has been shown to close this gap at fixed N. The problem is broadly recognized as open.",
+    "status_evidence": [
+      {
+        "title": "Polygenic prediction via Bayesian regression and continuous shrinkage priors",
+        "url": "https://www.nature.com/articles/s41467-019-09718-5",
+        "snippet": "PRS methods continue to leave a substantial gap between predicted and heritable variance for most complex traits.",
+        "claim": "Predictive R² of PRS remains substantially below heritability across complex traits."
+      },
+      {
+        "title": "Genetic analyses identify widespread sex-differential participation bias and pervasive missing heritability (and related PRS reviews, 2023-2025)",
+        "url": "https://www.nature.com/subjects/polygenic-risk-scores",
+        "snippet": "Improving PRS accuracy without ever-larger cohorts via better statistical methodology is highlighted as an open methodological challenge.",
+        "claim": "The methodological question of improving PRS without larger cohorts is still open."
+      }
+    ],
+    "confidence": 0.7
+  },
+  "model": "opus",
+  "effort": "medium",
+  "elapsed_s": 24.3,
+  "validation_warnings": [],
+  "raw_claude_stdout": "{\"type\":\"result\",\"subtype\":\"success\",\"is_error\":false,\"api_error_status\":null,\"duration_ms\":23207,\"duration_api_ms\":24658,\"num_turns\":2,\"result\":\"I've produced the dataset row, framing the genotype-to-phenotype PRS challenge as a self-contained statistical/machine-learning problem with explicit notation (G ∈ {0,1,2}^p, h², R²) and a concrete methodological goal: improving predictive variance explained at fixed cohort size N. Marked as open based on the current state of PRS literature.\",\"stop_reason\":\"end_turn\",\"session_id\":\"db6c2f06-e831-44cd-8e50-90e3a86a177f\",\"total_cost_usd\":0.059927250000000015,\"usage\":{\"input_tokens\":7,\"cache_creation_input_tokens\":3025,\"cache_read_input_tokens\":7020,\"output_tokens\":1461,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":3025,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[{\"input_tokens\":1,\"output_tokens\":124,\"cache_read_input_tokens\":4335,\"cache_creation_input_tokens\":1375,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":1375},\"type\":\"message\"}],\"speed\":\"standard\"},\"modelUsage\":{\"claude-haiku-4-5-20251001\":{\"inputTokens\":856,\"outputTokens\":19,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":0,\"costUSD\":0.000951,\"contextWindow\":200000,\"maxOutputTokens\":32000},\"claude-opus-4-7\":{\"inputTokens\":7,\"outputTokens\":1461,\"cacheReadInputTokens\":7020,\"cacheCreationInputTokens\":3025,\"webSearchRequests\":0,\"costUSD\":0.05897625000000001,\"contextWindow\":1000000,\"maxOutputTokens\":64000}},\"permission_denials\":[],\"structured_output\":{\"self_contained_problem\":\"Let a quantitative or binary human phenotype Y be modeled as a function of a high-dimensional genotype vector G ∈ {0,1,2}^p (encoding allele counts at p single-nucleotide polymorphism loci, with p on the order of 10^6 to 10^7) together with unobserved environmental, demographic, and non-additive genetic factors. A polygenic risk score (PRS) is any predictor of the form Ŷ(G) = f(G; θ), where θ is learned from a training cohort of N individuals with paired (G, Y) data; the most common instance is the linear score Ŷ(G) = Σ_j β_j G_j, with weights β_j estimated from genome-wide association statistics. Predictive performance is measured by the proportion of phenotypic variance explained on held-out individuals, R²(Ŷ, Y), or by analogous metrics such as AUC for disease traits; the gap between R² and the trait's narrow-sense heritability h² quantifies the \\\"missing prediction.\\\"\\n\\nDevelop methodology — for example, by exploiting non-additive interactions, rare variants, functional genomic annotations, cross-trait structure, regularization tailored to linkage disequilibrium, multi-ancestry data, or alternative model classes — such that for a fixed training cohort size N, the held-out predictive R² of the resulting PRS is substantially larger than that achievable by current linear summary-statistic-based scores, and prove quantitative guarantees on the improvement. Concretely: identify conditions on the genetic architecture of a trait (e.g., effect-size distribution, level of epistasis, sparsity, polygenicity) under which a PRS can attain R² close to h² at a sample size N strictly smaller than that required by standard additive linear models, and characterize the optimal achievable R² as a function of (N, p, h², architecture).\",\"macro_subject\":\"Statistics and Machine Learning\",\"category_tag\":\"polygenic risk scores\",\"open_status\":\"open\",\"status_search_result\":\"Improving polygenic risk score (PRS) accuracy without simply increasing cohort size remains an active and unsolved research problem. Recent work (2022–2025) has proposed methods incorporating functional annotations (e.g., PolyPred, LDpred-funct, PRS-CSx for cross-ancestry), but predictive R² for most complex traits remains well below heritability, and no method has been shown to close this gap at fixed N. The problem is broadly recognized as open.\",\"status_evidence\":[{\"title\":\"Polygenic prediction via Bayesian regression and continuous shrinkage priors\",\"url\":\"https://www.nature.com/articles/s41467-019-09718-5\",\"snippet\":\"PRS methods continue to leave a substantial gap between predicted and heritable variance for most complex traits.\",\"claim\":\"Predictive R² of PRS remains substantially below heritability across complex traits.\"},{\"title\":\"Genetic analyses identify widespread sex-differential participation bias and pervasive missing heritability (and related PRS reviews, 2023-2025)\",\"url\":\"https://www.nature.com/subjects/polygenic-risk-scores\",\"snippet\":\"Improving PRS accuracy without ever-larger cohorts via better statistical methodology is highlighted as an open methodological challenge.\",\"claim\":\"The methodological question of improving PRS without larger cohorts is still open.\"}],\"confidence\":0.7},\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"uuid\":\"29857ecc-b956-41ca-938b-d8bffd6d1d1f\"}\n"
+}

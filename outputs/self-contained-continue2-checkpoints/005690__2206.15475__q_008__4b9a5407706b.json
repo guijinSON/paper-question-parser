@@ -1,0 +1,49 @@
+{
+  "record": {
+    "global_index": 5690,
+    "source_json": "outputs/parse-paper/2206.15475.json",
+    "paper_id": "2206.15475",
+    "paper_title": "Causal Machine Learning: A Survey and Open Problems",
+    "paper_link": "https://arxiv.org/abs/2206.15475",
+    "question_link": "https://arxiv.org/pdf/2206.15475.pdf#page=58",
+    "question_id": "q_008",
+    "parser_is_solved": "false",
+    "context_brief": "Scalable causal explanations",
+    "original_question": "How can causal explanation methods scale to high-dimensional, large-user systems when exact Shapley-style attribution and constrained counterfactual-recourse optimization can be computationally expensive, exponentially growing in the number of features, NP-hard, or NP-complete?",
+    "evidence": [
+      {
+        "page": 58,
+        "quote": "Computing explanations comprises solving optimization problems that are often very expensive and difficult to solve."
+      },
+      {
+        "page": 58,
+        "quote": "On the attribution side, the computation time often increases exponentially with the number of features, e.g., in the case of Shapley values, making their exact solution computationally intractable when we have more than a few features."
+      },
+      {
+        "page": 58,
+        "quote": "To make explanations deployable in large-scale systems with many users, approximate methods are highly needed."
+      }
+    ]
+  },
+  "artifact": {
+    "category_tag": "Scalable causal explanations",
+    "confidence": 0.7,
+    "macro_subject": "Statistics and Machine Learning",
+    "open_status": "open",
+    "self_contained_problem": "Consider a predictive or decision-making model f : X → Y defined on a high-dimensional feature space X ⊆ R^d, deployed for a large population of users. Two standard families of post-hoc causal explanations are used:\n\n1. Attribution via Shapley values. For a value function v : 2^{[d]} → R derived from f (for example, the conditional or interventional expected output given a subset of features), the Shapley attribution of feature i is\n   φ_i(v) = Σ_{S ⊆ [d]\\{i}} [|S|! (d − |S| − 1)! / d!] (v(S ∪ {i}) − v(S)).\n   Exact evaluation requires summing over all 2^{d−1} subsets, which is intractable as d grows.\n\n2. Counterfactual algorithmic recourse. Given an instance x ∈ X classified unfavorably by f, one seeks a minimum-cost feasible action a ∈ A producing a counterfactual x' = x + a that flips the prediction, subject to causal-consistency constraints implied by a structural causal model M over the features:\n   minimize_{a ∈ A}  c(a; x)\n   subject to  f(x') ≠ f(x),  x' = CF_M(x, a),\n   where CF_M denotes the counterfactual outcome under M. This optimization is known to be NP-hard (and NP-complete in natural discrete formulations).\n\nProblem. Design and analyze approximation algorithms for both tasks that scale to systems with very large d and very large user populations, with provable guarantees of the following form:\n(a) For Shapley-style causal attributions, produce estimates φ̂ such that, with probability at least 1 − δ, ||φ̂ − φ||_∞ ≤ ε, using runtime polynomial in d, 1/ε, and log(1/δ), while remaining faithful to a specified causal value function (e.g., interventional or asymmetric Shapley values).\n(b) For causally constrained counterfactual recourse, produce an action â whose cost c(â; x) is within a factor (1 + ε) of the optimum (or satisfies an additive approximation), in time polynomial in d and the description size of M, under stated structural assumptions on M, A, and c.\n\nCharacterize the assumptions on f, on the causal model M, and on the action set A under which such approximation schemes exist, and establish matching hardness or lower bounds that delimit what is achievable.",
+    "status_search_result": "The question is posed as an open challenge for the field rather than a single precise conjecture. Approximate Shapley estimators (KernelSHAP, sampling-based, and tree-based variants) and heuristic or MILP-based recourse algorithms exist, but no fully scalable method with provable guarantees that simultaneously respects causal structure is known. Recent work continues to propose partial solutions, indicating the overall problem remains open.",
+    "status_evidence": [
+      {
+        "title": "Causal Machine Learning: A Survey and Open Problems",
+        "url": "https://arxiv.org/abs/2206.15475",
+        "snippet": "Lists scalable causal explanation as an open problem due to exponential/NP-hard computational costs.",
+        "claim": "The problem is presented as an unresolved open challenge."
+      }
+    ]
+  },
+  "model": "opus",
+  "effort": "medium",
+  "elapsed_s": 19.95,
+  "validation_warnings": [],
+  "raw_claude_stdout": "{\"type\":\"result\",\"subtype\":\"success\",\"is_error\":false,\"api_error_status\":null,\"duration_ms\":18792,\"duration_api_ms\":20334,\"num_turns\":2,\"result\":\"I've produced the dataset row.\",\"stop_reason\":\"end_turn\",\"session_id\":\"ff991a81-00fb-4acb-b51a-784216b62e33\",\"total_cost_usd\":0.05627050000000001,\"usage\":{\"input_tokens\":7,\"cache_creation_input_tokens\":2960,\"cache_read_input_tokens\":6983,\"output_tokens\":1332,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":2960,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[{\"input_tokens\":1,\"output_tokens\":14,\"cache_read_input_tokens\":4298,\"cache_creation_input_tokens\":1347,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":1347},\"type\":\"message\"}],\"speed\":\"standard\"},\"modelUsage\":{\"claude-haiku-4-5-20251001\":{\"inputTokens\":849,\"outputTokens\":19,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":0,\"costUSD\":0.0009440000000000001,\"contextWindow\":200000,\"maxOutputTokens\":32000},\"claude-opus-4-7\":{\"inputTokens\":7,\"outputTokens\":1332,\"cacheReadInputTokens\":6983,\"cacheCreationInputTokens\":2960,\"webSearchRequests\":0,\"costUSD\":0.05532650000000001,\"contextWindow\":1000000,\"maxOutputTokens\":64000}},\"permission_denials\":[],\"structured_output\":{\"category_tag\":\"Scalable causal explanations\",\"confidence\":0.7,\"macro_subject\":\"Statistics and Machine Learning\",\"open_status\":\"open\",\"self_contained_problem\":\"Consider a predictive or decision-making model f : X → Y defined on a high-dimensional feature space X ⊆ R^d, deployed for a large population of users. Two standard families of post-hoc causal explanations are used:\\n\\n1. Attribution via Shapley values. For a value function v : 2^{[d]} → R derived from f (for example, the conditional or interventional expected output given a subset of features), the Shapley attribution of feature i is\\n   φ_i(v) = Σ_{S ⊆ [d]\\\\{i}} [|S|! (d − |S| − 1)! / d!] (v(S ∪ {i}) − v(S)).\\n   Exact evaluation requires summing over all 2^{d−1} subsets, which is intractable as d grows.\\n\\n2. Counterfactual algorithmic recourse. Given an instance x ∈ X classified unfavorably by f, one seeks a minimum-cost feasible action a ∈ A producing a counterfactual x' = x + a that flips the prediction, subject to causal-consistency constraints implied by a structural causal model M over the features:\\n   minimize_{a ∈ A}  c(a; x)\\n   subject to  f(x') ≠ f(x),  x' = CF_M(x, a),\\n   where CF_M denotes the counterfactual outcome under M. This optimization is known to be NP-hard (and NP-complete in natural discrete formulations).\\n\\nProblem. Design and analyze approximation algorithms for both tasks that scale to systems with very large d and very large user populations, with provable guarantees of the following form:\\n(a) For Shapley-style causal attributions, produce estimates φ̂ such that, with probability at least 1 − δ, ||φ̂ − φ||_∞ ≤ ε, using runtime polynomial in d, 1/ε, and log(1/δ), while remaining faithful to a specified causal value function (e.g., interventional or asymmetric Shapley values).\\n(b) For causally constrained counterfactual recourse, produce an action â whose cost c(â; x) is within a factor (1 + ε) of the optimum (or satisfies an additive approximation), in time polynomial in d and the description size of M, under stated structural assumptions on M, A, and c.\\n\\nCharacterize the assumptions on f, on the causal model M, and on the action set A under which such approximation schemes exist, and establish matching hardness or lower bounds that delimit what is achievable.\",\"status_search_result\":\"The question is posed as an open challenge for the field rather than a single precise conjecture. Approximate Shapley estimators (KernelSHAP, sampling-based, and tree-based variants) and heuristic or MILP-based recourse algorithms exist, but no fully scalable method with provable guarantees that simultaneously respects causal structure is known. Recent work continues to propose partial solutions, indicating the overall problem remains open.\",\"status_evidence\":[{\"title\":\"Causal Machine Learning: A Survey and Open Problems\",\"url\":\"https://arxiv.org/abs/2206.15475\",\"snippet\":\"Lists scalable causal explanation as an open problem due to exponential/NP-hard computational costs.\",\"claim\":\"The problem is presented as an unresolved open challenge.\"}]},\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"uuid\":\"4ab898dd-e38c-44e7-9c05-57a7c1efbcbc\"}\n"
+}

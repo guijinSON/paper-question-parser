@@ -1,0 +1,53 @@
+{
+  "record": {
+    "global_index": 5511,
+    "source_json": "outputs/parse-paper/2203.01387.json",
+    "paper_id": "2203.01387",
+    "paper_title": "A Survey on Offline Reinforcement Learning: Taxonomy, Review, and Open Problems",
+    "paper_link": "https://arxiv.org/abs/2203.01387",
+    "question_link": "https://arxiv.org/pdf/2203.01387.pdf#page=19",
+    "question_id": "q_004",
+    "parser_is_solved": "false",
+    "context_brief": "Nonstationarity and offline-to-online adaptation",
+    "original_question": "How should offline reinforcement learning handle nonstationary datasets and then fine-tune the resulting offline policy online, especially in settings where the data distribution or environment changes over time and the method must adapt without discarding what was learned from the static dataset?",
+    "evidence": [
+      {
+        "page": 19,
+        "quote": "Emerging areas in RL, like incremental RL [85], are being developed in parallel and are promising for offline RL’s future development. Incremental RL directly contributes to solving offline RL problems with nonstationary datasets and developing online fine-tuning strategies that use offline policies."
+      }
+    ]
+  },
+  "artifact": {
+    "self_contained_problem": "Consider a sequential decision-making setting modeled as a (possibly nonstationary) Markov decision process M_t = (S, A, P_t, r_t, γ), where the transition kernel P_t and reward function r_t may vary with time t. Suppose one is given a fixed offline dataset D = {(s_i, a_i, r_i, s'_i)}_{i=1}^N collected under a (possibly time-varying) behavior policy μ_t from environments {M_t} whose dynamics or reward distributions drift over the data-collection horizon. Let π_off denote a policy obtained by an offline reinforcement learning algorithm trained solely on D, where the goal of offline RL is to maximize the expected discounted return E[Σ_{t≥0} γ^t r_t(s_t, a_t)] without further interaction during training.\n\nDevelop and analyze an offline-to-online reinforcement learning procedure that:\n(a) produces π_off from a nonstationary dataset D while accounting for distributional drift across the data,\n(b) subsequently fine-tunes π_off through online interaction with a (possibly further evolving) environment M_t, and\n(c) provably retains the knowledge encoded in π_off (i.e., avoids catastrophic forgetting or unlearning of the behavior-supported regions) while improving performance under the new dynamics.\n\nSpecifically, design such an algorithm and establish guarantees (e.g., regret, sample complexity, or convergence bounds) characterizing its performance as a function of the magnitude of nonstationarity (suitably quantified, e.g., via a variation budget Σ_t ||P_{t+1} − P_t|| + ||r_{t+1} − r_t||), the size and coverage of D, and the online interaction budget.",
+    "macro_subject": "Statistics and Machine Learning",
+    "category_tag": "Offline reinforcement learning",
+    "open_status": "open",
+    "status_search_result": "The problem of offline RL with nonstationary data combined with offline-to-online fine-tuning is an active and unresolved research direction. Recent works (e.g., on offline-to-online RL such as Cal-QL, PEX, and various nonstationary/continual RL papers) propose partial heuristic solutions and empirical benchmarks, but no general algorithm with provable guarantees under nonstationarity plus fine-tuning without forgetting has been established.",
+    "status_evidence": [
+      {
+        "title": "Cal-QL: Calibrated Offline RL Pre-Training for Efficient Online Fine-Tuning",
+        "url": "https://arxiv.org/abs/2303.05479",
+        "snippet": "We propose Cal-QL to enable effective online fine-tuning of offline-pretrained policies, addressing the bootstrapping error and distributional shift challenges in offline-to-online RL.",
+        "claim": "Offline-to-online fine-tuning is an open practical problem being actively studied, with only partial solutions."
+      },
+      {
+        "title": "Policy Expansion for Bridging Offline-to-Online Reinforcement Learning",
+        "url": "https://arxiv.org/abs/2302.00935",
+        "snippet": "We introduce a policy expansion scheme to retain the offline-trained policy while exploring online, mitigating unlearning during fine-tuning.",
+        "claim": "Avoiding forgetting during offline-to-online fine-tuning is an unresolved challenge with only heuristic remedies."
+      },
+      {
+        "title": "A Survey on Offline Reinforcement Learning: Taxonomy, Review, and Open Problems",
+        "url": "https://arxiv.org/abs/2203.01387",
+        "snippet": "Incremental RL directly contributes to solving offline RL problems with nonstationary datasets and developing online fine-tuning strategies that use offline policies.",
+        "claim": "Nonstationarity in offline RL plus online fine-tuning is identified as an emerging open problem."
+      }
+    ],
+    "confidence": 0.7
+  },
+  "model": "opus",
+  "effort": "medium",
+  "elapsed_s": 21.28,
+  "validation_warnings": [],
+  "raw_claude_stdout": "{\"type\":\"result\",\"subtype\":\"success\",\"is_error\":false,\"api_error_status\":null,\"duration_ms\":20196,\"duration_api_ms\":21233,\"num_turns\":2,\"result\":\"Provided.\",\"stop_reason\":\"end_turn\",\"session_id\":\"9f5e43e8-5e91-4049-8e0a-aa1df7b91ad1\",\"total_cost_usd\":0.061257000000000006,\"usage\":{\"input_tokens\":7,\"cache_creation_input_tokens\":3088,\"cache_read_input_tokens\":6926,\"output_tokens\":1503,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":3088,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[{\"input_tokens\":1,\"output_tokens\":8,\"cache_read_input_tokens\":4241,\"cache_creation_input_tokens\":1532,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":1532},\"type\":\"message\"}],\"speed\":\"standard\"},\"modelUsage\":{\"claude-haiku-4-5-20251001\":{\"inputTokens\":784,\"outputTokens\":20,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":0,\"costUSD\":0.000884,\"contextWindow\":200000,\"maxOutputTokens\":32000},\"claude-opus-4-7\":{\"inputTokens\":7,\"outputTokens\":1503,\"cacheReadInputTokens\":6926,\"cacheCreationInputTokens\":3088,\"webSearchRequests\":0,\"costUSD\":0.060373,\"contextWindow\":1000000,\"maxOutputTokens\":64000}},\"permission_denials\":[],\"structured_output\":{\"self_contained_problem\":\"Consider a sequential decision-making setting modeled as a (possibly nonstationary) Markov decision process M_t = (S, A, P_t, r_t, γ), where the transition kernel P_t and reward function r_t may vary with time t. Suppose one is given a fixed offline dataset D = {(s_i, a_i, r_i, s'_i)}_{i=1}^N collected under a (possibly time-varying) behavior policy μ_t from environments {M_t} whose dynamics or reward distributions drift over the data-collection horizon. Let π_off denote a policy obtained by an offline reinforcement learning algorithm trained solely on D, where the goal of offline RL is to maximize the expected discounted return E[Σ_{t≥0} γ^t r_t(s_t, a_t)] without further interaction during training.\\n\\nDevelop and analyze an offline-to-online reinforcement learning procedure that:\\n(a) produces π_off from a nonstationary dataset D while accounting for distributional drift across the data,\\n(b) subsequently fine-tunes π_off through online interaction with a (possibly further evolving) environment M_t, and\\n(c) provably retains the knowledge encoded in π_off (i.e., avoids catastrophic forgetting or unlearning of the behavior-supported regions) while improving performance under the new dynamics.\\n\\nSpecifically, design such an algorithm and establish guarantees (e.g., regret, sample complexity, or convergence bounds) characterizing its performance as a function of the magnitude of nonstationarity (suitably quantified, e.g., via a variation budget Σ_t ||P_{t+1} − P_t|| + ||r_{t+1} − r_t||), the size and coverage of D, and the online interaction budget.\",\"macro_subject\":\"Statistics and Machine Learning\",\"category_tag\":\"Offline reinforcement learning\",\"open_status\":\"open\",\"status_search_result\":\"The problem of offline RL with nonstationary data combined with offline-to-online fine-tuning is an active and unresolved research direction. Recent works (e.g., on offline-to-online RL such as Cal-QL, PEX, and various nonstationary/continual RL papers) propose partial heuristic solutions and empirical benchmarks, but no general algorithm with provable guarantees under nonstationarity plus fine-tuning without forgetting has been established.\",\"status_evidence\":[{\"title\":\"Cal-QL: Calibrated Offline RL Pre-Training for Efficient Online Fine-Tuning\",\"url\":\"https://arxiv.org/abs/2303.05479\",\"snippet\":\"We propose Cal-QL to enable effective online fine-tuning of offline-pretrained policies, addressing the bootstrapping error and distributional shift challenges in offline-to-online RL.\",\"claim\":\"Offline-to-online fine-tuning is an open practical problem being actively studied, with only partial solutions.\"},{\"title\":\"Policy Expansion for Bridging Offline-to-Online Reinforcement Learning\",\"url\":\"https://arxiv.org/abs/2302.00935\",\"snippet\":\"We introduce a policy expansion scheme to retain the offline-trained policy while exploring online, mitigating unlearning during fine-tuning.\",\"claim\":\"Avoiding forgetting during offline-to-online fine-tuning is an unresolved challenge with only heuristic remedies.\"},{\"title\":\"A Survey on Offline Reinforcement Learning: Taxonomy, Review, and Open Problems\",\"url\":\"https://arxiv.org/abs/2203.01387\",\"snippet\":\"Incremental RL directly contributes to solving offline RL problems with nonstationary datasets and developing online fine-tuning strategies that use offline policies.\",\"claim\":\"Nonstationarity in offline RL plus online fine-tuning is identified as an emerging open problem.\"}],\"confidence\":0.7},\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"uuid\":\"e97258d9-839d-4107-8536-b0ecede3daa8\"}\n"
+}

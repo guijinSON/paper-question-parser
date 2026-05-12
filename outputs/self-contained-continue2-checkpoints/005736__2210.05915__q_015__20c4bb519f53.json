@@ -1,0 +1,49 @@
+{
+  "record": {
+    "global_index": 5736,
+    "source_json": "outputs/parse-paper/2210.05915.json",
+    "paper_id": "2210.05915",
+    "paper_title": "",
+    "paper_link": "https://arxiv.org/abs/2210.05915",
+    "question_link": "https://arxiv.org/pdf/2210.05915.pdf#page=29",
+    "question_id": "q_015",
+    "parser_is_solved": "false",
+    "context_brief": "Higher graph powers list coloring and painting",
+    "original_question": "Fix integers k > 3 and Delta > 3. For all but finitely many connected graphs G of maximum degree Delta, is the list-chromatic number of the k-th power bounded by chi_l(G^k) <= sum_{i=1}^k Delta (Delta - 1)^(i-1) + 1 - k, and does the same bound also hold for the painting number chi_p(G^k)?",
+    "evidence": [
+      {
+        "page": 29,
+        "quote": "Bonamy and Bousquet [16] showed, for each k > 3 and graph G with maximum degree ∆, that χ_k_ℓ(G) 6 Dk,∆ − 1. And they conjectured something even stronger: For each integer k > 3, except for a finite number of graphs G, every connected graph G satisfies χ_k_ℓ(G) 6 Dk,∆ + 1 − k."
+      },
+      {
+        "page": 30,
+        "quote": "The reasoning above suggests that perhaps also χ_k_p(G) 6 Dk,∆ +1−k, but we are unaware of any progress in this direction."
+      },
+      {
+        "page": 33,
+        "quote": "Fix integers k > 3 and ∆ > 3. For all but finitely many connected graphs G with maximum degree ∆, we have χ_k_ℓ(G) 6 sum_{i=1}^k ∆(∆ − 1)i−1 + 1 − k. The same bound holds for χ_k_p(G). This would be a list coloring, or painting, analogue of Theorem 43. (In fact, both assertions were only posed as questions.)"
+      }
+    ]
+  },
+  "artifact": {
+    "self_contained_problem": "Let $G=(V,E)$ be a finite simple graph. For an integer $k\\ge 1$, the $k$-th power $G^k$ is the graph on vertex set $V$ in which two distinct vertices are adjacent iff their distance in $G$ is at most $k$. Let $\\Delta(G)$ denote the maximum degree of $G$.\n\nThe list-chromatic number $\\chi_\\ell(H)$ of a graph $H$ is the least integer $t$ such that, for every assignment of lists $L(v)$ with $|L(v)|=t$ to the vertices of $H$, there is a proper coloring $c$ with $c(v)\\in L(v)$ for all $v$.\n\nThe painting number (online list-chromatic number) $\\chi_p(H)$ is defined via the following two-player game on $H$ with parameter $t$. Each vertex $v$ starts with a token count $t$. In each round, Lister presents a non-empty set $S\\subseteq V(H)$; Painter chooses an independent subset $I\\subseteq S$ and colors the vertices of $I$ (the chosen color is the round number). After Painter's move, every vertex in $S\\setminus I$ loses one token. Painter loses if some vertex has $0$ tokens and is not yet colored; Painter wins if every vertex is eventually colored. Then $\\chi_p(H)$ is the least $t$ for which Painter has a winning strategy.\n\nFor integers $k,\\Delta\\ge 1$, define\n$$D_{k,\\Delta}=\\sum_{i=1}^{k}\\Delta(\\Delta-1)^{i-1}.$$\n\nQuestion. Fix integers $k\\ge 3$ and $\\Delta\\ge 3$. Is it true that for all but finitely many connected graphs $G$ with $\\Delta(G)\\le \\Delta$,\n$$\\chi_\\ell(G^k)\\le D_{k,\\Delta}+1-k,$$\nand does the same bound also hold with $\\chi_\\ell$ replaced by the painting number $\\chi_p$?",
+    "macro_subject": "Combinatorics",
+    "category_tag": "List coloring of graph powers",
+    "open_status": "open",
+    "status_search_result": "Bonamy and Bousquet established a Brooks-type bound $\\chi_\\ell(G^k)\\le D_{k,\\Delta}-1$ for $k\\ge 3$, $\\Delta\\ge 3$, even in the online list-coloring (painting) setting. The stronger conjecture that all but finitely many connected graphs of maximum degree $\\Delta$ satisfy $\\chi_\\ell(G^k)\\le D_{k,\\Delta}+1-k$ remains a conjecture by Bonamy and Bousquet; no resolution was found in the search. The analogous statement for the painting number appears to be even less studied. Status is therefore open.",
+    "status_evidence": [
+      {
+        "title": "Brooks' theorem on powers of graphs",
+        "url": "https://arxiv.org/abs/1310.5493",
+        "snippet": "Bonamy and Bousquet proved that for k≥3, the Brooks-type bound on the chromatic number of k-th powers of graphs of maximum degree Δ≥3 can be lowered by 1, even for online list coloring.",
+        "claim": "The known result $\\chi_\\ell(G^k)\\le D_{k,\\Delta}-1$ is established, but the stronger $+1-k$ bound is conjectural and unresolved."
+      }
+    ],
+    "confidence": 0.7
+  },
+  "model": "opus",
+  "effort": "medium",
+  "elapsed_s": 32.87,
+  "validation_warnings": [],
+  "raw_claude_stdout": "{\"type\":\"result\",\"subtype\":\"success\",\"is_error\":false,\"api_error_status\":null,\"duration_ms\":31728,\"duration_api_ms\":31088,\"num_turns\":3,\"result\":\"Sources:\\n- [Brooks' theorem on powers of graphs (arXiv:1310.5493)](https://arxiv.org/abs/1310.5493)\",\"stop_reason\":\"end_turn\",\"session_id\":\"6636506f-c491-49ae-acc6-bcd3abf1fc3c\",\"total_cost_usd\":0.10678325,\"usage\":{\"input_tokens\":8,\"cache_creation_input_tokens\":4477,\"cache_read_input_tokens\":13052,\"output_tokens\":1512,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":4477,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[{\"input_tokens\":1,\"output_tokens\":57,\"cache_read_input_tokens\":5820,\"cache_creation_input_tokens\":1342,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":1342},\"type\":\"message\"}],\"speed\":\"standard\"},\"modelUsage\":{\"claude-haiku-4-5-20251001\":{\"inputTokens\":22631,\"outputTokens\":361,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":1,\"costUSD\":0.034436,\"contextWindow\":200000,\"maxOutputTokens\":32000},\"claude-opus-4-7\":{\"inputTokens\":8,\"outputTokens\":1512,\"cacheReadInputTokens\":13052,\"cacheCreationInputTokens\":4477,\"webSearchRequests\":0,\"costUSD\":0.07234725,\"contextWindow\":1000000,\"maxOutputTokens\":64000}},\"permission_denials\":[],\"structured_output\":{\"self_contained_problem\":\"Let $G=(V,E)$ be a finite simple graph. For an integer $k\\\\ge 1$, the $k$-th power $G^k$ is the graph on vertex set $V$ in which two distinct vertices are adjacent iff their distance in $G$ is at most $k$. Let $\\\\Delta(G)$ denote the maximum degree of $G$.\\n\\nThe list-chromatic number $\\\\chi_\\\\ell(H)$ of a graph $H$ is the least integer $t$ such that, for every assignment of lists $L(v)$ with $|L(v)|=t$ to the vertices of $H$, there is a proper coloring $c$ with $c(v)\\\\in L(v)$ for all $v$.\\n\\nThe painting number (online list-chromatic number) $\\\\chi_p(H)$ is defined via the following two-player game on $H$ with parameter $t$. Each vertex $v$ starts with a token count $t$. In each round, Lister presents a non-empty set $S\\\\subseteq V(H)$; Painter chooses an independent subset $I\\\\subseteq S$ and colors the vertices of $I$ (the chosen color is the round number). After Painter's move, every vertex in $S\\\\setminus I$ loses one token. Painter loses if some vertex has $0$ tokens and is not yet colored; Painter wins if every vertex is eventually colored. Then $\\\\chi_p(H)$ is the least $t$ for which Painter has a winning strategy.\\n\\nFor integers $k,\\\\Delta\\\\ge 1$, define\\n$$D_{k,\\\\Delta}=\\\\sum_{i=1}^{k}\\\\Delta(\\\\Delta-1)^{i-1}.$$\\n\\nQuestion. Fix integers $k\\\\ge 3$ and $\\\\Delta\\\\ge 3$. Is it true that for all but finitely many connected graphs $G$ with $\\\\Delta(G)\\\\le \\\\Delta$,\\n$$\\\\chi_\\\\ell(G^k)\\\\le D_{k,\\\\Delta}+1-k,$$\\nand does the same bound also hold with $\\\\chi_\\\\ell$ replaced by the painting number $\\\\chi_p$?\",\"macro_subject\":\"Combinatorics\",\"category_tag\":\"List coloring of graph powers\",\"open_status\":\"open\",\"status_search_result\":\"Bonamy and Bousquet established a Brooks-type bound $\\\\chi_\\\\ell(G^k)\\\\le D_{k,\\\\Delta}-1$ for $k\\\\ge 3$, $\\\\Delta\\\\ge 3$, even in the online list-coloring (painting) setting. The stronger conjecture that all but finitely many connected graphs of maximum degree $\\\\Delta$ satisfy $\\\\chi_\\\\ell(G^k)\\\\le D_{k,\\\\Delta}+1-k$ remains a conjecture by Bonamy and Bousquet; no resolution was found in the search. The analogous statement for the painting number appears to be even less studied. Status is therefore open.\",\"status_evidence\":[{\"title\":\"Brooks' theorem on powers of graphs\",\"url\":\"https://arxiv.org/abs/1310.5493\",\"snippet\":\"Bonamy and Bousquet proved that for k≥3, the Brooks-type bound on the chromatic number of k-th powers of graphs of maximum degree Δ≥3 can be lowered by 1, even for online list coloring.\",\"claim\":\"The known result $\\\\chi_\\\\ell(G^k)\\\\le D_{k,\\\\Delta}-1$ is established, but the stronger $+1-k$ bound is conjectural and unresolved.\"}],\"confidence\":0.7},\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"uuid\":\"5df27191-e735-4a4c-b8bd-1694815b4d56\"}\n"
+}

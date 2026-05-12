@@ -1,0 +1,59 @@
+{
+  "record": {
+    "global_index": 5937,
+    "source_json": "outputs/parse-paper/2304.14397.json",
+    "paper_id": "2304.14397",
+    "paper_title": "Private Information Retrieval and Its Applications: An Introduction, Open Problems, Future Directions",
+    "paper_link": "https://arxiv.org/abs/2304.14397",
+    "question_link": "https://arxiv.org/pdf/2304.14397.pdf#page=8",
+    "question_id": "q_006",
+    "parser_is_solved": "false",
+    "context_brief": "Writing cost in private epidemiological data collection",
+    "original_question": "For private epidemiological data collection, a PRUW-related setting with users, databases, and a data collector and with both reading and writing components among those parties, what is the optimal writing cost, meaning the users’ upload cost, complementing prior work that considered the data collector’s download or reading cost?",
+    "evidence": [
+      {
+        "page": 8,
+        "quote": "Private read-update-write (PRUW) [26]–[29] is the concept where a user downloads, updates and uploads the updates back to a chosen section of a data storage system, without revealing the content downloaded, uploaded or their positions, e.g., updated section index."
+      },
+      {
+        "page": 12,
+        "quote": "The concept of PRUW can be used in other applications such as private epidemiological data collection."
+      },
+      {
+        "page": 13,
+        "quote": "problem is introduced in [53] which contains three parties, namely, users, databases and the data collector. The problem setting contains both reading and writing components among different parties."
+      },
+      {
+        "page": 13,
+        "quote": "The performance metric considered in [53] is the download cost at the data collector, i.e., the reading cost. An interesting future direction would be to consider the optimality of the writing cost, i.e., the upload cost of the users, which relates to the writing phase of PRUW."
+      }
+    ]
+  },
+  "artifact": {
+    "self_contained_problem": "Consider a private epidemiological data collection system involving three classes of parties: a set of users, a set of N non-colluding databases, and a single data collector. The system stores epidemiological records distributed across the N databases. The protocol proceeds in rounds with two phases:\n\n(Reading phase.) The data collector privately retrieves aggregated information from the databases concerning a chosen statistic, without revealing to any single database which statistic is being queried.\n\n(Writing phase.) Each user privately uploads an update (e.g., an individual epidemiological record or an update to a stored value) to a chosen section/index of the distributed storage across the N databases, in such a way that no single database learns\n (a) the index of the section that is being updated, nor\n (b) the value of the update being written.\n\nFor one round of the writing phase, define the writing cost (the users' upload cost) as the total number of symbols (normalized by the size L of one section's update vector, as L → ∞) that the users must transmit to the N databases in order to perform one private update while satisfying the above privacy constraints together with the correctness constraint that, after the writing phase, each database stores the correct (updated) function of the section's contents.\n\nProblem. Determine the information-theoretically optimal (minimum achievable) writing cost in this three-party private epidemiological data collection setting, as a function of the number of databases N and the relevant storage/code parameters, and exhibit a scheme that attains this minimum together with a matching converse.",
+    "macro_subject": "Applied Mathematics",
+    "category_tag": "Private information retrieval / PRUW",
+    "open_status": "open",
+    "status_search_result": "The question is posed as a future research direction: prior work in this three-party private epidemiological data collection setting analyzed the data collector's download (reading) cost, while the user upload (writing) cost was left as an open problem. A web search did not locate any subsequent work establishing the optimal writing cost in this specific setting, so the problem appears to remain open.",
+    "status_evidence": [
+      {
+        "title": "Private Information Read-Update-Write with Applications to Distributed Learning",
+        "url": "https://drum.lib.umd.edu/items/fefafbcf-221a-4855-b72b-b8a1929bef45",
+        "snippet": "PRUW schemes minimize total communication cost while guaranteeing information-theoretic privacy of the updating submodel index and the values of the updates.",
+        "claim": "PRUW work focuses on communication cost optimization but does not resolve the optimal writing cost in the three-party epidemiological data collection setting."
+      },
+      {
+        "title": "Private Information Retrieval and Its Extensions: An Introduction, Open Problems, Future Directions",
+        "url": "https://www.researchgate.net/publication/374561678_Private_Information_Retrieval_and_Its_Extensions_An_Introduction_Open_Problems_Future_Directions",
+        "snippet": "Survey of PRIR/PRUW and related open problems and future directions.",
+        "claim": "Optimal writing cost in private epidemiological data collection is listed among open future directions."
+      }
+    ],
+    "confidence": 0.7
+  },
+  "model": "opus",
+  "effort": "medium",
+  "elapsed_s": 30.07,
+  "validation_warnings": [],
+  "raw_claude_stdout": "{\"type\":\"result\",\"subtype\":\"success\",\"is_error\":false,\"api_error_status\":null,\"duration_ms\":28971,\"duration_api_ms\":29112,\"num_turns\":3,\"result\":\"Provided structured output.\\n\\nSources:\\n- [Private Information Read-Update-Write with Applications to Distributed Learning](https://drum.lib.umd.edu/items/fefafbcf-221a-4855-b72b-b8a1929bef45)\\n- [Private Information Retrieval and Its Extensions: An Introduction, Open Problems, Future Directions](https://www.researchgate.net/publication/374561678_Private_Information_Retrieval_and_Its_Extensions_An_Introduction_Open_Problems_Future_Directions)\",\"stop_reason\":\"end_turn\",\"session_id\":\"349c9b7b-ad06-4271-a61e-645b879f0a19\",\"total_cost_usd\":0.10081475000000001,\"usage\":{\"input_tokens\":8,\"cache_creation_input_tokens\":4313,\"cache_read_input_tokens\":12965,\"output_tokens\":1487,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":4313,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[{\"input_tokens\":1,\"output_tokens\":185,\"cache_read_input_tokens\":5816,\"cache_creation_input_tokens\":1182,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":1182},\"type\":\"message\"}],\"speed\":\"standard\"},\"modelUsage\":{\"claude-haiku-4-5-20251001\":{\"inputTokens\":18141,\"outputTokens\":404,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":1,\"costUSD\":0.030161,\"contextWindow\":200000,\"maxOutputTokens\":32000},\"claude-opus-4-7\":{\"inputTokens\":8,\"outputTokens\":1487,\"cacheReadInputTokens\":12965,\"cacheCreationInputTokens\":4313,\"webSearchRequests\":0,\"costUSD\":0.07065375000000002,\"contextWindow\":1000000,\"maxOutputTokens\":64000}},\"permission_denials\":[],\"structured_output\":{\"self_contained_problem\":\"Consider a private epidemiological data collection system involving three classes of parties: a set of users, a set of N non-colluding databases, and a single data collector. The system stores epidemiological records distributed across the N databases. The protocol proceeds in rounds with two phases:\\n\\n(Reading phase.) The data collector privately retrieves aggregated information from the databases concerning a chosen statistic, without revealing to any single database which statistic is being queried.\\n\\n(Writing phase.) Each user privately uploads an update (e.g., an individual epidemiological record or an update to a stored value) to a chosen section/index of the distributed storage across the N databases, in such a way that no single database learns\\n (a) the index of the section that is being updated, nor\\n (b) the value of the update being written.\\n\\nFor one round of the writing phase, define the writing cost (the users' upload cost) as the total number of symbols (normalized by the size L of one section's update vector, as L → ∞) that the users must transmit to the N databases in order to perform one private update while satisfying the above privacy constraints together with the correctness constraint that, after the writing phase, each database stores the correct (updated) function of the section's contents.\\n\\nProblem. Determine the information-theoretically optimal (minimum achievable) writing cost in this three-party private epidemiological data collection setting, as a function of the number of databases N and the relevant storage/code parameters, and exhibit a scheme that attains this minimum together with a matching converse.\",\"macro_subject\":\"Applied Mathematics\",\"category_tag\":\"Private information retrieval / PRUW\",\"open_status\":\"open\",\"status_search_result\":\"The question is posed as a future research direction: prior work in this three-party private epidemiological data collection setting analyzed the data collector's download (reading) cost, while the user upload (writing) cost was left as an open problem. A web search did not locate any subsequent work establishing the optimal writing cost in this specific setting, so the problem appears to remain open.\",\"status_evidence\":[{\"title\":\"Private Information Read-Update-Write with Applications to Distributed Learning\",\"url\":\"https://drum.lib.umd.edu/items/fefafbcf-221a-4855-b72b-b8a1929bef45\",\"snippet\":\"PRUW schemes minimize total communication cost while guaranteeing information-theoretic privacy of the updating submodel index and the values of the updates.\",\"claim\":\"PRUW work focuses on communication cost optimization but does not resolve the optimal writing cost in the three-party epidemiological data collection setting.\"},{\"title\":\"Private Information Retrieval and Its Extensions: An Introduction, Open Problems, Future Directions\",\"url\":\"https://www.researchgate.net/publication/374561678_Private_Information_Retrieval_and_Its_Extensions_An_Introduction_Open_Problems_Future_Directions\",\"snippet\":\"Survey of PRIR/PRUW and related open problems and future directions.\",\"claim\":\"Optimal writing cost in private epidemiological data collection is listed among open future directions.\"}],\"confidence\":0.7},\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"uuid\":\"bac4314f-810a-471f-a8f4-33aea1a62517\"}\n"
+}

@@ -1,0 +1,57 @@
+{
+  "record": {
+    "global_index": 11847,
+    "source_json": "outputs/parse-paper/quant-ph_0411037.json",
+    "paper_id": "quant-ph/0411037",
+    "paper_title": "The Hidden Subgroup Problem - Review and Open Problems",
+    "paper_link": "https://arxiv.org/abs/quant-ph/0411037",
+    "question_link": "https://arxiv.org/pdf/quant-ph/0411037#page=44",
+    "question_id": "q_002",
+    "parser_is_solved": "false",
+    "context_brief": "Symmetric-group HSP for graph isomorphism",
+    "original_question": "Can one design an efficient quantum algorithm for the hidden subgroup problem over the symmetric group S_n, so that the standard reduction from graph automorphism and graph isomorphism to HSP over S_n yields a polynomial-time quantum algorithm for graph isomorphism?",
+    "evidence": [
+      {
+        "page": 44,
+        "quote": "The main open problem in the field is finding an efficient quantum algorithm for the symmetric group Sn, which would yield an elusive (for over 30 years) efficient algorithm for determining graph isomorphism."
+      },
+      {
+        "page": 64,
+        "quote": "This shows f can be used in the standard quantum Fourier sampling algorithm to find generators for H. If this can be done efficiently is an open question."
+      }
+    ]
+  },
+  "artifact": {
+    "self_contained_problem": "Setup (Hidden Subgroup Problem, HSP). Let G be a finite group and let f: G → S be a function from G to some finite set S. Say that f hides a subgroup H ≤ G if f is constant on each left coset gH and takes distinct values on distinct cosets. The Hidden Subgroup Problem for G is: given oracle access to such an f, output a set of generators of H using time and queries polynomial in log|G|.\n\nReduction from Graph Isomorphism. For a graph Γ on n vertices, the symmetric group S_n acts on graphs by permuting vertices. For two graphs Γ_1, Γ_2 on n vertices, consider the function f: S_n × {1,2} → (set of graphs on n vertices) defined by f(π, i) = π(Γ_i). Then f hides a subgroup of S_n × Z_2 whose structure determines whether Γ_1 ≅ Γ_2 (and the automorphism groups Aut(Γ_i) when Γ_1 = Γ_2). Equivalently, the automorphism group of a graph on n vertices is hidden by a function on S_n, and graph isomorphism on n-vertex graphs reduces in polynomial time to HSP over S_n (or S_{2n}).\n\nProblem. Construct a quantum algorithm that solves the Hidden Subgroup Problem over the symmetric group S_n in time poly(n) (equivalently, poly(log|S_n|)), thereby yielding, via the above reduction, a polynomial-time quantum algorithm for the Graph Isomorphism Problem. Alternatively, prove that no such quantum algorithm exists (under standard complexity assumptions).",
+    "macro_subject": "Theoretical Computer Science",
+    "category_tag": "Quantum algorithms / Hidden Subgroup Problem",
+    "open_status": "open",
+    "status_search_result": "The HSP over the symmetric group S_n remains a central open problem in quantum computing; no efficient quantum algorithm is known. Negative results show that natural approaches (single-register Fourier sampling, \"quantum sieve\" methods such as Kuperberg-style algorithms) cannot work, and that any HSP-based quantum algorithm for graph isomorphism requires highly entangled measurements over Ω(n log n) coset states. Babai's 2015–2016 quasipolynomial-time classical algorithm for Graph Isomorphism does not resolve the HSP question. Recent surveys (e.g., 2025) still list it as open.",
+    "status_evidence": [
+      {
+        "title": "Hidden subgroup problem - Wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Hidden_subgroup_problem",
+        "snippet": "The nonabelian case remains open; an efficient solution would give rise to an efficient quantum algorithm for graph isomorphism.",
+        "claim": "HSP over nonabelian groups including S_n remains open."
+      },
+      {
+        "title": "On the Impossibility of a Quantum Sieve Algorithm for Graph Isomorphism",
+        "url": "https://epubs.siam.org/doi/10.1137/080724101",
+        "snippet": "Any quantum algorithm for graph isomorphism within the HSP framework must perform highly entangled measurements across Ω(n log n) coset states.",
+        "claim": "Strong lower bounds rule out natural HSP approaches for S_n."
+      },
+      {
+        "title": "A survey about Hidden Subgroup Problem",
+        "url": "https://arxiv.org/html/2512.02087",
+        "snippet": "Recent survey discussing the still-open status of HSP over symmetric groups.",
+        "claim": "Problem listed as open in a 2025 survey."
+      }
+    ],
+    "confidence": 0.95
+  },
+  "model": "opus",
+  "effort": "medium",
+  "elapsed_s": 34.76,
+  "validation_warnings": [],
+  "raw_claude_stdout": "{\"type\":\"result\",\"subtype\":\"success\",\"is_error\":false,\"api_error_status\":null,\"duration_ms\":33688,\"duration_api_ms\":31943,\"num_turns\":3,\"result\":\"Sources:\\n- [Hidden subgroup problem - Wikipedia](https://en.wikipedia.org/wiki/Hidden_subgroup_problem)\\n- [On the Impossibility of a Quantum Sieve Algorithm for Graph Isomorphism (SIAM)](https://epubs.siam.org/doi/10.1137/080724101)\\n- [A survey about HSP from a mathematical and cryptographic perspective](https://arxiv.org/html/2512.02087)\\n- [HRT: HSP and Quantum Computation using Group Representations](https://www.cs.tau.ac.il/~amnon/Papers/HRT.siam02.pdf)\",\"stop_reason\":\"end_turn\",\"session_id\":\"8c9aa8db-9566-4bdd-8e5d-df225d3ab39f\",\"total_cost_usd\":0.11320474999999999,\"usage\":{\"input_tokens\":8,\"cache_creation_input_tokens\":4589,\"cache_read_input_tokens\":12839,\"output_tokens\":1767,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":4589,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[{\"input_tokens\":1,\"output_tokens\":227,\"cache_read_input_tokens\":5858,\"cache_creation_input_tokens\":1416,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":1416},\"type\":\"message\"}],\"speed\":\"standard\"},\"modelUsage\":{\"claude-haiku-4-5-20251001\":{\"inputTokens\":21114,\"outputTokens\":555,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":1,\"costUSD\":0.033889,\"contextWindow\":200000,\"maxOutputTokens\":32000},\"claude-opus-4-7\":{\"inputTokens\":8,\"outputTokens\":1767,\"cacheReadInputTokens\":12839,\"cacheCreationInputTokens\":4589,\"webSearchRequests\":0,\"costUSD\":0.07931574999999999,\"contextWindow\":1000000,\"maxOutputTokens\":64000}},\"permission_denials\":[],\"structured_output\":{\"self_contained_problem\":\"Setup (Hidden Subgroup Problem, HSP). Let G be a finite group and let f: G → S be a function from G to some finite set S. Say that f hides a subgroup H ≤ G if f is constant on each left coset gH and takes distinct values on distinct cosets. The Hidden Subgroup Problem for G is: given oracle access to such an f, output a set of generators of H using time and queries polynomial in log|G|.\\n\\nReduction from Graph Isomorphism. For a graph Γ on n vertices, the symmetric group S_n acts on graphs by permuting vertices. For two graphs Γ_1, Γ_2 on n vertices, consider the function f: S_n × {1,2} → (set of graphs on n vertices) defined by f(π, i) = π(Γ_i). Then f hides a subgroup of S_n × Z_2 whose structure determines whether Γ_1 ≅ Γ_2 (and the automorphism groups Aut(Γ_i) when Γ_1 = Γ_2). Equivalently, the automorphism group of a graph on n vertices is hidden by a function on S_n, and graph isomorphism on n-vertex graphs reduces in polynomial time to HSP over S_n (or S_{2n}).\\n\\nProblem. Construct a quantum algorithm that solves the Hidden Subgroup Problem over the symmetric group S_n in time poly(n) (equivalently, poly(log|S_n|)), thereby yielding, via the above reduction, a polynomial-time quantum algorithm for the Graph Isomorphism Problem. Alternatively, prove that no such quantum algorithm exists (under standard complexity assumptions).\",\"macro_subject\":\"Theoretical Computer Science\",\"category_tag\":\"Quantum algorithms / Hidden Subgroup Problem\",\"open_status\":\"open\",\"status_search_result\":\"The HSP over the symmetric group S_n remains a central open problem in quantum computing; no efficient quantum algorithm is known. Negative results show that natural approaches (single-register Fourier sampling, \\\"quantum sieve\\\" methods such as Kuperberg-style algorithms) cannot work, and that any HSP-based quantum algorithm for graph isomorphism requires highly entangled measurements over Ω(n log n) coset states. Babai's 2015–2016 quasipolynomial-time classical algorithm for Graph Isomorphism does not resolve the HSP question. Recent surveys (e.g., 2025) still list it as open.\",\"status_evidence\":[{\"title\":\"Hidden subgroup problem - Wikipedia\",\"url\":\"https://en.wikipedia.org/wiki/Hidden_subgroup_problem\",\"snippet\":\"The nonabelian case remains open; an efficient solution would give rise to an efficient quantum algorithm for graph isomorphism.\",\"claim\":\"HSP over nonabelian groups including S_n remains open.\"},{\"title\":\"On the Impossibility of a Quantum Sieve Algorithm for Graph Isomorphism\",\"url\":\"https://epubs.siam.org/doi/10.1137/080724101\",\"snippet\":\"Any quantum algorithm for graph isomorphism within the HSP framework must perform highly entangled measurements across Ω(n log n) coset states.\",\"claim\":\"Strong lower bounds rule out natural HSP approaches for S_n.\"},{\"title\":\"A survey about Hidden Subgroup Problem\",\"url\":\"https://arxiv.org/html/2512.02087\",\"snippet\":\"Recent survey discussing the still-open status of HSP over symmetric groups.\",\"claim\":\"Problem listed as open in a 2025 survey.\"}],\"confidence\":0.95},\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"uuid\":\"43a00368-8b13-46b1-97dd-3a1fdad189eb\"}\n"
+}

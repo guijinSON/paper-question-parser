@@ -1,0 +1,47 @@
+{
+  "record": {
+    "global_index": 5351,
+    "source_json": "outputs/parse-paper/2111.06944.json",
+    "paper_id": "2111.06944",
+    "paper_title": "New results and open problems on subgraph centrality",
+    "paper_link": "https://zbmath.org/7676345",
+    "question_link": "https://zbmath.org/7676345",
+    "question_id": "q_005",
+    "parser_is_solved": "false",
+    "context_brief": "Constructing many-interlacing graphs",
+    "original_question": "Is there a simple general construction that produces graphs with many interlacing values for subgraph centrality, rather than relying on ad hoc computational search?",
+    "evidence": [
+      {
+        "page": 17,
+        "quote": "A related, more informal problem is the following: is there a simple way to construct graphs with many interlacing values?"
+      }
+    ]
+  },
+  "artifact": {
+    "self_contained_problem": "Let $G=(V,E)$ be a finite simple undirected graph on $n$ vertices, with adjacency matrix $A$. The subgraph centrality of a vertex $v\\in V$ is defined by\n$$\\mathrm{SC}(v) \\;=\\; \\sum_{k=0}^{\\infty} \\frac{(A^k)_{vv}}{k!} \\;=\\; \\bigl(e^{A}\\bigr)_{vv}.$$\nEquivalently, if $\\lambda_1,\\dots,\\lambda_n$ are the eigenvalues of $A$ with an orthonormal basis of eigenvectors $\\varphi_1,\\dots,\\varphi_n$, then\n$$\\mathrm{SC}(v) \\;=\\; \\sum_{j=1}^{n} \\varphi_j(v)^2\\, e^{\\lambda_j}.$$\nOrder the vertices so that $\\mathrm{SC}(v_1)\\ge \\mathrm{SC}(v_2)\\ge \\cdots \\ge \\mathrm{SC}(v_n)$, and consider any vertex invariant $f:V\\to\\mathbb{R}$ (for instance the degree, eigenvector centrality, or closeness centrality). We say that an unordered pair $\\{u,w\\}$ of vertices is an interlacing pair for $\\mathrm{SC}$ and $f$ if\n$$\\mathrm{SC}(u) < \\mathrm{SC}(w) \\quad\\text{and}\\quad f(u) > f(w),$$\ni.e. the ranking induced by $\\mathrm{SC}$ disagrees with the ranking induced by $f$ on $\\{u,w\\}$. The number of such pairs is called the number of interlacing values of $G$ (with respect to $f$).\n\nProblem. Exhibit a simple, explicit general construction (i.e. a deterministic recipe taking parameters such as $n$ or a base graph and producing a family of graphs) that yields graphs with arbitrarily many interlacing values for subgraph centrality, without relying on ad hoc computer search.",
+    "macro_subject": "Combinatorics",
+    "category_tag": "spectral graph theory / centrality",
+    "open_status": "unknown",
+    "status_search_result": "A web search on subgraph centrality and interlacing constructions did not surface any publication providing a simple general construction of graphs with many interlacing values for subgraph centrality. No follow-up work resolving this informal question was identified, but the absence of search hits is inconclusive, so the status is recorded as unknown.",
+    "status_evidence": [
+      {
+        "title": "Subgraph Centrality in Complex Networks",
+        "url": "https://arxiv.org/pdf/cond-mat/0504730",
+        "snippet": "Subgraph centrality of a node is the sum of weighted closed walks of all lengths starting and ending at that node.",
+        "claim": "Defines subgraph centrality but does not provide constructions producing many interlacing values."
+      },
+      {
+        "title": "A centrality measure for cycles and subgraphs II",
+        "url": "https://appliednetsci.springeropen.com/articles/10.1007/s41109-018-0064-5",
+        "snippet": "Discusses centrality measures based on subgraphs.",
+        "claim": "Does not address constructions of graphs with many interlacing values for subgraph centrality."
+      }
+    ],
+    "confidence": 0.5
+  },
+  "model": "opus",
+  "effort": "medium",
+  "elapsed_s": 28.22,
+  "validation_warnings": [],
+  "raw_claude_stdout": "{\"type\":\"result\",\"subtype\":\"success\",\"is_error\":false,\"api_error_status\":null,\"duration_ms\":27015,\"duration_api_ms\":25664,\"num_turns\":3,\"result\":\"Sources:\\n- [Subgraph Centrality in Complex Networks](https://arxiv.org/pdf/cond-mat/0504730)\\n- [A centrality measure for cycles and subgraphs II](https://appliednetsci.springeropen.com/articles/10.1007/s41109-018-0064-5)\",\"stop_reason\":\"end_turn\",\"session_id\":\"96d29877-a95b-4bd9-98d9-ba3b92e97c28\",\"total_cost_usd\":0.09591399999999999,\"usage\":{\"input_tokens\":8,\"cache_creation_input_tokens\":4004,\"cache_read_input_tokens\":12194,\"output_tokens\":1477,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":4004,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[{\"input_tokens\":1,\"output_tokens\":107,\"cache_read_input_tokens\":5401,\"cache_creation_input_tokens\":1288,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":1288},\"type\":\"message\"}],\"speed\":\"standard\"},\"modelUsage\":{\"claude-haiku-4-5-20251001\":{\"inputTokens\":15642,\"outputTokens\":437,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":1,\"costUSD\":0.027826999999999998,\"contextWindow\":200000,\"maxOutputTokens\":32000},\"claude-opus-4-7\":{\"inputTokens\":8,\"outputTokens\":1477,\"cacheReadInputTokens\":12194,\"cacheCreationInputTokens\":4004,\"webSearchRequests\":0,\"costUSD\":0.068087,\"contextWindow\":1000000,\"maxOutputTokens\":64000}},\"permission_denials\":[],\"structured_output\":{\"self_contained_problem\":\"Let $G=(V,E)$ be a finite simple undirected graph on $n$ vertices, with adjacency matrix $A$. The subgraph centrality of a vertex $v\\\\in V$ is defined by\\n$$\\\\mathrm{SC}(v) \\\\;=\\\\; \\\\sum_{k=0}^{\\\\infty} \\\\frac{(A^k)_{vv}}{k!} \\\\;=\\\\; \\\\bigl(e^{A}\\\\bigr)_{vv}.$$\\nEquivalently, if $\\\\lambda_1,\\\\dots,\\\\lambda_n$ are the eigenvalues of $A$ with an orthonormal basis of eigenvectors $\\\\varphi_1,\\\\dots,\\\\varphi_n$, then\\n$$\\\\mathrm{SC}(v) \\\\;=\\\\; \\\\sum_{j=1}^{n} \\\\varphi_j(v)^2\\\\, e^{\\\\lambda_j}.$$\\nOrder the vertices so that $\\\\mathrm{SC}(v_1)\\\\ge \\\\mathrm{SC}(v_2)\\\\ge \\\\cdots \\\\ge \\\\mathrm{SC}(v_n)$, and consider any vertex invariant $f:V\\\\to\\\\mathbb{R}$ (for instance the degree, eigenvector centrality, or closeness centrality). We say that an unordered pair $\\\\{u,w\\\\}$ of vertices is an interlacing pair for $\\\\mathrm{SC}$ and $f$ if\\n$$\\\\mathrm{SC}(u) < \\\\mathrm{SC}(w) \\\\quad\\\\text{and}\\\\quad f(u) > f(w),$$\\ni.e. the ranking induced by $\\\\mathrm{SC}$ disagrees with the ranking induced by $f$ on $\\\\{u,w\\\\}$. The number of such pairs is called the number of interlacing values of $G$ (with respect to $f$).\\n\\nProblem. Exhibit a simple, explicit general construction (i.e. a deterministic recipe taking parameters such as $n$ or a base graph and producing a family of graphs) that yields graphs with arbitrarily many interlacing values for subgraph centrality, without relying on ad hoc computer search.\",\"macro_subject\":\"Combinatorics\",\"category_tag\":\"spectral graph theory / centrality\",\"open_status\":\"unknown\",\"status_search_result\":\"A web search on subgraph centrality and interlacing constructions did not surface any publication providing a simple general construction of graphs with many interlacing values for subgraph centrality. No follow-up work resolving this informal question was identified, but the absence of search hits is inconclusive, so the status is recorded as unknown.\",\"status_evidence\":[{\"title\":\"Subgraph Centrality in Complex Networks\",\"url\":\"https://arxiv.org/pdf/cond-mat/0504730\",\"snippet\":\"Subgraph centrality of a node is the sum of weighted closed walks of all lengths starting and ending at that node.\",\"claim\":\"Defines subgraph centrality but does not provide constructions producing many interlacing values.\"},{\"title\":\"A centrality measure for cycles and subgraphs II\",\"url\":\"https://appliednetsci.springeropen.com/articles/10.1007/s41109-018-0064-5\",\"snippet\":\"Discusses centrality measures based on subgraphs.\",\"claim\":\"Does not address constructions of graphs with many interlacing values for subgraph centrality.\"}],\"confidence\":0.5},\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"uuid\":\"576aed13-2e3a-4469-8b3f-4a93b9ac2e5f\"}\n"
+}

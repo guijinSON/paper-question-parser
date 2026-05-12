@@ -1,0 +1,53 @@
+{
+  "record": {
+    "global_index": 13281,
+    "source_json": "outputs/parse-paper/zbmath_7631191.json",
+    "paper_id": "zbmath/7631191",
+    "paper_title": "Open problems in rewriting",
+    "paper_link": "https://zbmath.org/7631191",
+    "question_link": "https://zbmath.org/7631191",
+    "question_id": "q_033",
+    "parser_is_solved": "true",
+    "context_brief": "ACUI completion",
+    "original_question": "How can completion modulo associativity, commutativity, identity, and idempotence be handled effectively, given that techniques for AC-completion and ACU-completion do not directly carry over to idempotence?",
+    "evidence": [
+      {
+        "page": "Scribd HTML lines 937-953",
+        "quote": "How can completion modulo ACUI be made effective?"
+      }
+    ]
+  },
+  "artifact": {
+    "self_contained_problem": "Let $\\Sigma$ be a signature containing a binary function symbol $+$, and consider the equational theory ACUI consisting of the axioms\n- (A) $(x+y)+z = x+(y+z)$,\n- (C) $x+y = y+x$,\n- (U) $x+0 = x$ for a constant $0\\in\\Sigma$,\n- (I) $x+x = x$.\n\nGiven a finite set $E$ of equations between $\\Sigma$-terms, the goal of completion modulo ACUI is to transform $E$ into a finite rewrite system $R$ such that the rewrite relation $\\to_{R/\\mathrm{ACUI}}$ (rewriting on ACUI-equivalence classes) is terminating and Church–Rosser, so that $\\mathrm{ACUI}\\cup E$-equality of two terms can be decided by reducing each to its $R/\\mathrm{ACUI}$-normal form.\n\nStandard Knuth–Bendix–style completion procedures have been extended to handle the AC axioms, and further to ACU (with identity), by adapting orderings, critical-pair computation, and unification modulo the relevant theory. These techniques, however, do not extend directly to systems that additionally include the idempotence axiom (I), because idempotence interacts badly with termination orderings and with extended-rule mechanisms used in AC/ACU completion.\n\nProblem: Devise an effective completion procedure modulo ACUI. Concretely, give:\n1. an appropriate notion of rewriting modulo ACUI (including suitable extended rules and a termination ordering compatible with idempotence),\n2. a finite, decidable mechanism for computing the critical pairs that must be considered (in particular, a usable form of ACUI-unification within completion), and\n3. a completion algorithm that, when it succeeds, produces a finite convergent system $R$ deciding ACUI$\\cup E$-equality,\n\nor prove that no such effective procedure exists.",
+    "macro_subject": "Theoretical Computer Science",
+    "category_tag": "Term rewriting and completion modulo equational theories",
+    "open_status": "unknown",
+    "status_search_result": "Completion modulo AC and modulo ACU (AC1) has been developed (e.g., Jouannaud–Marché; Baird–Peterson–Wilkerson on constrained rewriting). ACUI-unification is well studied and known to be decidable, but a fully effective Knuth–Bendix-style completion procedure modulo ACUI that handles idempotence as smoothly as AC/ACU completion does not appear to have been established in the surveyed literature. The status of an effective general ACUI-completion procedure is unclear from available sources.",
+    "status_evidence": [
+      {
+        "title": "Completion modulo Associativity, Commutativity and Identity (AC1)",
+        "url": "https://link.springer.com/chapter/10.1007/3-540-52531-9_130",
+        "snippet": "Completion procedure for AC1 (ACU) extending AC-completion with identity.",
+        "claim": "Completion modulo ACU (AC1) has been developed, but the paper addresses only identity, not idempotence."
+      },
+      {
+        "title": "Termination and completion modulo associativity, commutativity and identity",
+        "url": "https://www.sciencedirect.com/science/article/pii/030439759290165C",
+        "snippet": "Constrained rewriting to handle nontermination inherent to identities; complete set of rules and orderings for AC + identity.",
+        "claim": "Techniques target AC plus identity; idempotence is not treated."
+      },
+      {
+        "title": "Unification Modulo ACUI Plus Distributivity Axioms",
+        "url": "https://link.springer.com/article/10.1007/s10817-004-2279-7",
+        "snippet": "Studies unification modulo ACUI and extensions.",
+        "claim": "ACUI unification is studied, indicating partial tools exist, but full completion is not addressed."
+      }
+    ],
+    "confidence": 0.55
+  },
+  "model": "opus",
+  "effort": "medium",
+  "elapsed_s": 34.77,
+  "validation_warnings": [],
+  "raw_claude_stdout": "{\"type\":\"result\",\"subtype\":\"success\",\"is_error\":false,\"api_error_status\":null,\"duration_ms\":33480,\"duration_api_ms\":32105,\"num_turns\":3,\"result\":\"Sources:\\n- [Completion modulo AC1 (Jouannaud–Marché)](https://link.springer.com/chapter/10.1007/3-540-52531-9_130)\\n- [Termination and completion modulo AC and identity](https://www.sciencedirect.com/science/article/pii/030439759290165C)\\n- [Unification Modulo ACUI Plus Distributivity](https://link.springer.com/article/10.1007/s10817-004-2279-7)\\n- [Complete sets of reductions modulo AC and identity](https://link.springer.com/chapter/10.1007/3-540-51081-8_98)\",\"stop_reason\":\"end_turn\",\"session_id\":\"4ddee0d7-e1c4-47a9-b646-346eeddb6d0f\",\"total_cost_usd\":0.10632575000000001,\"usage\":{\"input_tokens\":8,\"cache_creation_input_tokens\":3993,\"cache_read_input_tokens\":11673,\"output_tokens\":1771,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":3993,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[{\"input_tokens\":1,\"output_tokens\":208,\"cache_read_input_tokens\":5202,\"cache_creation_input_tokens\":1476,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":1476},\"type\":\"message\"}],\"speed\":\"standard\"},\"modelUsage\":{\"claude-opus-4-7\":{\"inputTokens\":8,\"outputTokens\":1771,\"cacheReadInputTokens\":11673,\"cacheCreationInputTokens\":3993,\"webSearchRequests\":0,\"costUSD\":0.07510775,\"contextWindow\":1000000,\"maxOutputTokens\":64000},\"claude-haiku-4-5-20251001\":{\"inputTokens\":18983,\"outputTokens\":447,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":1,\"costUSD\":0.031218000000000003,\"contextWindow\":200000,\"maxOutputTokens\":32000}},\"permission_denials\":[],\"structured_output\":{\"self_contained_problem\":\"Let $\\\\Sigma$ be a signature containing a binary function symbol $+$, and consider the equational theory ACUI consisting of the axioms\\n- (A) $(x+y)+z = x+(y+z)$,\\n- (C) $x+y = y+x$,\\n- (U) $x+0 = x$ for a constant $0\\\\in\\\\Sigma$,\\n- (I) $x+x = x$.\\n\\nGiven a finite set $E$ of equations between $\\\\Sigma$-terms, the goal of completion modulo ACUI is to transform $E$ into a finite rewrite system $R$ such that the rewrite relation $\\\\to_{R/\\\\mathrm{ACUI}}$ (rewriting on ACUI-equivalence classes) is terminating and Church–Rosser, so that $\\\\mathrm{ACUI}\\\\cup E$-equality of two terms can be decided by reducing each to its $R/\\\\mathrm{ACUI}$-normal form.\\n\\nStandard Knuth–Bendix–style completion procedures have been extended to handle the AC axioms, and further to ACU (with identity), by adapting orderings, critical-pair computation, and unification modulo the relevant theory. These techniques, however, do not extend directly to systems that additionally include the idempotence axiom (I), because idempotence interacts badly with termination orderings and with extended-rule mechanisms used in AC/ACU completion.\\n\\nProblem: Devise an effective completion procedure modulo ACUI. Concretely, give:\\n1. an appropriate notion of rewriting modulo ACUI (including suitable extended rules and a termination ordering compatible with idempotence),\\n2. a finite, decidable mechanism for computing the critical pairs that must be considered (in particular, a usable form of ACUI-unification within completion), and\\n3. a completion algorithm that, when it succeeds, produces a finite convergent system $R$ deciding ACUI$\\\\cup E$-equality,\\n\\nor prove that no such effective procedure exists.\",\"macro_subject\":\"Theoretical Computer Science\",\"category_tag\":\"Term rewriting and completion modulo equational theories\",\"open_status\":\"unknown\",\"status_search_result\":\"Completion modulo AC and modulo ACU (AC1) has been developed (e.g., Jouannaud–Marché; Baird–Peterson–Wilkerson on constrained rewriting). ACUI-unification is well studied and known to be decidable, but a fully effective Knuth–Bendix-style completion procedure modulo ACUI that handles idempotence as smoothly as AC/ACU completion does not appear to have been established in the surveyed literature. The status of an effective general ACUI-completion procedure is unclear from available sources.\",\"status_evidence\":[{\"title\":\"Completion modulo Associativity, Commutativity and Identity (AC1)\",\"url\":\"https://link.springer.com/chapter/10.1007/3-540-52531-9_130\",\"snippet\":\"Completion procedure for AC1 (ACU) extending AC-completion with identity.\",\"claim\":\"Completion modulo ACU (AC1) has been developed, but the paper addresses only identity, not idempotence.\"},{\"title\":\"Termination and completion modulo associativity, commutativity and identity\",\"url\":\"https://www.sciencedirect.com/science/article/pii/030439759290165C\",\"snippet\":\"Constrained rewriting to handle nontermination inherent to identities; complete set of rules and orderings for AC + identity.\",\"claim\":\"Techniques target AC plus identity; idempotence is not treated.\"},{\"title\":\"Unification Modulo ACUI Plus Distributivity Axioms\",\"url\":\"https://link.springer.com/article/10.1007/s10817-004-2279-7\",\"snippet\":\"Studies unification modulo ACUI and extensions.\",\"claim\":\"ACUI unification is studied, indicating partial tools exist, but full completion is not addressed.\"}],\"confidence\":0.55},\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"uuid\":\"131a71d4-eb1d-4151-98c0-0086f8f466c8\"}\n"
+}

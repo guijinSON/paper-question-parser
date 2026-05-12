@@ -1,0 +1,45 @@
+{
+  "record": {
+    "global_index": 5685,
+    "source_json": "outputs/parse-paper/2206.15475.json",
+    "paper_id": "2206.15475",
+    "paper_title": "Causal Machine Learning: A Survey and Open Problems",
+    "paper_link": "https://arxiv.org/abs/2206.15475",
+    "question_link": "https://arxiv.org/pdf/2206.15475.pdf#page=36",
+    "question_id": "q_003",
+    "parser_is_solved": "false",
+    "context_brief": "Additional supervision for invariant feature learning",
+    "original_question": "Invariant feature learning methods often need extra supervision beyond labels, such as content-preserving transformations or environment indices. What additional supervision signals, including combinations of augmentations, high-dimensional environment descriptors, and richer object or attribute labels, can be identified and used to separate invariant content from spurious features?",
+    "evidence": [
+      {
+        "page": 36,
+        "quote": "The previously discussed methods in invariant feature learning (Sec. 3.1) require two distinct forms of extra supervision beyond labels Y : i) content-invariant transformations (Sec. 3.1.1), or ii) environment indices (Sec. 3.1.2)."
+      },
+      {
+        "page": 36,
+        "quote": "Identifying and exploiting other forms of labels that inform invariant feature learning is an open problem."
+      }
+    ]
+  },
+  "artifact": {
+    "category_tag": "invariant representation learning",
+    "confidence": 0.6,
+    "macro_subject": "Statistics and Machine Learning",
+    "open_status": "open",
+    "self_contained_problem": "Consider the supervised learning setting in which one observes data $(X, Y)$ drawn from a collection of distributions $\\{P_e\\}_{e \\in \\mathcal{E}}$ indexed by environments $e \\in \\mathcal{E}$, where $X \\in \\mathcal{X}$ is a high-dimensional input (e.g., an image) generated from underlying latent factors that can be partitioned into a \"content\" component $Z_c$ (causally related to the label $Y$ and invariant across environments) and a \"style\" or \"spurious\" component $Z_s$ (whose relationship to $Y$ may vary across environments). The goal of invariant feature learning is to learn a representation $\\Phi: \\mathcal{X} \\to \\mathcal{Z}$ such that $\\Phi(X)$ depends only on $Z_c$, so that a predictor $f \\circ \\Phi$ generalizes to unseen environments.\n\nExisting methods for this task typically require, in addition to the labels $Y$, one of the following two forms of extra supervision:\n(i) access to content-preserving transformations $T: \\mathcal{X} \\to \\mathcal{X}$ such that $T(X)$ has the same content $Z_c$ as $X$ but possibly different style $Z_s$; or\n(ii) an environment index $E \\in \\mathcal{E}$ attached to each training example.\n\nThe problem is to identify and formalize alternative forms of side information beyond labels — for example, combinations of multiple data augmentations, high-dimensional or continuous environment descriptors, auxiliary object or attribute annotations, or other structured metadata — and to design learning procedures and prove identifiability or generalization guarantees showing that such information suffices to separate the invariant content features from the spurious features. Specifically: characterize classes of additional supervision signals $S$ for which there exist representation learners $\\Phi$ provably recovering (up to a suitable equivalence) the content factor $Z_c$ from observations $(X, Y, S)$, and exhibit concrete algorithms achieving this.",
+    "status_search_result": "The question is posed as an explicitly open research direction in a survey on causal machine learning. While many specific instances (e.g., augmentation-based contrastive learning, continuous environment indices, attribute-based invariance) have been studied, no general characterization of admissible supervision signals with identifiability guarantees has been established, so the broad problem remains open.",
+    "status_evidence": [
+      {
+        "title": "Causal Machine Learning: A Survey and Open Problems",
+        "url": "https://arxiv.org/abs/2206.15475",
+        "snippet": "Identifying and exploiting other forms of labels that inform invariant feature learning is an open problem.",
+        "claim": "The question is framed as an open research problem in the surveyed area."
+      }
+    ]
+  },
+  "model": "opus",
+  "effort": "medium",
+  "elapsed_s": 16.64,
+  "validation_warnings": [],
+  "raw_claude_stdout": "{\"type\":\"result\",\"subtype\":\"success\",\"is_error\":false,\"api_error_status\":null,\"duration_ms\":15476,\"duration_api_ms\":16364,\"num_turns\":2,\"result\":\"Provided the structured output.\",\"stop_reason\":\"end_turn\",\"session_id\":\"5afcaeb0-1cdd-41fb-b29e-9ba62da09c4b\",\"total_cost_usd\":0.051500000000000004,\"usage\":{\"input_tokens\":7,\"cache_creation_input_tokens\":2810,\"cache_read_input_tokens\":6983,\"output_tokens\":1180,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":2810,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[{\"input_tokens\":1,\"output_tokens\":12,\"cache_read_input_tokens\":4298,\"cache_creation_input_tokens\":1197,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":1197},\"type\":\"message\"}],\"speed\":\"standard\"},\"modelUsage\":{\"claude-haiku-4-5-20251001\":{\"inputTokens\":831,\"outputTokens\":16,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":0,\"costUSD\":0.000911,\"contextWindow\":200000,\"maxOutputTokens\":32000},\"claude-opus-4-7\":{\"inputTokens\":7,\"outputTokens\":1180,\"cacheReadInputTokens\":6983,\"cacheCreationInputTokens\":2810,\"webSearchRequests\":0,\"costUSD\":0.050589,\"contextWindow\":1000000,\"maxOutputTokens\":64000}},\"permission_denials\":[],\"structured_output\":{\"category_tag\":\"invariant representation learning\",\"confidence\":0.6,\"macro_subject\":\"Statistics and Machine Learning\",\"open_status\":\"open\",\"self_contained_problem\":\"Consider the supervised learning setting in which one observes data $(X, Y)$ drawn from a collection of distributions $\\\\{P_e\\\\}_{e \\\\in \\\\mathcal{E}}$ indexed by environments $e \\\\in \\\\mathcal{E}$, where $X \\\\in \\\\mathcal{X}$ is a high-dimensional input (e.g., an image) generated from underlying latent factors that can be partitioned into a \\\"content\\\" component $Z_c$ (causally related to the label $Y$ and invariant across environments) and a \\\"style\\\" or \\\"spurious\\\" component $Z_s$ (whose relationship to $Y$ may vary across environments). The goal of invariant feature learning is to learn a representation $\\\\Phi: \\\\mathcal{X} \\\\to \\\\mathcal{Z}$ such that $\\\\Phi(X)$ depends only on $Z_c$, so that a predictor $f \\\\circ \\\\Phi$ generalizes to unseen environments.\\n\\nExisting methods for this task typically require, in addition to the labels $Y$, one of the following two forms of extra supervision:\\n(i) access to content-preserving transformations $T: \\\\mathcal{X} \\\\to \\\\mathcal{X}$ such that $T(X)$ has the same content $Z_c$ as $X$ but possibly different style $Z_s$; or\\n(ii) an environment index $E \\\\in \\\\mathcal{E}$ attached to each training example.\\n\\nThe problem is to identify and formalize alternative forms of side information beyond labels — for example, combinations of multiple data augmentations, high-dimensional or continuous environment descriptors, auxiliary object or attribute annotations, or other structured metadata — and to design learning procedures and prove identifiability or generalization guarantees showing that such information suffices to separate the invariant content features from the spurious features. Specifically: characterize classes of additional supervision signals $S$ for which there exist representation learners $\\\\Phi$ provably recovering (up to a suitable equivalence) the content factor $Z_c$ from observations $(X, Y, S)$, and exhibit concrete algorithms achieving this.\",\"status_search_result\":\"The question is posed as an explicitly open research direction in a survey on causal machine learning. While many specific instances (e.g., augmentation-based contrastive learning, continuous environment indices, attribute-based invariance) have been studied, no general characterization of admissible supervision signals with identifiability guarantees has been established, so the broad problem remains open.\",\"status_evidence\":[{\"title\":\"Causal Machine Learning: A Survey and Open Problems\",\"url\":\"https://arxiv.org/abs/2206.15475\",\"snippet\":\"Identifying and exploiting other forms of labels that inform invariant feature learning is an open problem.\",\"claim\":\"The question is framed as an open research problem in the surveyed area.\"}]},\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"uuid\":\"689668eb-5805-4524-a0d9-9ec9242dfd4f\"}\n"
+}

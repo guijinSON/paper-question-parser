@@ -1,0 +1,47 @@
+{
+  "record": {
+    "global_index": 11217,
+    "source_json": "outputs/parse-paper/open-problems-in-data-sharing-peer-to-peer-systems.json",
+    "paper_id": "open-problems-in-data-sharing-peer-to-peer-systems",
+    "paper_title": "Open Problems in Data-Sharing Peer-to-Peer Systems",
+    "paper_link": "https://zbmath.org/1953120",
+    "question_link": "https://zbmath.org/1953120",
+    "question_id": "q_019",
+    "parser_is_solved": "false",
+    "context_brief": "Server anonymity and search",
+    "original_question": "Is there a peer-to-peer design that can support server anonymity, meaning that it is difficult to determine which nodes store a given document, while also supporting efficient search for that document without falling back to expensive broadcast-style search?",
+    "evidence": [
+      {
+        "page": 12,
+        "quote": "Nevertheless, supporting server anonymity and efficient search concurrently remains an open issue."
+      }
+    ]
+  },
+  "artifact": {
+    "category_tag": "anonymous peer-to-peer search",
+    "confidence": 0.6,
+    "macro_subject": "Theoretical Computer Science",
+    "open_status": "open",
+    "self_contained_problem": "Consider a peer-to-peer network: a distributed system consisting of a dynamic collection of nodes (peers) that jointly store a set of documents, with each document replicated on some subset of nodes (its \"servers\"). Users issue queries naming a document, and the system must locate and retrieve a copy. We say that the system provides:\n\n(i) Server anonymity: for any document D in the system, no participant (other than a server of D itself) and no external observer can determine, with non-negligible advantage over random guessing, which nodes store D, even given the ability to issue queries and observe network traffic.\n\n(ii) Efficient search: any document present in the system can be located by a query whose total communication and computation cost is bounded by a polylogarithmic function (or, more weakly, a sublinear function) of the number of nodes N, ruling out flooding/broadcast-style search whose cost is Ω(N).\n\nDesign a peer-to-peer protocol (specifying the routing/indexing structure, the placement of documents, and the search procedure) that simultaneously achieves (i) and (ii), or prove that no such protocol exists under a specified adversary model.",
+    "status_search_result": "The literature on anonymous P2P systems documents a persistent tension between strong server anonymity and efficient (non-broadcast) search: structured DHT-based systems give efficient lookup but expose servers, while anonymity-providing overlays typically incur significant routing overhead. Some hybrid and indirection-based protocols offer partial tradeoffs, but no published design is widely accepted as achieving both strong server anonymity and polylogarithmic search simultaneously. The problem is generally still regarded as open.",
+    "status_evidence": [
+      {
+        "title": "Secure and Privacy-Aware Searching in Peer-to-Peer Networks",
+        "url": "https://arxiv.org/pdf/1110.0150",
+        "snippet": "Unstructured P2P networks need efficient search mechanisms and anonymizing P2P networks often means extra cost in transfer efficiency.",
+        "claim": "Tradeoff between anonymity and search efficiency in P2P remains a recognized challenge."
+      },
+      {
+        "title": "Anonymous P2P - Wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Anonymous_P2P",
+        "snippet": "Anonymity in P2P systems is typically achieved at significant cost to routing/search efficiency.",
+        "claim": "No widely accepted design achieves both strong server anonymity and efficient (non-broadcast) search."
+      }
+    ]
+  },
+  "model": "opus",
+  "effort": "medium",
+  "elapsed_s": 27.89,
+  "validation_warnings": [],
+  "raw_claude_stdout": "{\"type\":\"result\",\"subtype\":\"success\",\"is_error\":false,\"api_error_status\":null,\"duration_ms\":26539,\"duration_api_ms\":26886,\"num_turns\":3,\"result\":\"Sources:\\n- [Secure and Privacy-Aware Searching in Peer-to-Peer Networks](https://arxiv.org/pdf/1110.0150)\\n- [Anonymous P2P - Wikipedia](https://en.wikipedia.org/wiki/Anonymous_P2P)\",\"stop_reason\":\"end_turn\",\"session_id\":\"a6e749a9-fc10-467b-b52e-b8527475b658\",\"total_cost_usd\":0.09358924999999998,\"usage\":{\"input_tokens\":8,\"cache_creation_input_tokens\":3995,\"cache_read_input_tokens\":12459,\"output_tokens\":1266,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":3995,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[{\"input_tokens\":1,\"output_tokens\":104,\"cache_read_input_tokens\":5620,\"cache_creation_input_tokens\":1060,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":1060},\"type\":\"message\"}],\"speed\":\"standard\"},\"modelUsage\":{\"claude-haiku-4-5-20251001\":{\"inputTokens\":18426,\"outputTokens\":455,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":1,\"costUSD\":0.030701,\"contextWindow\":200000,\"maxOutputTokens\":32000},\"claude-opus-4-7\":{\"inputTokens\":8,\"outputTokens\":1266,\"cacheReadInputTokens\":12459,\"cacheCreationInputTokens\":3995,\"webSearchRequests\":0,\"costUSD\":0.06288824999999999,\"contextWindow\":1000000,\"maxOutputTokens\":64000}},\"permission_denials\":[],\"structured_output\":{\"category_tag\":\"anonymous peer-to-peer search\",\"confidence\":0.6,\"macro_subject\":\"Theoretical Computer Science\",\"open_status\":\"open\",\"self_contained_problem\":\"Consider a peer-to-peer network: a distributed system consisting of a dynamic collection of nodes (peers) that jointly store a set of documents, with each document replicated on some subset of nodes (its \\\"servers\\\"). Users issue queries naming a document, and the system must locate and retrieve a copy. We say that the system provides:\\n\\n(i) Server anonymity: for any document D in the system, no participant (other than a server of D itself) and no external observer can determine, with non-negligible advantage over random guessing, which nodes store D, even given the ability to issue queries and observe network traffic.\\n\\n(ii) Efficient search: any document present in the system can be located by a query whose total communication and computation cost is bounded by a polylogarithmic function (or, more weakly, a sublinear function) of the number of nodes N, ruling out flooding/broadcast-style search whose cost is Ω(N).\\n\\nDesign a peer-to-peer protocol (specifying the routing/indexing structure, the placement of documents, and the search procedure) that simultaneously achieves (i) and (ii), or prove that no such protocol exists under a specified adversary model.\",\"status_search_result\":\"The literature on anonymous P2P systems documents a persistent tension between strong server anonymity and efficient (non-broadcast) search: structured DHT-based systems give efficient lookup but expose servers, while anonymity-providing overlays typically incur significant routing overhead. Some hybrid and indirection-based protocols offer partial tradeoffs, but no published design is widely accepted as achieving both strong server anonymity and polylogarithmic search simultaneously. The problem is generally still regarded as open.\",\"status_evidence\":[{\"title\":\"Secure and Privacy-Aware Searching in Peer-to-Peer Networks\",\"url\":\"https://arxiv.org/pdf/1110.0150\",\"snippet\":\"Unstructured P2P networks need efficient search mechanisms and anonymizing P2P networks often means extra cost in transfer efficiency.\",\"claim\":\"Tradeoff between anonymity and search efficiency in P2P remains a recognized challenge.\"},{\"title\":\"Anonymous P2P - Wikipedia\",\"url\":\"https://en.wikipedia.org/wiki/Anonymous_P2P\",\"snippet\":\"Anonymity in P2P systems is typically achieved at significant cost to routing/search efficiency.\",\"claim\":\"No widely accepted design achieves both strong server anonymity and efficient (non-broadcast) search.\"}]},\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"uuid\":\"03d767cd-04e9-4e16-abab-0e9a2923c5f4\"}\n"
+}

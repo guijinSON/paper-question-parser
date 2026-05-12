@@ -1,0 +1,57 @@
+{
+  "record": {
+    "global_index": 5739,
+    "source_json": "outputs/parse-paper/2210.12062.json",
+    "paper_id": "2210.12062",
+    "paper_title": "A survey of open questions in adaptive therapy: bridging mathematics and clinical translation",
+    "paper_link": "https://arxiv.org/abs/2210.12062",
+    "question_link": "https://arxiv.org/pdf/2210.12062.pdf#page=5",
+    "question_id": "q_003",
+    "parser_is_solved": "false",
+    "context_brief": "Plasticity and drug-induced resistance",
+    "original_question": "What role should phenotypic plasticity and drug-induced mutations play in adaptive cancer therapy? Since treatment can induce or select resistant cellular states, phenotype switching between drug-sensitive and drug-resistant states can be reversible, and treatment holidays may re-sensitize resistant populations, when and how should adaptive therapy protocols account for switching rates, treatment-induced resistance, cancer-type and patient-level variability in plasticity, and the need to identify plasticity in an individual tumor before deciding whether and how to use adaptive therapy?",
+    "evidence": [
+      {
+        "page": 5,
+        "quote": "1.3 What is the role of plasticity and drug-induced mutations in adaptive therapy?"
+      },
+      {
+        "page": 5,
+        "quote": "The effectiveness of treatment holidays drastically changes when considering phenotype switching between drug-sensitive and -resistant phenotypes."
+      },
+      {
+        "page": 5,
+        "quote": "Since phenotype switching to resistant states is often reversible (reviewed in [42]), treatment holidays have the potential to re-sensitize the resistant cell population to future drug rechallenges."
+      },
+      {
+        "page": 5,
+        "quote": "The switching rate from resistant to sensitive states can impact the benefit of adaptive therapy."
+      },
+      {
+        "page": 6,
+        "quote": "Thus, identifying the presence of phenotypic plasticity in a specific tumor could be an important factor in deciding if and how adaptive therapy should be applied."
+      }
+    ]
+  },
+  "artifact": {
+    "category_tag": "adaptive cancer therapy modeling",
+    "confidence": 0.6,
+    "macro_subject": "Applied Mathematics",
+    "open_status": "open",
+    "self_contained_problem": "Consider a tumor modeled as a population composed of two phenotypic compartments: drug-sensitive cells with density S(t) and drug-resistant cells with density R(t), evolving in continuous time t >= 0. Cells switch phenotype reversibly with rates k_{SR}(t) (sensitive -> resistant) and k_{RS}(t) (resistant -> sensitive), each of which may depend on whether the drug is being administered. Under a time-varying treatment schedule u(t) in {0,1}, the dynamics are\\n\\n  dS/dt = r_S S (1 - (S+R)/K) - d(u) S - k_{SR}(u) S + k_{RS}(u) R,\\n  dR/dt = r_R R (1 - (S+R)/K) - k_{RS}(u) R + k_{SR}(u) S,\\n\\nwhere r_S, r_R > 0 are intrinsic growth rates, K > 0 is the carrying capacity, and d(u) >= 0 is the drug-induced death rate of sensitive cells (with d(0)=0). The total tumor burden is N(t) = S(t)+R(t), and an adaptive therapy protocol is a feedback rule that switches u(t) based on observations of N(t).\\n\\nProblem. Develop a mathematical framework that prescribes, as a function of the parameters (r_S, r_R, K, d, k_{SR}(0), k_{SR}(1), k_{RS}(0), k_{RS}(1)) and patient-level uncertainty in these parameters:\\n  (a) necessary and sufficient conditions under which an adaptive (feedback) therapy protocol yields a longer time-to-progression (e.g. time until N(t) exceeds a fixed threshold N*) than continuous maximum-tolerated-dose therapy;\\n  (b) optimal rules for triggering treatment holidays that exploit reversible switching to re-sensitize the resistant compartment, including quantitative bounds on the switching rates k_{RS}(0) for which holidays are beneficial;\\n  (c) an identifiability analysis specifying which longitudinal measurements of N(t) (and possibly biomarkers of S, R) suffice to estimate the plasticity parameters of an individual tumor before deciding to apply adaptive therapy;\\n  (d) the extent to which drug-induced (rather than purely selected) resistance, modeled by k_{SR}(1) > k_{SR}(0), alters the answers in (a)-(c).",
+    "status_search_result": "This is a broad open research direction in mathematical oncology. Multiple recent modeling studies investigate phenotype switching and adaptive therapy, but no consensus framework gives parameter-level prescriptions for when adaptive therapy beats continuous therapy under plasticity, nor a standard identifiability protocol; the question remains open.",
+    "status_evidence": [
+      {
+        "title": "A survey of open questions in adaptive therapy",
+        "url": "https://arxiv.org/abs/2210.12062",
+        "snippet": "What is the role of plasticity and drug-induced mutations in adaptive therapy?",
+        "claim": "Listed as an open question in adaptive therapy."
+      }
+    ]
+  },
+  "model": "opus",
+  "effort": "medium",
+  "elapsed_s": 18.05,
+  "validation_warnings": [],
+  "raw_claude_stdout": "{\"type\":\"result\",\"subtype\":\"success\",\"is_error\":false,\"api_error_status\":null,\"duration_ms\":17032,\"duration_api_ms\":18084,\"num_turns\":2,\"result\":\"Provided the structured dataset row.\",\"stop_reason\":\"end_turn\",\"session_id\":\"f0ee979d-097a-406f-9593-bfabfab1c599\",\"total_cost_usd\":0.057708249999999996,\"usage\":{\"input_tokens\":7,\"cache_creation_input_tokens\":3147,\"cache_read_input_tokens\":7167,\"output_tokens\":1336,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":3147,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[{\"input_tokens\":1,\"output_tokens\":15,\"cache_read_input_tokens\":4482,\"cache_creation_input_tokens\":1350,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":1350},\"type\":\"message\"}],\"speed\":\"standard\"},\"modelUsage\":{\"claude-haiku-4-5-20251001\":{\"inputTokens\":931,\"outputTokens\":18,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":0,\"costUSD\":0.001021,\"contextWindow\":200000,\"maxOutputTokens\":32000},\"claude-opus-4-7\":{\"inputTokens\":7,\"outputTokens\":1336,\"cacheReadInputTokens\":7167,\"cacheCreationInputTokens\":3147,\"webSearchRequests\":0,\"costUSD\":0.056687249999999995,\"contextWindow\":1000000,\"maxOutputTokens\":64000}},\"permission_denials\":[],\"structured_output\":{\"category_tag\":\"adaptive cancer therapy modeling\",\"confidence\":0.6,\"macro_subject\":\"Applied Mathematics\",\"open_status\":\"open\",\"self_contained_problem\":\"Consider a tumor modeled as a population composed of two phenotypic compartments: drug-sensitive cells with density S(t) and drug-resistant cells with density R(t), evolving in continuous time t >= 0. Cells switch phenotype reversibly with rates k_{SR}(t) (sensitive -> resistant) and k_{RS}(t) (resistant -> sensitive), each of which may depend on whether the drug is being administered. Under a time-varying treatment schedule u(t) in {0,1}, the dynamics are\\\\n\\\\n  dS/dt = r_S S (1 - (S+R)/K) - d(u) S - k_{SR}(u) S + k_{RS}(u) R,\\\\n  dR/dt = r_R R (1 - (S+R)/K) - k_{RS}(u) R + k_{SR}(u) S,\\\\n\\\\nwhere r_S, r_R > 0 are intrinsic growth rates, K > 0 is the carrying capacity, and d(u) >= 0 is the drug-induced death rate of sensitive cells (with d(0)=0). The total tumor burden is N(t) = S(t)+R(t), and an adaptive therapy protocol is a feedback rule that switches u(t) based on observations of N(t).\\\\n\\\\nProblem. Develop a mathematical framework that prescribes, as a function of the parameters (r_S, r_R, K, d, k_{SR}(0), k_{SR}(1), k_{RS}(0), k_{RS}(1)) and patient-level uncertainty in these parameters:\\\\n  (a) necessary and sufficient conditions under which an adaptive (feedback) therapy protocol yields a longer time-to-progression (e.g. time until N(t) exceeds a fixed threshold N*) than continuous maximum-tolerated-dose therapy;\\\\n  (b) optimal rules for triggering treatment holidays that exploit reversible switching to re-sensitize the resistant compartment, including quantitative bounds on the switching rates k_{RS}(0) for which holidays are beneficial;\\\\n  (c) an identifiability analysis specifying which longitudinal measurements of N(t) (and possibly biomarkers of S, R) suffice to estimate the plasticity parameters of an individual tumor before deciding to apply adaptive therapy;\\\\n  (d) the extent to which drug-induced (rather than purely selected) resistance, modeled by k_{SR}(1) > k_{SR}(0), alters the answers in (a)-(c).\",\"status_search_result\":\"This is a broad open research direction in mathematical oncology. Multiple recent modeling studies investigate phenotype switching and adaptive therapy, but no consensus framework gives parameter-level prescriptions for when adaptive therapy beats continuous therapy under plasticity, nor a standard identifiability protocol; the question remains open.\",\"status_evidence\":[{\"title\":\"A survey of open questions in adaptive therapy\",\"url\":\"https://arxiv.org/abs/2210.12062\",\"snippet\":\"What is the role of plasticity and drug-induced mutations in adaptive therapy?\",\"claim\":\"Listed as an open question in adaptive therapy.\"}]},\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"uuid\":\"d98063cc-574c-4c8c-beb2-964eba880ba6\"}\n"
+}

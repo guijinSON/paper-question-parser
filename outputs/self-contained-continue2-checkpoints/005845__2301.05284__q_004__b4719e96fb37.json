@@ -1,0 +1,69 @@
+{
+  "record": {
+    "global_index": 5845,
+    "source_json": "outputs/parse-paper/2301.05284.json",
+    "paper_id": "2301.05284",
+    "paper_title": "Concrete examples of the rate of convergence of Chernoff approximations: numerical results for the heat semigroup and open questions on them (with appendix: full list of pictures and Python code)",
+    "paper_link": "https://arxiv.org/abs/2301.05284",
+    "question_link": "https://arxiv.org/pdf/2301.05284.pdf#page=40",
+    "question_id": "q_004",
+    "parser_is_solved": "false",
+    "context_brief": "Oscillations of Chernoff approximation error",
+    "original_question": "For the heat equation u_t(t,x)=u_xx(t,x) on the real line, work in the Banach space UC_b(R) of bounded uniformly continuous real functions with the sup norm. Let Lf=f'' generate the heat semigroup e^{tL}. For t=1/2, compare the exact solution e^{tL}u0 with Chernoff products G(t/n)^n u0 and S(t/n)^n u0, where G is first-order Chernoff tangent to L and S is second-order Chernoff tangent to L. Write d_n^G=||e^{tL}u0-G(t/n)^n u0|| and d_n^S=||e^{tL}u0-S(t/n)^n u0||, and estimate log d_n approximately as alpha log n plus beta, where alpha is the order of decreasing error and beta is the free term. Why do the sampled errors d_n^G and d_n^S oscillate around their fitted power-law trends as n changes, forming waves rather than lying on a monotone or nearly straight log-log curve? What theoretical feature of the Chernoff products, the heat semigroup, the selected initial conditions, or the finite-n sampling causes this oscillatory error behavior?",
+    "evidence": [
+      {
+        "page": 40,
+        "quote": "We know that (e tL)t≥0 is aC 0-semigroup in the Banach spaceF=U C b(R) of all uniformly continuous and bounded functionsf:R→R,∥f∥= sup x∈R |f(x)|. For eacht≥0 we introduce linear bounded operators G(t) andS(t) inFas (G(t)f)(x) = 1 2 f(x) + 1 4 f(x+ 2 √ t) + 1 4 f(x−2 √ t), (S(t)f)(x) = 2 3 f(x) + 1 6 f(x+ √ 6t) + 1 6 f(x− √ 6t)."
+      },
+      {
+        "page": 40,
+        "quote": "Paul Chernoff’s theorem [3] implies that for eacht >0, eachu 0 ∈ Fsequences dG n =∥e tLu0 −G(t/n) nu0∥, d S n =∥e tLu0 −S(t/n) nu0∥ converge to 0 asn→ ∞, but it saysnothingabout the rate of convergence."
+      },
+      {
+        "page": 40,
+        "quote": "For all of them, we numerically calculated lnd G n ≈α G lnn+β G,lnd S n ≈α S lnn+β S. We callαthe order of decreasing error,βthe free term of decreasing error."
+      },
+      {
+        "page": 41,
+        "quote": "These are effects that we see numerically but do not know how to explain theoretically:"
+      },
+      {
+        "page": 41,
+        "quote": "2. The erroroscillates. In Figure 18 below in the right picture, one can see that the points, both green and blue, form “waves” that rise and fall, oscillating near the linear trend. This effect is more or less seen for all initial conditions that we tested."
+      }
+    ]
+  },
+  "artifact": {
+    "self_contained_problem": "Let $UC_b(\\mathbb{R})$ denote the Banach space of bounded uniformly continuous functions $f:\\mathbb{R}\\to\\mathbb{R}$ equipped with the sup norm $\\|f\\|=\\sup_{x\\in\\mathbb{R}}|f(x)|$. Consider the heat equation $u_t(t,x)=u_{xx}(t,x)$ on $\\mathbb{R}$, whose generator $Lf=f''$ produces the strongly continuous heat semigroup $(e^{tL})_{t\\ge 0}$ on $UC_b(\\mathbb{R})$. Define the bounded linear operators\n$$(G(t)f)(x)=\\tfrac{1}{2}f(x)+\\tfrac{1}{4}f(x+2\\sqrt{t})+\\tfrac{1}{4}f(x-2\\sqrt{t}),$$\n$$(S(t)f)(x)=\\tfrac{2}{3}f(x)+\\tfrac{1}{6}f(x+\\sqrt{6t})+\\tfrac{1}{6}f(x-\\sqrt{6t}).$$\nHere $G$ is Chernoff-tangent to $L$ to first order and $S$ to second order, so by Chernoff's theorem, for every $u_0\\in UC_b(\\mathbb{R})$ and every $t\\ge 0$,\n$$d_n^G(t):=\\|e^{tL}u_0-G(t/n)^n u_0\\|\\to 0,\\qquad d_n^S(t):=\\|e^{tL}u_0-S(t/n)^n u_0\\|\\to 0$$\nas $n\\to\\infty$. Fix $t=1/2$ and a smooth bounded initial datum $u_0$ (e.g.\\ $u_0(x)=\\sin x$, $\\cos x$, $e^{-x^2}$, or similar). For large $n$ one observes numerically that\n$$\\log d_n^G\\approx \\alpha_G\\log n+\\beta_G,\\qquad \\log d_n^S\\approx \\alpha_S\\log n+\\beta_S,$$\nbut, plotted against $\\log n$, the sequences $\\log d_n^G$ and $\\log d_n^S$ do not lie on these straight lines: they oscillate around the fitted trend in a wave-like manner rather than following a monotone or nearly linear log–log curve.\n\nProvide a rigorous theoretical explanation of this oscillatory behaviour. Specifically, identify which features of the Chernoff products $G(t/n)^n$ and $S(t/n)^n$, of the heat semigroup $e^{tL}$, of the chosen initial conditions, or of the discrete sampling in $n$ are responsible for the periodic-like waves observed in $n\\mapsto\\log d_n^G$ and $n\\mapsto\\log d_n^S$ around their power-law trends.",
+    "macro_subject": "Analysis",
+    "category_tag": "Chernoff approximations of operator semigroups",
+    "open_status": "open",
+    "status_search_result": "The oscillation phenomenon was posed as an unexplained numerical observation among a list of open questions on the rate of convergence of Chernoff approximations to the heat semigroup. Subsequent work (e.g., Galkin–Remizov on tangency-order based rates, and a 2024 Israel J. Math. paper on upper/lower estimates of Chernoff convergence rates) refines power-law estimates of the form $d_n=O(n^{-k})$ but does not address the wave-like deviation from those trends. No source located identifies a theoretical mechanism explaining the oscillations, so the question appears still open.",
+    "status_evidence": [
+      {
+        "title": "Concrete examples of the rate of convergence of Chernoff approximations",
+        "url": "https://arxiv.org/abs/2301.05284",
+        "snippet": "numerical results for the heat semigroup and open questions on them",
+        "claim": "The oscillatory behavior is posed as an open numerical observation."
+      },
+      {
+        "title": "Upper and lower estimates for rate of convergence in the Chernoff product formula",
+        "url": "https://link.springer.com/article/10.1007/s11856-024-2678-x",
+        "snippet": "convergence can be arbitrarily fast or arbitrarily slow; provides upper estimates under natural assumptions",
+        "claim": "Recent work addresses overall power-law rates but not the oscillation around fitted trends."
+      },
+      {
+        "title": "Chernoff's product formula: Semigroup approximations with non-uniform time intervals",
+        "url": "https://arxiv.org/html/2407.04357",
+        "snippet": "if Chernoff function and semigroup share Taylor polynomial of order k, error decreases at least like 1/n^k",
+        "claim": "Higher tangency order improves the leading-order rate but does not explain residual oscillations."
+      }
+    ],
+    "confidence": 0.6
+  },
+  "model": "opus",
+  "effort": "medium",
+  "elapsed_s": 33.57,
+  "validation_warnings": [],
+  "raw_claude_stdout": "{\"type\":\"result\",\"subtype\":\"success\",\"is_error\":false,\"api_error_status\":null,\"duration_ms\":32544,\"duration_api_ms\":32201,\"num_turns\":3,\"result\":\"I've created the dataset row. The problem asks for a theoretical explanation of the wave-like oscillations of Chernoff-approximation errors $d_n^G,d_n^S$ for the heat semigroup around their fitted log-log power-law trends, and the status appears to be open based on available literature.\\n\\nSources:\\n- [Concrete examples of the rate of convergence of Chernoff approximations (arXiv:2301.05284)](https://arxiv.org/abs/2301.05284)\\n- [Upper and lower estimates for rate of convergence in the Chernoff product formula (Israel J. Math., 2024)](https://link.springer.com/article/10.1007/s11856-024-2678-x)\\n- [Chernoff's product formula: Semigroup approximations with non-uniform time intervals (arXiv:2407.04357)](https://arxiv.org/html/2407.04357)\\n- [The Method of Chernoff Approximation (Springer)](https://link.springer.com/chapter/10.1007/978-3-030-46079-2_2)\\n- [Speed of convergence of Chernoff approximations for two model examples](https://ui.adsabs.harvard.edu/abs/2020arXiv201209615P/abstract)\",\"stop_reason\":\"end_turn\",\"session_id\":\"b74e2bb4-b69b-4d42-8858-faa101e54fb6\",\"total_cost_usd\":0.132008,\"usage\":{\"input_tokens\":8,\"cache_creation_input_tokens\":5538,\"cache_read_input_tokens\":14101,\"output_tokens\":2286,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":5538,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[{\"input_tokens\":1,\"output_tokens\":405,\"cache_read_input_tokens\":6425,\"cache_creation_input_tokens\":1798,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":1798},\"type\":\"message\"}],\"speed\":\"standard\"},\"modelUsage\":{\"claude-haiku-4-5-20251001\":{\"inputTokens\":20430,\"outputTokens\":545,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":1,\"costUSD\":0.033155,\"contextWindow\":200000,\"maxOutputTokens\":32000},\"claude-opus-4-7\":{\"inputTokens\":8,\"outputTokens\":2286,\"cacheReadInputTokens\":14101,\"cacheCreationInputTokens\":5538,\"webSearchRequests\":0,\"costUSD\":0.098853,\"contextWindow\":1000000,\"maxOutputTokens\":64000}},\"permission_denials\":[],\"structured_output\":{\"self_contained_problem\":\"Let $UC_b(\\\\mathbb{R})$ denote the Banach space of bounded uniformly continuous functions $f:\\\\mathbb{R}\\\\to\\\\mathbb{R}$ equipped with the sup norm $\\\\|f\\\\|=\\\\sup_{x\\\\in\\\\mathbb{R}}|f(x)|$. Consider the heat equation $u_t(t,x)=u_{xx}(t,x)$ on $\\\\mathbb{R}$, whose generator $Lf=f''$ produces the strongly continuous heat semigroup $(e^{tL})_{t\\\\ge 0}$ on $UC_b(\\\\mathbb{R})$. Define the bounded linear operators\\n$$(G(t)f)(x)=\\\\tfrac{1}{2}f(x)+\\\\tfrac{1}{4}f(x+2\\\\sqrt{t})+\\\\tfrac{1}{4}f(x-2\\\\sqrt{t}),$$\\n$$(S(t)f)(x)=\\\\tfrac{2}{3}f(x)+\\\\tfrac{1}{6}f(x+\\\\sqrt{6t})+\\\\tfrac{1}{6}f(x-\\\\sqrt{6t}).$$\\nHere $G$ is Chernoff-tangent to $L$ to first order and $S$ to second order, so by Chernoff's theorem, for every $u_0\\\\in UC_b(\\\\mathbb{R})$ and every $t\\\\ge 0$,\\n$$d_n^G(t):=\\\\|e^{tL}u_0-G(t/n)^n u_0\\\\|\\\\to 0,\\\\qquad d_n^S(t):=\\\\|e^{tL}u_0-S(t/n)^n u_0\\\\|\\\\to 0$$\\nas $n\\\\to\\\\infty$. Fix $t=1/2$ and a smooth bounded initial datum $u_0$ (e.g.\\\\ $u_0(x)=\\\\sin x$, $\\\\cos x$, $e^{-x^2}$, or similar). For large $n$ one observes numerically that\\n$$\\\\log d_n^G\\\\approx \\\\alpha_G\\\\log n+\\\\beta_G,\\\\qquad \\\\log d_n^S\\\\approx \\\\alpha_S\\\\log n+\\\\beta_S,$$\\nbut, plotted against $\\\\log n$, the sequences $\\\\log d_n^G$ and $\\\\log d_n^S$ do not lie on these straight lines: they oscillate around the fitted trend in a wave-like manner rather than following a monotone or nearly linear log–log curve.\\n\\nProvide a rigorous theoretical explanation of this oscillatory behaviour. Specifically, identify which features of the Chernoff products $G(t/n)^n$ and $S(t/n)^n$, of the heat semigroup $e^{tL}$, of the chosen initial conditions, or of the discrete sampling in $n$ are responsible for the periodic-like waves observed in $n\\\\mapsto\\\\log d_n^G$ and $n\\\\mapsto\\\\log d_n^S$ around their power-law trends.\",\"macro_subject\":\"Analysis\",\"category_tag\":\"Chernoff approximations of operator semigroups\",\"open_status\":\"open\",\"status_search_result\":\"The oscillation phenomenon was posed as an unexplained numerical observation among a list of open questions on the rate of convergence of Chernoff approximations to the heat semigroup. Subsequent work (e.g., Galkin–Remizov on tangency-order based rates, and a 2024 Israel J. Math. paper on upper/lower estimates of Chernoff convergence rates) refines power-law estimates of the form $d_n=O(n^{-k})$ but does not address the wave-like deviation from those trends. No source located identifies a theoretical mechanism explaining the oscillations, so the question appears still open.\",\"status_evidence\":[{\"title\":\"Concrete examples of the rate of convergence of Chernoff approximations\",\"url\":\"https://arxiv.org/abs/2301.05284\",\"snippet\":\"numerical results for the heat semigroup and open questions on them\",\"claim\":\"The oscillatory behavior is posed as an open numerical observation.\"},{\"title\":\"Upper and lower estimates for rate of convergence in the Chernoff product formula\",\"url\":\"https://link.springer.com/article/10.1007/s11856-024-2678-x\",\"snippet\":\"convergence can be arbitrarily fast or arbitrarily slow; provides upper estimates under natural assumptions\",\"claim\":\"Recent work addresses overall power-law rates but not the oscillation around fitted trends.\"},{\"title\":\"Chernoff's product formula: Semigroup approximations with non-uniform time intervals\",\"url\":\"https://arxiv.org/html/2407.04357\",\"snippet\":\"if Chernoff function and semigroup share Taylor polynomial of order k, error decreases at least like 1/n^k\",\"claim\":\"Higher tangency order improves the leading-order rate but does not explain residual oscillations.\"}],\"confidence\":0.6},\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"uuid\":\"f8643e36-140b-45d5-869e-2bf6587d2656\"}\n"
+}

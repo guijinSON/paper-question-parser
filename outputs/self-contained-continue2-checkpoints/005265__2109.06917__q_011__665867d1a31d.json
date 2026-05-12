@@ -1,0 +1,59 @@
+{
+  "record": {
+    "global_index": 5265,
+    "source_json": "outputs/parse-paper/2109.06917.json",
+    "paper_id": "2109.06917",
+    "paper_title": "Open Problems Related to Quantum Query Complexity",
+    "paper_link": "https://arxiv.org/abs/2109.06917",
+    "question_link": "https://arxiv.org/pdf/2109.06917.pdf#page=6",
+    "question_id": "q_011",
+    "parser_is_solved": "false",
+    "context_brief": "Standard versus erasing oracle query models",
+    "original_question": "Do there exist sets of injective functions f for which a quantum computer can learn certain properties of f using few queries to the standard oracle |x,a> -> |x,a xor f(x)> but cannot learn those properties using few queries to the erasing oracle |x> -> |f(x)>? One proposed setting is f(x)=<h(x),gar(x)>, where h is a Simon function and gar(x) is a long random garbage string that makes f injective with overwhelming probability.",
+    "evidence": [
+      {
+        "page": 6,
+        "quote": "Given a function f, the usual model of quantum query complexity is that we get access to an oracle that maps basis states of the form |x, a⟩ to basis states of the form |x, a⊕ f (x)⟩, where⊕ denotes bitwise XOR and where I’m ignoring workspace registers."
+      },
+      {
+        "page": 7,
+        "quote": "However, if f is injective, then another model is possible: namely, an oracle that simply maps basis states of the form |x⟩ to basis states of the form|f (x)⟩, “erasing” the previous contents of the |x⟩ register."
+      },
+      {
+        "page": 7,
+        "quote": "Problem 11 Are there sets of injective functions f for which a quantum computer can learn certain properties of f using few queries to a standard oracle, but not using few queries to an erasing oracle?"
+      },
+      {
+        "page": 7,
+        "quote": "One natural candidate would be as follows: f (x) =⟨h (x) , gar (x)⟩ , where h is a Simon function (that is, a function that’s either 1-to-1 or else satisfies the Simon promise, and for which the promise is to decide which), and gar ( x) is a long string of random garbage depending on x. The inclusion of gar ( x) makes f injective with overwhelming probability."
+      }
+    ]
+  },
+  "artifact": {
+    "self_contained_problem": "Background. For a function $f:\\{0,1\\}^n\\to\\{0,1\\}^m$, the standard quantum oracle is the unitary $O_f^{\\mathrm{std}}:|x,a\\rangle\\mapsto|x,a\\oplus f(x)\\rangle$ on $\\mathbb{C}^{2^n}\\otimes\\mathbb{C}^{2^m}$, where $\\oplus$ denotes bitwise XOR. If $f$ is injective (so $m\\ge n$ and $f$ is a bijection onto its image), one may also define the erasing quantum oracle $O_f^{\\mathrm{er}}:|x\\rangle\\mapsto|f(x)\\rangle$ acting on $\\mathbb{C}^{2^m}$ (extended trivially on states outside the image, or, equivalently, defined as a partial isometry). The quantum query complexity of a property $P$ of $f$ relative to an oracle model is the minimum number of oracle calls needed by a bounded-error quantum algorithm to decide $P(f)$.\n\nQuestion. Does there exist a family $\\mathcal{F}$ of injective functions and a property $P:\\mathcal{F}\\to\\{0,1\\}$ such that the bounded-error quantum query complexity of $P$ using the standard oracle $O_f^{\\mathrm{std}}$ is asymptotically smaller (e.g., polylogarithmic versus polynomial in $n$) than the bounded-error quantum query complexity of $P$ using the erasing oracle $O_f^{\\mathrm{er}}$?\n\nA candidate construction to consider: let $h:\\{0,1\\}^n\\to\\{0,1\\}^n$ be a \"Simon function\" — i.e., either $h$ is one-to-one, or there exists a nonzero $s\\in\\{0,1\\}^n$ such that $h(x)=h(y)$ iff $y\\in\\{x,x\\oplus s\\}$ — and the task is to distinguish these two cases. For each $x$, let $\\mathrm{gar}(x)\\in\\{0,1\\}^\\ell$ be a uniformly random string ($\\ell\\gg n$), and define $f(x)=\\langle h(x),\\mathrm{gar}(x)\\rangle\\in\\{0,1\\}^{n+\\ell}$. With overwhelming probability $f$ is injective. Is the distinguishing task for $h$ solvable in $O(\\mathrm{poly}(n))$ queries to $O_f^{\\mathrm{std}}$ but requiring super-polynomially many queries to $O_f^{\\mathrm{er}}$?",
+    "macro_subject": "Theoretical Computer Science",
+    "category_tag": "Quantum query complexity",
+    "open_status": "open",
+    "status_search_result": "The question remains open as a decision-problem separation. Recent work (2025) on \"Quantum Search with In-Place Queries\" makes progress by exhibiting a subspace-conversion (state-conversion) task — Function Erasure — that separates xor (standard) and in-place (erasing) oracles, showing 1 standard query suffices while Θ(√N) in-place queries are required. However, that work explicitly states it does not resolve the decision-problem version of Aaronson's question, conjecturing an \"Embedded PermInv\" candidate but leaving its in-place lower bound unproven. The Simon-with-garbage candidate has not been proven to give the desired separation.",
+    "status_evidence": [
+      {
+        "title": "Quantum Search with In-Place Queries",
+        "url": "https://arxiv.org/html/2504.03620",
+        "snippet": "Function Erasure requires 1 xor query and Θ(√N) in-place queries, the first problem where xor oracles outperform in-place oracles; decision-problem separation (Aaronson's Problem 11) left open as a conjecture about Embedded PermInv.",
+        "claim": "Provides a state-conversion separation between standard (xor) and erasing (in-place) oracles but does not resolve the decision-problem version of Aaronson's question."
+      },
+      {
+        "title": "Open Problems Related to Quantum Query Complexity",
+        "url": "https://arxiv.org/abs/2109.06917",
+        "snippet": "Problem 11: Are there sets of injective functions f for which a quantum computer can learn certain properties of f using few queries to a standard oracle, but not using few queries to an erasing oracle?",
+        "claim": "The problem is posed as open."
+      }
+    ],
+    "confidence": 0.78
+  },
+  "model": "opus",
+  "effort": "medium",
+  "elapsed_s": 48.2,
+  "validation_warnings": [],
+  "raw_claude_stdout": "{\"type\":\"result\",\"subtype\":\"success\",\"is_error\":false,\"api_error_status\":null,\"duration_ms\":47107,\"duration_api_ms\":39295,\"num_turns\":4,\"result\":\"Sources:\\n- [Open Problems Related to Quantum Query Complexity](https://arxiv.org/abs/2109.06917)\\n- [Quantum Search with In-Place Queries](https://arxiv.org/html/2504.03620)\",\"stop_reason\":\"end_turn\",\"session_id\":\"768d2ee9-70c8-48e5-ad37-0a2bcf05a22b\",\"total_cost_usd\":0.16811625,\"usage\":{\"input_tokens\":9,\"cache_creation_input_tokens\":5489,\"cache_read_input_tokens\":19754,\"output_tokens\":1976,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":5489,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[{\"input_tokens\":1,\"output_tokens\":83,\"cache_read_input_tokens\":6516,\"cache_creation_input_tokens\":1658,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":1658},\"type\":\"message\"}],\"speed\":\"standard\"},\"modelUsage\":{\"claude-haiku-4-5-20251001\":{\"inputTokens\":60418,\"outputTokens\":814,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":1,\"costUSD\":0.074488,\"contextWindow\":200000,\"maxOutputTokens\":32000},\"claude-opus-4-7\":{\"inputTokens\":9,\"outputTokens\":1976,\"cacheReadInputTokens\":19754,\"cacheCreationInputTokens\":5489,\"webSearchRequests\":0,\"costUSD\":0.09362825,\"contextWindow\":1000000,\"maxOutputTokens\":64000}},\"permission_denials\":[],\"structured_output\":{\"self_contained_problem\":\"Background. For a function $f:\\\\{0,1\\\\}^n\\\\to\\\\{0,1\\\\}^m$, the standard quantum oracle is the unitary $O_f^{\\\\mathrm{std}}:|x,a\\\\rangle\\\\mapsto|x,a\\\\oplus f(x)\\\\rangle$ on $\\\\mathbb{C}^{2^n}\\\\otimes\\\\mathbb{C}^{2^m}$, where $\\\\oplus$ denotes bitwise XOR. If $f$ is injective (so $m\\\\ge n$ and $f$ is a bijection onto its image), one may also define the erasing quantum oracle $O_f^{\\\\mathrm{er}}:|x\\\\rangle\\\\mapsto|f(x)\\\\rangle$ acting on $\\\\mathbb{C}^{2^m}$ (extended trivially on states outside the image, or, equivalently, defined as a partial isometry). The quantum query complexity of a property $P$ of $f$ relative to an oracle model is the minimum number of oracle calls needed by a bounded-error quantum algorithm to decide $P(f)$.\\n\\nQuestion. Does there exist a family $\\\\mathcal{F}$ of injective functions and a property $P:\\\\mathcal{F}\\\\to\\\\{0,1\\\\}$ such that the bounded-error quantum query complexity of $P$ using the standard oracle $O_f^{\\\\mathrm{std}}$ is asymptotically smaller (e.g., polylogarithmic versus polynomial in $n$) than the bounded-error quantum query complexity of $P$ using the erasing oracle $O_f^{\\\\mathrm{er}}$?\\n\\nA candidate construction to consider: let $h:\\\\{0,1\\\\}^n\\\\to\\\\{0,1\\\\}^n$ be a \\\"Simon function\\\" — i.e., either $h$ is one-to-one, or there exists a nonzero $s\\\\in\\\\{0,1\\\\}^n$ such that $h(x)=h(y)$ iff $y\\\\in\\\\{x,x\\\\oplus s\\\\}$ — and the task is to distinguish these two cases. For each $x$, let $\\\\mathrm{gar}(x)\\\\in\\\\{0,1\\\\}^\\\\ell$ be a uniformly random string ($\\\\ell\\\\gg n$), and define $f(x)=\\\\langle h(x),\\\\mathrm{gar}(x)\\\\rangle\\\\in\\\\{0,1\\\\}^{n+\\\\ell}$. With overwhelming probability $f$ is injective. Is the distinguishing task for $h$ solvable in $O(\\\\mathrm{poly}(n))$ queries to $O_f^{\\\\mathrm{std}}$ but requiring super-polynomially many queries to $O_f^{\\\\mathrm{er}}$?\",\"macro_subject\":\"Theoretical Computer Science\",\"category_tag\":\"Quantum query complexity\",\"open_status\":\"open\",\"status_search_result\":\"The question remains open as a decision-problem separation. Recent work (2025) on \\\"Quantum Search with In-Place Queries\\\" makes progress by exhibiting a subspace-conversion (state-conversion) task — Function Erasure — that separates xor (standard) and in-place (erasing) oracles, showing 1 standard query suffices while Θ(√N) in-place queries are required. However, that work explicitly states it does not resolve the decision-problem version of Aaronson's question, conjecturing an \\\"Embedded PermInv\\\" candidate but leaving its in-place lower bound unproven. The Simon-with-garbage candidate has not been proven to give the desired separation.\",\"status_evidence\":[{\"title\":\"Quantum Search with In-Place Queries\",\"url\":\"https://arxiv.org/html/2504.03620\",\"snippet\":\"Function Erasure requires 1 xor query and Θ(√N) in-place queries, the first problem where xor oracles outperform in-place oracles; decision-problem separation (Aaronson's Problem 11) left open as a conjecture about Embedded PermInv.\",\"claim\":\"Provides a state-conversion separation between standard (xor) and erasing (in-place) oracles but does not resolve the decision-problem version of Aaronson's question.\"},{\"title\":\"Open Problems Related to Quantum Query Complexity\",\"url\":\"https://arxiv.org/abs/2109.06917\",\"snippet\":\"Problem 11: Are there sets of injective functions f for which a quantum computer can learn certain properties of f using few queries to a standard oracle, but not using few queries to an erasing oracle?\",\"claim\":\"The problem is posed as open.\"}],\"confidence\":0.78},\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"uuid\":\"8d730f83-04ef-463d-9454-35ee78db1273\"}\n"
+}

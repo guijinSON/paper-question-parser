@@ -1,0 +1,61 @@
+{
+  "record": {
+    "global_index": 5163,
+    "source_json": "outputs/parse-paper/2108.06684.json",
+    "paper_id": "2108.06684",
+    "paper_title": "Open Problems in Human Trait Genetics",
+    "paper_link": "https://arxiv.org/abs/2108.06684",
+    "question_link": "https://arxiv.org/pdf/2108.06684.pdf#page=14",
+    "question_id": "q_002",
+    "parser_is_solved": "false",
+    "context_brief": "Non-additive and epistatic genetic effects",
+    "original_question": "To what extent do non-additive genetic effects, including epistatic interactions among variants or genes, contribute substantial phenotypic variance in complex human traits, and how should genome-wide association studies, polygenic risk scores, and heritability methods detect and model those effects when existing methods mostly assume additive allele effects?",
+    "evidence": [
+      {
+        "page": 14,
+        "quote": "Nearly all methods for studying the genetics of complex human traits, from GWAS to PRS to heritability estimates, assume additivity in the effects of variants."
+      },
+      {
+        "page": 16,
+        "quote": "we argue that the question of additivity is still not fully settled and that more work is needed to determine whether non-additive genetic effects underly substantial phenotypic variance in complex human traits (open problem #2: non-additive and epistatic genetic effects)."
+      },
+      {
+        "page": 17,
+        "quote": "finding epistatic genetic interactions (known as GxG), namely finding combinations (usually pairs) of variants or genes that interact together in a nonlinear way [79]. This is a notoriously difficult combinatorial and computational problem"
+      }
+    ]
+  },
+  "artifact": {
+    "self_contained_problem": "Consider a complex quantitative or disease phenotype $Y$ in a human population, modeled as a function of genotypes $G = (G_1, \\ldots, G_M)$ at $M$ genetic variants together with environmental and residual contributions. The standard additive model writes\n$$Y = \\mu + \\sum_{i=1}^M \\beta_i G_i + \\varepsilon,$$\nand the additive (narrow-sense) heritability $h^2$ is defined as the fraction of phenotypic variance explained by $\\sum_i \\beta_i G_i$. A more general decomposition allows non-additive contributions\n$$Y = \\mu + \\sum_i \\beta_i G_i + \\sum_{i<j} \\gamma_{ij}\\, f_{ij}(G_i, G_j) + \\text{higher-order terms} + \\varepsilon,$$\nwhere the dominance terms and the epistatic interaction terms $f_{ij}(G_i,G_j)$ (and their higher-order analogs) capture deviations from additivity. The broad-sense heritability $H^2$ is the fraction of phenotypic variance attributable to all genetic terms.\n\nAddress the following:\n\n(a) Determine whether non-additive genetic effects, in particular pairwise (and higher-order) epistatic interactions among variants or genes, contribute a substantial portion of the phenotypic variance $H^2 - h^2$ for typical complex human traits, or whether this gap is generically small.\n\n(b) Develop statistical and computational methodology — applicable to genome-wide association studies, polygenic risk scores, and heritability estimation — that can reliably detect, estimate, and incorporate epistatic interaction terms $\\gamma_{ij} f_{ij}(G_i, G_j)$ at genome scale, where naive enumeration over all $\\binom{M}{2}$ pairs (with $M$ on the order of $10^6$ variants) is computationally and statistically prohibitive.\n\n(c) Quantify the conditions (sample size, effect-size distribution, allele-frequency spectrum, linkage disequilibrium structure) under which explicitly modeling non-additive effects measurably improves heritability estimates and predictive accuracy of polygenic scores compared with purely additive models.",
+    "macro_subject": "Statistics and Machine Learning",
+    "category_tag": "statistical genetics and heritability",
+    "open_status": "open",
+    "status_search_result": "The question of how much non-additive and epistatic variance contributes to complex human traits, and how to detect such effects at genome scale, remains actively debated as of 2025–2026. Recent work in vertebrate models has uncovered substantial G×G and G×G×E interactions, and 2025 benchmarking studies of non-additive polygenic prediction conclude that it is still unclear when explicit modeling of non-additive SNP effects improves disease risk prediction, with larger datasets needed. No general resolution has been established.",
+    "status_evidence": [
+      {
+        "title": "Benchmarking non-additive genetic effects on polygenic prediction and machine learning-based approaches",
+        "url": "https://www.medrxiv.org/content/10.1101/2025.10.10.25337750v1.full",
+        "snippet": "It remains unclear whether — and under which conditions — explicitly modelling non-additive SNP effects improves disease risk prediction.",
+        "claim": "Whether non-additive modeling improves polygenic prediction is still unresolved (2025)."
+      },
+      {
+        "title": "Discovery and characterization of gene-by-environment and epistatic genetic effects in a vertebrate model",
+        "url": "https://www.cell.com/cell-genomics/fulltext/S2666-979X(26)00026-1",
+        "snippet": "21 epistatic (G×G) interactions were detected among QTLs, 17 of which exhibited significant third-order G×G×E effects with temperature.",
+        "claim": "Recent empirical work continues to characterize epistatic effects, indicating the question is active."
+      },
+      {
+        "title": "An Evolutionary Perspective on Epistasis and the Missing Heritability",
+        "url": "https://journals.plos.org/plosgenetics/article?id=10.1371/journal.pgen.1003295",
+        "snippet": "Calculating the broad-sense heritability for non-clonal populations is an intractable problem.",
+        "claim": "Estimating broad-sense heritability and disentangling non-additive variance in humans is intractable with current methods."
+      }
+    ],
+    "confidence": 0.8
+  },
+  "model": "opus",
+  "effort": "medium",
+  "elapsed_s": 40.01,
+  "validation_warnings": [],
+  "raw_claude_stdout": "{\"type\":\"result\",\"subtype\":\"success\",\"is_error\":false,\"api_error_status\":null,\"duration_ms\":38922,\"duration_api_ms\":39032,\"num_turns\":3,\"result\":\"Sources:\\n- [Benchmarking non-additive genetic effects on polygenic prediction (medRxiv, 2025)](https://www.medrxiv.org/content/10.1101/2025.10.10.25337750v1.full)\\n- [Discovery and characterization of G×E and epistatic effects in a vertebrate model (Cell Genomics)](https://www.cell.com/cell-genomics/fulltext/S2666-979X(26)00026-1)\\n- [An Evolutionary Perspective on Epistasis and the Missing Heritability (PLOS Genetics)](https://journals.plos.org/plosgenetics/article?id=10.1371/journal.pgen.1003295)\",\"stop_reason\":\"end_turn\",\"session_id\":\"4962ac0a-1a51-407f-92ca-5353c3a2ea2d\",\"total_cost_usd\":0.12003349999999999,\"usage\":{\"input_tokens\":8,\"cache_creation_input_tokens\":5028,\"cache_read_input_tokens\":13131,\"output_tokens\":1983,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":5028,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[{\"input_tokens\":1,\"output_tokens\":232,\"cache_read_input_tokens\":6046,\"cache_creation_input_tokens\":1667,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":1667},\"type\":\"message\"}],\"speed\":\"standard\"},\"modelUsage\":{\"claude-haiku-4-5-20251001\":{\"inputTokens\":19728,\"outputTokens\":540,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":1,\"costUSD\":0.032428,\"contextWindow\":200000,\"maxOutputTokens\":32000},\"claude-opus-4-7\":{\"inputTokens\":8,\"outputTokens\":1983,\"cacheReadInputTokens\":13131,\"cacheCreationInputTokens\":5028,\"webSearchRequests\":0,\"costUSD\":0.0876055,\"contextWindow\":1000000,\"maxOutputTokens\":64000}},\"permission_denials\":[],\"structured_output\":{\"self_contained_problem\":\"Consider a complex quantitative or disease phenotype $Y$ in a human population, modeled as a function of genotypes $G = (G_1, \\\\ldots, G_M)$ at $M$ genetic variants together with environmental and residual contributions. The standard additive model writes\\n$$Y = \\\\mu + \\\\sum_{i=1}^M \\\\beta_i G_i + \\\\varepsilon,$$\\nand the additive (narrow-sense) heritability $h^2$ is defined as the fraction of phenotypic variance explained by $\\\\sum_i \\\\beta_i G_i$. A more general decomposition allows non-additive contributions\\n$$Y = \\\\mu + \\\\sum_i \\\\beta_i G_i + \\\\sum_{i<j} \\\\gamma_{ij}\\\\, f_{ij}(G_i, G_j) + \\\\text{higher-order terms} + \\\\varepsilon,$$\\nwhere the dominance terms and the epistatic interaction terms $f_{ij}(G_i,G_j)$ (and their higher-order analogs) capture deviations from additivity. The broad-sense heritability $H^2$ is the fraction of phenotypic variance attributable to all genetic terms.\\n\\nAddress the following:\\n\\n(a) Determine whether non-additive genetic effects, in particular pairwise (and higher-order) epistatic interactions among variants or genes, contribute a substantial portion of the phenotypic variance $H^2 - h^2$ for typical complex human traits, or whether this gap is generically small.\\n\\n(b) Develop statistical and computational methodology — applicable to genome-wide association studies, polygenic risk scores, and heritability estimation — that can reliably detect, estimate, and incorporate epistatic interaction terms $\\\\gamma_{ij} f_{ij}(G_i, G_j)$ at genome scale, where naive enumeration over all $\\\\binom{M}{2}$ pairs (with $M$ on the order of $10^6$ variants) is computationally and statistically prohibitive.\\n\\n(c) Quantify the conditions (sample size, effect-size distribution, allele-frequency spectrum, linkage disequilibrium structure) under which explicitly modeling non-additive effects measurably improves heritability estimates and predictive accuracy of polygenic scores compared with purely additive models.\",\"macro_subject\":\"Statistics and Machine Learning\",\"category_tag\":\"statistical genetics and heritability\",\"open_status\":\"open\",\"status_search_result\":\"The question of how much non-additive and epistatic variance contributes to complex human traits, and how to detect such effects at genome scale, remains actively debated as of 2025–2026. Recent work in vertebrate models has uncovered substantial G×G and G×G×E interactions, and 2025 benchmarking studies of non-additive polygenic prediction conclude that it is still unclear when explicit modeling of non-additive SNP effects improves disease risk prediction, with larger datasets needed. No general resolution has been established.\",\"status_evidence\":[{\"title\":\"Benchmarking non-additive genetic effects on polygenic prediction and machine learning-based approaches\",\"url\":\"https://www.medrxiv.org/content/10.1101/2025.10.10.25337750v1.full\",\"snippet\":\"It remains unclear whether — and under which conditions — explicitly modelling non-additive SNP effects improves disease risk prediction.\",\"claim\":\"Whether non-additive modeling improves polygenic prediction is still unresolved (2025).\"},{\"title\":\"Discovery and characterization of gene-by-environment and epistatic genetic effects in a vertebrate model\",\"url\":\"https://www.cell.com/cell-genomics/fulltext/S2666-979X(26)00026-1\",\"snippet\":\"21 epistatic (G×G) interactions were detected among QTLs, 17 of which exhibited significant third-order G×G×E effects with temperature.\",\"claim\":\"Recent empirical work continues to characterize epistatic effects, indicating the question is active.\"},{\"title\":\"An Evolutionary Perspective on Epistasis and the Missing Heritability\",\"url\":\"https://journals.plos.org/plosgenetics/article?id=10.1371/journal.pgen.1003295\",\"snippet\":\"Calculating the broad-sense heritability for non-clonal populations is an intractable problem.\",\"claim\":\"Estimating broad-sense heritability and disentangling non-additive variance in humans is intractable with current methods.\"}],\"confidence\":0.8},\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"uuid\":\"0a6ab1dc-2fbc-4a51-a66f-1d83b7c0215a\"}\n"
+}

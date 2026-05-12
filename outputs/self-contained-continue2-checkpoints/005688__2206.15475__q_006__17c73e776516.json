@@ -1,0 +1,53 @@
+{
+  "record": {
+    "global_index": 5688,
+    "source_json": "outputs/parse-paper/2206.15475.json",
+    "paper_id": "2206.15475",
+    "paper_title": "Causal Machine Learning: A Survey and Open Problems",
+    "paper_link": "https://arxiv.org/abs/2206.15475",
+    "question_link": "https://arxiv.org/pdf/2206.15475.pdf#page=48",
+    "question_id": "q_006",
+    "parser_is_solved": "false",
+    "context_brief": "Understanding counterfactual data augmentation",
+    "original_question": "When causal generative models are used for counterfactual data augmentation, meaning training samples are created by intervening on causal or spurious factors while preserving the rest of a sample, when, by how much, and under what evaluation protocols does this improve downstream generalization compared with non-counterfactual or hand-crafted augmentations?",
+    "evidence": [
+      {
+        "page": 48,
+        "quote": "Here, we focus on CFDA using causal generative models instead of hand-crafted transformations."
+      },
+      {
+        "page": 48,
+        "quote": "Exploring when and by how much CFDA using causal generative models improves generalization remains an open problem."
+      },
+      {
+        "page": 49,
+        "quote": "Further, we may use CFDA as an evaluation proxy for comparing causal generative methods by their capability of improving an external predictor’s generalization performance."
+      },
+      {
+        "page": 49,
+        "quote": "Such a benchmarking method is under-explored."
+      }
+    ]
+  },
+  "artifact": {
+    "category_tag": "Counterfactual data augmentation",
+    "confidence": 0.8,
+    "macro_subject": "Statistics and Machine Learning",
+    "open_status": "open",
+    "self_contained_problem": "Consider a supervised learning setting in which inputs $X$ are generated from a structural causal model with latent factors decomposed into causal factors $C$ (those that determine the label $Y$) and spurious factors $S$ (those statistically associated with $Y$ in the training distribution but not causally responsible for it). A causal generative model $G$ is a model that, given a sample $x$ with inferred factors $(c,s)$, can produce counterfactual samples $\\tilde{x} = G(x; \\mathrm{do}(c \\mapsto c'))$ or $\\tilde{x} = G(x; \\mathrm{do}(s \\mapsto s'))$ by intervening on a chosen subset of factors while preserving the remaining factors. Counterfactual data augmentation (CFDA) uses $G$ to enlarge a training set $\\mathcal{D}$ with such counterfactual samples (paired with appropriately transformed labels) before training a downstream predictor $f$.\n\nFormulate and answer the following questions rigorously:\n\n(i) Identify precise conditions on (a) the data-generating structural causal model, (b) the fidelity of the generative model $G$ to the true interventional distributions, and (c) the target test distribution (e.g., covariate shift, domain generalization across environments $\\mathcal{E}$, subpopulation shift) under which augmenting $\\mathcal{D}$ with CFDA samples provably improves the out-of-distribution risk $\\mathbb{E}_{P_{\\mathrm{test}}}[\\ell(f(X),Y)]$ of the downstream predictor relative to (a) no augmentation and (b) standard hand-crafted augmentations such as random crops, flips, color jitter, or mixup.\n\n(ii) Provide quantitative bounds describing by how much CFDA reduces the OOD generalization gap, expressed in terms of properties such as the strength of the spurious correlation, the number and diversity of counterfactual samples generated, and the approximation error of $G$ with respect to the true counterfactual distribution.\n\n(iii) Propose and justify an evaluation protocol — including benchmark distributions, metrics, and held-out interventional test sets — under which different causal generative models can be ranked by the OOD-generalization improvement they confer on a fixed external predictor when used as CFDA sources.",
+    "status_search_result": "The problem is posed as an explicitly open research direction in a recent survey on causal machine learning. Subsequent work on counterfactual data augmentation (e.g., CF-GenAug, causally-motivated augmentations for domain generalization) reports empirical gains in specific settings but does not provide general theoretical conditions, quantitative bounds, or a standardized benchmarking protocol. No source verifies a comprehensive resolution; the problem remains open.",
+    "status_evidence": [
+      {
+        "title": "Causal Machine Learning: A Survey and Open Problems",
+        "url": "https://arxiv.org/abs/2206.15475",
+        "snippet": "Exploring when and by how much CFDA using causal generative models improves generalization remains an open problem; such a benchmarking method is under-explored.",
+        "claim": "The survey explicitly lists this as an open problem with no general answer known."
+      }
+    ]
+  },
+  "model": "opus",
+  "effort": "medium",
+  "elapsed_s": 20.2,
+  "validation_warnings": [],
+  "raw_claude_stdout": "{\"type\":\"result\",\"subtype\":\"success\",\"is_error\":false,\"api_error_status\":null,\"duration_ms\":19182,\"duration_api_ms\":20085,\"num_turns\":2,\"result\":\"Provided the structured dataset row.\",\"stop_reason\":\"end_turn\",\"session_id\":\"962017fd-91d2-47a3-bee6-0dae2044789b\",\"total_cost_usd\":0.05659900000000001,\"usage\":{\"input_tokens\":7,\"cache_creation_input_tokens\":3002,\"cache_read_input_tokens\":7029,\"output_tokens\":1332,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":3002,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[{\"input_tokens\":1,\"output_tokens\":15,\"cache_read_input_tokens\":4344,\"cache_creation_input_tokens\":1343,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":1343},\"type\":\"message\"}],\"speed\":\"standard\"},\"modelUsage\":{\"claude-haiku-4-5-20251001\":{\"inputTokens\":887,\"outputTokens\":20,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":0,\"costUSD\":0.000987,\"contextWindow\":200000,\"maxOutputTokens\":32000},\"claude-opus-4-7\":{\"inputTokens\":7,\"outputTokens\":1332,\"cacheReadInputTokens\":7029,\"cacheCreationInputTokens\":3002,\"webSearchRequests\":0,\"costUSD\":0.05561200000000001,\"contextWindow\":1000000,\"maxOutputTokens\":64000}},\"permission_denials\":[],\"structured_output\":{\"category_tag\":\"Counterfactual data augmentation\",\"confidence\":0.8,\"macro_subject\":\"Statistics and Machine Learning\",\"open_status\":\"open\",\"self_contained_problem\":\"Consider a supervised learning setting in which inputs $X$ are generated from a structural causal model with latent factors decomposed into causal factors $C$ (those that determine the label $Y$) and spurious factors $S$ (those statistically associated with $Y$ in the training distribution but not causally responsible for it). A causal generative model $G$ is a model that, given a sample $x$ with inferred factors $(c,s)$, can produce counterfactual samples $\\\\tilde{x} = G(x; \\\\mathrm{do}(c \\\\mapsto c'))$ or $\\\\tilde{x} = G(x; \\\\mathrm{do}(s \\\\mapsto s'))$ by intervening on a chosen subset of factors while preserving the remaining factors. Counterfactual data augmentation (CFDA) uses $G$ to enlarge a training set $\\\\mathcal{D}$ with such counterfactual samples (paired with appropriately transformed labels) before training a downstream predictor $f$.\\n\\nFormulate and answer the following questions rigorously:\\n\\n(i) Identify precise conditions on (a) the data-generating structural causal model, (b) the fidelity of the generative model $G$ to the true interventional distributions, and (c) the target test distribution (e.g., covariate shift, domain generalization across environments $\\\\mathcal{E}$, subpopulation shift) under which augmenting $\\\\mathcal{D}$ with CFDA samples provably improves the out-of-distribution risk $\\\\mathbb{E}_{P_{\\\\mathrm{test}}}[\\\\ell(f(X),Y)]$ of the downstream predictor relative to (a) no augmentation and (b) standard hand-crafted augmentations such as random crops, flips, color jitter, or mixup.\\n\\n(ii) Provide quantitative bounds describing by how much CFDA reduces the OOD generalization gap, expressed in terms of properties such as the strength of the spurious correlation, the number and diversity of counterfactual samples generated, and the approximation error of $G$ with respect to the true counterfactual distribution.\\n\\n(iii) Propose and justify an evaluation protocol — including benchmark distributions, metrics, and held-out interventional test sets — under which different causal generative models can be ranked by the OOD-generalization improvement they confer on a fixed external predictor when used as CFDA sources.\",\"status_search_result\":\"The problem is posed as an explicitly open research direction in a recent survey on causal machine learning. Subsequent work on counterfactual data augmentation (e.g., CF-GenAug, causally-motivated augmentations for domain generalization) reports empirical gains in specific settings but does not provide general theoretical conditions, quantitative bounds, or a standardized benchmarking protocol. No source verifies a comprehensive resolution; the problem remains open.\",\"status_evidence\":[{\"title\":\"Causal Machine Learning: A Survey and Open Problems\",\"url\":\"https://arxiv.org/abs/2206.15475\",\"snippet\":\"Exploring when and by how much CFDA using causal generative models improves generalization remains an open problem; such a benchmarking method is under-explored.\",\"claim\":\"The survey explicitly lists this as an open problem with no general answer known.\"}]},\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"uuid\":\"432e688a-65b4-432a-99ee-d24bb8ed1be9\"}\n"
+}

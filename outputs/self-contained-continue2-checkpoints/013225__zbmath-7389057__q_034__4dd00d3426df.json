@@ -1,0 +1,53 @@
+{
+  "record": {
+    "global_index": 13225,
+    "source_json": "outputs/parse-paper/zbmath_7389057.json",
+    "paper_id": "zbmath/7389057",
+    "paper_title": "Advances and Open Problems in Federated Learning",
+    "paper_link": "https://zbmath.org/7389057",
+    "question_link": "https://zbmath.org/7389057",
+    "question_id": "q_034",
+    "parser_is_solved": "false",
+    "context_brief": "fairness without sensitive attributes",
+    "original_question": "How can fairness be measured and improved in federated learning when sensitive attributes such as race or gender are unavailable, including scalable use of distributionally robust optimization or multicalibration and new theoretical fairness definitions that do not rely on sensitive attributes?",
+    "evidence": [
+      {
+        "page": "HTML lines 1294-1298",
+        "quote": "measuring and correcting unfairness"
+      }
+    ]
+  },
+  "artifact": {
+    "self_contained_problem": "Consider the federated learning setting in which a global predictive model is trained across many decentralized clients, each holding a local data distribution, without exchanging raw data. Suppose that sensitive attributes (such as race or gender) are not observable at the server nor reliably at the clients, so that classical group-fairness criteria (e.g., demographic parity, equalized odds) cannot be evaluated directly.\n\nAddress the following:\n\n1. Propose rigorous theoretical definitions of fairness for a federated predictor that do not require access to sensitive attributes at training or evaluation time. The definitions should be well-posed in the presence of statistical heterogeneity across clients and should specialize to or imply standard group-fairness notions when sensitive attributes happen to be available.\n\n2. Design scalable federated algorithms that measure and improve fairness under these definitions. In particular, develop either:\n   (a) a distributionally robust optimization procedure that minimizes the worst-case risk over an appropriate ambiguity set of client or sub-population distributions, while remaining communication-efficient, privacy-preserving, and convergent under standard non-i.i.d. federated assumptions; or\n   (b) a federated analogue of multicalibration, in which a predictor is required to be calibrated simultaneously on a rich, computationally identifiable family of subpopulations (defined without reference to sensitive attributes), together with provable convergence and sample-complexity guarantees.\n\n3. Prove formal guarantees connecting the fairness criteria of (1) to the algorithms of (2), including bounds on the gap between worst-case and average client performance, and analyze the trade-offs with overall utility, communication cost, and differential privacy.",
+    "macro_subject": "Statistics and Machine Learning",
+    "category_tag": "Federated learning fairness",
+    "open_status": "open",
+    "status_search_result": "Recent surveys and papers (2024–2025) on fair federated learning explicitly note that evaluating and enforcing fairness without sensitive group information—particularly via scalable multicalibration or DRO—remains largely unexplored. While partial progress exists (e.g., SFFL, FedUFO, DRDM combining DRO with client-drift control), no comprehensive theoretical fairness framework dispensing with sensitive attributes has been established, indicating the problem is still open.",
+    "status_evidence": [
+      {
+        "title": "Fairness in Federated Learning: Trends, Challenges, and Opportunities",
+        "url": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/aisy.202400836",
+        "snippet": "Survey notes open challenges in measuring fairness in FL when sensitive attributes are not available.",
+        "claim": "Fairness without sensitive attributes in FL remains an open challenge."
+      },
+      {
+        "title": "Distributionally Robust Federated Learning with Client Drift Minimization",
+        "url": "https://arxiv.org/html/2505.15371",
+        "snippet": "DRDM combines DRO with dynamic regularization for worst-case client performance.",
+        "claim": "Recent partial progress applies DRO to federated fairness/robustness."
+      },
+      {
+        "title": "Unified fair federated learning for digital healthcare",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10801255/",
+        "snippet": "FedUFO uses DRO over a unified uncertainty set to ensure subpopulation performance.",
+        "claim": "Partial frameworks address subpopulation fairness without explicit sensitive labels."
+      }
+    ],
+    "confidence": 0.8
+  },
+  "model": "opus",
+  "effort": "medium",
+  "elapsed_s": 31.98,
+  "validation_warnings": [],
+  "raw_claude_stdout": "{\"type\":\"result\",\"subtype\":\"success\",\"is_error\":false,\"api_error_status\":null,\"duration_ms\":30792,\"duration_api_ms\":30423,\"num_turns\":3,\"result\":\"Sources:\\n- [Fairness in Federated Learning: Trends, Challenges, and Opportunities](https://advanced.onlinelibrary.wiley.com/doi/10.1002/aisy.202400836)\\n- [Distributionally Robust Federated Learning with Client Drift Minimization](https://arxiv.org/html/2505.15371)\\n- [Unified fair federated learning for digital healthcare](https://pmc.ncbi.nlm.nih.gov/articles/PMC10801255/)\\n- [From Optimization to Generalization: Fair Federated Learning](https://www.ijcai.org/proceedings/2024/0575.pdf)\",\"stop_reason\":\"end_turn\",\"session_id\":\"ea0da537-c2db-48d1-9467-930ec5195b93\",\"total_cost_usd\":0.11340875,\"usage\":{\"input_tokens\":8,\"cache_creation_input_tokens\":4051,\"cache_read_input_tokens\":11890,\"output_tokens\":1666,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":4051,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[{\"input_tokens\":1,\"output_tokens\":222,\"cache_read_input_tokens\":5393,\"cache_creation_input_tokens\":1343,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":1343},\"type\":\"message\"}],\"speed\":\"standard\"},\"modelUsage\":{\"claude-haiku-4-5-20251001\":{\"inputTokens\":27510,\"outputTokens\":589,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":1,\"costUSD\":0.040455,\"contextWindow\":200000,\"maxOutputTokens\":32000},\"claude-opus-4-7\":{\"inputTokens\":8,\"outputTokens\":1666,\"cacheReadInputTokens\":11890,\"cacheCreationInputTokens\":4051,\"webSearchRequests\":0,\"costUSD\":0.07295375000000001,\"contextWindow\":1000000,\"maxOutputTokens\":64000}},\"permission_denials\":[],\"structured_output\":{\"self_contained_problem\":\"Consider the federated learning setting in which a global predictive model is trained across many decentralized clients, each holding a local data distribution, without exchanging raw data. Suppose that sensitive attributes (such as race or gender) are not observable at the server nor reliably at the clients, so that classical group-fairness criteria (e.g., demographic parity, equalized odds) cannot be evaluated directly.\\n\\nAddress the following:\\n\\n1. Propose rigorous theoretical definitions of fairness for a federated predictor that do not require access to sensitive attributes at training or evaluation time. The definitions should be well-posed in the presence of statistical heterogeneity across clients and should specialize to or imply standard group-fairness notions when sensitive attributes happen to be available.\\n\\n2. Design scalable federated algorithms that measure and improve fairness under these definitions. In particular, develop either:\\n   (a) a distributionally robust optimization procedure that minimizes the worst-case risk over an appropriate ambiguity set of client or sub-population distributions, while remaining communication-efficient, privacy-preserving, and convergent under standard non-i.i.d. federated assumptions; or\\n   (b) a federated analogue of multicalibration, in which a predictor is required to be calibrated simultaneously on a rich, computationally identifiable family of subpopulations (defined without reference to sensitive attributes), together with provable convergence and sample-complexity guarantees.\\n\\n3. Prove formal guarantees connecting the fairness criteria of (1) to the algorithms of (2), including bounds on the gap between worst-case and average client performance, and analyze the trade-offs with overall utility, communication cost, and differential privacy.\",\"macro_subject\":\"Statistics and Machine Learning\",\"category_tag\":\"Federated learning fairness\",\"open_status\":\"open\",\"status_search_result\":\"Recent surveys and papers (2024–2025) on fair federated learning explicitly note that evaluating and enforcing fairness without sensitive group information—particularly via scalable multicalibration or DRO—remains largely unexplored. While partial progress exists (e.g., SFFL, FedUFO, DRDM combining DRO with client-drift control), no comprehensive theoretical fairness framework dispensing with sensitive attributes has been established, indicating the problem is still open.\",\"status_evidence\":[{\"title\":\"Fairness in Federated Learning: Trends, Challenges, and Opportunities\",\"url\":\"https://advanced.onlinelibrary.wiley.com/doi/10.1002/aisy.202400836\",\"snippet\":\"Survey notes open challenges in measuring fairness in FL when sensitive attributes are not available.\",\"claim\":\"Fairness without sensitive attributes in FL remains an open challenge.\"},{\"title\":\"Distributionally Robust Federated Learning with Client Drift Minimization\",\"url\":\"https://arxiv.org/html/2505.15371\",\"snippet\":\"DRDM combines DRO with dynamic regularization for worst-case client performance.\",\"claim\":\"Recent partial progress applies DRO to federated fairness/robustness.\"},{\"title\":\"Unified fair federated learning for digital healthcare\",\"url\":\"https://pmc.ncbi.nlm.nih.gov/articles/PMC10801255/\",\"snippet\":\"FedUFO uses DRO over a unified uncertainty set to ensure subpopulation performance.\",\"claim\":\"Partial frameworks address subpopulation fairness without explicit sensitive labels.\"}],\"confidence\":0.8},\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"uuid\":\"60481df3-087b-4799-810a-25cabcd4d577\"}\n"
+}

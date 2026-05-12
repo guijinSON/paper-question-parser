@@ -1,0 +1,61 @@
+{
+  "record": {
+    "global_index": 12933,
+    "source_json": "outputs/parse-paper/zbmath-7239447.json",
+    "paper_id": "zbmath/7239447",
+    "paper_title": "The Projection Technique for Two Open Problems of Unconstrained Optimization Problems",
+    "paper_link": "https://zbmath.org/7239447",
+    "question_link": "https://zbmath.org/7239447",
+    "question_id": "q_001",
+    "parser_is_solved": "true",
+    "context_brief": "PRP global convergence under weak Wolfe-Powell search",
+    "original_question": "For unconstrained optimization of a twice continuously differentiable nonconvex function f: R^n -> R, does the Polak-Ribiere-Polyak conjugate gradient algorithm admit a globally convergent variant under the weak Wolfe-Powell line search? In the setting discussed by the source, the issue is whether one can guarantee global convergence for nonconvex objectives under that line-search regime, despite classical counterexamples showing nonconvergence for the standard PRP method.",
+    "evidence": [
+      {
+        "page": 1,
+        "quote": "There are two problems for nonconvex functions under the weak Wolfe–Powell line search in unconstrained optimization problems. The first one is the global convergence of the Polak–Ribière–Polyak conjugate gradient algorithm"
+      },
+      {
+        "page": 26,
+        "quote": "One open problem is the global convergence of the PRP conjugate gradient algorithm under the WWP line search for nonconvex functions"
+      },
+      {
+        "page": 26,
+        "quote": "the given algorithms possess global convergence under the WWP line search and the normal conditions for nonconvex functions"
+      }
+    ]
+  },
+  "artifact": {
+    "self_contained_problem": "Let f : R^n → R be a twice continuously differentiable (possibly nonconvex) function bounded below, and consider the unconstrained minimization problem min_{x ∈ R^n} f(x). The Polak–Ribière–Polyak (PRP) nonlinear conjugate gradient method generates a sequence {x_k} by\n\n  x_{k+1} = x_k + α_k d_k,\n\nwhere g_k = ∇f(x_k), the search directions are\n\n  d_1 = -g_1,   d_{k+1} = -g_{k+1} + β_k^{PRP} d_k,   β_k^{PRP} = (g_{k+1}^T (g_{k+1} - g_k)) / ‖g_k‖^2,\n\nand the step length α_k > 0 is chosen by the weak Wolfe–Powell (WWP) line search: given constants 0 < δ < σ < 1,\n\n  f(x_k + α_k d_k) ≤ f(x_k) + δ α_k g_k^T d_k,\n  g(x_k + α_k d_k)^T d_k ≥ σ g_k^T d_k.\n\nIt is known (Powell, Dai) that the standard PRP method with exact line search may fail to converge globally on nonconvex functions, which in turn prevents convergence under the WWP rule.\n\nQuestion. Does there exist a PRP-type conjugate gradient algorithm (possibly modifying the update rule of x_{k+1} or the line search using auxiliary mechanisms such as projections) that, when applied with the weak Wolfe–Powell line search to a general twice continuously differentiable nonconvex function f bounded below with Lipschitz continuous gradient, achieves global convergence in the sense liminf_{k → ∞} ‖g_k‖ = 0?",
+    "macro_subject": "Applied Mathematics",
+    "category_tag": "Conjugate gradient methods",
+    "open_status": "solved",
+    "status_search_result": "Recent work resolves the question by introducing a projection-based PRP-type algorithm combined with a modified weak Wolfe–Powell line search; the next iterate is taken from the standard PRP update when a positive descent-type condition holds, otherwise it is defined by projection onto a parabolic surface. Global convergence is established for nonconvex functions under the (modified) WWP line search. Related works also establish global convergence of descent PRP variants for nonconvex problems.",
+    "status_evidence": [
+      {
+        "title": "The Projection Technique for Two Open Problems of Unconstrained Optimization Problems",
+        "url": "https://link.springer.com/article/10.1007/s10957-020-01710-0",
+        "snippet": "A modified WWP line search and a parabolic projection are used to design PRP-type and BFGS-type algorithms with global convergence for nonconvex functions.",
+        "claim": "Provides a projection-based PRP algorithm with global convergence under a modified WWP line search for nonconvex functions."
+      },
+      {
+        "title": "The global convergence of the Polak–Ribière–Polyak conjugate gradient algorithm under inexact line search for nonconvex functions",
+        "url": "https://www.sciencedirect.com/science/article/pii/S0377042718306666",
+        "snippet": "Establishes global convergence for a PRP variant under an inexact line search for nonconvex functions.",
+        "claim": "Earlier work giving global convergence of a PRP variant for nonconvex functions under an inexact line search."
+      },
+      {
+        "title": "Global convergence of a descent PRP type conjugate gradient method for nonconvex optimization",
+        "url": "https://www.sciencedirect.com/science/article/abs/pii/S0168927421003081",
+        "snippet": "A descent PRP method shown globally convergent for nonconvex optimization.",
+        "claim": "Subsequent literature continues to confirm globally convergent PRP-type methods on nonconvex problems."
+      }
+    ],
+    "confidence": 0.8
+  },
+  "model": "opus",
+  "effort": "medium",
+  "elapsed_s": 32.17,
+  "validation_warnings": [],
+  "raw_claude_stdout": "{\"type\":\"result\",\"subtype\":\"success\",\"is_error\":false,\"api_error_status\":null,\"duration_ms\":30836,\"duration_api_ms\":29372,\"num_turns\":3,\"result\":\"Sources:\\n- [The Projection Technique for Two Open Problems of Unconstrained Optimization Problems](https://link.springer.com/article/10.1007/s10957-020-01710-0)\\n- [The global convergence of the PRP CG algorithm under inexact line search for nonconvex functions](https://www.sciencedirect.com/science/article/pii/S0377042718306666)\\n- [Global convergence of a descent PRP type conjugate gradient method for nonconvex optimization](https://www.sciencedirect.com/science/article/abs/pii/S0168927421003081)\",\"stop_reason\":\"end_turn\",\"session_id\":\"8b838440-efbb-407a-be82-2367468506db\",\"total_cost_usd\":0.11411625,\"usage\":{\"input_tokens\":8,\"cache_creation_input_tokens\":4689,\"cache_read_input_tokens\":12662,\"output_tokens\":1820,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":4689,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[{\"input_tokens\":1,\"output_tokens\":195,\"cache_read_input_tokens\":5895,\"cache_creation_input_tokens\":1479,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":1479},\"type\":\"message\"}],\"speed\":\"standard\"},\"modelUsage\":{\"claude-haiku-4-5-20251001\":{\"inputTokens\":20159,\"outputTokens\":556,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":1,\"costUSD\":0.032939,\"contextWindow\":200000,\"maxOutputTokens\":32000},\"claude-opus-4-7\":{\"inputTokens\":8,\"outputTokens\":1820,\"cacheReadInputTokens\":12662,\"cacheCreationInputTokens\":4689,\"webSearchRequests\":0,\"costUSD\":0.08117724999999999,\"contextWindow\":1000000,\"maxOutputTokens\":64000}},\"permission_denials\":[],\"structured_output\":{\"self_contained_problem\":\"Let f : R^n → R be a twice continuously differentiable (possibly nonconvex) function bounded below, and consider the unconstrained minimization problem min_{x ∈ R^n} f(x). The Polak–Ribière–Polyak (PRP) nonlinear conjugate gradient method generates a sequence {x_k} by\\n\\n  x_{k+1} = x_k + α_k d_k,\\n\\nwhere g_k = ∇f(x_k), the search directions are\\n\\n  d_1 = -g_1,   d_{k+1} = -g_{k+1} + β_k^{PRP} d_k,   β_k^{PRP} = (g_{k+1}^T (g_{k+1} - g_k)) / ‖g_k‖^2,\\n\\nand the step length α_k > 0 is chosen by the weak Wolfe–Powell (WWP) line search: given constants 0 < δ < σ < 1,\\n\\n  f(x_k + α_k d_k) ≤ f(x_k) + δ α_k g_k^T d_k,\\n  g(x_k + α_k d_k)^T d_k ≥ σ g_k^T d_k.\\n\\nIt is known (Powell, Dai) that the standard PRP method with exact line search may fail to converge globally on nonconvex functions, which in turn prevents convergence under the WWP rule.\\n\\nQuestion. Does there exist a PRP-type conjugate gradient algorithm (possibly modifying the update rule of x_{k+1} or the line search using auxiliary mechanisms such as projections) that, when applied with the weak Wolfe–Powell line search to a general twice continuously differentiable nonconvex function f bounded below with Lipschitz continuous gradient, achieves global convergence in the sense liminf_{k → ∞} ‖g_k‖ = 0?\",\"macro_subject\":\"Applied Mathematics\",\"category_tag\":\"Conjugate gradient methods\",\"open_status\":\"solved\",\"status_search_result\":\"Recent work resolves the question by introducing a projection-based PRP-type algorithm combined with a modified weak Wolfe–Powell line search; the next iterate is taken from the standard PRP update when a positive descent-type condition holds, otherwise it is defined by projection onto a parabolic surface. Global convergence is established for nonconvex functions under the (modified) WWP line search. Related works also establish global convergence of descent PRP variants for nonconvex problems.\",\"status_evidence\":[{\"title\":\"The Projection Technique for Two Open Problems of Unconstrained Optimization Problems\",\"url\":\"https://link.springer.com/article/10.1007/s10957-020-01710-0\",\"snippet\":\"A modified WWP line search and a parabolic projection are used to design PRP-type and BFGS-type algorithms with global convergence for nonconvex functions.\",\"claim\":\"Provides a projection-based PRP algorithm with global convergence under a modified WWP line search for nonconvex functions.\"},{\"title\":\"The global convergence of the Polak–Ribière–Polyak conjugate gradient algorithm under inexact line search for nonconvex functions\",\"url\":\"https://www.sciencedirect.com/science/article/pii/S0377042718306666\",\"snippet\":\"Establishes global convergence for a PRP variant under an inexact line search for nonconvex functions.\",\"claim\":\"Earlier work giving global convergence of a PRP variant for nonconvex functions under an inexact line search.\"},{\"title\":\"Global convergence of a descent PRP type conjugate gradient method for nonconvex optimization\",\"url\":\"https://www.sciencedirect.com/science/article/abs/pii/S0168927421003081\",\"snippet\":\"A descent PRP method shown globally convergent for nonconvex optimization.\",\"claim\":\"Subsequent literature continues to confirm globally convergent PRP-type methods on nonconvex problems.\"}],\"confidence\":0.8},\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"uuid\":\"5ac2d05e-98da-4857-bc60-a57718991bff\"}\n"
+}

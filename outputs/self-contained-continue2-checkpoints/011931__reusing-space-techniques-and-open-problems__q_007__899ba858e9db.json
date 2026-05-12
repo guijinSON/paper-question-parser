@@ -1,0 +1,51 @@
+{
+  "record": {
+    "global_index": 11931,
+    "source_json": "outputs/parse-paper/reusing-space-techniques-and-open-problems.json",
+    "paper_id": "reusing-space-techniques-and-open-problems",
+    "paper_title": "Reusing Space: Techniques and Open Problems",
+    "paper_link": "https://zbmath.org/7800885",
+    "question_link": "https://zbmath.org/7800885",
+    "question_id": "q_007",
+    "parser_is_solved": "false",
+    "context_brief": "optimal register programs for polynomials",
+    "original_question": "Is there a register program that, for every polynomial p(x1, ..., xn), uses only O(n) registers over a constant-size ring and only O(1) recursive calls to the multiplication subprogram Px, where Px adds x1 ··· xn to the designated registers, and thereby computes p efficiently enough to support the desired TreeEval applications?",
+    "evidence": [
+      {
+        "page": 17,
+        "quote": "Definition 4. A register program P with space s := s(n) and time t := t(n) is comprised of a set of s blocks of memory, or what we will call registers, R1 . . .Rs"
+      },
+      {
+        "page": 31,
+        "quote": "Problem 7. Give a register program for computing any polynomial p(x1 . . . xn) using O(n) registers over a constant size ring R and O(1) recursive calls to program Px, whose effect is to add x1 . . . xn to R1 . . .Rn respectively."
+      }
+    ]
+  },
+  "artifact": {
+    "self_contained_problem": "A register program $P$ with space $s = s(n)$ over a ring $R$ is a finite sequence of instructions operating on $s$ registers $R_1, \\ldots, R_s$, each storing an element of $R$. Each instruction has the form\n$$R_i \\;\\leftarrow\\; R_i + f(R_1, \\ldots, R_{i-1}, R_{i+1}, \\ldots, R_s),$$\nwhere $f$ is a polynomial in the other registers (or, more generally, the instruction may be a recursive call to a subprogram). The program may make calls to subprograms; in particular let $P_x$ denote the subprogram whose effect is to add the values $x_1, \\ldots, x_n$ to the registers $R_1, \\ldots, R_n$ respectively, leaving all other registers unchanged.\n\nQuestion: Does there exist a register program that, on input access provided only through the oracle subprogram $P_x$, computes an arbitrary polynomial $p(x_1, \\ldots, x_n)$ (in the sense of adding $p(x_1,\\ldots,x_n)$ to a designated output register and leaving all other registers in their initial state), while using\n\\begin{itemize}\n  \\item only $O(n)$ registers, each over a fixed ring $R$ of constant size, and\n  \\item only $O(1)$ recursive calls to $P_x$?\n\\end{itemize}",
+    "macro_subject": "Theoretical Computer Science",
+    "category_tag": "catalytic computation and register programs",
+    "open_status": "open",
+    "status_search_result": "The problem is posed as an explicit open problem in recent work on catalytic/space-reuse computation and register programs (e.g., the 2025 survey \"Catalytic Computing and Register Programs Beyond Log-space\"). Classical results of Ben-Or and Cleve achieve constant registers for formulas of polynomial size, but the question of computing arbitrary polynomials with O(n) registers over a constant-size ring and only O(1) calls to the input-addition subprogram P_x appears unresolved.",
+    "status_evidence": [
+      {
+        "title": "Catalytic Computing and Register Programs Beyond Log-space",
+        "url": "https://arxiv.org/pdf/2504.17412",
+        "snippet": "Discusses register programs, space reuse, and lists related open problems concerning O(n) registers and O(1) calls to P_x.",
+        "claim": "The problem is listed among open problems in the area of catalytic register programs."
+      },
+      {
+        "title": "Computing Algebraic Formulas Using a Constant Number of Registers",
+        "url": "https://epubs.siam.org/doi/10.1137/0221006",
+        "snippet": "Ben-Or and Cleve show polynomial-size formulas can be computed by straight-line register programs using only three registers.",
+        "claim": "Constant-register results are known for formulas, but not for the catalytic O(1)-call-to-P_x setting requested."
+      }
+    ],
+    "confidence": 0.6
+  },
+  "model": "opus",
+  "effort": "medium",
+  "elapsed_s": 26.66,
+  "validation_warnings": [],
+  "raw_claude_stdout": "{\"type\":\"result\",\"subtype\":\"success\",\"is_error\":false,\"api_error_status\":null,\"duration_ms\":25552,\"duration_api_ms\":24560,\"num_turns\":3,\"result\":\"Sources:\\n- [Catalytic Computing and Register Programs Beyond Log-space](https://arxiv.org/pdf/2504.17412)\\n- [Computing Algebraic Formulas Using a Constant Number of Registers](https://epubs.siam.org/doi/10.1137/0221006)\",\"stop_reason\":\"end_turn\",\"session_id\":\"1df126cc-d5c1-4b8e-9bcf-9362be3f9d7b\",\"total_cost_usd\":0.09420600000000001,\"usage\":{\"input_tokens\":8,\"cache_creation_input_tokens\":4040,\"cache_read_input_tokens\":12582,\"output_tokens\":1349,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":4040,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[{\"input_tokens\":1,\"output_tokens\":104,\"cache_read_input_tokens\":5574,\"cache_creation_input_tokens\":1151,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":1151},\"type\":\"message\"}],\"speed\":\"standard\"},\"modelUsage\":{\"claude-haiku-4-5-20251001\":{\"inputTokens\":16835,\"outputTokens\":413,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":1,\"costUSD\":0.028900000000000002,\"contextWindow\":200000,\"maxOutputTokens\":32000},\"claude-opus-4-7\":{\"inputTokens\":8,\"outputTokens\":1349,\"cacheReadInputTokens\":12582,\"cacheCreationInputTokens\":4040,\"webSearchRequests\":0,\"costUSD\":0.065306,\"contextWindow\":1000000,\"maxOutputTokens\":64000}},\"permission_denials\":[],\"structured_output\":{\"self_contained_problem\":\"A register program $P$ with space $s = s(n)$ over a ring $R$ is a finite sequence of instructions operating on $s$ registers $R_1, \\\\ldots, R_s$, each storing an element of $R$. Each instruction has the form\\n$$R_i \\\\;\\\\leftarrow\\\\; R_i + f(R_1, \\\\ldots, R_{i-1}, R_{i+1}, \\\\ldots, R_s),$$\\nwhere $f$ is a polynomial in the other registers (or, more generally, the instruction may be a recursive call to a subprogram). The program may make calls to subprograms; in particular let $P_x$ denote the subprogram whose effect is to add the values $x_1, \\\\ldots, x_n$ to the registers $R_1, \\\\ldots, R_n$ respectively, leaving all other registers unchanged.\\n\\nQuestion: Does there exist a register program that, on input access provided only through the oracle subprogram $P_x$, computes an arbitrary polynomial $p(x_1, \\\\ldots, x_n)$ (in the sense of adding $p(x_1,\\\\ldots,x_n)$ to a designated output register and leaving all other registers in their initial state), while using\\n\\\\begin{itemize}\\n  \\\\item only $O(n)$ registers, each over a fixed ring $R$ of constant size, and\\n  \\\\item only $O(1)$ recursive calls to $P_x$?\\n\\\\end{itemize}\",\"macro_subject\":\"Theoretical Computer Science\",\"category_tag\":\"catalytic computation and register programs\",\"open_status\":\"open\",\"status_search_result\":\"The problem is posed as an explicit open problem in recent work on catalytic/space-reuse computation and register programs (e.g., the 2025 survey \\\"Catalytic Computing and Register Programs Beyond Log-space\\\"). Classical results of Ben-Or and Cleve achieve constant registers for formulas of polynomial size, but the question of computing arbitrary polynomials with O(n) registers over a constant-size ring and only O(1) calls to the input-addition subprogram P_x appears unresolved.\",\"status_evidence\":[{\"title\":\"Catalytic Computing and Register Programs Beyond Log-space\",\"url\":\"https://arxiv.org/pdf/2504.17412\",\"snippet\":\"Discusses register programs, space reuse, and lists related open problems concerning O(n) registers and O(1) calls to P_x.\",\"claim\":\"The problem is listed among open problems in the area of catalytic register programs.\"},{\"title\":\"Computing Algebraic Formulas Using a Constant Number of Registers\",\"url\":\"https://epubs.siam.org/doi/10.1137/0221006\",\"snippet\":\"Ben-Or and Cleve show polynomial-size formulas can be computed by straight-line register programs using only three registers.\",\"claim\":\"Constant-register results are known for formulas, but not for the catalytic O(1)-call-to-P_x setting requested.\"}],\"confidence\":0.6},\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"uuid\":\"92565501-0f9a-4219-9628-459e7775ebe1\"}\n"
+}

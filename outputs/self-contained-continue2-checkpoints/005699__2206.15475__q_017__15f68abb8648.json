@@ -1,0 +1,59 @@
+{
+  "record": {
+    "global_index": 5699,
+    "source_json": "outputs/parse-paper/2206.15475.json",
+    "paper_id": "2206.15475",
+    "paper_title": "Causal Machine Learning: A Survey and Open Problems",
+    "paper_link": "https://arxiv.org/abs/2206.15475",
+    "question_link": "https://arxiv.org/pdf/2206.15475.pdf#page=69",
+    "question_id": "q_017",
+    "parser_is_solved": "false",
+    "context_brief": "Unfair models despite fair data",
+    "original_question": "If model unfairness can be introduced even when training labels are fair, under what causal graph conditions do fair labels fail to yield fair predictions, and how can causal fairness criteria be stress-tested against such introduced unfairness?",
+    "evidence": [
+      {
+        "page": 69,
+        "quote": "However, Ashurst et al. [205] point out that models can produce unfair predictions even when the training labels are fair."
+      },
+      {
+        "page": 69,
+        "quote": "Taking a causal perspective, they show that the notion of introduced unfairness can be applied to causal definitions of fairness too."
+      },
+      {
+        "page": 69,
+        "quote": "Minimal work exists investigating when fair training labels may not yield a fair model."
+      },
+      {
+        "page": 69,
+        "quote": "Future research may stress-test the validity of the in this section introduced fairness criteria."
+      }
+    ]
+  },
+  "artifact": {
+    "self_contained_problem": "Consider a supervised learning setting in which observations are generated according to a structural causal model with associated causal graph G whose vertices include a sensitive attribute A, a (possibly vector-valued) feature X, a target label Y, and a predictor Ŷ produced by a model trained to approximate Y from X (and possibly A). Say that the label Y is \"fair\" with respect to A under a given causal fairness criterion C (for example, counterfactual fairness, path-specific causal fairness, or no unresolved/proxy discrimination along designated paths of G), and that the predictor Ŷ exhibits \"introduced unfairness\" if Ŷ violates C while Y satisfies C.\n\nAddress the following:\n\n(a) Characterize, in terms of structural properties of the causal graph G (e.g., the presence of particular directed or back-door paths between A, X, Y, Ŷ, the location of unresolved mediators, and conditional (in)dependences induced by G), necessary and/or sufficient graphical conditions under which there exist data distributions compatible with G and loss-minimizing predictors Ŷ such that Y is fair under C but Ŷ is not.\n\n(b) For each causal fairness criterion C in a chosen family (demographic parity, equal opportunity, counterfactual fairness, path-specific counterfactual fairness, no proxy discrimination, etc.), determine whether C is robust to introduced unfairness, i.e., whether fairness of Y under C together with standard training objectives implies fairness of Ŷ under C; otherwise exhibit a minimal counterexample graph and distribution.\n\n(c) Propose and analyze a quantitative measure of introduced unfairness (for example, a distance between the conditional distributions of Ŷ and Y given A, or an introduced path-specific effect along sensitive paths of G) and identify graphical and modeling interventions (such as including A as an input feature, restricting the hypothesis class, or constraining specific path-specific effects) that provably eliminate introduced unfairness under each criterion C.",
+    "macro_subject": "Statistics and Machine Learning",
+    "category_tag": "Causal fairness in machine learning",
+    "open_status": "partially_solved",
+    "status_search_result": "The phenomenon that fair labels can yield unfair predictions has been formalized by Ashurst, Carey, Chiappa, and Everitt (AAAI 2022), who introduce a notion of \"introduced unfairness,\" provide graphical (causal-graph) conditions under which it can be incentivized, define introduced path-specific effects from a causal viewpoint, and show that including the sensitive attribute as a feature removes the incentive under well-behaved losses. This gives partial answers to (a)–(c); however, a complete characterization across the full family of causal fairness criteria and a systematic stress-testing of those criteria remain open.",
+    "status_evidence": [
+      {
+        "title": "Why Fair Labels Can Yield Unfair Predictions: Graphical Conditions for Introduced Unfairness",
+        "url": "https://arxiv.org/abs/2202.10816",
+        "snippet": "We propose introduced total variation as a measure of introduced unfairness, and establish graphical conditions under which it may be incentivised to occur.",
+        "claim": "Graphical (causal) conditions for when fair labels can lead to introduced unfairness are partially established."
+      },
+      {
+        "title": "Why Fair Labels Can Yield Unfair Predictions (AAAI 2022)",
+        "url": "https://ojs.aaai.org/index.php/AAAI/article/view/21182",
+        "snippet": "Taking a causal perspective, we discuss introduced path-specific effects, and show that the criteria imply that adding the sensitive attribute as a feature removes the incentive for introduced variation under well-behaved losses.",
+        "claim": "A causal-graph treatment of introduced unfairness and a mitigation (adding A as a feature) are given; full stress-testing of all causal fairness criteria is not completed."
+      }
+    ],
+    "confidence": 0.7
+  },
+  "model": "opus",
+  "effort": "medium",
+  "elapsed_s": 33.69,
+  "validation_warnings": [],
+  "raw_claude_stdout": "{\"type\":\"result\",\"subtype\":\"success\",\"is_error\":false,\"api_error_status\":null,\"duration_ms\":32628,\"duration_api_ms\":31721,\"num_turns\":3,\"result\":\"Sources:\\n- [Why Fair Labels Can Yield Unfair Predictions (arXiv:2202.10816)](https://arxiv.org/abs/2202.10816)\\n- [AAAI 2022 publication](https://ojs.aaai.org/index.php/AAAI/article/view/21182)\",\"stop_reason\":\"end_turn\",\"session_id\":\"898c1216-ddce-4554-b80f-fef78410336a\",\"total_cost_usd\":0.10962999999999999,\"usage\":{\"input_tokens\":8,\"cache_creation_input_tokens\":4644,\"cache_read_input_tokens\":12764,\"output_tokens\":1771,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":4644,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[{\"input_tokens\":1,\"output_tokens\":105,\"cache_read_input_tokens\":5766,\"cache_creation_input_tokens\":1563,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":1563},\"type\":\"message\"}],\"speed\":\"standard\"},\"modelUsage\":{\"claude-haiku-4-5-20251001\":{\"inputTokens\":17538,\"outputTokens\":474,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":1,\"costUSD\":0.029908,\"contextWindow\":200000,\"maxOutputTokens\":32000},\"claude-opus-4-7\":{\"inputTokens\":8,\"outputTokens\":1771,\"cacheReadInputTokens\":12764,\"cacheCreationInputTokens\":4644,\"webSearchRequests\":0,\"costUSD\":0.07972199999999999,\"contextWindow\":1000000,\"maxOutputTokens\":64000}},\"permission_denials\":[],\"structured_output\":{\"self_contained_problem\":\"Consider a supervised learning setting in which observations are generated according to a structural causal model with associated causal graph G whose vertices include a sensitive attribute A, a (possibly vector-valued) feature X, a target label Y, and a predictor Ŷ produced by a model trained to approximate Y from X (and possibly A). Say that the label Y is \\\"fair\\\" with respect to A under a given causal fairness criterion C (for example, counterfactual fairness, path-specific causal fairness, or no unresolved/proxy discrimination along designated paths of G), and that the predictor Ŷ exhibits \\\"introduced unfairness\\\" if Ŷ violates C while Y satisfies C.\\n\\nAddress the following:\\n\\n(a) Characterize, in terms of structural properties of the causal graph G (e.g., the presence of particular directed or back-door paths between A, X, Y, Ŷ, the location of unresolved mediators, and conditional (in)dependences induced by G), necessary and/or sufficient graphical conditions under which there exist data distributions compatible with G and loss-minimizing predictors Ŷ such that Y is fair under C but Ŷ is not.\\n\\n(b) For each causal fairness criterion C in a chosen family (demographic parity, equal opportunity, counterfactual fairness, path-specific counterfactual fairness, no proxy discrimination, etc.), determine whether C is robust to introduced unfairness, i.e., whether fairness of Y under C together with standard training objectives implies fairness of Ŷ under C; otherwise exhibit a minimal counterexample graph and distribution.\\n\\n(c) Propose and analyze a quantitative measure of introduced unfairness (for example, a distance between the conditional distributions of Ŷ and Y given A, or an introduced path-specific effect along sensitive paths of G) and identify graphical and modeling interventions (such as including A as an input feature, restricting the hypothesis class, or constraining specific path-specific effects) that provably eliminate introduced unfairness under each criterion C.\",\"macro_subject\":\"Statistics and Machine Learning\",\"category_tag\":\"Causal fairness in machine learning\",\"open_status\":\"partially_solved\",\"status_search_result\":\"The phenomenon that fair labels can yield unfair predictions has been formalized by Ashurst, Carey, Chiappa, and Everitt (AAAI 2022), who introduce a notion of \\\"introduced unfairness,\\\" provide graphical (causal-graph) conditions under which it can be incentivized, define introduced path-specific effects from a causal viewpoint, and show that including the sensitive attribute as a feature removes the incentive under well-behaved losses. This gives partial answers to (a)–(c); however, a complete characterization across the full family of causal fairness criteria and a systematic stress-testing of those criteria remain open.\",\"status_evidence\":[{\"title\":\"Why Fair Labels Can Yield Unfair Predictions: Graphical Conditions for Introduced Unfairness\",\"url\":\"https://arxiv.org/abs/2202.10816\",\"snippet\":\"We propose introduced total variation as a measure of introduced unfairness, and establish graphical conditions under which it may be incentivised to occur.\",\"claim\":\"Graphical (causal) conditions for when fair labels can lead to introduced unfairness are partially established.\"},{\"title\":\"Why Fair Labels Can Yield Unfair Predictions (AAAI 2022)\",\"url\":\"https://ojs.aaai.org/index.php/AAAI/article/view/21182\",\"snippet\":\"Taking a causal perspective, we discuss introduced path-specific effects, and show that the criteria imply that adding the sensitive attribute as a feature removes the incentive for introduced variation under well-behaved losses.\",\"claim\":\"A causal-graph treatment of introduced unfairness and a mitigation (adding A as a feature) are given; full stress-testing of all causal fairness criteria is not completed.\"}],\"confidence\":0.7},\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"uuid\":\"7656c9b6-c903-43c1-94c1-3acc0702603f\"}\n"
+}

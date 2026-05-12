@@ -1,0 +1,51 @@
+{
+  "record": {
+    "global_index": 5679,
+    "source_json": "outputs/parse-paper/2206.14431.json",
+    "paper_id": "2206.14431",
+    "paper_title": "",
+    "paper_link": "https://arxiv.org/abs/2206.14431",
+    "question_link": "https://arxiv.org/pdf/2206.14431.pdf#page=3",
+    "question_id": "q_003",
+    "parser_is_solved": "false",
+    "context_brief": "Multi-level splitting search",
+    "original_question": "Is there a way to choose the first ell levels of the learned decision tree all at once, for ell on the order of log log s, while examining only polylog(s) candidate choices at each step, so that the resulting proper learning algorithm for size-s decision trees runs in polynomial time? Equivalently, can the structural search space for these multi-level splits be reduced enough that the total number of subproblems stays polynomial in s?",
+    "evidence": [
+      {
+        "page": 3,
+        "quote": "We note that even slightly strengthening this structural result would immediately give a polynomial-time algorithm. Suppose that at each step, the algorithm tries to find the variables to be queried at the first ell levels of the tree (rather than only the root)."
+      },
+      {
+        "page": 3,
+        "quote": "More concretely, can we pin down ell = Theta(log log s) levels at once, while exploring only polylog(s) different choices at each step?"
+      }
+    ]
+  },
+  "artifact": {
+    "self_contained_problem": "Let $f:\\{0,1\\}^n\\to\\{0,1\\}$ be an unknown Boolean function that admits a decision tree of size at most $s$ (i.e., a binary tree with at most $s$ leaves whose internal nodes query a single variable $x_i$). A proper learning algorithm, given membership-query access to $f$ under the uniform distribution on $\\{0,1\\}^n$ and an accuracy parameter $\\varepsilon>0$, must output a decision tree $T$ of size $\\mathrm{poly}(s,n,1/\\varepsilon)$ satisfying $\\Pr_{x\\sim\\{0,1\\}^n}[T(x)\\neq f(x)]\\le\\varepsilon$.\n\nA known approach builds $T$ top-down: at each step, having fixed the top portion of the tree, one picks the next variable to query (the root of the current subproblem) and recurses on the two children. Generalize this to a multi-level splitting procedure: at each step the algorithm simultaneously fixes the next $\\ell$ levels of the tree by choosing, from a candidate set of size $C$, a labeled depth-$\\ell$ subtree to attach at the current node, and recurses on its $2^\\ell$ leaves.\n\nQuestion: Does there exist a choice of parameters $\\ell=\\Theta(\\log\\log s)$ and $C=\\mathrm{polylog}(s)$, together with a procedure that for every current subproblem produces a candidate set of $C$ depth-$\\ell$ subtrees containing one that leads to a globally near-optimal decision tree, such that the resulting proper learning algorithm for size-$s$ decision trees under the uniform distribution runs in time $\\mathrm{poly}(s,n,1/\\varepsilon)$? Equivalently, can the structural search space for these multi-level splits be reduced enough that the total number of generated subproblems stays polynomial in $s$?",
+    "macro_subject": "Theoretical Computer Science",
+    "category_tag": "Proper learning of decision trees",
+    "open_status": "open",
+    "status_search_result": "The best known proper learning algorithm for size-$s$ decision trees under the uniform distribution with membership queries runs in quasi-polynomial time $n^{O(\\log\\log n)}$ (Blanc, Lange, Qiao, Tan, JACM 2022). Whether a polynomial-time algorithm exists — and in particular whether the multi-level structural strengthening proposed (pinning down $\\Theta(\\log\\log s)$ levels while exploring only $\\mathrm{polylog}(s)$ choices per step) can be achieved — is stated as an open problem and we found no subsequent resolution.",
+    "status_evidence": [
+      {
+        "title": "Open Problem: Properly learning decision trees in polynomial time?",
+        "url": "https://proceedings.mlr.press/v178/open-problem-blanc22a.html",
+        "snippet": "Highlights the natural open problem of obtaining a polynomial-time algorithm and states intermediate milestones.",
+        "claim": "The polynomial-time proper learning question is posed as open."
+      },
+      {
+        "title": "Properly learning decision trees in almost polynomial time",
+        "url": "https://arxiv.org/abs/2109.00637",
+        "snippet": "An $n^{O(\\log\\log n)}$-time membership query algorithm for properly learning decision trees under the uniform distribution.",
+        "claim": "Current best runtime is quasi-polynomial, not polynomial."
+      }
+    ],
+    "confidence": 0.8
+  },
+  "model": "opus",
+  "effort": "medium",
+  "elapsed_s": 27.19,
+  "validation_warnings": [],
+  "raw_claude_stdout": "{\"type\":\"result\",\"subtype\":\"success\",\"is_error\":false,\"api_error_status\":null,\"duration_ms\":26107,\"duration_api_ms\":25350,\"num_turns\":3,\"result\":\"Provided.\\n\\nSources:\\n- [Open Problem: Properly learning decision trees in polynomial time?](https://proceedings.mlr.press/v178/open-problem-blanc22a.html)\\n- [Properly learning decision trees in almost polynomial time (arXiv)](https://arxiv.org/abs/2109.00637)\\n- [Properly Learning Decision Trees in almost Polynomial Time (JACM)](https://dl.acm.org/doi/full/10.1145/3561047)\",\"stop_reason\":\"end_turn\",\"session_id\":\"15027359-601a-4272-83e6-e191df0108d7\",\"total_cost_usd\":0.09573449999999999,\"usage\":{\"input_tokens\":8,\"cache_creation_input_tokens\":4118,\"cache_read_input_tokens\":12454,\"output_tokens\":1621,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":4118,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[{\"input_tokens\":1,\"output_tokens\":168,\"cache_read_input_tokens\":5465,\"cache_creation_input_tokens\":1338,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":1338},\"type\":\"message\"}],\"speed\":\"standard\"},\"modelUsage\":{\"claude-haiku-4-5-20251001\":{\"inputTokens\":11605,\"outputTokens\":320,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":1,\"costUSD\":0.023205,\"contextWindow\":200000,\"maxOutputTokens\":32000},\"claude-opus-4-7\":{\"inputTokens\":8,\"outputTokens\":1621,\"cacheReadInputTokens\":12454,\"cacheCreationInputTokens\":4118,\"webSearchRequests\":0,\"costUSD\":0.0725295,\"contextWindow\":1000000,\"maxOutputTokens\":64000}},\"permission_denials\":[],\"structured_output\":{\"self_contained_problem\":\"Let $f:\\\\{0,1\\\\}^n\\\\to\\\\{0,1\\\\}$ be an unknown Boolean function that admits a decision tree of size at most $s$ (i.e., a binary tree with at most $s$ leaves whose internal nodes query a single variable $x_i$). A proper learning algorithm, given membership-query access to $f$ under the uniform distribution on $\\\\{0,1\\\\}^n$ and an accuracy parameter $\\\\varepsilon>0$, must output a decision tree $T$ of size $\\\\mathrm{poly}(s,n,1/\\\\varepsilon)$ satisfying $\\\\Pr_{x\\\\sim\\\\{0,1\\\\}^n}[T(x)\\\\neq f(x)]\\\\le\\\\varepsilon$.\\n\\nA known approach builds $T$ top-down: at each step, having fixed the top portion of the tree, one picks the next variable to query (the root of the current subproblem) and recurses on the two children. Generalize this to a multi-level splitting procedure: at each step the algorithm simultaneously fixes the next $\\\\ell$ levels of the tree by choosing, from a candidate set of size $C$, a labeled depth-$\\\\ell$ subtree to attach at the current node, and recurses on its $2^\\\\ell$ leaves.\\n\\nQuestion: Does there exist a choice of parameters $\\\\ell=\\\\Theta(\\\\log\\\\log s)$ and $C=\\\\mathrm{polylog}(s)$, together with a procedure that for every current subproblem produces a candidate set of $C$ depth-$\\\\ell$ subtrees containing one that leads to a globally near-optimal decision tree, such that the resulting proper learning algorithm for size-$s$ decision trees under the uniform distribution runs in time $\\\\mathrm{poly}(s,n,1/\\\\varepsilon)$? Equivalently, can the structural search space for these multi-level splits be reduced enough that the total number of generated subproblems stays polynomial in $s$?\",\"macro_subject\":\"Theoretical Computer Science\",\"category_tag\":\"Proper learning of decision trees\",\"open_status\":\"open\",\"status_search_result\":\"The best known proper learning algorithm for size-$s$ decision trees under the uniform distribution with membership queries runs in quasi-polynomial time $n^{O(\\\\log\\\\log n)}$ (Blanc, Lange, Qiao, Tan, JACM 2022). Whether a polynomial-time algorithm exists — and in particular whether the multi-level structural strengthening proposed (pinning down $\\\\Theta(\\\\log\\\\log s)$ levels while exploring only $\\\\mathrm{polylog}(s)$ choices per step) can be achieved — is stated as an open problem and we found no subsequent resolution.\",\"status_evidence\":[{\"title\":\"Open Problem: Properly learning decision trees in polynomial time?\",\"url\":\"https://proceedings.mlr.press/v178/open-problem-blanc22a.html\",\"snippet\":\"Highlights the natural open problem of obtaining a polynomial-time algorithm and states intermediate milestones.\",\"claim\":\"The polynomial-time proper learning question is posed as open.\"},{\"title\":\"Properly learning decision trees in almost polynomial time\",\"url\":\"https://arxiv.org/abs/2109.00637\",\"snippet\":\"An $n^{O(\\\\log\\\\log n)}$-time membership query algorithm for properly learning decision trees under the uniform distribution.\",\"claim\":\"Current best runtime is quasi-polynomial, not polynomial.\"}],\"confidence\":0.8},\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"uuid\":\"da963399-8cb0-4d9a-b520-206f083fe549\"}\n"
+}

@@ -1,0 +1,49 @@
+{
+  "record": {
+    "global_index": 5299,
+    "source_json": "outputs/parse-paper/2110.09638.json",
+    "paper_id": "2110.09638",
+    "paper_title": "",
+    "paper_link": "https://arxiv.org/abs/2110.09638",
+    "question_link": "https://arxiv.org/pdf/2110.09638.pdf#page=2",
+    "question_id": "q_003",
+    "parser_is_solved": "false",
+    "context_brief": "Optimality of independent versus correlated multi-channel policies",
+    "original_question": "Extend the model to n users and m orthogonal channels, where on each slot a user may choose any subset of channels on which to transmit and the receiver reports the per-channel transmitter counts. Is it optimal to run the single-channel capture policy separately and independently on each channel, or can coupling a user's transmission decisions across channels produce strictly better expected time to the first success? More generally, for which combinations of user count and channel count is per-channel independence optimal, and when is cross-channel correlation necessary for optimality?",
+    "evidence": [
+      {
+        "page": 2,
+        "quote": "One way to extend the transmission schemes of this paper to a multi-channel environment is to implement them separately and independently over each channel. Is such separate and independent implementation optimal, or can correlating the transmission decisions over each channel provide efficiency gains?"
+      },
+      {
+        "page": 18,
+        "quote": "The goal is to minimize E [Z]. Is it optimal to use all channels separately and independently? The answer is different when n = 2 versus n = 3."
+      },
+      {
+        "page": 20,
+        "quote": "It was shown that, for the context of minimizing the expected time to first capture, it is optimal to independently use all channels when the number of users is only two. However, a counter-example was shown for the case of three users and two channels: Optimality requires each user to correlate its transmission decisions over each channel, rather than independently use each channel."
+      }
+    ]
+  },
+  "artifact": {
+    "self_contained_problem": "Setup. Consider a discrete-time random-access communication model with n ≥ 2 users and m ≥ 1 orthogonal channels. Time is slotted; in each slot t = 1, 2, ..., every user independently selects a (possibly empty, possibly random) subset S_i(t) ⊆ {1, ..., m} of channels on which to transmit. A \"capture\" occurs on channel c in slot t if exactly one user transmits on channel c in that slot; a capture on any channel constitutes a \"success.\" After each slot, the receiver broadcasts as feedback the per-channel transmitter counts (i.e., for each channel c the number |{i : c ∈ S_i(t)}|), and users may condition their future randomized transmission decisions on the entire history of such feedback. A \"policy\" is a tuple of (possibly randomized, history-dependent, and symmetric across users) rules for choosing the subsets S_i(t). Let Z denote the (random) slot of the first success, and the objective is to minimize E[Z].\n\nA policy is called channel-independent if, for every user i and every slot t, the indicator random variables {1[c ∈ S_i(t)] : c = 1, ..., m} are mutually independent conditional on the feedback history (so that the user's per-channel transmission decisions are independent across channels).\n\nProblem. \n(a) Determine, for each pair (n, m) with n ≥ 2 and m ≥ 2, whether there exists an optimal policy (minimizing E[Z]) that is channel-independent.\n(b) Equivalently, characterize the set of pairs (n, m) for which restricting to channel-independent policies entails no loss of optimality, and the set of pairs for which strictly better expected time to first success can be achieved only by coupling each user's transmission decisions across channels.",
+    "macro_subject": "Probability",
+    "category_tag": "multi-access channel scheduling",
+    "open_status": "partially_solved",
+    "status_search_result": "The question is resolved for small cases by the source itself: channel-independence is optimal when n = 2 users, and a counter-example shows it fails for n = 3 users with m = 2 channels (where cross-channel correlation is needed). A general characterization of all (n, m) pairs for which channel-independence is optimal does not appear in the literature located by web search and remains open.",
+    "status_evidence": [
+      {
+        "title": "Revisiting the Channel Independent Strategy for the Multi-Channel Capture Problem",
+        "url": "https://arxiv.org/pdf/2304.05206",
+        "snippet": "Discusses optimality of channel-independent strategies for multi-channel capture policies.",
+        "claim": "Subsequent work revisits the channel-independent strategy, indicating the general (n,m) characterization is not fully settled."
+      }
+    ],
+    "confidence": 0.5
+  },
+  "model": "opus",
+  "effort": "medium",
+  "elapsed_s": 36.82,
+  "validation_warnings": [],
+  "raw_claude_stdout": "{\"type\":\"result\",\"subtype\":\"success\",\"is_error\":false,\"api_error_status\":null,\"duration_ms\":35719,\"duration_api_ms\":34267,\"num_turns\":3,\"result\":\"Sources:\\n- [Revisiting the Channel Independent Strategy for the Multi-Channel Capture Problem](https://arxiv.org/pdf/2304.05206)\",\"stop_reason\":\"end_turn\",\"session_id\":\"8496f9ef-f1dd-43bf-bc4f-218d4420fe2c\",\"total_cost_usd\":0.27050850000000004,\"usage\":{\"input_tokens\":8,\"cache_creation_input_tokens\":6604,\"cache_read_input_tokens\":15307,\"output_tokens\":1312,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":6604,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[{\"input_tokens\":1,\"output_tokens\":62,\"cache_read_input_tokens\":8148,\"cache_creation_input_tokens\":1141,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":1141},\"type\":\"message\"}],\"speed\":\"standard\"},\"modelUsage\":{\"claude-haiku-4-5-20251001\":{\"inputTokens\":145495,\"outputTokens\":649,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":4,\"costUSD\":0.18874,\"contextWindow\":200000,\"maxOutputTokens\":32000},\"claude-opus-4-7\":{\"inputTokens\":8,\"outputTokens\":1312,\"cacheReadInputTokens\":15307,\"cacheCreationInputTokens\":6604,\"webSearchRequests\":0,\"costUSD\":0.0817685,\"contextWindow\":1000000,\"maxOutputTokens\":64000}},\"permission_denials\":[],\"structured_output\":{\"self_contained_problem\":\"Setup. Consider a discrete-time random-access communication model with n ≥ 2 users and m ≥ 1 orthogonal channels. Time is slotted; in each slot t = 1, 2, ..., every user independently selects a (possibly empty, possibly random) subset S_i(t) ⊆ {1, ..., m} of channels on which to transmit. A \\\"capture\\\" occurs on channel c in slot t if exactly one user transmits on channel c in that slot; a capture on any channel constitutes a \\\"success.\\\" After each slot, the receiver broadcasts as feedback the per-channel transmitter counts (i.e., for each channel c the number |{i : c ∈ S_i(t)}|), and users may condition their future randomized transmission decisions on the entire history of such feedback. A \\\"policy\\\" is a tuple of (possibly randomized, history-dependent, and symmetric across users) rules for choosing the subsets S_i(t). Let Z denote the (random) slot of the first success, and the objective is to minimize E[Z].\\n\\nA policy is called channel-independent if, for every user i and every slot t, the indicator random variables {1[c ∈ S_i(t)] : c = 1, ..., m} are mutually independent conditional on the feedback history (so that the user's per-channel transmission decisions are independent across channels).\\n\\nProblem. \\n(a) Determine, for each pair (n, m) with n ≥ 2 and m ≥ 2, whether there exists an optimal policy (minimizing E[Z]) that is channel-independent.\\n(b) Equivalently, characterize the set of pairs (n, m) for which restricting to channel-independent policies entails no loss of optimality, and the set of pairs for which strictly better expected time to first success can be achieved only by coupling each user's transmission decisions across channels.\",\"macro_subject\":\"Probability\",\"category_tag\":\"multi-access channel scheduling\",\"open_status\":\"partially_solved\",\"status_search_result\":\"The question is resolved for small cases by the source itself: channel-independence is optimal when n = 2 users, and a counter-example shows it fails for n = 3 users with m = 2 channels (where cross-channel correlation is needed). A general characterization of all (n, m) pairs for which channel-independence is optimal does not appear in the literature located by web search and remains open.\",\"status_evidence\":[{\"title\":\"Revisiting the Channel Independent Strategy for the Multi-Channel Capture Problem\",\"url\":\"https://arxiv.org/pdf/2304.05206\",\"snippet\":\"Discusses optimality of channel-independent strategies for multi-channel capture policies.\",\"claim\":\"Subsequent work revisits the channel-independent strategy, indicating the general (n,m) characterization is not fully settled.\"}],\"confidence\":0.5},\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"uuid\":\"d55ce0a6-3660-49e7-9d3e-aa6593142499\"}\n"
+}

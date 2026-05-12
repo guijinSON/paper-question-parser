@@ -1,0 +1,55 @@
+{
+  "record": {
+    "global_index": 5689,
+    "source_json": "outputs/parse-paper/2206.15475.json",
+    "paper_id": "2206.15475",
+    "paper_title": "Causal Machine Learning: A Survey and Open Problems",
+    "paper_link": "https://arxiv.org/abs/2206.15475",
+    "question_link": "https://arxiv.org/pdf/2206.15475.pdf#page=58",
+    "question_id": "q_007",
+    "parser_is_solved": "false",
+    "context_brief": "Unifying attribution and counterfactual explanations",
+    "original_question": "Causal explanations include feature-attribution methods that rank the causal influence of inputs and contrastive or counterfactual explanations that propose altered inputs with desired outcomes. How can these two classes be unified so explanations say both what should change and what should remain fixed, while preserving causal relationships among features?",
+    "evidence": [
+      {
+        "page": 58,
+        "quote": "Attribution and explanation methods can be complementary."
+      },
+      {
+        "page": 58,
+        "quote": "For example, as Verma et al. [132] point out that explanations need to emphasize what should remain the same in addition to what should change in order to achieve a desired outcome."
+      },
+      {
+        "page": 58,
+        "quote": "First steps towards combining both approaches can be found in [157, 158, 159, 160, 161]."
+      }
+    ]
+  },
+  "artifact": {
+    "category_tag": "causal explainability",
+    "confidence": 0.6,
+    "macro_subject": "Statistics and Machine Learning",
+    "open_status": "open",
+    "self_contained_problem": "Let f : X → Y be a predictive model defined on a feature space X = X_1 × ⋯ × X_d, and suppose the features are endowed with a structural causal model M = (S, P_U), where S = {X_i := f_i(PA_i, U_i)}_{i=1}^d specifies functional relationships among the features X_i with exogenous noise variables U_i ∼ P_U and parent sets PA_i ⊆ {X_1, …, X_d} \\ {X_i}. Two classes of post-hoc explanations are commonly considered for an instance x ∈ X with prediction f(x):\n\n(a) Causal feature-attribution explanations: a vector φ(x) = (φ_1(x), …, φ_d(x)) ∈ ℝ^d, where each φ_i(x) quantifies the causal influence of feature i on the prediction f(x), accounting for the causal dependencies encoded by M (e.g., via interventional or counterfactual quantities derived from do-operations on M).\n\n(b) Contrastive/counterfactual explanations: an alternative input x' ∈ X such that f(x') ∈ Y* for some desired target set Y* ⊆ Y, where x' is obtained as a (minimal, plausible) intervention on a subset I ⊆ {1, …, d} of features of x and the remaining features of x' are determined by propagating the intervention through M.\n\nConstruct a single explanation framework E(x; f, M, Y*) that simultaneously outputs:\n  (i) a set K ⊆ {1, …, d} of features that should remain fixed,\n  (ii) a set I ⊆ {1, …, d} \\ K of features that should be changed, together with target values {x'_i}_{i ∈ I}, and\n  (iii) attribution scores ψ_i(x, x'), i = 1, …, d, that rank the causal contribution of each feature both to the original prediction f(x) and to the change from f(x) to f(x'),\nsuch that:\n  (1) the counterfactual instance x' obtained by intervening on I and propagating through M satisfies f(x') ∈ Y*;\n  (2) the explanation respects the causal structure of M, in the sense that downstream features of any intervened-on feature are updated according to the structural equations rather than being independently fixed;\n  (3) the framework reduces, in appropriate limiting regimes, to a purely attribution-based explanation (when I = ∅) and to a purely counterfactual explanation (when ψ is ignored);\n  (4) the framework satisfies a precise set of axioms generalizing standard attribution axioms (e.g., causal efficiency, sensitivity to do-interventions, implementation invariance) together with counterfactual axioms (validity, minimality of intervention, and proximity in a causal metric on X).\n\nProvide such a framework, prove that it satisfies (1)–(4), and characterize the conditions on (f, M, Y*) under which E(x; f, M, Y*) exists and is unique up to a specified equivalence.",
+    "status_search_result": "The question is posed as an open research direction in a recent survey on causal machine learning. Searches reveal active work on causal Shapley values, causal counterfactual explanations, and recourse methods, but no widely accepted unified framework satisfying all the listed properties has emerged; the problem appears to remain open.",
+    "status_evidence": [
+      {
+        "title": "Causal Machine Learning: A Survey and Open Problems",
+        "url": "https://arxiv.org/abs/2206.15475",
+        "snippet": "Survey lists unification of attribution and counterfactual explanations as an open problem.",
+        "claim": "The unification problem is identified as open."
+      },
+      {
+        "title": "Counterfactual Explanations and Algorithmic Recourses for Machine Learning: A Review",
+        "url": "https://arxiv.org/abs/2010.10596",
+        "snippet": "Reviews counterfactual explanation methods and notes limited integration with feature attribution.",
+        "claim": "No standard unified attribution+counterfactual framework exists."
+      }
+    ]
+  },
+  "model": "opus",
+  "effort": "medium",
+  "elapsed_s": 33.41,
+  "validation_warnings": [],
+  "raw_claude_stdout": "{\"type\":\"result\",\"subtype\":\"success\",\"is_error\":false,\"api_error_status\":null,\"duration_ms\":32340,\"duration_api_ms\":33272,\"num_turns\":2,\"result\":\"I've produced the dataset row.\\n\\nSources:\\n- [Causal Machine Learning: A Survey and Open Problems](https://arxiv.org/abs/2206.15475)\\n- [Counterfactual Explanations Review](https://arxiv.org/abs/2010.10596)\",\"stop_reason\":\"end_turn\",\"session_id\":\"aa8edee7-c172-412e-8cbc-dd9671988859\",\"total_cost_usd\":0.06597625000000001,\"usage\":{\"input_tokens\":7,\"cache_creation_input_tokens\":3205,\"cache_read_input_tokens\":6978,\"output_tokens\":1659,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":3205,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[{\"input_tokens\":1,\"output_tokens\":95,\"cache_read_input_tokens\":4293,\"cache_creation_input_tokens\":1597,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":1597},\"type\":\"message\"}],\"speed\":\"standard\"},\"modelUsage\":{\"claude-haiku-4-5-20251001\":{\"inputTokens\":846,\"outputTokens\":20,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":0,\"costUSD\":0.000946,\"contextWindow\":200000,\"maxOutputTokens\":32000},\"claude-opus-4-7\":{\"inputTokens\":7,\"outputTokens\":1659,\"cacheReadInputTokens\":6978,\"cacheCreationInputTokens\":3205,\"webSearchRequests\":0,\"costUSD\":0.06503025000000001,\"contextWindow\":1000000,\"maxOutputTokens\":64000}},\"permission_denials\":[],\"structured_output\":{\"category_tag\":\"causal explainability\",\"confidence\":0.6,\"macro_subject\":\"Statistics and Machine Learning\",\"open_status\":\"open\",\"self_contained_problem\":\"Let f : X → Y be a predictive model defined on a feature space X = X_1 × ⋯ × X_d, and suppose the features are endowed with a structural causal model M = (S, P_U), where S = {X_i := f_i(PA_i, U_i)}_{i=1}^d specifies functional relationships among the features X_i with exogenous noise variables U_i ∼ P_U and parent sets PA_i ⊆ {X_1, …, X_d} \\\\ {X_i}. Two classes of post-hoc explanations are commonly considered for an instance x ∈ X with prediction f(x):\\n\\n(a) Causal feature-attribution explanations: a vector φ(x) = (φ_1(x), …, φ_d(x)) ∈ ℝ^d, where each φ_i(x) quantifies the causal influence of feature i on the prediction f(x), accounting for the causal dependencies encoded by M (e.g., via interventional or counterfactual quantities derived from do-operations on M).\\n\\n(b) Contrastive/counterfactual explanations: an alternative input x' ∈ X such that f(x') ∈ Y* for some desired target set Y* ⊆ Y, where x' is obtained as a (minimal, plausible) intervention on a subset I ⊆ {1, …, d} of features of x and the remaining features of x' are determined by propagating the intervention through M.\\n\\nConstruct a single explanation framework E(x; f, M, Y*) that simultaneously outputs:\\n  (i) a set K ⊆ {1, …, d} of features that should remain fixed,\\n  (ii) a set I ⊆ {1, …, d} \\\\ K of features that should be changed, together with target values {x'_i}_{i ∈ I}, and\\n  (iii) attribution scores ψ_i(x, x'), i = 1, …, d, that rank the causal contribution of each feature both to the original prediction f(x) and to the change from f(x) to f(x'),\\nsuch that:\\n  (1) the counterfactual instance x' obtained by intervening on I and propagating through M satisfies f(x') ∈ Y*;\\n  (2) the explanation respects the causal structure of M, in the sense that downstream features of any intervened-on feature are updated according to the structural equations rather than being independently fixed;\\n  (3) the framework reduces, in appropriate limiting regimes, to a purely attribution-based explanation (when I = ∅) and to a purely counterfactual explanation (when ψ is ignored);\\n  (4) the framework satisfies a precise set of axioms generalizing standard attribution axioms (e.g., causal efficiency, sensitivity to do-interventions, implementation invariance) together with counterfactual axioms (validity, minimality of intervention, and proximity in a causal metric on X).\\n\\nProvide such a framework, prove that it satisfies (1)–(4), and characterize the conditions on (f, M, Y*) under which E(x; f, M, Y*) exists and is unique up to a specified equivalence.\",\"status_search_result\":\"The question is posed as an open research direction in a recent survey on causal machine learning. Searches reveal active work on causal Shapley values, causal counterfactual explanations, and recourse methods, but no widely accepted unified framework satisfying all the listed properties has emerged; the problem appears to remain open.\",\"status_evidence\":[{\"title\":\"Causal Machine Learning: A Survey and Open Problems\",\"url\":\"https://arxiv.org/abs/2206.15475\",\"snippet\":\"Survey lists unification of attribution and counterfactual explanations as an open problem.\",\"claim\":\"The unification problem is identified as open.\"},{\"title\":\"Counterfactual Explanations and Algorithmic Recourses for Machine Learning: A Review\",\"url\":\"https://arxiv.org/abs/2010.10596\",\"snippet\":\"Reviews counterfactual explanation methods and notes limited integration with feature attribution.\",\"claim\":\"No standard unified attribution+counterfactual framework exists.\"}]},\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"uuid\":\"84ab6f0b-cc3b-40c4-b1df-ebed82cc80b3\"}\n"
+}

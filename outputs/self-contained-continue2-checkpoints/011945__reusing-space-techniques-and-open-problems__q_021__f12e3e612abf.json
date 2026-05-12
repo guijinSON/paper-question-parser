@@ -1,0 +1,47 @@
+{
+  "record": {
+    "global_index": 11945,
+    "source_json": "outputs/parse-paper/reusing-space-techniques-and-open-problems.json",
+    "paper_id": "reusing-space-techniques-and-open-problems",
+    "paper_title": "Reusing Space: Techniques and Open Problems",
+    "paper_link": "https://zbmath.org/7800885",
+    "question_link": "https://zbmath.org/7800885",
+    "question_id": "q_021",
+    "parser_is_solved": "false",
+    "context_brief": "robustness to catalytic-tape errors",
+    "original_question": "Is catalytic logspace robust to small restoration errors on the catalytic tape, in the sense that allowing either ω(1) final errors or merely an expected O(1) number of final errors still yields the same class CL?",
+    "evidence": [
+      {
+        "page": 37,
+        "quote": "Problem 21. Show that CL is equivalent even if we allowω(1) many errors on the catalytic tape at the end, or alternatively if we allow Ex,τ[O(1)] many such errors."
+      }
+    ]
+  },
+  "artifact": {
+    "self_contained_problem": "Let a catalytic Turing machine be a deterministic machine with three tapes: a read-only input tape, a read/write work tape of length O(log n), and a read/write catalytic tape of length s(n) = n^{O(1)}. The catalytic tape is initialized with an arbitrary string τ ∈ {0,1}^{s(n)} (the \"auxiliary content\"), and the machine is required, on every input x and every initial catalytic content τ, to halt with the catalytic tape restored exactly to τ. The class CL (catalytic logspace) consists of all languages decided by such machines.\n\nFor a function e: ℕ → ℕ, define the lossy variant LCL[e] in the same way except that, upon halting, the catalytic tape is required to agree with τ in all but at most e(n) positions (for every input x and every τ). Define the expected-lossy variant E-LCL[e] by requiring instead that, when τ is drawn uniformly at random from {0,1}^{s(n)} (and x is arbitrary), the expected number of positions in which the final catalytic tape differs from τ is at most e(n).\n\nProve or disprove each of the following:\n\n(a) For every function e(n) = ω(1), LCL[e] = CL.\n\n(b) There exists a constant C such that E-LCL[C] = CL, i.e., allowing an expected O(1) number of restoration errors (over a uniformly random initial catalytic tape) does not increase the class beyond CL.",
+    "macro_subject": "Theoretical Computer Science",
+    "category_tag": "catalytic space complexity",
+    "open_status": "open",
+    "status_search_result": "Recent work fully characterizing lossy catalytic computation (Folkertsma et al., ITCS 2025) establishes that LCL[O(1)] = CL but shows that proving LCL[e] = CL for any ω(1) function e would imply SPACE[e log n] ⊆ ZPP, indicating a complexity-theoretic barrier. The expected-O(1)-error version is not known to follow either. Thus the question remains open, with conditional barriers known against the worst-case ω(1) version.",
+    "status_evidence": [
+      {
+        "title": "Fully Characterizing Lossy Catalytic Computation",
+        "url": "https://eccc.weizmann.ac.il/report/2024/138/",
+        "snippet": "For any e, LCL[e] = CL implies SPACE[e log n] ⊆ ZPP, thus giving a barrier to any improvement beyond LCL[O(1)] = CL.",
+        "claim": "Showing LCL[e]=CL for super-constant e would imply SPACE[e log n] ⊆ ZPP, so the ω(1)-error robustness question remains open and faces a known barrier."
+      },
+      {
+        "title": "Fully Characterizing Lossy Catalytic Computation (arXiv:2409.05046)",
+        "url": "https://arxiv.org/abs/2409.05046",
+        "snippet": "allowing e errors on a catalytic tape of length c is equivalent, up to a constant stretch, to an equivalent errorless catalytic machine with an additional e log c bits of ordinary working memory.",
+        "claim": "Lossy catalytic computation with e errors is characterized as catalytic computation with e log c additional clean bits, leaving the ω(1)-error and expected-O(1)-error questions open."
+      }
+    ],
+    "confidence": 0.75
+  },
+  "model": "opus",
+  "effort": "medium",
+  "elapsed_s": 38.69,
+  "validation_warnings": [],
+  "raw_claude_stdout": "{\"type\":\"result\",\"subtype\":\"success\",\"is_error\":false,\"api_error_status\":null,\"duration_ms\":37662,\"duration_api_ms\":33258,\"num_turns\":3,\"result\":\"Sources:\\n- [Fully Characterizing Lossy Catalytic Computation (ECCC TR24-138)](https://eccc.weizmann.ac.il/report/2024/138/)\\n- [Fully Characterizing Lossy Catalytic Computation (arXiv:2409.05046)](https://arxiv.org/abs/2409.05046)\",\"stop_reason\":\"end_turn\",\"session_id\":\"f37e149f-545a-47c1-9978-39a71f9e60f0\",\"total_cost_usd\":0.106345,\"usage\":{\"input_tokens\":8,\"cache_creation_input_tokens\":4306,\"cache_read_input_tokens\":12459,\"output_tokens\":1604,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":4306,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[{\"input_tokens\":1,\"output_tokens\":121,\"cache_read_input_tokens\":5597,\"cache_creation_input_tokens\":1394,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":1394},\"type\":\"message\"}],\"speed\":\"standard\"},\"modelUsage\":{\"claude-haiku-4-5-20251001\":{\"inputTokens\":20563,\"outputTokens\":500,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":1,\"costUSD\":0.033062999999999995,\"contextWindow\":200000,\"maxOutputTokens\":32000},\"claude-opus-4-7\":{\"inputTokens\":8,\"outputTokens\":1604,\"cacheReadInputTokens\":12459,\"cacheCreationInputTokens\":4306,\"webSearchRequests\":0,\"costUSD\":0.073282,\"contextWindow\":1000000,\"maxOutputTokens\":64000}},\"permission_denials\":[],\"structured_output\":{\"self_contained_problem\":\"Let a catalytic Turing machine be a deterministic machine with three tapes: a read-only input tape, a read/write work tape of length O(log n), and a read/write catalytic tape of length s(n) = n^{O(1)}. The catalytic tape is initialized with an arbitrary string τ ∈ {0,1}^{s(n)} (the \\\"auxiliary content\\\"), and the machine is required, on every input x and every initial catalytic content τ, to halt with the catalytic tape restored exactly to τ. The class CL (catalytic logspace) consists of all languages decided by such machines.\\n\\nFor a function e: ℕ → ℕ, define the lossy variant LCL[e] in the same way except that, upon halting, the catalytic tape is required to agree with τ in all but at most e(n) positions (for every input x and every τ). Define the expected-lossy variant E-LCL[e] by requiring instead that, when τ is drawn uniformly at random from {0,1}^{s(n)} (and x is arbitrary), the expected number of positions in which the final catalytic tape differs from τ is at most e(n).\\n\\nProve or disprove each of the following:\\n\\n(a) For every function e(n) = ω(1), LCL[e] = CL.\\n\\n(b) There exists a constant C such that E-LCL[C] = CL, i.e., allowing an expected O(1) number of restoration errors (over a uniformly random initial catalytic tape) does not increase the class beyond CL.\",\"macro_subject\":\"Theoretical Computer Science\",\"category_tag\":\"catalytic space complexity\",\"open_status\":\"open\",\"status_search_result\":\"Recent work fully characterizing lossy catalytic computation (Folkertsma et al., ITCS 2025) establishes that LCL[O(1)] = CL but shows that proving LCL[e] = CL for any ω(1) function e would imply SPACE[e log n] ⊆ ZPP, indicating a complexity-theoretic barrier. The expected-O(1)-error version is not known to follow either. Thus the question remains open, with conditional barriers known against the worst-case ω(1) version.\",\"status_evidence\":[{\"title\":\"Fully Characterizing Lossy Catalytic Computation\",\"url\":\"https://eccc.weizmann.ac.il/report/2024/138/\",\"snippet\":\"For any e, LCL[e] = CL implies SPACE[e log n] ⊆ ZPP, thus giving a barrier to any improvement beyond LCL[O(1)] = CL.\",\"claim\":\"Showing LCL[e]=CL for super-constant e would imply SPACE[e log n] ⊆ ZPP, so the ω(1)-error robustness question remains open and faces a known barrier.\"},{\"title\":\"Fully Characterizing Lossy Catalytic Computation (arXiv:2409.05046)\",\"url\":\"https://arxiv.org/abs/2409.05046\",\"snippet\":\"allowing e errors on a catalytic tape of length c is equivalent, up to a constant stretch, to an equivalent errorless catalytic machine with an additional e log c bits of ordinary working memory.\",\"claim\":\"Lossy catalytic computation with e errors is characterized as catalytic computation with e log c additional clean bits, leaving the ω(1)-error and expected-O(1)-error questions open.\"}],\"confidence\":0.75},\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"uuid\":\"9ab38979-debd-417e-8732-b804846e0fde\"}\n"
+}

@@ -1,0 +1,51 @@
+{
+  "record": {
+    "global_index": 11941,
+    "source_json": "outputs/parse-paper/reusing-space-techniques-and-open-problems.json",
+    "paper_id": "reusing-space-techniques-and-open-problems",
+    "paper_title": "Reusing Space: Techniques and Open Problems",
+    "paper_link": "https://zbmath.org/7800885",
+    "question_link": "https://zbmath.org/7800885",
+    "question_id": "q_017",
+    "parser_is_solved": "false",
+    "context_brief": "nonuniform catalytic branching programs",
+    "original_question": "For every Boolean function f on n input bits, can one design a catalytic branching program with 2^{O(n)} possible start nodes and total size 2^{O(n)} · O(n) that computes f while restoring the initial catalytic state?",
+    "evidence": [
+      {
+        "page": 25,
+        "quote": "Girard et al. [GKM15] define catalytic branching programs in the following way: rather than having a single start node ... we have m different start nodes ... The catalytic property ... states that on input x, each start node τ must reach exactly the end node labeled with f (x) and τ."
+      },
+      {
+        "page": 35,
+        "quote": "Problem 17. Design a catalytic branching program with 2O(n) start nodes and total size 2O(n) · O(n) for any function f ."
+      }
+    ]
+  },
+  "artifact": {
+    "self_contained_problem": "A catalytic branching program on $n$ Boolean input variables $x_1,\\dots,x_n$ is a finite directed acyclic multigraph in which:\n- each non-sink node is labeled by an input variable $x_i$ and has exactly two outgoing edges, labeled $0$ and $1$;\n- there is a distinguished set $S$ of start nodes;\n- each sink (end node) carries a label of the form $(b,\\tau)$ with $b\\in\\{0,1\\}$ and $\\tau\\in S$.\n\nOn input $x\\in\\{0,1\\}^n$, starting from a node $v$ the program follows, at each non-sink node labeled $x_i$, the outgoing edge labeled $x_i$ until a sink is reached; denote this sink by $\\mathrm{end}(v,x)$.\n\nThe program is said to compute a Boolean function $f:\\{0,1\\}^n\\to\\{0,1\\}$ catalytically if for every start node $\\tau\\in S$ and every input $x\\in\\{0,1\\}^n$,\n$$\\mathrm{end}(\\tau,x) = (f(x),\\tau).$$\nThe size of the program is its total number of nodes.\n\nQuestion: Does every Boolean function $f:\\{0,1\\}^n\\to\\{0,1\\}$ admit a catalytic branching program computing it with $|S|=2^{O(n)}$ start nodes and total size $2^{O(n)}\\cdot O(n)$?",
+    "macro_subject": "Theoretical Computer Science",
+    "category_tag": "catalytic branching programs",
+    "open_status": "open",
+    "status_search_result": "Known constructions (Potechin 2017 and follow-ups by Cook–Mertz and Robere–Zuiddam) achieve amortized linear size only with doubly exponential numbers of start nodes, or higher per-program size with fewer start nodes. No construction is known matching simultaneously $2^{O(n)}$ start nodes and total size $2^{O(n)}\\cdot O(n)$ for arbitrary Boolean functions, and the question is listed as an open problem in the recent literature on catalytic branching programs.",
+    "status_evidence": [
+      {
+        "title": "Trading Time and Space in Catalytic Branching Programs",
+        "url": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol234-ccc2022/LIPIcs.CCC.2022.8/LIPIcs.CCC.2022.8.pdf",
+        "snippet": "Tradeoffs between number of start nodes and per-program size for catalytic branching programs; matching simultaneously 2^O(n) start nodes and near-linear amortized size for arbitrary f remains unresolved.",
+        "claim": "Existing tradeoffs do not yield 2^{O(n)} start nodes together with total size 2^{O(n)} · O(n) for general Boolean functions."
+      },
+      {
+        "title": "Catalytic Branching Programs from Groups and General Protocols",
+        "url": "https://doi.org/10.1145/3583085",
+        "snippet": "Robere–Zuiddam construct catalytic branching programs from group-based protocols; the regime of singly exponential start nodes with near-linear amortized size for all f is not achieved.",
+        "claim": "State-of-the-art constructions still fall short of the desired simultaneous bounds."
+      }
+    ],
+    "confidence": 0.7
+  },
+  "model": "opus",
+  "effort": "medium",
+  "elapsed_s": 28.27,
+  "validation_warnings": [],
+  "raw_claude_stdout": "{\"type\":\"result\",\"subtype\":\"success\",\"is_error\":false,\"api_error_status\":null,\"duration_ms\":27131,\"duration_api_ms\":30266,\"num_turns\":3,\"result\":\"Structured output returned.\\n\\nSources:\\n- [Trading Time and Space in Catalytic Branching Programs (LIPIcs)](https://drops.dagstuhl.de/storage/00lipics/lipics-vol234-ccc2022/LIPIcs.CCC.2022.8/LIPIcs.CCC.2022.8.pdf)\\n- [Catalytic Branching Programs from Groups and General Protocols](https://doi.org/10.1145/3583085)\\n- [ECCC TR22-026](https://eccc.weizmann.ac.il/report/2022/026/)\",\"stop_reason\":\"end_turn\",\"session_id\":\"b85afb33-9a35-4c9f-9fa7-53c0605f5048\",\"total_cost_usd\":0.10462874999999999,\"usage\":{\"input_tokens\":8,\"cache_creation_input_tokens\":4153,\"cache_read_input_tokens\":12503,\"output_tokens\":1570,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":4153,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[{\"input_tokens\":1,\"output_tokens\":198,\"cache_read_input_tokens\":5546,\"cache_creation_input_tokens\":1292,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":1292},\"type\":\"message\"}],\"speed\":\"standard\"},\"modelUsage\":{\"claude-opus-4-7\":{\"inputTokens\":8,\"outputTokens\":1570,\"cacheReadInputTokens\":12503,\"cacheCreationInputTokens\":4153,\"webSearchRequests\":0,\"costUSD\":0.07149775,\"contextWindow\":1000000,\"maxOutputTokens\":64000},\"claude-haiku-4-5-20251001\":{\"inputTokens\":21016,\"outputTokens\":423,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":1,\"costUSD\":0.033131,\"contextWindow\":200000,\"maxOutputTokens\":32000}},\"permission_denials\":[],\"structured_output\":{\"self_contained_problem\":\"A catalytic branching program on $n$ Boolean input variables $x_1,\\\\dots,x_n$ is a finite directed acyclic multigraph in which:\\n- each non-sink node is labeled by an input variable $x_i$ and has exactly two outgoing edges, labeled $0$ and $1$;\\n- there is a distinguished set $S$ of start nodes;\\n- each sink (end node) carries a label of the form $(b,\\\\tau)$ with $b\\\\in\\\\{0,1\\\\}$ and $\\\\tau\\\\in S$.\\n\\nOn input $x\\\\in\\\\{0,1\\\\}^n$, starting from a node $v$ the program follows, at each non-sink node labeled $x_i$, the outgoing edge labeled $x_i$ until a sink is reached; denote this sink by $\\\\mathrm{end}(v,x)$.\\n\\nThe program is said to compute a Boolean function $f:\\\\{0,1\\\\}^n\\\\to\\\\{0,1\\\\}$ catalytically if for every start node $\\\\tau\\\\in S$ and every input $x\\\\in\\\\{0,1\\\\}^n$,\\n$$\\\\mathrm{end}(\\\\tau,x) = (f(x),\\\\tau).$$\\nThe size of the program is its total number of nodes.\\n\\nQuestion: Does every Boolean function $f:\\\\{0,1\\\\}^n\\\\to\\\\{0,1\\\\}$ admit a catalytic branching program computing it with $|S|=2^{O(n)}$ start nodes and total size $2^{O(n)}\\\\cdot O(n)$?\",\"macro_subject\":\"Theoretical Computer Science\",\"category_tag\":\"catalytic branching programs\",\"open_status\":\"open\",\"status_search_result\":\"Known constructions (Potechin 2017 and follow-ups by Cook–Mertz and Robere–Zuiddam) achieve amortized linear size only with doubly exponential numbers of start nodes, or higher per-program size with fewer start nodes. No construction is known matching simultaneously $2^{O(n)}$ start nodes and total size $2^{O(n)}\\\\cdot O(n)$ for arbitrary Boolean functions, and the question is listed as an open problem in the recent literature on catalytic branching programs.\",\"status_evidence\":[{\"title\":\"Trading Time and Space in Catalytic Branching Programs\",\"url\":\"https://drops.dagstuhl.de/storage/00lipics/lipics-vol234-ccc2022/LIPIcs.CCC.2022.8/LIPIcs.CCC.2022.8.pdf\",\"snippet\":\"Tradeoffs between number of start nodes and per-program size for catalytic branching programs; matching simultaneously 2^O(n) start nodes and near-linear amortized size for arbitrary f remains unresolved.\",\"claim\":\"Existing tradeoffs do not yield 2^{O(n)} start nodes together with total size 2^{O(n)} · O(n) for general Boolean functions.\"},{\"title\":\"Catalytic Branching Programs from Groups and General Protocols\",\"url\":\"https://doi.org/10.1145/3583085\",\"snippet\":\"Robere–Zuiddam construct catalytic branching programs from group-based protocols; the regime of singly exponential start nodes with near-linear amortized size for all f is not achieved.\",\"claim\":\"State-of-the-art constructions still fall short of the desired simultaneous bounds.\"}],\"confidence\":0.7},\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"uuid\":\"0f7942f2-5873-4778-9a8b-47c9748fd56e\"}\n"
+}

@@ -1,0 +1,51 @@
+{
+  "record": {
+    "global_index": 12011,
+    "source_json": "outputs/parse-paper/selected-open-problems-in-continuous-time-quantum-walks.json",
+    "paper_id": "selected-open-problems-in-continuous-time-quantum-walks",
+    "paper_title": "Selected Open Problems in Continuous-Time Quantum Walks",
+    "paper_link": "https://zbmath.org/7952357",
+    "question_link": "https://zbmath.org/7952357",
+    "question_id": "q_003",
+    "parser_is_solved": "false",
+    "context_brief": "Algorithms for pretty good state transfer",
+    "original_question": "Let G be a graph with adjacency matrix A. Pretty good state transfer between vertices u and v means that there exists a sequence of times t_j for which |exp(i t_j A)_{uv}| tends to 1. Find a polynomial-time algorithm that decides whether pretty good state transfer occurs in a given graph, and also give an algorithm that computes a subsequence of times witnessing that convergence.",
+    "evidence": [
+      {
+        "page": "S2.SS3, HTML lines 304-305",
+        "quote": "there could be distinct values of t for which the sequence (|exp(it_j A)_{uv}|)_{j\\ge 0} converges to 1. When this occurs, we say that pretty good state transfer happens in G between u and v."
+      },
+      {
+        "page": "S2.Thmopenprob4, HTML lines 307-312",
+        "quote": "Find a polynomial time algorithm to test whether pretty good state transfer occurs, and find an algorithm to compute a subsequence of times which represent pretty good state transfer."
+      }
+    ]
+  },
+  "artifact": {
+    "self_contained_problem": "Let $G$ be a finite simple graph with vertex set $V(G)$ and adjacency matrix $A \\in \\{0,1\\}^{V\\times V}$. For real $t$, consider the unitary $U(t) = \\exp(i t A)$. Given two vertices $u, v \\in V(G)$, we say that pretty good state transfer (PGST) occurs between $u$ and $v$ in $G$ if there exists a sequence of real times $(t_j)_{j \\ge 0}$ such that\n$$\\lim_{j \\to \\infty} \\bigl| \\bigl(\\exp(i t_j A)\\bigr)_{uv} \\bigr| = 1.$$\n\nSolve the following two algorithmic problems:\n\n(a) Design an algorithm that, given $G$ and a pair of vertices $u, v$, decides in time polynomial in $|V(G)|$ whether pretty good state transfer occurs between $u$ and $v$ in $G$.\n\n(b) Design an algorithm that, whenever pretty good state transfer does occur between $u$ and $v$ in $G$, computes (in a constructive sense) an explicit sequence of times $(t_j)_{j \\ge 0}$ witnessing the convergence $|(\\exp(i t_j A))_{uv}| \\to 1$.",
+    "macro_subject": "Theoretical Computer Science",
+    "category_tag": "continuous-time quantum walks",
+    "open_status": "open",
+    "status_search_result": "While perfect state transfer can be decided in polynomial time on classical computers, deciding pretty good state transfer is more subtle: existing characterizations rely on Kronecker's theorem on simultaneous Diophantine approximation, for which no fully algorithmic (polynomial-time) version is known in this context. No general polynomial-time decision algorithm or general algorithm constructing the witnessing sequence of times appears in the literature, so the problem appears to remain open.",
+    "status_evidence": [
+      {
+        "title": "Perfect state transfer is poly-time",
+        "url": "https://arxiv.org/abs/1606.02264",
+        "snippet": "Deciding whether a graph admits perfect state transfer can be done in polynomial time.",
+        "claim": "Perfect state transfer (the stronger property) is known to be decidable in polynomial time, but no analogous result is established for pretty good state transfer."
+      },
+      {
+        "title": "Designing pretty good state transfer via isospectral reductions",
+        "url": "https://journals.aps.org/pra/abstract/10.1103/PhysRevA.101.042304",
+        "snippet": "The best known tool to decide existence of pretty good state transfer relies on Kronecker's theorem, for which an algorithmic version has not yet been found.",
+        "claim": "General decidability of PGST currently depends on Kronecker-type number-theoretic conditions without a known polynomial-time algorithm."
+      }
+    ],
+    "confidence": 0.8
+  },
+  "model": "opus",
+  "effort": "medium",
+  "elapsed_s": 28.48,
+  "validation_warnings": [],
+  "raw_claude_stdout": "{\"type\":\"result\",\"subtype\":\"success\",\"is_error\":false,\"api_error_status\":null,\"duration_ms\":27363,\"duration_api_ms\":26411,\"num_turns\":3,\"result\":\"Sources:\\n- [Perfect state transfer is poly-time (arXiv:1606.02264)](https://arxiv.org/abs/1606.02264)\\n- [Designing pretty good state transfer via isospectral reductions (PRA)](https://journals.aps.org/pra/abstract/10.1103/PhysRevA.101.042304)\",\"stop_reason\":\"end_turn\",\"session_id\":\"047f0d24-d121-4776-bb35-e3debe20b85d\",\"total_cost_usd\":0.0961285,\"usage\":{\"input_tokens\":8,\"cache_creation_input_tokens\":4118,\"cache_read_input_tokens\":12734,\"output_tokens\":1345,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":4118,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[{\"input_tokens\":1,\"output_tokens\":117,\"cache_read_input_tokens\":5673,\"cache_creation_input_tokens\":1130,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":1130},\"type\":\"message\"}],\"speed\":\"standard\"},\"modelUsage\":{\"claude-haiku-4-5-20251001\":{\"inputTokens\":18429,\"outputTokens\":386,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":1,\"costUSD\":0.030358999999999997,\"contextWindow\":200000,\"maxOutputTokens\":32000},\"claude-opus-4-7\":{\"inputTokens\":8,\"outputTokens\":1345,\"cacheReadInputTokens\":12734,\"cacheCreationInputTokens\":4118,\"webSearchRequests\":0,\"costUSD\":0.06576950000000001,\"contextWindow\":1000000,\"maxOutputTokens\":64000}},\"permission_denials\":[],\"structured_output\":{\"self_contained_problem\":\"Let $G$ be a finite simple graph with vertex set $V(G)$ and adjacency matrix $A \\\\in \\\\{0,1\\\\}^{V\\\\times V}$. For real $t$, consider the unitary $U(t) = \\\\exp(i t A)$. Given two vertices $u, v \\\\in V(G)$, we say that pretty good state transfer (PGST) occurs between $u$ and $v$ in $G$ if there exists a sequence of real times $(t_j)_{j \\\\ge 0}$ such that\\n$$\\\\lim_{j \\\\to \\\\infty} \\\\bigl| \\\\bigl(\\\\exp(i t_j A)\\\\bigr)_{uv} \\\\bigr| = 1.$$\\n\\nSolve the following two algorithmic problems:\\n\\n(a) Design an algorithm that, given $G$ and a pair of vertices $u, v$, decides in time polynomial in $|V(G)|$ whether pretty good state transfer occurs between $u$ and $v$ in $G$.\\n\\n(b) Design an algorithm that, whenever pretty good state transfer does occur between $u$ and $v$ in $G$, computes (in a constructive sense) an explicit sequence of times $(t_j)_{j \\\\ge 0}$ witnessing the convergence $|(\\\\exp(i t_j A))_{uv}| \\\\to 1$.\",\"macro_subject\":\"Theoretical Computer Science\",\"category_tag\":\"continuous-time quantum walks\",\"open_status\":\"open\",\"status_search_result\":\"While perfect state transfer can be decided in polynomial time on classical computers, deciding pretty good state transfer is more subtle: existing characterizations rely on Kronecker's theorem on simultaneous Diophantine approximation, for which no fully algorithmic (polynomial-time) version is known in this context. No general polynomial-time decision algorithm or general algorithm constructing the witnessing sequence of times appears in the literature, so the problem appears to remain open.\",\"status_evidence\":[{\"title\":\"Perfect state transfer is poly-time\",\"url\":\"https://arxiv.org/abs/1606.02264\",\"snippet\":\"Deciding whether a graph admits perfect state transfer can be done in polynomial time.\",\"claim\":\"Perfect state transfer (the stronger property) is known to be decidable in polynomial time, but no analogous result is established for pretty good state transfer.\"},{\"title\":\"Designing pretty good state transfer via isospectral reductions\",\"url\":\"https://journals.aps.org/pra/abstract/10.1103/PhysRevA.101.042304\",\"snippet\":\"The best known tool to decide existence of pretty good state transfer relies on Kronecker's theorem, for which an algorithmic version has not yet been found.\",\"claim\":\"General decidability of PGST currently depends on Kronecker-type number-theoretic conditions without a known polynomial-time algorithm.\"}],\"confidence\":0.8},\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"uuid\":\"2f579e84-b4d2-48de-b8ce-23e1017e3fa5\"}\n"
+}

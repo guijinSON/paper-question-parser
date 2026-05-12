@@ -1,0 +1,47 @@
+{
+  "record": {
+    "global_index": 12573,
+    "source_json": "outputs/parse-paper/zbmath-2197530.json",
+    "paper_id": "zbmath/2197530",
+    "paper_title": "Space and Time Complexity of Exact Algorithms: Some Open Problems",
+    "paper_link": "https://zbmath.org/2197530",
+    "question_link": "https://zbmath.org/2197530",
+    "question_id": "q_014",
+    "parser_is_solved": "false",
+    "context_brief": "TSP sub-2^n exact algorithm",
+    "original_question": "For the n-city travelling salesman path problem with cities 1 through n, a start at city 1, an end at city n, distances d(i, j), and the goal of visiting cities 2 through n-1 in some order while minimizing total path length, construct an exact algorithm running in O*(1.99^n) time, where O* suppresses polynomial factors.",
+    "evidence": [
+      {
+        "page": 8,
+        "quote": "Construct an exact algorithm for the n-city TSP with O*(1.99n) time complexity!"
+      }
+    ]
+  },
+  "artifact": {
+    "self_contained_problem": "Let n be a positive integer and let d : {1,…,n} × {1,…,n} → ℝ_{≥0} be a distance function (not assumed symmetric or to satisfy the triangle inequality). Consider the Hamiltonian-path version of the travelling salesman problem: among all permutations σ of {2,…,n−1}, find one minimizing\n\n  d(1, σ(2)) + d(σ(2), σ(3)) + ⋯ + d(σ(n−2), σ(n−1)) + d(σ(n−1), n),\n\ni.e., the shortest path starting at city 1, ending at city n, and visiting each of the cities 2,…,n−1 exactly once.\n\nDesign an exact algorithm that solves this problem in time O*(1.99^n), where O*(·) suppresses factors polynomial in n (and in the bit-length of the input distances). Equivalently, exhibit a constant c < 2 and an exact algorithm running in time O*(c^n).",
+    "macro_subject": "Theoretical Computer Science",
+    "category_tag": "Exact exponential algorithms",
+    "open_status": "open",
+    "status_search_result": "The classical Bellman–Held–Karp dynamic programming algorithm has run in O*(2^n) time for over sixty years. Recent work (e.g., a 2024 result by Stoian) improves the running time only by a sub-polynomial factor of the form 2^n · n^2 / 2^Ω(√log n), via faster min-plus matrix multiplication. No algorithm running in O*(c^n) with a constant c < 2 (such as 1.99^n) is known for general TSP, so the problem appears to remain open.",
+    "status_evidence": [
+      {
+        "title": "TSP Escapes the O(2^n n^2) Curse",
+        "url": "https://stoianmihail.github.io/tsp.html",
+        "snippet": "The dynamic programming solution to the traveling salesman problem due to Bellman, and Held and Karp, runs in time O(2^n n^2), with no improvement in the last sixty years. We design an algorithm running in deterministic time 2^n n^2 / 2^Ω(√log n).",
+        "claim": "State of the art improvement over Held–Karp is only sub-polynomial, leaving sub-2^n constant-base running time open."
+      },
+      {
+        "title": "Held–Karp algorithm - Wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Held%E2%80%93Karp_algorithm",
+        "snippet": "The Held–Karp algorithm solves TSP in time O(n^2 2^n).",
+        "claim": "Baseline exact TSP complexity is O*(2^n)."
+      }
+    ],
+    "confidence": 0.9
+  },
+  "model": "opus",
+  "effort": "medium",
+  "elapsed_s": 41.57,
+  "validation_warnings": [],
+  "raw_claude_stdout": "{\"type\":\"result\",\"subtype\":\"success\",\"is_error\":false,\"api_error_status\":null,\"duration_ms\":40407,\"duration_api_ms\":38451,\"num_turns\":3,\"result\":\"Sources:\\n- [TSP Escapes the O(2^n n^2) Curse](https://stoianmihail.github.io/tsp.html)\\n- [Held–Karp algorithm - Wikipedia](https://en.wikipedia.org/wiki/Held%E2%80%93Karp_algorithm)\",\"stop_reason\":\"end_turn\",\"session_id\":\"42861b27-6e34-43fe-ac89-9422b92d36dc\",\"total_cost_usd\":0.09734975000000001,\"usage\":{\"input_tokens\":8,\"cache_creation_input_tokens\":4183,\"cache_read_input_tokens\":12586,\"output_tokens\":1366,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":4183,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[{\"input_tokens\":1,\"output_tokens\":106,\"cache_read_input_tokens\":5716,\"cache_creation_input_tokens\":1152,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":1152},\"type\":\"message\"}],\"speed\":\"standard\"},\"modelUsage\":{\"claude-haiku-4-5-20251001\":{\"inputTokens\":18213,\"outputTokens\":502,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":1,\"costUSD\":0.030723,\"contextWindow\":200000,\"maxOutputTokens\":32000},\"claude-opus-4-7\":{\"inputTokens\":8,\"outputTokens\":1366,\"cacheReadInputTokens\":12586,\"cacheCreationInputTokens\":4183,\"webSearchRequests\":0,\"costUSD\":0.06662675000000001,\"contextWindow\":1000000,\"maxOutputTokens\":64000}},\"permission_denials\":[],\"structured_output\":{\"self_contained_problem\":\"Let n be a positive integer and let d : {1,…,n} × {1,…,n} → ℝ_{≥0} be a distance function (not assumed symmetric or to satisfy the triangle inequality). Consider the Hamiltonian-path version of the travelling salesman problem: among all permutations σ of {2,…,n−1}, find one minimizing\\n\\n  d(1, σ(2)) + d(σ(2), σ(3)) + ⋯ + d(σ(n−2), σ(n−1)) + d(σ(n−1), n),\\n\\ni.e., the shortest path starting at city 1, ending at city n, and visiting each of the cities 2,…,n−1 exactly once.\\n\\nDesign an exact algorithm that solves this problem in time O*(1.99^n), where O*(·) suppresses factors polynomial in n (and in the bit-length of the input distances). Equivalently, exhibit a constant c < 2 and an exact algorithm running in time O*(c^n).\",\"macro_subject\":\"Theoretical Computer Science\",\"category_tag\":\"Exact exponential algorithms\",\"open_status\":\"open\",\"status_search_result\":\"The classical Bellman–Held–Karp dynamic programming algorithm has run in O*(2^n) time for over sixty years. Recent work (e.g., a 2024 result by Stoian) improves the running time only by a sub-polynomial factor of the form 2^n · n^2 / 2^Ω(√log n), via faster min-plus matrix multiplication. No algorithm running in O*(c^n) with a constant c < 2 (such as 1.99^n) is known for general TSP, so the problem appears to remain open.\",\"status_evidence\":[{\"title\":\"TSP Escapes the O(2^n n^2) Curse\",\"url\":\"https://stoianmihail.github.io/tsp.html\",\"snippet\":\"The dynamic programming solution to the traveling salesman problem due to Bellman, and Held and Karp, runs in time O(2^n n^2), with no improvement in the last sixty years. We design an algorithm running in deterministic time 2^n n^2 / 2^Ω(√log n).\",\"claim\":\"State of the art improvement over Held–Karp is only sub-polynomial, leaving sub-2^n constant-base running time open.\"},{\"title\":\"Held–Karp algorithm - Wikipedia\",\"url\":\"https://en.wikipedia.org/wiki/Held%E2%80%93Karp_algorithm\",\"snippet\":\"The Held–Karp algorithm solves TSP in time O(n^2 2^n).\",\"claim\":\"Baseline exact TSP complexity is O*(2^n).\"}],\"confidence\":0.9},\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"uuid\":\"4fb325f2-0fc0-4017-85bd-45864118985f\"}\n"
+}

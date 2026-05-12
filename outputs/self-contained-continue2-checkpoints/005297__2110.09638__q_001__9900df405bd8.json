@@ -1,0 +1,59 @@
+{
+  "record": {
+    "global_index": 5297,
+    "source_json": "outputs/parse-paper/2110.09638.json",
+    "paper_id": "2110.09638",
+    "paper_title": "",
+    "paper_link": "https://arxiv.org/abs/2110.09638",
+    "question_link": "https://arxiv.org/pdf/2110.09638.pdf#page=1",
+    "question_id": "q_001",
+    "parser_is_solved": "false",
+    "context_brief": "Optimality of the n-user capture policy",
+    "original_question": "Consider the single-channel slotted multiple-access problem with n indistinguishable users, where after each slot every user receives perfect feedback giving the exact number of transmitters F[t] on that slot, and the objective is to minimize the expected time until the first successful transmission. The paper develops an efficiently computable policy for arbitrary positive integers n: users randomize on the first slot, use the observed collision size to partition themselves into groups, and then recursively continue with the more favorable subgroup. Is this policy optimal for every positive integer n, or can some other decentralized policy achieve a smaller expected time to first success for some values of n?",
+    "evidence": [
+      {
+        "page": 1,
+        "quote": "This identifies two open questions that we leave to future work: (i) Is the algorithm of this paper optimal for all values of n?"
+      },
+      {
+        "page": 11,
+        "quote": "It is not clear if gains can be achieved by keeping track of an ever-increasing number of groups and having multiple groups probabilistically transmit at the same time."
+      },
+      {
+        "page": 12,
+        "quote": "Clearly 1 <= z_n^* <= z_n, where z_n are the values associated with the proposed algorithm of the previous section. The author conjectures that z_n = z_n^* for all n."
+      },
+      {
+        "page": 20,
+        "quote": "An efficient policy was developed for any positive integer n. Whether or not this policy is optimal for all n is left as an open question."
+      }
+    ]
+  },
+  "artifact": {
+    "category_tag": "slotted multiple access / channel capture",
+    "confidence": 0.85,
+    "macro_subject": "Applied Mathematics",
+    "open_status": "partially_solved",
+    "self_contained_problem": "Fix a positive integer $n\\ge 1$. Consider a discrete-time slotted communication channel shared by $n$ indistinguishable users. In each slot $t=1,2,\\dots$, each user independently decides (possibly using private randomness and the common history of feedback) whether to transmit. Let $F[t]\\in\\{0,1,\\dots,n\\}$ denote the number of users who transmit in slot $t$. After the slot, every user observes $F[t]$ exactly. A slot is called a success if $F[t]=1$. A decentralized policy is a rule, identical for all users, that maps each user's individual transmission/feedback history to a probability of transmitting in the next slot; the users have no other means of coordination and no identifiers. Let $T = \\min\\{t\\ge 1 : F[t]=1\\}$ be the first successful slot, and define $z_n^*$ as the infimum, over all decentralized policies, of $\\mathbb{E}[T]$ when starting with $n$ users.\n\nConsider the following recursive ``splitting'' policy $\\pi_n$: in the first slot each of the $n$ users transmits independently with some optimized probability $p_n\\in(0,1)$; users observe the collision size $F[1]=k$; if $k=1$ the process ends successfully; if $k=0$ all $n$ users repeat the procedure; if $2\\le k\\le n$, the $k$ transmitters and the $n-k$ non-transmitters form two groups, and the protocol continues recursively in the group whose conditional expected time to first success is smaller (with the other group remaining silent until that subgroup succeeds). Let $z_n$ denote $\\mathbb{E}[T]$ under this policy with all probabilities $p_m$ ($1\\le m\\le n$) chosen to minimize $z_n$ within this class of recursive policies.\n\nQuestion: Is $z_n = z_n^*$ for every positive integer $n$? Equivalently, is the recursive splitting policy $\\pi_n$ optimal among all decentralized policies for every $n\\ge 1$?",
+    "status_search_result": "The problem is posed as a conjecture and explicitly left open in general. Optimality of the recursive splitting policy has been established only for the special cases n ∈ {1, 2, 3, 4, 6}; the general conjecture that z_n = z_n^* for all positive integers n remains unresolved as of available sources.",
+    "status_evidence": [
+      {
+        "title": "Repeated Games, Optimal Channel Capture, and Open Problems for Slotted Multiple Access",
+        "url": "https://arxiv.org/abs/2110.09638",
+        "snippet": "An efficient algorithm is developed and conjectured to have an optimal expected capture time for all positive integers n, with optimality proven in the special cases n ∈ {1, 2, 3, 4, 6}.",
+        "claim": "Optimality is proven only for n ∈ {1,2,3,4,6}; general case remains conjectural."
+      },
+      {
+        "title": "Repeated Games, Optimal Channel Capture, and Open Problems for Slotted Multiple Access — IEEE Xplore",
+        "url": "https://ieeexplore.ieee.org/document/9929420/",
+        "snippet": "Conference publication of the same result establishing the conjecture and partial cases.",
+        "claim": "Published version retains the conjecture as open for general n."
+      }
+    ]
+  },
+  "model": "opus",
+  "effort": "medium",
+  "elapsed_s": 41.35,
+  "validation_warnings": [],
+  "raw_claude_stdout": "{\"type\":\"result\",\"subtype\":\"success\",\"is_error\":false,\"api_error_status\":null,\"duration_ms\":40131,\"duration_api_ms\":37528,\"num_turns\":4,\"result\":\"Sources:\\n- [Repeated Games, Optimal Channel Capture, and Open Problems for Slotted Multiple Access (arXiv)](https://arxiv.org/abs/2110.09638)\\n- [IEEE Xplore version](https://ieeexplore.ieee.org/document/9929420/)\",\"stop_reason\":\"end_turn\",\"session_id\":\"96929422-3392-435a-9c9c-f564446b8db0\",\"total_cost_usd\":0.1366095,\"usage\":{\"input_tokens\":9,\"cache_creation_input_tokens\":5568,\"cache_read_input_tokens\":19677,\"output_tokens\":1629,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":5568,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[{\"input_tokens\":1,\"output_tokens\":106,\"cache_read_input_tokens\":6901,\"cache_creation_input_tokens\":1352,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":1352},\"type\":\"message\"}],\"speed\":\"standard\"},\"modelUsage\":{\"claude-haiku-4-5-20251001\":{\"inputTokens\":27126,\"outputTokens\":815,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":2,\"costUSD\":0.051200999999999997,\"contextWindow\":200000,\"maxOutputTokens\":32000},\"claude-opus-4-7\":{\"inputTokens\":9,\"outputTokens\":1629,\"cacheReadInputTokens\":19677,\"cacheCreationInputTokens\":5568,\"webSearchRequests\":0,\"costUSD\":0.0854085,\"contextWindow\":1000000,\"maxOutputTokens\":64000}},\"permission_denials\":[],\"structured_output\":{\"category_tag\":\"slotted multiple access / channel capture\",\"confidence\":0.85,\"macro_subject\":\"Applied Mathematics\",\"open_status\":\"partially_solved\",\"self_contained_problem\":\"Fix a positive integer $n\\\\ge 1$. Consider a discrete-time slotted communication channel shared by $n$ indistinguishable users. In each slot $t=1,2,\\\\dots$, each user independently decides (possibly using private randomness and the common history of feedback) whether to transmit. Let $F[t]\\\\in\\\\{0,1,\\\\dots,n\\\\}$ denote the number of users who transmit in slot $t$. After the slot, every user observes $F[t]$ exactly. A slot is called a success if $F[t]=1$. A decentralized policy is a rule, identical for all users, that maps each user's individual transmission/feedback history to a probability of transmitting in the next slot; the users have no other means of coordination and no identifiers. Let $T = \\\\min\\\\{t\\\\ge 1 : F[t]=1\\\\}$ be the first successful slot, and define $z_n^*$ as the infimum, over all decentralized policies, of $\\\\mathbb{E}[T]$ when starting with $n$ users.\\n\\nConsider the following recursive ``splitting'' policy $\\\\pi_n$: in the first slot each of the $n$ users transmits independently with some optimized probability $p_n\\\\in(0,1)$; users observe the collision size $F[1]=k$; if $k=1$ the process ends successfully; if $k=0$ all $n$ users repeat the procedure; if $2\\\\le k\\\\le n$, the $k$ transmitters and the $n-k$ non-transmitters form two groups, and the protocol continues recursively in the group whose conditional expected time to first success is smaller (with the other group remaining silent until that subgroup succeeds). Let $z_n$ denote $\\\\mathbb{E}[T]$ under this policy with all probabilities $p_m$ ($1\\\\le m\\\\le n$) chosen to minimize $z_n$ within this class of recursive policies.\\n\\nQuestion: Is $z_n = z_n^*$ for every positive integer $n$? Equivalently, is the recursive splitting policy $\\\\pi_n$ optimal among all decentralized policies for every $n\\\\ge 1$?\",\"status_search_result\":\"The problem is posed as a conjecture and explicitly left open in general. Optimality of the recursive splitting policy has been established only for the special cases n ∈ {1, 2, 3, 4, 6}; the general conjecture that z_n = z_n^* for all positive integers n remains unresolved as of available sources.\",\"status_evidence\":[{\"title\":\"Repeated Games, Optimal Channel Capture, and Open Problems for Slotted Multiple Access\",\"url\":\"https://arxiv.org/abs/2110.09638\",\"snippet\":\"An efficient algorithm is developed and conjectured to have an optimal expected capture time for all positive integers n, with optimality proven in the special cases n ∈ {1, 2, 3, 4, 6}.\",\"claim\":\"Optimality is proven only for n ∈ {1,2,3,4,6}; general case remains conjectural.\"},{\"title\":\"Repeated Games, Optimal Channel Capture, and Open Problems for Slotted Multiple Access — IEEE Xplore\",\"url\":\"https://ieeexplore.ieee.org/document/9929420/\",\"snippet\":\"Conference publication of the same result establishing the conjecture and partial cases.\",\"claim\":\"Published version retains the conjecture as open for general n.\"}]},\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"uuid\":\"766add6c-5d08-4af3-a010-7e5f0e8224e3\"}\n"
+}

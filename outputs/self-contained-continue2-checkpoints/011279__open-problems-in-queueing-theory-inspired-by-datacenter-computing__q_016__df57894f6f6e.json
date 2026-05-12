@@ -1,0 +1,53 @@
+{
+  "record": {
+    "global_index": 11279,
+    "source_json": "outputs/parse-paper/open-problems-in-queueing-theory-inspired-by-datacenter-computing.json",
+    "paper_id": "open-problems-in-queueing-theory-inspired-by-datacenter-computing",
+    "paper_title": "Open problems in queueing theory inspired by datacenter computing",
+    "paper_link": "https://zbmath.org/7433968",
+    "question_link": "https://zbmath.org/7433968",
+    "question_id": "q_016",
+    "parser_is_solved": "false",
+    "context_brief": "Distributed dispatching",
+    "original_question": "In a distributed load-balancing system with multiple server queues and SRPT scheduling within each server, what dispatching policy minimizes mean response time outside the heavy-traffic limit?",
+    "evidence": [
+      {
+        "page": 22,
+        "quote": "Outside of heavy traffic, optimal dispatching is an open problem."
+      }
+    ]
+  },
+  "artifact": {
+    "self_contained_problem": "Consider a distributed service system consisting of $k \\ge 2$ identical server stations. Jobs arrive according to a Poisson process of rate $\\lambda$, and each job has an i.i.d. size drawn from a general distribution $G$ with finite mean (so total load $\\rho = \\lambda \\mathbb{E}[G] < k$). Upon arrival, each job's size is observable, and the job must be irrevocably dispatched (immediately and without preemptive reassignment) to one of the $k$ stations by a dispatcher that may use the full history of arrivals, sizes, and dispatching decisions, but does not observe the remaining sizes inside the queues. At each station, the local scheduling discipline is Shortest Remaining Processing Time (SRPT): among all jobs currently present at that station, the one with the least remaining work is served at unit rate, preempt-resume.\n\nLet $\\mathbb{E}[T^\\pi]$ denote the steady-state mean response time (sojourn time) under dispatching policy $\\pi$. Determine a dispatching policy $\\pi^*$ that minimizes $\\mathbb{E}[T^\\pi]$ over all admissible policies $\\pi$, for arbitrary fixed $\\lambda$, $k$, and $G$ — that is, outside of the heavy-traffic limit $\\rho \\uparrow k$.",
+    "macro_subject": "Probability",
+    "category_tag": "Queueing theory and dispatching",
+    "open_status": "open",
+    "status_search_result": "The problem of optimal dispatching to parallel SRPT servers is recognized as open. Heavy-traffic optimality has been established via \"guardrails\" augmentations of dispatching policies, and asymptotic optimality of SRPT in the M/G/k as load approaches capacity has been proved, but no policy is known to minimize mean response time outside the heavy-traffic regime. A related explicit open problem on M/G/k/SRPT under medium load was posed in Stochastic Systems (2019).",
+    "status_evidence": [
+      {
+        "title": "SRPT for multiserver systems",
+        "url": "https://www.sciencedirect.com/science/article/abs/pii/S0166531618302773",
+        "snippet": "Stochastic bounds and asymptotic optimality of SRPT in M/G/k as load approaches capacity.",
+        "claim": "Optimality of SRPT-style policies in multiserver systems is known only asymptotically in heavy traffic."
+      },
+      {
+        "title": "Open Problem—M/G/k/SRPT Under Medium Load",
+        "url": "https://pubsonline.informs.org/doi/10.1287/stsy.2019.0042",
+        "snippet": "Explicitly posed open problem on analyzing SRPT in M/G/k away from heavy traffic.",
+        "claim": "Behavior of SRPT-scheduled multiserver systems under medium load is an explicit open problem."
+      },
+      {
+        "title": "A Simple Dispatching Policy For Minimizing Mean Response Time In Non-Observable Queues With SRPT Policy Operating In Parallel",
+        "url": "https://www.researchgate.net/publication/341798838",
+        "snippet": "Guardrail-style dispatching achieves heavy-traffic optimal mean response time with SRPT servers.",
+        "claim": "Known dispatching results for parallel SRPT servers achieve only heavy-traffic optimality."
+      }
+    ],
+    "confidence": 0.8
+  },
+  "model": "opus",
+  "effort": "medium",
+  "elapsed_s": 30.35,
+  "validation_warnings": [],
+  "raw_claude_stdout": "{\"type\":\"result\",\"subtype\":\"success\",\"is_error\":false,\"api_error_status\":null,\"duration_ms\":28840,\"duration_api_ms\":27725,\"num_turns\":3,\"result\":\"Sources:\\n- [SRPT for multiserver systems](https://www.sciencedirect.com/science/article/abs/pii/S0166531618302773)\\n- [Open Problem—M/G/k/SRPT Under Medium Load](https://pubsonline.informs.org/doi/10.1287/stsy.2019.0042)\\n- [A Simple Dispatching Policy for Parallel SRPT Queues](https://www.researchgate.net/publication/341798838)\\n- [Optimal Scheduling in Multiserver Queues (Grosof thesis)](https://www.cs.cmu.edu/~harchol/isaac-thesis.pdf)\",\"stop_reason\":\"end_turn\",\"session_id\":\"3cda3aea-11df-4829-95aa-56fcdb056bbb\",\"total_cost_usd\":0.11180199999999998,\"usage\":{\"input_tokens\":8,\"cache_creation_input_tokens\":4270,\"cache_read_input_tokens\":12471,\"output_tokens\":1605,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":4270,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[{\"input_tokens\":1,\"output_tokens\":220,\"cache_read_input_tokens\":5651,\"cache_creation_input_tokens\":1304,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":1304},\"type\":\"message\"}],\"speed\":\"standard\"},\"modelUsage\":{\"claude-haiku-4-5-20251001\":{\"inputTokens\":26274,\"outputTokens\":488,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":1,\"costUSD\":0.038714,\"contextWindow\":200000,\"maxOutputTokens\":32000},\"claude-opus-4-7\":{\"inputTokens\":8,\"outputTokens\":1605,\"cacheReadInputTokens\":12471,\"cacheCreationInputTokens\":4270,\"webSearchRequests\":0,\"costUSD\":0.07308799999999999,\"contextWindow\":1000000,\"maxOutputTokens\":64000}},\"permission_denials\":[],\"structured_output\":{\"self_contained_problem\":\"Consider a distributed service system consisting of $k \\\\ge 2$ identical server stations. Jobs arrive according to a Poisson process of rate $\\\\lambda$, and each job has an i.i.d. size drawn from a general distribution $G$ with finite mean (so total load $\\\\rho = \\\\lambda \\\\mathbb{E}[G] < k$). Upon arrival, each job's size is observable, and the job must be irrevocably dispatched (immediately and without preemptive reassignment) to one of the $k$ stations by a dispatcher that may use the full history of arrivals, sizes, and dispatching decisions, but does not observe the remaining sizes inside the queues. At each station, the local scheduling discipline is Shortest Remaining Processing Time (SRPT): among all jobs currently present at that station, the one with the least remaining work is served at unit rate, preempt-resume.\\n\\nLet $\\\\mathbb{E}[T^\\\\pi]$ denote the steady-state mean response time (sojourn time) under dispatching policy $\\\\pi$. Determine a dispatching policy $\\\\pi^*$ that minimizes $\\\\mathbb{E}[T^\\\\pi]$ over all admissible policies $\\\\pi$, for arbitrary fixed $\\\\lambda$, $k$, and $G$ — that is, outside of the heavy-traffic limit $\\\\rho \\\\uparrow k$.\",\"macro_subject\":\"Probability\",\"category_tag\":\"Queueing theory and dispatching\",\"open_status\":\"open\",\"status_search_result\":\"The problem of optimal dispatching to parallel SRPT servers is recognized as open. Heavy-traffic optimality has been established via \\\"guardrails\\\" augmentations of dispatching policies, and asymptotic optimality of SRPT in the M/G/k as load approaches capacity has been proved, but no policy is known to minimize mean response time outside the heavy-traffic regime. A related explicit open problem on M/G/k/SRPT under medium load was posed in Stochastic Systems (2019).\",\"status_evidence\":[{\"title\":\"SRPT for multiserver systems\",\"url\":\"https://www.sciencedirect.com/science/article/abs/pii/S0166531618302773\",\"snippet\":\"Stochastic bounds and asymptotic optimality of SRPT in M/G/k as load approaches capacity.\",\"claim\":\"Optimality of SRPT-style policies in multiserver systems is known only asymptotically in heavy traffic.\"},{\"title\":\"Open Problem—M/G/k/SRPT Under Medium Load\",\"url\":\"https://pubsonline.informs.org/doi/10.1287/stsy.2019.0042\",\"snippet\":\"Explicitly posed open problem on analyzing SRPT in M/G/k away from heavy traffic.\",\"claim\":\"Behavior of SRPT-scheduled multiserver systems under medium load is an explicit open problem.\"},{\"title\":\"A Simple Dispatching Policy For Minimizing Mean Response Time In Non-Observable Queues With SRPT Policy Operating In Parallel\",\"url\":\"https://www.researchgate.net/publication/341798838\",\"snippet\":\"Guardrail-style dispatching achieves heavy-traffic optimal mean response time with SRPT servers.\",\"claim\":\"Known dispatching results for parallel SRPT servers achieve only heavy-traffic optimality.\"}],\"confidence\":0.8},\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"uuid\":\"b2689f46-4f20-4ae8-8685-fbc5eca3032e\"}\n"
+}
