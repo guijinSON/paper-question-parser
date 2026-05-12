@@ -99,6 +99,36 @@ You run a single-source workflow to extract open/unsolved research questions fro
 - Do not rely on abstract-only pages, citation-only pages, search snippets, or index metadata as the technical source when they do not contain the problem statements themselves.
 - Do not combine multiple separate works into one run. If a resolver page exposes multiple editions, choose one canonical readable source and stay with it.
 
+## Access-Failure Policy
+
+For batch runs, resolve access problems with a bounded recovery pass. Prefer a clear `error_input` checkpoint over a long speculative search.
+
+When a page has access issues, classify the failure mode first:
+
+- `network_or_dns_failure`: shell/browser fetch cannot resolve or connect
+- `blocked_or_challenged`: Cloudflare, JavaScript/cookie challenge, 403/401, robot block, or login wall
+- `paywalled_or_restricted`: publisher landing page or resolver confirms no readable full text
+- `metadata_only`: resolver, abstract, citation page, table of contents, index entry, or review page with no problem statements
+- `missing_or_invalid_artifact`: download endpoint returns missing-resource HTML, a corrupt file, or a non-readable PDF
+- `ambiguous_resolution`: multiple plausible works are found and none can be confirmed as the same exact source
+
+Bounded recovery steps:
+
+1. If the source has a stable identifier, try identifier-specific recovery first: arXiv PDF, DOI landing page, Crossref, OpenAlex, HAL API, zbMATH metadata, or explicit resolver links.
+2. If metadata provides a DOI, exact title, year, and authors, use them only to find a readable artifact for that same work.
+3. Run at most three exact-work search attempts after API/resolver recovery. Use precise queries such as exact DOI, exact title plus `PDF`, exact title plus first author, or repository identifier. Avoid broad topical searches.
+4. Inspect at most five candidate pages or files from those searches. Accept a candidate only when the visible title or DOI confirms the same exact work/source.
+5. Stop immediately once remaining candidates are only snippets, abstracts, citation metadata, paywalls, blocked pages, or different works.
+
+Failure output rules:
+
+- Do not extract questions from metadata, abstracts, search snippets, title text, or related papers.
+- Do not keep retrying equivalent blocked resolver URLs once the same failure mode is established.
+- If no readable exact-work PDF or full HTML source is recovered within the bounded pass, return the standard `error_input` JSON with `accepted: []`.
+- Set `source.title` from source text when available, otherwise trusted resolver/API metadata, otherwise the URL slug or filename.
+- Leave `source.resolved_locator` empty unless a readable primary source artifact was actually used for extraction.
+- In `trace`, include the failure mode, identifiers attempted, and why the recovered candidates were rejected.
+
 ## Source-Family Hints
 
 - **AIM / AIMPL pages**: if the exact URL does not fetch cleanly, search the AIM Problem Lists site by the trailing slug and exact visible title, then use the matching list page that contains the problem statements. If the root page is only an index, follow the numbered internal subpage that actually lists the problems.
