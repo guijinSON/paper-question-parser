@@ -1,0 +1,49 @@
+{
+  "source": {
+    "url": "https://zbmath.org/1182629",
+    "resolved_locator": "",
+    "title": "Open Problems Session",
+    "title_origin": "resolver_metadata"
+  },
+  "accepted": [],
+  "needs_review": [
+    {
+      "id": "error_input",
+      "reason": "invalid_or_unreadable_input",
+      "question_text_raw": "",
+      "evidence": []
+    }
+  ],
+  "trace": [
+    {
+      "id": "error_input",
+      "stage": "input",
+      "notes": "Input normalized as a zbMATH resolver URL for document id 1182629. Direct local fetch of https://zbmath.org/1182629 returned HTTP 403 with a Cloudflare challenge, so the zbMATH REST API was used only as resolver metadata.",
+      "evidence_refs": []
+    },
+    {
+      "id": "error_input",
+      "stage": "resolver_metadata",
+      "notes": "zbMATH API identified the exact work as title Open problems session, document id 1182629, identifier 0902.53022, in Geometry, Topology and Physics: Proceedings of the First Brazil-USA Workshop, Campinas, Brazil, June 30-July 7, 1996, Berlin: De Gruyter, pages 335-340, 1997. The API review states this chapter gives a short account of open problems posed by workshop participants, but API metadata was not used as technical extraction evidence.",
+      "evidence_refs": []
+    },
+    {
+      "id": "error_input",
+      "stage": "recovery",
+      "notes": "Exact-work recovery found the De Gruyter book and chapter DOI 10.1515/9783110805055.335. The De Gruyter HTML endpoint was reachable and identified the same title, DOI, book, and page range, but it exposed only citation metadata, a table of contents, and a PDF viewer container. The De Gruyter XML endpoint for the chapter contained metadata only and no chapter body. The PDF endpoint returned a PDF for the same DOI, but the PDF content was Flate-compressed and local non-curl extraction commands in this Codex CLI environment failed with bwrap: loopback: Failed RTM_NEWADDR: Operation not permitted, so no verifiable page-level problem statements could be extracted.",
+      "evidence_refs": []
+    },
+    {
+      "id": "error_input",
+      "stage": "quality_gates",
+      "notes": "No accepted questions were extracted because the only readable text available to the workflow was resolver/API metadata, De Gruyter citation metadata, and table-of-contents data. The source adequacy and evidence coverage gates forbid extracting open problems from metadata, abstracts, link labels, or search snippets when the full problem statements are not visible as readable text with page locators.",
+      "evidence_refs": []
+    },
+    {
+      "id": "error_input",
+      "stage": "persist",
+      "notes": "Saved exact JSON output to outputs/parse-paper/1182629.json and outputs/latest.json.",
+      "evidence_refs": []
+    }
+  ]
+}
