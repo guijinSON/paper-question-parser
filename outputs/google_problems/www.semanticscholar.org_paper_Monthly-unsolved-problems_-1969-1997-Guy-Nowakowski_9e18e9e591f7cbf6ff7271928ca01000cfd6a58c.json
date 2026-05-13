@@ -1,0 +1,58 @@
+{
+  "source": {
+    "url": "https://www.erdosproblems.com/",
+    "resolved_locator": "https://www.erdosproblems.com/",
+    "title": "Erdős Problems",
+    "title_origin": "source_text"
+  },
+  "accepted": [],
+  "needs_review": [
+    {
+      "id": "error_source_scope",
+      "reason": "source_adequacy_index_without_problem_text",
+      "question_text_raw": "",
+      "evidence": [
+        {
+          "page": "Homepage statistics block",
+          "quote": "There are 1217 problems in the database of which 540 (44%) have been solved."
+        },
+        {
+          "page": "Homepage recent activity sections",
+          "quote": "BLOG POSTS"
+        },
+        {
+          "page": "Homepage status section",
+          "quote": "OPEN -> SOLVED"
+        }
+      ]
+    }
+  ],
+  "trace": [
+    {
+      "id": "source",
+      "stage": "map",
+      "notes": "Fetched the homepage at the user-supplied URL. The visible body is a site index with navigation, database statistics, blog links, recent-paper links, and status-update sections rather than a single scholarly source page containing technical problem statements.",
+      "evidence_refs": [
+        "Homepage statistics block",
+        "Homepage recent activity sections",
+        "Homepage status section"
+      ]
+    },
+    {
+      "id": "error_source_scope",
+      "stage": "quality_gates",
+      "notes": "Rejected the source under the source-adequacy gate because the chosen page does not expose self-contained open-problem text; it is a directory into many separate problem pages. Extracting from internal problem pages would switch to different sources and violate the single-source contract.",
+      "evidence_refs": [
+        "Homepage statistics block",
+        "Homepage recent activity sections",
+        "Homepage status section"
+      ]
+    },
+    {
+      "id": "persist",
+      "stage": "persist",
+      "notes": "Saved final JSON to outputs/parse-paper/erdosproblems.com.json and updated outputs/latest.json.",
+      "evidence_refs": []
+    }
+  ]
+}
