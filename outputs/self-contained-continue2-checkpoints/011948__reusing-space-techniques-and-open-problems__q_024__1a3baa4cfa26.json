@@ -1,0 +1,53 @@
+{
+  "record": {
+    "global_index": 11948,
+    "source_json": "outputs/parse-paper/reusing-space-techniques-and-open-problems.json",
+    "paper_id": "reusing-space-techniques-and-open-problems",
+    "paper_title": "Reusing Space: Techniques and Open Problems",
+    "paper_link": "https://zbmath.org/7800885",
+    "question_link": "https://zbmath.org/7800885",
+    "question_id": "q_024",
+    "parser_is_solved": "false",
+    "context_brief": "practical catalytic algorithms",
+    "original_question": "Can one implement a catalytic algorithm that is genuinely useful in practice, rather than only of theoretical interest?",
+    "evidence": [
+      {
+        "page": 38,
+        "quote": "Problem 24. Implement a catalytic algorithm such that it is actually useful."
+      }
+    ]
+  },
+  "artifact": {
+    "self_contained_problem": "A catalytic algorithm is an algorithm that, in addition to its standard read-only input and a small read/write work tape, has access to a large auxiliary memory (the \"catalytic tape\") that is initially filled with arbitrary, unknown content; the algorithm is allowed to modify this auxiliary memory during its execution, but must restore it to its original content before halting. Catalytic algorithms (for example, for graph reachability and other problems in catalytic logspace) demonstrate that such \"borrowed\" memory can be used to compute things that are not known to be computable in the same amount of free workspace alone.\n\nTask: Design and implement a catalytic algorithm (for some natural computational problem of your choice) that is genuinely useful in practice — i.e., that solves a real-world instance of the problem on real hardware while making essential use of the catalytic memory model (the auxiliary memory must be treated as containing arbitrary content that must be restored exactly), and that is competitive, in either time or total memory consumption, with standard non-catalytic approaches available to a practitioner. Specify the problem solved, the algorithm, an implementation, and an empirical demonstration of practical usefulness.",
+    "macro_subject": "Theoretical Computer Science",
+    "category_tag": "Catalytic computation",
+    "open_status": "open",
+    "status_search_result": "No evidence of a catalytic algorithm being implemented in a way that is practically useful. Known implementations (e.g., catalytic graph reachability) have runtimes such as Θ(n^8) and are reported as far too slow for real-world use; recent work (2025) discusses more efficient catalytic graph algorithms but still in a theoretical setting. The challenge of producing a practically useful catalytic algorithm appears to remain open.",
+    "status_evidence": [
+      {
+        "title": "Efficient Catalytic Graph Algorithms",
+        "url": "https://arxiv.org/pdf/2509.06209",
+        "snippet": "Improved catalytic graph algorithms with better time/space bounds, presented in a theoretical framework.",
+        "claim": "Recent work continues to improve catalytic algorithms theoretically, with no practical implementation claimed."
+      },
+      {
+        "title": "How to borrow memory (falsifian.org blog)",
+        "url": "https://www.falsifian.org/blog/2021/06/04/catalytic/",
+        "snippet": "Practical implementations are slow: runtimes of Θ(n^8), e.g. 14 seconds on a 10-node graph; the technique is not useful in practice.",
+        "claim": "Existing catalytic algorithm implementations are far from practically useful."
+      },
+      {
+        "title": "Catalytic computation (Koucký)",
+        "url": "https://iuuk.mff.cuni.cz/~koucky/papers/cats.pdf",
+        "snippet": "Survey of catalytic computation, framed as theoretical work.",
+        "claim": "Catalytic computation is studied as a theoretical model; no practical implementations are presented."
+      }
+    ],
+    "confidence": 0.7
+  },
+  "model": "opus",
+  "effort": "medium",
+  "elapsed_s": 30.08,
+  "validation_warnings": [],
+  "raw_claude_stdout": "{\"type\":\"result\",\"subtype\":\"success\",\"is_error\":false,\"api_error_status\":null,\"duration_ms\":29331,\"duration_api_ms\":28375,\"num_turns\":3,\"result\":\"I've produced the dataset row.\\n\\nSources:\\n- [Efficient Catalytic Graph Algorithms (arXiv)](https://arxiv.org/pdf/2509.06209)\\n- [How to borrow memory](https://www.falsifian.org/blog/2021/06/04/catalytic/)\\n- [Catalytic computation – Koucký](https://iuuk.mff.cuni.cz/~koucky/papers/cats.pdf)\\n- [Catalytic Logspace Algorithms (Emergent Mind)](https://www.emergentmind.com/topics/catalytic-logspace-algorithms)\",\"stop_reason\":\"end_turn\",\"session_id\":\"89e4b3a8-1e71-4717-8ea5-b3e3905377b5\",\"total_cost_usd\":0.09738375,\"usage\":{\"input_tokens\":8,\"cache_creation_input_tokens\":3679,\"cache_read_input_tokens\":11666,\"output_tokens\":1450,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":3679,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[{\"input_tokens\":1,\"output_tokens\":207,\"cache_read_input_tokens\":5201,\"cache_creation_input_tokens\":1163,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":1163},\"type\":\"message\"}],\"speed\":\"standard\"},\"modelUsage\":{\"claude-haiku-4-5-20251001\":{\"inputTokens\":19797,\"outputTokens\":494,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":1,\"costUSD\":0.032267,\"contextWindow\":200000,\"maxOutputTokens\":32000},\"claude-opus-4-7\":{\"inputTokens\":8,\"outputTokens\":1450,\"cacheReadInputTokens\":11666,\"cacheCreationInputTokens\":3679,\"webSearchRequests\":0,\"costUSD\":0.06511675,\"contextWindow\":1000000,\"maxOutputTokens\":64000}},\"permission_denials\":[],\"structured_output\":{\"self_contained_problem\":\"A catalytic algorithm is an algorithm that, in addition to its standard read-only input and a small read/write work tape, has access to a large auxiliary memory (the \\\"catalytic tape\\\") that is initially filled with arbitrary, unknown content; the algorithm is allowed to modify this auxiliary memory during its execution, but must restore it to its original content before halting. Catalytic algorithms (for example, for graph reachability and other problems in catalytic logspace) demonstrate that such \\\"borrowed\\\" memory can be used to compute things that are not known to be computable in the same amount of free workspace alone.\\n\\nTask: Design and implement a catalytic algorithm (for some natural computational problem of your choice) that is genuinely useful in practice — i.e., that solves a real-world instance of the problem on real hardware while making essential use of the catalytic memory model (the auxiliary memory must be treated as containing arbitrary content that must be restored exactly), and that is competitive, in either time or total memory consumption, with standard non-catalytic approaches available to a practitioner. Specify the problem solved, the algorithm, an implementation, and an empirical demonstration of practical usefulness.\",\"macro_subject\":\"Theoretical Computer Science\",\"category_tag\":\"Catalytic computation\",\"open_status\":\"open\",\"status_search_result\":\"No evidence of a catalytic algorithm being implemented in a way that is practically useful. Known implementations (e.g., catalytic graph reachability) have runtimes such as Θ(n^8) and are reported as far too slow for real-world use; recent work (2025) discusses more efficient catalytic graph algorithms but still in a theoretical setting. The challenge of producing a practically useful catalytic algorithm appears to remain open.\",\"status_evidence\":[{\"title\":\"Efficient Catalytic Graph Algorithms\",\"url\":\"https://arxiv.org/pdf/2509.06209\",\"snippet\":\"Improved catalytic graph algorithms with better time/space bounds, presented in a theoretical framework.\",\"claim\":\"Recent work continues to improve catalytic algorithms theoretically, with no practical implementation claimed.\"},{\"title\":\"How to borrow memory (falsifian.org blog)\",\"url\":\"https://www.falsifian.org/blog/2021/06/04/catalytic/\",\"snippet\":\"Practical implementations are slow: runtimes of Θ(n^8), e.g. 14 seconds on a 10-node graph; the technique is not useful in practice.\",\"claim\":\"Existing catalytic algorithm implementations are far from practically useful.\"},{\"title\":\"Catalytic computation (Koucký)\",\"url\":\"https://iuuk.mff.cuni.cz/~koucky/papers/cats.pdf\",\"snippet\":\"Survey of catalytic computation, framed as theoretical work.\",\"claim\":\"Catalytic computation is studied as a theoretical model; no practical implementations are presented.\"}],\"confidence\":0.7},\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"uuid\":\"ca7ce6b9-301c-4904-834a-ad529086db18\"}\n"
+}

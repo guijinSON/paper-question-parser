@@ -1,0 +1,53 @@
+{
+  "record": {
+    "global_index": 13214,
+    "source_json": "outputs/parse-paper/zbmath_7389057.json",
+    "paper_id": "zbmath/7389057",
+    "paper_title": "Advances and Open Problems in Federated Learning",
+    "paper_link": "https://zbmath.org/7389057",
+    "question_link": "https://zbmath.org/7389057",
+    "question_id": "q_023",
+    "parser_is_solved": "false",
+    "context_brief": "distributed DP trade-offs",
+    "original_question": "For distributed differential privacy in federated learning, what are the optimal privacy, accuracy, and communication trade-offs for secure shuffling, secure aggregation, and finite-precision privatization schemes, including lower bounds and matching upper bounds under fixed communication budgets?",
+    "evidence": [
+      {
+        "page": "HTML lines 953-975",
+        "quote": "optimal communication, privacy, and accuracy tradeoffs"
+      }
+    ]
+  },
+  "artifact": {
+    "self_contained_problem": "Consider a distributed estimation/learning setting with $n$ clients, each holding a local datum $x_i$ from a domain $\\mathcal{X}$ (e.g., a vector in the unit ball of $\\mathbb{R}^d$, or a sample from a distribution). A central server wishes to compute a statistic $f(x_1,\\dots,x_n)$ (for example, the mean) while providing $(\\varepsilon,\\delta)$-differential privacy on the joint output with respect to changing any single $x_i$. Each client may apply a local randomizer $R_i$ producing a message of at most $b$ bits (a fixed per-client communication budget). Consider the following three distributed privacy architectures:\n\n1. Secure shuffling: each client sends $R_i(x_i)$ to a trusted shuffler that outputs a uniformly random permutation of the messages; the server sees only the shuffled multiset.\n2. Secure aggregation: clients use a cryptographic protocol so that the server learns only $\\sum_i R_i(x_i)$ (modulo some group), each summand being a finite-precision privatized contribution.\n3. Finite-precision (quantized) privatization: each client outputs a discrete-valued privatized message of at most $b$ bits, without shuffling or aggregation.\n\nFor each of these three architectures, and for canonical estimation tasks (e.g., $d$-dimensional mean estimation in $\\ell_2$ or $\\ell_\\infty$, frequency estimation over a finite alphabet, and stochastic convex optimization), determine the optimal trade-off between:\n- the differential-privacy parameters $(\\varepsilon,\\delta)$ at the server's view,\n- the worst-case estimation error (e.g., mean-squared error) over the data class, and\n- the per-client communication budget $b$ in bits.\n\nSpecifically, establish matching information-theoretic lower bounds and achievable upper bounds (up to constants) on the minimax error as a function of $(n,d,\\varepsilon,\\delta,b)$ for each of the three architectures, including the regime $b = O(1)$ and the regime of small $\\varepsilon$.",
+    "macro_subject": "Statistics and Machine Learning",
+    "category_tag": "differential privacy trade-offs",
+    "open_status": "partially_solved",
+    "status_search_result": "Substantial progress has been made on individual instances of these trade-offs: matching upper and lower bounds are known for mean estimation under communication and privacy constraints in the shuffle model (e.g., Girgis et al. 2020), and tight bounds exist for $\\ell_2$ mean estimation under streaming DP. However, a comprehensive set of matching bounds covering all three architectures (shuffling, secure aggregation, finite-precision local DP) across canonical tasks and parameter regimes remains incomplete, with ongoing work refining bounds and broadening assumptions.",
+    "status_evidence": [
+      {
+        "title": "Shuffled Model of Federated Learning: Privacy, Communication and Accuracy Trade-offs",
+        "url": "https://arxiv.org/abs/2008.07180",
+        "snippet": "Provides upper and lower bounds for mean estimation with privacy and communication constraints in the shuffle model.",
+        "claim": "Matching bounds known in specific shuffle-model mean estimation settings."
+      },
+      {
+        "title": "Improved communication-privacy trade-offs in L2 mean estimation under streaming DP",
+        "url": "https://dl.acm.org/doi/10.5555/3692070.3692338",
+        "snippet": "Improved trade-offs for L2 mean estimation under privacy and communication constraints.",
+        "claim": "Tight trade-offs continue to be improved, indicating the general problem is not fully closed."
+      },
+      {
+        "title": "Analysis of Shuffling Beyond Pure Local Differential Privacy",
+        "url": "https://arxiv.org/html/2601.19154v2",
+        "snippet": "New asymptotic privacy analysis for shuffled local randomizers beyond pure LDP.",
+        "claim": "Active recent research suggests the broader problem remains open."
+      }
+    ],
+    "confidence": 0.7
+  },
+  "model": "opus",
+  "effort": "medium",
+  "elapsed_s": 38.56,
+  "validation_warnings": [],
+  "raw_claude_stdout": "{\"type\":\"result\",\"subtype\":\"success\",\"is_error\":false,\"api_error_status\":null,\"duration_ms\":37815,\"duration_api_ms\":34300,\"num_turns\":3,\"result\":\"Sources:\\n- [Shuffled Model of Federated Learning](https://arxiv.org/abs/2008.07180)\\n- [Improved communication-privacy trade-offs in L2 mean estimation](https://dl.acm.org/doi/10.5555/3692070.3692338)\\n- [Analysis of Shuffling Beyond Pure LDP](https://arxiv.org/html/2601.19154v2)\",\"stop_reason\":\"end_turn\",\"session_id\":\"c6585ecf-4eb9-4a47-aa09-fd8d70bef126\",\"total_cost_usd\":0.1127475,\"usage\":{\"input_tokens\":8,\"cache_creation_input_tokens\":4346,\"cache_read_input_tokens\":12002,\"output_tokens\":1795,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":4346,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[{\"input_tokens\":1,\"output_tokens\":140,\"cache_read_input_tokens\":5491,\"cache_creation_input_tokens\":1540,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":1540},\"type\":\"message\"}],\"speed\":\"standard\"},\"modelUsage\":{\"claude-haiku-4-5-20251001\":{\"inputTokens\":21924,\"outputTokens\":549,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":1,\"costUSD\":0.034669000000000005,\"contextWindow\":200000,\"maxOutputTokens\":32000},\"claude-opus-4-7\":{\"inputTokens\":8,\"outputTokens\":1795,\"cacheReadInputTokens\":12002,\"cacheCreationInputTokens\":4346,\"webSearchRequests\":0,\"costUSD\":0.0780785,\"contextWindow\":1000000,\"maxOutputTokens\":64000}},\"permission_denials\":[],\"structured_output\":{\"self_contained_problem\":\"Consider a distributed estimation/learning setting with $n$ clients, each holding a local datum $x_i$ from a domain $\\\\mathcal{X}$ (e.g., a vector in the unit ball of $\\\\mathbb{R}^d$, or a sample from a distribution). A central server wishes to compute a statistic $f(x_1,\\\\dots,x_n)$ (for example, the mean) while providing $(\\\\varepsilon,\\\\delta)$-differential privacy on the joint output with respect to changing any single $x_i$. Each client may apply a local randomizer $R_i$ producing a message of at most $b$ bits (a fixed per-client communication budget). Consider the following three distributed privacy architectures:\\n\\n1. Secure shuffling: each client sends $R_i(x_i)$ to a trusted shuffler that outputs a uniformly random permutation of the messages; the server sees only the shuffled multiset.\\n2. Secure aggregation: clients use a cryptographic protocol so that the server learns only $\\\\sum_i R_i(x_i)$ (modulo some group), each summand being a finite-precision privatized contribution.\\n3. Finite-precision (quantized) privatization: each client outputs a discrete-valued privatized message of at most $b$ bits, without shuffling or aggregation.\\n\\nFor each of these three architectures, and for canonical estimation tasks (e.g., $d$-dimensional mean estimation in $\\\\ell_2$ or $\\\\ell_\\\\infty$, frequency estimation over a finite alphabet, and stochastic convex optimization), determine the optimal trade-off between:\\n- the differential-privacy parameters $(\\\\varepsilon,\\\\delta)$ at the server's view,\\n- the worst-case estimation error (e.g., mean-squared error) over the data class, and\\n- the per-client communication budget $b$ in bits.\\n\\nSpecifically, establish matching information-theoretic lower bounds and achievable upper bounds (up to constants) on the minimax error as a function of $(n,d,\\\\varepsilon,\\\\delta,b)$ for each of the three architectures, including the regime $b = O(1)$ and the regime of small $\\\\varepsilon$.\",\"macro_subject\":\"Statistics and Machine Learning\",\"category_tag\":\"differential privacy trade-offs\",\"open_status\":\"partially_solved\",\"status_search_result\":\"Substantial progress has been made on individual instances of these trade-offs: matching upper and lower bounds are known for mean estimation under communication and privacy constraints in the shuffle model (e.g., Girgis et al. 2020), and tight bounds exist for $\\\\ell_2$ mean estimation under streaming DP. However, a comprehensive set of matching bounds covering all three architectures (shuffling, secure aggregation, finite-precision local DP) across canonical tasks and parameter regimes remains incomplete, with ongoing work refining bounds and broadening assumptions.\",\"status_evidence\":[{\"title\":\"Shuffled Model of Federated Learning: Privacy, Communication and Accuracy Trade-offs\",\"url\":\"https://arxiv.org/abs/2008.07180\",\"snippet\":\"Provides upper and lower bounds for mean estimation with privacy and communication constraints in the shuffle model.\",\"claim\":\"Matching bounds known in specific shuffle-model mean estimation settings.\"},{\"title\":\"Improved communication-privacy trade-offs in L2 mean estimation under streaming DP\",\"url\":\"https://dl.acm.org/doi/10.5555/3692070.3692338\",\"snippet\":\"Improved trade-offs for L2 mean estimation under privacy and communication constraints.\",\"claim\":\"Tight trade-offs continue to be improved, indicating the general problem is not fully closed.\"},{\"title\":\"Analysis of Shuffling Beyond Pure Local Differential Privacy\",\"url\":\"https://arxiv.org/html/2601.19154v2\",\"snippet\":\"New asymptotic privacy analysis for shuffled local randomizers beyond pure LDP.\",\"claim\":\"Active recent research suggests the broader problem remains open.\"}],\"confidence\":0.7},\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"uuid\":\"ff455a4c-c855-47dc-bc32-11d7f2bc4289\"}\n"
+}

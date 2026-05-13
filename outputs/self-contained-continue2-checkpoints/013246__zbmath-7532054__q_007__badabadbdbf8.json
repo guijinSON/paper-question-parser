@@ -1,0 +1,59 @@
+{
+  "record": {
+    "global_index": 13246,
+    "source_json": "outputs/parse-paper/zbmath_7532054.json",
+    "paper_id": "zbmath/7532054",
+    "paper_title": "Padua points and “fake” nodes for polynomial approximation: old, new and open problems",
+    "paper_link": "https://zbmath.org/7532054",
+    "question_link": "https://zbmath.org/7532054",
+    "question_id": "q_007",
+    "parser_is_solved": "false",
+    "context_brief": "Two-dimensional GRASPA extension",
+    "original_question": "Can the one-dimensional S-Runge and S-Gibbs fake-node or mapped-basis algorithms, improved by Gibbs-Runge-Avoiding Stable Polynomial Approximation (GRASPA) to mitigate both Runge and Gibbs phenomena, be extended at least to two-dimensional polynomial approximation?",
+    "evidence": [
+      {
+        "page": 32,
+        "quote": "S-Runge and S-Gibbs have been improved in [33] via the GRASPA approach. Extension, at least to two dimensions, is needed."
+      }
+    ]
+  },
+  "artifact": {
+    "self_contained_problem": "Background and setup. Consider the problem of approximating a function f on an interval [a,b] ⊂ ℝ from samples on a set X = {x_0,...,x_n} of nodes. The \"fake nodes\" / mapped-basis approach replaces interpolation in a basis {φ_k} at the nodes X by interpolation in the mapped basis {φ_k ∘ S} at the same nodes, where S:[a,b]→ℝ is a chosen map. Two one-dimensional variants of this idea are:\n\n(i) S-Runge: the map S is designed so that the images S(X) behave (in a Lebesgue-constant sense) like a Chebyshev-like distribution, thereby mitigating the Runge phenomenon for equispaced data;\n\n(ii) S-Gibbs: the map S is taken piecewise (with controlled jumps at known discontinuity locations of f) so that the polynomial interpolant in the mapped basis avoids the Gibbs phenomenon near jumps.\n\nThe Gibbs-Runge-Avoiding Stable Polynomial Approximation (GRASPA) is a one-dimensional construction based on stable discontinuous mapped bases that simultaneously dampens both the Runge phenomenon (arising from equispaced sampling) and the Gibbs phenomenon (arising from jump discontinuities of f) while remaining numerically stable.\n\nProblem. Construct a genuinely two-dimensional analogue of the GRASPA mapped-basis (fake-nodes) method for bivariate polynomial approximation. Specifically, design a map S:Ω⊂ℝ²→ℝ² (or a corresponding family of fake nodes) and a discontinuous mapped polynomial basis such that the resulting interpolant on a tensor-product or scattered node set X ⊂ Ω:\n\n  (a) is numerically stable, with Lebesgue constant growing at most polylogarithmically in the number of nodes,\n  (b) avoids the Runge phenomenon on equispaced (or near-equispaced) bivariate nodes for analytic targets,\n  (c) suppresses the bivariate Gibbs phenomenon along prescribed (curves of) discontinuity of the target function f:Ω→ℝ,\n  (d) recovers the one-dimensional GRASPA method as the tensor-product restriction to one variable.\n\nProvide a convergence analysis quantifying the approximation error on classes of piecewise smooth bivariate functions with discontinuities along given curves.",
+    "macro_subject": "Applied Mathematics",
+    "category_tag": "Polynomial approximation and fake nodes",
+    "open_status": "partially_solved",
+    "status_search_result": "A multivariate fake-nodes framework (the Fake Nodes Approach, FNA) and a 2D fake-nodes implementation exist (e.g., \"Multivariate approximation at fake nodes\", Appl. Math. Comput. 2021; FakeNodes2D code repository), addressing parts of the bivariate S-Runge/S-Gibbs setting. However, a full 2D GRASPA extension specifically combining Runge- and Gibbs-avoidance with the discontinuous stable mapped basis in two dimensions does not appear to be definitively settled in the literature reviewed; the problem is best classified as partially solved.",
+    "status_evidence": [
+      {
+        "title": "Multivariate approximation at fake nodes",
+        "url": "https://www.sciencedirect.com/science/article/abs/pii/S0096300320305828",
+        "snippet": "Extension of the fake-nodes / mapped-basis approach to multivariate (including 2D) interpolation.",
+        "claim": "A multivariate extension of fake-nodes mapped-basis interpolation has been developed."
+      },
+      {
+        "title": "Stable discontinuous mapped bases: GRASPA method",
+        "url": "https://arxiv.org/abs/2105.09661",
+        "snippet": "GRASPA is introduced as a 1D stable discontinuous mapped basis method handling both Runge and Gibbs phenomena.",
+        "claim": "GRASPA is originally formulated in one dimension."
+      },
+      {
+        "title": "FakeNodes2D code repository",
+        "url": "https://github.com/pog87/FakeNodes2D",
+        "snippet": "2D interpolation on Fake Nodes with examples.",
+        "claim": "Two-dimensional fake-nodes implementations exist."
+      },
+      {
+        "title": "A Lagrange interpolation with preprocessing to nearly eliminate oscillations",
+        "url": "https://link.springer.com/article/10.1007/s11075-024-01778-z",
+        "snippet": "Recent extensions of mapped-basis approaches to reduce Runge/Gibbs oscillations.",
+        "claim": "Work continues on extending mapped-basis Runge/Gibbs avoidance methods."
+      }
+    ],
+    "confidence": 0.5
+  },
+  "model": "opus",
+  "effort": "medium",
+  "elapsed_s": 36.98,
+  "validation_warnings": [],
+  "raw_claude_stdout": "{\"type\":\"result\",\"subtype\":\"success\",\"is_error\":false,\"api_error_status\":null,\"duration_ms\":36208,\"duration_api_ms\":35932,\"num_turns\":3,\"result\":\"Sources:\\n- [Stable discontinuous mapped bases: the GRASPA method](https://arxiv.org/abs/2105.09661)\\n- [Multivariate approximation at fake nodes](https://www.sciencedirect.com/science/article/abs/pii/S0096300320305828)\\n- [FakeNodes2D repository](https://github.com/pog87/FakeNodes2D)\\n- [A Lagrange interpolation with preprocessing to nearly eliminate oscillations](https://link.springer.com/article/10.1007/s11075-024-01778-z)\",\"stop_reason\":\"end_turn\",\"session_id\":\"56554416-fcb4-4e82-8357-58413093a111\",\"total_cost_usd\":0.23285625000000001,\"usage\":{\"input_tokens\":8,\"cache_creation_input_tokens\":6305,\"cache_read_input_tokens\":13776,\"output_tokens\":2085,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":6305,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[{\"input_tokens\":1,\"output_tokens\":192,\"cache_read_input_tokens\":7206,\"cache_creation_input_tokens\":1784,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":1784},\"type\":\"message\"}],\"speed\":\"standard\"},\"modelUsage\":{\"claude-haiku-4-5-20251001\":{\"inputTokens\":100867,\"outputTokens\":706,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":3,\"costUSD\":0.13439700000000002,\"contextWindow\":200000,\"maxOutputTokens\":32000},\"claude-opus-4-7\":{\"inputTokens\":8,\"outputTokens\":2085,\"cacheReadInputTokens\":13776,\"cacheCreationInputTokens\":6305,\"webSearchRequests\":0,\"costUSD\":0.09845925,\"contextWindow\":1000000,\"maxOutputTokens\":64000}},\"permission_denials\":[],\"structured_output\":{\"self_contained_problem\":\"Background and setup. Consider the problem of approximating a function f on an interval [a,b] ⊂ ℝ from samples on a set X = {x_0,...,x_n} of nodes. The \\\"fake nodes\\\" / mapped-basis approach replaces interpolation in a basis {φ_k} at the nodes X by interpolation in the mapped basis {φ_k ∘ S} at the same nodes, where S:[a,b]→ℝ is a chosen map. Two one-dimensional variants of this idea are:\\n\\n(i) S-Runge: the map S is designed so that the images S(X) behave (in a Lebesgue-constant sense) like a Chebyshev-like distribution, thereby mitigating the Runge phenomenon for equispaced data;\\n\\n(ii) S-Gibbs: the map S is taken piecewise (with controlled jumps at known discontinuity locations of f) so that the polynomial interpolant in the mapped basis avoids the Gibbs phenomenon near jumps.\\n\\nThe Gibbs-Runge-Avoiding Stable Polynomial Approximation (GRASPA) is a one-dimensional construction based on stable discontinuous mapped bases that simultaneously dampens both the Runge phenomenon (arising from equispaced sampling) and the Gibbs phenomenon (arising from jump discontinuities of f) while remaining numerically stable.\\n\\nProblem. Construct a genuinely two-dimensional analogue of the GRASPA mapped-basis (fake-nodes) method for bivariate polynomial approximation. Specifically, design a map S:Ω⊂ℝ²→ℝ² (or a corresponding family of fake nodes) and a discontinuous mapped polynomial basis such that the resulting interpolant on a tensor-product or scattered node set X ⊂ Ω:\\n\\n  (a) is numerically stable, with Lebesgue constant growing at most polylogarithmically in the number of nodes,\\n  (b) avoids the Runge phenomenon on equispaced (or near-equispaced) bivariate nodes for analytic targets,\\n  (c) suppresses the bivariate Gibbs phenomenon along prescribed (curves of) discontinuity of the target function f:Ω→ℝ,\\n  (d) recovers the one-dimensional GRASPA method as the tensor-product restriction to one variable.\\n\\nProvide a convergence analysis quantifying the approximation error on classes of piecewise smooth bivariate functions with discontinuities along given curves.\",\"macro_subject\":\"Applied Mathematics\",\"category_tag\":\"Polynomial approximation and fake nodes\",\"open_status\":\"partially_solved\",\"status_search_result\":\"A multivariate fake-nodes framework (the Fake Nodes Approach, FNA) and a 2D fake-nodes implementation exist (e.g., \\\"Multivariate approximation at fake nodes\\\", Appl. Math. Comput. 2021; FakeNodes2D code repository), addressing parts of the bivariate S-Runge/S-Gibbs setting. However, a full 2D GRASPA extension specifically combining Runge- and Gibbs-avoidance with the discontinuous stable mapped basis in two dimensions does not appear to be definitively settled in the literature reviewed; the problem is best classified as partially solved.\",\"status_evidence\":[{\"title\":\"Multivariate approximation at fake nodes\",\"url\":\"https://www.sciencedirect.com/science/article/abs/pii/S0096300320305828\",\"snippet\":\"Extension of the fake-nodes / mapped-basis approach to multivariate (including 2D) interpolation.\",\"claim\":\"A multivariate extension of fake-nodes mapped-basis interpolation has been developed.\"},{\"title\":\"Stable discontinuous mapped bases: GRASPA method\",\"url\":\"https://arxiv.org/abs/2105.09661\",\"snippet\":\"GRASPA is introduced as a 1D stable discontinuous mapped basis method handling both Runge and Gibbs phenomena.\",\"claim\":\"GRASPA is originally formulated in one dimension.\"},{\"title\":\"FakeNodes2D code repository\",\"url\":\"https://github.com/pog87/FakeNodes2D\",\"snippet\":\"2D interpolation on Fake Nodes with examples.\",\"claim\":\"Two-dimensional fake-nodes implementations exist.\"},{\"title\":\"A Lagrange interpolation with preprocessing to nearly eliminate oscillations\",\"url\":\"https://link.springer.com/article/10.1007/s11075-024-01778-z\",\"snippet\":\"Recent extensions of mapped-basis approaches to reduce Runge/Gibbs oscillations.\",\"claim\":\"Work continues on extending mapped-basis Runge/Gibbs avoidance methods.\"}],\"confidence\":0.5},\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"uuid\":\"14b577ce-a4ea-4b62-8e43-1c39f57cda1e\"}\n"
+}

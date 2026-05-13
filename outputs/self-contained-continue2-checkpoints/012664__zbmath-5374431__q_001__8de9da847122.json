@@ -1,0 +1,61 @@
+{
+  "record": {
+    "global_index": 12664,
+    "source_json": "outputs/parse-paper/zbmath-5374431.json",
+    "paper_id": "zbmath/5374431",
+    "paper_title": "Ten Open Problems in Grammatical Inference",
+    "paper_link": "https://zbmath.org/5374431",
+    "question_link": "https://zbmath.org/5374431",
+    "question_id": "q_001",
+    "parser_is_solved": "false",
+    "context_brief": "Characteristic-set size in polynomial identification",
+    "original_question": "In polynomial identification in the limit for grammatical inference, how should the size of a characteristic sample be measured? More specifically, if a learning algorithm is judged by the existence of polynomial characteristic sets, is it sound to measure the characteristic set by the number of strings rather than by the total number of bits or symbols needed to encode those strings, and are there grammar classes that become non-learnable under that alternative size measure?",
+    "evidence": [
+      {
+        "page": 35,
+        "quote": "Definition 4 (Polynomial characteristic sets). An algorithm a admits polynomial characteristic sets if there exists a polynomial p() such that ∀G ∈R(A) ∃W ⊂X : ∥W∥≤p(|G|) ∧W ⊂fn =⇒LA(a(fn)) = LA(G)."
+      },
+      {
+        "page": 36,
+        "quote": "Problem 1. Definition 4 of characteristic sets uses as size of the characteristic sets a measure related to the number of bits needed to encode."
+      },
+      {
+        "page": 36,
+        "quote": "Other authors (for instance [6]) propose to use the number of strings. Is this fair? Are there classes of grammars that are not learnable in this context?"
+      }
+    ]
+  },
+  "artifact": {
+    "self_contained_problem": "Setup. Consider grammatical inference in the framework of identification in the limit from positive (or labelled) data. Let A be an alphabet, X = A* the set of finite strings over A, and let R(A) be a class of grammars over A; for G ∈ R(A) write L(G) ⊆ X for its language and |G| for an associated size. A presentation of a target grammar G is an infinite enumeration (f_n)_{n≥1} of strings (or labelled strings) consistent with L(G), with f_n denoting the prefix of length n.\n\nA learning algorithm a, on input a finite sample f_n, outputs a grammar a(f_n) ∈ R(A); write L_A(a(f_n)) for its language. Two notions of \"size\" of a finite sample W ⊂ X are considered:\n  (i) the cardinality measure ‖W‖_# := |W| (the number of strings in W);\n  (ii) the bit-length measure ‖W‖_bit := Σ_{w ∈ W} (|w| + 1) (the total number of symbols/bits needed to encode W).\n\nDefinition (Polynomial characteristic sets under a chosen size measure ‖·‖). An algorithm a admits polynomial characteristic sets (with respect to ‖·‖) if there exists a polynomial p such that for every G ∈ R(A) there exists a finite sample W_G ⊂ X satisfying\n    ‖W_G‖ ≤ p(|G|),\nand such that for every presentation (f_n) of G, whenever W_G ⊂ f_n one has L_A(a(f_n)) = L(G).\n\nProblem. Investigate the choice of size measure for characteristic sets.\n(a) Determine whether using the cardinality measure ‖·‖_# (the number of strings) instead of the bit-length measure ‖·‖_bit is a sound and fair criterion for judging an algorithm's polynomial identifiability.\n(b) Exhibit, or prove the nonexistence of, classes R(A) of grammars that are polynomially identifiable in the limit under the bit-length measure but are not polynomially identifiable in the limit under the cardinality measure (i.e., classes that become non-learnable when characteristic-set size is measured by the number of strings rather than by total encoded length).",
+    "macro_subject": "Theoretical Computer Science",
+    "category_tag": "grammatical inference / polynomial identification",
+    "open_status": "unknown",
+    "status_search_result": "The question is listed among open problems in grammatical inference concerning the proper size measure (number of strings vs. bits) for polynomial characteristic sets. Subsequent works (e.g., on polynomial characteristic sets for DFAs and sufficient conditions for polynomial-time-and-data identification) refine polynomial identifiability notions, and negative results are known for context-free, simple deterministic, linear, and NFA classes under the bit-length measure, but no source clearly resolves the specific comparison between the two size measures or exhibits a class learnable under bits but not under cardinality. The current status appears unresolved in the literature.",
+    "status_evidence": [
+      {
+        "title": "Polynomial characteristic sets for DFA identification",
+        "url": "https://www.sciencedirect.com/science/article/pii/S0304397512004070",
+        "snippet": "Discusses polynomial characteristic sets where sample size is the sum of lengths of its words.",
+        "claim": "Standard definition uses bit-length (sum of lengths) size measure, but distinctions between size measures remain a topic in the literature."
+      },
+      {
+        "title": "Characteristic Sets for Polynomial Grammatical Inference",
+        "url": "https://link.springer.com/article/10.1023/A:1007353007695",
+        "snippet": "Introduces polynomial characteristic sets framework for grammatical inference.",
+        "claim": "Foundational definition of polynomial characteristic sets; alternative size measures are discussed in follow-up works without a definitive resolution of the bits-vs-strings question."
+      },
+      {
+        "title": "Data Complexity Issues in Grammatical Inference",
+        "url": "https://link.springer.com/chapter/10.1007/978-1-84628-172-3_8",
+        "snippet": "Survey of data complexity and polynomial identification notions in grammatical inference.",
+        "claim": "The question of which size measure to use is part of an ongoing discussion of data complexity in the field."
+      }
+    ],
+    "confidence": 0.55
+  },
+  "model": "opus",
+  "effort": "medium",
+  "elapsed_s": 31.22,
+  "validation_warnings": [],
+  "raw_claude_stdout": "{\"type\":\"result\",\"subtype\":\"success\",\"is_error\":false,\"api_error_status\":null,\"duration_ms\":30461,\"duration_api_ms\":30152,\"num_turns\":3,\"result\":\"I've produced the dataset row.\\n\\nSources:\\n- [Characteristic Sets for Polynomial Grammatical Inference](https://link.springer.com/article/10.1023/A:1007353007695)\\n- [Polynomial characteristic sets for DFA identification](https://www.sciencedirect.com/science/article/pii/S0304397512004070)\\n- [Data Complexity Issues in Grammatical Inference](https://link.springer.com/chapter/10.1007/978-1-84628-172-3_8)\\n- [On Sufficient Conditions to Identify in the Limit Classes of Grammars from Polynomial Time and Data](https://link.springer.com/chapter/10.1007/3-540-45790-9_11)\",\"stop_reason\":\"end_turn\",\"session_id\":\"61bae1f0-d61c-49c3-ae9b-3c47d8c1087b\",\"total_cost_usd\":0.117509,\"usage\":{\"input_tokens\":8,\"cache_creation_input_tokens\":4472,\"cache_read_input_tokens\":12312,\"output_tokens\":1993,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":4472,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[{\"input_tokens\":1,\"output_tokens\":242,\"cache_read_input_tokens\":5530,\"cache_creation_input_tokens\":1627,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":1627},\"type\":\"message\"}],\"speed\":\"standard\"},\"modelUsage\":{\"claude-haiku-4-5-20251001\":{\"inputTokens\":21308,\"outputTokens\":446,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":1,\"costUSD\":0.033538,\"contextWindow\":200000,\"maxOutputTokens\":32000},\"claude-opus-4-7\":{\"inputTokens\":8,\"outputTokens\":1993,\"cacheReadInputTokens\":12312,\"cacheCreationInputTokens\":4472,\"webSearchRequests\":0,\"costUSD\":0.08397099999999999,\"contextWindow\":1000000,\"maxOutputTokens\":64000}},\"permission_denials\":[],\"structured_output\":{\"self_contained_problem\":\"Setup. Consider grammatical inference in the framework of identification in the limit from positive (or labelled) data. Let A be an alphabet, X = A* the set of finite strings over A, and let R(A) be a class of grammars over A; for G ∈ R(A) write L(G) ⊆ X for its language and |G| for an associated size. A presentation of a target grammar G is an infinite enumeration (f_n)_{n≥1} of strings (or labelled strings) consistent with L(G), with f_n denoting the prefix of length n.\\n\\nA learning algorithm a, on input a finite sample f_n, outputs a grammar a(f_n) ∈ R(A); write L_A(a(f_n)) for its language. Two notions of \\\"size\\\" of a finite sample W ⊂ X are considered:\\n  (i) the cardinality measure ‖W‖_# := |W| (the number of strings in W);\\n  (ii) the bit-length measure ‖W‖_bit := Σ_{w ∈ W} (|w| + 1) (the total number of symbols/bits needed to encode W).\\n\\nDefinition (Polynomial characteristic sets under a chosen size measure ‖·‖). An algorithm a admits polynomial characteristic sets (with respect to ‖·‖) if there exists a polynomial p such that for every G ∈ R(A) there exists a finite sample W_G ⊂ X satisfying\\n    ‖W_G‖ ≤ p(|G|),\\nand such that for every presentation (f_n) of G, whenever W_G ⊂ f_n one has L_A(a(f_n)) = L(G).\\n\\nProblem. Investigate the choice of size measure for characteristic sets.\\n(a) Determine whether using the cardinality measure ‖·‖_# (the number of strings) instead of the bit-length measure ‖·‖_bit is a sound and fair criterion for judging an algorithm's polynomial identifiability.\\n(b) Exhibit, or prove the nonexistence of, classes R(A) of grammars that are polynomially identifiable in the limit under the bit-length measure but are not polynomially identifiable in the limit under the cardinality measure (i.e., classes that become non-learnable when characteristic-set size is measured by the number of strings rather than by total encoded length).\",\"macro_subject\":\"Theoretical Computer Science\",\"category_tag\":\"grammatical inference / polynomial identification\",\"open_status\":\"unknown\",\"status_search_result\":\"The question is listed among open problems in grammatical inference concerning the proper size measure (number of strings vs. bits) for polynomial characteristic sets. Subsequent works (e.g., on polynomial characteristic sets for DFAs and sufficient conditions for polynomial-time-and-data identification) refine polynomial identifiability notions, and negative results are known for context-free, simple deterministic, linear, and NFA classes under the bit-length measure, but no source clearly resolves the specific comparison between the two size measures or exhibits a class learnable under bits but not under cardinality. The current status appears unresolved in the literature.\",\"status_evidence\":[{\"title\":\"Polynomial characteristic sets for DFA identification\",\"url\":\"https://www.sciencedirect.com/science/article/pii/S0304397512004070\",\"snippet\":\"Discusses polynomial characteristic sets where sample size is the sum of lengths of its words.\",\"claim\":\"Standard definition uses bit-length (sum of lengths) size measure, but distinctions between size measures remain a topic in the literature.\"},{\"title\":\"Characteristic Sets for Polynomial Grammatical Inference\",\"url\":\"https://link.springer.com/article/10.1023/A:1007353007695\",\"snippet\":\"Introduces polynomial characteristic sets framework for grammatical inference.\",\"claim\":\"Foundational definition of polynomial characteristic sets; alternative size measures are discussed in follow-up works without a definitive resolution of the bits-vs-strings question.\"},{\"title\":\"Data Complexity Issues in Grammatical Inference\",\"url\":\"https://link.springer.com/chapter/10.1007/978-1-84628-172-3_8\",\"snippet\":\"Survey of data complexity and polynomial identification notions in grammatical inference.\",\"claim\":\"The question of which size measure to use is part of an ongoing discussion of data complexity in the field.\"}],\"confidence\":0.55},\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"uuid\":\"a6961a86-6243-440c-a682-66ca67e9c261\"}\n"
+}

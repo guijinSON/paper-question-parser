@@ -1,0 +1,57 @@
+{
+  "record": {
+    "global_index": 11818,
+    "source_json": "outputs/parse-paper/problems-in-data-structures-and-algorithms.json",
+    "paper_id": "problems-in-data-structures-and-algorithms",
+    "paper_title": "Problems in Data Structures and Algorithms",
+    "paper_link": "https://zbmath.org/744105",
+    "question_link": "https://zbmath.org/744105",
+    "question_id": "q_002",
+    "parser_is_solved": "false",
+    "context_brief": "dynamic optimality conjecture",
+    "original_question": "Consider the online splaying algorithm for binary search trees: after each access, the accessed item is moved to the root by a sequence of rotations, with each rotation costing one unit, and the access cost itself is the number of nodes on the search path from the root to the item. For every initial binary search tree on n items and every access sequence, is the total cost of splaying always within a constant factor of the minimum total cost achievable by an optimal offline algorithm that knows the entire access sequence in advance and may choose any pattern of rotations?",
+    "evidence": [
+      {
+        "page": 16,
+        "quote": "Problem 4.4 Dynamic Optimality Conjecture: Prove or disprove that for any initial tree and any access sequence, the splaying algorithm comes within a constant factor of the optimal off-line algorithm."
+      },
+      {
+        "page": 16,
+        "quote": "Suppose we begin with some n-node search tree and perform a sequence of accesses. (For simplicity, we ignore insertions and deletions.) The cost to access an item is the number of nodes on the path from the root to the item. At any time, we can perform one or more rotations, at a cost of one per rotation. Then, knowing the entire access sequence ahead of time, there is a pattern of rotations that minimizes the total cost of the accesses and the rotations. This is the optimal offline algorithm, for the given initial tree and the given access sequence."
+      }
+    ]
+  },
+  "artifact": {
+    "self_contained_problem": "Consider binary search trees (BSTs) storing a set of $n$ distinct keys, with the standard in-order key ordering. An online BST algorithm processes an access sequence $x_1, x_2, \\ldots, x_m$ of keys one at a time. To access a key $x_i$, the algorithm traverses the search path from the root to the node containing $x_i$; the access cost equals the number of nodes on this path. At any time (before, during, or after an access), the algorithm may perform single rotations on edges of the tree, each at unit cost. The total cost on an access sequence is the sum of all access costs plus all rotation costs.\n\nThe splay algorithm is the specific online algorithm that, after each access of $x_i$, moves the node containing $x_i$ to the root by a particular sequence of zig, zig-zig, and zig-zag rotations along the search path.\n\nFor a given initial BST $T$ on $n$ keys and a given access sequence $\\sigma$, let $\\mathrm{SPLAY}(T,\\sigma)$ denote the total cost incurred by the splay algorithm, and let $\\mathrm{OPT}(T,\\sigma)$ denote the minimum total cost over all offline algorithms that know $\\sigma$ in advance and may apply any sequence of rotations interleaved with the accesses.\n\nQuestion: Does there exist an absolute constant $C > 0$ such that for every $n$, every initial BST $T$ on $n$ keys, and every finite access sequence $\\sigma$ on the keys of $T$,\n$$\\mathrm{SPLAY}(T,\\sigma) \\le C \\cdot \\mathrm{OPT}(T,\\sigma) + O(n)\\,?$$",
+    "macro_subject": "Theoretical Computer Science",
+    "category_tag": "Binary search trees / dynamic optimality",
+    "open_status": "open",
+    "status_search_result": "The dynamic optimality conjecture of Sleator and Tarjan (1985) remains open as of 2026. While numerous partial results exist (e.g., the Tango trees achieve O(log log n)-competitiveness, and various splay-family results bound competitiveness for restricted access patterns), no algorithm is currently known to be O(1)-competitive against the offline optimum, and no non-trivial sub-logarithmic bound is known for splay trees themselves.",
+    "status_evidence": [
+      {
+        "title": "A Study on Splay Trees",
+        "url": "https://arxiv.org/pdf/1511.03148",
+        "snippet": "Despite considerable attention, the dynamic optimality conjecture remains open; no non-trivial (sub-logarithmic) bound on the competitiveness of splay trees is known.",
+        "claim": "The dynamic optimality conjecture remains open."
+      },
+      {
+        "title": "A Foundation for Proving Splay is Dynamically Optimal",
+        "url": "https://arxiv.org/abs/1907.06310",
+        "snippet": "Recent work establishes a framework that would imply splay is dynamically optimal under additional hypotheses, indicating the conjecture is not yet resolved.",
+        "claim": "Research as recent as 2019-2024 still treats dynamic optimality as an open conjecture."
+      },
+      {
+        "title": "Dynamic Optimality—Almost (Tango Trees)",
+        "url": "https://erikdemaine.org/papers/Tango_SICOMP/paper.pdf",
+        "snippet": "Tango trees achieve O(log log n)-competitiveness; no O(1)-competitive BST algorithm is known.",
+        "claim": "Best known competitive ratio is O(log log n); dynamic optimality unresolved."
+      }
+    ],
+    "confidence": 0.97
+  },
+  "model": "opus",
+  "effort": "medium",
+  "elapsed_s": 30.86,
+  "validation_warnings": [],
+  "raw_claude_stdout": "{\"type\":\"result\",\"subtype\":\"success\",\"is_error\":false,\"api_error_status\":null,\"duration_ms\":30018,\"duration_api_ms\":28987,\"num_turns\":3,\"result\":\"Sources:\\n- [A Study on Splay Trees (arXiv)](https://arxiv.org/pdf/1511.03148)\\n- [A Foundation for Proving Splay is Dynamically Optimal (arXiv)](https://arxiv.org/abs/1907.06310)\\n- [In Pursuit of the Dynamic Optimality Conjecture](https://arxiv.org/abs/1306.0207)\\n- [Dynamic Optimality—Almost (Tango Trees)](https://erikdemaine.org/papers/Tango_SICOMP/paper.pdf)\\n- [Splay tree — Wikipedia](https://en.wikipedia.org/wiki/Splay_tree)\",\"stop_reason\":\"end_turn\",\"session_id\":\"afca79f5-6bcf-4fa0-8666-29016d0e147f\",\"total_cost_usd\":0.10754475,\"usage\":{\"input_tokens\":8,\"cache_creation_input_tokens\":4149,\"cache_read_input_tokens\":12279,\"output_tokens\":1702,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":4149,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[{\"input_tokens\":1,\"output_tokens\":236,\"cache_read_input_tokens\":5451,\"cache_creation_input_tokens\":1383,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":1383},\"type\":\"message\"}],\"speed\":\"standard\"},\"modelUsage\":{\"claude-haiku-4-5-20251001\":{\"inputTokens\":20459,\"outputTokens\":485,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":1,\"costUSD\":0.032884000000000004,\"contextWindow\":200000,\"maxOutputTokens\":32000},\"claude-opus-4-7\":{\"inputTokens\":8,\"outputTokens\":1702,\"cacheReadInputTokens\":12279,\"cacheCreationInputTokens\":4149,\"webSearchRequests\":0,\"costUSD\":0.07466075,\"contextWindow\":1000000,\"maxOutputTokens\":64000}},\"permission_denials\":[],\"structured_output\":{\"self_contained_problem\":\"Consider binary search trees (BSTs) storing a set of $n$ distinct keys, with the standard in-order key ordering. An online BST algorithm processes an access sequence $x_1, x_2, \\\\ldots, x_m$ of keys one at a time. To access a key $x_i$, the algorithm traverses the search path from the root to the node containing $x_i$; the access cost equals the number of nodes on this path. At any time (before, during, or after an access), the algorithm may perform single rotations on edges of the tree, each at unit cost. The total cost on an access sequence is the sum of all access costs plus all rotation costs.\\n\\nThe splay algorithm is the specific online algorithm that, after each access of $x_i$, moves the node containing $x_i$ to the root by a particular sequence of zig, zig-zig, and zig-zag rotations along the search path.\\n\\nFor a given initial BST $T$ on $n$ keys and a given access sequence $\\\\sigma$, let $\\\\mathrm{SPLAY}(T,\\\\sigma)$ denote the total cost incurred by the splay algorithm, and let $\\\\mathrm{OPT}(T,\\\\sigma)$ denote the minimum total cost over all offline algorithms that know $\\\\sigma$ in advance and may apply any sequence of rotations interleaved with the accesses.\\n\\nQuestion: Does there exist an absolute constant $C > 0$ such that for every $n$, every initial BST $T$ on $n$ keys, and every finite access sequence $\\\\sigma$ on the keys of $T$,\\n$$\\\\mathrm{SPLAY}(T,\\\\sigma) \\\\le C \\\\cdot \\\\mathrm{OPT}(T,\\\\sigma) + O(n)\\\\,?$$\",\"macro_subject\":\"Theoretical Computer Science\",\"category_tag\":\"Binary search trees / dynamic optimality\",\"open_status\":\"open\",\"status_search_result\":\"The dynamic optimality conjecture of Sleator and Tarjan (1985) remains open as of 2026. While numerous partial results exist (e.g., the Tango trees achieve O(log log n)-competitiveness, and various splay-family results bound competitiveness for restricted access patterns), no algorithm is currently known to be O(1)-competitive against the offline optimum, and no non-trivial sub-logarithmic bound is known for splay trees themselves.\",\"status_evidence\":[{\"title\":\"A Study on Splay Trees\",\"url\":\"https://arxiv.org/pdf/1511.03148\",\"snippet\":\"Despite considerable attention, the dynamic optimality conjecture remains open; no non-trivial (sub-logarithmic) bound on the competitiveness of splay trees is known.\",\"claim\":\"The dynamic optimality conjecture remains open.\"},{\"title\":\"A Foundation for Proving Splay is Dynamically Optimal\",\"url\":\"https://arxiv.org/abs/1907.06310\",\"snippet\":\"Recent work establishes a framework that would imply splay is dynamically optimal under additional hypotheses, indicating the conjecture is not yet resolved.\",\"claim\":\"Research as recent as 2019-2024 still treats dynamic optimality as an open conjecture.\"},{\"title\":\"Dynamic Optimality—Almost (Tango Trees)\",\"url\":\"https://erikdemaine.org/papers/Tango_SICOMP/paper.pdf\",\"snippet\":\"Tango trees achieve O(log log n)-competitiveness; no O(1)-competitive BST algorithm is known.\",\"claim\":\"Best known competitive ratio is O(log log n); dynamic optimality unresolved.\"}],\"confidence\":0.97},\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"uuid\":\"87dea7d8-fa13-4bce-ac50-03fd744005ba\"}\n"
+}

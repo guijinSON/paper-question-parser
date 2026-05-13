@@ -1,0 +1,51 @@
+{
+  "record": {
+    "global_index": 13180,
+    "source_json": "outputs/parse-paper/zbmath_6648418.json",
+    "paper_id": "zbmath/6648418",
+    "paper_title": "The Status of Polycyclic Group-Based Cryptography: A Survey and Open Problems",
+    "paper_link": "https://zbmath.org/6648418",
+    "question_link": "https://zbmath.org/6648418",
+    "question_id": "q_002",
+    "parser_is_solved": "false",
+    "context_brief": "Malcev-based collection complexity",
+    "original_question": "For the collection approach to polycyclic groups that finds a large nilpotent normal subgroup and then uses the Malcev correspondence for that subgroup, determine the computational complexity of this Malcev-structure-based methodology.",
+    "evidence": [
+      {
+        "page": 4,
+        "quote": "This approach determines a large nilpotent normal subgroup of the given group and then exploits the Malcev correspondence for the normal subgroup."
+      },
+      {
+        "page": 4,
+        "quote": "There is no known complexity analysis for this methodology."
+      }
+    ]
+  },
+  "artifact": {
+    "self_contained_problem": "A polycyclic group $G$ is a group admitting a subnormal series $G = G_1 \\triangleright G_2 \\triangleright \\cdots \\triangleright G_{n+1} = 1$ with each quotient $G_i/G_{i+1}$ cyclic; fixing generators $g_i \\in G_i$ with $g_iG_{i+1}$ generating $G_i/G_{i+1}$ yields a polycyclic generating sequence, and every element of $G$ has a unique normal form $g_1^{e_1}g_2^{e_2}\\cdots g_n^{e_n}$ with $e_i \\in \\mathbb{Z}$ (and $0 \\le e_i < r_i$ when $G_i/G_{i+1}$ is finite of order $r_i$). The \"collection\" problem is, given an arbitrary word in the generators and their inverses, to compute this normal form. \n\nThe Malcev correspondence is the equivalence between the category of finitely generated torsion-free nilpotent groups (viewed inside their rational Mal'cev completions, i.e. $\\mathbb{Q}$-powered radicable nilpotent groups of finite rank) and the category of finite-dimensional nilpotent Lie algebras over $\\mathbb{Q}$, given by the Baker–Campbell–Hausdorff formula. \n\nConsider the following methodology for collection in a polycyclic group $G$: first determine a large nilpotent normal subgroup $N \\trianglelefteq G$ (for example, the Fitting subgroup or a finite-index subgroup of it that is torsion-free), then perform the bulk of the collection inside $N$ by transferring elements across the Malcev correspondence to the associated nilpotent Lie algebra, doing the computations there using the BCH formula, and translating the result back to $N$; finally combine with collection in $G/N$.\n\nProblem: Determine the precise worst-case computational complexity of this Malcev-correspondence-based collection algorithm as a function of natural input parameters (the Hirsch length of $G$, the nilpotency class of $N$, and the bit-length of the input word and of the exponents in the resulting normal form).",
+    "macro_subject": "Algebra",
+    "category_tag": "Computational group theory / polycyclic groups",
+    "open_status": "open",
+    "status_search_result": "The Malcev-correspondence-based collection method has been implemented (e.g. in the GAP package Guarana) and is empirically faster than classical collection-from-the-left in many cases, but searches do not turn up a rigorous worst-case complexity analysis of the methodology. It appears to remain open.",
+    "status_evidence": [
+      {
+        "title": "Guarana - GAP packages",
+        "url": "https://gap-packages.github.io/guarana/",
+        "snippet": "Computational applications of the Malcev correspondence, in particular for collection in infinite polycyclic groups.",
+        "claim": "Implementations exist but the complexity is not analyzed in the documentation."
+      },
+      {
+        "title": "Efficient Collection in Infinite Polycyclic Groups",
+        "url": "https://www.sciencedirect.com/science/article/pii/S0747717102905596",
+        "snippet": "Algorithm for collection in polycyclic groups with better complexity in exponents than previously used collection algorithms.",
+        "claim": "Related algorithms are studied but a complexity analysis of the Malcev-based collection methodology is not provided."
+      }
+    ],
+    "confidence": 0.7
+  },
+  "model": "opus",
+  "effort": "medium",
+  "elapsed_s": 28.26,
+  "validation_warnings": [],
+  "raw_claude_stdout": "{\"type\":\"result\",\"subtype\":\"success\",\"is_error\":false,\"api_error_status\":null,\"duration_ms\":27537,\"duration_api_ms\":26166,\"num_turns\":3,\"result\":\"Sources:\\n- [Guarana - GAP packages](https://gap-packages.github.io/guarana/)\\n- [Efficient Collection in Infinite Polycyclic Groups](https://www.sciencedirect.com/science/article/pii/S0747717102905596)\\n- [The Malcev correspondence (Springer)](https://link.springer.com/chapter/10.1007/BFb0080164)\",\"stop_reason\":\"end_turn\",\"session_id\":\"000e5850-ab15-4935-bb46-92df4a09db44\",\"total_cost_usd\":0.09789824999999999,\"usage\":{\"input_tokens\":8,\"cache_creation_input_tokens\":3797,\"cache_read_input_tokens\":11728,\"output_tokens\":1551,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":3797,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[{\"input_tokens\":1,\"output_tokens\":135,\"cache_read_input_tokens\":5166,\"cache_creation_input_tokens\":1316,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":1316},\"type\":\"message\"}],\"speed\":\"standard\"},\"modelUsage\":{\"claude-haiku-4-5-20251001\":{\"inputTokens\":17063,\"outputTokens\":485,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":1,\"costUSD\":0.029488000000000004,\"contextWindow\":200000,\"maxOutputTokens\":32000},\"claude-opus-4-7\":{\"inputTokens\":8,\"outputTokens\":1551,\"cacheReadInputTokens\":11728,\"cacheCreationInputTokens\":3797,\"webSearchRequests\":0,\"costUSD\":0.06841025,\"contextWindow\":1000000,\"maxOutputTokens\":64000}},\"permission_denials\":[],\"structured_output\":{\"self_contained_problem\":\"A polycyclic group $G$ is a group admitting a subnormal series $G = G_1 \\\\triangleright G_2 \\\\triangleright \\\\cdots \\\\triangleright G_{n+1} = 1$ with each quotient $G_i/G_{i+1}$ cyclic; fixing generators $g_i \\\\in G_i$ with $g_iG_{i+1}$ generating $G_i/G_{i+1}$ yields a polycyclic generating sequence, and every element of $G$ has a unique normal form $g_1^{e_1}g_2^{e_2}\\\\cdots g_n^{e_n}$ with $e_i \\\\in \\\\mathbb{Z}$ (and $0 \\\\le e_i < r_i$ when $G_i/G_{i+1}$ is finite of order $r_i$). The \\\"collection\\\" problem is, given an arbitrary word in the generators and their inverses, to compute this normal form. \\n\\nThe Malcev correspondence is the equivalence between the category of finitely generated torsion-free nilpotent groups (viewed inside their rational Mal'cev completions, i.e. $\\\\mathbb{Q}$-powered radicable nilpotent groups of finite rank) and the category of finite-dimensional nilpotent Lie algebras over $\\\\mathbb{Q}$, given by the Baker–Campbell–Hausdorff formula. \\n\\nConsider the following methodology for collection in a polycyclic group $G$: first determine a large nilpotent normal subgroup $N \\\\trianglelefteq G$ (for example, the Fitting subgroup or a finite-index subgroup of it that is torsion-free), then perform the bulk of the collection inside $N$ by transferring elements across the Malcev correspondence to the associated nilpotent Lie algebra, doing the computations there using the BCH formula, and translating the result back to $N$; finally combine with collection in $G/N$.\\n\\nProblem: Determine the precise worst-case computational complexity of this Malcev-correspondence-based collection algorithm as a function of natural input parameters (the Hirsch length of $G$, the nilpotency class of $N$, and the bit-length of the input word and of the exponents in the resulting normal form).\",\"macro_subject\":\"Algebra\",\"category_tag\":\"Computational group theory / polycyclic groups\",\"open_status\":\"open\",\"status_search_result\":\"The Malcev-correspondence-based collection method has been implemented (e.g. in the GAP package Guarana) and is empirically faster than classical collection-from-the-left in many cases, but searches do not turn up a rigorous worst-case complexity analysis of the methodology. It appears to remain open.\",\"status_evidence\":[{\"title\":\"Guarana - GAP packages\",\"url\":\"https://gap-packages.github.io/guarana/\",\"snippet\":\"Computational applications of the Malcev correspondence, in particular for collection in infinite polycyclic groups.\",\"claim\":\"Implementations exist but the complexity is not analyzed in the documentation.\"},{\"title\":\"Efficient Collection in Infinite Polycyclic Groups\",\"url\":\"https://www.sciencedirect.com/science/article/pii/S0747717102905596\",\"snippet\":\"Algorithm for collection in polycyclic groups with better complexity in exponents than previously used collection algorithms.\",\"claim\":\"Related algorithms are studied but a complexity analysis of the Malcev-based collection methodology is not provided.\"}],\"confidence\":0.7},\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"uuid\":\"25c7cd07-bf9b-4fc9-a870-50e558cb3b88\"}\n"
+}

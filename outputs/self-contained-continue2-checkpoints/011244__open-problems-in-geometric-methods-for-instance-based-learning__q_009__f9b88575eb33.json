@@ -1,0 +1,59 @@
+{
+  "record": {
+    "global_index": 11244,
+    "source_json": "outputs/parse-paper/open-problems-in-geometric-methods-for-instance-based-learning.json",
+    "paper_id": "open-problems-in-geometric-methods-for-instance-based-learning",
+    "paper_title": "Open Problems in Geometric Methods for Instance-Based Learning",
+    "paper_link": "https://zbmath.org/5667357",
+    "question_link": "https://zbmath.org/5667357",
+    "question_id": "q_009",
+    "parser_is_solved": "false",
+    "context_brief": "Robustness to overlap and noise",
+    "original_question": "How can a nearest-neighbor decision rule be made robust when the training data contain overlapping classes or noise?",
+    "evidence": [
+      {
+        "page": 3,
+        "quote": "How can the rule be made robust to overlapping classes or noise present in the training data?"
+      }
+    ]
+  },
+  "artifact": {
+    "self_contained_problem": "Let $\\mathcal{X} \\subseteq \\mathbb{R}^d$ be a feature space and let $\\mathcal{Y} = \\{1, 2, \\ldots, c\\}$ be a finite set of class labels. Suppose we are given a training sample $S = \\{(x_i, y_i)\\}_{i=1}^n$ drawn from an unknown joint distribution $P$ on $\\mathcal{X} \\times \\mathcal{Y}$, where the distribution $P$ may exhibit:\n\n(a) class overlap, meaning that there exist regions $R \\subseteq \\mathcal{X}$ with $P(Y = j \\mid X \\in R) > 0$ for more than one class $j$; and\n\n(b) label noise, meaning that each observed label $y_i$ may differ from the true latent class $\\tilde y_i$ with some unknown probability.\n\nThe standard nearest-neighbor decision rule classifies a query $x \\in \\mathcal{X}$ by assigning it the label of its nearest training point under a chosen metric $\\rho$ on $\\mathcal{X}$, namely $\\hat{y}(x) = y_{i^*}$ where $i^* \\in \\arg\\min_i \\rho(x, x_i)$.\n\nDesign a modification of the nearest-neighbor decision rule (allowing, for example, weighting schemes, editing or condensing of $S$, locally adaptive metrics, $k$-NN extensions, reject options, or other geometric devices) that is provably robust to class overlap and label noise in the following sense: as $n \\to \\infty$, the expected misclassification probability of the modified rule converges to (or stays close to) the Bayes-optimal risk of $P$, even when a positive fraction of labels in $S$ are corrupted and the class-conditional supports overlap. Specify the rule, identify the assumptions on $P$, the noise model, and the metric under which the robustness guarantee holds, and quantify the convergence rate.",
+    "macro_subject": "Statistics and Machine Learning",
+    "category_tag": "Robust nearest-neighbor classification",
+    "open_status": "partially_solved",
+    "status_search_result": "Numerous partial solutions exist (edited/condensed NN rules, weighted k-NN, mutual k-NN, locally adaptive metrics, prototype selection, and noise-filtering methods), each providing robustness under specific assumptions. However, a unified geometric nearest-neighbor decision rule that is provably robust to arbitrary class overlap and label noise with strong finite-sample guarantees remains an active research problem; published surveys note that performance on combined overlap-plus-noise scenarios is not yet satisfactory.",
+    "status_evidence": [
+      {
+        "title": "Handling class overlapping to detect noisy instances in classification",
+        "url": "https://www.cambridge.org/core/journals/knowledge-engineering-review/article/abs/handling-class-overlapping-to-detect-noisy-instances-in-classification/7AB2B097BED13D78C042A717B478A3DE",
+        "snippet": "Class overlap and noise are major problems often associated with decreased classifier performance.",
+        "claim": "The problem of class overlap together with label noise is recognized as a persistent challenge in instance-based classification."
+      },
+      {
+        "title": "Noisy data elimination using mutual k-nearest neighbor for classification mining",
+        "url": "https://www.sciencedirect.com/science/article/abs/pii/S0164121211003049",
+        "snippet": "Mutual k-NN identifies pseudo nearest neighbors that are not taken into account during prediction.",
+        "claim": "Mutual k-NN provides a partial solution by filtering noisy or non-mutual neighbors."
+      },
+      {
+        "title": "K-nearest neighbors rule combining prototype selection and local feature weighting",
+        "url": "https://www.sciencedirect.com/science/article/abs/pii/S0950705122001861",
+        "snippet": "Combines prototype selection and local feature weighting for classification in overlapping regions.",
+        "claim": "Local feature weighting plus prototype selection mitigates overlap, but is not a complete solution."
+      },
+      {
+        "title": "Effective k-nearest neighbor models for data classification enhancement",
+        "url": "https://journalofbigdata.springeropen.com/articles/10.1186/s40537-025-01137-2",
+        "snippet": "kNN's performance has not yet attained satisfactory levels when dealing with noisy/overlapping data.",
+        "claim": "Recent survey indicates the problem remains only partially solved."
+      }
+    ],
+    "confidence": 0.7
+  },
+  "model": "opus",
+  "effort": "medium",
+  "elapsed_s": 39.23,
+  "validation_warnings": [],
+  "raw_claude_stdout": "{\"type\":\"result\",\"subtype\":\"success\",\"is_error\":false,\"api_error_status\":null,\"duration_ms\":38504,\"duration_api_ms\":36744,\"num_turns\":3,\"result\":\"Sources:\\n- [Handling class overlapping to detect noisy instances in classification](https://www.cambridge.org/core/journals/knowledge-engineering-review/article/abs/handling-class-overlapping-to-detect-noisy-instances-in-classification/7AB2B097BED13D78C042A717B478A3DE)\\n- [Noisy data elimination using mutual k-NN](https://www.sciencedirect.com/science/article/abs/pii/S0164121211003049)\\n- [K-NN rule combining prototype selection and local feature weighting](https://www.sciencedirect.com/science/article/abs/pii/S0950705122001861)\\n- [Effective k-NN models for data classification enhancement](https://journalofbigdata.springeropen.com/articles/10.1186/s40537-025-01137-2)\",\"stop_reason\":\"end_turn\",\"session_id\":\"ce58f0c0-f10b-44f6-9bdd-e2c923d4281e\",\"total_cost_usd\":0.1198795,\"usage\":{\"input_tokens\":8,\"cache_creation_input_tokens\":4368,\"cache_read_input_tokens\":11851,\"output_tokens\":2046,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":4368,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[{\"input_tokens\":1,\"output_tokens\":274,\"cache_read_input_tokens\":5376,\"cache_creation_input_tokens\":1677,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":1677},\"type\":\"message\"}],\"speed\":\"standard\"},\"modelUsage\":{\"claude-haiku-4-5-20251001\":{\"inputTokens\":22784,\"outputTokens\":536,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":1,\"costUSD\":0.035463999999999996,\"contextWindow\":200000,\"maxOutputTokens\":32000},\"claude-opus-4-7\":{\"inputTokens\":8,\"outputTokens\":2046,\"cacheReadInputTokens\":11851,\"cacheCreationInputTokens\":4368,\"webSearchRequests\":0,\"costUSD\":0.0844155,\"contextWindow\":1000000,\"maxOutputTokens\":64000}},\"permission_denials\":[],\"structured_output\":{\"self_contained_problem\":\"Let $\\\\mathcal{X} \\\\subseteq \\\\mathbb{R}^d$ be a feature space and let $\\\\mathcal{Y} = \\\\{1, 2, \\\\ldots, c\\\\}$ be a finite set of class labels. Suppose we are given a training sample $S = \\\\{(x_i, y_i)\\\\}_{i=1}^n$ drawn from an unknown joint distribution $P$ on $\\\\mathcal{X} \\\\times \\\\mathcal{Y}$, where the distribution $P$ may exhibit:\\n\\n(a) class overlap, meaning that there exist regions $R \\\\subseteq \\\\mathcal{X}$ with $P(Y = j \\\\mid X \\\\in R) > 0$ for more than one class $j$; and\\n\\n(b) label noise, meaning that each observed label $y_i$ may differ from the true latent class $\\\\tilde y_i$ with some unknown probability.\\n\\nThe standard nearest-neighbor decision rule classifies a query $x \\\\in \\\\mathcal{X}$ by assigning it the label of its nearest training point under a chosen metric $\\\\rho$ on $\\\\mathcal{X}$, namely $\\\\hat{y}(x) = y_{i^*}$ where $i^* \\\\in \\\\arg\\\\min_i \\\\rho(x, x_i)$.\\n\\nDesign a modification of the nearest-neighbor decision rule (allowing, for example, weighting schemes, editing or condensing of $S$, locally adaptive metrics, $k$-NN extensions, reject options, or other geometric devices) that is provably robust to class overlap and label noise in the following sense: as $n \\\\to \\\\infty$, the expected misclassification probability of the modified rule converges to (or stays close to) the Bayes-optimal risk of $P$, even when a positive fraction of labels in $S$ are corrupted and the class-conditional supports overlap. Specify the rule, identify the assumptions on $P$, the noise model, and the metric under which the robustness guarantee holds, and quantify the convergence rate.\",\"macro_subject\":\"Statistics and Machine Learning\",\"category_tag\":\"Robust nearest-neighbor classification\",\"open_status\":\"partially_solved\",\"status_search_result\":\"Numerous partial solutions exist (edited/condensed NN rules, weighted k-NN, mutual k-NN, locally adaptive metrics, prototype selection, and noise-filtering methods), each providing robustness under specific assumptions. However, a unified geometric nearest-neighbor decision rule that is provably robust to arbitrary class overlap and label noise with strong finite-sample guarantees remains an active research problem; published surveys note that performance on combined overlap-plus-noise scenarios is not yet satisfactory.\",\"status_evidence\":[{\"title\":\"Handling class overlapping to detect noisy instances in classification\",\"url\":\"https://www.cambridge.org/core/journals/knowledge-engineering-review/article/abs/handling-class-overlapping-to-detect-noisy-instances-in-classification/7AB2B097BED13D78C042A717B478A3DE\",\"snippet\":\"Class overlap and noise are major problems often associated with decreased classifier performance.\",\"claim\":\"The problem of class overlap together with label noise is recognized as a persistent challenge in instance-based classification.\"},{\"title\":\"Noisy data elimination using mutual k-nearest neighbor for classification mining\",\"url\":\"https://www.sciencedirect.com/science/article/abs/pii/S0164121211003049\",\"snippet\":\"Mutual k-NN identifies pseudo nearest neighbors that are not taken into account during prediction.\",\"claim\":\"Mutual k-NN provides a partial solution by filtering noisy or non-mutual neighbors.\"},{\"title\":\"K-nearest neighbors rule combining prototype selection and local feature weighting\",\"url\":\"https://www.sciencedirect.com/science/article/abs/pii/S0950705122001861\",\"snippet\":\"Combines prototype selection and local feature weighting for classification in overlapping regions.\",\"claim\":\"Local feature weighting plus prototype selection mitigates overlap, but is not a complete solution.\"},{\"title\":\"Effective k-nearest neighbor models for data classification enhancement\",\"url\":\"https://journalofbigdata.springeropen.com/articles/10.1186/s40537-025-01137-2\",\"snippet\":\"kNN's performance has not yet attained satisfactory levels when dealing with noisy/overlapping data.\",\"claim\":\"Recent survey indicates the problem remains only partially solved.\"}],\"confidence\":0.7},\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"uuid\":\"38d5056a-1f42-48c6-a73c-a041cc5c333c\"}\n"
+}

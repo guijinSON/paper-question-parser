@@ -1,0 +1,47 @@
+{
+  "record": {
+    "global_index": 11246,
+    "source_json": "outputs/parse-paper/open-problems-in-geometric-methods-for-instance-based-learning.json",
+    "paper_id": "open-problems-in-geometric-methods-for-instance-based-learning",
+    "paper_title": "Open Problems in Geometric Methods for Instance-Based Learning",
+    "paper_link": "https://zbmath.org/5667357",
+    "question_link": "https://zbmath.org/5667357",
+    "question_id": "q_011",
+    "parser_is_solved": "false",
+    "context_brief": "Efficient nearest-neighbor search",
+    "original_question": "How can the nearest neighbors of a new query point be computed efficiently?",
+    "evidence": [
+      {
+        "page": 3,
+        "quote": "How can the nearest neighbors of a new point be computed efficiently?"
+      }
+    ]
+  },
+  "artifact": {
+    "self_contained_problem": "Let $(X, d)$ be a metric space and let $P = \\{p_1, \\ldots, p_n\\} \\subset X$ be a finite set of $n$ points, given in advance and available for preprocessing. For a positive integer $k$, the $k$-nearest-neighbor problem asks, given a query point $q \\in X$, to return a subset $N_k(q) \\subseteq P$ of size $k$ such that for every $p \\in N_k(q)$ and every $p' \\in P \\setminus N_k(q)$, $d(q,p) \\le d(q,p')$.\n\nDesign a data structure that, after preprocessing $P$, answers $k$-nearest-neighbor queries efficiently. Specifically, identify schemes that achieve sublinear query time (ideally polylogarithmic in $n$) using only polynomial space and preprocessing, while remaining effective in high-dimensional Euclidean spaces $X = \\mathbb{R}^d$ as well as in general metric spaces. Characterize the best achievable trade-offs among space, preprocessing time, and query time for both exact and $(1+\\varepsilon)$-approximate nearest-neighbor search, and determine whether the \"curse of dimensionality\" — the apparent impossibility of obtaining query time sublinear in $n$ with space polynomial in $n$ and $d$ for exact nearest neighbors when $d$ is large — can be overcome.",
+    "macro_subject": "Theoretical Computer Science",
+    "category_tag": "Nearest-neighbor search data structures",
+    "open_status": "partially_solved",
+    "status_search_result": "Nearest-neighbor search is a classical problem with substantial progress: kd-trees, ball trees, cover trees, and metric trees give efficient algorithms in low dimensions; locality-sensitive hashing (Indyk–Motwani, Andoni–Indyk) and data-dependent LSH (Andoni–Razenshteyn 2015) give near-optimal approximate solutions in high dimensions. However, exact nearest-neighbor search in high dimensions still suffers from the curse of dimensionality, and tight bounds on the space/time trade-off remain open. The problem is therefore partially solved.",
+    "status_evidence": [
+      {
+        "title": "Optimal Data-Dependent Hashing for Approximate Near Neighbors",
+        "url": "https://arxiv.org/abs/1501.01062",
+        "snippet": "Andoni and Razenshteyn establish optimal exponents for data-dependent LSH for approximate nearest neighbor search in Euclidean space.",
+        "claim": "Approximate nearest neighbor in high dimensions has near-optimal known algorithms."
+      },
+      {
+        "title": "Nearest neighbor search - Wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Nearest_neighbor_search",
+        "snippet": "Survey of methods including kd-trees, cover trees, LSH; notes the curse of dimensionality for exact NNS.",
+        "claim": "Many practical and theoretical algorithms exist; exact high-dimensional case remains hard."
+      }
+    ],
+    "confidence": 0.7
+  },
+  "model": "opus",
+  "effort": "medium",
+  "elapsed_s": 17.83,
+  "validation_warnings": [],
+  "raw_claude_stdout": "{\"type\":\"result\",\"subtype\":\"success\",\"is_error\":false,\"api_error_status\":null,\"duration_ms\":16931,\"duration_api_ms\":18098,\"num_turns\":2,\"result\":\"Provided.\",\"stop_reason\":\"end_turn\",\"session_id\":\"d3380c2c-3576-4056-af80-1b69b8cd93a7\",\"total_cost_usd\":0.04953149999999999,\"usage\":{\"input_tokens\":7,\"cache_creation_input_tokens\":2350,\"cache_read_input_tokens\":6462,\"output_tokens\":1233,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":2350,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[{\"input_tokens\":1,\"output_tokens\":8,\"cache_read_input_tokens\":3777,\"cache_creation_input_tokens\":1258,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":1258},\"type\":\"message\"}],\"speed\":\"standard\"},\"modelUsage\":{\"claude-haiku-4-5-20251001\":{\"inputTokens\":683,\"outputTokens\":14,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":0,\"costUSD\":0.000753,\"contextWindow\":200000,\"maxOutputTokens\":32000},\"claude-opus-4-7\":{\"inputTokens\":7,\"outputTokens\":1233,\"cacheReadInputTokens\":6462,\"cacheCreationInputTokens\":2350,\"webSearchRequests\":0,\"costUSD\":0.048778499999999995,\"contextWindow\":1000000,\"maxOutputTokens\":64000}},\"permission_denials\":[],\"structured_output\":{\"self_contained_problem\":\"Let $(X, d)$ be a metric space and let $P = \\\\{p_1, \\\\ldots, p_n\\\\} \\\\subset X$ be a finite set of $n$ points, given in advance and available for preprocessing. For a positive integer $k$, the $k$-nearest-neighbor problem asks, given a query point $q \\\\in X$, to return a subset $N_k(q) \\\\subseteq P$ of size $k$ such that for every $p \\\\in N_k(q)$ and every $p' \\\\in P \\\\setminus N_k(q)$, $d(q,p) \\\\le d(q,p')$.\\n\\nDesign a data structure that, after preprocessing $P$, answers $k$-nearest-neighbor queries efficiently. Specifically, identify schemes that achieve sublinear query time (ideally polylogarithmic in $n$) using only polynomial space and preprocessing, while remaining effective in high-dimensional Euclidean spaces $X = \\\\mathbb{R}^d$ as well as in general metric spaces. Characterize the best achievable trade-offs among space, preprocessing time, and query time for both exact and $(1+\\\\varepsilon)$-approximate nearest-neighbor search, and determine whether the \\\"curse of dimensionality\\\" — the apparent impossibility of obtaining query time sublinear in $n$ with space polynomial in $n$ and $d$ for exact nearest neighbors when $d$ is large — can be overcome.\",\"macro_subject\":\"Theoretical Computer Science\",\"category_tag\":\"Nearest-neighbor search data structures\",\"open_status\":\"partially_solved\",\"status_search_result\":\"Nearest-neighbor search is a classical problem with substantial progress: kd-trees, ball trees, cover trees, and metric trees give efficient algorithms in low dimensions; locality-sensitive hashing (Indyk–Motwani, Andoni–Indyk) and data-dependent LSH (Andoni–Razenshteyn 2015) give near-optimal approximate solutions in high dimensions. However, exact nearest-neighbor search in high dimensions still suffers from the curse of dimensionality, and tight bounds on the space/time trade-off remain open. The problem is therefore partially solved.\",\"status_evidence\":[{\"title\":\"Optimal Data-Dependent Hashing for Approximate Near Neighbors\",\"url\":\"https://arxiv.org/abs/1501.01062\",\"snippet\":\"Andoni and Razenshteyn establish optimal exponents for data-dependent LSH for approximate nearest neighbor search in Euclidean space.\",\"claim\":\"Approximate nearest neighbor in high dimensions has near-optimal known algorithms.\"},{\"title\":\"Nearest neighbor search - Wikipedia\",\"url\":\"https://en.wikipedia.org/wiki/Nearest_neighbor_search\",\"snippet\":\"Survey of methods including kd-trees, cover trees, LSH; notes the curse of dimensionality for exact NNS.\",\"claim\":\"Many practical and theoretical algorithms exist; exact high-dimensional case remains hard.\"}],\"confidence\":0.7},\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"uuid\":\"fd7a2559-7eee-40de-801c-eaf6565d0803\"}\n"
+}

@@ -1,0 +1,57 @@
+{
+  "record": {
+    "global_index": 11848,
+    "source_json": "outputs/parse-paper/quant-ph_0411037.json",
+    "paper_id": "quant-ph/0411037",
+    "paper_title": "The Hidden Subgroup Problem - Review and Open Problems",
+    "paper_link": "https://arxiv.org/abs/quant-ph/0411037",
+    "question_link": "https://arxiv.org/pdf/quant-ph/0411037#page=30",
+    "question_id": "q_003",
+    "parser_is_solved": "false",
+    "context_brief": "Basis selection for nonabelian QFS",
+    "original_question": "Is there a choice of basis for the irreducible representations of S_n or other nonabelian groups that makes quantum Fourier sampling informative enough to solve the hidden subgroup problem efficiently, despite the known failure of random-basis choices?",
+    "evidence": [
+      {
+        "page": 30,
+        "quote": "For example, it is known the standard method cannot solve the HSP over Sn if the basis choice is random - it will take a clever basis choice for the irreducibles to obtain an efficient algorithm."
+      },
+      {
+        "page": 44,
+        "quote": "Yet there is hope that a clever basis choice for the irreducible representations might turn this around."
+      }
+    ]
+  },
+  "artifact": {
+    "self_contained_problem": "Let $G$ be a finite nonabelian group (for instance the symmetric group $S_n$), and let $H \\leq G$ be an unknown subgroup. A function $f : G \\to S$ (with $S$ a finite set) is said to hide $H$ if $f$ is constant on each left coset of $H$ and distinct on different cosets. The hidden subgroup problem (HSP) asks for a quantum algorithm that, given oracle access to such an $f$, determines $H$ using time polynomial in $\\log |G|$.\n\nThe standard (strong) quantum Fourier sampling procedure prepares a uniform superposition of coset representatives, applies the quantum Fourier transform over $G$, and measures. The outcome consists of an irreducible representation $\\rho \\in \\widehat{G}$ together with row/column indices in $\\rho$ that depend on the chosen orthonormal basis for the representation space of $\\rho$. It is known that for $G = S_n$, if for each irreducible $\\rho$ one fixes a basis chosen uniformly at random (Haar-distributed) inside $\\rho$, then the resulting measurement statistics contain (with high probability) only an exponentially small amount of information about $H$, so no efficient algorithm based on this procedure can succeed.\n\nQuestion: Does there exist, for $G = S_n$ (or for some other family of nonabelian groups for which HSP is not currently known to be efficiently solvable), an explicit, efficiently computable choice of orthonormal basis for each irreducible representation $\\rho \\in \\widehat{G}$ such that the strong quantum Fourier sampling measurement, performed in these bases, produces an outcome distribution from which the hidden subgroup $H$ can be reconstructed by a (classical or quantum) algorithm running in time polynomial in $\\log |G|$?",
+    "macro_subject": "Theoretical Computer Science",
+    "category_tag": "Quantum hidden subgroup problem",
+    "open_status": "open",
+    "status_search_result": "The problem remains open. Subsequent work showed that strong Fourier sampling with a random (Haar) basis fails for the symmetric group (\"The Symmetric Group Defies Strong Fourier Sampling,\" Moore–Russell–Schulman), and even multi-register/entangled measurements have known limitations. While clever basis choices have been shown to suffice for some semidirect-product (affine, q-hedral) groups, no explicit basis for the irreducibles of S_n is known that makes Fourier sampling efficient for HSP, and an efficient quantum algorithm for HSP over S_n (which would imply an algorithm for graph isomorphism on the quantum side) is not known.",
+    "status_evidence": [
+      {
+        "title": "The Symmetric Group Defies Strong Fourier Sampling",
+        "url": "https://www.researchgate.net/publication/4186657_The_symmetric_group_defies_strong_Fourier_sampling",
+        "snippet": "Under general conditions, both weak and random-strong forms of quantum Fourier sampling fail to give advantage over classical exhaustive search for the symmetric group.",
+        "claim": "Random basis choices for S_n fail; the problem of finding a clever basis remains."
+      },
+      {
+        "title": "The Power of Basis Selection in Fourier Sampling: Hidden Subgroup Problems in Affine Groups",
+        "url": "https://russell-academic.github.io/publication/moore-2004-gy/",
+        "snippet": "Clever basis choices yield efficient algorithms for affine/q-hedral groups via strong Fourier sampling.",
+        "claim": "Basis selection works for certain semidirect-product groups, but not known for S_n."
+      },
+      {
+        "title": "Hidden subgroup problem - Wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Hidden_subgroup_problem",
+        "snippet": "An efficient quantum algorithm for the HSP for the symmetric group would give an efficient quantum algorithm for graph isomorphism; no such algorithm is known.",
+        "claim": "HSP over S_n remains an open problem."
+      }
+    ],
+    "confidence": 0.85
+  },
+  "model": "opus",
+  "effort": "medium",
+  "elapsed_s": 42.06,
+  "validation_warnings": [],
+  "raw_claude_stdout": "{\"type\":\"result\",\"subtype\":\"success\",\"is_error\":false,\"api_error_status\":null,\"duration_ms\":41290,\"duration_api_ms\":43418,\"num_turns\":3,\"result\":\"Provided the structured dataset row.\\n\\nSources:\\n- [The Symmetric Group Defies Strong Fourier Sampling](https://www.researchgate.net/publication/4186657_The_symmetric_group_defies_strong_Fourier_sampling)\\n- [The Power of Basis Selection in Fourier Sampling: Hidden Subgroup Problems in Affine Groups](https://russell-academic.github.io/publication/moore-2004-gy/)\\n- [Hidden subgroup problem - Wikipedia](https://en.wikipedia.org/wiki/Hidden_subgroup_problem)\",\"stop_reason\":\"end_turn\",\"session_id\":\"af137189-e66c-4b32-b7ca-81d26ab7eb6b\",\"total_cost_usd\":0.10857575,\"usage\":{\"input_tokens\":8,\"cache_creation_input_tokens\":4287,\"cache_read_input_tokens\":12050,\"output_tokens\":1841,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":4287,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[{\"input_tokens\":1,\"output_tokens\":206,\"cache_read_input_tokens\":5434,\"cache_creation_input_tokens\":1538,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":1538},\"type\":\"message\"}],\"speed\":\"standard\"},\"modelUsage\":{\"claude-haiku-4-5-20251001\":{\"inputTokens\":17202,\"outputTokens\":498,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":1,\"costUSD\":0.029692000000000003,\"contextWindow\":200000,\"maxOutputTokens\":32000},\"claude-opus-4-7\":{\"inputTokens\":8,\"outputTokens\":1841,\"cacheReadInputTokens\":12050,\"cacheCreationInputTokens\":4287,\"webSearchRequests\":0,\"costUSD\":0.07888375,\"contextWindow\":1000000,\"maxOutputTokens\":64000}},\"permission_denials\":[],\"structured_output\":{\"self_contained_problem\":\"Let $G$ be a finite nonabelian group (for instance the symmetric group $S_n$), and let $H \\\\leq G$ be an unknown subgroup. A function $f : G \\\\to S$ (with $S$ a finite set) is said to hide $H$ if $f$ is constant on each left coset of $H$ and distinct on different cosets. The hidden subgroup problem (HSP) asks for a quantum algorithm that, given oracle access to such an $f$, determines $H$ using time polynomial in $\\\\log |G|$.\\n\\nThe standard (strong) quantum Fourier sampling procedure prepares a uniform superposition of coset representatives, applies the quantum Fourier transform over $G$, and measures. The outcome consists of an irreducible representation $\\\\rho \\\\in \\\\widehat{G}$ together with row/column indices in $\\\\rho$ that depend on the chosen orthonormal basis for the representation space of $\\\\rho$. It is known that for $G = S_n$, if for each irreducible $\\\\rho$ one fixes a basis chosen uniformly at random (Haar-distributed) inside $\\\\rho$, then the resulting measurement statistics contain (with high probability) only an exponentially small amount of information about $H$, so no efficient algorithm based on this procedure can succeed.\\n\\nQuestion: Does there exist, for $G = S_n$ (or for some other family of nonabelian groups for which HSP is not currently known to be efficiently solvable), an explicit, efficiently computable choice of orthonormal basis for each irreducible representation $\\\\rho \\\\in \\\\widehat{G}$ such that the strong quantum Fourier sampling measurement, performed in these bases, produces an outcome distribution from which the hidden subgroup $H$ can be reconstructed by a (classical or quantum) algorithm running in time polynomial in $\\\\log |G|$?\",\"macro_subject\":\"Theoretical Computer Science\",\"category_tag\":\"Quantum hidden subgroup problem\",\"open_status\":\"open\",\"status_search_result\":\"The problem remains open. Subsequent work showed that strong Fourier sampling with a random (Haar) basis fails for the symmetric group (\\\"The Symmetric Group Defies Strong Fourier Sampling,\\\" Moore–Russell–Schulman), and even multi-register/entangled measurements have known limitations. While clever basis choices have been shown to suffice for some semidirect-product (affine, q-hedral) groups, no explicit basis for the irreducibles of S_n is known that makes Fourier sampling efficient for HSP, and an efficient quantum algorithm for HSP over S_n (which would imply an algorithm for graph isomorphism on the quantum side) is not known.\",\"status_evidence\":[{\"title\":\"The Symmetric Group Defies Strong Fourier Sampling\",\"url\":\"https://www.researchgate.net/publication/4186657_The_symmetric_group_defies_strong_Fourier_sampling\",\"snippet\":\"Under general conditions, both weak and random-strong forms of quantum Fourier sampling fail to give advantage over classical exhaustive search for the symmetric group.\",\"claim\":\"Random basis choices for S_n fail; the problem of finding a clever basis remains.\"},{\"title\":\"The Power of Basis Selection in Fourier Sampling: Hidden Subgroup Problems in Affine Groups\",\"url\":\"https://russell-academic.github.io/publication/moore-2004-gy/\",\"snippet\":\"Clever basis choices yield efficient algorithms for affine/q-hedral groups via strong Fourier sampling.\",\"claim\":\"Basis selection works for certain semidirect-product groups, but not known for S_n.\"},{\"title\":\"Hidden subgroup problem - Wikipedia\",\"url\":\"https://en.wikipedia.org/wiki/Hidden_subgroup_problem\",\"snippet\":\"An efficient quantum algorithm for the HSP for the symmetric group would give an efficient quantum algorithm for graph isomorphism; no such algorithm is known.\",\"claim\":\"HSP over S_n remains an open problem.\"}],\"confidence\":0.85},\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"uuid\":\"68026e6e-8a0a-4b17-a094-9c172e42bab5\"}\n"
+}

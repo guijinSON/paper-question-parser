@@ -1,0 +1,67 @@
+{
+  "record": {
+    "global_index": 12800,
+    "source_json": "outputs/parse-paper/zbmath-6468301.json",
+    "paper_id": "zbmath/6468301",
+    "paper_title": "Bayesian predictive densities for linear regression models under α-divergence loss: some results and open problems",
+    "paper_link": "https://zbmath.org/6468301",
+    "question_link": "https://zbmath.org/6468301",
+    "question_id": "q_001",
+    "parser_is_solved": "false",
+    "context_brief": "Shrinkage versus invariant prediction under α-divergence",
+    "original_question": "Consider estimation of the predictive density of a future observation in a normal linear regression model with observed data y distributed as N_n(Xβ, σ² I_n), future data ỹ distributed as N_m(X̃β, σ² I_m), y and ỹ conditionally independent given β and σ², and σ² unknown. Let k be the number of regression coefficients. Assume the repeated-design condition AS1: m ≥ k ≥ 3, n = mN for a positive integer N, and X = 1_N ⊗ X̃. Under α-divergence loss D_α for −1 < α < 1, does the generalized Bayes predictive density based on the shrinkage prior π_S,1(β, σ²) = {β′X̃′X̃β}^{1−k/2}{σ²}^{−2} improve on the best invariant predictive density, namely the generalized Bayes predictive density based on the right invariant prior π_I,1(β, σ²) = {σ²}^{−1}?",
+    "evidence": [
+      {
+        "page": 1,
+        "quote": "we consider the problem of giving the predictive density p(ỹ|β, σ 2 ) of a future m× 1 vector ỹ where ỹ ∼ Nm (X̃β, σ 2 Im )."
+      },
+      {
+        "page": 2,
+        "quote": "m ≥ k ≥ 3, n = mN"
+      },
+      {
+        "page": 3,
+        "quote": "Problem 1 Under the assumption (AS1) and the Dα loss for −1 < α < 1, does the predictive density with respect to the same shrinkage prior given by (1.8) improve on the best invariant predictive density with respect to (1.9)?"
+      },
+      {
+        "page": 3,
+        "quote": "πS,1 (ψ) = π(β, σ 2 ) = {β ′ X̃ ′ X̃β}1−k/2 {σ 2 }−2"
+      },
+      {
+        "page": 3,
+        "quote": "πI,1 (ψ) = π(β, σ 2 ) = {σ 2 }−1 ."
+      },
+      {
+        "page": 4,
+        "quote": "In addition, Problem 1 is open."
+      }
+    ]
+  },
+  "artifact": {
+    "self_contained_problem": "Consider the following Gaussian linear regression prediction setup. Let $y \\in \\mathbb{R}^n$ be observed data and $\\tilde y \\in \\mathbb{R}^m$ be a future observation, with\n$$y \\mid \\beta,\\sigma^2 \\sim N_n(X\\beta,\\sigma^2 I_n), \\qquad \\tilde y \\mid \\beta,\\sigma^2 \\sim N_m(\\tilde X\\beta,\\sigma^2 I_m),$$\nwhere $y$ and $\\tilde y$ are conditionally independent given $(\\beta,\\sigma^2)$, $\\beta \\in \\mathbb{R}^k$, $\\sigma^2>0$ is unknown, and $X\\in\\mathbb{R}^{n\\times k}$, $\\tilde X\\in\\mathbb{R}^{m\\times k}$ are known design matrices of full column rank.\n\nAssume the repeated‑design condition (AS1): $m\\ge k\\ge 3$, $n=mN$ for some positive integer $N$, and $X=\\mathbf{1}_N\\otimes \\tilde X$ (so that the $n\\times k$ design matrix is the vertical stacking of $N$ copies of $\\tilde X$).\n\nFor $\\alpha\\in(-1,1)$, the $\\alpha$-divergence between two densities $p$ and $q$ on $\\mathbb{R}^m$ is\n$$D_\\alpha(p,q)=\\frac{4}{1-\\alpha^2}\\int\\Bigl(\\tfrac{1-\\alpha}{2}p(\\tilde y)+\\tfrac{1+\\alpha}{2}q(\\tilde y)-p(\\tilde y)^{(1-\\alpha)/2}q(\\tilde y)^{(1+\\alpha)/2}\\Bigr)d\\tilde y,$$\nand the corresponding risk of a predictive density $\\hat p(\\tilde y\\mid y)$ is $R_\\alpha(\\beta,\\sigma^2;\\hat p)=E_{\\beta,\\sigma^2}[D_\\alpha(p(\\cdot\\mid\\beta,\\sigma^2),\\hat p(\\cdot\\mid y))]$.\n\nConsider two improper priors on $(\\beta,\\sigma^2)$:\n- the right‑invariant prior $\\pi_{I,1}(\\beta,\\sigma^2)=(\\sigma^2)^{-1}$;\n- the shrinkage prior $\\pi_{S,1}(\\beta,\\sigma^2)=(\\beta^\\top \\tilde X^\\top \\tilde X\\beta)^{1-k/2}(\\sigma^2)^{-2}$.\n\nLet $\\hat p_{I,1}$ and $\\hat p_{S,1}$ denote the generalized Bayes predictive densities (formed as $\\hat p_\\pi(\\tilde y\\mid y)=\\int p(\\tilde y\\mid\\beta,\\sigma^2)\\pi(\\beta,\\sigma^2\\mid y)\\,d\\beta\\,d\\sigma^2$) corresponding to $\\pi_{I,1}$ and $\\pi_{S,1}$, respectively. It is known that $\\hat p_{I,1}$ is the best invariant predictive density.\n\nQuestion: Under assumption (AS1) and $\\alpha$-divergence loss with $-1<\\alpha<1$, does $\\hat p_{S,1}$ dominate $\\hat p_{I,1}$ in the sense that\n$$R_\\alpha(\\beta,\\sigma^2;\\hat p_{S,1})\\le R_\\alpha(\\beta,\\sigma^2;\\hat p_{I,1})$$\nfor all $(\\beta,\\sigma^2)$, with strict inequality somewhere?",
+    "macro_subject": "Statistics and Machine Learning",
+    "category_tag": "Bayesian predictive density estimation",
+    "open_status": "unknown",
+    "status_search_result": "A search located related work on predictive density estimation under α-divergence loss with shrinkage priors (e.g., Boisbunon–Maruyama; L'Moudden–Marchand on optimal shrinkage estimation under α-divergences). None of the retrieved sources explicitly resolves the specific dominance question under the repeated-design assumption AS1 for general −1<α<1; the case α near the boundaries and special designs has been studied but a full resolution of this exact problem was not found.",
+    "status_evidence": [
+      {
+        "title": "Optimal Shrinkage Estimation of Predictive Densities Under α-Divergences",
+        "url": "https://projecteuclid.org/journals/bayesian-analysis/advance-publication/Optimal-Shrinkage-Estimation-of-Predictive-Densities-Under-%CE%B1-Divergences/10.1214/21-BA1264.pdf",
+        "snippet": "Studies shrinkage estimators of predictive densities under α-divergence loss but does not directly resolve the specific AS1 regression problem.",
+        "claim": "Related work on α-divergence shrinkage prediction; does not explicitly settle the AS1 dominance question."
+      },
+      {
+        "title": "On Predictive Density Estimation under α-Divergence Loss",
+        "url": "https://link.springer.com/article/10.3103/S1066530719020030",
+        "snippet": "Discusses α-divergence predictive density estimation for normal models with unknown variance.",
+        "claim": "Provides related results but not a direct resolution of the regression AS1 case for all −1<α<1."
+      }
+    ],
+    "confidence": 0.5
+  },
+  "model": "opus",
+  "effort": "medium",
+  "elapsed_s": 43.95,
+  "validation_warnings": [],
+  "raw_claude_stdout": "{\"type\":\"result\",\"subtype\":\"success\",\"is_error\":false,\"api_error_status\":null,\"duration_ms\":43175,\"duration_api_ms\":38868,\"num_turns\":4,\"result\":\"Sources:\\n- [Optimal Shrinkage Estimation of Predictive Densities Under α-Divergences](https://projecteuclid.org/journals/bayesian-analysis/advance-publication/Optimal-Shrinkage-Estimation-of-Predictive-Densities-Under-%CE%B1-Divergences/10.1214/21-BA1264.pdf)\\n- [On Predictive Density Estimation under α-Divergence Loss](https://link.springer.com/article/10.3103/S1066530719020030)\",\"stop_reason\":\"end_turn\",\"session_id\":\"df6d58d7-463b-460e-9ee4-d3cdc9859476\",\"total_cost_usd\":0.21126225,\"usage\":{\"input_tokens\":9,\"cache_creation_input_tokens\":5857,\"cache_read_input_tokens\":19412,\"output_tokens\":2562,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":5857,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[{\"input_tokens\":1,\"output_tokens\":179,\"cache_read_input_tokens\":6510,\"cache_creation_input_tokens\":2032,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":2032},\"type\":\"message\"}],\"speed\":\"standard\"},\"modelUsage\":{\"claude-haiku-4-5-20251001\":{\"inputTokens\":87470,\"outputTokens\":677,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":1,\"costUSD\":0.100855,\"contextWindow\":200000,\"maxOutputTokens\":32000},\"claude-opus-4-7\":{\"inputTokens\":9,\"outputTokens\":2562,\"cacheReadInputTokens\":19412,\"cacheCreationInputTokens\":5857,\"webSearchRequests\":0,\"costUSD\":0.11040725,\"contextWindow\":1000000,\"maxOutputTokens\":64000}},\"permission_denials\":[],\"structured_output\":{\"self_contained_problem\":\"Consider the following Gaussian linear regression prediction setup. Let $y \\\\in \\\\mathbb{R}^n$ be observed data and $\\\\tilde y \\\\in \\\\mathbb{R}^m$ be a future observation, with\\n$$y \\\\mid \\\\beta,\\\\sigma^2 \\\\sim N_n(X\\\\beta,\\\\sigma^2 I_n), \\\\qquad \\\\tilde y \\\\mid \\\\beta,\\\\sigma^2 \\\\sim N_m(\\\\tilde X\\\\beta,\\\\sigma^2 I_m),$$\\nwhere $y$ and $\\\\tilde y$ are conditionally independent given $(\\\\beta,\\\\sigma^2)$, $\\\\beta \\\\in \\\\mathbb{R}^k$, $\\\\sigma^2>0$ is unknown, and $X\\\\in\\\\mathbb{R}^{n\\\\times k}$, $\\\\tilde X\\\\in\\\\mathbb{R}^{m\\\\times k}$ are known design matrices of full column rank.\\n\\nAssume the repeated‑design condition (AS1): $m\\\\ge k\\\\ge 3$, $n=mN$ for some positive integer $N$, and $X=\\\\mathbf{1}_N\\\\otimes \\\\tilde X$ (so that the $n\\\\times k$ design matrix is the vertical stacking of $N$ copies of $\\\\tilde X$).\\n\\nFor $\\\\alpha\\\\in(-1,1)$, the $\\\\alpha$-divergence between two densities $p$ and $q$ on $\\\\mathbb{R}^m$ is\\n$$D_\\\\alpha(p,q)=\\\\frac{4}{1-\\\\alpha^2}\\\\int\\\\Bigl(\\\\tfrac{1-\\\\alpha}{2}p(\\\\tilde y)+\\\\tfrac{1+\\\\alpha}{2}q(\\\\tilde y)-p(\\\\tilde y)^{(1-\\\\alpha)/2}q(\\\\tilde y)^{(1+\\\\alpha)/2}\\\\Bigr)d\\\\tilde y,$$\\nand the corresponding risk of a predictive density $\\\\hat p(\\\\tilde y\\\\mid y)$ is $R_\\\\alpha(\\\\beta,\\\\sigma^2;\\\\hat p)=E_{\\\\beta,\\\\sigma^2}[D_\\\\alpha(p(\\\\cdot\\\\mid\\\\beta,\\\\sigma^2),\\\\hat p(\\\\cdot\\\\mid y))]$.\\n\\nConsider two improper priors on $(\\\\beta,\\\\sigma^2)$:\\n- the right‑invariant prior $\\\\pi_{I,1}(\\\\beta,\\\\sigma^2)=(\\\\sigma^2)^{-1}$;\\n- the shrinkage prior $\\\\pi_{S,1}(\\\\beta,\\\\sigma^2)=(\\\\beta^\\\\top \\\\tilde X^\\\\top \\\\tilde X\\\\beta)^{1-k/2}(\\\\sigma^2)^{-2}$.\\n\\nLet $\\\\hat p_{I,1}$ and $\\\\hat p_{S,1}$ denote the generalized Bayes predictive densities (formed as $\\\\hat p_\\\\pi(\\\\tilde y\\\\mid y)=\\\\int p(\\\\tilde y\\\\mid\\\\beta,\\\\sigma^2)\\\\pi(\\\\beta,\\\\sigma^2\\\\mid y)\\\\,d\\\\beta\\\\,d\\\\sigma^2$) corresponding to $\\\\pi_{I,1}$ and $\\\\pi_{S,1}$, respectively. It is known that $\\\\hat p_{I,1}$ is the best invariant predictive density.\\n\\nQuestion: Under assumption (AS1) and $\\\\alpha$-divergence loss with $-1<\\\\alpha<1$, does $\\\\hat p_{S,1}$ dominate $\\\\hat p_{I,1}$ in the sense that\\n$$R_\\\\alpha(\\\\beta,\\\\sigma^2;\\\\hat p_{S,1})\\\\le R_\\\\alpha(\\\\beta,\\\\sigma^2;\\\\hat p_{I,1})$$\\nfor all $(\\\\beta,\\\\sigma^2)$, with strict inequality somewhere?\",\"macro_subject\":\"Statistics and Machine Learning\",\"category_tag\":\"Bayesian predictive density estimation\",\"open_status\":\"unknown\",\"status_search_result\":\"A search located related work on predictive density estimation under α-divergence loss with shrinkage priors (e.g., Boisbunon–Maruyama; L'Moudden–Marchand on optimal shrinkage estimation under α-divergences). None of the retrieved sources explicitly resolves the specific dominance question under the repeated-design assumption AS1 for general −1<α<1; the case α near the boundaries and special designs has been studied but a full resolution of this exact problem was not found.\",\"status_evidence\":[{\"title\":\"Optimal Shrinkage Estimation of Predictive Densities Under α-Divergences\",\"url\":\"https://projecteuclid.org/journals/bayesian-analysis/advance-publication/Optimal-Shrinkage-Estimation-of-Predictive-Densities-Under-%CE%B1-Divergences/10.1214/21-BA1264.pdf\",\"snippet\":\"Studies shrinkage estimators of predictive densities under α-divergence loss but does not directly resolve the specific AS1 regression problem.\",\"claim\":\"Related work on α-divergence shrinkage prediction; does not explicitly settle the AS1 dominance question.\"},{\"title\":\"On Predictive Density Estimation under α-Divergence Loss\",\"url\":\"https://link.springer.com/article/10.3103/S1066530719020030\",\"snippet\":\"Discusses α-divergence predictive density estimation for normal models with unknown variance.\",\"claim\":\"Provides related results but not a direct resolution of the regression AS1 case for all −1<α<1.\"}],\"confidence\":0.5},\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"uuid\":\"f40a0c77-dc6a-4172-aede-8ec44f32192c\"}\n"
+}

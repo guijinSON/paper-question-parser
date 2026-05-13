@@ -1,0 +1,59 @@
+{
+  "record": {
+    "global_index": 11286,
+    "source_json": "outputs/parse-paper/open-problems-in-queueing-theory-inspired-by-datacenter-computing.json",
+    "paper_id": "open-problems-in-queueing-theory-inspired-by-datacenter-computing",
+    "paper_title": "Open problems in queueing theory inspired by datacenter computing",
+    "paper_link": "https://zbmath.org/7433968",
+    "question_link": "https://zbmath.org/7433968",
+    "question_id": "q_023",
+    "parser_is_solved": "false",
+    "context_brief": "Approximation for M/M/k/setup",
+    "original_question": "For the M/M/k queue with setup times, where idle servers shut down and must incur setup delay before serving jobs again, can one derive a simple approximation as a function of k that captures how the response-time effect of setup diminishes in larger systems?",
+    "evidence": [
+      {
+        "page": 27,
+        "quote": "It would be very nice to have a simple approximation for the M/M/k/setup as a function of k."
+      }
+    ]
+  },
+  "artifact": {
+    "self_contained_problem": "Consider the M/M/k queueing system with server setup times, defined as follows. Jobs arrive according to a Poisson process of rate λ to a system with k identical servers, each of which serves jobs at exponential rate μ; let ρ = λ/(kμ) < 1 denote the load. Each server can be in one of three states: BUSY (currently serving a job), OFF, or SETUP. A server in the OFF state cannot serve jobs; when a job needs a server and an OFF server is available, that server enters the SETUP state, during which it incurs an Exp(α) setup delay before it can begin serving. Whenever a server completes a job and no jobs are waiting, it immediately transitions to OFF. Jobs waiting in a FCFS queue are assigned to servers as soon as any server becomes BUSY-ready.\n\nLet E[T(k)] denote the mean response time (sojourn time) of a job in this system, and let E[T_{M/M/k}] denote the corresponding mean response time in the standard M/M/k system (no setup) with the same λ, μ, k.\n\nProblem: Derive a simple closed-form approximation, as an explicit function of k (and of the other parameters λ, μ, α, ρ), for E[T(k)] in the M/M/k/Setup system that accurately captures how the additional response-time penalty E[T(k)] − E[T_{M/M/k}] due to setup behaves and diminishes as k grows large.",
+    "macro_subject": "Applied Mathematics",
+    "category_tag": "Queueing theory with setup times",
+    "open_status": "partially_solved",
+    "status_search_result": "Recent work (Williams, Harchol-Balter and collaborators, 2023–2024 PhD thesis and SIGMETRICS/ACM publications, plus a 2025 arXiv preprint) has produced closed-form multiplicatively-tight lower and upper bounds and a highly accurate approximation for mean waiting time in many-server systems with setup times (mainly deterministic setup, and with offered load R = kρ assumed reasonably large). For the exponential-setup M/M/k/Setup case, earlier closed-form approximations by Gandhi–Harchol-Balter exist. Thus the question has been substantially addressed for large k, though a single canonical \"simple approximation as a function of k\" for the general M/M/k/Setup remains an active topic rather than a fully closed problem.",
+    "status_evidence": [
+      {
+        "title": "The M/M/k with Deterministic Setup Times",
+        "url": "https://jalaniw.github.io/setup-queue.pdf",
+        "snippet": "Multiplicatively-tight lower and upper bounds on average waiting time in M/M/k/Setup; first closed-form bounds in any many-server system with setup times, used to derive a highly-accurate approximation.",
+        "claim": "Closed-form bounds and an accurate approximation for M/M/k/Setup waiting time exist for large k."
+      },
+      {
+        "title": "Setup Times in Multiserver Systems (PhD thesis, CMU-CS-24-104)",
+        "url": "http://reports-archive.adm.cs.cmu.edu/anon/2024/CMU-CS-24-104.pdf",
+        "snippet": "Thesis devoted to approximations and bounds for multiserver queues with setup times.",
+        "claim": "Substantial recent progress on simple approximations for M/M/k/Setup as a function of k."
+      },
+      {
+        "title": "M/G/k with Exponential Setup (Gandhi, Harchol-Balter)",
+        "url": "https://www3.cs.stonybrook.edu/~anshul/perf_mmk_2010_tech.pdf",
+        "snippet": "Analytical approximations for M/G/k and M/M/k with exponential setup.",
+        "claim": "Earlier closed-form approximations for the exponential-setup case were developed."
+      },
+      {
+        "title": "An Upper Bound on the M/M/k Queue With Deterministic Setup Times",
+        "url": "https://arxiv.org/pdf/2512.16854",
+        "snippet": "Closed-form upper bound on the M/M/k queue with deterministic setup times.",
+        "claim": "Ongoing 2025 work refines simple bounds/approximations as a function of k."
+      }
+    ],
+    "confidence": 0.6
+  },
+  "model": "opus",
+  "effort": "medium",
+  "elapsed_s": 36.71,
+  "validation_warnings": [],
+  "raw_claude_stdout": "{\"type\":\"result\",\"subtype\":\"success\",\"is_error\":false,\"api_error_status\":null,\"duration_ms\":35917,\"duration_api_ms\":34554,\"num_turns\":3,\"result\":\"Sources:\\n- [The M/M/k with Deterministic Setup Times](https://jalaniw.github.io/setup-queue.pdf)\\n- [Setup Times in Multiserver Systems (CMU thesis)](http://reports-archive.adm.cs.cmu.edu/anon/2024/CMU-CS-24-104.pdf)\\n- [M/G/k with Exponential Setup](https://www3.cs.stonybrook.edu/~anshul/perf_mmk_2010_tech.pdf)\\n- [An Upper Bound on the M/M/k Queue With Deterministic Setup Times](https://arxiv.org/pdf/2512.16854)\",\"stop_reason\":\"end_turn\",\"session_id\":\"f6d4f355-fa35-4ff5-b84a-cc2acea4430f\",\"total_cost_usd\":0.11263725000000001,\"usage\":{\"input_tokens\":8,\"cache_creation_input_tokens\":4045,\"cache_read_input_tokens\":11674,\"output_tokens\":1879,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":4045,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[{\"input_tokens\":1,\"output_tokens\":226,\"cache_read_input_tokens\":5151,\"cache_creation_input_tokens\":1579,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":1579},\"type\":\"message\"}],\"speed\":\"standard\"},\"modelUsage\":{\"claude-haiku-4-5-20251001\":{\"inputTokens\":22004,\"outputTokens\":500,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":1,\"costUSD\":0.034504,\"contextWindow\":200000,\"maxOutputTokens\":32000},\"claude-opus-4-7\":{\"inputTokens\":8,\"outputTokens\":1879,\"cacheReadInputTokens\":11674,\"cacheCreationInputTokens\":4045,\"webSearchRequests\":0,\"costUSD\":0.07813325,\"contextWindow\":1000000,\"maxOutputTokens\":64000}},\"permission_denials\":[],\"structured_output\":{\"self_contained_problem\":\"Consider the M/M/k queueing system with server setup times, defined as follows. Jobs arrive according to a Poisson process of rate λ to a system with k identical servers, each of which serves jobs at exponential rate μ; let ρ = λ/(kμ) < 1 denote the load. Each server can be in one of three states: BUSY (currently serving a job), OFF, or SETUP. A server in the OFF state cannot serve jobs; when a job needs a server and an OFF server is available, that server enters the SETUP state, during which it incurs an Exp(α) setup delay before it can begin serving. Whenever a server completes a job and no jobs are waiting, it immediately transitions to OFF. Jobs waiting in a FCFS queue are assigned to servers as soon as any server becomes BUSY-ready.\\n\\nLet E[T(k)] denote the mean response time (sojourn time) of a job in this system, and let E[T_{M/M/k}] denote the corresponding mean response time in the standard M/M/k system (no setup) with the same λ, μ, k.\\n\\nProblem: Derive a simple closed-form approximation, as an explicit function of k (and of the other parameters λ, μ, α, ρ), for E[T(k)] in the M/M/k/Setup system that accurately captures how the additional response-time penalty E[T(k)] − E[T_{M/M/k}] due to setup behaves and diminishes as k grows large.\",\"macro_subject\":\"Applied Mathematics\",\"category_tag\":\"Queueing theory with setup times\",\"open_status\":\"partially_solved\",\"status_search_result\":\"Recent work (Williams, Harchol-Balter and collaborators, 2023–2024 PhD thesis and SIGMETRICS/ACM publications, plus a 2025 arXiv preprint) has produced closed-form multiplicatively-tight lower and upper bounds and a highly accurate approximation for mean waiting time in many-server systems with setup times (mainly deterministic setup, and with offered load R = kρ assumed reasonably large). For the exponential-setup M/M/k/Setup case, earlier closed-form approximations by Gandhi–Harchol-Balter exist. Thus the question has been substantially addressed for large k, though a single canonical \\\"simple approximation as a function of k\\\" for the general M/M/k/Setup remains an active topic rather than a fully closed problem.\",\"status_evidence\":[{\"title\":\"The M/M/k with Deterministic Setup Times\",\"url\":\"https://jalaniw.github.io/setup-queue.pdf\",\"snippet\":\"Multiplicatively-tight lower and upper bounds on average waiting time in M/M/k/Setup; first closed-form bounds in any many-server system with setup times, used to derive a highly-accurate approximation.\",\"claim\":\"Closed-form bounds and an accurate approximation for M/M/k/Setup waiting time exist for large k.\"},{\"title\":\"Setup Times in Multiserver Systems (PhD thesis, CMU-CS-24-104)\",\"url\":\"http://reports-archive.adm.cs.cmu.edu/anon/2024/CMU-CS-24-104.pdf\",\"snippet\":\"Thesis devoted to approximations and bounds for multiserver queues with setup times.\",\"claim\":\"Substantial recent progress on simple approximations for M/M/k/Setup as a function of k.\"},{\"title\":\"M/G/k with Exponential Setup (Gandhi, Harchol-Balter)\",\"url\":\"https://www3.cs.stonybrook.edu/~anshul/perf_mmk_2010_tech.pdf\",\"snippet\":\"Analytical approximations for M/G/k and M/M/k with exponential setup.\",\"claim\":\"Earlier closed-form approximations for the exponential-setup case were developed.\"},{\"title\":\"An Upper Bound on the M/M/k Queue With Deterministic Setup Times\",\"url\":\"https://arxiv.org/pdf/2512.16854\",\"snippet\":\"Closed-form upper bound on the M/M/k queue with deterministic setup times.\",\"claim\":\"Ongoing 2025 work refines simple bounds/approximations as a function of k.\"}],\"confidence\":0.6},\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"uuid\":\"1ae2f36b-4f15-4aec-a940-01c89ec94118\"}\n"
+}

@@ -1,0 +1,53 @@
+{
+  "record": {
+    "global_index": 11274,
+    "source_json": "outputs/parse-paper/open-problems-in-queueing-theory-inspired-by-datacenter-computing.json",
+    "paper_id": "open-problems-in-queueing-theory-inspired-by-datacenter-computing",
+    "paper_title": "Open problems in queueing theory inspired by datacenter computing",
+    "paper_link": "https://zbmath.org/7433968",
+    "question_link": "https://zbmath.org/7433968",
+    "question_id": "q_011",
+    "parser_is_solved": "false",
+    "context_brief": "DAG-job response-time analysis",
+    "original_question": "For DAG-job scheduling policies in which jobs arrive over time and each job is complete only when all tasks in its DAG are complete, how can one analyze the mean job response time of a given allocation policy?",
+    "evidence": [
+      {
+        "page": 14,
+        "quote": "analyzing the mean job response time of different allocation policies is also a hard open problem."
+      }
+    ]
+  },
+  "artifact": {
+    "self_contained_problem": "Consider a queueing model in which jobs arrive over time according to a stochastic arrival process (for example, a Poisson process with rate λ) and are served by a system of identical servers (say k ≥ 2 servers, each of unit speed). Each arriving job J is described by a directed acyclic graph (DAG) G_J = (V_J, E_J), where each vertex v ∈ V_J represents a task with an associated random service requirement S_v drawn from a known distribution, and each directed edge (u, v) ∈ E_J expresses a precedence constraint: task v may not begin execution until task u has been completed. Tasks of the same job may be executed in parallel on distinct servers, subject to the precedence constraints. A job is regarded as complete only when all of its tasks have completed.\n\nFix an allocation (scheduling) policy π that, at every decision epoch, assigns ready tasks (those whose predecessors are all done) to available servers based only on the current system state, the DAG structures of jobs in the system, and information about task service distributions. Let T_J denote the response time of job J under policy π, i.e., the time elapsed between J's arrival and the completion of its last task. Define the mean job response time of policy π as\n   E[T^π] = lim_{n→∞} (1/n) Σ_{J=1}^{n} E[T_J],\nassuming the system is stable under π.\n\nProblem: Develop a method to compute or characterize E[T^π] as a function of the arrival rate, the distribution over job DAG structures, the task service time distributions, the number of servers k, and the policy π. In particular, derive a closed-form expression, tight bounds, or an asymptotically exact analysis (e.g., heavy-traffic or large-k limits) for E[T^π] for natural families of allocation policies acting on DAG-structured jobs.",
+    "macro_subject": "Probability",
+    "category_tag": "Queueing theory and scheduling",
+    "open_status": "open",
+    "status_search_result": "Mean response time analysis for DAG-structured jobs under general allocation policies in multiserver queueing systems is widely acknowledged to be an open and difficult problem. Even for much simpler models (e.g., M/G/k with k ≥ 2 under non-trivial scheduling), exact response-time analysis has long resisted solution, and recent surveys on datacenter-motivated scheduling continue to list DAG-job response time analysis as an open challenge. No general solution appears in the literature.",
+    "status_evidence": [
+      {
+        "title": "Open problems in queueing theory inspired by datacenter computing",
+        "url": "https://link.springer.com/article/10.1007/s11134-020-09684-6",
+        "snippet": "Datacenter operations involve parallelism, speedup functions, precedence constraints, and task graphs that pose new scheduling/queueing problems.",
+        "claim": "Analyzing mean response time of DAG-job allocation policies is listed as a hard open problem."
+      },
+      {
+        "title": "Optimal Scheduling in Multiserver Queues (Grosof PhD thesis, 2023)",
+        "url": "https://www.csd.cmu.edu/sites/default/files/phd-thesis/CMU-CS-23-128.pdf",
+        "snippet": "M/G/k with k≥2 has resisted exact analysis, even for very simple scheduling policies.",
+        "claim": "Exact response-time analysis is open even for simple multiserver scheduling, strongly suggesting the DAG-job extension remains open."
+      },
+      {
+        "title": "Queueing, Predictions, and LLMs: Challenges and Open Problems",
+        "url": "https://arxiv.org/pdf/2503.07545",
+        "snippet": "Recent survey reiterates open challenges in analyzing response times under complex job structures.",
+        "claim": "Response-time analysis for jobs with internal structure remains an active open area."
+      }
+    ],
+    "confidence": 0.85
+  },
+  "model": "opus",
+  "effort": "medium",
+  "elapsed_s": 34.17,
+  "validation_warnings": [],
+  "raw_claude_stdout": "{\"type\":\"result\",\"subtype\":\"success\",\"is_error\":false,\"api_error_status\":null,\"duration_ms\":33285,\"duration_api_ms\":32435,\"num_turns\":3,\"result\":\"I've produced the dataset row.\\n\\nSources:\\n- [Open problems in queueing theory inspired by datacenter computing](https://link.springer.com/article/10.1007/s11134-020-09684-6)\\n- [Optimal Scheduling in Multiserver Queues (CMU PhD thesis)](https://www.csd.cmu.edu/sites/default/files/phd-thesis/CMU-CS-23-128.pdf)\\n- [Queueing, Predictions, and LLMs: Challenges and Open Problems](https://arxiv.org/pdf/2503.07545)\",\"stop_reason\":\"end_turn\",\"session_id\":\"4b15c3b8-38e3-4b98-835a-d9ed1e1dcc08\",\"total_cost_usd\":0.11160575,\"usage\":{\"input_tokens\":8,\"cache_creation_input_tokens\":3985,\"cache_read_input_tokens\":11727,\"output_tokens\":1733,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":3985,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[{\"input_tokens\":1,\"output_tokens\":195,\"cache_read_input_tokens\":5222,\"cache_creation_input_tokens\":1448,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":1448},\"type\":\"message\"}],\"speed\":\"standard\"},\"modelUsage\":{\"claude-haiku-4-5-20251001\":{\"inputTokens\":25171,\"outputTokens\":460,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":1,\"costUSD\":0.037471,\"contextWindow\":200000,\"maxOutputTokens\":32000},\"claude-opus-4-7\":{\"inputTokens\":8,\"outputTokens\":1733,\"cacheReadInputTokens\":11727,\"cacheCreationInputTokens\":3985,\"webSearchRequests\":0,\"costUSD\":0.07413475,\"contextWindow\":1000000,\"maxOutputTokens\":64000}},\"permission_denials\":[],\"structured_output\":{\"self_contained_problem\":\"Consider a queueing model in which jobs arrive over time according to a stochastic arrival process (for example, a Poisson process with rate λ) and are served by a system of identical servers (say k ≥ 2 servers, each of unit speed). Each arriving job J is described by a directed acyclic graph (DAG) G_J = (V_J, E_J), where each vertex v ∈ V_J represents a task with an associated random service requirement S_v drawn from a known distribution, and each directed edge (u, v) ∈ E_J expresses a precedence constraint: task v may not begin execution until task u has been completed. Tasks of the same job may be executed in parallel on distinct servers, subject to the precedence constraints. A job is regarded as complete only when all of its tasks have completed.\\n\\nFix an allocation (scheduling) policy π that, at every decision epoch, assigns ready tasks (those whose predecessors are all done) to available servers based only on the current system state, the DAG structures of jobs in the system, and information about task service distributions. Let T_J denote the response time of job J under policy π, i.e., the time elapsed between J's arrival and the completion of its last task. Define the mean job response time of policy π as\\n   E[T^π] = lim_{n→∞} (1/n) Σ_{J=1}^{n} E[T_J],\\nassuming the system is stable under π.\\n\\nProblem: Develop a method to compute or characterize E[T^π] as a function of the arrival rate, the distribution over job DAG structures, the task service time distributions, the number of servers k, and the policy π. In particular, derive a closed-form expression, tight bounds, or an asymptotically exact analysis (e.g., heavy-traffic or large-k limits) for E[T^π] for natural families of allocation policies acting on DAG-structured jobs.\",\"macro_subject\":\"Probability\",\"category_tag\":\"Queueing theory and scheduling\",\"open_status\":\"open\",\"status_search_result\":\"Mean response time analysis for DAG-structured jobs under general allocation policies in multiserver queueing systems is widely acknowledged to be an open and difficult problem. Even for much simpler models (e.g., M/G/k with k ≥ 2 under non-trivial scheduling), exact response-time analysis has long resisted solution, and recent surveys on datacenter-motivated scheduling continue to list DAG-job response time analysis as an open challenge. No general solution appears in the literature.\",\"status_evidence\":[{\"title\":\"Open problems in queueing theory inspired by datacenter computing\",\"url\":\"https://link.springer.com/article/10.1007/s11134-020-09684-6\",\"snippet\":\"Datacenter operations involve parallelism, speedup functions, precedence constraints, and task graphs that pose new scheduling/queueing problems.\",\"claim\":\"Analyzing mean response time of DAG-job allocation policies is listed as a hard open problem.\"},{\"title\":\"Optimal Scheduling in Multiserver Queues (Grosof PhD thesis, 2023)\",\"url\":\"https://www.csd.cmu.edu/sites/default/files/phd-thesis/CMU-CS-23-128.pdf\",\"snippet\":\"M/G/k with k≥2 has resisted exact analysis, even for very simple scheduling policies.\",\"claim\":\"Exact response-time analysis is open even for simple multiserver scheduling, strongly suggesting the DAG-job extension remains open.\"},{\"title\":\"Queueing, Predictions, and LLMs: Challenges and Open Problems\",\"url\":\"https://arxiv.org/pdf/2503.07545\",\"snippet\":\"Recent survey reiterates open challenges in analyzing response times under complex job structures.\",\"claim\":\"Response-time analysis for jobs with internal structure remains an active open area.\"}],\"confidence\":0.85},\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"uuid\":\"b6f118d4-c8b1-4480-ae60-ac65613b836e\"}\n"
+}

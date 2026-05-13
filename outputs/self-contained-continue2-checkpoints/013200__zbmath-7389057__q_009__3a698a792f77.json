@@ -1,0 +1,53 @@
+{
+  "record": {
+    "global_index": 13200,
+    "source_json": "outputs/parse-paper/zbmath_7389057.json",
+    "paper_id": "zbmath/7389057",
+    "paper_title": "Advances and Open Problems in Federated Learning",
+    "paper_link": "https://zbmath.org/7389057",
+    "question_link": "https://zbmath.org/7389057",
+    "question_id": "q_009",
+    "parser_is_solved": "false",
+    "context_brief": "split learning privacy and parallelism",
+    "original_question": "For split learning, where clients compute early layers and send intermediate activations or gradients rather than raw data, how can split learning be parallelized on edge devices and given formal privacy guarantees for the information revealed by communicated values?",
+    "evidence": [
+      {
+        "page": "HTML lines 307-310",
+        "quote": "analysis providing formal privacy guarantees specifically for split learning is still an open problem"
+      }
+    ]
+  },
+  "artifact": {
+    "self_contained_problem": "Consider the split learning setting for collaborative training of a neural network: a network with parameters partitioned into a \"client side\" (early layers) and a \"server side\" (later layers) is trained across N clients, each holding a private local dataset. During training, each client computes the forward pass of the early layers on its inputs and transmits only the resulting intermediate activations to the server; the server completes the forward pass, computes the loss, and backpropagates, returning gradients with respect to the activations to the client, who then updates its early-layer parameters.\n\n(a) Design a training protocol that parallelizes split learning across resource-constrained edge clients (so that multiple clients can train concurrently rather than sequentially passing the \"smashed data\" through a single shared model state), specifying how client-side weights are synchronized or aggregated and how server-side updates incorporate the parallel contributions, while preserving correctness of gradient-based optimization.\n\n(b) Provide a formal privacy analysis of the information revealed to the server (and to any eavesdropper) by the communicated intermediate activations and returned gradients across the entire training trajectory. Specifically: define a precise privacy notion (e.g., (ε, δ)-differential privacy with respect to a client's input record, or an indistinguishability/leakage bound against feature-inversion and membership-inference adversaries), and give a mechanism — together with a proof — that achieves this notion with explicit bounds on ε, δ, or the corresponding leakage as a function of the number of training rounds, batch size, the split layer, and any added noise.\n\nProve correctness and the privacy bounds, and analyze the resulting utility (final model accuracy) versus privacy and parallelism trade-offs.",
+    "macro_subject": "Statistics and Machine Learning",
+    "category_tag": "split learning privacy",
+    "open_status": "partially_solved",
+    "status_search_result": "Subsequent work has proposed parallel split learning variants (e.g., split federated learning, parallel split learning, P3SL) and frameworks combining differential privacy with split learning (e.g., AP-SHFL, CURE). These provide partial answers — parallel training protocols and, in some cases, formal differential-privacy guarantees — but a fully general formal privacy analysis covering arbitrary architectures, the full training trajectory, and joint optimization with parallelization remains incomplete.",
+    "status_evidence": [
+      {
+        "title": "P3SL: Personalized Privacy-Preserving Split Learning on Heterogeneous Edge Devices",
+        "url": "https://arxiv.org/html/2507.17228",
+        "snippet": "Personalized split points for edge devices with customized privacy protection.",
+        "claim": "Provides a parallel, privacy-aware split-learning scheme over heterogeneous edge devices."
+      },
+      {
+        "title": "CURE: Privacy-Preserving Split Learning Done Right",
+        "url": "https://arxiv.org/html/2407.08977v1",
+        "snippet": "Privacy-preserving split learning construction with formal analysis.",
+        "claim": "Gives formal privacy guarantees for a split-learning protocol."
+      },
+      {
+        "title": "GSFL: Grouping-Split Federated Learning in Resource-Constrained Edge Computing",
+        "url": "https://dl.acm.org/doi/10.1145/3725221",
+        "snippet": "Parallelized split federated learning across edge clients.",
+        "claim": "Addresses parallelization of split learning on edge devices."
+      }
+    ],
+    "confidence": 0.6
+  },
+  "model": "opus",
+  "effort": "medium",
+  "elapsed_s": 29.31,
+  "validation_warnings": [],
+  "raw_claude_stdout": "{\"type\":\"result\",\"subtype\":\"success\",\"is_error\":false,\"api_error_status\":null,\"duration_ms\":28580,\"duration_api_ms\":28041,\"num_turns\":3,\"result\":\"Sources:\\n- [P3SL](https://arxiv.org/html/2507.17228)\\n- [CURE](https://arxiv.org/html/2407.08977v1)\\n- [GSFL](https://dl.acm.org/doi/10.1145/3725221)\",\"stop_reason\":\"end_turn\",\"session_id\":\"1f270c4b-76bb-4dd6-b3a4-e0562031370b\",\"total_cost_usd\":0.10116924999999999,\"usage\":{\"input_tokens\":8,\"cache_creation_input_tokens\":4033,\"cache_read_input_tokens\":11902,\"output_tokens\":1484,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":4033,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[{\"input_tokens\":1,\"output_tokens\":89,\"cache_read_input_tokens\":5404,\"cache_creation_input_tokens\":1314,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":1314},\"type\":\"message\"}],\"speed\":\"standard\"},\"modelUsage\":{\"claude-haiku-4-5-20251001\":{\"inputTokens\":20102,\"outputTokens\":554,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":1,\"costUSD\":0.032872,\"contextWindow\":200000,\"maxOutputTokens\":32000},\"claude-opus-4-7\":{\"inputTokens\":8,\"outputTokens\":1484,\"cacheReadInputTokens\":11902,\"cacheCreationInputTokens\":4033,\"webSearchRequests\":0,\"costUSD\":0.06829724999999999,\"contextWindow\":1000000,\"maxOutputTokens\":64000}},\"permission_denials\":[],\"structured_output\":{\"self_contained_problem\":\"Consider the split learning setting for collaborative training of a neural network: a network with parameters partitioned into a \\\"client side\\\" (early layers) and a \\\"server side\\\" (later layers) is trained across N clients, each holding a private local dataset. During training, each client computes the forward pass of the early layers on its inputs and transmits only the resulting intermediate activations to the server; the server completes the forward pass, computes the loss, and backpropagates, returning gradients with respect to the activations to the client, who then updates its early-layer parameters.\\n\\n(a) Design a training protocol that parallelizes split learning across resource-constrained edge clients (so that multiple clients can train concurrently rather than sequentially passing the \\\"smashed data\\\" through a single shared model state), specifying how client-side weights are synchronized or aggregated and how server-side updates incorporate the parallel contributions, while preserving correctness of gradient-based optimization.\\n\\n(b) Provide a formal privacy analysis of the information revealed to the server (and to any eavesdropper) by the communicated intermediate activations and returned gradients across the entire training trajectory. Specifically: define a precise privacy notion (e.g., (ε, δ)-differential privacy with respect to a client's input record, or an indistinguishability/leakage bound against feature-inversion and membership-inference adversaries), and give a mechanism — together with a proof — that achieves this notion with explicit bounds on ε, δ, or the corresponding leakage as a function of the number of training rounds, batch size, the split layer, and any added noise.\\n\\nProve correctness and the privacy bounds, and analyze the resulting utility (final model accuracy) versus privacy and parallelism trade-offs.\",\"macro_subject\":\"Statistics and Machine Learning\",\"category_tag\":\"split learning privacy\",\"open_status\":\"partially_solved\",\"status_search_result\":\"Subsequent work has proposed parallel split learning variants (e.g., split federated learning, parallel split learning, P3SL) and frameworks combining differential privacy with split learning (e.g., AP-SHFL, CURE). These provide partial answers — parallel training protocols and, in some cases, formal differential-privacy guarantees — but a fully general formal privacy analysis covering arbitrary architectures, the full training trajectory, and joint optimization with parallelization remains incomplete.\",\"status_evidence\":[{\"title\":\"P3SL: Personalized Privacy-Preserving Split Learning on Heterogeneous Edge Devices\",\"url\":\"https://arxiv.org/html/2507.17228\",\"snippet\":\"Personalized split points for edge devices with customized privacy protection.\",\"claim\":\"Provides a parallel, privacy-aware split-learning scheme over heterogeneous edge devices.\"},{\"title\":\"CURE: Privacy-Preserving Split Learning Done Right\",\"url\":\"https://arxiv.org/html/2407.08977v1\",\"snippet\":\"Privacy-preserving split learning construction with formal analysis.\",\"claim\":\"Gives formal privacy guarantees for a split-learning protocol.\"},{\"title\":\"GSFL: Grouping-Split Federated Learning in Resource-Constrained Edge Computing\",\"url\":\"https://dl.acm.org/doi/10.1145/3725221\",\"snippet\":\"Parallelized split federated learning across edge clients.\",\"claim\":\"Addresses parallelization of split learning on edge devices.\"}],\"confidence\":0.6},\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"uuid\":\"94d3205a-d8c9-4c61-a355-cacfc6a2f152\"}\n"
+}

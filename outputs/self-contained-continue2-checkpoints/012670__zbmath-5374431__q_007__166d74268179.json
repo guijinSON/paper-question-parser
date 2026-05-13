@@ -1,0 +1,55 @@
+{
+  "record": {
+    "global_index": 12670,
+    "source_json": "outputs/parse-paper/zbmath-5374431.json",
+    "paper_id": "zbmath/5374431",
+    "paper_title": "Ten Open Problems in Grammatical Inference",
+    "paper_link": "https://zbmath.org/5374431",
+    "question_link": "https://zbmath.org/5374431",
+    "question_id": "q_007",
+    "parser_is_solved": "false",
+    "context_brief": "DFA learning with noisy membership queries",
+    "original_question": "Are deterministic finite automata learnable in Angluin-style active learning when membership queries are only ε-correct but equivalence queries are still available? In this model, the teacher answers a membership query correctly with probability 1 − ε, but must answer consistently if the exact same query has already been submitted; equivalence queries ask whether a proposed DFA recognizes the target language and, when it does not, return a counterexample string.",
+    "evidence": [
+      {
+        "page": 40,
+        "quote": "The teacher has to answer two types of queries: membership queries - the teacher's answer is yes or no, depending if the submitted string belongs or not to the language and equivalence queries - the learner produces a Dfa A and asks whether L(A) = L."
+      },
+      {
+        "page": 40,
+        "quote": "Definition 11. Let ϵ > 0. An ϵ-correct membership query is made by giving the Oracle a string."
+      },
+      {
+        "page": 40,
+        "quote": "Problem 6. Are Dfa learnable from ϵ-correct membership queries and equivalence queries?"
+      }
+    ]
+  },
+  "artifact": {
+    "self_contained_problem": "Fix a target regular language $L\\subseteq \\Sigma^*$ over a finite alphabet $\\Sigma$, recognized by an unknown deterministic finite automaton (DFA). Consider an Angluin-style active learning model in which a learner interacts with a teacher through two kinds of queries:\n\n1. $\\varepsilon$-correct membership queries: given a string $w\\in\\Sigma^*$, the teacher returns a bit $b\\in\\{0,1\\}$ such that $\\Pr[b = \\mathbf{1}_{w\\in L}] \\ge 1-\\varepsilon$, where $0<\\varepsilon<1/2$ is a fixed parameter. The teacher's answers must be consistent across repeated queries: if the same string $w$ is queried more than once, the same bit must be returned each time.\n\n2. Equivalence queries: given a hypothesis DFA $A$, the teacher answers \"yes\" if $L(A)=L$, and otherwise returns a counterexample string $x\\in L(A)\\,\\triangle\\, L$.\n\nQuestion: Does there exist a learning algorithm that, for every regular language $L$ and every $\\varepsilon\\in(0,1/2)$, using only $\\varepsilon$-correct membership queries and equivalence queries of the above forms, identifies a DFA recognizing $L$ exactly, with high probability and in time polynomial in the size of the minimal DFA for $L$, in $|\\Sigma|$, in the length of the longest counterexample returned, and in $1/(1-2\\varepsilon)$?",
+    "macro_subject": "Theoretical Computer Science",
+    "category_tag": "Grammatical inference / automata learning",
+    "open_status": "unknown",
+    "status_search_result": "Recent work (e.g., 2023–2024 analyses of the robustness of Angluin's L* under noise) studies related noise models but does not appear to settle the exact question of polynomial-time exact learnability of DFA from ε-correct membership queries together with equivalence queries with consistency on repeated queries. No definitive positive or negative result for this specific formulation was found.",
+    "status_evidence": [
+      {
+        "title": "Analyzing Robustness of Angluin's L* Algorithm in Presence of Noise",
+        "url": "https://arxiv.org/abs/2306.08266",
+        "snippet": "Studies how Angluin's algorithm behaves when the teacher is noisy, addressing related but distinct noise models.",
+        "claim": "Recent investigations of noisy L* do not resolve the ε-correct membership query problem in full."
+      },
+      {
+        "title": "Exactly Learning Regular Languages Using Membership and Equivalence Queries",
+        "url": "https://www.cs.ox.ac.uk/people/james.worrell/DFA-learning.pdf",
+        "snippet": "Surveys exact learning of DFA via MQ and EQ in the noise-free setting.",
+        "claim": "Standard exact learning is solved without noise; noisy MQ variant is not addressed."
+      }
+    ],
+    "confidence": 0.6
+  },
+  "model": "opus",
+  "effort": "medium",
+  "elapsed_s": 28.54,
+  "validation_warnings": [],
+  "raw_claude_stdout": "{\"type\":\"result\",\"subtype\":\"success\",\"is_error\":false,\"api_error_status\":null,\"duration_ms\":27712,\"duration_api_ms\":29912,\"num_turns\":3,\"result\":\"Sources:\\n- [Analyzing Robustness of Angluin's L* Algorithm in Presence of Noise](https://arxiv.org/abs/2306.08266)\\n- [Exactly Learning Regular Languages Using Membership and Equivalence Queries](https://www.cs.ox.ac.uk/people/james.worrell/DFA-learning.pdf)\",\"stop_reason\":\"end_turn\",\"session_id\":\"021a0881-df8e-4891-89a0-b8eab31692a9\",\"total_cost_usd\":0.0978285,\"usage\":{\"input_tokens\":8,\"cache_creation_input_tokens\":4018,\"cache_read_input_tokens\":12252,\"output_tokens\":1395,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":4018,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[{\"input_tokens\":1,\"output_tokens\":126,\"cache_read_input_tokens\":5528,\"cache_creation_input_tokens\":1175,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":1175},\"type\":\"message\"}],\"speed\":\"standard\"},\"modelUsage\":{\"claude-opus-4-7\":{\"inputTokens\":8,\"outputTokens\":1395,\"cacheReadInputTokens\":12252,\"cacheCreationInputTokens\":4018,\"webSearchRequests\":0,\"costUSD\":0.0661535,\"contextWindow\":1000000,\"maxOutputTokens\":64000},\"claude-haiku-4-5-20251001\":{\"inputTokens\":19215,\"outputTokens\":492,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":1,\"costUSD\":0.031675,\"contextWindow\":200000,\"maxOutputTokens\":32000}},\"permission_denials\":[],\"structured_output\":{\"self_contained_problem\":\"Fix a target regular language $L\\\\subseteq \\\\Sigma^*$ over a finite alphabet $\\\\Sigma$, recognized by an unknown deterministic finite automaton (DFA). Consider an Angluin-style active learning model in which a learner interacts with a teacher through two kinds of queries:\\n\\n1. $\\\\varepsilon$-correct membership queries: given a string $w\\\\in\\\\Sigma^*$, the teacher returns a bit $b\\\\in\\\\{0,1\\\\}$ such that $\\\\Pr[b = \\\\mathbf{1}_{w\\\\in L}] \\\\ge 1-\\\\varepsilon$, where $0<\\\\varepsilon<1/2$ is a fixed parameter. The teacher's answers must be consistent across repeated queries: if the same string $w$ is queried more than once, the same bit must be returned each time.\\n\\n2. Equivalence queries: given a hypothesis DFA $A$, the teacher answers \\\"yes\\\" if $L(A)=L$, and otherwise returns a counterexample string $x\\\\in L(A)\\\\,\\\\triangle\\\\, L$.\\n\\nQuestion: Does there exist a learning algorithm that, for every regular language $L$ and every $\\\\varepsilon\\\\in(0,1/2)$, using only $\\\\varepsilon$-correct membership queries and equivalence queries of the above forms, identifies a DFA recognizing $L$ exactly, with high probability and in time polynomial in the size of the minimal DFA for $L$, in $|\\\\Sigma|$, in the length of the longest counterexample returned, and in $1/(1-2\\\\varepsilon)$?\",\"macro_subject\":\"Theoretical Computer Science\",\"category_tag\":\"Grammatical inference / automata learning\",\"open_status\":\"unknown\",\"status_search_result\":\"Recent work (e.g., 2023–2024 analyses of the robustness of Angluin's L* under noise) studies related noise models but does not appear to settle the exact question of polynomial-time exact learnability of DFA from ε-correct membership queries together with equivalence queries with consistency on repeated queries. No definitive positive or negative result for this specific formulation was found.\",\"status_evidence\":[{\"title\":\"Analyzing Robustness of Angluin's L* Algorithm in Presence of Noise\",\"url\":\"https://arxiv.org/abs/2306.08266\",\"snippet\":\"Studies how Angluin's algorithm behaves when the teacher is noisy, addressing related but distinct noise models.\",\"claim\":\"Recent investigations of noisy L* do not resolve the ε-correct membership query problem in full.\"},{\"title\":\"Exactly Learning Regular Languages Using Membership and Equivalence Queries\",\"url\":\"https://www.cs.ox.ac.uk/people/james.worrell/DFA-learning.pdf\",\"snippet\":\"Surveys exact learning of DFA via MQ and EQ in the noise-free setting.\",\"claim\":\"Standard exact learning is solved without noise; noisy MQ variant is not addressed.\"}],\"confidence\":0.6},\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"uuid\":\"458ad8b3-6a01-41f1-b1e8-4196a0527330\"}\n"
+}

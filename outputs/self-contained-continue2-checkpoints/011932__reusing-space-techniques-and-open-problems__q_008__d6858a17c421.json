@@ -1,0 +1,47 @@
+{
+  "record": {
+    "global_index": 11932,
+    "source_json": "outputs/parse-paper/reusing-space-techniques-and-open-problems.json",
+    "paper_id": "reusing-space-techniques-and-open-problems",
+    "paper_title": "Reusing Space: Techniques and Open Problems",
+    "paper_link": "https://zbmath.org/7800885",
+    "question_link": "https://zbmath.org/7800885",
+    "question_id": "q_008",
+    "parser_is_solved": "false",
+    "context_brief": "branching-program width halving",
+    "original_question": "For every sufficiently wide branching program of width w = Ω(1) and length ℓ, is there an equivalent branching program of width w/2 and length O(ℓ)?",
+    "evidence": [
+      {
+        "page": 31,
+        "quote": "Problem 8. Show that for any branching program B of sufficiently large width w = Ω (1) and length ℓ, there exists a branching program B ′ of width w /2 and length O(ℓ) computing the same function."
+      }
+    ]
+  },
+  "artifact": {
+    "self_contained_problem": "A (deterministic) branching program of width $w$ and length $\\ell$ over input variables $x_1,\\dots,x_n \\in \\{0,1\\}$ is a layered directed graph with $\\ell+1$ layers, each layer containing at most $w$ vertices. Each non-final vertex is labeled by an input variable $x_i$ and has two outgoing edges, labeled $0$ and $1$, going to vertices in the next layer; vertices in the final layer are labeled by output values (accept/reject, or more generally by elements of some output alphabet). On input $x \\in \\{0,1\\}^n$, computation starts at a designated source in the first layer and, at each vertex labeled $x_i$, follows the edge labeled by the current value of $x_i$; the program outputs the label of the final vertex reached. Two branching programs are equivalent if they compute the same function $\\{0,1\\}^n \\to \\{\\text{outputs}\\}$.\n\nProve or disprove: there exists a constant $w_0$ such that for every branching program $B$ of width $w \\ge w_0$ and length $\\ell$, there exists an equivalent branching program $B'$ of width $\\lfloor w/2 \\rfloor$ and length $O(\\ell)$ (with the implicit constant independent of $w$ and $\\ell$) computing the same function as $B$.",
+    "macro_subject": "Theoretical Computer Science",
+    "category_tag": "branching programs",
+    "open_status": "open",
+    "status_search_result": "The problem is posed as an open question concerning whether the width of any branching program can be halved while keeping the length linear. Web searches surface classical work on bounded-width branching programs (Barrington's theorem, width-2 lower bounds, width-3 results) but no resolution of this specific width-halving question, suggesting it remains open.",
+    "status_evidence": [
+      {
+        "title": "Bounded-Width Polynomial-Size Branching Programs Recognize Exactly Those Languages in NC1",
+        "url": "https://people.cs.umass.edu/~barring/publications/bwbp.pdf",
+        "snippet": "Barrington's theorem establishes that width-5 polynomial-size branching programs recognize NC^1.",
+        "claim": "Foundational work on bounded-width branching programs does not address the specific halving question."
+      },
+      {
+        "title": "Bounds for Width Two Branching Programs (Borodin et al.)",
+        "url": "http://www.cs.toronto.edu/~bor/Papers/bounds-for-width-two-branching-programs.pdf",
+        "snippet": "Lower bounds for width-2 branching programs.",
+        "claim": "Related width-specific results do not resolve the general w to w/2 reduction with O(ℓ) length."
+      }
+    ],
+    "confidence": 0.7
+  },
+  "model": "opus",
+  "effort": "medium",
+  "elapsed_s": 32.43,
+  "validation_warnings": [],
+  "raw_claude_stdout": "{\"type\":\"result\",\"subtype\":\"success\",\"is_error\":false,\"api_error_status\":null,\"duration_ms\":31702,\"duration_api_ms\":30900,\"num_turns\":3,\"result\":\"Structured output provided.\\n\\nSources:\\n- [Bounded-Width Polynomial-Size Branching Programs Recognize Exactly Those Languages in NC1](https://people.cs.umass.edu/~barring/publications/bwbp.pdf)\\n- [Bounds for Width Two Branching Programs](http://www.cs.toronto.edu/~bor/Papers/bounds-for-width-two-branching-programs.pdf)\\n- [On algebraic branching programs of small width](https://arxiv.org/abs/1702.05328)\",\"stop_reason\":\"end_turn\",\"session_id\":\"2f8202a2-da83-406a-9f8d-6488af70ac62\",\"total_cost_usd\":0.20638625,\"usage\":{\"input_tokens\":8,\"cache_creation_input_tokens\":4421,\"cache_read_input_tokens\":12550,\"output_tokens\":1351,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":4421,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[{\"input_tokens\":1,\"output_tokens\":182,\"cache_read_input_tokens\":6028,\"cache_creation_input_tokens\":1078,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":1078},\"type\":\"message\"}],\"speed\":\"standard\"},\"modelUsage\":{\"claude-haiku-4-5-20251001\":{\"inputTokens\":95630,\"outputTokens\":607,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":4,\"costUSD\":0.13866499999999998,\"contextWindow\":200000,\"maxOutputTokens\":32000},\"claude-opus-4-7\":{\"inputTokens\":8,\"outputTokens\":1351,\"cacheReadInputTokens\":12550,\"cacheCreationInputTokens\":4421,\"webSearchRequests\":0,\"costUSD\":0.06772125000000001,\"contextWindow\":1000000,\"maxOutputTokens\":64000}},\"permission_denials\":[],\"structured_output\":{\"self_contained_problem\":\"A (deterministic) branching program of width $w$ and length $\\\\ell$ over input variables $x_1,\\\\dots,x_n \\\\in \\\\{0,1\\\\}$ is a layered directed graph with $\\\\ell+1$ layers, each layer containing at most $w$ vertices. Each non-final vertex is labeled by an input variable $x_i$ and has two outgoing edges, labeled $0$ and $1$, going to vertices in the next layer; vertices in the final layer are labeled by output values (accept/reject, or more generally by elements of some output alphabet). On input $x \\\\in \\\\{0,1\\\\}^n$, computation starts at a designated source in the first layer and, at each vertex labeled $x_i$, follows the edge labeled by the current value of $x_i$; the program outputs the label of the final vertex reached. Two branching programs are equivalent if they compute the same function $\\\\{0,1\\\\}^n \\\\to \\\\{\\\\text{outputs}\\\\}$.\\n\\nProve or disprove: there exists a constant $w_0$ such that for every branching program $B$ of width $w \\\\ge w_0$ and length $\\\\ell$, there exists an equivalent branching program $B'$ of width $\\\\lfloor w/2 \\\\rfloor$ and length $O(\\\\ell)$ (with the implicit constant independent of $w$ and $\\\\ell$) computing the same function as $B$.\",\"macro_subject\":\"Theoretical Computer Science\",\"category_tag\":\"branching programs\",\"open_status\":\"open\",\"status_search_result\":\"The problem is posed as an open question concerning whether the width of any branching program can be halved while keeping the length linear. Web searches surface classical work on bounded-width branching programs (Barrington's theorem, width-2 lower bounds, width-3 results) but no resolution of this specific width-halving question, suggesting it remains open.\",\"status_evidence\":[{\"title\":\"Bounded-Width Polynomial-Size Branching Programs Recognize Exactly Those Languages in NC1\",\"url\":\"https://people.cs.umass.edu/~barring/publications/bwbp.pdf\",\"snippet\":\"Barrington's theorem establishes that width-5 polynomial-size branching programs recognize NC^1.\",\"claim\":\"Foundational work on bounded-width branching programs does not address the specific halving question.\"},{\"title\":\"Bounds for Width Two Branching Programs (Borodin et al.)\",\"url\":\"http://www.cs.toronto.edu/~bor/Papers/bounds-for-width-two-branching-programs.pdf\",\"snippet\":\"Lower bounds for width-2 branching programs.\",\"claim\":\"Related width-specific results do not resolve the general w to w/2 reduction with O(ℓ) length.\"}],\"confidence\":0.7},\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"uuid\":\"137458ee-6c1f-4acf-be81-03c67306804c\"}\n"
+}

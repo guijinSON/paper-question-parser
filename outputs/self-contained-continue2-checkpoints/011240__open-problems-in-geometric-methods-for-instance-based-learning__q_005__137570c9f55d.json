@@ -1,0 +1,53 @@
+{
+  "record": {
+    "global_index": 11240,
+    "source_json": "outputs/parse-paper/open-problems-in-geometric-methods-for-instance-based-learning.json",
+    "paper_id": "open-problems-in-geometric-methods-for-instance-based-learning",
+    "paper_title": "Open Problems in Geometric Methods for Instance-Based Learning",
+    "paper_link": "https://zbmath.org/5667357",
+    "question_link": "https://zbmath.org/5667357",
+    "question_id": "q_005",
+    "parser_is_solved": "false",
+    "context_brief": "Choosing k in k-NN",
+    "original_question": "How large should the neighborhood size k be in the k-nearest-neighbor rule, and how should that value of k be chosen from the data?",
+    "evidence": [
+      {
+        "page": 3,
+        "quote": "How large should k be? How should a value of k be chosen?"
+      }
+    ]
+  },
+  "artifact": {
+    "self_contained_problem": "Let $(X_1,Y_1),\\dots,(X_n,Y_n)$ be an i.i.d. sample drawn from an unknown joint distribution on $\\mathbb{R}^d\\times\\{1,\\dots,M\\}$, and let a metric $\\rho$ on $\\mathbb{R}^d$ be fixed. For a query point $x\\in\\mathbb{R}^d$ and an integer $k\\in\\{1,\\dots,n\\}$, the $k$-nearest-neighbor classifier $\\hat g_{n,k}$ assigns to $x$ the plurality class label among the $k$ training points $X_i$ closest to $x$ under $\\rho$ (with some fixed tie-breaking rule). Let $L_n(k)=\\mathbb{P}\\{\\hat g_{n,k}(X)\\ne Y\\}$ denote the expected misclassification probability, where $(X,Y)$ is independent of the sample and has the same distribution.\n\n(a) Determine, as a function of the sample size $n$, the dimension $d$, and properties of the underlying distribution, how the neighborhood size $k=k_n$ should grow in order to make $L_n(k_n)$ as small as possible (in particular, to attain the optimal rate of convergence of $L_n(k_n)$ to the Bayes risk).\n\n(b) Construct a fully data-driven rule $\\hat k=\\hat k(X_1,Y_1,\\dots,X_n,Y_n)$ for choosing $k$ from the sample alone, and analyze its theoretical performance (consistency, rate of convergence, and behavior of $L_n(\\hat k)$ relative to $\\inf_k L_n(k)$).",
+    "macro_subject": "Statistics and Machine Learning",
+    "category_tag": "k-nearest-neighbor classification",
+    "open_status": "open",
+    "status_search_result": "The question of how to choose the neighborhood size $k$ in $k$-NN classification optimally and in a fully data-driven way remains an active research area. Cross-validation is standard practice but is known to suffer from multiple minimizers of the estimated misclassification rate, and the theoretically optimal $k$ depends on unknown quantities (dimension, smoothness, class-conditional densities, sample proportions). Various proposals (Bayesian, smoothed CV, adaptive $k$) exist, but no universally accepted optimal data-driven rule has been established.",
+    "status_evidence": [
+      {
+        "title": "On optimum choice of k in nearest neighbor classification",
+        "url": "https://www.sciencedirect.com/science/article/abs/pii/S0167947305001374",
+        "snippet": "Cross-validation techniques often fail to guide us well in selecting k mainly due to the presence of multiple minimizers of the estimated misclassification rate.",
+        "claim": "Selecting k via cross-validation is known to be problematic, and the problem of optimal choice of k is still investigated."
+      },
+      {
+        "title": "k-nearest neighbors algorithm - Wikipedia",
+        "url": "https://en.wikipedia.org/wiki/K-nearest_neighbors_algorithm",
+        "snippet": "The best choice of k depends upon the data; generally, larger values of k reduce effect of the noise on the classification, but make boundaries between classes less distinct.",
+        "claim": "The optimal k is data-dependent and there is no universal closed-form choice."
+      },
+      {
+        "title": "How to Find The Optimal Value of K in KNN",
+        "url": "https://www.geeksforgeeks.org/machine-learning/how-to-find-the-optimal-value-of-k-in-knn/",
+        "snippet": "Common heuristics such as the square-root rule or cross-validation are used in practice, but no single method is universally optimal.",
+        "claim": "Practical choices of k rely on heuristics and cross-validation rather than a definitive theoretical rule."
+      }
+    ],
+    "confidence": 0.7
+  },
+  "model": "opus",
+  "effort": "medium",
+  "elapsed_s": 33.0,
+  "validation_warnings": [],
+  "raw_claude_stdout": "{\"type\":\"result\",\"subtype\":\"success\",\"is_error\":false,\"api_error_status\":null,\"duration_ms\":32250,\"duration_api_ms\":30372,\"num_turns\":3,\"result\":\"Sources:\\n- [On optimum choice of k in nearest neighbor classification](https://www.sciencedirect.com/science/article/abs/pii/S0167947305001374)\\n- [k-nearest neighbors algorithm - Wikipedia](https://en.wikipedia.org/wiki/K-nearest_neighbors_algorithm)\\n- [How to Find The Optimal Value of K in KNN](https://www.geeksforgeeks.org/machine-learning/how-to-find-the-optimal-value-of-k-in-knn/)\",\"stop_reason\":\"end_turn\",\"session_id\":\"8fb6909f-e9bb-4ac2-89ed-e08add435a23\",\"total_cost_usd\":0.10777075,\"usage\":{\"input_tokens\":8,\"cache_creation_input_tokens\":4135,\"cache_read_input_tokens\":11830,\"output_tokens\":1743,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":4135,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[{\"input_tokens\":1,\"output_tokens\":183,\"cache_read_input_tokens\":5357,\"cache_creation_input_tokens\":1463,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":1463},\"type\":\"message\"}],\"speed\":\"standard\"},\"modelUsage\":{\"claude-haiku-4-5-20251001\":{\"inputTokens\":19862,\"outputTokens\":507,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":1,\"costUSD\":0.032397,\"contextWindow\":200000,\"maxOutputTokens\":32000},\"claude-opus-4-7\":{\"inputTokens\":8,\"outputTokens\":1743,\"cacheReadInputTokens\":11830,\"cacheCreationInputTokens\":4135,\"webSearchRequests\":0,\"costUSD\":0.07537375,\"contextWindow\":1000000,\"maxOutputTokens\":64000}},\"permission_denials\":[],\"structured_output\":{\"self_contained_problem\":\"Let $(X_1,Y_1),\\\\dots,(X_n,Y_n)$ be an i.i.d. sample drawn from an unknown joint distribution on $\\\\mathbb{R}^d\\\\times\\\\{1,\\\\dots,M\\\\}$, and let a metric $\\\\rho$ on $\\\\mathbb{R}^d$ be fixed. For a query point $x\\\\in\\\\mathbb{R}^d$ and an integer $k\\\\in\\\\{1,\\\\dots,n\\\\}$, the $k$-nearest-neighbor classifier $\\\\hat g_{n,k}$ assigns to $x$ the plurality class label among the $k$ training points $X_i$ closest to $x$ under $\\\\rho$ (with some fixed tie-breaking rule). Let $L_n(k)=\\\\mathbb{P}\\\\{\\\\hat g_{n,k}(X)\\\\ne Y\\\\}$ denote the expected misclassification probability, where $(X,Y)$ is independent of the sample and has the same distribution.\\n\\n(a) Determine, as a function of the sample size $n$, the dimension $d$, and properties of the underlying distribution, how the neighborhood size $k=k_n$ should grow in order to make $L_n(k_n)$ as small as possible (in particular, to attain the optimal rate of convergence of $L_n(k_n)$ to the Bayes risk).\\n\\n(b) Construct a fully data-driven rule $\\\\hat k=\\\\hat k(X_1,Y_1,\\\\dots,X_n,Y_n)$ for choosing $k$ from the sample alone, and analyze its theoretical performance (consistency, rate of convergence, and behavior of $L_n(\\\\hat k)$ relative to $\\\\inf_k L_n(k)$).\",\"macro_subject\":\"Statistics and Machine Learning\",\"category_tag\":\"k-nearest-neighbor classification\",\"open_status\":\"open\",\"status_search_result\":\"The question of how to choose the neighborhood size $k$ in $k$-NN classification optimally and in a fully data-driven way remains an active research area. Cross-validation is standard practice but is known to suffer from multiple minimizers of the estimated misclassification rate, and the theoretically optimal $k$ depends on unknown quantities (dimension, smoothness, class-conditional densities, sample proportions). Various proposals (Bayesian, smoothed CV, adaptive $k$) exist, but no universally accepted optimal data-driven rule has been established.\",\"status_evidence\":[{\"title\":\"On optimum choice of k in nearest neighbor classification\",\"url\":\"https://www.sciencedirect.com/science/article/abs/pii/S0167947305001374\",\"snippet\":\"Cross-validation techniques often fail to guide us well in selecting k mainly due to the presence of multiple minimizers of the estimated misclassification rate.\",\"claim\":\"Selecting k via cross-validation is known to be problematic, and the problem of optimal choice of k is still investigated.\"},{\"title\":\"k-nearest neighbors algorithm - Wikipedia\",\"url\":\"https://en.wikipedia.org/wiki/K-nearest_neighbors_algorithm\",\"snippet\":\"The best choice of k depends upon the data; generally, larger values of k reduce effect of the noise on the classification, but make boundaries between classes less distinct.\",\"claim\":\"The optimal k is data-dependent and there is no universal closed-form choice.\"},{\"title\":\"How to Find The Optimal Value of K in KNN\",\"url\":\"https://www.geeksforgeeks.org/machine-learning/how-to-find-the-optimal-value-of-k-in-knn/\",\"snippet\":\"Common heuristics such as the square-root rule or cross-validation are used in practice, but no single method is universally optimal.\",\"claim\":\"Practical choices of k rely on heuristics and cross-validation rather than a definitive theoretical rule.\"}],\"confidence\":0.7},\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"uuid\":\"cd520bf6-f4e7-48ec-8db4-24abfea6d525\"}\n"
+}

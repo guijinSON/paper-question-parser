@@ -1,0 +1,57 @@
+{
+  "record": {
+    "global_index": 11820,
+    "source_json": "outputs/parse-paper/problems-in-data-structures-and-algorithms.json",
+    "paper_id": "problems-in-data-structures-and-algorithms",
+    "paper_title": "Problems in Data Structures and Algorithms",
+    "paper_link": "https://zbmath.org/744105",
+    "question_link": "https://zbmath.org/744105",
+    "question_id": "q_004",
+    "parser_is_solved": "false",
+    "context_brief": "loglog bound for splaying",
+    "original_question": "Even if the full dynamic optimality conjecture remains open, can one prove that splaying achieves a log log competitive bound against the optimal offline binary-search-tree algorithm, analogous to the log log performance factor obtained by Demaine and collaborators for a different online search-tree update algorithm?",
+    "evidence": [
+      {
+        "page": 16,
+        "quote": "They have designed an on-line search tree update algorithm that comes within a loglog performance factor of the optimal off-line algorithm (as compared to the log factor of a balanced tree algorithm)."
+      },
+      {
+        "page": 16,
+        "quote": "An immediate question is whether one can prove a similar loglog bound for splaying, even if the dynamic optimality conjecture remains out of reach."
+      }
+    ]
+  },
+  "artifact": {
+    "category_tag": "competitive analysis of binary search trees",
+    "confidence": 0.7,
+    "macro_subject": "Theoretical Computer Science",
+    "open_status": "partially_solved",
+    "self_contained_problem": "Consider the standard model of online binary search trees (BSTs) on a sequence of access requests over n keys, where the cost of an algorithm on a request sequence is the total number of nodes touched (including rotations performed) while servicing the requests. The offline optimum OPT(σ) is the minimum cost over all BST algorithms that know σ in advance. An online BST algorithm A is f(n)-competitive if there exist constants c,d such that, for every request sequence σ, the cost of A on σ is at most c·f(n)·OPT(σ) + d·|σ|.\\n\\nThe splay tree algorithm of Sleator and Tarjan is the online BST that, upon each access to a key x, performs the splay operation (the standard sequence of zig, zig-zig, and zig-zag rotations) to move x to the root. The dynamic optimality conjecture asserts that splay trees are O(1)-competitive.\\n\\nQuestion: prove or disprove that the splay tree algorithm is O(log log n)-competitive; that is, show that there exist absolute constants c,d such that for every n and every access sequence σ on n keys, the cost incurred by splaying on σ is at most c·(log log n)·OPT(σ) + d·|σ|.",
+    "status_search_result": "The broader goal of obtaining an O(log log n)-competitive online BST has been achieved by algorithms other than splay trees themselves: Tango trees (Demaine, Harmon, Iacono, Pătraşcu) and Multi-Splay Trees (Wang, Derryberry, Sleator) are both proven O(log log n)-competitive, and chain-splay trees (Georgakopoulos) achieve O(log log n)-competitiveness for a splay-style algorithm against offline BSTs using rotations. However, the specific question of whether the original splay tree algorithm itself is O(log log n)-competitive remains open; only weaker bounds (such as those implied by the access lemma and known properties like the working-set, static-finger, and dynamic-finger theorems) are known for splaying.",
+    "status_evidence": [
+      {
+        "title": "O(log log n)-Competitive Dynamic Binary Search Trees",
+        "url": "https://www.cs.cmu.edu/~jonderry/multi-splay.pdf",
+        "snippet": "Multi-splay trees are O(log log n)-competitive, and amortized O(log n).",
+        "claim": "An O(log log n)-competitive BST (multi-splay) exists, but the result is for a new variant, not for plain splay trees."
+      },
+      {
+        "title": "Chain-splay trees, or, how to achieve and prove log log N-competitiveness by splaying",
+        "url": "https://www.researchgate.net/publication/220113887_Chain-splay_trees_or_how_to_achieve_and_prove_log_log_N-competitiveness_by_splaying",
+        "snippet": "Chain-splay is log log N-competitive to any off-line algorithm that maintains a binary search tree with rotations.",
+        "claim": "A splaying-style algorithm (chain-splay) achieves O(log log N)-competitiveness, but this is a modification of plain splaying."
+      },
+      {
+        "title": "Splay tree - Wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Splay_tree",
+        "snippet": "The dynamic optimality conjecture ... Despite 20 years of research this conjecture is still unresolved.",
+        "claim": "The competitiveness of plain splay trees beyond known specific bounds (and short of O(1)) remains unresolved; no O(log log n) bound is known for splaying itself."
+      }
+    ]
+  },
+  "model": "opus",
+  "effort": "medium",
+  "elapsed_s": 30.52,
+  "validation_warnings": [],
+  "raw_claude_stdout": "{\"type\":\"result\",\"subtype\":\"success\",\"is_error\":false,\"api_error_status\":null,\"duration_ms\":29685,\"duration_api_ms\":29151,\"num_turns\":3,\"result\":\"Sources:\\n- [O(log log n)-Competitive Dynamic Binary Search Trees (Multi-splay)](https://www.cs.cmu.edu/~jonderry/multi-splay.pdf)\\n- [Chain-splay trees](https://www.researchgate.net/publication/220113887_Chain-splay_trees_or_how_to_achieve_and_prove_log_log_N-competitiveness_by_splaying)\\n- [Splay tree — Wikipedia](https://en.wikipedia.org/wiki/Splay_tree)\",\"stop_reason\":\"end_turn\",\"session_id\":\"44cc524e-9d9e-462a-a15d-7111873156b8\",\"total_cost_usd\":0.10691225,\"usage\":{\"input_tokens\":8,\"cache_creation_input_tokens\":4225,\"cache_read_input_tokens\":12102,\"output_tokens\":1729,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":4225,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[{\"input_tokens\":1,\"output_tokens\":186,\"cache_read_input_tokens\":5482,\"cache_creation_input_tokens\":1428,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":1428},\"type\":\"message\"}],\"speed\":\"standard\"},\"modelUsage\":{\"claude-haiku-4-5-20251001\":{\"inputTokens\":18675,\"outputTokens\":503,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":1,\"costUSD\":0.031190000000000002,\"contextWindow\":200000,\"maxOutputTokens\":32000},\"claude-opus-4-7\":{\"inputTokens\":8,\"outputTokens\":1729,\"cacheReadInputTokens\":12102,\"cacheCreationInputTokens\":4225,\"webSearchRequests\":0,\"costUSD\":0.07572224999999999,\"contextWindow\":1000000,\"maxOutputTokens\":64000}},\"permission_denials\":[],\"structured_output\":{\"category_tag\":\"competitive analysis of binary search trees\",\"confidence\":0.7,\"macro_subject\":\"Theoretical Computer Science\",\"open_status\":\"partially_solved\",\"self_contained_problem\":\"Consider the standard model of online binary search trees (BSTs) on a sequence of access requests over n keys, where the cost of an algorithm on a request sequence is the total number of nodes touched (including rotations performed) while servicing the requests. The offline optimum OPT(σ) is the minimum cost over all BST algorithms that know σ in advance. An online BST algorithm A is f(n)-competitive if there exist constants c,d such that, for every request sequence σ, the cost of A on σ is at most c·f(n)·OPT(σ) + d·|σ|.\\\\n\\\\nThe splay tree algorithm of Sleator and Tarjan is the online BST that, upon each access to a key x, performs the splay operation (the standard sequence of zig, zig-zig, and zig-zag rotations) to move x to the root. The dynamic optimality conjecture asserts that splay trees are O(1)-competitive.\\\\n\\\\nQuestion: prove or disprove that the splay tree algorithm is O(log log n)-competitive; that is, show that there exist absolute constants c,d such that for every n and every access sequence σ on n keys, the cost incurred by splaying on σ is at most c·(log log n)·OPT(σ) + d·|σ|.\",\"status_search_result\":\"The broader goal of obtaining an O(log log n)-competitive online BST has been achieved by algorithms other than splay trees themselves: Tango trees (Demaine, Harmon, Iacono, Pătraşcu) and Multi-Splay Trees (Wang, Derryberry, Sleator) are both proven O(log log n)-competitive, and chain-splay trees (Georgakopoulos) achieve O(log log n)-competitiveness for a splay-style algorithm against offline BSTs using rotations. However, the specific question of whether the original splay tree algorithm itself is O(log log n)-competitive remains open; only weaker bounds (such as those implied by the access lemma and known properties like the working-set, static-finger, and dynamic-finger theorems) are known for splaying.\",\"status_evidence\":[{\"title\":\"O(log log n)-Competitive Dynamic Binary Search Trees\",\"url\":\"https://www.cs.cmu.edu/~jonderry/multi-splay.pdf\",\"snippet\":\"Multi-splay trees are O(log log n)-competitive, and amortized O(log n).\",\"claim\":\"An O(log log n)-competitive BST (multi-splay) exists, but the result is for a new variant, not for plain splay trees.\"},{\"title\":\"Chain-splay trees, or, how to achieve and prove log log N-competitiveness by splaying\",\"url\":\"https://www.researchgate.net/publication/220113887_Chain-splay_trees_or_how_to_achieve_and_prove_log_log_N-competitiveness_by_splaying\",\"snippet\":\"Chain-splay is log log N-competitive to any off-line algorithm that maintains a binary search tree with rotations.\",\"claim\":\"A splaying-style algorithm (chain-splay) achieves O(log log N)-competitiveness, but this is a modification of plain splaying.\"},{\"title\":\"Splay tree - Wikipedia\",\"url\":\"https://en.wikipedia.org/wiki/Splay_tree\",\"snippet\":\"The dynamic optimality conjecture ... Despite 20 years of research this conjecture is still unresolved.\",\"claim\":\"The competitiveness of plain splay trees beyond known specific bounds (and short of O(1)) remains unresolved; no O(log log n) bound is known for splaying itself.\"}]},\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"uuid\":\"5417f99d-b9c7-4607-97de-83e7ccaf01e2\"}\n"
+}

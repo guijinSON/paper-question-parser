@@ -1,0 +1,67 @@
+{
+  "record": {
+    "global_index": 10550,
+    "source_json": "outputs/parse-paper/math_0312390.json",
+    "paper_id": "math/0312390",
+    "paper_title": "Research Problem: The Completion Number of a Graph",
+    "paper_link": "https://arxiv.org/abs/math/0312390",
+    "question_link": "https://arxiv.org/pdf/math/0312390#page=1",
+    "question_id": "q_001",
+    "parser_is_solved": "false",
+    "context_brief": "Determining the completion number of a graph",
+    "original_question": "For an undirected graph G = (V, E) with vertex set {1, 2, ..., n}, define a partial Hermitian matrix with graph G to be a matrix whose diagonal entries are specified real numbers and whose off-diagonal entries are specified exactly for the edges of G, with conjugate symmetry. Such a partial matrix is partial positive semidefinite when every specified principal submatrix is positive semidefinite. A Hermitian completion fills all unspecified entries, and i_-(M) is the number of negative eigenvalues of the completed Hermitian matrix M. The completion number of G is the smallest integer k such that every partial positive semidefinite matrix A with graph G has a Hermitian completion M with i_-(M) <= k. Given G, how can one determine this completion number, equivalently the minimum number of negative eigenvalues that can always be guaranteed in a completion, particularly for nonchordal graphs?",
+    "evidence": [
+      {
+        "page": 1,
+        "quote": "A partial matrix is a matrix in which some entries are specified and the others are left as free complex variables. A completion of a partial matrix is a conventional matrix obtained by the specification of all free variables. We call a matrix A = {aij} n i,j=1 partial Hermitian if aii is a specified real number for every i = 1, 2, · · · , n, aij is specified if and only if aji is specified, and ¯aji = aij ."
+      },
+      {
+        "page": 1,
+        "quote": "A partial Hermitian matrix A is called partial positive (semidefinite) if all specified principal submatrices of A are positive."
+      },
+      {
+        "page": 2,
+        "quote": "The inertia of an n × n Hermitian matrix B is the triple (i+(B), i−(B), i0(B)), in which i+(B) (resp. i−(B)) is the number of positive (resp. negative) eigenvalues of B counting multiplicities"
+      },
+      {
+        "page": 3,
+        "quote": "It appears as a potentially interesting question to ask what is the minimum number of negative eigenvalues one can always obtain in case of a given nonchordal graph."
+      },
+      {
+        "page": 3,
+        "quote": "Definition. Let G be an undirected graph. The completion number of G is the smallest number k such that every partial positive matrix A with graph G has a completion M with i−(M) ≤ k."
+      },
+      {
+        "page": 3,
+        "quote": "Question: Given a graph G, how can one find its completion number?"
+      }
+    ]
+  },
+  "artifact": {
+    "self_contained_problem": "Let G = (V,E) be an undirected simple graph with V = {1,2,...,n}. A partial Hermitian matrix with graph G is an n×n array A = (a_{ij}) such that:\n(i) each diagonal entry a_{ii} is a specified real number;\n(ii) for i ≠ j, the entry a_{ij} is specified if and only if {i,j} ∈ E, and in that case a_{ji} = conjugate(a_{ij});\n(iii) all other off-diagonal entries are unspecified (free complex variables).\n\nThe partial matrix A is called partial positive semidefinite if every fully specified principal submatrix of A is positive semidefinite. A Hermitian completion of A is any n×n Hermitian matrix M obtained by assigning complex values to all unspecified entries (with the conjugate-symmetric pairing).\n\nFor an n×n Hermitian matrix M, let i_-(M) denote the number of negative eigenvalues of M, counted with multiplicity. Define the completion number c(G) of G to be the smallest nonnegative integer k such that every partial positive semidefinite matrix A with graph G admits a Hermitian completion M with i_-(M) ≤ k.\n\nProblem: Determine c(G) for an arbitrary graph G. In particular, provide a combinatorial characterization or formula for c(G) when G is not chordal, and equivalently identify the minimum number of negative eigenvalues that can always be guaranteed across Hermitian completions of every partial positive semidefinite matrix with graph G.",
+    "macro_subject": "Algebra",
+    "category_tag": "Matrix completion problems",
+    "open_status": "unknown",
+    "status_search_result": "Web searches surface the well-known chordal characterization for positive semidefinite completability and related parameters such as Gram dimension and singularity degree, but no source was found that gives a general formula or combinatorial characterization for the completion number c(G) (the minimum guaranteed number of negative eigenvalues) for arbitrary nonchordal graphs. The status of the problem as posed thus could not be conclusively verified.",
+    "status_evidence": [
+      {
+        "title": "Matrix Completion Problems",
+        "url": "https://link.springer.com/rwe/10.1007/0-306-48332-7_271",
+        "snippet": "A partial Hermitian matrix can be completed to a positive-definite matrix regardless of values if and only if the underlying graph is chordal.",
+        "claim": "The chordal characterization is classical; the more refined completion number problem for nonchordal graphs is not addressed by the standard PSD completion theory."
+      },
+      {
+        "title": "A new graph parameter related to bounded rank positive semidefinite matrix completions",
+        "url": "https://link.springer.com/article/10.1007/s10107-013-0648-x",
+        "snippet": "Defines the Gram dimension gd(G), a graph parameter relating to PSD completions with bounded rank.",
+        "claim": "Related graph parameters for PSD completion have been studied, but they target rank rather than the minimum guaranteed negative inertia."
+      }
+    ],
+    "confidence": 0.55
+  },
+  "model": "opus",
+  "effort": "medium",
+  "elapsed_s": 30.63,
+  "validation_warnings": [],
+  "raw_claude_stdout": "{\"type\":\"result\",\"subtype\":\"success\",\"is_error\":false,\"api_error_status\":null,\"duration_ms\":29911,\"duration_api_ms\":28943,\"num_turns\":3,\"result\":\"Sources:\\n- [Matrix Completion Problems](https://link.springer.com/rwe/10.1007/0-306-48332-7_271)\\n- [Chordal Graphs and Semidefinite Optimization](https://www.seas.ucla.edu/~vandenbe/publications/chordalsdp.pdf)\\n- [A new graph parameter related to bounded rank positive semidefinite matrix completions](https://link.springer.com/article/10.1007/s10107-013-0648-x)\",\"stop_reason\":\"end_turn\",\"session_id\":\"076aeda5-e996-45ec-847c-6e79c45b594d\",\"total_cost_usd\":0.1069305,\"usage\":{\"input_tokens\":8,\"cache_creation_input_tokens\":4460,\"cache_read_input_tokens\":13033,\"output_tokens\":1466,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":4460,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[{\"input_tokens\":1,\"output_tokens\":166,\"cache_read_input_tokens\":5946,\"cache_creation_input_tokens\":1199,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":1199},\"type\":\"message\"}],\"speed\":\"standard\"},\"modelUsage\":{\"claude-haiku-4-5-20251001\":{\"inputTokens\":23144,\"outputTokens\":541,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":1,\"costUSD\":0.035849000000000006,\"contextWindow\":200000,\"maxOutputTokens\":32000},\"claude-opus-4-7\":{\"inputTokens\":8,\"outputTokens\":1466,\"cacheReadInputTokens\":13033,\"cacheCreationInputTokens\":4460,\"webSearchRequests\":0,\"costUSD\":0.0710815,\"contextWindow\":1000000,\"maxOutputTokens\":64000}},\"permission_denials\":[],\"structured_output\":{\"self_contained_problem\":\"Let G = (V,E) be an undirected simple graph with V = {1,2,...,n}. A partial Hermitian matrix with graph G is an n×n array A = (a_{ij}) such that:\\n(i) each diagonal entry a_{ii} is a specified real number;\\n(ii) for i ≠ j, the entry a_{ij} is specified if and only if {i,j} ∈ E, and in that case a_{ji} = conjugate(a_{ij});\\n(iii) all other off-diagonal entries are unspecified (free complex variables).\\n\\nThe partial matrix A is called partial positive semidefinite if every fully specified principal submatrix of A is positive semidefinite. A Hermitian completion of A is any n×n Hermitian matrix M obtained by assigning complex values to all unspecified entries (with the conjugate-symmetric pairing).\\n\\nFor an n×n Hermitian matrix M, let i_-(M) denote the number of negative eigenvalues of M, counted with multiplicity. Define the completion number c(G) of G to be the smallest nonnegative integer k such that every partial positive semidefinite matrix A with graph G admits a Hermitian completion M with i_-(M) ≤ k.\\n\\nProblem: Determine c(G) for an arbitrary graph G. In particular, provide a combinatorial characterization or formula for c(G) when G is not chordal, and equivalently identify the minimum number of negative eigenvalues that can always be guaranteed across Hermitian completions of every partial positive semidefinite matrix with graph G.\",\"macro_subject\":\"Algebra\",\"category_tag\":\"Matrix completion problems\",\"open_status\":\"unknown\",\"status_search_result\":\"Web searches surface the well-known chordal characterization for positive semidefinite completability and related parameters such as Gram dimension and singularity degree, but no source was found that gives a general formula or combinatorial characterization for the completion number c(G) (the minimum guaranteed number of negative eigenvalues) for arbitrary nonchordal graphs. The status of the problem as posed thus could not be conclusively verified.\",\"status_evidence\":[{\"title\":\"Matrix Completion Problems\",\"url\":\"https://link.springer.com/rwe/10.1007/0-306-48332-7_271\",\"snippet\":\"A partial Hermitian matrix can be completed to a positive-definite matrix regardless of values if and only if the underlying graph is chordal.\",\"claim\":\"The chordal characterization is classical; the more refined completion number problem for nonchordal graphs is not addressed by the standard PSD completion theory.\"},{\"title\":\"A new graph parameter related to bounded rank positive semidefinite matrix completions\",\"url\":\"https://link.springer.com/article/10.1007/s10107-013-0648-x\",\"snippet\":\"Defines the Gram dimension gd(G), a graph parameter relating to PSD completions with bounded rank.\",\"claim\":\"Related graph parameters for PSD completion have been studied, but they target rank rather than the minimum guaranteed negative inertia.\"}],\"confidence\":0.55},\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"uuid\":\"aa2ad833-fb81-4bee-9e5d-06fac4831a84\"}\n"
+}

@@ -1,0 +1,53 @@
+{
+  "record": {
+    "global_index": 11276,
+    "source_json": "outputs/parse-paper/open-problems-in-queueing-theory-inspired-by-datacenter-computing.json",
+    "paper_id": "open-problems-in-queueing-theory-inspired-by-datacenter-computing",
+    "paper_title": "Open problems in queueing theory inspired by datacenter computing",
+    "paper_link": "https://zbmath.org/7433968",
+    "question_link": "https://zbmath.org/7433968",
+    "question_id": "q_013",
+    "parser_is_solved": "false",
+    "context_brief": "Fork-join dispatch by queue state",
+    "original_question": "In the limited fork-join model, what is the mean job response time when each arriving job dispatches its k tasks to the k shortest queues, or to the k queues with the least work, rather than to random queues?",
+    "evidence": [
+      {
+        "page": 16,
+        "quote": "Analyzing the case where the k tasks are dispatched to the k shortest queues, or k queues with least work is also an interesting open problem"
+      }
+    ]
+  },
+  "artifact": {
+    "self_contained_problem": "Consider the following limited fork–join queueing model. There are N identical first-come-first-served servers, each with its own infinite-capacity queue and unit service rate. Jobs arrive according to a Poisson process of rate λN (so that the per-server arrival rate is λ < 1). Each arriving job consists of exactly k ≤ N tasks. The task service times are i.i.d. exponential with mean 1 (or, in a second variant, i.i.d. from a general distribution G with finite mean). A job is considered complete only when all k of its tasks have finished service; its response time is the time from arrival until the last of its k tasks completes.\n\nIn the standard limited fork–join model the k tasks of each arriving job are dispatched to k servers chosen uniformly at random (without replacement) from the N servers. Consider instead the following two dispatch policies:\n\n(a) Join-the-k-Shortest-Queues (JSQ-k): upon arrival, the job sends its k tasks to the k servers whose queues currently contain the fewest tasks (ties broken arbitrarily).\n\n(b) Join-the-k-Least-Work (JLW-k): upon arrival, the job sends its k tasks to the k servers with the smallest remaining workload (sum of remaining service requirements of all tasks currently at that server).\n\nDetermine, in closed form or via a tractable analytical expression, the mean job response time E[T] in steady state under each of policies (a) and (b), as a function of N, k, λ, and the service-time distribution.",
+    "macro_subject": "Probability",
+    "category_tag": "Fork-join queueing systems",
+    "open_status": "open",
+    "status_search_result": "A literature search on fork-join queueing analysis (including the ACM Computing Surveys survey on fork/join systems and works on JSQ routing) reveals analyses of random-dispatch limited fork–join queues and of JSQ for single-task jobs, but no closed-form or tractable analytical expression for the mean response time when each arriving job dispatches its k tasks to the k shortest queues or to the k queues with the least work. The problem appears to remain open.",
+    "status_evidence": [
+      {
+        "title": "Analysis of Fork/Join and Related Queueing Systems",
+        "url": "https://dl.acm.org/doi/10.1145/2628913",
+        "snippet": "Survey of fork-join queueing analyses; treats random dispatch and approximations but does not give exact mean response time for k-shortest-queue or least-work dispatch.",
+        "claim": "No exact analysis for k-shortest / k-least-work dispatch in limited fork-join is reported in the standard survey."
+      },
+      {
+        "title": "Analysis of join-the-shortest-queue routing for web server farms",
+        "url": "https://www.sciencedirect.com/science/article/abs/pii/S0166531607000624",
+        "snippet": "Analyzes JSQ routing for single-task jobs in server farms.",
+        "claim": "JSQ analyses in the literature focus on single-task jobs, not on fork-join jobs splitting into k tasks routed to k shortest queues."
+      },
+      {
+        "title": "Fork–join queue - Wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Fork%E2%80%93join_queue",
+        "snippet": "Overview of known exact and approximate results for fork-join queues.",
+        "claim": "Standard reference summaries do not include exact mean response time for k-shortest-queue dispatch in limited fork-join."
+      }
+    ],
+    "confidence": 0.7
+  },
+  "model": "opus",
+  "effort": "medium",
+  "elapsed_s": 40.37,
+  "validation_warnings": [],
+  "raw_claude_stdout": "{\"type\":\"result\",\"subtype\":\"success\",\"is_error\":false,\"api_error_status\":null,\"duration_ms\":39588,\"duration_api_ms\":37026,\"num_turns\":3,\"result\":\"Sources:\\n- [Analysis of Fork/Join and Related Queueing Systems](https://dl.acm.org/doi/10.1145/2628913)\\n- [Fork–join queue - Wikipedia](https://en.wikipedia.org/wiki/Fork%E2%80%93join_queue)\\n- [Analysis of join-the-shortest-queue routing for web server farms](https://www.sciencedirect.com/science/article/abs/pii/S0166531607000624)\",\"stop_reason\":\"end_turn\",\"session_id\":\"d69bb4c7-5064-4c1f-bf76-c0d07f5a4be3\",\"total_cost_usd\":0.10686949999999999,\"usage\":{\"input_tokens\":8,\"cache_creation_input_tokens\":4146,\"cache_read_input_tokens\":11930,\"output_tokens\":1663,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":4146,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[{\"input_tokens\":1,\"output_tokens\":161,\"cache_read_input_tokens\":5408,\"cache_creation_input_tokens\":1423,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":1423},\"type\":\"message\"}],\"speed\":\"standard\"},\"modelUsage\":{\"claude-haiku-4-5-20251001\":{\"inputTokens\":20812,\"outputTokens\":513,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":1,\"costUSD\":0.033377000000000004,\"contextWindow\":200000,\"maxOutputTokens\":32000},\"claude-opus-4-7\":{\"inputTokens\":8,\"outputTokens\":1663,\"cacheReadInputTokens\":11930,\"cacheCreationInputTokens\":4146,\"webSearchRequests\":0,\"costUSD\":0.07349249999999999,\"contextWindow\":1000000,\"maxOutputTokens\":64000}},\"permission_denials\":[],\"structured_output\":{\"self_contained_problem\":\"Consider the following limited fork–join queueing model. There are N identical first-come-first-served servers, each with its own infinite-capacity queue and unit service rate. Jobs arrive according to a Poisson process of rate λN (so that the per-server arrival rate is λ < 1). Each arriving job consists of exactly k ≤ N tasks. The task service times are i.i.d. exponential with mean 1 (or, in a second variant, i.i.d. from a general distribution G with finite mean). A job is considered complete only when all k of its tasks have finished service; its response time is the time from arrival until the last of its k tasks completes.\\n\\nIn the standard limited fork–join model the k tasks of each arriving job are dispatched to k servers chosen uniformly at random (without replacement) from the N servers. Consider instead the following two dispatch policies:\\n\\n(a) Join-the-k-Shortest-Queues (JSQ-k): upon arrival, the job sends its k tasks to the k servers whose queues currently contain the fewest tasks (ties broken arbitrarily).\\n\\n(b) Join-the-k-Least-Work (JLW-k): upon arrival, the job sends its k tasks to the k servers with the smallest remaining workload (sum of remaining service requirements of all tasks currently at that server).\\n\\nDetermine, in closed form or via a tractable analytical expression, the mean job response time E[T] in steady state under each of policies (a) and (b), as a function of N, k, λ, and the service-time distribution.\",\"macro_subject\":\"Probability\",\"category_tag\":\"Fork-join queueing systems\",\"open_status\":\"open\",\"status_search_result\":\"A literature search on fork-join queueing analysis (including the ACM Computing Surveys survey on fork/join systems and works on JSQ routing) reveals analyses of random-dispatch limited fork–join queues and of JSQ for single-task jobs, but no closed-form or tractable analytical expression for the mean response time when each arriving job dispatches its k tasks to the k shortest queues or to the k queues with the least work. The problem appears to remain open.\",\"status_evidence\":[{\"title\":\"Analysis of Fork/Join and Related Queueing Systems\",\"url\":\"https://dl.acm.org/doi/10.1145/2628913\",\"snippet\":\"Survey of fork-join queueing analyses; treats random dispatch and approximations but does not give exact mean response time for k-shortest-queue or least-work dispatch.\",\"claim\":\"No exact analysis for k-shortest / k-least-work dispatch in limited fork-join is reported in the standard survey.\"},{\"title\":\"Analysis of join-the-shortest-queue routing for web server farms\",\"url\":\"https://www.sciencedirect.com/science/article/abs/pii/S0166531607000624\",\"snippet\":\"Analyzes JSQ routing for single-task jobs in server farms.\",\"claim\":\"JSQ analyses in the literature focus on single-task jobs, not on fork-join jobs splitting into k tasks routed to k shortest queues.\"},{\"title\":\"Fork–join queue - Wikipedia\",\"url\":\"https://en.wikipedia.org/wiki/Fork%E2%80%93join_queue\",\"snippet\":\"Overview of known exact and approximate results for fork-join queues.\",\"claim\":\"Standard reference summaries do not include exact mean response time for k-shortest-queue dispatch in limited fork-join.\"}],\"confidence\":0.7},\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"uuid\":\"930b1fca-f6c7-48c6-abb6-2667a4120df8\"}\n"
+}

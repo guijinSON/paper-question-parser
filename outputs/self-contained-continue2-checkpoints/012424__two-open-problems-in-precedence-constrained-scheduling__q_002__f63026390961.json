@@ -1,0 +1,55 @@
+{
+  "record": {
+    "global_index": 12424,
+    "source_json": "outputs/parse-paper/two-open-problems-in-precedence-constrained-scheduling.json",
+    "paper_id": "two-open-problems-in-precedence-constrained-scheduling",
+    "paper_title": "Two open problems in precedence constrained scheduling",
+    "paper_link": "https://zbmath.org/3883928",
+    "question_link": "https://zbmath.org/3883928",
+    "question_id": "q_002",
+    "parser_is_solved": "false",
+    "context_brief": "single-machine total tardiness with chain-like precedence and release dates",
+    "original_question": "Determine the computational complexity of the following optimization problem. There are n jobs, all of unit processing time, to be processed nonpreemptively on a single machine. Each job j has an integer due date d_j and a release date r_j, so job j is unavailable before time r_j. The precedence constraints are chain-like: in the directed precedence graph on the jobs, each vertex has indegree at most one and outdegree at most one. A feasible schedule must respect both the release dates and the precedence arcs, and if job j completes at time C_j then its tardiness is max(0, C_j - d_j). What is the complexity of finding a feasible schedule minimizing the total tardiness over all jobs?",
+    "evidence": [
+      {
+        "page": 5,
+        "quote": "We will concentrate on the special case of unit-time jobs, i.e., pj = 1 (j = 1, ... ,n )."
+      },
+      {
+        "page": 5,
+        "quote": "Given a directed graph G with vertex set { 1, ... ,n } in which each vertex j has an associated integer dj, indegree at most one and outdegree at most one, find a permutation a of {1, ... ,n} satisfying o(j) < o(k) whenever (j,k) is an arc of G, such that \"'2.J= 1 max{O,o(j)-dj} is minimized."
+      },
+      {
+        "page": 6,
+        "quote": "(3) Each Jj (j = 1, ... ,n ) becomes available for processing at a given release date rj. This problem is still open and, of course, also suspected to be NP-hard."
+      }
+    ]
+  },
+  "artifact": {
+    "self_contained_problem": "Consider the following single-machine scheduling problem. There are n jobs, each of unit processing time, to be processed nonpreemptively on a single machine that can handle at most one job at a time. Each job j (1 ≤ j ≤ n) has an integer due date d_j and an integer release date r_j; job j may not start before time r_j. A directed precedence graph G is given on the vertex set {1,...,n} in which every vertex has indegree at most one and outdegree at most one (so the precedence constraints form a disjoint union of chains). A feasible schedule assigns a start time S_j ≥ r_j to each job such that the intervals [S_j, S_j+1) are pairwise disjoint and S_j + 1 ≤ S_k whenever (j,k) is an arc of G. Let C_j = S_j + 1 denote the completion time of job j and let its tardiness be T_j = max(0, C_j − d_j). Determine the computational complexity of finding a feasible schedule that minimizes the total tardiness Σ_{j=1}^{n} T_j: in particular, is this problem solvable in polynomial time, or is it NP-hard?",
+    "macro_subject": "Theoretical Computer Science",
+    "category_tag": "Precedence-constrained scheduling complexity",
+    "open_status": "unknown",
+    "status_search_result": "A targeted web search did not locate a definitive resolution of the complexity of the unit-time single-machine total tardiness problem with chain precedence and release dates. Surveys and recent overviews of single-machine scheduling complexity (e.g., the 2024 overview on arXiv) still list related variants among unresolved cases, and no polynomial-time algorithm or NP-hardness proof for this exact problem could be confirmed. The status is therefore reported as unknown/likely still open.",
+    "status_evidence": [
+      {
+        "title": "An Overview of Some Single Machine Scheduling Problems: Polynomial Algorithms, Complexity and Approximability",
+        "url": "https://arxiv.org/html/2405.18789v2",
+        "snippet": "Survey reviewing complexity status of single-machine scheduling problems, including open cases with precedence constraints and release dates.",
+        "claim": "Recent surveys discuss the complexity of related single-machine scheduling problems and indicate open cases remain."
+      },
+      {
+        "title": "Complexity results for scheduling chains on a single machine",
+        "url": "https://www.sciencedirect.com/science/article/abs/pii/0377221780901113",
+        "snippet": "Classical complexity results for scheduling chains on a single machine.",
+        "claim": "Classical results address chain-precedence single-machine problems but do not settle the unit-time total-tardiness variant with release dates."
+      }
+    ],
+    "confidence": 0.7
+  },
+  "model": "opus",
+  "effort": "medium",
+  "elapsed_s": 29.01,
+  "validation_warnings": [],
+  "raw_claude_stdout": "{\"type\":\"result\",\"subtype\":\"success\",\"is_error\":false,\"api_error_status\":null,\"duration_ms\":28179,\"duration_api_ms\":27009,\"num_turns\":3,\"result\":\"Sources:\\n- [An Overview of Some Single Machine Scheduling Problems](https://arxiv.org/html/2405.18789v2)\\n- [Complexity results for scheduling chains on a single machine](https://www.sciencedirect.com/science/article/abs/pii/0377221780901113)\\n- [Exact algorithms for single-machine scheduling with time windows and precedence constraints](https://link.springer.com/article/10.1007/s10951-015-0428-y)\",\"stop_reason\":\"end_turn\",\"session_id\":\"677d9a37-54f5-4cda-a403-cb26daee392b\",\"total_cost_usd\":0.09834450000000002,\"usage\":{\"input_tokens\":8,\"cache_creation_input_tokens\":4064,\"cache_read_input_tokens\":12571,\"output_tokens\":1332,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":4064,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[{\"input_tokens\":1,\"output_tokens\":160,\"cache_read_input_tokens\":5667,\"cache_creation_input_tokens\":1082,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":1082},\"type\":\"message\"}],\"speed\":\"standard\"},\"modelUsage\":{\"claude-haiku-4-5-20251001\":{\"inputTokens\":20964,\"outputTokens\":471,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":1,\"costUSD\":0.03331900000000001,\"contextWindow\":200000,\"maxOutputTokens\":32000},\"claude-opus-4-7\":{\"inputTokens\":8,\"outputTokens\":1332,\"cacheReadInputTokens\":12571,\"cacheCreationInputTokens\":4064,\"webSearchRequests\":0,\"costUSD\":0.0650255,\"contextWindow\":1000000,\"maxOutputTokens\":64000}},\"permission_denials\":[],\"structured_output\":{\"self_contained_problem\":\"Consider the following single-machine scheduling problem. There are n jobs, each of unit processing time, to be processed nonpreemptively on a single machine that can handle at most one job at a time. Each job j (1 ≤ j ≤ n) has an integer due date d_j and an integer release date r_j; job j may not start before time r_j. A directed precedence graph G is given on the vertex set {1,...,n} in which every vertex has indegree at most one and outdegree at most one (so the precedence constraints form a disjoint union of chains). A feasible schedule assigns a start time S_j ≥ r_j to each job such that the intervals [S_j, S_j+1) are pairwise disjoint and S_j + 1 ≤ S_k whenever (j,k) is an arc of G. Let C_j = S_j + 1 denote the completion time of job j and let its tardiness be T_j = max(0, C_j − d_j). Determine the computational complexity of finding a feasible schedule that minimizes the total tardiness Σ_{j=1}^{n} T_j: in particular, is this problem solvable in polynomial time, or is it NP-hard?\",\"macro_subject\":\"Theoretical Computer Science\",\"category_tag\":\"Precedence-constrained scheduling complexity\",\"open_status\":\"unknown\",\"status_search_result\":\"A targeted web search did not locate a definitive resolution of the complexity of the unit-time single-machine total tardiness problem with chain precedence and release dates. Surveys and recent overviews of single-machine scheduling complexity (e.g., the 2024 overview on arXiv) still list related variants among unresolved cases, and no polynomial-time algorithm or NP-hardness proof for this exact problem could be confirmed. The status is therefore reported as unknown/likely still open.\",\"status_evidence\":[{\"title\":\"An Overview of Some Single Machine Scheduling Problems: Polynomial Algorithms, Complexity and Approximability\",\"url\":\"https://arxiv.org/html/2405.18789v2\",\"snippet\":\"Survey reviewing complexity status of single-machine scheduling problems, including open cases with precedence constraints and release dates.\",\"claim\":\"Recent surveys discuss the complexity of related single-machine scheduling problems and indicate open cases remain.\"},{\"title\":\"Complexity results for scheduling chains on a single machine\",\"url\":\"https://www.sciencedirect.com/science/article/abs/pii/0377221780901113\",\"snippet\":\"Classical complexity results for scheduling chains on a single machine.\",\"claim\":\"Classical results address chain-precedence single-machine problems but do not settle the unit-time total-tardiness variant with release dates.\"}],\"confidence\":0.7},\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"uuid\":\"7e52e457-377e-4056-9017-4695741a4ade\"}\n"
+}

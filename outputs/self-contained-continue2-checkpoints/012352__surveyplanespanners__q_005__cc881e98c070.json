@@ -1,0 +1,53 @@
+{
+  "record": {
+    "global_index": 12352,
+    "source_json": "outputs/parse-paper/surveyplanespanners.json",
+    "paper_id": "surveyplanespanners",
+    "paper_title": "On Plane Geometric Spanners: A Survey and Open Problems",
+    "paper_link": "https://zbmath.org/6200814",
+    "question_link": "https://zbmath.org/6200814",
+    "question_id": "q_005",
+    "parser_is_solved": "false",
+    "context_brief": "Complexity of minimum spanning ratio graph",
+    "original_question": "Given a finite planar point set, determine whether computing a plane geometric graph on that point set whose spanning ratio is minimum among all plane geometric graphs on the same vertex set is NP-hard.",
+    "evidence": [
+      {
+        "page": 6,
+        "quote": "Open Problem 5. Is computing the plane graph of minimum spanning ratio for a given point set an NP-hard problem?"
+      }
+    ]
+  },
+  "artifact": {
+    "category_tag": "geometric spanners",
+    "confidence": 0.7,
+    "macro_subject": "Theoretical Computer Science",
+    "open_status": "open",
+    "self_contained_problem": "Let $P \\subset \\mathbb{R}^2$ be a finite set of points in the Euclidean plane. A plane geometric graph on $P$ is an undirected graph $G=(P,E)$ whose vertex set is $P$, whose edges are straight-line segments between points of $P$ weighted by their Euclidean length, and such that no two edges cross in their relative interiors. For two vertices $u,v \\in P$, let $d_G(u,v)$ denote the shortest-path distance in $G$ (with Euclidean edge weights) and let $|uv|$ denote the Euclidean distance. The spanning ratio (or stretch factor / dilation) of a connected plane geometric graph $G$ on $P$ is\n$$\\mathrm{sr}(G) \\;=\\; \\max_{u\\ne v \\in P} \\frac{d_G(u,v)}{|uv|}.$$\nDefine $\\mathrm{sr}^*(P) = \\inf\\{\\mathrm{sr}(G) : G \\text{ is a connected plane geometric graph on } P\\}$.\n\nDecide the computational complexity of the following problem: given a finite point set $P \\subset \\mathbb{R}^2$ (with rational coordinates) and a rational threshold $t \\ge 1$, determine whether there exists a connected plane geometric graph $G$ on $P$ with $\\mathrm{sr}(G) \\le t$. Equivalently, is the problem of computing (or approximating) a plane geometric graph on $P$ whose spanning ratio equals $\\mathrm{sr}^*(P)$ NP-hard?",
+    "status_search_result": "The question of whether computing the plane graph of minimum spanning ratio (minimum dilation/stretch factor) over a given planar point set is NP-hard appears to remain open. Related variants have been resolved: computing a minimum-dilation spanning tree is NP-hard, computing a minimum-dilation graph with at most m edges on n points is NP-hard (with or without crossings), and the minimum-weight Euclidean t-spanner problem is NP-hard. However, no source found settles NP-hardness specifically for the minimum-spanning-ratio plane graph problem without an edge-count or weight constraint.",
+    "status_evidence": [
+      {
+        "title": "Computing Geometric Minimum-Dilation Graphs Is NP-Hard",
+        "url": "https://link.springer.com/chapter/10.1007/978-3-540-70904-6_20",
+        "snippet": "Computing a minimum-dilation graph that connects a given n-point set in the plane, using not more than a given number m of edges, is NP-hard, regardless of whether edge crossings are allowed.",
+        "claim": "A related, edge-count-constrained variant is known to be NP-hard, but does not subsume the unconstrained plane minimum-spanning-ratio problem."
+      },
+      {
+        "title": "Computing a minimum-dilation spanning tree is NP-hard",
+        "url": "https://scite.ai/reports/computing-a-minimum-dilation-spanning-tree-64x91M",
+        "snippet": "Computing the spanning tree with minimum spanning ratio of a given point set is NP-hard.",
+        "claim": "The spanning-tree variant is NP-hard, but the question for general plane graphs of minimum spanning ratio is different."
+      },
+      {
+        "title": "Minimum weight Euclidean t-spanner is NP-hard",
+        "url": "https://www.sciencedirect.com/science/article/pii/S1570866713000567",
+        "snippet": "Deciding whether there exists a Euclidean t-spanner for a given set of points in the plane of weight at most w is NP-hard for every t>1, with or without the planarity constraint.",
+        "claim": "A weight-constrained variant is NP-hard but does not resolve the minimum-spanning-ratio plane graph question."
+      }
+    ]
+  },
+  "model": "opus",
+  "effort": "medium",
+  "elapsed_s": 53.35,
+  "validation_warnings": [],
+  "raw_claude_stdout": "{\"type\":\"result\",\"subtype\":\"success\",\"is_error\":false,\"api_error_status\":null,\"duration_ms\":52644,\"duration_api_ms\":47723,\"num_turns\":5,\"result\":\"Sources:\\n- [On plane geometric spanners: A survey and open problems](https://www.sciencedirect.com/science/article/pii/S0925772113000357)\\n- [Computing Geometric Minimum-Dilation Graphs Is NP-Hard](https://link.springer.com/chapter/10.1007/978-3-540-70904-6_20)\\n- [Computing a minimum-dilation spanning tree is NP-hard](https://scite.ai/reports/computing-a-minimum-dilation-spanning-tree-64x91M)\\n- [Minimum weight Euclidean t-spanner is NP-hard](https://www.sciencedirect.com/science/article/pii/S1570866713000567)\",\"stop_reason\":\"end_turn\",\"session_id\":\"6a71d896-7a50-4963-8002-e49ecb3663cd\",\"total_cost_usd\":0.16858274999999998,\"usage\":{\"input_tokens\":10,\"cache_creation_input_tokens\":5713,\"cache_read_input_tokens\":25099,\"output_tokens\":2076,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":5713,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[{\"input_tokens\":1,\"output_tokens\":236,\"cache_read_input_tokens\":6901,\"cache_creation_input_tokens\":1497,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":1497},\"type\":\"message\"}],\"speed\":\"standard\"},\"modelUsage\":{\"claude-haiku-4-5-20251001\":{\"inputTokens\":42617,\"outputTokens\":1152,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":2,\"costUSD\":0.06837700000000001,\"contextWindow\":200000,\"maxOutputTokens\":32000},\"claude-opus-4-7\":{\"inputTokens\":10,\"outputTokens\":2076,\"cacheReadInputTokens\":25099,\"cacheCreationInputTokens\":5713,\"webSearchRequests\":0,\"costUSD\":0.10020575,\"contextWindow\":1000000,\"maxOutputTokens\":64000}},\"permission_denials\":[],\"structured_output\":{\"category_tag\":\"geometric spanners\",\"confidence\":0.7,\"macro_subject\":\"Theoretical Computer Science\",\"open_status\":\"open\",\"self_contained_problem\":\"Let $P \\\\subset \\\\mathbb{R}^2$ be a finite set of points in the Euclidean plane. A plane geometric graph on $P$ is an undirected graph $G=(P,E)$ whose vertex set is $P$, whose edges are straight-line segments between points of $P$ weighted by their Euclidean length, and such that no two edges cross in their relative interiors. For two vertices $u,v \\\\in P$, let $d_G(u,v)$ denote the shortest-path distance in $G$ (with Euclidean edge weights) and let $|uv|$ denote the Euclidean distance. The spanning ratio (or stretch factor / dilation) of a connected plane geometric graph $G$ on $P$ is\\n$$\\\\mathrm{sr}(G) \\\\;=\\\\; \\\\max_{u\\\\ne v \\\\in P} \\\\frac{d_G(u,v)}{|uv|}.$$\\nDefine $\\\\mathrm{sr}^*(P) = \\\\inf\\\\{\\\\mathrm{sr}(G) : G \\\\text{ is a connected plane geometric graph on } P\\\\}$.\\n\\nDecide the computational complexity of the following problem: given a finite point set $P \\\\subset \\\\mathbb{R}^2$ (with rational coordinates) and a rational threshold $t \\\\ge 1$, determine whether there exists a connected plane geometric graph $G$ on $P$ with $\\\\mathrm{sr}(G) \\\\le t$. Equivalently, is the problem of computing (or approximating) a plane geometric graph on $P$ whose spanning ratio equals $\\\\mathrm{sr}^*(P)$ NP-hard?\",\"status_search_result\":\"The question of whether computing the plane graph of minimum spanning ratio (minimum dilation/stretch factor) over a given planar point set is NP-hard appears to remain open. Related variants have been resolved: computing a minimum-dilation spanning tree is NP-hard, computing a minimum-dilation graph with at most m edges on n points is NP-hard (with or without crossings), and the minimum-weight Euclidean t-spanner problem is NP-hard. However, no source found settles NP-hardness specifically for the minimum-spanning-ratio plane graph problem without an edge-count or weight constraint.\",\"status_evidence\":[{\"title\":\"Computing Geometric Minimum-Dilation Graphs Is NP-Hard\",\"url\":\"https://link.springer.com/chapter/10.1007/978-3-540-70904-6_20\",\"snippet\":\"Computing a minimum-dilation graph that connects a given n-point set in the plane, using not more than a given number m of edges, is NP-hard, regardless of whether edge crossings are allowed.\",\"claim\":\"A related, edge-count-constrained variant is known to be NP-hard, but does not subsume the unconstrained plane minimum-spanning-ratio problem.\"},{\"title\":\"Computing a minimum-dilation spanning tree is NP-hard\",\"url\":\"https://scite.ai/reports/computing-a-minimum-dilation-spanning-tree-64x91M\",\"snippet\":\"Computing the spanning tree with minimum spanning ratio of a given point set is NP-hard.\",\"claim\":\"The spanning-tree variant is NP-hard, but the question for general plane graphs of minimum spanning ratio is different.\"},{\"title\":\"Minimum weight Euclidean t-spanner is NP-hard\",\"url\":\"https://www.sciencedirect.com/science/article/pii/S1570866713000567\",\"snippet\":\"Deciding whether there exists a Euclidean t-spanner for a given set of points in the plane of weight at most w is NP-hard for every t>1, with or without the planarity constraint.\",\"claim\":\"A weight-constrained variant is NP-hard but does not resolve the minimum-spanning-ratio plane graph question.\"}]},\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"uuid\":\"fe30ac10-9e00-4415-b857-1759082d71c7\"}\n"
+}

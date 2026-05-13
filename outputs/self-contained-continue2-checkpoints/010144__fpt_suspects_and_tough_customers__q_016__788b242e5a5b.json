@@ -1,0 +1,51 @@
+{
+  "record": {
+    "global_index": 10144,
+    "source_json": "outputs/parse-paper/fpt_suspects_and_tough_customers.json",
+    "paper_id": "fpt_suspects_and_tough_customers",
+    "paper_title": "FPT Suspects and Tough Customers: Open Problems of Downey and Fellows",
+    "paper_link": "https://zbmath.org/6076954",
+    "question_link": "https://zbmath.org/6076954",
+    "question_id": "q_016",
+    "parser_is_solved": "true",
+    "context_brief": "Jump number of posets",
+    "original_question": "Given a finite poset P, is the jump number of P at most k, where the jump number is the minimum possible number of consecutive incomparable pairs in a linear extension of P?",
+    "evidence": [
+      {
+        "page": 464,
+        "quote": "Jump Number FPT\nInstance: Ap o s e tP\nParameter: A positive integerk\nQuestion: Is the jump number ofP at mostk?"
+      },
+      {
+        "page": 464,
+        "quote": "The jump number ofP is the minimum number of jumps inL, where minimum\nis taken over all the linear extensionsL of P."
+      }
+    ]
+  },
+  "artifact": {
+    "self_contained_problem": "Let P = (X, ≤) be a finite partially ordered set. A linear extension of P is a total order L = x_1 < x_2 < ⋯ < x_n on X such that x_i ≤ x_j in P implies i ≤ j. For a linear extension L, a jump is an index i ∈ {1, …, n−1} such that x_i and x_{i+1} are incomparable in P. The jump number s(P) of P is the minimum, over all linear extensions L of P, of the number of jumps in L.\n\nThe Jump Number problem is the following parameterized decision problem:\n- Input: a finite poset P and a positive integer k.\n- Parameter: k.\n- Question: Is s(P) ≤ k?\n\nDetermine whether this parameterized problem is fixed-parameter tractable, i.e., decide whether there exists an algorithm solving it in time f(k) · |P|^{O(1)} for some computable function f.",
+    "macro_subject": "Theoretical Computer Science",
+    "category_tag": "Parameterized complexity of poset problems",
+    "open_status": "solved",
+    "status_search_result": "The problem is fixed-parameter tractable. Kratsch and Kratsch (IPEC 2013, \"The Jump Number Problem: Exact and Parameterized\") gave an O*(2^w) algorithm parameterized by the width w of the poset. Since any poset with jump number at most k has width at most k+1 (a linear extension with k jumps decomposes the ground set into k+1 chains), FPT in the width parameter immediately yields FPT in the jump-number parameter k, with running time O*(2^k). Hence the original question parameterized by k is solved (positively).",
+    "status_evidence": [
+      {
+        "title": "The Jump Number Problem: Exact and Parameterized",
+        "url": "https://link.springer.com/chapter/10.1007/978-3-319-03898-8_20",
+        "snippet": "Fixed-parameter tractability in terms of width w by an O*(2^w) time algorithm and an almost-linear kernel for Jump Number on interval orders parameterized by the number of jumps.",
+        "claim": "Jump Number is FPT parameterized by poset width; since width ≤ jumpnumber+1, it is also FPT parameterized by k."
+      },
+      {
+        "title": "Exact exponential algorithms for two poset problems (arXiv:1912.13117)",
+        "url": "https://arxiv.org/abs/1912.13117",
+        "snippet": "Jump number can be solved in arbitrary posets in time O(1.824^n), improving previous bounds.",
+        "claim": "Active recent work confirms classical NP-hardness and provides exact/parameterized algorithms for jump number."
+      }
+    ],
+    "confidence": 0.8
+  },
+  "model": "opus",
+  "effort": "medium",
+  "elapsed_s": 95.07,
+  "validation_warnings": [],
+  "raw_claude_stdout": "{\"type\":\"result\",\"subtype\":\"success\",\"is_error\":false,\"api_error_status\":null,\"duration_ms\":94342,\"duration_api_ms\":89457,\"num_turns\":11,\"result\":\"Sources:\\n- [The Jump Number Problem: Exact and Parameterized (IPEC 2013)](https://link.springer.com/chapter/10.1007/978-3-319-03898-8_20)\\n- [Exact exponential algorithms for two poset problems](https://arxiv.org/abs/1912.13117)\",\"stop_reason\":\"end_turn\",\"session_id\":\"242bd770-5d8d-4656-abf6-d9703bfdfc37\",\"total_cost_usd\":0.3697855,\"usage\":{\"input_tokens\":14,\"cache_creation_input_tokens\":10234,\"cache_read_input_tokens\":63602,\"output_tokens\":2532,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":10234,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[{\"input_tokens\":1,\"output_tokens\":109,\"cache_read_input_tokens\":11556,\"cache_creation_input_tokens\":1363,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":1363},\"type\":\"message\"}],\"speed\":\"standard\"},\"modelUsage\":{\"claude-haiku-4-5-20251001\":{\"inputTokens\":137322,\"outputTokens\":2666,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":6,\"costUSD\":0.210652,\"contextWindow\":200000,\"maxOutputTokens\":32000},\"claude-opus-4-7\":{\"inputTokens\":14,\"outputTokens\":2532,\"cacheReadInputTokens\":63602,\"cacheCreationInputTokens\":10234,\"webSearchRequests\":0,\"costUSD\":0.1591335,\"contextWindow\":1000000,\"maxOutputTokens\":64000}},\"permission_denials\":[],\"structured_output\":{\"self_contained_problem\":\"Let P = (X, ≤) be a finite partially ordered set. A linear extension of P is a total order L = x_1 < x_2 < ⋯ < x_n on X such that x_i ≤ x_j in P implies i ≤ j. For a linear extension L, a jump is an index i ∈ {1, …, n−1} such that x_i and x_{i+1} are incomparable in P. The jump number s(P) of P is the minimum, over all linear extensions L of P, of the number of jumps in L.\\n\\nThe Jump Number problem is the following parameterized decision problem:\\n- Input: a finite poset P and a positive integer k.\\n- Parameter: k.\\n- Question: Is s(P) ≤ k?\\n\\nDetermine whether this parameterized problem is fixed-parameter tractable, i.e., decide whether there exists an algorithm solving it in time f(k) · |P|^{O(1)} for some computable function f.\",\"macro_subject\":\"Theoretical Computer Science\",\"category_tag\":\"Parameterized complexity of poset problems\",\"open_status\":\"solved\",\"status_search_result\":\"The problem is fixed-parameter tractable. Kratsch and Kratsch (IPEC 2013, \\\"The Jump Number Problem: Exact and Parameterized\\\") gave an O*(2^w) algorithm parameterized by the width w of the poset. Since any poset with jump number at most k has width at most k+1 (a linear extension with k jumps decomposes the ground set into k+1 chains), FPT in the width parameter immediately yields FPT in the jump-number parameter k, with running time O*(2^k). Hence the original question parameterized by k is solved (positively).\",\"status_evidence\":[{\"title\":\"The Jump Number Problem: Exact and Parameterized\",\"url\":\"https://link.springer.com/chapter/10.1007/978-3-319-03898-8_20\",\"snippet\":\"Fixed-parameter tractability in terms of width w by an O*(2^w) time algorithm and an almost-linear kernel for Jump Number on interval orders parameterized by the number of jumps.\",\"claim\":\"Jump Number is FPT parameterized by poset width; since width ≤ jumpnumber+1, it is also FPT parameterized by k.\"},{\"title\":\"Exact exponential algorithms for two poset problems (arXiv:1912.13117)\",\"url\":\"https://arxiv.org/abs/1912.13117\",\"snippet\":\"Jump number can be solved in arbitrary posets in time O(1.824^n), improving previous bounds.\",\"claim\":\"Active recent work confirms classical NP-hardness and provides exact/parameterized algorithms for jump number.\"}],\"confidence\":0.8},\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"uuid\":\"4ad74e4d-1647-4f5d-8d84-0cbc2460b63e\"}\n"
+}

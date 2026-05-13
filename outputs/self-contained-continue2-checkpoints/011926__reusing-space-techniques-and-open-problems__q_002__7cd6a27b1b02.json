@@ -1,0 +1,51 @@
+{
+  "record": {
+    "global_index": 11926,
+    "source_json": "outputs/parse-paper/reusing-space-techniques-and-open-problems.json",
+    "paper_id": "reusing-space-techniques-and-open-problems",
+    "paper_title": "Reusing Space: Techniques and Open Problems",
+    "paper_link": "https://zbmath.org/7800885",
+    "question_link": "https://zbmath.org/7800885",
+    "question_id": "q_002",
+    "parser_is_solved": "false",
+    "context_brief": "undirected connectivity in catalytic logspace",
+    "original_question": "Does the undirected s-t connectivity problem admit a simple, direct proof that it belongs to catalytic logspace CL, where CL means CSPACE(O(log n), n^{O(1)}), i.e. deterministic computation with O(log n) ordinary workspace plus polynomially many catalytic bits that must be restored exactly on halting?",
+    "evidence": [
+      {
+        "page": 15,
+        "quote": "Definition 3. The class CL is defined as CSPACE(O(log n), nO(1))."
+      },
+      {
+        "page": 29,
+        "quote": "Problem 2. Give a simple, direct proof of uSTConn ∈ CL."
+      }
+    ]
+  },
+  "artifact": {
+    "category_tag": "catalytic logspace",
+    "confidence": 0.7,
+    "macro_subject": "Theoretical Computer Science",
+    "open_status": "open",
+    "self_contained_problem": "Define the catalytic logspace class CL = CSPACE(O(log n), n^{O(1)}) as follows. A catalytic Turing machine has three tapes: a read-only input tape of length n, a read/write work tape of length O(log n), and a read/write catalytic tape of length n^{O(1)}. The catalytic tape is initialized with an arbitrary string w (the catalytic content). The machine is deterministic and, for every input x and every initial catalytic content w, must halt with the catalytic tape restored to exactly w. A language L is in CL if there exists such a machine that, for every w, correctly decides membership of x in L while satisfying the restoration condition.\n\nLet uSTConn denote the undirected s-t connectivity problem: given an undirected graph G on n vertices and two specified vertices s and t, decide whether there exists a path from s to t in G.\n\nProblem: Provide a simple, direct proof that uSTConn ∈ CL. Here \"direct\" means a proof that does not proceed by appealing to the inclusion L ⊆ CL together with the known result that uSTConn ∈ L (i.e., not by invoking Reingold's logspace algorithm or any equivalent derandomization of random walks on expanders via the zig-zag product), but instead exhibits an explicit catalytic-logspace algorithm for uSTConn whose correctness and restoration property can be verified directly.",
+    "status_search_result": "No published direct catalytic-logspace algorithm for undirected s-t connectivity (other than appealing to Reingold's theorem uSTConn ∈ L and L ⊆ CL) appears in the literature. The problem is posed as an open question in the catalytic-computation research program and no resolution was found in the search.",
+    "status_evidence": [
+      {
+        "title": "Undirected connectivity in log-space (Reingold)",
+        "url": "https://omereingold.wordpress.com/wp-content/uploads/2014/10/sl.pdf",
+        "snippet": "Deterministic log-space algorithm for undirected s-t connectivity, giving uSTConn ∈ L (hence trivially in CL).",
+        "claim": "uSTConn is in L, so it is in CL via the trivial inclusion L ⊆ CL, but this is not a direct catalytic-space construction."
+      },
+      {
+        "title": "Catalytic logspace and bipartite matching (search summary)",
+        "url": "https://arxiv.org/abs/2203.09728",
+        "snippet": "Catalytic space results have been developed for problems like bipartite matching; no direct CL algorithm for uSTConn was located.",
+        "claim": "The question of a direct CL algorithm for uSTConn does not appear to be resolved in the located literature."
+      }
+    ]
+  },
+  "model": "opus",
+  "effort": "medium",
+  "elapsed_s": 42.69,
+  "validation_warnings": [],
+  "raw_claude_stdout": "{\"type\":\"result\",\"subtype\":\"success\",\"is_error\":false,\"api_error_status\":null,\"duration_ms\":41834,\"duration_api_ms\":37594,\"num_turns\":4,\"result\":\"Sources:\\n- [Undirected Connectivity in Log-Space (Reingold)](https://omereingold.wordpress.com/wp-content/uploads/2014/10/sl.pdf)\\n- [Undirected connectivity in log-space (JACM)](https://dl.acm.org/doi/10.1145/1391289.1391291)\\n- [On the Problem of Undirected st-connectivity](https://arxiv.org/abs/2203.09728)\",\"stop_reason\":\"end_turn\",\"session_id\":\"5bf26737-c364-46b0-b683-d08921a88f5c\",\"total_cost_usd\":0.14567725,\"usage\":{\"input_tokens\":9,\"cache_creation_input_tokens\":5209,\"cache_read_input_tokens\":18656,\"output_tokens\":1534,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":5209,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[{\"input_tokens\":1,\"output_tokens\":153,\"cache_read_input_tokens\":6776,\"cache_creation_input_tokens\":1118,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":1118},\"type\":\"message\"}],\"speed\":\"standard\"},\"modelUsage\":{\"claude-haiku-4-5-20251001\":{\"inputTokens\":40483,\"outputTokens\":983,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":2,\"costUSD\":0.06539800000000001,\"contextWindow\":200000,\"maxOutputTokens\":32000},\"claude-opus-4-7\":{\"inputTokens\":9,\"outputTokens\":1534,\"cacheReadInputTokens\":18656,\"cacheCreationInputTokens\":5209,\"webSearchRequests\":0,\"costUSD\":0.08027925,\"contextWindow\":1000000,\"maxOutputTokens\":64000}},\"permission_denials\":[],\"structured_output\":{\"category_tag\":\"catalytic logspace\",\"confidence\":0.7,\"macro_subject\":\"Theoretical Computer Science\",\"open_status\":\"open\",\"self_contained_problem\":\"Define the catalytic logspace class CL = CSPACE(O(log n), n^{O(1)}) as follows. A catalytic Turing machine has three tapes: a read-only input tape of length n, a read/write work tape of length O(log n), and a read/write catalytic tape of length n^{O(1)}. The catalytic tape is initialized with an arbitrary string w (the catalytic content). The machine is deterministic and, for every input x and every initial catalytic content w, must halt with the catalytic tape restored to exactly w. A language L is in CL if there exists such a machine that, for every w, correctly decides membership of x in L while satisfying the restoration condition.\\n\\nLet uSTConn denote the undirected s-t connectivity problem: given an undirected graph G on n vertices and two specified vertices s and t, decide whether there exists a path from s to t in G.\\n\\nProblem: Provide a simple, direct proof that uSTConn ∈ CL. Here \\\"direct\\\" means a proof that does not proceed by appealing to the inclusion L ⊆ CL together with the known result that uSTConn ∈ L (i.e., not by invoking Reingold's logspace algorithm or any equivalent derandomization of random walks on expanders via the zig-zag product), but instead exhibits an explicit catalytic-logspace algorithm for uSTConn whose correctness and restoration property can be verified directly.\",\"status_search_result\":\"No published direct catalytic-logspace algorithm for undirected s-t connectivity (other than appealing to Reingold's theorem uSTConn ∈ L and L ⊆ CL) appears in the literature. The problem is posed as an open question in the catalytic-computation research program and no resolution was found in the search.\",\"status_evidence\":[{\"title\":\"Undirected connectivity in log-space (Reingold)\",\"url\":\"https://omereingold.wordpress.com/wp-content/uploads/2014/10/sl.pdf\",\"snippet\":\"Deterministic log-space algorithm for undirected s-t connectivity, giving uSTConn ∈ L (hence trivially in CL).\",\"claim\":\"uSTConn is in L, so it is in CL via the trivial inclusion L ⊆ CL, but this is not a direct catalytic-space construction.\"},{\"title\":\"Catalytic logspace and bipartite matching (search summary)\",\"url\":\"https://arxiv.org/abs/2203.09728\",\"snippet\":\"Catalytic space results have been developed for problems like bipartite matching; no direct CL algorithm for uSTConn was located.\",\"claim\":\"The question of a direct CL algorithm for uSTConn does not appear to be resolved in the located literature.\"}]},\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"uuid\":\"41b2c1da-4702-4c7a-ba48-eacde7d8ed99\"}\n"
+}

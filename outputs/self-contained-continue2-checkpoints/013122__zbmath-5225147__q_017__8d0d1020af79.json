@@ -1,0 +1,57 @@
+{
+  "record": {
+    "global_index": 13122,
+    "source_json": "outputs/parse-paper/zbmath_5225147.json",
+    "paper_id": "zbmath/5225147",
+    "paper_title": "Some open problems in computational algebraic geometry",
+    "paper_link": "https://zbmath.org/5225147",
+    "question_link": "https://zbmath.org/5225147",
+    "question_id": "q_017",
+    "parser_is_solved": "false",
+    "context_brief": "Degree of a rational map",
+    "original_question": "Let k be a field and let phi:k^n -> k^m be a rational map with coordinate functions f_i=p_i(x)/q_i(x) of degrees d_i. Design an efficient algorithm, combining symbolic computation and numerical methods, to determine the degree of phi without relying solely on solving the generic polynomial system p_i(x)-y_i q_i(x)=0 by Groebner-basis computation.",
+    "evidence": [
+      {
+        "page": 21,
+        "quote": "Let k be a field and φ : k n -> km be a rational map."
+      },
+      {
+        "page": 21,
+        "quote": "Problem 20. Combine the symbolic and numerical methods to design an efficient algorithm for determining the degree of a rational map."
+      }
+    ]
+  },
+  "artifact": {
+    "self_contained_problem": "Let $k$ be a field and let $\\varphi : k^n \\dashrightarrow k^m$ be a rational map whose coordinate functions are $f_i(x) = p_i(x)/q_i(x)$, where $p_i, q_i \\in k[x_1,\\dots,x_n]$ are polynomials of degrees $d_i$ for $i=1,\\dots,m$. The degree of $\\varphi$ is defined as the cardinality of a generic fibre $\\varphi^{-1}(y)$ (equivalently, the degree of the extension of function fields $[k(x_1,\\dots,x_n) : k(f_1,\\dots,f_m)]$ when $\\varphi$ is dominant and generically finite, and $0$ otherwise).\n\nOne standard but computationally expensive way to compute $\\deg(\\varphi)$ is to solve the generic polynomial system\n$$p_i(x) - y_i\\, q_i(x) = 0, \\qquad i = 1,\\dots,m,$$\nin the variables $x_1,\\dots,x_n$ (with $y_1,\\dots,y_m$ kept as parameters) by means of a Gröbner-basis computation and to count the number of solutions in a generic fibre.\n\nDesign an efficient algorithm, combining symbolic computation and numerical methods (such as homotopy continuation or other techniques of numerical algebraic geometry), that determines $\\deg(\\varphi)$ from the data $(p_i, q_i)_{i=1}^m$ without relying solely on a Gröbner-basis solution of the above generic system. Establish the correctness of the algorithm and analyze its complexity.",
+    "macro_subject": "Algebra",
+    "category_tag": "computational algebraic geometry; degree of rational maps",
+    "open_status": "unknown",
+    "status_search_result": "There has been substantial progress on computing degrees of rational maps via symbolic techniques (e.g., projective-degree algorithms in the Macaulay2 Cremona package; specialization and syzygy-based methods in works such as arXiv:1901.06599 and arXiv:2007.13017) and via numerical algebraic geometry (homotopy continuation as in Bertini and HomotopyContinuation.jl, which can numerically count fibre points). However, no single hybrid symbolic-numerical algorithm is universally recognized as the definitive efficient solution to the problem as posed, so the open-ended algorithmic design problem appears to remain partially addressed rather than fully resolved.",
+    "status_evidence": [
+      {
+        "title": "projectiveDegrees -- Macaulay2 Cremona package",
+        "url": "https://macaulay2.com/doc/Macaulay2/share/doc/Macaulay2/Cremona/html/_projective__Degrees.html",
+        "snippet": "Probabilistic algorithm to compute projective degrees of a rational map between projective varieties via saturation of ideals defined on random linear subspaces.",
+        "claim": "Symbolic probabilistic algorithms exist for projective degrees, which include the degree of the map."
+      },
+      {
+        "title": "Degree of rational maps via specialization",
+        "url": "https://arxiv.org/abs/1901.06599",
+        "snippet": "Studies the degree of a rational map via specialization techniques relating it to syzygies of the base ideal.",
+        "claim": "Recent symbolic/algebraic advances give effective ways to compute or bound degrees of rational maps."
+      },
+      {
+        "title": "Degree of Rational Maps versus Syzygies",
+        "url": "https://arxiv.org/abs/2007.13017",
+        "snippet": "Upper bounds on the degree of a generically finite rational map between projective varieties expressed via Rees algebra invariants.",
+        "claim": "Theoretical bounds and computational reductions for the degree of a rational map have been developed."
+      }
+    ],
+    "confidence": 0.55
+  },
+  "model": "opus",
+  "effort": "medium",
+  "elapsed_s": 41.46,
+  "validation_warnings": [],
+  "raw_claude_stdout": "{\"type\":\"result\",\"subtype\":\"success\",\"is_error\":false,\"api_error_status\":null,\"duration_ms\":40483,\"duration_api_ms\":38242,\"num_turns\":4,\"result\":\"Sources:\\n- [projectiveDegrees -- Macaulay2 Cremona](https://macaulay2.com/doc/Macaulay2/share/doc/Macaulay2/Cremona/html/_projective__Degrees.html)\\n- [Degree of rational maps via specialization (arXiv:1901.06599)](https://arxiv.org/abs/1901.06599)\\n- [Degree of Rational Maps versus Syzygies (arXiv:2007.13017)](https://arxiv.org/abs/2007.13017)\\n- [Computation of the degree of rational maps between curves](https://www.researchgate.net/publication/221564899_Computation_of_the_degree_of_rational_maps_between_curves)\",\"stop_reason\":\"end_turn\",\"session_id\":\"0e85c3ab-ff13-4c05-b9d4-d2d4e202e25e\",\"total_cost_usd\":0.15190274999999998,\"usage\":{\"input_tokens\":9,\"cache_creation_input_tokens\":5639,\"cache_read_input_tokens\":19010,\"output_tokens\":1858,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":5639,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[{\"input_tokens\":1,\"output_tokens\":241,\"cache_read_input_tokens\":6881,\"cache_creation_input_tokens\":1443,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":1443},\"type\":\"message\"}],\"speed\":\"standard\"},\"modelUsage\":{\"claude-haiku-4-5-20251001\":{\"inputTokens\":35584,\"outputTokens\":1015,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":2,\"costUSD\":0.060659,\"contextWindow\":200000,\"maxOutputTokens\":32000},\"claude-opus-4-7\":{\"inputTokens\":9,\"outputTokens\":1858,\"cacheReadInputTokens\":19010,\"cacheCreationInputTokens\":5639,\"webSearchRequests\":0,\"costUSD\":0.09124375,\"contextWindow\":1000000,\"maxOutputTokens\":64000}},\"permission_denials\":[],\"structured_output\":{\"self_contained_problem\":\"Let $k$ be a field and let $\\\\varphi : k^n \\\\dashrightarrow k^m$ be a rational map whose coordinate functions are $f_i(x) = p_i(x)/q_i(x)$, where $p_i, q_i \\\\in k[x_1,\\\\dots,x_n]$ are polynomials of degrees $d_i$ for $i=1,\\\\dots,m$. The degree of $\\\\varphi$ is defined as the cardinality of a generic fibre $\\\\varphi^{-1}(y)$ (equivalently, the degree of the extension of function fields $[k(x_1,\\\\dots,x_n) : k(f_1,\\\\dots,f_m)]$ when $\\\\varphi$ is dominant and generically finite, and $0$ otherwise).\\n\\nOne standard but computationally expensive way to compute $\\\\deg(\\\\varphi)$ is to solve the generic polynomial system\\n$$p_i(x) - y_i\\\\, q_i(x) = 0, \\\\qquad i = 1,\\\\dots,m,$$\\nin the variables $x_1,\\\\dots,x_n$ (with $y_1,\\\\dots,y_m$ kept as parameters) by means of a Gröbner-basis computation and to count the number of solutions in a generic fibre.\\n\\nDesign an efficient algorithm, combining symbolic computation and numerical methods (such as homotopy continuation or other techniques of numerical algebraic geometry), that determines $\\\\deg(\\\\varphi)$ from the data $(p_i, q_i)_{i=1}^m$ without relying solely on a Gröbner-basis solution of the above generic system. Establish the correctness of the algorithm and analyze its complexity.\",\"macro_subject\":\"Algebra\",\"category_tag\":\"computational algebraic geometry; degree of rational maps\",\"open_status\":\"unknown\",\"status_search_result\":\"There has been substantial progress on computing degrees of rational maps via symbolic techniques (e.g., projective-degree algorithms in the Macaulay2 Cremona package; specialization and syzygy-based methods in works such as arXiv:1901.06599 and arXiv:2007.13017) and via numerical algebraic geometry (homotopy continuation as in Bertini and HomotopyContinuation.jl, which can numerically count fibre points). However, no single hybrid symbolic-numerical algorithm is universally recognized as the definitive efficient solution to the problem as posed, so the open-ended algorithmic design problem appears to remain partially addressed rather than fully resolved.\",\"status_evidence\":[{\"title\":\"projectiveDegrees -- Macaulay2 Cremona package\",\"url\":\"https://macaulay2.com/doc/Macaulay2/share/doc/Macaulay2/Cremona/html/_projective__Degrees.html\",\"snippet\":\"Probabilistic algorithm to compute projective degrees of a rational map between projective varieties via saturation of ideals defined on random linear subspaces.\",\"claim\":\"Symbolic probabilistic algorithms exist for projective degrees, which include the degree of the map.\"},{\"title\":\"Degree of rational maps via specialization\",\"url\":\"https://arxiv.org/abs/1901.06599\",\"snippet\":\"Studies the degree of a rational map via specialization techniques relating it to syzygies of the base ideal.\",\"claim\":\"Recent symbolic/algebraic advances give effective ways to compute or bound degrees of rational maps.\"},{\"title\":\"Degree of Rational Maps versus Syzygies\",\"url\":\"https://arxiv.org/abs/2007.13017\",\"snippet\":\"Upper bounds on the degree of a generically finite rational map between projective varieties expressed via Rees algebra invariants.\",\"claim\":\"Theoretical bounds and computational reductions for the degree of a rational map have been developed.\"}],\"confidence\":0.55},\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"uuid\":\"530e16e3-4333-4db5-bbf1-1532e251959c\"}\n"
+}

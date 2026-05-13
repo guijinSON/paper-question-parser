@@ -1,0 +1,47 @@
+{
+  "record": {
+    "global_index": 13278,
+    "source_json": "outputs/parse-paper/zbmath_7631191.json",
+    "paper_id": "zbmath/7631191",
+    "paper_title": "Open problems in rewriting",
+    "paper_link": "https://zbmath.org/7631191",
+    "question_link": "https://zbmath.org/7631191",
+    "question_id": "q_030",
+    "parser_is_solved": "false",
+    "context_brief": "Term-ordering decision complexity",
+    "original_question": "What are the computational complexities of term-ordering decision problems, including comparability under recursive path ordering with a suitable precedence and lexicographic path ordering with non-total precedences or variables?",
+    "evidence": [
+      {
+        "page": "Scribd HTML lines 872-882",
+        "quote": "What are the complexities of various term ordering decision problems?"
+      }
+    ]
+  },
+  "artifact": {
+    "self_contained_problem": "Let Σ be a finite signature of function symbols, each with a fixed arity, and let V be a countable set of variables. Denote by T(Σ,V) the set of (first-order) terms over Σ and V. A precedence on Σ is a (strict) partial order >_Σ on Σ; it is total if it is a linear order.\n\nGiven a precedence >_Σ, the recursive path ordering (RPO) >_rpo on T(Σ,V) is defined as the smallest relation such that s = f(s_1,…,s_m) >_rpo t iff one of the following holds:\n (1) t is a variable occurring strictly in s; or\n (2) t = g(t_1,…,t_n) and either\n   (a) s_i ≥_rpo t for some i, or\n   (b) f >_Σ g and s >_rpo t_j for all j, or\n   (c) f = g and {s_1,…,s_m} is greater than {t_1,…,t_n} in the multiset extension of >_rpo.\n\nThe lexicographic path ordering (LPO) >_lpo is defined identically except that case (c) is replaced by the lexicographic extension of >_lpo on the tuples (s_1,…,s_m) and (t_1,…,t_n) (together with s >_lpo t_j for all j).\n\nDetermine the computational complexity of the following decision problems:\n\n(i) Given Σ, a precedence >_Σ on Σ (not necessarily total), and two terms s, t ∈ T(Σ,V), decide whether s >_rpo t.\n\n(ii) Given Σ, a (possibly non-total) precedence >_Σ on Σ, and two terms s, t ∈ T(Σ,V) (which may contain variables), decide whether s >_lpo t.\n\nIn particular, classify each of these problems with respect to standard complexity classes (P, NP, coNP, PSPACE, etc.), determining tight upper and lower bounds.",
+    "macro_subject": "Theoretical Computer Science",
+    "category_tag": "Term rewriting and path orderings",
+    "open_status": "partially_solved",
+    "status_search_result": "Partial results are known: the constraint satisfaction / orientation problem for RPO is known to be NP-complete, and SAT-based encodings are used in practice; certain first-order theories of RPO (e.g., unary signature, total precedence) are decidable while related LPO theories have undecidability results. However, a complete and tight complexity classification for the comparability problems with non-total precedences and variables was raised as an open question in surveys of rewriting problems, and no comprehensive resolution covering all listed cases is documented in the search results.",
+    "status_evidence": [
+      {
+        "title": "SAT Solving for Termination Proofs with Recursive Path Orders",
+        "url": "https://verify.rwth-aachen.de/giesl/papers/RPO-Journal-distribute.pdf",
+        "snippet": "The strict and quasi-RPO decision/constraint problems are decidable and NP-complete; SAT encodings are used in practice.",
+        "claim": "RPO constraint problems are NP-complete, indicating partial progress on the complexity question."
+      },
+      {
+        "title": "Path ordering (term rewriting) - Wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Path_ordering_(term_rewriting)",
+        "snippet": "Overview of RPO/LPO and their decidability/undecidability properties depending on precedence and signature restrictions.",
+        "claim": "Decidability results differ between RPO and LPO and depend on whether precedence is total."
+      }
+    ],
+    "confidence": 0.55
+  },
+  "model": "opus",
+  "effort": "medium",
+  "elapsed_s": 27.7,
+  "validation_warnings": [],
+  "raw_claude_stdout": "{\"type\":\"result\",\"subtype\":\"success\",\"is_error\":false,\"api_error_status\":null,\"duration_ms\":26935,\"duration_api_ms\":26213,\"num_turns\":3,\"result\":\"Sources:\\n- [SAT Solving for Termination Proofs with Recursive Path Orders](https://verify.rwth-aachen.de/giesl/papers/RPO-Journal-distribute.pdf)\\n- [Path ordering (term rewriting) - Wikipedia](https://en.wikipedia.org/wiki/Path_ordering_(term_rewriting))\\n- [Proving Termination using Recursive Path Orders and SAT Solving](https://verify.rwth-aachen.de/giesl/papers/FROCOS07-distribute.pdf)\",\"stop_reason\":\"end_turn\",\"session_id\":\"586c8009-c216-4f34-b392-1e58bfd4b656\",\"total_cost_usd\":0.10516924999999999,\"usage\":{\"input_tokens\":8,\"cache_creation_input_tokens\":3787,\"cache_read_input_tokens\":11593,\"output_tokens\":1647,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":3787,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[{\"input_tokens\":1,\"output_tokens\":192,\"cache_read_input_tokens\":5118,\"cache_creation_input_tokens\":1354,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":1354},\"type\":\"message\"}],\"speed\":\"standard\"},\"modelUsage\":{\"claude-haiku-4-5-20251001\":{\"inputTokens\":22184,\"outputTokens\":461,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":1,\"costUSD\":0.034489000000000006,\"contextWindow\":200000,\"maxOutputTokens\":32000},\"claude-opus-4-7\":{\"inputTokens\":8,\"outputTokens\":1647,\"cacheReadInputTokens\":11593,\"cacheCreationInputTokens\":3787,\"webSearchRequests\":0,\"costUSD\":0.07068025,\"contextWindow\":1000000,\"maxOutputTokens\":64000}},\"permission_denials\":[],\"structured_output\":{\"self_contained_problem\":\"Let Σ be a finite signature of function symbols, each with a fixed arity, and let V be a countable set of variables. Denote by T(Σ,V) the set of (first-order) terms over Σ and V. A precedence on Σ is a (strict) partial order >_Σ on Σ; it is total if it is a linear order.\\n\\nGiven a precedence >_Σ, the recursive path ordering (RPO) >_rpo on T(Σ,V) is defined as the smallest relation such that s = f(s_1,…,s_m) >_rpo t iff one of the following holds:\\n (1) t is a variable occurring strictly in s; or\\n (2) t = g(t_1,…,t_n) and either\\n   (a) s_i ≥_rpo t for some i, or\\n   (b) f >_Σ g and s >_rpo t_j for all j, or\\n   (c) f = g and {s_1,…,s_m} is greater than {t_1,…,t_n} in the multiset extension of >_rpo.\\n\\nThe lexicographic path ordering (LPO) >_lpo is defined identically except that case (c) is replaced by the lexicographic extension of >_lpo on the tuples (s_1,…,s_m) and (t_1,…,t_n) (together with s >_lpo t_j for all j).\\n\\nDetermine the computational complexity of the following decision problems:\\n\\n(i) Given Σ, a precedence >_Σ on Σ (not necessarily total), and two terms s, t ∈ T(Σ,V), decide whether s >_rpo t.\\n\\n(ii) Given Σ, a (possibly non-total) precedence >_Σ on Σ, and two terms s, t ∈ T(Σ,V) (which may contain variables), decide whether s >_lpo t.\\n\\nIn particular, classify each of these problems with respect to standard complexity classes (P, NP, coNP, PSPACE, etc.), determining tight upper and lower bounds.\",\"macro_subject\":\"Theoretical Computer Science\",\"category_tag\":\"Term rewriting and path orderings\",\"open_status\":\"partially_solved\",\"status_search_result\":\"Partial results are known: the constraint satisfaction / orientation problem for RPO is known to be NP-complete, and SAT-based encodings are used in practice; certain first-order theories of RPO (e.g., unary signature, total precedence) are decidable while related LPO theories have undecidability results. However, a complete and tight complexity classification for the comparability problems with non-total precedences and variables was raised as an open question in surveys of rewriting problems, and no comprehensive resolution covering all listed cases is documented in the search results.\",\"status_evidence\":[{\"title\":\"SAT Solving for Termination Proofs with Recursive Path Orders\",\"url\":\"https://verify.rwth-aachen.de/giesl/papers/RPO-Journal-distribute.pdf\",\"snippet\":\"The strict and quasi-RPO decision/constraint problems are decidable and NP-complete; SAT encodings are used in practice.\",\"claim\":\"RPO constraint problems are NP-complete, indicating partial progress on the complexity question.\"},{\"title\":\"Path ordering (term rewriting) - Wikipedia\",\"url\":\"https://en.wikipedia.org/wiki/Path_ordering_(term_rewriting)\",\"snippet\":\"Overview of RPO/LPO and their decidability/undecidability properties depending on precedence and signature restrictions.\",\"claim\":\"Decidability results differ between RPO and LPO and depend on whether precedence is total.\"}],\"confidence\":0.55},\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"uuid\":\"224c446a-b6b6-4007-aa9d-46dd9f5aecfc\"}\n"
+}

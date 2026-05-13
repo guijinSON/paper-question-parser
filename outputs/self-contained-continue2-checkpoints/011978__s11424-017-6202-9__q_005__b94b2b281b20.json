@@ -1,0 +1,53 @@
+{
+  "record": {
+    "global_index": 11978,
+    "source_json": "outputs/parse-paper/s11424-017-6202-9.json",
+    "paper_id": "s11424-017-6202-9",
+    "paper_title": "Some Open Problems Related to Creative Telescoping",
+    "paper_link": "https://zbmath.org/6770332",
+    "question_link": "https://zbmath.org/6770332",
+    "question_id": "q_005",
+    "parser_is_solved": "false",
+    "context_brief": "Predicting telescoper singularities from input",
+    "original_question": "Given a proper hypergeometric term f(n, k) = p c^n d^k ∏_{i=1}^m Γ(α_i n + β_i k + γ_i)^{e_i}, where p ∈ C[n, k], c and d are in C, α_i, β_i, e_i are in N, and γ_i are in C, find a method to determine the removable and non-removable singularities of a telescoper for f using less computation than is required to compute a telescoper itself. Ask the analogous question for hyperexponential terms f(x, y) = exp(a/b) ∏_{i=1}^m p_i^{c_i}, where a, b, p_i ∈ C[x, y] and c_i ∈ C.",
+    "evidence": [
+      {
+        "page": 6,
+        "quote": "Problem 3.3 (a) Find a way to determine the removable and non-removable singularities of a telescoper for a given proper hypergeometric term f(n, k) = pcndk ∏_{i=1}^m Γ(αin+βik+γi)^{ei} (p ∈ C[n, k], c, d ∈ C, αi, βi, ei ∈ N, γi ∈ C), using less computation time than needed for computing a telescoper. (b) The analogous question for hyperexponential terms f(x, y)= exp(a/b) ∏_{i=1}^m p_i^{c_i} (a, b, p_i ∈ C[x, y], c_i ∈ C)."
+      }
+    ]
+  },
+  "artifact": {
+    "self_contained_problem": "A proper hypergeometric term in two discrete variables is a function of the form\n  f(n,k) = p(n,k) · c^n · d^k · ∏_{i=1}^{m} Γ(α_i n + β_i k + γ_i)^{e_i},\nwhere p ∈ C[n,k], c,d ∈ C, α_i, β_i ∈ N, e_i ∈ Z (with α_i, β_i, e_i nonnegative integers as specified), and γ_i ∈ C. A telescoper for f is a nonzero linear recurrence operator L(n, S_n) (with S_n the shift n ↦ n+1) such that L·f = Δ_k g for some hypergeometric term g, where Δ_k is the forward difference in k. The singularities of L are the roots of its leading coefficient as a polynomial in n; a singularity is called removable if there is another telescoper for f whose leading coefficient does not vanish there, and non-removable otherwise.\n\n(a) Devise an algorithm that, given the data (p, c, d, {α_i, β_i, γ_i, e_i}) defining f, determines the removable and non-removable singularities of a telescoper for f using strictly less computational work than is needed to actually compute a telescoper.\n\n(b) Solve the analogous problem in the continuous (hyperexponential) setting: a hyperexponential term is a function of the form\n  f(x,y) = exp(a(x,y)/b(x,y)) · ∏_{i=1}^{m} p_i(x,y)^{c_i},\nwith a, b, p_i ∈ C[x,y] and c_i ∈ C, where a telescoper is a nonzero linear differential operator L(x, ∂_x) such that L·f = ∂_y g for some hyperexponential g. Determine, directly from the input data (a, b, {p_i, c_i}), which singularities of the telescoper are removable and which are not, with cost lower than computing a telescoper.",
+    "macro_subject": "Algebra",
+    "category_tag": "creative telescoping",
+    "open_status": "open",
+    "status_search_result": "Recent literature on creative telescoping discusses Hermite-like reductions, additive/multiplicative decompositions, and existence criteria for telescopers of (mixed) hypergeometric and hyperexponential terms, but no algorithm is reported that predicts the removable and non-removable singularities of a telescoper directly from the input data more cheaply than computing the telescoper itself. The problem appears to remain open.",
+    "status_evidence": [
+      {
+        "title": "On the existence of telescopers for mixed hypergeometric terms",
+        "url": "https://www.sciencedirect.com/science/article/pii/S0747717114000558",
+        "snippet": "A criterion for the existence of telescopers for mixed hypergeometric terms based on additive and multiplicative decompositions.",
+        "claim": "Existence criteria are available, but singularity prediction at lower cost than computing telescopers is not addressed."
+      },
+      {
+        "title": "A Generalized Apagodu–Zeilberger Algorithm",
+        "url": "https://www.ricam.oeaw.ac.at/files/reports/14/rep14-05.pdf",
+        "snippet": "Explicit upper bounds on the order of telescopers for proper ∂-finite functions.",
+        "claim": "Bounds on telescoper order exist, but cheap prediction of removable/non-removable singularities is not provided."
+      },
+      {
+        "title": "Efficient Algorithms for Mixed Creative Telescoping",
+        "url": "https://inria.hal.science/hal-01317940",
+        "snippet": "Hermite-like reduction procedure for bivariate hypergeometric-hyperexponential terms.",
+        "claim": "State-of-the-art reductions still compute telescopers; no separate cheaper singularity-prediction algorithm reported."
+      }
+    ],
+    "confidence": 0.6
+  },
+  "model": "opus",
+  "effort": "medium",
+  "elapsed_s": 29.85,
+  "validation_warnings": [],
+  "raw_claude_stdout": "{\"type\":\"result\",\"subtype\":\"success\",\"is_error\":false,\"api_error_status\":null,\"duration_ms\":29142,\"duration_api_ms\":28458,\"num_turns\":3,\"result\":\"Sources:\\n- [On the existence of telescopers for mixed hypergeometric terms](https://www.sciencedirect.com/science/article/pii/S0747717114000558)\\n- [A Generalized Apagodu–Zeilberger Algorithm (RICAM)](https://www.ricam.oeaw.ac.at/files/reports/14/rep14-05.pdf)\\n- [Efficient Algorithms for Mixed Creative Telescoping](https://inria.hal.science/hal-01317940)\",\"stop_reason\":\"end_turn\",\"session_id\":\"736e7492-1b77-4a24-b60d-e5206dc88a41\",\"total_cost_usd\":0.1047545,\"usage\":{\"input_tokens\":8,\"cache_creation_input_tokens\":4330,\"cache_read_input_tokens\":12414,\"output_tokens\":1708,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":4330,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[{\"input_tokens\":1,\"output_tokens\":171,\"cache_read_input_tokens\":5561,\"cache_creation_input_tokens\":1454,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":1454},\"type\":\"message\"}],\"speed\":\"standard\"},\"modelUsage\":{\"claude-haiku-4-5-20251001\":{\"inputTokens\":16455,\"outputTokens\":458,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":1,\"costUSD\":0.028745,\"contextWindow\":200000,\"maxOutputTokens\":32000},\"claude-opus-4-7\":{\"inputTokens\":8,\"outputTokens\":1708,\"cacheReadInputTokens\":12414,\"cacheCreationInputTokens\":4330,\"webSearchRequests\":0,\"costUSD\":0.0760095,\"contextWindow\":1000000,\"maxOutputTokens\":64000}},\"permission_denials\":[],\"structured_output\":{\"self_contained_problem\":\"A proper hypergeometric term in two discrete variables is a function of the form\\n  f(n,k) = p(n,k) · c^n · d^k · ∏_{i=1}^{m} Γ(α_i n + β_i k + γ_i)^{e_i},\\nwhere p ∈ C[n,k], c,d ∈ C, α_i, β_i ∈ N, e_i ∈ Z (with α_i, β_i, e_i nonnegative integers as specified), and γ_i ∈ C. A telescoper for f is a nonzero linear recurrence operator L(n, S_n) (with S_n the shift n ↦ n+1) such that L·f = Δ_k g for some hypergeometric term g, where Δ_k is the forward difference in k. The singularities of L are the roots of its leading coefficient as a polynomial in n; a singularity is called removable if there is another telescoper for f whose leading coefficient does not vanish there, and non-removable otherwise.\\n\\n(a) Devise an algorithm that, given the data (p, c, d, {α_i, β_i, γ_i, e_i}) defining f, determines the removable and non-removable singularities of a telescoper for f using strictly less computational work than is needed to actually compute a telescoper.\\n\\n(b) Solve the analogous problem in the continuous (hyperexponential) setting: a hyperexponential term is a function of the form\\n  f(x,y) = exp(a(x,y)/b(x,y)) · ∏_{i=1}^{m} p_i(x,y)^{c_i},\\nwith a, b, p_i ∈ C[x,y] and c_i ∈ C, where a telescoper is a nonzero linear differential operator L(x, ∂_x) such that L·f = ∂_y g for some hyperexponential g. Determine, directly from the input data (a, b, {p_i, c_i}), which singularities of the telescoper are removable and which are not, with cost lower than computing a telescoper.\",\"macro_subject\":\"Algebra\",\"category_tag\":\"creative telescoping\",\"open_status\":\"open\",\"status_search_result\":\"Recent literature on creative telescoping discusses Hermite-like reductions, additive/multiplicative decompositions, and existence criteria for telescopers of (mixed) hypergeometric and hyperexponential terms, but no algorithm is reported that predicts the removable and non-removable singularities of a telescoper directly from the input data more cheaply than computing the telescoper itself. The problem appears to remain open.\",\"status_evidence\":[{\"title\":\"On the existence of telescopers for mixed hypergeometric terms\",\"url\":\"https://www.sciencedirect.com/science/article/pii/S0747717114000558\",\"snippet\":\"A criterion for the existence of telescopers for mixed hypergeometric terms based on additive and multiplicative decompositions.\",\"claim\":\"Existence criteria are available, but singularity prediction at lower cost than computing telescopers is not addressed.\"},{\"title\":\"A Generalized Apagodu–Zeilberger Algorithm\",\"url\":\"https://www.ricam.oeaw.ac.at/files/reports/14/rep14-05.pdf\",\"snippet\":\"Explicit upper bounds on the order of telescopers for proper ∂-finite functions.\",\"claim\":\"Bounds on telescoper order exist, but cheap prediction of removable/non-removable singularities is not provided.\"},{\"title\":\"Efficient Algorithms for Mixed Creative Telescoping\",\"url\":\"https://inria.hal.science/hal-01317940\",\"snippet\":\"Hermite-like reduction procedure for bivariate hypergeometric-hyperexponential terms.\",\"claim\":\"State-of-the-art reductions still compute telescopers; no separate cheaper singularity-prediction algorithm reported.\"}],\"confidence\":0.6},\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"uuid\":\"bf679e8f-62b4-442c-9427-f0f121a61969\"}\n"
+}

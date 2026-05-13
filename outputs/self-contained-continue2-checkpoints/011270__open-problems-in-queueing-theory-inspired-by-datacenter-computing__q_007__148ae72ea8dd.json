@@ -1,0 +1,53 @@
+{
+  "record": {
+    "global_index": 11270,
+    "source_json": "outputs/parse-paper/open-problems-in-queueing-theory-inspired-by-datacenter-computing.json",
+    "paper_id": "open-problems-in-queueing-theory-inspired-by-datacenter-computing",
+    "paper_title": "Open problems in queueing theory inspired by datacenter computing",
+    "paper_link": "https://zbmath.org/7433968",
+    "question_link": "https://zbmath.org/7433968",
+    "question_id": "q_007",
+    "parser_is_solved": "false",
+    "context_brief": "Online parallel allocation",
+    "original_question": "When jobs with partially parallelizable speedup functions arrive over time, even for simple speedup models such as threshold-based speedup, what online allocation policy is optimal?",
+    "evidence": [
+      {
+        "page": 10,
+        "quote": "Even for the simplest speedup functions (for example, threshold-based speedup), once we add in arrivals, the optimal allocation is an open problem."
+      }
+    ]
+  },
+  "artifact": {
+    "self_contained_problem": "Consider a single-server-pool system with $k$ identical servers (or processors). Jobs arrive over time according to a Poisson process of rate $\\lambda$, and each arriving job $j$ has an i.i.d. size (work requirement) $X_j$ drawn from a known distribution. Each job has a threshold-based speedup function: there is a parameter $s_j \\in \\{1, 2, \\dots, k\\}$ such that if $a$ servers are allocated to job $j$ at some instant, the instantaneous service rate of job $j$ is $\\min(a, s_j)$ (i.e., the job experiences linear speedup up to $s_j$ servers and no additional speedup beyond that). At every instant, a scheduler must decide how to partition the $k$ servers among the jobs currently in the system (servers may be allocated fractionally or in integer amounts, and reallocation may occur at any time without switching cost); jobs that are not allocated any server make no progress, and a job departs upon completing its work. \n\nDetermine an online allocation/scheduling policy that minimizes the long-run mean response time (sojourn time) of jobs, where the policy may use only causal information (arrival times, current ages/remaining sizes, and the speedup thresholds of jobs already present), and not future arrivals. Equivalently: characterize the optimal online server-allocation policy in this model with threshold speedup and Poisson arrivals.",
+    "macro_subject": "Applied Mathematics",
+    "category_tag": "Online scheduling of parallelizable jobs",
+    "open_status": "open",
+    "status_search_result": "Recent work has produced asymptotically optimal policies (e.g., LPF in light-load/Sub-Halfin-Whitt regimes and SERPT in heavy-load/Super-NDS regimes, and hybrid threshold policies combining the two) and an exactly optimal policy (heSRPT) only in the special case of no arrivals (all jobs present at time 0). For the general dynamic arrival setting with threshold-based speedup, no exactly optimal online allocation policy is known; the problem remains open, with only asymptotic or heuristic results available.",
+    "status_evidence": [
+      {
+        "title": "Asymptotically Optimal Scheduling of Multiple Parallelizable Job Classes",
+        "url": "https://arxiv.org/html/2404.00346",
+        "snippet": "In lighter-load scaling regimes the optimal allocation policy is LPF; in heavier-load regimes it is SERPT. A threshold-based hybrid policy combines these.",
+        "claim": "Only asymptotic optimality results are known; optimal policy depends on regime."
+      },
+      {
+        "title": "heSRPT: Optimal Parallel Scheduling of Jobs With Known Sizes",
+        "url": "https://arxiv.org/pdf/1903.09346",
+        "snippet": "heSRPT provides the first optimal allocation policy for minimizing mean slowdown of parallelizable jobs of known size when all jobs are present at time 0.",
+        "claim": "Exact optimality is established only without arrivals."
+      },
+      {
+        "title": "Towards Optimality in Parallel Job Scheduling",
+        "url": "https://arxiv.org/pdf/1707.07097",
+        "snippet": "THRESH dynamically combines deferring parallelizable work and favoring short jobs; not proven exactly optimal under arrivals.",
+        "claim": "No exact optimal policy known under arrivals."
+      }
+    ],
+    "confidence": 0.7
+  },
+  "model": "opus",
+  "effort": "medium",
+  "elapsed_s": 33.12,
+  "validation_warnings": [],
+  "raw_claude_stdout": "{\"type\":\"result\",\"subtype\":\"success\",\"is_error\":false,\"api_error_status\":null,\"duration_ms\":32379,\"duration_api_ms\":30208,\"num_turns\":3,\"result\":\"Sources:\\n- [Asymptotically Optimal Scheduling of Multiple Parallelizable Job Classes](https://arxiv.org/html/2404.00346)\\n- [heSRPT: Optimal Parallel Scheduling of Jobs With Known Sizes](https://arxiv.org/pdf/1903.09346)\\n- [Towards Optimality in Parallel Job Scheduling](https://arxiv.org/pdf/1707.07097)\",\"stop_reason\":\"end_turn\",\"session_id\":\"6a704d99-290f-4c3b-b0a7-aa638c6bfc25\",\"total_cost_usd\":0.10370474999999998,\"usage\":{\"input_tokens\":8,\"cache_creation_input_tokens\":3965,\"cache_read_input_tokens\":11847,\"output_tokens\":1561,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":3965,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[{\"input_tokens\":1,\"output_tokens\":156,\"cache_read_input_tokens\":5334,\"cache_creation_input_tokens\":1316,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":1316},\"type\":\"message\"}],\"speed\":\"standard\"},\"modelUsage\":{\"claude-haiku-4-5-20251001\":{\"inputTokens\":21130,\"outputTokens\":561,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":1,\"costUSD\":0.033935,\"contextWindow\":200000,\"maxOutputTokens\":32000},\"claude-opus-4-7\":{\"inputTokens\":8,\"outputTokens\":1561,\"cacheReadInputTokens\":11847,\"cacheCreationInputTokens\":3965,\"webSearchRequests\":0,\"costUSD\":0.06976974999999999,\"contextWindow\":1000000,\"maxOutputTokens\":64000}},\"permission_denials\":[],\"structured_output\":{\"self_contained_problem\":\"Consider a single-server-pool system with $k$ identical servers (or processors). Jobs arrive over time according to a Poisson process of rate $\\\\lambda$, and each arriving job $j$ has an i.i.d. size (work requirement) $X_j$ drawn from a known distribution. Each job has a threshold-based speedup function: there is a parameter $s_j \\\\in \\\\{1, 2, \\\\dots, k\\\\}$ such that if $a$ servers are allocated to job $j$ at some instant, the instantaneous service rate of job $j$ is $\\\\min(a, s_j)$ (i.e., the job experiences linear speedup up to $s_j$ servers and no additional speedup beyond that). At every instant, a scheduler must decide how to partition the $k$ servers among the jobs currently in the system (servers may be allocated fractionally or in integer amounts, and reallocation may occur at any time without switching cost); jobs that are not allocated any server make no progress, and a job departs upon completing its work. \\n\\nDetermine an online allocation/scheduling policy that minimizes the long-run mean response time (sojourn time) of jobs, where the policy may use only causal information (arrival times, current ages/remaining sizes, and the speedup thresholds of jobs already present), and not future arrivals. Equivalently: characterize the optimal online server-allocation policy in this model with threshold speedup and Poisson arrivals.\",\"macro_subject\":\"Applied Mathematics\",\"category_tag\":\"Online scheduling of parallelizable jobs\",\"open_status\":\"open\",\"status_search_result\":\"Recent work has produced asymptotically optimal policies (e.g., LPF in light-load/Sub-Halfin-Whitt regimes and SERPT in heavy-load/Super-NDS regimes, and hybrid threshold policies combining the two) and an exactly optimal policy (heSRPT) only in the special case of no arrivals (all jobs present at time 0). For the general dynamic arrival setting with threshold-based speedup, no exactly optimal online allocation policy is known; the problem remains open, with only asymptotic or heuristic results available.\",\"status_evidence\":[{\"title\":\"Asymptotically Optimal Scheduling of Multiple Parallelizable Job Classes\",\"url\":\"https://arxiv.org/html/2404.00346\",\"snippet\":\"In lighter-load scaling regimes the optimal allocation policy is LPF; in heavier-load regimes it is SERPT. A threshold-based hybrid policy combines these.\",\"claim\":\"Only asymptotic optimality results are known; optimal policy depends on regime.\"},{\"title\":\"heSRPT: Optimal Parallel Scheduling of Jobs With Known Sizes\",\"url\":\"https://arxiv.org/pdf/1903.09346\",\"snippet\":\"heSRPT provides the first optimal allocation policy for minimizing mean slowdown of parallelizable jobs of known size when all jobs are present at time 0.\",\"claim\":\"Exact optimality is established only without arrivals.\"},{\"title\":\"Towards Optimality in Parallel Job Scheduling\",\"url\":\"https://arxiv.org/pdf/1707.07097\",\"snippet\":\"THRESH dynamically combines deferring parallelizable work and favoring short jobs; not proven exactly optimal under arrivals.\",\"claim\":\"No exact optimal policy known under arrivals.\"}],\"confidence\":0.7},\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"uuid\":\"e72ccb5a-c583-4c6a-80ed-336fd46d3e0c\"}\n"
+}

@@ -1,0 +1,69 @@
+{
+  "record": {
+    "global_index": 12602,
+    "source_json": "outputs/parse-paper/zbmath-36675.json",
+    "paper_id": "zbmath-36675",
+    "paper_title": "Perspectivas sobre a Estatística de Extremos. Resultados básicos e problemas em aberto",
+    "paper_link": "https://zbmath.org/36675",
+    "question_link": "https://zbmath.org/36675",
+    "question_id": "q_002",
+    "parser_is_solved": "false",
+    "context_brief": "Smooth intrinsic bivariate dependence estimation",
+    "original_question": "For bivariate extreme-value modeling, consider independent random pairs with reduced exponential margins and limiting survival function S(x,y)=exp{-(x+y)A(x/(x+y))} for x,y greater than 0, where A is a dependence function with A(0)=A(1)=1, endpoint derivative constraints 0 <= -A'(0) and A'(1) < 1, and convexity. Equivalently, under the transformation from reduced Gumbel maxima to reduced exponential minima, A corresponds to the dependence function k(w). Existing intrinsic or nonparametric estimators, such as the cited Pickands and Tiago de Oliveira estimators, yield dependence functions that are not twice differentiable, so the induced bivariate extreme-value survival or distribution models do not have a planar density. How can one estimate A(u), or equivalently k(w), by an intrinsic or nonparametric estimator that remains a valid dependence function and is twice differentiable, so that the resulting bivariate extreme-value model has a planar density and better analytic manageability?",
+    "evidence": [
+      {
+        "page": 471,
+        "quote": "Se for S(x, y) = Prob{X > x, Y > y} a função de sobrevivência, a função de sobrevivência dos mínimos de uma amostra i.i.d. é, analogamente, S^n(x, y) e se as distribuições marginais forem atraídas pela distribuição exponencial então S^n(x,y), convenientemente reduzida, tem como função de sobrevivência limite S(x,y)=exp{-(x+y)A(x/(x+y))}, x,y >= 0."
+      },
+      {
+        "page": 472,
+        "quote": "com A(0) = A(1) = 1, O <= -A'(0), A'(1) < 1 e A(u) convexa, como se sabe."
+      },
+      {
+        "page": 475,
+        "quote": "A esta abordagem chamamos estimação intrínsica da função de dependência, também chamada, por vezes, estimação não-paramétrica."
+      },
+      {
+        "page": 476,
+        "quote": "Deve notar-se que qualquer dos estimadores intrínsicos indicados (o de Pickands e os dois de Tiago de Oliveira) têm um função da dependência que não é duplamente derivável e portanto S* = exp {-(x + y)A*n(x/(x+y))} (x,y > 0) e A*(x,y) = exp{-(e^-x + e^-y) k*n(y - x)} não têm densidade planar."
+      },
+      {
+        "page": 476,
+        "quote": "Um problema em aberto é o de estimar A(u) (ou k(w)) de modo que haja densidade planar, ou seja que a função da dependência seja duplamente derivável: do ponto de vista prático isso significaria uma aproximação mais manejável, dadas as suas propriedades analíticas."
+      }
+    ]
+  },
+  "artifact": {
+    "self_contained_problem": "Let $(X_i, Y_i)$, $i = 1, \\dots, n$, be independent and identically distributed bivariate random pairs whose component-wise minima, after appropriate normalization to reduced exponential margins, have joint survival function\n$$S(x,y) = \\exp\\{-(x+y)\\,A\\!\\left(\\tfrac{x}{x+y}\\right)\\}, \\qquad x,y > 0,$$\nwhere the dependence function $A:[0,1] \\to [1/2,1]$ satisfies\n(i) $A(0) = A(1) = 1$;\n(ii) $0 \\le -A'(0)$ and $A'(1) < 1$;\n(iii) $A$ is convex on $[0,1]$;\n(iv) $\\max(u,1-u) \\le A(u) \\le 1$ for all $u \\in [0,1]$.\n\nEquivalently, under the transformation linking reduced Gumbel maxima to reduced exponential minima, the corresponding bivariate extreme-value distribution function may be written as\n$$F(x,y) = \\exp\\{-(e^{-x} + e^{-y})\\,k(y-x)\\},$$\nwhere $k$ is the associated dependence function in the Gumbel parametrization.\n\nClassical intrinsic (nonparametric) estimators of $A$, such as those of Pickands and of Tiago de Oliveira, produce estimators $\\widehat{A}_n$ that are not twice differentiable; consequently the induced estimated survival function $\\widehat{S}_n(x,y) = \\exp\\{-(x+y)\\widehat{A}_n(x/(x+y))\\}$ (and the corresponding distribution function in the Gumbel form) does not possess a density with respect to Lebesgue measure on the plane.\n\nProblem. Construct an intrinsic (nonparametric) estimator $\\widehat{A}_n$ of $A$ (equivalently $\\widehat{k}_n$ of $k$) based on the sample $(X_i, Y_i)_{i=1}^n$ such that, with probability one (or at least for all sufficiently large $n$),\n(a) $\\widehat{A}_n$ is a valid dependence function, i.e. it satisfies (i)–(iv) above;\n(b) $\\widehat{A}_n \\in C^2([0,1])$;\nso that the induced bivariate extreme-value model admits a planar density and enjoys improved analytic tractability. Establish the consistency and asymptotic distribution of such an estimator.",
+    "macro_subject": "Statistics and Machine Learning",
+    "category_tag": "Bivariate extreme-value dependence estimation",
+    "open_status": "partially_solved",
+    "status_search_result": "Several smooth nonparametric estimators of the Pickands dependence function that respect the shape constraints have been proposed since the question was posed, including constrained Bernstein-polynomial estimators (Marcon, Padoan, Naveau and coauthors, 2014–2017), constrained B-spline smoothing estimators (Cormier, Genest, Nešlehová and others), and recent works on twice-differentiable approximation of A and its derivatives (Extremes, 2024). These give estimators that are smooth and satisfy the dependence-function constraints, so the problem is at least partially solved; questions of optimality, asymptotic distribution under minimal assumptions, and full higher-dimensional analogues remain active.",
+    "status_evidence": [
+      {
+        "title": "On approximating dependence function and its derivatives",
+        "url": "https://link.springer.com/article/10.1007/s10687-024-00484-2",
+        "snippet": "Theoretical results which can be used to find a closed form approximation for an exact or an estimate of a twice differentiable dependence function and its derivatives.",
+        "claim": "Provides smooth twice-differentiable approximations of the Pickands dependence function."
+      },
+      {
+        "title": "Multivariate nonparametric estimation of the Pickands dependence function using Bernstein polynomials",
+        "url": "https://www.sciencedirect.com/science/article/abs/pii/S0378375816301276",
+        "snippet": "Nonparametric approach ensures the estimator obeys all Pickands' constraints via Bernstein polynomial representation.",
+        "claim": "A smooth constrained Bernstein-polynomial estimator of A exists."
+      },
+      {
+        "title": "Asymptotic behavior of an intrinsic rank-based estimator of the Pickands dependence function constructed from B-splines",
+        "url": "https://link.springer.com/article/10.1007/s10687-022-00451-9",
+        "snippet": "Nonparametric estimator constructed through constrained quadratic median B-spline smoothing of pseudo-observations.",
+        "claim": "A smooth B-spline-based intrinsic estimator with asymptotic theory has been developed."
+      }
+    ],
+    "confidence": 0.8
+  },
+  "model": "opus",
+  "effort": "medium",
+  "elapsed_s": 36.84,
+  "validation_warnings": [],
+  "raw_claude_stdout": "{\"type\":\"result\",\"subtype\":\"success\",\"is_error\":false,\"api_error_status\":null,\"duration_ms\":36011,\"duration_api_ms\":35539,\"num_turns\":3,\"result\":\"Sources:\\n- [On approximating dependence function and its derivatives](https://link.springer.com/article/10.1007/s10687-024-00484-2)\\n- [Multivariate nonparametric estimation of the Pickands dependence function using Bernstein polynomials](https://www.sciencedirect.com/science/article/abs/pii/S0378375816301276)\\n- [Asymptotic behavior of an intrinsic rank-based estimator of the Pickands dependence function constructed from B-splines](https://link.springer.com/article/10.1007/s10687-022-00451-9)\\n- [New estimators of the Pickands dependence function](https://arxiv.org/pdf/1102.0405)\",\"stop_reason\":\"end_turn\",\"session_id\":\"ea7c48cf-941c-46a3-bf94-740a4e074ff2\",\"total_cost_usd\":0.124581,\"usage\":{\"input_tokens\":8,\"cache_creation_input_tokens\":5186,\"cache_read_input_tokens\":13335,\"output_tokens\":2170,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":5186,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[{\"input_tokens\":1,\"output_tokens\":230,\"cache_read_input_tokens\":6098,\"cache_creation_input_tokens\":1773,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":1773},\"type\":\"message\"}],\"speed\":\"standard\"},\"modelUsage\":{\"claude-haiku-4-5-20251001\":{\"inputTokens\":18651,\"outputTokens\":512,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":1,\"costUSD\":0.031211,\"contextWindow\":200000,\"maxOutputTokens\":32000},\"claude-opus-4-7\":{\"inputTokens\":8,\"outputTokens\":2170,\"cacheReadInputTokens\":13335,\"cacheCreationInputTokens\":5186,\"webSearchRequests\":0,\"costUSD\":0.09337000000000001,\"contextWindow\":1000000,\"maxOutputTokens\":64000}},\"permission_denials\":[],\"structured_output\":{\"self_contained_problem\":\"Let $(X_i, Y_i)$, $i = 1, \\\\dots, n$, be independent and identically distributed bivariate random pairs whose component-wise minima, after appropriate normalization to reduced exponential margins, have joint survival function\\n$$S(x,y) = \\\\exp\\\\{-(x+y)\\\\,A\\\\!\\\\left(\\\\tfrac{x}{x+y}\\\\right)\\\\}, \\\\qquad x,y > 0,$$\\nwhere the dependence function $A:[0,1] \\\\to [1/2,1]$ satisfies\\n(i) $A(0) = A(1) = 1$;\\n(ii) $0 \\\\le -A'(0)$ and $A'(1) < 1$;\\n(iii) $A$ is convex on $[0,1]$;\\n(iv) $\\\\max(u,1-u) \\\\le A(u) \\\\le 1$ for all $u \\\\in [0,1]$.\\n\\nEquivalently, under the transformation linking reduced Gumbel maxima to reduced exponential minima, the corresponding bivariate extreme-value distribution function may be written as\\n$$F(x,y) = \\\\exp\\\\{-(e^{-x} + e^{-y})\\\\,k(y-x)\\\\},$$\\nwhere $k$ is the associated dependence function in the Gumbel parametrization.\\n\\nClassical intrinsic (nonparametric) estimators of $A$, such as those of Pickands and of Tiago de Oliveira, produce estimators $\\\\widehat{A}_n$ that are not twice differentiable; consequently the induced estimated survival function $\\\\widehat{S}_n(x,y) = \\\\exp\\\\{-(x+y)\\\\widehat{A}_n(x/(x+y))\\\\}$ (and the corresponding distribution function in the Gumbel form) does not possess a density with respect to Lebesgue measure on the plane.\\n\\nProblem. Construct an intrinsic (nonparametric) estimator $\\\\widehat{A}_n$ of $A$ (equivalently $\\\\widehat{k}_n$ of $k$) based on the sample $(X_i, Y_i)_{i=1}^n$ such that, with probability one (or at least for all sufficiently large $n$),\\n(a) $\\\\widehat{A}_n$ is a valid dependence function, i.e. it satisfies (i)–(iv) above;\\n(b) $\\\\widehat{A}_n \\\\in C^2([0,1])$;\\nso that the induced bivariate extreme-value model admits a planar density and enjoys improved analytic tractability. Establish the consistency and asymptotic distribution of such an estimator.\",\"macro_subject\":\"Statistics and Machine Learning\",\"category_tag\":\"Bivariate extreme-value dependence estimation\",\"open_status\":\"partially_solved\",\"status_search_result\":\"Several smooth nonparametric estimators of the Pickands dependence function that respect the shape constraints have been proposed since the question was posed, including constrained Bernstein-polynomial estimators (Marcon, Padoan, Naveau and coauthors, 2014–2017), constrained B-spline smoothing estimators (Cormier, Genest, Nešlehová and others), and recent works on twice-differentiable approximation of A and its derivatives (Extremes, 2024). These give estimators that are smooth and satisfy the dependence-function constraints, so the problem is at least partially solved; questions of optimality, asymptotic distribution under minimal assumptions, and full higher-dimensional analogues remain active.\",\"status_evidence\":[{\"title\":\"On approximating dependence function and its derivatives\",\"url\":\"https://link.springer.com/article/10.1007/s10687-024-00484-2\",\"snippet\":\"Theoretical results which can be used to find a closed form approximation for an exact or an estimate of a twice differentiable dependence function and its derivatives.\",\"claim\":\"Provides smooth twice-differentiable approximations of the Pickands dependence function.\"},{\"title\":\"Multivariate nonparametric estimation of the Pickands dependence function using Bernstein polynomials\",\"url\":\"https://www.sciencedirect.com/science/article/abs/pii/S0378375816301276\",\"snippet\":\"Nonparametric approach ensures the estimator obeys all Pickands' constraints via Bernstein polynomial representation.\",\"claim\":\"A smooth constrained Bernstein-polynomial estimator of A exists.\"},{\"title\":\"Asymptotic behavior of an intrinsic rank-based estimator of the Pickands dependence function constructed from B-splines\",\"url\":\"https://link.springer.com/article/10.1007/s10687-022-00451-9\",\"snippet\":\"Nonparametric estimator constructed through constrained quadratic median B-spline smoothing of pseudo-observations.\",\"claim\":\"A smooth B-spline-based intrinsic estimator with asymptotic theory has been developed.\"}],\"confidence\":0.8},\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"uuid\":\"c1ee3cdd-fdac-44ee-9c27-12d199578973\"}\n"
+}

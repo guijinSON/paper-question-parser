@@ -1,0 +1,51 @@
+{
+  "record": {
+    "global_index": 12674,
+    "source_json": "outputs/parse-paper/zbmath-5374431.json",
+    "paper_id": "zbmath/5374431",
+    "paper_title": "Ten Open Problems in Grammatical Inference",
+    "paper_link": "https://zbmath.org/5374431",
+    "question_link": "https://zbmath.org/5374431",
+    "question_id": "q_011",
+    "parser_is_solved": "false",
+    "context_brief": "Winning algorithm for equal-size negotiation",
+    "original_question": "Under the negotiation-game winning criterion, can one find a winning deterministic learning algorithm when the two players' regular languages L1 and L2 are represented by deterministic finite automata with the same number of states, n1 = n2? A player wins if it identifies L1 ∩ L2 in the limit and either the opponent fails to identify that intersection or, when both identify it, the player makes fewer negative-query errors.",
+    "evidence": [
+      {
+        "page": 42,
+        "quote": "Definition 12. Given a game ⟨L1, L2⟩and 2 players A and B, A wins if A identifies L1 ∩L2 in the limit and if either B identifies L1 ∩L2 in the limit and |errors(A)| < |errors(B)| or if B does not identify L1 ∩L2 in the limit."
+      },
+      {
+        "page": 42,
+        "quote": "Problem 10. Using definition 12, find a winning algorithm, in the case where n1 = n2."
+      }
+    ]
+  },
+  "artifact": {
+    "self_contained_problem": "Setup. Fix a finite alphabet Σ. For a regular language L ⊆ Σ*, let dfa-size(L) denote the number of states of the minimal deterministic finite automaton (DFA) accepting L.\n\nA learner is a (deterministic) algorithm that, given an infinite presentation of examples for a target language T ⊆ Σ*, outputs a (possibly revised) hypothesis after each example and is said to identify T in the limit if its sequence of hypotheses stabilises on a representation of T.\n\nNegotiation game. A game ⟨L1, L2⟩ involves two players A and B, where each player i ∈ {A, B} privately knows a regular language Li and is told the minimal DFA-sizes n1 = dfa-size(L1) and n2 = dfa-size(L2). The players exchange queries: each player may pose strings to the opponent who must classify them truthfully as members or non-members of the opponent's language. A \"negative-query error\" by a player is each instance in which that player issues a query whose answer (received from the opponent) is \"no\" (i.e., the queried string does not belong to the opponent's language). Let errors(P) denote the set (or count) of such negative-query errors made by player P throughout the play.\n\nWinning criterion. Player A wins the play of ⟨L1, L2⟩ against player B if:\n(i) A identifies L1 ∩ L2 in the limit, and\n(ii) either B fails to identify L1 ∩ L2 in the limit, or B also identifies L1 ∩ L2 in the limit and |errors(A)| < |errors(B)|.\n\nProblem. Restricting attention to instances in which n1 = n2 (i.e., the two players' minimal DFAs have the same number of states), exhibit a deterministic learning algorithm that, when used by a player, wins against every deterministic strategy of the opponent under the above winning criterion; or prove that no such algorithm exists.",
+    "macro_subject": "Theoretical Computer Science",
+    "category_tag": "Grammatical inference / learning regular languages",
+    "open_status": "unknown",
+    "status_search_result": "A targeted web search did not surface any publication that resolves the equal-size (n1 = n2) negotiation-game problem for learning the intersection of two regular languages under the stated winning criterion. The problem appears as one of a list of open problems in grammatical inference, and no follow-up work explicitly claiming a solution was located, so the current status is unknown.",
+    "status_evidence": [
+      {
+        "title": "Ten Open Problems in Grammatical Inference",
+        "url": "https://link.springer.com/chapter/10.1007/11872436_4",
+        "snippet": "Lists ten open problems in grammatical inference, including the negotiation-game problem on regular language intersection.",
+        "claim": "The problem was posed as an open problem in grammatical inference."
+      },
+      {
+        "title": "Symbolic planning and control using game theory and grammatical inference",
+        "url": "https://www.sciencedirect.com/science/article/abs/pii/S0952197614002401",
+        "snippet": "Combines grammatical inference with game theory for control synthesis but does not address the equal-DFA-size negotiation winning algorithm.",
+        "claim": "Related work does not appear to resolve the specific problem."
+      }
+    ],
+    "confidence": 0.5
+  },
+  "model": "opus",
+  "effort": "medium",
+  "elapsed_s": 28.86,
+  "validation_warnings": [],
+  "raw_claude_stdout": "{\"type\":\"result\",\"subtype\":\"success\",\"is_error\":false,\"api_error_status\":null,\"duration_ms\":28152,\"duration_api_ms\":27337,\"num_turns\":3,\"result\":\"Sources:\\n- [Ten Open Problems in Grammatical Inference | SpringerLink](https://link.springer.com/chapter/10.1007/11872436_4)\\n- [Symbolic planning and control using game theory and grammatical inference](https://www.sciencedirect.com/science/article/abs/pii/S0952197614002401)\",\"stop_reason\":\"end_turn\",\"session_id\":\"49cfa19b-bdb2-4555-aa32-49433daebcf5\",\"total_cost_usd\":0.10101475000000001,\"usage\":{\"input_tokens\":8,\"cache_creation_input_tokens\":3977,\"cache_read_input_tokens\":12099,\"output_tokens\":1459,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":3977,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[{\"input_tokens\":1,\"output_tokens\":115,\"cache_read_input_tokens\":5405,\"cache_creation_input_tokens\":1257,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":1257},\"type\":\"message\"}],\"speed\":\"standard\"},\"modelUsage\":{\"claude-haiku-4-5-20251001\":{\"inputTokens\":21319,\"outputTokens\":455,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":1,\"costUSD\":0.033594,\"contextWindow\":200000,\"maxOutputTokens\":32000},\"claude-opus-4-7\":{\"inputTokens\":8,\"outputTokens\":1459,\"cacheReadInputTokens\":12099,\"cacheCreationInputTokens\":3977,\"webSearchRequests\":0,\"costUSD\":0.06742075,\"contextWindow\":1000000,\"maxOutputTokens\":64000}},\"permission_denials\":[],\"structured_output\":{\"self_contained_problem\":\"Setup. Fix a finite alphabet Σ. For a regular language L ⊆ Σ*, let dfa-size(L) denote the number of states of the minimal deterministic finite automaton (DFA) accepting L.\\n\\nA learner is a (deterministic) algorithm that, given an infinite presentation of examples for a target language T ⊆ Σ*, outputs a (possibly revised) hypothesis after each example and is said to identify T in the limit if its sequence of hypotheses stabilises on a representation of T.\\n\\nNegotiation game. A game ⟨L1, L2⟩ involves two players A and B, where each player i ∈ {A, B} privately knows a regular language Li and is told the minimal DFA-sizes n1 = dfa-size(L1) and n2 = dfa-size(L2). The players exchange queries: each player may pose strings to the opponent who must classify them truthfully as members or non-members of the opponent's language. A \\\"negative-query error\\\" by a player is each instance in which that player issues a query whose answer (received from the opponent) is \\\"no\\\" (i.e., the queried string does not belong to the opponent's language). Let errors(P) denote the set (or count) of such negative-query errors made by player P throughout the play.\\n\\nWinning criterion. Player A wins the play of ⟨L1, L2⟩ against player B if:\\n(i) A identifies L1 ∩ L2 in the limit, and\\n(ii) either B fails to identify L1 ∩ L2 in the limit, or B also identifies L1 ∩ L2 in the limit and |errors(A)| < |errors(B)|.\\n\\nProblem. Restricting attention to instances in which n1 = n2 (i.e., the two players' minimal DFAs have the same number of states), exhibit a deterministic learning algorithm that, when used by a player, wins against every deterministic strategy of the opponent under the above winning criterion; or prove that no such algorithm exists.\",\"macro_subject\":\"Theoretical Computer Science\",\"category_tag\":\"Grammatical inference / learning regular languages\",\"open_status\":\"unknown\",\"status_search_result\":\"A targeted web search did not surface any publication that resolves the equal-size (n1 = n2) negotiation-game problem for learning the intersection of two regular languages under the stated winning criterion. The problem appears as one of a list of open problems in grammatical inference, and no follow-up work explicitly claiming a solution was located, so the current status is unknown.\",\"status_evidence\":[{\"title\":\"Ten Open Problems in Grammatical Inference\",\"url\":\"https://link.springer.com/chapter/10.1007/11872436_4\",\"snippet\":\"Lists ten open problems in grammatical inference, including the negotiation-game problem on regular language intersection.\",\"claim\":\"The problem was posed as an open problem in grammatical inference.\"},{\"title\":\"Symbolic planning and control using game theory and grammatical inference\",\"url\":\"https://www.sciencedirect.com/science/article/abs/pii/S0952197614002401\",\"snippet\":\"Combines grammatical inference with game theory for control synthesis but does not address the equal-DFA-size negotiation winning algorithm.\",\"claim\":\"Related work does not appear to resolve the specific problem.\"}],\"confidence\":0.5},\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"uuid\":\"53e8682e-6efb-4839-84a2-af13df16559f\"}\n"
+}

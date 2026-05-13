@@ -1,0 +1,53 @@
+{
+  "record": {
+    "global_index": 10410,
+    "source_json": "outputs/parse-paper/local-and-global-methods-in-data-mining-basic-techniques-and-open-problems.json",
+    "paper_id": "local-and-global-methods-in-data-mining-basic-techniques-and-open-problems",
+    "paper_title": "Local and Global Methods in Data Mining: Basic Techniques and Open Problems",
+    "paper_link": "https://zbmath.org/2086610",
+    "question_link": "https://zbmath.org/2086610",
+    "question_id": "q_013",
+    "parser_is_solved": "false",
+    "context_brief": "Why LSI works",
+    "original_question": "Latent semantic indexing (LSI) is used for high-dimensional sparse discrete data such as document collections. Why does LSI work for discrete data, and what theoretical explanation accounts for its empirical effectiveness in that setting?",
+    "evidence": [
+      {
+        "page": 9,
+        "quote": "Problem 14 Why does LSI (latent semantic indexing) [17] work for discrete data?"
+      }
+    ]
+  },
+  "artifact": {
+    "self_contained_problem": "Let $D$ be a collection of $n$ documents over a vocabulary of $m$ terms, encoded as a sparse nonnegative term–document matrix $A \\in \\mathbb{R}_{\\geq 0}^{m \\times n}$ (for example, by raw counts or by tf–idf weights). For an integer $k \\ll \\min(m,n)$, let $A_k$ denote the best rank-$k$ approximation of $A$ in the Frobenius (equivalently spectral) norm, obtained by truncating the singular value decomposition $A = U \\Sigma V^{\\top}$ to its $k$ largest singular values; this defines the latent semantic indexing (LSI) representation of terms and documents in $\\mathbb{R}^k$, in which document and query similarities are measured by inner products of their projected vectors.\n\nProvide a rigorous theoretical explanation for the empirical effectiveness of LSI on high-dimensional sparse discrete data. Specifically: identify a generative or structural model of term–document data (for example, a probabilistic topic-mixture model with a small number of latent topics, possibly with polysemy and synonymy) under which one can prove that truncated SVD of the discrete observation matrix recovers, with high probability and quantitative error bounds, the underlying low-dimensional semantic structure, and consequently preserves or enhances the relevant similarity relationships between documents and queries despite the data being discrete, sparse, and noisy.",
+    "macro_subject": "Applied Mathematics",
+    "category_tag": "Latent semantic indexing / low-rank matrix models",
+    "open_status": "partially_solved",
+    "status_search_result": "Partial theoretical explanations exist. Papadimitriou, Raghavan, Tamaki and Vempala gave a probabilistic analysis of LSI under a corpus-generation model showing that SVD recovers latent topics with high probability under suitable separability assumptions. Hofmann's probabilistic LSI and subsequent topic-model analyses (LDA, nonnegative matrix factorization recovery results by Arora et al., and Ding–Rohe–Zhu type spectral analyses) provide further model-based justifications. A fully general theoretical account of LSI's effectiveness on arbitrary discrete data, however, is not established; results are model-dependent.",
+    "status_evidence": [
+      {
+        "title": "Latent Semantic Indexing: A Probabilistic Analysis",
+        "url": "https://www.sciencedirect.com/science/article/pii/S0022000000917112",
+        "snippet": "Provides a probabilistic model under which truncated SVD provably recovers semantic structure of a document corpus.",
+        "claim": "Gives rigorous theoretical justification for LSI under a generative corpus model, partially answering the question."
+      },
+      {
+        "title": "Latent semantic indexing (PODS 1998)",
+        "url": "https://dl.acm.org/doi/10.1145/275487.275505",
+        "snippet": "Conference version analyzing LSI probabilistically and bounding its performance.",
+        "claim": "Establishes probabilistic guarantees that LSI works on stylized discrete document data."
+      },
+      {
+        "title": "Latent semantic analysis - Wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Latent_semantic_analysis",
+        "snippet": "Describes LSA/LSI methodology, SVD truncation, and noted that probabilistic variants (pLSA) provide alternative theoretical groundings.",
+        "claim": "Indicates ongoing alternative theoretical models (pLSA, LDA) rather than a single definitive explanation."
+      }
+    ],
+    "confidence": 0.6
+  },
+  "model": "opus",
+  "effort": "medium",
+  "elapsed_s": 32.33,
+  "validation_warnings": [],
+  "raw_claude_stdout": "{\"type\":\"result\",\"subtype\":\"success\",\"is_error\":false,\"api_error_status\":null,\"duration_ms\":31635,\"duration_api_ms\":30811,\"num_turns\":3,\"result\":\"Sources:\\n- [Latent Semantic Indexing: A Probabilistic Analysis (Papadimitriou et al.)](https://www.sciencedirect.com/science/article/pii/S0022000000917112)\\n- [Latent semantic indexing (PODS 1998)](https://dl.acm.org/doi/10.1145/275487.275505)\\n- [Latent semantic analysis - Wikipedia](https://en.wikipedia.org/wiki/Latent_semantic_analysis)\",\"stop_reason\":\"end_turn\",\"session_id\":\"45fced58-016b-4848-8244-4522392d7767\",\"total_cost_usd\":0.10360825,\"usage\":{\"input_tokens\":8,\"cache_creation_input_tokens\":3969,\"cache_read_input_tokens\":11806,\"output_tokens\":1634,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":3969,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[{\"input_tokens\":1,\"output_tokens\":168,\"cache_read_input_tokens\":5277,\"cache_creation_input_tokens\":1377,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":1377},\"type\":\"message\"}],\"speed\":\"standard\"},\"modelUsage\":{\"claude-haiku-4-5-20251001\":{\"inputTokens\":19294,\"outputTokens\":543,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":1,\"costUSD\":0.032008999999999996,\"contextWindow\":200000,\"maxOutputTokens\":32000},\"claude-opus-4-7\":{\"inputTokens\":8,\"outputTokens\":1634,\"cacheReadInputTokens\":11806,\"cacheCreationInputTokens\":3969,\"webSearchRequests\":0,\"costUSD\":0.07159925,\"contextWindow\":1000000,\"maxOutputTokens\":64000}},\"permission_denials\":[],\"structured_output\":{\"self_contained_problem\":\"Let $D$ be a collection of $n$ documents over a vocabulary of $m$ terms, encoded as a sparse nonnegative term–document matrix $A \\\\in \\\\mathbb{R}_{\\\\geq 0}^{m \\\\times n}$ (for example, by raw counts or by tf–idf weights). For an integer $k \\\\ll \\\\min(m,n)$, let $A_k$ denote the best rank-$k$ approximation of $A$ in the Frobenius (equivalently spectral) norm, obtained by truncating the singular value decomposition $A = U \\\\Sigma V^{\\\\top}$ to its $k$ largest singular values; this defines the latent semantic indexing (LSI) representation of terms and documents in $\\\\mathbb{R}^k$, in which document and query similarities are measured by inner products of their projected vectors.\\n\\nProvide a rigorous theoretical explanation for the empirical effectiveness of LSI on high-dimensional sparse discrete data. Specifically: identify a generative or structural model of term–document data (for example, a probabilistic topic-mixture model with a small number of latent topics, possibly with polysemy and synonymy) under which one can prove that truncated SVD of the discrete observation matrix recovers, with high probability and quantitative error bounds, the underlying low-dimensional semantic structure, and consequently preserves or enhances the relevant similarity relationships between documents and queries despite the data being discrete, sparse, and noisy.\",\"macro_subject\":\"Applied Mathematics\",\"category_tag\":\"Latent semantic indexing / low-rank matrix models\",\"open_status\":\"partially_solved\",\"status_search_result\":\"Partial theoretical explanations exist. Papadimitriou, Raghavan, Tamaki and Vempala gave a probabilistic analysis of LSI under a corpus-generation model showing that SVD recovers latent topics with high probability under suitable separability assumptions. Hofmann's probabilistic LSI and subsequent topic-model analyses (LDA, nonnegative matrix factorization recovery results by Arora et al., and Ding–Rohe–Zhu type spectral analyses) provide further model-based justifications. A fully general theoretical account of LSI's effectiveness on arbitrary discrete data, however, is not established; results are model-dependent.\",\"status_evidence\":[{\"title\":\"Latent Semantic Indexing: A Probabilistic Analysis\",\"url\":\"https://www.sciencedirect.com/science/article/pii/S0022000000917112\",\"snippet\":\"Provides a probabilistic model under which truncated SVD provably recovers semantic structure of a document corpus.\",\"claim\":\"Gives rigorous theoretical justification for LSI under a generative corpus model, partially answering the question.\"},{\"title\":\"Latent semantic indexing (PODS 1998)\",\"url\":\"https://dl.acm.org/doi/10.1145/275487.275505\",\"snippet\":\"Conference version analyzing LSI probabilistically and bounding its performance.\",\"claim\":\"Establishes probabilistic guarantees that LSI works on stylized discrete document data.\"},{\"title\":\"Latent semantic analysis - Wikipedia\",\"url\":\"https://en.wikipedia.org/wiki/Latent_semantic_analysis\",\"snippet\":\"Describes LSA/LSI methodology, SVD truncation, and noted that probabilistic variants (pLSA) provide alternative theoretical groundings.\",\"claim\":\"Indicates ongoing alternative theoretical models (pLSA, LDA) rather than a single definitive explanation.\"}],\"confidence\":0.6},\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"uuid\":\"56b783f5-aed7-455e-94a1-d105cc8f7f80\"}\n"
+}
