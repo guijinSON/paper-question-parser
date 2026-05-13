@@ -1,0 +1,59 @@
+{
+  "record": {
+    "global_index": 6630,
+    "source_json": "outputs/parse-paper/2407.06321.json",
+    "paper_id": "2407.06321",
+    "paper_title": "Open Problem: Tight Bounds for Kernelized Multi-Armed Bandits with Bernoulli Rewards",
+    "paper_link": "https://arxiv.org/abs/2407.06321",
+    "question_link": "https://arxiv.org/pdf/2407.06321.pdf#page=4",
+    "question_id": "q_003",
+    "parser_is_solved": "false",
+    "context_brief": "Logarithmic regret for finite kernelized Bernoulli bandits",
+    "original_question": "For a finite-action kernelized Bernoulli bandit under the RKHS regularity conditions f in H_k, ||f||_{H_k} <= B, and k(x,x) <= 1, can one design regret-minimization algorithms whose regret grows logarithmically in the horizon T and whose instance-dependent dependence is governed by the Bernoulli KL divergence d(f(x), f(x*)) between each action's mean and the optimal mean f(x*)? Can such a logarithmic, KL-dependent guarantee be achieved in the kernelized setting where the kernel may encode correlations among arms, noting that the trivial kernel k(x,x') = 1{x = x'} reduces the finite kernelized bandit to an unstructured multi-armed bandit?",
+    "evidence": [
+      {
+        "page": 4,
+        "quote": "Can we design regret minimization algorithms which achieve a log T regret guarantee,\nhighlighting the dependence on dpf pxq, f px‹ qq when X is ﬁnite?"
+      },
+      {
+        "page": 4,
+        "quote": "Here, instead, when X is ﬁnite, we are interested in understanding if achieving\nlog T regret is possible for KBs with Bernoulli observations. Ind eed, in the unstructured case (and\n|X | ă `8 ), the KL-UCB (Garivier and Cappé, 2011) achieves the tight instance-dependent bound:"
+      },
+      {
+        "page": 4,
+        "quote": "RT pKL-UCBq ď O\nˆ ÿ\nxPX\nlog T\ndpf pxq, f px‹ qq\n˙\n."
+      },
+      {
+        "page": 4,
+        "quote": "We perceive that this should be possible since, when |X | ă `8 , using the trivial kernel kpx, x1q “\n1tx “ x1u for every x, x1 P X , the KB reduces to an unstructured MAB. Furthermore, we conj ec-\nture that this possibility (at least for optimistic algorit hms) is strictly related to the open problem\nof Section 3.2."
+      }
+    ]
+  },
+  "artifact": {
+    "self_contained_problem": "Let $\\mathcal{X}$ be a finite set of actions and let $k:\\mathcal{X}\\times\\mathcal{X}\\to\\mathbb{R}$ be a positive-definite kernel with associated reproducing kernel Hilbert space (RKHS) $\\mathcal{H}_k$. Assume the normalization $k(x,x)\\le 1$ for all $x\\in\\mathcal{X}$. Let $f\\in\\mathcal{H}_k$ be an unknown reward function with $\\|f\\|_{\\mathcal{H}_k}\\le B$ for a known constant $B>0$, and assume $f(x)\\in[0,1]$ for all $x\\in\\mathcal{X}$.\n\nConsider the following sequential decision problem (a kernelized Bernoulli bandit): at each round $t=1,\\dots,T$, the learner selects an action $x_t\\in\\mathcal{X}$ based on past observations and observes a Bernoulli reward $r_t\\in\\{0,1\\}$ with $\\mathbb{E}[r_t\\mid x_t]=f(x_t)$. Let $x^\\star\\in\\arg\\max_{x\\in\\mathcal{X}}f(x)$ and define the (pseudo-)regret\n$$R_T=\\sum_{t=1}^T\\bigl(f(x^\\star)-f(x_t)\\bigr).$$\nFor Bernoulli means $p,q\\in(0,1)$, let $d(p,q)=p\\log(p/q)+(1-p)\\log((1-p)/(1-q))$ denote the Bernoulli Kullback–Leibler divergence.\n\nFor the classical unstructured multi-armed bandit (recovered by the kernel $k(x,x')=\\mathbf{1}\\{x=x'\\}$), the KL-UCB algorithm attains\n$$\\mathbb{E}[R_T]\\le O\\!\\Bigg(\\sum_{x\\in\\mathcal{X}:\\,f(x)<f(x^\\star)}\\frac{\\log T}{d(f(x),f(x^\\star))}\\Bigg).$$\n\nQuestion. Does there exist an algorithm for the finite-action kernelized Bernoulli bandit (with general kernel $k$ satisfying the assumptions above) whose expected regret, for every $f\\in\\mathcal{H}_k$ with $\\|f\\|_{\\mathcal{H}_k}\\le B$, satisfies an instance-dependent bound of the form\n$$\\mathbb{E}[R_T]\\le O\\!\\Bigg(\\sum_{x\\in\\mathcal{X}}\\frac{\\log T}{d(f(x),f(x^\\star))}\\Bigg)$$\n(or another bound that is logarithmic in $T$ and whose instance-dependent dependence is governed by the Bernoulli KL divergences $d(f(x),f(x^\\star))$, while properly exploiting the correlations among arms encoded by $k$)?",
+    "macro_subject": "Statistics and Machine Learning",
+    "category_tag": "Kernelized multi-armed bandits",
+    "open_status": "open",
+    "status_search_result": "The question is posed as an open problem in a 2024 work on tight bounds for kernelized bandits with Bernoulli rewards. No subsequent publication resolving the logarithmic, KL-dependent regret guarantee for finite-action kernelized Bernoulli bandits was identified; the obstruction (martingale/MGF-based KL concentration not extending to correlated kernelized arms) appears unresolved.",
+    "status_evidence": [
+      {
+        "title": "Open Problem: Tight Bounds for Kernelized Multi-Armed Bandits with Bernoulli Rewards",
+        "url": "https://arxiv.org/abs/2407.06321",
+        "snippet": "Open Problem paper posing tight regret bounds for KBs with Bernoulli rewards.",
+        "claim": "The logarithmic instance-dependent regret question for finite kernelized Bernoulli bandits is explicitly stated as open."
+      },
+      {
+        "title": "Open Problem: Tight Bounds for Bernoulli Rewards",
+        "url": "https://marcomussi.github.io/papers/icmlarlet2024/paper.pdf",
+        "snippet": "It remains an open question whether tight results can be obtained for KBs.",
+        "claim": "The Bernoulli kernelized setting lacks tight KL-type results."
+      }
+    ],
+    "confidence": 0.8
+  },
+  "model": "opus",
+  "effort": "medium",
+  "elapsed_s": 30.91,
+  "validation_warnings": [],
+  "raw_claude_stdout": "{\"type\":\"result\",\"subtype\":\"success\",\"is_error\":false,\"api_error_status\":null,\"duration_ms\":29784,\"duration_api_ms\":28986,\"num_turns\":3,\"result\":\"Sources:\\n- [Open Problem: Tight Bounds for Kernelized Multi-Armed Bandits with Bernoulli Rewards (arXiv)](https://arxiv.org/abs/2407.06321)\\n- [Open Problem: Tight Bounds for Bernoulli Rewards (PDF)](https://marcomussi.github.io/papers/icmlarlet2024/paper.pdf)\\n- [The KL-UCB Algorithm for Bounded Stochastic Bandits and Beyond](http://proceedings.mlr.press/v19/garivier11a/garivier11a.pdf)\",\"stop_reason\":\"end_turn\",\"session_id\":\"171beca8-55be-40b6-8109-19fe7145d82c\",\"total_cost_usd\":0.1225705,\"usage\":{\"input_tokens\":8,\"cache_creation_input_tokens\":5006,\"cache_read_input_tokens\":13174,\"output_tokens\":1963,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":5006,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[{\"input_tokens\":1,\"output_tokens\":208,\"cache_read_input_tokens\":6049,\"cache_creation_input_tokens\":1642,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":1642},\"type\":\"message\"}],\"speed\":\"standard\"},\"modelUsage\":{\"claude-haiku-4-5-20251001\":{\"inputTokens\":22631,\"outputTokens\":590,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":1,\"costUSD\":0.035581,\"contextWindow\":200000,\"maxOutputTokens\":32000},\"claude-opus-4-7\":{\"inputTokens\":8,\"outputTokens\":1963,\"cacheReadInputTokens\":13174,\"cacheCreationInputTokens\":5006,\"webSearchRequests\":0,\"costUSD\":0.0869895,\"contextWindow\":1000000,\"maxOutputTokens\":64000}},\"permission_denials\":[],\"structured_output\":{\"self_contained_problem\":\"Let $\\\\mathcal{X}$ be a finite set of actions and let $k:\\\\mathcal{X}\\\\times\\\\mathcal{X}\\\\to\\\\mathbb{R}$ be a positive-definite kernel with associated reproducing kernel Hilbert space (RKHS) $\\\\mathcal{H}_k$. Assume the normalization $k(x,x)\\\\le 1$ for all $x\\\\in\\\\mathcal{X}$. Let $f\\\\in\\\\mathcal{H}_k$ be an unknown reward function with $\\\\|f\\\\|_{\\\\mathcal{H}_k}\\\\le B$ for a known constant $B>0$, and assume $f(x)\\\\in[0,1]$ for all $x\\\\in\\\\mathcal{X}$.\\n\\nConsider the following sequential decision problem (a kernelized Bernoulli bandit): at each round $t=1,\\\\dots,T$, the learner selects an action $x_t\\\\in\\\\mathcal{X}$ based on past observations and observes a Bernoulli reward $r_t\\\\in\\\\{0,1\\\\}$ with $\\\\mathbb{E}[r_t\\\\mid x_t]=f(x_t)$. Let $x^\\\\star\\\\in\\\\arg\\\\max_{x\\\\in\\\\mathcal{X}}f(x)$ and define the (pseudo-)regret\\n$$R_T=\\\\sum_{t=1}^T\\\\bigl(f(x^\\\\star)-f(x_t)\\\\bigr).$$\\nFor Bernoulli means $p,q\\\\in(0,1)$, let $d(p,q)=p\\\\log(p/q)+(1-p)\\\\log((1-p)/(1-q))$ denote the Bernoulli Kullback–Leibler divergence.\\n\\nFor the classical unstructured multi-armed bandit (recovered by the kernel $k(x,x')=\\\\mathbf{1}\\\\{x=x'\\\\}$), the KL-UCB algorithm attains\\n$$\\\\mathbb{E}[R_T]\\\\le O\\\\!\\\\Bigg(\\\\sum_{x\\\\in\\\\mathcal{X}:\\\\,f(x)<f(x^\\\\star)}\\\\frac{\\\\log T}{d(f(x),f(x^\\\\star))}\\\\Bigg).$$\\n\\nQuestion. Does there exist an algorithm for the finite-action kernelized Bernoulli bandit (with general kernel $k$ satisfying the assumptions above) whose expected regret, for every $f\\\\in\\\\mathcal{H}_k$ with $\\\\|f\\\\|_{\\\\mathcal{H}_k}\\\\le B$, satisfies an instance-dependent bound of the form\\n$$\\\\mathbb{E}[R_T]\\\\le O\\\\!\\\\Bigg(\\\\sum_{x\\\\in\\\\mathcal{X}}\\\\frac{\\\\log T}{d(f(x),f(x^\\\\star))}\\\\Bigg)$$\\n(or another bound that is logarithmic in $T$ and whose instance-dependent dependence is governed by the Bernoulli KL divergences $d(f(x),f(x^\\\\star))$, while properly exploiting the correlations among arms encoded by $k$)?\",\"macro_subject\":\"Statistics and Machine Learning\",\"category_tag\":\"Kernelized multi-armed bandits\",\"open_status\":\"open\",\"status_search_result\":\"The question is posed as an open problem in a 2024 work on tight bounds for kernelized bandits with Bernoulli rewards. No subsequent publication resolving the logarithmic, KL-dependent regret guarantee for finite-action kernelized Bernoulli bandits was identified; the obstruction (martingale/MGF-based KL concentration not extending to correlated kernelized arms) appears unresolved.\",\"status_evidence\":[{\"title\":\"Open Problem: Tight Bounds for Kernelized Multi-Armed Bandits with Bernoulli Rewards\",\"url\":\"https://arxiv.org/abs/2407.06321\",\"snippet\":\"Open Problem paper posing tight regret bounds for KBs with Bernoulli rewards.\",\"claim\":\"The logarithmic instance-dependent regret question for finite kernelized Bernoulli bandits is explicitly stated as open.\"},{\"title\":\"Open Problem: Tight Bounds for Bernoulli Rewards\",\"url\":\"https://marcomussi.github.io/papers/icmlarlet2024/paper.pdf\",\"snippet\":\"It remains an open question whether tight results can be obtained for KBs.\",\"claim\":\"The Bernoulli kernelized setting lacks tight KL-type results.\"}],\"confidence\":0.8},\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"uuid\":\"c546a61f-be30-420c-b844-18cb86dc973d\"}\n"
+}

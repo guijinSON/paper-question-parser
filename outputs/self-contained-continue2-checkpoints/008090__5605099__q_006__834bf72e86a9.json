@@ -1,0 +1,51 @@
+{
+  "record": {
+    "global_index": 8090,
+    "source_json": "outputs/parse-paper/5605099.json",
+    "paper_id": "5605099",
+    "paper_title": "Eight Open Problems in Distributed Computing",
+    "paper_link": "https://zbmath.org/5605099",
+    "question_link": "https://zbmath.org/5605099",
+    "question_id": "q_006",
+    "parser_is_solved": "false",
+    "context_brief": "Stability bounds for memoryless symmetric consensus",
+    "original_question": "For memoryless symmetric ongoing consensus functions, where the function output is invariant under permutations of input positions, how can the approximately factor-2 gap between known upper and lower bounds on the number of output changes be closed, and how should non-geodesic input-change paths be analyzed to distinguish and evaluate the performance of different consensus functions?",
+    "evidence": [
+      {
+        "page": 5,
+        "quote": "An upper bound for the number of output changes for a memoryless symmetric system (where the function has the same output regardless of the position of inputs in the input vector) is presented in [20]."
+      },
+      {
+        "page": 5,
+        "quote": "Closing this gap, as well as considering non geodesic input path changes that are useful to separate the performance and to evaluate consensus functions are open questions."
+      }
+    ]
+  },
+  "artifact": {
+    "category_tag": "long-lived consensus stability",
+    "confidence": 0.6,
+    "macro_subject": "Theoretical Computer Science",
+    "open_status": "open",
+    "self_contained_problem": "Consider the long-lived consensus problem in the following abstract form. Let $n \\ge 1$ and let $f : \\{0,1\\}^n \\to \\{0,1\\}$ be a Boolean function that is symmetric, i.e. invariant under all permutations of its $n$ input coordinates: $f(x_{\\sigma(1)}, \\dots, x_{\\sigma(n)}) = f(x_1, \\dots, x_n)$ for every permutation $\\sigma \\in S_n$. The function $f$ is interpreted as a memoryless consensus rule: at each time step $t$, given an input vector $x^{(t)} \\in \\{0,1\\}^n$, the system outputs $f(x^{(t)})$, with no dependence on past inputs or outputs.\n\nGiven an input path, that is a sequence $x^{(0)}, x^{(1)}, \\dots, x^{(T)} \\in \\{0,1\\}^n$ in which consecutive vectors differ in at most one coordinate, define the number of output changes along the path as\n$$ \\mathrm{OC}(f; x^{(0)},\\dots,x^{(T)}) \\;=\\; \\#\\bigl\\{\\, t \\in \\{1,\\dots,T\\} : f(x^{(t)}) \\neq f(x^{(t-1)}) \\,\\bigr\\}. $$\nA path is called geodesic if it realizes the Hamming distance between its endpoints, i.e. $T = \\|x^{(T)} - x^{(0)}\\|_1$ and no coordinate is flipped more than once.\n\nThe \"instability\" of $f$ is the worst-case rate of output changes over admissible input paths. Known results provide an upper bound $U(n)$ and a lower bound $L(n)$ on this instability for symmetric memoryless rules, valid uniformly over $f$, with $U(n)/L(n)$ tending to a constant approximately equal to $2$ as $n \\to \\infty$.\n\n(a) Determine the exact asymptotic instability of memoryless symmetric consensus, thereby closing the factor-$2$ gap between $U(n)$ and $L(n)$.\n\n(b) Extend the analysis to non-geodesic input paths (paths in which coordinates may be flipped repeatedly) and develop quantitative measures based on such paths that distinguish and rank different symmetric consensus functions $f$ according to their output-change behavior.",
+    "status_search_result": "Related work (e.g., Davidovitch–Dolev–Rajsbaum on stability of long-lived consensus and a 2011 arXiv preprint \"Geodesic stability for memoryless binary long-lived consensus\") addresses bounds on output changes for symmetric memoryless consensus, but no source found indicates the factor-2 gap has been closed or that a non-geodesic-path framework for separating consensus functions has been developed. The question therefore appears to remain open.",
+    "status_evidence": [
+      {
+        "title": "Geodesic stability for memoryless binary long-lived consensus",
+        "url": "https://arxiv.org/abs/1102.4100",
+        "snippet": "Studies stability bounds along geodesic input-change paths for symmetric memoryless consensus rules.",
+        "claim": "Existing bounds are stated along geodesic paths, leaving non-geodesic analyses and gap-closing as further questions."
+      },
+      {
+        "title": "Stability of Long-lived Consensus",
+        "url": "https://dl.acm.org/doi/pdf/10.1145/343477.343633",
+        "snippet": "Provides upper and lower bounds for stability of symmetric memoryless consensus systems.",
+        "claim": "Original bounds with a constant-factor gap appear here; no later work surfaced that closes the gap."
+      }
+    ]
+  },
+  "model": "opus",
+  "effort": "medium",
+  "elapsed_s": 30.8,
+  "validation_warnings": [],
+  "raw_claude_stdout": "{\"type\":\"result\",\"subtype\":\"success\",\"is_error\":false,\"api_error_status\":null,\"duration_ms\":29702,\"duration_api_ms\":31091,\"num_turns\":3,\"result\":\"Sources:\\n- [Geodesic stability for memoryless binary long-lived consensus (arXiv:1102.4100)](https://arxiv.org/abs/1102.4100)\\n- [Stability of Long-lived Consensus (ACM)](https://dl.acm.org/doi/pdf/10.1145/343477.343633)\",\"stop_reason\":\"end_turn\",\"session_id\":\"a50563ae-3a2b-4050-a6b7-d4c566bc9826\",\"total_cost_usd\":0.10003575,\"usage\":{\"input_tokens\":8,\"cache_creation_input_tokens\":3977,\"cache_read_input_tokens\":11835,\"output_tokens\":1652,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":3977,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[{\"input_tokens\":1,\"output_tokens\":113,\"cache_read_input_tokens\":5208,\"cache_creation_input_tokens\":1454,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":1454},\"type\":\"message\"}],\"speed\":\"standard\"},\"modelUsage\":{\"claude-opus-4-7\":{\"inputTokens\":8,\"outputTokens\":1652,\"cacheReadInputTokens\":11835,\"cacheCreationInputTokens\":3977,\"webSearchRequests\":0,\"costUSD\":0.07211375,\"contextWindow\":1000000,\"maxOutputTokens\":64000},\"claude-haiku-4-5-20251001\":{\"inputTokens\":16317,\"outputTokens\":321,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":1,\"costUSD\":0.027922,\"contextWindow\":200000,\"maxOutputTokens\":32000}},\"permission_denials\":[],\"structured_output\":{\"category_tag\":\"long-lived consensus stability\",\"confidence\":0.6,\"macro_subject\":\"Theoretical Computer Science\",\"open_status\":\"open\",\"self_contained_problem\":\"Consider the long-lived consensus problem in the following abstract form. Let $n \\\\ge 1$ and let $f : \\\\{0,1\\\\}^n \\\\to \\\\{0,1\\\\}$ be a Boolean function that is symmetric, i.e. invariant under all permutations of its $n$ input coordinates: $f(x_{\\\\sigma(1)}, \\\\dots, x_{\\\\sigma(n)}) = f(x_1, \\\\dots, x_n)$ for every permutation $\\\\sigma \\\\in S_n$. The function $f$ is interpreted as a memoryless consensus rule: at each time step $t$, given an input vector $x^{(t)} \\\\in \\\\{0,1\\\\}^n$, the system outputs $f(x^{(t)})$, with no dependence on past inputs or outputs.\\n\\nGiven an input path, that is a sequence $x^{(0)}, x^{(1)}, \\\\dots, x^{(T)} \\\\in \\\\{0,1\\\\}^n$ in which consecutive vectors differ in at most one coordinate, define the number of output changes along the path as\\n$$ \\\\mathrm{OC}(f; x^{(0)},\\\\dots,x^{(T)}) \\\\;=\\\\; \\\\#\\\\bigl\\\\{\\\\, t \\\\in \\\\{1,\\\\dots,T\\\\} : f(x^{(t)}) \\\\neq f(x^{(t-1)}) \\\\,\\\\bigr\\\\}. $$\\nA path is called geodesic if it realizes the Hamming distance between its endpoints, i.e. $T = \\\\|x^{(T)} - x^{(0)}\\\\|_1$ and no coordinate is flipped more than once.\\n\\nThe \\\"instability\\\" of $f$ is the worst-case rate of output changes over admissible input paths. Known results provide an upper bound $U(n)$ and a lower bound $L(n)$ on this instability for symmetric memoryless rules, valid uniformly over $f$, with $U(n)/L(n)$ tending to a constant approximately equal to $2$ as $n \\\\to \\\\infty$.\\n\\n(a) Determine the exact asymptotic instability of memoryless symmetric consensus, thereby closing the factor-$2$ gap between $U(n)$ and $L(n)$.\\n\\n(b) Extend the analysis to non-geodesic input paths (paths in which coordinates may be flipped repeatedly) and develop quantitative measures based on such paths that distinguish and rank different symmetric consensus functions $f$ according to their output-change behavior.\",\"status_search_result\":\"Related work (e.g., Davidovitch–Dolev–Rajsbaum on stability of long-lived consensus and a 2011 arXiv preprint \\\"Geodesic stability for memoryless binary long-lived consensus\\\") addresses bounds on output changes for symmetric memoryless consensus, but no source found indicates the factor-2 gap has been closed or that a non-geodesic-path framework for separating consensus functions has been developed. The question therefore appears to remain open.\",\"status_evidence\":[{\"title\":\"Geodesic stability for memoryless binary long-lived consensus\",\"url\":\"https://arxiv.org/abs/1102.4100\",\"snippet\":\"Studies stability bounds along geodesic input-change paths for symmetric memoryless consensus rules.\",\"claim\":\"Existing bounds are stated along geodesic paths, leaving non-geodesic analyses and gap-closing as further questions.\"},{\"title\":\"Stability of Long-lived Consensus\",\"url\":\"https://dl.acm.org/doi/pdf/10.1145/343477.343633\",\"snippet\":\"Provides upper and lower bounds for stability of symmetric memoryless consensus systems.\",\"claim\":\"Original bounds with a constant-factor gap appear here; no later work surfaced that closes the gap.\"}]},\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"uuid\":\"31fbd12d-8c68-4a84-b72f-be3c5f6f2cd5\"}\n"
+}

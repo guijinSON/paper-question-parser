@@ -1,0 +1,53 @@
+{
+  "record": {
+    "global_index": 8094,
+    "source_json": "outputs/parse-paper/5605099.json",
+    "paper_id": "5605099",
+    "paper_title": "Eight Open Problems in Distributed Computing",
+    "paper_link": "https://zbmath.org/5605099",
+    "question_link": "https://zbmath.org/5605099",
+    "question_id": "q_010",
+    "parser_is_solved": "false",
+    "context_brief": "Atomic snapshot register-scan-update tradeoffs",
+    "original_question": "For wait-free linearizable register implementations of atomic snapshot objects, what are the full tradeoffs among the number of registers used, the worst-case time complexity of SCAN operations, and the worst-case time complexity of UPDATE operations?",
+    "evidence": [
+      {
+        "page": 7,
+        "quote": "The identification of tradeoffs between the number of registers used in an implementation, the time complexity of SCAN, and the time complexity of UPDATE is another interesting open problem."
+      }
+    ]
+  },
+  "artifact": {
+    "self_contained_problem": "Consider the shared-memory model of asynchronous distributed computing with $n$ processes communicating through atomic read/write registers. An *atomic snapshot object* with $m$ components supports two operations: $\\mathrm{UPDATE}(i,v)$, which writes value $v$ to component $i$, and $\\mathrm{SCAN}$, which returns a vector of the current values of all $m$ components. An implementation is *linearizable* if every concurrent execution is equivalent to one in which each operation appears to take effect instantaneously at some point between its invocation and response, and *wait-free* if every process that begins an operation completes it in a finite number of its own steps, regardless of the behavior of the other processes.\n\nFor wait-free linearizable implementations of an atomic snapshot object from atomic read/write registers, determine the complete set of achievable tradeoffs among the three quantities\n\\[\n(R,\\ T_{\\mathrm{SCAN}},\\ T_{\\mathrm{UPDATE}}),\n\\]\nwhere $R$ is the number of registers used by the implementation, $T_{\\mathrm{SCAN}}$ is the worst-case step complexity of a $\\mathrm{SCAN}$ operation, and $T_{\\mathrm{UPDATE}}$ is the worst-case step complexity of an $\\mathrm{UPDATE}$ operation. Specifically, characterize, as a function of $n$ and $m$, the set of triples $(R, T_{\\mathrm{SCAN}}, T_{\\mathrm{UPDATE}})$ that are simultaneously realizable, with matching upper and lower bounds.",
+    "macro_subject": "Theoretical Computer Science",
+    "category_tag": "Wait-free atomic snapshot implementations",
+    "open_status": "partially_solved",
+    "status_search_result": "Partial results are known: space-optimal single-scanner implementations have a tight Ω(m²) SCAN bound, and space-optimal multi-writer snapshots admit a tight Θ(mn) bound; implementations using unbounded registers achieve O(1) UPDATE and O(m) SCAN. However, a complete characterization of the three-way tradeoff among register count, SCAN time, and UPDATE time has not been established.",
+    "status_evidence": [
+      {
+        "title": "Lower and upper bounds for single-scanner snapshot implementations",
+        "url": "https://link.springer.com/article/10.1007/s00446-016-0286-7",
+        "snippet": "In space-optimal single-scanner snapshot implementations, scans execute Ω(m²) steps.",
+        "claim": "Tight bounds exist for the space-optimal single-scanner case but not the full three-way tradeoff."
+      },
+      {
+        "title": "A tight time lower bound for space-optimal implementations of multi-writer snapshots",
+        "url": "https://www.researchgate.net/publication/221591716",
+        "snippet": "For any space-optimal implementation, Ω(mn) steps are required to perform a scan.",
+        "claim": "Space/time tradeoff is tight only at the space-optimal extreme."
+      },
+      {
+        "title": "Time-optimal, space-efficient single-scanner snapshots",
+        "url": "https://dl.acm.org/doi/10.1145/1281100.1281108",
+        "snippet": "T-Opt has O(1) UPDATE and O(m) SCAN but uses unbounded registers.",
+        "claim": "Time-optimal algorithms exist but at the cost of unbounded register usage; the general tradeoff remains uncharacterized."
+      }
+    ],
+    "confidence": 0.7
+  },
+  "model": "opus",
+  "effort": "medium",
+  "elapsed_s": 30.14,
+  "validation_warnings": [],
+  "raw_claude_stdout": "{\"type\":\"result\",\"subtype\":\"success\",\"is_error\":false,\"api_error_status\":null,\"duration_ms\":29019,\"duration_api_ms\":28688,\"num_turns\":3,\"result\":\"Sources:\\n- [Lower and upper bounds for single-scanner snapshot implementations](https://link.springer.com/article/10.1007/s00446-016-0286-7)\\n- [A tight time lower bound for space-optimal implementations of multi-writer snapshots](https://www.researchgate.net/publication/221591716)\\n- [Time-optimal, space-efficient single-scanner snapshots & multi-scanner snapshots using CAS](https://dl.acm.org/doi/10.1145/1281100.1281108)\\n- [Atomic snapshots in O(n log n) operations](https://epubs.siam.org/doi/abs/10.1137/S0097539795279463)\\n- [Limited-Use Atomic Snapshots with Polylogarithmic Step Complexity](https://dl.acm.org/doi/10.1145/2732263)\",\"stop_reason\":\"end_turn\",\"session_id\":\"d938af50-a27d-4928-8f25-b36dec4e408a\",\"total_cost_usd\":0.10972375,\"usage\":{\"input_tokens\":8,\"cache_creation_input_tokens\":4105,\"cache_read_input_tokens\":11963,\"output_tokens\":1720,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":4105,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[{\"input_tokens\":1,\"output_tokens\":283,\"cache_read_input_tokens\":5434,\"cache_creation_input_tokens\":1356,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":1356},\"type\":\"message\"}],\"speed\":\"standard\"},\"modelUsage\":{\"claude-haiku-4-5-20251001\":{\"inputTokens\":22201,\"outputTokens\":569,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":1,\"costUSD\":0.035046,\"contextWindow\":200000,\"maxOutputTokens\":32000},\"claude-opus-4-7\":{\"inputTokens\":8,\"outputTokens\":1720,\"cacheReadInputTokens\":11963,\"cacheCreationInputTokens\":4105,\"webSearchRequests\":0,\"costUSD\":0.07467775,\"contextWindow\":1000000,\"maxOutputTokens\":64000}},\"permission_denials\":[],\"structured_output\":{\"self_contained_problem\":\"Consider the shared-memory model of asynchronous distributed computing with $n$ processes communicating through atomic read/write registers. An *atomic snapshot object* with $m$ components supports two operations: $\\\\mathrm{UPDATE}(i,v)$, which writes value $v$ to component $i$, and $\\\\mathrm{SCAN}$, which returns a vector of the current values of all $m$ components. An implementation is *linearizable* if every concurrent execution is equivalent to one in which each operation appears to take effect instantaneously at some point between its invocation and response, and *wait-free* if every process that begins an operation completes it in a finite number of its own steps, regardless of the behavior of the other processes.\\n\\nFor wait-free linearizable implementations of an atomic snapshot object from atomic read/write registers, determine the complete set of achievable tradeoffs among the three quantities\\n\\\\[\\n(R,\\\\ T_{\\\\mathrm{SCAN}},\\\\ T_{\\\\mathrm{UPDATE}}),\\n\\\\]\\nwhere $R$ is the number of registers used by the implementation, $T_{\\\\mathrm{SCAN}}$ is the worst-case step complexity of a $\\\\mathrm{SCAN}$ operation, and $T_{\\\\mathrm{UPDATE}}$ is the worst-case step complexity of an $\\\\mathrm{UPDATE}$ operation. Specifically, characterize, as a function of $n$ and $m$, the set of triples $(R, T_{\\\\mathrm{SCAN}}, T_{\\\\mathrm{UPDATE}})$ that are simultaneously realizable, with matching upper and lower bounds.\",\"macro_subject\":\"Theoretical Computer Science\",\"category_tag\":\"Wait-free atomic snapshot implementations\",\"open_status\":\"partially_solved\",\"status_search_result\":\"Partial results are known: space-optimal single-scanner implementations have a tight Ω(m²) SCAN bound, and space-optimal multi-writer snapshots admit a tight Θ(mn) bound; implementations using unbounded registers achieve O(1) UPDATE and O(m) SCAN. However, a complete characterization of the three-way tradeoff among register count, SCAN time, and UPDATE time has not been established.\",\"status_evidence\":[{\"title\":\"Lower and upper bounds for single-scanner snapshot implementations\",\"url\":\"https://link.springer.com/article/10.1007/s00446-016-0286-7\",\"snippet\":\"In space-optimal single-scanner snapshot implementations, scans execute Ω(m²) steps.\",\"claim\":\"Tight bounds exist for the space-optimal single-scanner case but not the full three-way tradeoff.\"},{\"title\":\"A tight time lower bound for space-optimal implementations of multi-writer snapshots\",\"url\":\"https://www.researchgate.net/publication/221591716\",\"snippet\":\"For any space-optimal implementation, Ω(mn) steps are required to perform a scan.\",\"claim\":\"Space/time tradeoff is tight only at the space-optimal extreme.\"},{\"title\":\"Time-optimal, space-efficient single-scanner snapshots\",\"url\":\"https://dl.acm.org/doi/10.1145/1281100.1281108\",\"snippet\":\"T-Opt has O(1) UPDATE and O(m) SCAN but uses unbounded registers.\",\"claim\":\"Time-optimal algorithms exist but at the cost of unbounded register usage; the general tradeoff remains uncharacterized.\"}],\"confidence\":0.7},\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"uuid\":\"dd2cae38-ac30-444c-bc87-a2f23b339237\"}\n"
+}

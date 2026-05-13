@@ -1,0 +1,53 @@
+{
+  "record": {
+    "global_index": 9456,
+    "source_json": "outputs/parse-paper/8157796.json",
+    "paper_id": "8157796",
+    "paper_title": "Open problems in stochastic reinforcement models",
+    "paper_link": "https://zbmath.org/8157796",
+    "question_link": "https://zbmath.org/8157796",
+    "question_id": "q_008",
+    "parser_is_solved": "false",
+    "context_brief": "Multiple attachments in super-linear preferential attachment",
+    "original_question": "In the super-linear preferential attachment with fitness model, replace the tree growth rule by a multigraph rule in which each new vertex n, at every step n >= 2, chooses m >= 2 existing vertices from T_{n-1} to connect with. How does allowing m multiple attachments per arriving vertex change the phase transition between infinite-star behavior and infinite-path behavior?",
+    "evidence": [
+      {
+        "page": 5,
+        "quote": "Open Problem 8 If at every step n ≥ 2, vertex n were to choose m ≥ 2 many vertices from Tn−1 to connect with, creating a multigraph rather than a tree, how would this influence the phase transition?"
+      }
+    ]
+  },
+  "artifact": {
+    "self_contained_problem": "Consider the following random multigraph growth process with fitness. Let $(F_v)_{v\\ge 1}$ be an i.i.d. sequence of strictly positive random variables (the fitnesses) drawn from a fixed distribution $\\mu$ on $(0,\\infty)$, and let $f:\\mathbb{Z}_{\\ge 0}\\to(0,\\infty)$ be a super-linear weight function, i.e. $f(k)/k\\to\\infty$ as $k\\to\\infty$ (a canonical choice is $f(k)=(k+1)^p$ with $p>1$). Fix an integer $m\\ge 2$. Build a sequence of multigraphs $(G_n)_{n\\ge 1}$ as follows.\n- $G_1$ consists of a single vertex labeled $1$ with fitness $F_1$.\n- At each step $n\\ge 2$, a new vertex $n$ with fitness $F_n$ is added, and independently (with replacement) $m$ vertices $v_1,\\dots,v_m\\in\\{1,\\dots,n-1\\}$ are chosen, where each $v_i=u$ is selected with probability proportional to $F_u\\,f(\\deg_{G_{n-1}}(u))$. Then $m$ edges $\\{n,v_1\\},\\dots,\\{n,v_m\\}$ are added (possibly with repetitions, yielding a multigraph rather than a tree).\n\nLet $G_\\infty=\\bigcup_n G_n$ be the limiting multigraph. Determine the almost-sure asymptotic structure of $G_\\infty$, and in particular describe the phase diagram (as a function of $f$, $\\mu$, and $m$) for the dichotomy between:\n(i) the \"infinite star\" regime, in which there exists a (possibly random) finite set of vertices whose degrees diverge while all but finitely many other vertices have bounded degree; and\n(ii) the \"infinite path/locally finite\" regime, in which every vertex has finite degree almost surely.\n\nSpecifically, identify the critical thresholds on $f$ and $\\mu$ that separate these regimes when $m\\ge 2$, and compare them with the known thresholds in the tree case $m=1$.",
+    "macro_subject": "Probability",
+    "category_tag": "Preferential attachment models",
+    "open_status": "open",
+    "status_search_result": "The literature establishes phase transitions in super-linear preferential attachment trees (Oliveira–Spencer, and additive-fitness models) and separately studies multigraph variants approaching the Rado multigraph, but no source directly resolves how allowing m≥2 multiple attachments per arriving vertex modifies the infinite-star vs. infinite-path phase transition in the super-linear preferential attachment with fitness model. The problem appears to be still open.",
+    "status_evidence": [
+      {
+        "title": "Connectivity transitions in networks with super-linear preferential attachment",
+        "url": "https://arxiv.org/abs/math/0510446",
+        "snippet": "Analyzes super-linear case p>1 in the tree model, characterizing the limiting tree as having one vertex with infinite degree plus finitely many high-degree vertices.",
+        "claim": "Establishes the infinite-star phase transition in the tree (m=1) case but does not address m≥2 multigraphs."
+      },
+      {
+        "title": "Preferential Attachment Processes Approaching The Rado Multigraph",
+        "url": "https://arxiv.org/abs/1502.05618",
+        "snippet": "Studies multigraph preferential attachment with multiple edges per step but in the linear/sublinear setting converging to the Rado multigraph.",
+        "claim": "Multigraph PA models are studied in different regimes, but not the super-linear-with-fitness phase transition."
+      },
+      {
+        "title": "A phase transition for preferential attachment models with additive fitness",
+        "url": "https://arxiv.org/abs/2002.12863",
+        "snippet": "Identifies a phase transition in PA with additive fitness in the tree case.",
+        "claim": "Fitness-driven phase transitions are known for trees; multi-attachment extension is not resolved."
+      }
+    ],
+    "confidence": 0.7
+  },
+  "model": "opus",
+  "effort": "medium",
+  "elapsed_s": 34.21,
+  "validation_warnings": [],
+  "raw_claude_stdout": "{\"type\":\"result\",\"subtype\":\"success\",\"is_error\":false,\"api_error_status\":null,\"duration_ms\":33401,\"duration_api_ms\":32526,\"num_turns\":3,\"result\":\"Sources:\\n- [Connectivity transitions in networks with super-linear preferential attachment](https://arxiv.org/abs/math/0510446)\\n- [Preferential Attachment Processes Approaching The Rado Multigraph](https://arxiv.org/abs/1502.05618)\\n- [A phase transition for preferential attachment models with additive fitness](https://arxiv.org/abs/2002.12863)\",\"stop_reason\":\"end_turn\",\"session_id\":\"65b1cae0-187d-4588-8b20-f2e4a4fa4d06\",\"total_cost_usd\":0.10519,\"usage\":{\"input_tokens\":8,\"cache_creation_input_tokens\":4310,\"cache_read_input_tokens\":12045,\"output_tokens\":1778,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":4310,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[{\"input_tokens\":1,\"output_tokens\":139,\"cache_read_input_tokens\":5450,\"cache_creation_input_tokens\":1545,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":1545},\"type\":\"message\"}],\"speed\":\"standard\"},\"modelUsage\":{\"claude-haiku-4-5-20251001\":{\"inputTokens\":14600,\"outputTokens\":628,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":1,\"costUSD\":0.027739999999999997,\"contextWindow\":200000,\"maxOutputTokens\":32000},\"claude-opus-4-7\":{\"inputTokens\":8,\"outputTokens\":1778,\"cacheReadInputTokens\":12045,\"cacheCreationInputTokens\":4310,\"webSearchRequests\":0,\"costUSD\":0.07744999999999999,\"contextWindow\":1000000,\"maxOutputTokens\":64000}},\"permission_denials\":[],\"structured_output\":{\"self_contained_problem\":\"Consider the following random multigraph growth process with fitness. Let $(F_v)_{v\\\\ge 1}$ be an i.i.d. sequence of strictly positive random variables (the fitnesses) drawn from a fixed distribution $\\\\mu$ on $(0,\\\\infty)$, and let $f:\\\\mathbb{Z}_{\\\\ge 0}\\\\to(0,\\\\infty)$ be a super-linear weight function, i.e. $f(k)/k\\\\to\\\\infty$ as $k\\\\to\\\\infty$ (a canonical choice is $f(k)=(k+1)^p$ with $p>1$). Fix an integer $m\\\\ge 2$. Build a sequence of multigraphs $(G_n)_{n\\\\ge 1}$ as follows.\\n- $G_1$ consists of a single vertex labeled $1$ with fitness $F_1$.\\n- At each step $n\\\\ge 2$, a new vertex $n$ with fitness $F_n$ is added, and independently (with replacement) $m$ vertices $v_1,\\\\dots,v_m\\\\in\\\\{1,\\\\dots,n-1\\\\}$ are chosen, where each $v_i=u$ is selected with probability proportional to $F_u\\\\,f(\\\\deg_{G_{n-1}}(u))$. Then $m$ edges $\\\\{n,v_1\\\\},\\\\dots,\\\\{n,v_m\\\\}$ are added (possibly with repetitions, yielding a multigraph rather than a tree).\\n\\nLet $G_\\\\infty=\\\\bigcup_n G_n$ be the limiting multigraph. Determine the almost-sure asymptotic structure of $G_\\\\infty$, and in particular describe the phase diagram (as a function of $f$, $\\\\mu$, and $m$) for the dichotomy between:\\n(i) the \\\"infinite star\\\" regime, in which there exists a (possibly random) finite set of vertices whose degrees diverge while all but finitely many other vertices have bounded degree; and\\n(ii) the \\\"infinite path/locally finite\\\" regime, in which every vertex has finite degree almost surely.\\n\\nSpecifically, identify the critical thresholds on $f$ and $\\\\mu$ that separate these regimes when $m\\\\ge 2$, and compare them with the known thresholds in the tree case $m=1$.\",\"macro_subject\":\"Probability\",\"category_tag\":\"Preferential attachment models\",\"open_status\":\"open\",\"status_search_result\":\"The literature establishes phase transitions in super-linear preferential attachment trees (Oliveira–Spencer, and additive-fitness models) and separately studies multigraph variants approaching the Rado multigraph, but no source directly resolves how allowing m≥2 multiple attachments per arriving vertex modifies the infinite-star vs. infinite-path phase transition in the super-linear preferential attachment with fitness model. The problem appears to be still open.\",\"status_evidence\":[{\"title\":\"Connectivity transitions in networks with super-linear preferential attachment\",\"url\":\"https://arxiv.org/abs/math/0510446\",\"snippet\":\"Analyzes super-linear case p>1 in the tree model, characterizing the limiting tree as having one vertex with infinite degree plus finitely many high-degree vertices.\",\"claim\":\"Establishes the infinite-star phase transition in the tree (m=1) case but does not address m≥2 multigraphs.\"},{\"title\":\"Preferential Attachment Processes Approaching The Rado Multigraph\",\"url\":\"https://arxiv.org/abs/1502.05618\",\"snippet\":\"Studies multigraph preferential attachment with multiple edges per step but in the linear/sublinear setting converging to the Rado multigraph.\",\"claim\":\"Multigraph PA models are studied in different regimes, but not the super-linear-with-fitness phase transition.\"},{\"title\":\"A phase transition for preferential attachment models with additive fitness\",\"url\":\"https://arxiv.org/abs/2002.12863\",\"snippet\":\"Identifies a phase transition in PA with additive fitness in the tree case.\",\"claim\":\"Fitness-driven phase transitions are known for trees; multi-attachment extension is not resolved.\"}],\"confidence\":0.7},\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"uuid\":\"110f9e06-f34b-45d3-8efe-a5ce146a0385\"}\n"
+}

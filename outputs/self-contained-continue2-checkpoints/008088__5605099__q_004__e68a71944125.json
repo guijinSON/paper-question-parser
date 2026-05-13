@@ -1,0 +1,53 @@
+{
+  "record": {
+    "global_index": 8088,
+    "source_json": "outputs/parse-paper/5605099.json",
+    "paper_id": "5605099",
+    "paper_title": "Eight Open Problems in Distributed Computing",
+    "paper_link": "https://zbmath.org/5605099",
+    "question_link": "https://zbmath.org/5605099",
+    "question_id": "q_004",
+    "parser_is_solved": "false",
+    "context_brief": "Oblivious routing C plus D objective",
+    "original_question": "In oblivious routing, let C be congestion and D be the maximum path length produced by the routing. Which classes of networks admit oblivious routing algorithms for which C + D is close to the offline optimum, so that packet delivery can be scheduled in time proportional to C + D?",
+    "evidence": [
+      {
+        "page": 4,
+        "quote": "Another interesting open problem is to find classes of networks in which oblivious routing gives C + D close to the off-line optimal, where C is the congestion and D is the maximum path length."
+      }
+    ]
+  },
+  "artifact": {
+    "self_contained_problem": "Consider packet routing in an undirected network $G=(V,E)$. A routing instance consists of a multiset of source-destination pairs $\\{(s_i,t_i)\\}_{i=1}^k$, one packet per pair. A routing scheme assigns to each pair $(s_i,t_i)$ a path $P_i$ from $s_i$ to $t_i$ in $G$. Given such an assignment, define\n- the congestion $C = \\max_{e \\in E} |\\{ i : e \\in P_i \\}|$,\n- the dilation $D = \\max_i |P_i|$ (the maximum hop-length of any chosen path).\n\nIt is known that, given the paths, the packets can then be scheduled and delivered in time $O(C+D)$. A routing scheme is called oblivious if the path $P_i$ chosen for the pair $(s_i,t_i)$ depends only on $(s_i,t_i)$ (and possibly private randomness) and not on the other source-destination pairs in the instance.\n\nThe offline optimum for an instance is $\\mathrm{OPT}(G,\\{(s_i,t_i)\\}) = \\min (C^* + D^*)$, where the minimum is over all path assignments and $C^*, D^*$ are the corresponding congestion and dilation.\n\nProblem. Characterize, or exhibit, classes of networks $G$ that admit an oblivious routing algorithm $\\mathcal{A}$ such that for every routing instance the resulting congestion $C$ and dilation $D$ satisfy\n$$ C + D \\;\\le\\; f(|V|) \\cdot \\mathrm{OPT}(G,\\{(s_i,t_i)\\}) $$\nfor some small (e.g. polylogarithmic) factor $f$, so that packets can be delivered in time proportional to $C+D$ that is close to the offline optimum.",
+    "macro_subject": "Theoretical Computer Science",
+    "category_tag": "oblivious routing congestion + dilation",
+    "open_status": "solved",
+    "status_search_result": "Ghaffari, Haeupler, and Zuzic (STOC 2021, \"Hop-Constrained Oblivious Routing\") proved that every undirected network admits an oblivious routing scheme whose (congestion + dilation) is within a poly(log n) factor of the offline optimum, resolving this question affirmatively for general undirected graphs. Earlier work had given matching results for specific classes (e.g. d-dimensional meshes within an O(d^2) factor). Subsequent work (Haeupler–Hershkowitz–Zuzic STOC 2022; electrical-flow based schemes, ITCS 2024) refines the bounds and gives efficient constructions.",
+    "status_evidence": [
+      {
+        "title": "Hop-Constrained Oblivious Routing (Ghaffari, Haeupler, Zuzic)",
+        "url": "https://arxiv.org/abs/2011.10446",
+        "snippet": "We prove the existence of an oblivious routing scheme that is poly(log n)-competitive in terms of (congestion + dilation), thus resolving a well-known question in oblivious routing.",
+        "claim": "General undirected graphs admit oblivious routing schemes with C+D within a poly(log n) factor of optimum."
+      },
+      {
+        "title": "Optimal Oblivious Path Selection on the Mesh (Busch, Magdon-Ismail)",
+        "url": "http://www.cs.rpi.edu/~magdon/ps/conference/paths_IPDPS05.pdf",
+        "snippet": "For d-dimensional meshes, an oblivious algorithm achieves congestion and dilation each within O(d^2) of optimal, hence C+D within O(d^2) of optimal.",
+        "claim": "Meshes are an explicit class with near-optimal oblivious C+D."
+      },
+      {
+        "title": "Electrical Flows for Polylogarithmic Competitive Oblivious Routing (ITCS 2024)",
+        "url": "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.ITCS.2024.55",
+        "snippet": "Polylogarithmic competitive oblivious routing for the congestion+dilation objective via electrical flows.",
+        "claim": "Subsequent work refines and simplifies the polylog-competitive construction."
+      }
+    ],
+    "confidence": 0.8
+  },
+  "model": "opus",
+  "effort": "medium",
+  "elapsed_s": 47.72,
+  "validation_warnings": [],
+  "raw_claude_stdout": "{\"type\":\"result\",\"subtype\":\"success\",\"is_error\":false,\"api_error_status\":null,\"duration_ms\":46611,\"duration_api_ms\":43442,\"num_turns\":4,\"result\":\"Structured output provided.\\n\\nSources:\\n- [Hop-Constrained Oblivious Routing (arXiv)](https://arxiv.org/abs/2011.10446)\\n- [Optimal Oblivious Path Selection on the Mesh](http://www.cs.rpi.edu/~magdon/ps/conference/paths_IPDPS05.pdf)\\n- [Electrical Flows for Polylogarithmic Competitive Oblivious Routing](https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.ITCS.2024.55)\",\"stop_reason\":\"end_turn\",\"session_id\":\"5a6b7078-577d-4624-8695-fd6948548bad\",\"total_cost_usd\":0.16028625,\"usage\":{\"input_tokens\":9,\"cache_creation_input_tokens\":5645,\"cache_read_input_tokens\":18614,\"output_tokens\":1990,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":5645,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[{\"input_tokens\":1,\"output_tokens\":196,\"cache_read_input_tokens\":6725,\"cache_creation_input_tokens\":1605,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":1605},\"type\":\"message\"}],\"speed\":\"standard\"},\"modelUsage\":{\"claude-haiku-4-5-20251001\":{\"inputTokens\":40773,\"outputTokens\":1026,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":2,\"costUSD\":0.06590299999999999,\"contextWindow\":200000,\"maxOutputTokens\":32000},\"claude-opus-4-7\":{\"inputTokens\":9,\"outputTokens\":1990,\"cacheReadInputTokens\":18614,\"cacheCreationInputTokens\":5645,\"webSearchRequests\":0,\"costUSD\":0.09438325,\"contextWindow\":1000000,\"maxOutputTokens\":64000}},\"permission_denials\":[],\"structured_output\":{\"self_contained_problem\":\"Consider packet routing in an undirected network $G=(V,E)$. A routing instance consists of a multiset of source-destination pairs $\\\\{(s_i,t_i)\\\\}_{i=1}^k$, one packet per pair. A routing scheme assigns to each pair $(s_i,t_i)$ a path $P_i$ from $s_i$ to $t_i$ in $G$. Given such an assignment, define\\n- the congestion $C = \\\\max_{e \\\\in E} |\\\\{ i : e \\\\in P_i \\\\}|$,\\n- the dilation $D = \\\\max_i |P_i|$ (the maximum hop-length of any chosen path).\\n\\nIt is known that, given the paths, the packets can then be scheduled and delivered in time $O(C+D)$. A routing scheme is called oblivious if the path $P_i$ chosen for the pair $(s_i,t_i)$ depends only on $(s_i,t_i)$ (and possibly private randomness) and not on the other source-destination pairs in the instance.\\n\\nThe offline optimum for an instance is $\\\\mathrm{OPT}(G,\\\\{(s_i,t_i)\\\\}) = \\\\min (C^* + D^*)$, where the minimum is over all path assignments and $C^*, D^*$ are the corresponding congestion and dilation.\\n\\nProblem. Characterize, or exhibit, classes of networks $G$ that admit an oblivious routing algorithm $\\\\mathcal{A}$ such that for every routing instance the resulting congestion $C$ and dilation $D$ satisfy\\n$$ C + D \\\\;\\\\le\\\\; f(|V|) \\\\cdot \\\\mathrm{OPT}(G,\\\\{(s_i,t_i)\\\\}) $$\\nfor some small (e.g. polylogarithmic) factor $f$, so that packets can be delivered in time proportional to $C+D$ that is close to the offline optimum.\",\"macro_subject\":\"Theoretical Computer Science\",\"category_tag\":\"oblivious routing congestion + dilation\",\"open_status\":\"solved\",\"status_search_result\":\"Ghaffari, Haeupler, and Zuzic (STOC 2021, \\\"Hop-Constrained Oblivious Routing\\\") proved that every undirected network admits an oblivious routing scheme whose (congestion + dilation) is within a poly(log n) factor of the offline optimum, resolving this question affirmatively for general undirected graphs. Earlier work had given matching results for specific classes (e.g. d-dimensional meshes within an O(d^2) factor). Subsequent work (Haeupler–Hershkowitz–Zuzic STOC 2022; electrical-flow based schemes, ITCS 2024) refines the bounds and gives efficient constructions.\",\"status_evidence\":[{\"title\":\"Hop-Constrained Oblivious Routing (Ghaffari, Haeupler, Zuzic)\",\"url\":\"https://arxiv.org/abs/2011.10446\",\"snippet\":\"We prove the existence of an oblivious routing scheme that is poly(log n)-competitive in terms of (congestion + dilation), thus resolving a well-known question in oblivious routing.\",\"claim\":\"General undirected graphs admit oblivious routing schemes with C+D within a poly(log n) factor of optimum.\"},{\"title\":\"Optimal Oblivious Path Selection on the Mesh (Busch, Magdon-Ismail)\",\"url\":\"http://www.cs.rpi.edu/~magdon/ps/conference/paths_IPDPS05.pdf\",\"snippet\":\"For d-dimensional meshes, an oblivious algorithm achieves congestion and dilation each within O(d^2) of optimal, hence C+D within O(d^2) of optimal.\",\"claim\":\"Meshes are an explicit class with near-optimal oblivious C+D.\"},{\"title\":\"Electrical Flows for Polylogarithmic Competitive Oblivious Routing (ITCS 2024)\",\"url\":\"https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.ITCS.2024.55\",\"snippet\":\"Polylogarithmic competitive oblivious routing for the congestion+dilation objective via electrical flows.\",\"claim\":\"Subsequent work refines and simplifies the polylog-competitive construction.\"}],\"confidence\":0.8},\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"uuid\":\"354c3e63-b6fe-47fd-b911-ddc7f46b9d05\"}\n"
+}

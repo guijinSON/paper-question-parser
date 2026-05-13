@@ -1,0 +1,57 @@
+{
+  "record": {
+    "global_index": 8086,
+    "source_json": "outputs/parse-paper/5605099.json",
+    "paper_id": "5605099",
+    "paper_title": "Eight Open Problems in Distributed Computing",
+    "paper_link": "https://zbmath.org/5605099",
+    "question_link": "https://zbmath.org/5605099",
+    "question_id": "q_002",
+    "parser_is_solved": "false",
+    "context_brief": "Weak-adversary consensus lower bounds",
+    "original_question": "For randomized wait-free consensus against a weak adversary that cannot observe private coin flips before they are made public, where an O(log n) per-process work protocol is known using multi-writer registers, can one prove a nontrivial lower bound, ideally an Omega(log n) lower bound, for multi-writer registers or even for stronger objects such as unit-cost snapshots?",
+    "evidence": [
+      {
+        "page": 3,
+        "quote": "With a weaker adversary that cannot observe coin flips that have not yet been made public, consensus can be solved in O(log n) work per process using multi-writer registers [11]. There is no corresponding non-trivial lower bound."
+      },
+      {
+        "page": 3,
+        "quote": "It would be interesting to see if an Omega(log n) lower bound could be proved for multi-writer registers or even with strong objects like unit-cost snapshots."
+      }
+    ]
+  },
+  "artifact": {
+    "self_contained_problem": "Consider the standard asynchronous shared-memory model with n processes that communicate via atomic registers. The (binary or multi-valued) consensus problem requires each process to start with an input value, eventually decide a value, such that all decisions agree (Agreement), every decided value was some process's input (Validity), and every nonfaulty process eventually decides (Termination, here in the wait-free sense: any number of processes may fail by crashing). Algorithms may be randomized, with each process tossing private local coins, and the cost measure is per-process work (i.e., the worst-case expected number of shared-memory steps performed by a single process). The scheduling is controlled by an adversary; here the adversary is \"weak\" in the sense that it cannot observe the outcome of a coin flip until that outcome has been written to a shared register (i.e., made public).\n\nIt is known that under such a weak adversary, randomized wait-free consensus is solvable with O(log n) expected work per process using multi-writer atomic registers. \n\nProblem: Prove a nontrivial lower bound on the per-process expected work for randomized wait-free consensus among n processes against a weak adversary that cannot observe coin flips before they are made public, in the shared-memory model with multi-writer atomic registers (and, more generally, with stronger primitives such as unit-cost atomic snapshot objects). Ideally, establish a matching Ω(log n) per-process lower bound, or otherwise show any superconstant lower bound in these models.",
+    "macro_subject": "Theoretical Computer Science",
+    "category_tag": "distributed computing / randomized consensus lower bounds",
+    "open_status": "open",
+    "status_search_result": "Existing lower bounds for randomized consensus under weak/oblivious adversaries (Attiya–Censor; later work) address termination-probability versus total step complexity tradeoffs and Ω(n) register-count bounds, but no nontrivial per-process work lower bound (let alone Ω(log n)) for multi-writer registers or unit-cost snapshots against a weak adversary appears in the literature. Upper bounds have actually improved (e.g., O(log log n) per step expected with multi-writer registers under an oblivious adversary), widening the gap. The problem appears to remain open.",
+    "status_evidence": [
+      {
+        "title": "Lower Bounds for Randomized Consensus under a Weak Adversary",
+        "url": "https://epubs.siam.org/doi/10.1137/090751906",
+        "snippet": "Lower bound concerns the probability of non-termination within k(n−f) steps, not per-process work in multi-writer registers.",
+        "claim": "Existing weak-adversary lower bounds target termination probability vs. total steps, not per-process Ω(log n)."
+      },
+      {
+        "title": "Faster randomized consensus with an oblivious adversary",
+        "url": "https://link.springer.com/article/10.1007/s00446-013-0195-y",
+        "snippet": "Achieves O(log log n + log(1/μ)) steps with multi-writer registers against an oblivious adversary.",
+        "claim": "Upper bounds for weak/oblivious adversaries have improved; no matching nontrivial per-process lower bound is known."
+      },
+      {
+        "title": "Consensus with Max Registers (DISC 2019)",
+        "url": "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.DISC.2019.1",
+        "snippet": "Discusses consensus algorithms and complexity using stronger objects.",
+        "claim": "Recent work continues to improve upper bounds; corresponding nontrivial lower bounds for unit-cost snapshots/multi-writer registers under weak adversaries are not established."
+      }
+    ],
+    "confidence": 0.7
+  },
+  "model": "opus",
+  "effort": "medium",
+  "elapsed_s": 37.87,
+  "validation_warnings": [],
+  "raw_claude_stdout": "{\"type\":\"result\",\"subtype\":\"success\",\"is_error\":false,\"api_error_status\":null,\"duration_ms\":36761,\"duration_api_ms\":36056,\"num_turns\":3,\"result\":\"Sources:\\n- [Lower Bounds for Randomized Consensus under a Weak Adversary (SIAM J. Comput.)](https://epubs.siam.org/doi/10.1137/090751906)\\n- [Faster randomized consensus with an oblivious adversary](https://link.springer.com/article/10.1007/s00446-013-0195-y)\\n- [Consensus with Max Registers (DISC 2019)](https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.DISC.2019.1)\",\"stop_reason\":\"end_turn\",\"session_id\":\"26833b4b-6cb1-4d3f-805d-d07daf89c93a\",\"total_cost_usd\":0.11165349999999999,\"usage\":{\"input_tokens\":8,\"cache_creation_input_tokens\":4364,\"cache_read_input_tokens\":12305,\"output_tokens\":1668,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":4364,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[{\"input_tokens\":1,\"output_tokens\":183,\"cache_read_input_tokens\":5651,\"cache_creation_input_tokens\":1398,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":1398},\"type\":\"message\"}],\"speed\":\"standard\"},\"modelUsage\":{\"claude-haiku-4-5-20251001\":{\"inputTokens\":23576,\"outputTokens\":582,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":1,\"costUSD\":0.036486,\"contextWindow\":200000,\"maxOutputTokens\":32000},\"claude-opus-4-7\":{\"inputTokens\":8,\"outputTokens\":1668,\"cacheReadInputTokens\":12305,\"cacheCreationInputTokens\":4364,\"webSearchRequests\":0,\"costUSD\":0.0751675,\"contextWindow\":1000000,\"maxOutputTokens\":64000}},\"permission_denials\":[],\"structured_output\":{\"self_contained_problem\":\"Consider the standard asynchronous shared-memory model with n processes that communicate via atomic registers. The (binary or multi-valued) consensus problem requires each process to start with an input value, eventually decide a value, such that all decisions agree (Agreement), every decided value was some process's input (Validity), and every nonfaulty process eventually decides (Termination, here in the wait-free sense: any number of processes may fail by crashing). Algorithms may be randomized, with each process tossing private local coins, and the cost measure is per-process work (i.e., the worst-case expected number of shared-memory steps performed by a single process). The scheduling is controlled by an adversary; here the adversary is \\\"weak\\\" in the sense that it cannot observe the outcome of a coin flip until that outcome has been written to a shared register (i.e., made public).\\n\\nIt is known that under such a weak adversary, randomized wait-free consensus is solvable with O(log n) expected work per process using multi-writer atomic registers. \\n\\nProblem: Prove a nontrivial lower bound on the per-process expected work for randomized wait-free consensus among n processes against a weak adversary that cannot observe coin flips before they are made public, in the shared-memory model with multi-writer atomic registers (and, more generally, with stronger primitives such as unit-cost atomic snapshot objects). Ideally, establish a matching Ω(log n) per-process lower bound, or otherwise show any superconstant lower bound in these models.\",\"macro_subject\":\"Theoretical Computer Science\",\"category_tag\":\"distributed computing / randomized consensus lower bounds\",\"open_status\":\"open\",\"status_search_result\":\"Existing lower bounds for randomized consensus under weak/oblivious adversaries (Attiya–Censor; later work) address termination-probability versus total step complexity tradeoffs and Ω(n) register-count bounds, but no nontrivial per-process work lower bound (let alone Ω(log n)) for multi-writer registers or unit-cost snapshots against a weak adversary appears in the literature. Upper bounds have actually improved (e.g., O(log log n) per step expected with multi-writer registers under an oblivious adversary), widening the gap. The problem appears to remain open.\",\"status_evidence\":[{\"title\":\"Lower Bounds for Randomized Consensus under a Weak Adversary\",\"url\":\"https://epubs.siam.org/doi/10.1137/090751906\",\"snippet\":\"Lower bound concerns the probability of non-termination within k(n−f) steps, not per-process work in multi-writer registers.\",\"claim\":\"Existing weak-adversary lower bounds target termination probability vs. total steps, not per-process Ω(log n).\"},{\"title\":\"Faster randomized consensus with an oblivious adversary\",\"url\":\"https://link.springer.com/article/10.1007/s00446-013-0195-y\",\"snippet\":\"Achieves O(log log n + log(1/μ)) steps with multi-writer registers against an oblivious adversary.\",\"claim\":\"Upper bounds for weak/oblivious adversaries have improved; no matching nontrivial per-process lower bound is known.\"},{\"title\":\"Consensus with Max Registers (DISC 2019)\",\"url\":\"https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.DISC.2019.1\",\"snippet\":\"Discusses consensus algorithms and complexity using stronger objects.\",\"claim\":\"Recent work continues to improve upper bounds; corresponding nontrivial lower bounds for unit-cost snapshots/multi-writer registers under weak adversaries are not established.\"}],\"confidence\":0.7},\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"uuid\":\"0c54310f-8431-4f5c-ad32-2f4169c8acf7\"}\n"
+}

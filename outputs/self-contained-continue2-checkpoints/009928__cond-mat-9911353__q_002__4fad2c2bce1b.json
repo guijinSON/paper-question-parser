@@ -1,0 +1,63 @@
+{
+  "record": {
+    "global_index": 9928,
+    "source_json": "outputs/parse-paper/cond-mat_9911353.json",
+    "paper_id": "cond-mat/9911353",
+    "paper_title": "Zero-Temperature Dynamics of Ising Spin Systems Following a Deep Quench: Results and Open Problems",
+    "paper_link": "https://arxiv.org/abs/cond-mat/9911353",
+    "question_link": "https://arxiv.org/pdf/cond-mat/9911353#page=2",
+    "question_id": "q_002",
+    "parser_is_solved": "false",
+    "context_brief": "Continuous-disorder Ising dynamics with infinite mean",
+    "original_question": "Consider a zero-temperature stochastic Ising spin system with nearest-neighbor Hamiltonian H = −∑Jxy σxσy, initial spin configuration σ0 drawn from the symmetric Bernoulli product measure, and standard continuous-time single-spin-flip Glauber dynamics. Suppose the nearest-neighbor couplings are drawn from a continuous disorder distribution in dimension d > 1, the coupling distribution has infinite mean, and influence percolation occurs. What is the dynamical outcome: type F, where almost every site flips only finitely many times, or type M, where finitely flipping and infinitely flipping sites both have strictly positive spatial density?",
+    "evidence": [
+      {
+        "page": 2,
+        "quote": "Consider the stochastic process σ t = σ t(ω ) corresponding to the zero-temperature limit of Glauber dynamics for an Ising model with Hamiltonian, H = − ∑ Jx,y σxσy ."
+      },
+      {
+        "page": 2,
+        "quote": "The initial spin configuration σ 0 is chosen from a symmetric Bernoulli product measure (denoted Pσ 0), corresponding physically to a deep quench."
+      },
+      {
+        "page": 2,
+        "quote": "The densities ρF and ρI depend only on d, µ, and possibly lattice type, and of course satisfy ρF + ρI = 1. We characterize the triplet ( d, µ , lattice type) as being type F or I or M (for mixed) according to whether ρF = 1 or ρI = 1 or 0 < ρ F , ρ I < 1."
+      },
+      {
+        "page": 5,
+        "quote": "What about models where the disorder is continuous but the mean is infinite? We can show that a restricted class of these models are type F ; these are models where influence percolation [15] does not occur."
+      },
+      {
+        "page": 8,
+        "quote": "2) Models with continuous disorder in d > 1, where both the coupling distribution has infinite mean and influence percolation occurs. The proof [13] sketched in Sec. 4 already implies that ρF > 0 for these models, so they are either type F or M. It seems reasonable to conjecture that they are type F ."
+      }
+    ]
+  },
+  "artifact": {
+    "self_contained_problem": "Let $d>1$ be an integer and consider the nearest-neighbor lattice $\\mathbb{Z}^d$. Assign to each nearest-neighbor edge $\\{x,y\\}$ an i.i.d. coupling $J_{x,y}$ drawn from a continuous probability distribution on $(0,\\infty)$ (so ties occur with probability zero) whose mean is infinite, i.e. $\\mathbb{E}[J_{x,y}]=+\\infty$. Define the formal Hamiltonian\n$$H(\\sigma) = -\\sum_{\\langle x,y\\rangle} J_{x,y}\\,\\sigma_x\\sigma_y, \\qquad \\sigma\\in\\{-1,+1\\}^{\\mathbb{Z}^d}.$$\nChoose the initial spin configuration $\\sigma^0$ from the symmetric Bernoulli product measure on $\\{-1,+1\\}^{\\mathbb{Z}^d}$ (each spin $\\pm1$ with probability $1/2$, independently). Run continuous-time, single-spin-flip zero-temperature Glauber dynamics: independently at each site $x$, with rate $1$ a Poisson clock rings, and at a clock ring the spin $\\sigma_x$ is updated to align with the sign of its local field $\\sum_{y\\sim x} J_{x,y}\\sigma_y$ (and is flipped with probability $1/2$ if the local field is exactly zero, an event of probability zero under the stated assumptions for typical updates).\n\nFor each site $x$, let $N_x$ denote the (random) total number of times $\\sigma^t_x$ flips on $t\\in[0,\\infty)$. Define the densities\n$$\\rho_F = \\mathbb{P}(N_0<\\infty),\\qquad \\rho_I = \\mathbb{P}(N_0=\\infty),$$\nso that $\\rho_F+\\rho_I=1$. Call the model\n- type $F$ if $\\rho_F = 1$,\n- type $I$ if $\\rho_I = 1$,\n- type $M$ (mixed) if $0<\\rho_F,\\rho_I<1$.\n\nAn \"influence path\" from $x$ to $y$ is a sequence of nearest-neighbor edges along which the couplings strictly increase; \"influence percolation\" is said to occur when, almost surely, there exists an infinite self-avoiding path of edges with strictly increasing couplings emanating from the origin (equivalently, the infinite cluster of such monotone paths is non-empty with positive probability).\n\nAssume that $J_{x,y}$ has a continuous distribution with infinite mean and that influence percolation occurs. Determine whether the resulting zero-temperature Glauber dynamics is necessarily of type $F$ or of type $M$ (or whether some other behavior is possible).",
+    "macro_subject": "Probability",
+    "category_tag": "Zero-temperature Glauber dynamics with disorder",
+    "open_status": "open",
+    "status_search_result": "Newman and Stein's program on zero-temperature stochastic Ising dynamics established that continuous-disorder models with finite-mean couplings, and the restricted subclass of infinite-mean-coupling models without influence percolation, are type F. The complementary regime—continuous infinite-mean disorder with influence percolation—was explicitly listed as an open problem and no published resolution determining whether it is type F or type M was found in available literature up to 2026.",
+    "status_evidence": [
+      {
+        "title": "Zero-Temperature Dynamics of Ising Spin Systems Following a Deep Quench",
+        "url": "https://arxiv.org/abs/cond-mat/9911353",
+        "snippet": "What about models where the disorder is continuous but the mean is infinite? We can show that a restricted class of these models are type F; these are models where influence percolation does not occur.",
+        "claim": "The problem of classifying continuous-disorder, infinite-mean models with influence percolation is posed as open."
+      },
+      {
+        "title": "Publications of C. Newman",
+        "url": "https://math.nyu.edu/faculty/newman/publications.html",
+        "snippet": "List of papers on zero-temperature Glauber dynamics with disorder by Newman and collaborators.",
+        "claim": "No subsequent paper appears to resolve the type F vs type M dichotomy in the influence-percolating infinite-mean continuous-disorder regime."
+      }
+    ],
+    "confidence": 0.6
+  },
+  "model": "opus",
+  "effort": "medium",
+  "elapsed_s": 50.06,
+  "validation_warnings": [],
+  "raw_claude_stdout": "{\"type\":\"result\",\"subtype\":\"success\",\"is_error\":false,\"api_error_status\":null,\"duration_ms\":49172,\"duration_api_ms\":49154,\"num_turns\":3,\"result\":\"Provided structured output.\\n\\nSources:\\n- [Zero-Temperature Dynamics of Ising Spin Systems Following a Deep Quench](https://arxiv.org/abs/cond-mat/9911353)\\n- [Publications of C. Newman](https://math.nyu.edu/faculty/newman/publications.html)\\n- [Zero-temperature Glauber dynamics on Z^d](https://link.springer.com/article/10.1007/s00440-009-0259-x)\",\"stop_reason\":\"end_turn\",\"session_id\":\"d2b3278b-5bb8-4c90-ac58-66a42afcdc0e\",\"total_cost_usd\":0.328193,\"usage\":{\"input_tokens\":8,\"cache_creation_input_tokens\":5918,\"cache_read_input_tokens\":14013,\"output_tokens\":1941,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":5918,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[{\"input_tokens\":1,\"output_tokens\":161,\"cache_read_input_tokens\":6965,\"cache_creation_input_tokens\":1638,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":1638},\"type\":\"message\"}],\"speed\":\"standard\"},\"modelUsage\":{\"claude-haiku-4-5-20251001\":{\"inputTokens\":181184,\"outputTokens\":890,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":5,\"costUSD\":0.235634,\"contextWindow\":200000,\"maxOutputTokens\":32000},\"claude-opus-4-7\":{\"inputTokens\":8,\"outputTokens\":1941,\"cacheReadInputTokens\":14013,\"cacheCreationInputTokens\":5918,\"webSearchRequests\":0,\"costUSD\":0.092559,\"contextWindow\":1000000,\"maxOutputTokens\":64000}},\"permission_denials\":[],\"structured_output\":{\"self_contained_problem\":\"Let $d>1$ be an integer and consider the nearest-neighbor lattice $\\\\mathbb{Z}^d$. Assign to each nearest-neighbor edge $\\\\{x,y\\\\}$ an i.i.d. coupling $J_{x,y}$ drawn from a continuous probability distribution on $(0,\\\\infty)$ (so ties occur with probability zero) whose mean is infinite, i.e. $\\\\mathbb{E}[J_{x,y}]=+\\\\infty$. Define the formal Hamiltonian\\n$$H(\\\\sigma) = -\\\\sum_{\\\\langle x,y\\\\rangle} J_{x,y}\\\\,\\\\sigma_x\\\\sigma_y, \\\\qquad \\\\sigma\\\\in\\\\{-1,+1\\\\}^{\\\\mathbb{Z}^d}.$$\\nChoose the initial spin configuration $\\\\sigma^0$ from the symmetric Bernoulli product measure on $\\\\{-1,+1\\\\}^{\\\\mathbb{Z}^d}$ (each spin $\\\\pm1$ with probability $1/2$, independently). Run continuous-time, single-spin-flip zero-temperature Glauber dynamics: independently at each site $x$, with rate $1$ a Poisson clock rings, and at a clock ring the spin $\\\\sigma_x$ is updated to align with the sign of its local field $\\\\sum_{y\\\\sim x} J_{x,y}\\\\sigma_y$ (and is flipped with probability $1/2$ if the local field is exactly zero, an event of probability zero under the stated assumptions for typical updates).\\n\\nFor each site $x$, let $N_x$ denote the (random) total number of times $\\\\sigma^t_x$ flips on $t\\\\in[0,\\\\infty)$. Define the densities\\n$$\\\\rho_F = \\\\mathbb{P}(N_0<\\\\infty),\\\\qquad \\\\rho_I = \\\\mathbb{P}(N_0=\\\\infty),$$\\nso that $\\\\rho_F+\\\\rho_I=1$. Call the model\\n- type $F$ if $\\\\rho_F = 1$,\\n- type $I$ if $\\\\rho_I = 1$,\\n- type $M$ (mixed) if $0<\\\\rho_F,\\\\rho_I<1$.\\n\\nAn \\\"influence path\\\" from $x$ to $y$ is a sequence of nearest-neighbor edges along which the couplings strictly increase; \\\"influence percolation\\\" is said to occur when, almost surely, there exists an infinite self-avoiding path of edges with strictly increasing couplings emanating from the origin (equivalently, the infinite cluster of such monotone paths is non-empty with positive probability).\\n\\nAssume that $J_{x,y}$ has a continuous distribution with infinite mean and that influence percolation occurs. Determine whether the resulting zero-temperature Glauber dynamics is necessarily of type $F$ or of type $M$ (or whether some other behavior is possible).\",\"macro_subject\":\"Probability\",\"category_tag\":\"Zero-temperature Glauber dynamics with disorder\",\"open_status\":\"open\",\"status_search_result\":\"Newman and Stein's program on zero-temperature stochastic Ising dynamics established that continuous-disorder models with finite-mean couplings, and the restricted subclass of infinite-mean-coupling models without influence percolation, are type F. The complementary regime—continuous infinite-mean disorder with influence percolation—was explicitly listed as an open problem and no published resolution determining whether it is type F or type M was found in available literature up to 2026.\",\"status_evidence\":[{\"title\":\"Zero-Temperature Dynamics of Ising Spin Systems Following a Deep Quench\",\"url\":\"https://arxiv.org/abs/cond-mat/9911353\",\"snippet\":\"What about models where the disorder is continuous but the mean is infinite? We can show that a restricted class of these models are type F; these are models where influence percolation does not occur.\",\"claim\":\"The problem of classifying continuous-disorder, infinite-mean models with influence percolation is posed as open.\"},{\"title\":\"Publications of C. Newman\",\"url\":\"https://math.nyu.edu/faculty/newman/publications.html\",\"snippet\":\"List of papers on zero-temperature Glauber dynamics with disorder by Newman and collaborators.\",\"claim\":\"No subsequent paper appears to resolve the type F vs type M dichotomy in the influence-percolating infinite-mean continuous-disorder regime.\"}],\"confidence\":0.6},\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"uuid\":\"54e64361-6eb8-40c1-9d7a-7212c6eb07f6\"}\n"
+}

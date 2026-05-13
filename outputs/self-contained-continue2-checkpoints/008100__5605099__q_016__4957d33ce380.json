@@ -1,0 +1,57 @@
+{
+  "record": {
+    "global_index": 8100,
+    "source_json": "outputs/parse-paper/5605099.json",
+    "paper_id": "5605099",
+    "paper_title": "Eight Open Problems in Distributed Computing",
+    "paper_link": "https://zbmath.org/5605099",
+    "question_link": "https://zbmath.org/5605099",
+    "question_id": "q_016",
+    "parser_is_solved": "false",
+    "context_brief": "Distributed Stackelberg selfish optimization",
+    "original_question": "In a distributed Stackelberg-style selfish routing problem, where each node i wants to send flow x_i to a destination, the total flow is r, a subset L of non-selfish nodes can coordinate under a leader, and the remaining nodes selfishly route their flows to avoid high delay, can one find distributed algorithms by which the nodes in L choose their flows so that the Nash Equilibrium reached by the selfish nodes is close to an optimal flow routing such as minimum total latency?",
+    "evidence": [
+      {
+        "page": 12,
+        "quote": "Some of the nodes (belonging to a subset L) are not selfish but they agree to work together (e.g. under an elected leader). The rest route their flows selfishly to avoid big delays."
+      },
+      {
+        "page": 12,
+        "quote": "Finding distributed solutions to the selfish optimization problem described above, remains an open problem"
+      }
+    ]
+  },
+  "artifact": {
+    "self_contained_problem": "Consider a network in which each node $i$ wishes to route a flow of rate $x_i$ to a common destination, with total demand $r = \\sum_i x_i$. Edges of the network have load-dependent latency functions, and each unit of flow experiences a delay equal to the sum of the latencies along its chosen path. Let $L$ be a designated subset of nodes (the \"coordinated\" or \"leader\" nodes) which can cooperate (for instance, under an elected leader) and route their portion of the flow according to a jointly chosen strategy. The remaining nodes (the \"selfish\" followers) independently choose routes for their own flows so as to minimize the delay they experience, eventually reaching a Nash equilibrium given the routing committed to by the nodes in $L$.\n\nThe total cost of a flow assignment is the total latency, $\\sum_e f_e \\cdot \\ell_e(f_e)$, where $f_e$ is the flow on edge $e$ and $\\ell_e$ is its latency function. An optimal routing minimizes this total latency over all feasible flows.\n\nDesign a distributed algorithm — to be executed by the nodes in $L$ using only local communication and information — that chooses the flows of the coordinated nodes so that the resulting Nash equilibrium induced among the selfish nodes has total latency provably close to that of the optimal routing. Equivalently: provide distributed Stackelberg strategies for $L$ achieving a bounded approximation ratio (or additive guarantee) to the minimum-total-latency flow, together with the associated convergence and complexity guarantees.",
+    "macro_subject": "Theoretical Computer Science",
+    "category_tag": "Distributed Stackelberg selfish routing",
+    "open_status": "unknown",
+    "status_search_result": "Centralized Stackelberg routing strategies (e.g., LLF and SCALE) and their approximation guarantees with respect to optimal latency are well studied for parallel-link and general multicommodity networks. However, the specific question of designing fully distributed algorithms by which a subset L of cooperating nodes computes its Stackelberg strategy so that the Nash equilibrium induced on selfish followers approximates the minimum-latency routing does not appear to be conclusively resolved in the literature. Status remains unclear.",
+    "status_evidence": [
+      {
+        "title": "Stackelberg Strategies for Selfish Routing in General Multicommodity Networks",
+        "url": "https://link.springer.com/article/10.1007/s00453-007-9018-5",
+        "snippet": "Stackelberg strategies where a fraction of flow is centrally-controlled and the rest responds selfishly; analyzed in centralized settings.",
+        "claim": "Centralized Stackelberg routing has known approximation algorithms, but distributed versions remain unaddressed in this line."
+      },
+      {
+        "title": "Stackelberg thresholds in network routing games or the value of altruism",
+        "url": "https://www.sciencedirect.com/science/article/abs/pii/S0899825609001298",
+        "snippet": "Studies thresholds on the fraction of altruistic/coordinated flow needed to improve equilibrium quality.",
+        "claim": "Existing work focuses on the centralized Stackelberg setting and value of altruism, not distributed implementations."
+      },
+      {
+        "title": "The effectiveness of Stackelberg strategies and tolls for network congestion games",
+        "url": "https://dl.acm.org/doi/10.1145/2344422.2344426",
+        "snippet": "Bounds the price of anarchy under Stackelberg strategies in congestion games.",
+        "claim": "Approximation guarantees for Stackelberg strategies are known centrally; no fully distributed counterpart is established."
+      }
+    ],
+    "confidence": 0.6
+  },
+  "model": "opus",
+  "effort": "medium",
+  "elapsed_s": 39.2,
+  "validation_warnings": [],
+  "raw_claude_stdout": "{\"type\":\"result\",\"subtype\":\"success\",\"is_error\":false,\"api_error_status\":null,\"duration_ms\":38173,\"duration_api_ms\":37794,\"num_turns\":3,\"result\":\"Sources:\\n- [Stackelberg Strategies for Selfish Routing in General Multicommodity Networks](https://link.springer.com/article/10.1007/s00453-007-9018-5)\\n- [Stackelberg thresholds in network routing games](https://www.sciencedirect.com/science/article/abs/pii/S0899825609001298)\\n- [The effectiveness of Stackelberg strategies and tolls for network congestion games](https://dl.acm.org/doi/10.1145/2344422.2344426)\",\"stop_reason\":\"end_turn\",\"session_id\":\"b29aa0c6-1a57-429f-840c-93ad0487ad0a\",\"total_cost_usd\":0.10888325000000001,\"usage\":{\"input_tokens\":8,\"cache_creation_input_tokens\":4257,\"cache_read_input_tokens\":12202,\"output_tokens\":1684,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":4257,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[{\"input_tokens\":1,\"output_tokens\":174,\"cache_read_input_tokens\":5542,\"cache_creation_input_tokens\":1400,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":1400},\"type\":\"message\"}],\"speed\":\"standard\"},\"modelUsage\":{\"claude-haiku-4-5-20251001\":{\"inputTokens\":21586,\"outputTokens\":490,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":1,\"costUSD\":0.034036000000000004,\"contextWindow\":200000,\"maxOutputTokens\":32000},\"claude-opus-4-7\":{\"inputTokens\":8,\"outputTokens\":1684,\"cacheReadInputTokens\":12202,\"cacheCreationInputTokens\":4257,\"webSearchRequests\":0,\"costUSD\":0.07484725,\"contextWindow\":1000000,\"maxOutputTokens\":64000}},\"permission_denials\":[],\"structured_output\":{\"self_contained_problem\":\"Consider a network in which each node $i$ wishes to route a flow of rate $x_i$ to a common destination, with total demand $r = \\\\sum_i x_i$. Edges of the network have load-dependent latency functions, and each unit of flow experiences a delay equal to the sum of the latencies along its chosen path. Let $L$ be a designated subset of nodes (the \\\"coordinated\\\" or \\\"leader\\\" nodes) which can cooperate (for instance, under an elected leader) and route their portion of the flow according to a jointly chosen strategy. The remaining nodes (the \\\"selfish\\\" followers) independently choose routes for their own flows so as to minimize the delay they experience, eventually reaching a Nash equilibrium given the routing committed to by the nodes in $L$.\\n\\nThe total cost of a flow assignment is the total latency, $\\\\sum_e f_e \\\\cdot \\\\ell_e(f_e)$, where $f_e$ is the flow on edge $e$ and $\\\\ell_e$ is its latency function. An optimal routing minimizes this total latency over all feasible flows.\\n\\nDesign a distributed algorithm — to be executed by the nodes in $L$ using only local communication and information — that chooses the flows of the coordinated nodes so that the resulting Nash equilibrium induced among the selfish nodes has total latency provably close to that of the optimal routing. Equivalently: provide distributed Stackelberg strategies for $L$ achieving a bounded approximation ratio (or additive guarantee) to the minimum-total-latency flow, together with the associated convergence and complexity guarantees.\",\"macro_subject\":\"Theoretical Computer Science\",\"category_tag\":\"Distributed Stackelberg selfish routing\",\"open_status\":\"unknown\",\"status_search_result\":\"Centralized Stackelberg routing strategies (e.g., LLF and SCALE) and their approximation guarantees with respect to optimal latency are well studied for parallel-link and general multicommodity networks. However, the specific question of designing fully distributed algorithms by which a subset L of cooperating nodes computes its Stackelberg strategy so that the Nash equilibrium induced on selfish followers approximates the minimum-latency routing does not appear to be conclusively resolved in the literature. Status remains unclear.\",\"status_evidence\":[{\"title\":\"Stackelberg Strategies for Selfish Routing in General Multicommodity Networks\",\"url\":\"https://link.springer.com/article/10.1007/s00453-007-9018-5\",\"snippet\":\"Stackelberg strategies where a fraction of flow is centrally-controlled and the rest responds selfishly; analyzed in centralized settings.\",\"claim\":\"Centralized Stackelberg routing has known approximation algorithms, but distributed versions remain unaddressed in this line.\"},{\"title\":\"Stackelberg thresholds in network routing games or the value of altruism\",\"url\":\"https://www.sciencedirect.com/science/article/abs/pii/S0899825609001298\",\"snippet\":\"Studies thresholds on the fraction of altruistic/coordinated flow needed to improve equilibrium quality.\",\"claim\":\"Existing work focuses on the centralized Stackelberg setting and value of altruism, not distributed implementations.\"},{\"title\":\"The effectiveness of Stackelberg strategies and tolls for network congestion games\",\"url\":\"https://dl.acm.org/doi/10.1145/2344422.2344426\",\"snippet\":\"Bounds the price of anarchy under Stackelberg strategies in congestion games.\",\"claim\":\"Approximation guarantees for Stackelberg strategies are known centrally; no fully distributed counterpart is established.\"}],\"confidence\":0.6},\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"uuid\":\"057c0680-ed1e-405e-8cf0-0f32685714fe\"}\n"
+}

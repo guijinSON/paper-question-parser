@@ -1,0 +1,61 @@
+{
+  "record": {
+    "global_index": 8248,
+    "source_json": "outputs/parse-paper/5702337.json",
+    "paper_id": "5702337",
+    "paper_title": "On Open Problems in Biological Network Visualization",
+    "paper_link": "https://zbmath.org/5702337",
+    "question_link": "https://zbmath.org/5702337",
+    "question_id": "q_002",
+    "parser_is_solved": "false",
+    "context_brief": "comparison layouts for similar biological networks",
+    "original_question": "Given k structurally similar biological graphs G1,...,Gk, such as molecular subnetworks from different organisms or species, networks from diseased and healthy states, networks at different time points, or networks under different environmental conditions, how can one lay them out so that similarities or differences are highlighted? The layout method should support either a single layout of the union graph or k disjoint aligned layouts with common node coordinates, should draw common nodes and common edges identically when the stronger fixed-edge simultaneous-embedding setting is required, should preserve already given layouts or backbone structures when a mental map matters, should obey biological constraints for the relevant network type, and should handle large networks by hiding irrelevant parts while highlighting points of interest such as differences or main metabolic pathways.",
+    "evidence": [
+      {
+        "page": 7,
+        "quote": "Given a set of graphs G1,...,Gk with a high degree of similarity between each other, the task is to lay them out in a way so that the differences (or the similarities) are highlighted."
+      },
+      {
+        "page": 7,
+        "quote": "In the context of biological networks and pathways, the stronger simultaneous embedding problem with fixed edges occurs, which forces not only the nodes but also the edges occurring in two or more graphs to be drawn identically."
+      },
+      {
+        "page": 7,
+        "quote": "In any case, the layouts must obey the given biological constraints concerning the specific network type."
+      }
+    ]
+  },
+  "artifact": {
+    "self_contained_problem": "Let G_1, ..., G_k be a collection of finite simple graphs that are structurally similar, in the sense that they share many vertices and many edges (for instance, k variants of a molecular interaction or metabolic network observed under different conditions). Each G_i = (V_i, E_i) may additionally carry domain-specific drawing constraints (e.g., constraints on the placement of certain vertex classes, or required relative orderings of edges around a vertex) that any admissible layout must respect.\n\nDesign a graph-drawing procedure that produces either\n\n(a) a single planar or near-planar drawing of the union graph G = (⋃_i V_i, ⋃_i E_i), with each G_i visually distinguishable inside it, or\n\n(b) k drawings Γ_1, ..., Γ_k of G_1, ..., G_k that use a common coordinate assignment for every vertex of ⋃_i V_i,\n\nsuch that the procedure satisfies all of the following requirements simultaneously:\n\n1. Similarities and differences between the G_i are visually highlighted (common substructures are drawn so as to be immediately recognizable, while edges or vertices unique to some G_i are visually emphasized).\n\n2. The fixed-edge simultaneous-embedding condition is met: every vertex that appears in more than one G_i is drawn at the same point in all of them, and every edge that appears in more than one G_i is drawn as the same curve in all of them.\n\n3. If a layout (or a designated \"backbone\" subgraph) is prescribed in advance for some G_i, that layout is preserved, so that the user's mental map is maintained.\n\n4. All prescribed domain constraints attached to each G_i are respected by Γ_i.\n\n5. The procedure scales to large inputs by supporting focus-and-context mechanisms that hide portions of the G_i deemed irrelevant while highlighting designated regions of interest (such as the symmetric differences E_i △ E_j or distinguished pathways).\n\nProvide such a procedure, or prove obstructions characterizing when no drawing meeting requirements (1)–(5) exists.",
+    "macro_subject": "Theoretical Computer Science",
+    "category_tag": "simultaneous graph embedding",
+    "open_status": "open",
+    "status_search_result": "The core subproblem—deciding simultaneous embedding with fixed edges (SEFE) for two graphs in polynomial time—remains a major open question in graph drawing, while SEFE for three or more graphs is known to be NP-complete. No general algorithm is known that simultaneously satisfies fixed-edge, mental-map preservation, biological constraints, and focus-and-context scalability for comparison layouts of multiple similar biological networks, so the problem as posed remains open.",
+    "status_evidence": [
+      {
+        "title": "Simultaneous embedding - Wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Simultaneous_embedding",
+        "snippet": "It is an open question whether the existence of a simultaneous embedding with fixed edges for two given graphs can be tested in polynomial time. However, for three or more graphs, the problem is NP-complete.",
+        "claim": "The 2-graph SEFE decision problem is open; the k≥3 case is NP-complete."
+      },
+      {
+        "title": "Simultaneous Embedding of Planar Graphs (Handbook chapter)",
+        "url": "https://cs.brown.edu/people/rtamassi/gdhandbook/chapters/simultaneous.pdf",
+        "snippet": "Survey of simultaneous embedding variants including SEFE, with many problems left open.",
+        "claim": "Survey confirms SEFE complexity and many related comparison-layout questions remain unresolved."
+      },
+      {
+        "title": "Characterizing Simultaneous Embedding with Fixed Edges",
+        "url": "https://www2.cs.arizona.edu/~kobourov/SEFE_TGGT.pdf",
+        "snippet": "Partial characterizations of SEFE are given but a full polynomial-time algorithm for two graphs is not established.",
+        "claim": "Only partial progress on SEFE, supporting open status."
+      }
+    ],
+    "confidence": 0.78
+  },
+  "model": "opus",
+  "effort": "medium",
+  "elapsed_s": 32.69,
+  "validation_warnings": [],
+  "raw_claude_stdout": "{\"type\":\"result\",\"subtype\":\"success\",\"is_error\":false,\"api_error_status\":null,\"duration_ms\":31639,\"duration_api_ms\":30265,\"num_turns\":3,\"result\":\"Provided the structured dataset row.\\n\\nSources:\\n- [Simultaneous embedding - Wikipedia](https://en.wikipedia.org/wiki/Simultaneous_embedding)\\n- [Simultaneous Embedding of Planar Graphs (Handbook chapter)](https://cs.brown.edu/people/rtamassi/gdhandbook/chapters/simultaneous.pdf)\\n- [Characterizing Simultaneous Embedding with Fixed Edges](https://www2.cs.arizona.edu/~kobourov/SEFE_TGGT.pdf)\",\"stop_reason\":\"end_turn\",\"session_id\":\"3f684f96-8f73-4737-9e9b-f26154872e5e\",\"total_cost_usd\":0.10816075,\"usage\":{\"input_tokens\":8,\"cache_creation_input_tokens\":4449,\"cache_read_input_tokens\":12429,\"output_tokens\":1843,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":4449,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[{\"input_tokens\":1,\"output_tokens\":200,\"cache_read_input_tokens\":5598,\"cache_creation_input_tokens\":1536,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":1536},\"type\":\"message\"}],\"speed\":\"standard\"},\"modelUsage\":{\"claude-haiku-4-5-20251001\":{\"inputTokens\":15550,\"outputTokens\":495,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":1,\"costUSD\":0.028024999999999998,\"contextWindow\":200000,\"maxOutputTokens\":32000},\"claude-opus-4-7\":{\"inputTokens\":8,\"outputTokens\":1843,\"cacheReadInputTokens\":12429,\"cacheCreationInputTokens\":4449,\"webSearchRequests\":0,\"costUSD\":0.08013574999999999,\"contextWindow\":1000000,\"maxOutputTokens\":64000}},\"permission_denials\":[],\"structured_output\":{\"self_contained_problem\":\"Let G_1, ..., G_k be a collection of finite simple graphs that are structurally similar, in the sense that they share many vertices and many edges (for instance, k variants of a molecular interaction or metabolic network observed under different conditions). Each G_i = (V_i, E_i) may additionally carry domain-specific drawing constraints (e.g., constraints on the placement of certain vertex classes, or required relative orderings of edges around a vertex) that any admissible layout must respect.\\n\\nDesign a graph-drawing procedure that produces either\\n\\n(a) a single planar or near-planar drawing of the union graph G = (⋃_i V_i, ⋃_i E_i), with each G_i visually distinguishable inside it, or\\n\\n(b) k drawings Γ_1, ..., Γ_k of G_1, ..., G_k that use a common coordinate assignment for every vertex of ⋃_i V_i,\\n\\nsuch that the procedure satisfies all of the following requirements simultaneously:\\n\\n1. Similarities and differences between the G_i are visually highlighted (common substructures are drawn so as to be immediately recognizable, while edges or vertices unique to some G_i are visually emphasized).\\n\\n2. The fixed-edge simultaneous-embedding condition is met: every vertex that appears in more than one G_i is drawn at the same point in all of them, and every edge that appears in more than one G_i is drawn as the same curve in all of them.\\n\\n3. If a layout (or a designated \\\"backbone\\\" subgraph) is prescribed in advance for some G_i, that layout is preserved, so that the user's mental map is maintained.\\n\\n4. All prescribed domain constraints attached to each G_i are respected by Γ_i.\\n\\n5. The procedure scales to large inputs by supporting focus-and-context mechanisms that hide portions of the G_i deemed irrelevant while highlighting designated regions of interest (such as the symmetric differences E_i △ E_j or distinguished pathways).\\n\\nProvide such a procedure, or prove obstructions characterizing when no drawing meeting requirements (1)–(5) exists.\",\"macro_subject\":\"Theoretical Computer Science\",\"category_tag\":\"simultaneous graph embedding\",\"open_status\":\"open\",\"status_search_result\":\"The core subproblem—deciding simultaneous embedding with fixed edges (SEFE) for two graphs in polynomial time—remains a major open question in graph drawing, while SEFE for three or more graphs is known to be NP-complete. No general algorithm is known that simultaneously satisfies fixed-edge, mental-map preservation, biological constraints, and focus-and-context scalability for comparison layouts of multiple similar biological networks, so the problem as posed remains open.\",\"status_evidence\":[{\"title\":\"Simultaneous embedding - Wikipedia\",\"url\":\"https://en.wikipedia.org/wiki/Simultaneous_embedding\",\"snippet\":\"It is an open question whether the existence of a simultaneous embedding with fixed edges for two given graphs can be tested in polynomial time. However, for three or more graphs, the problem is NP-complete.\",\"claim\":\"The 2-graph SEFE decision problem is open; the k≥3 case is NP-complete.\"},{\"title\":\"Simultaneous Embedding of Planar Graphs (Handbook chapter)\",\"url\":\"https://cs.brown.edu/people/rtamassi/gdhandbook/chapters/simultaneous.pdf\",\"snippet\":\"Survey of simultaneous embedding variants including SEFE, with many problems left open.\",\"claim\":\"Survey confirms SEFE complexity and many related comparison-layout questions remain unresolved.\"},{\"title\":\"Characterizing Simultaneous Embedding with Fixed Edges\",\"url\":\"https://www2.cs.arizona.edu/~kobourov/SEFE_TGGT.pdf\",\"snippet\":\"Partial characterizations of SEFE are given but a full polynomial-time algorithm for two graphs is not established.\",\"claim\":\"Only partial progress on SEFE, supporting open status.\"}],\"confidence\":0.78},\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"uuid\":\"c65beccf-bfa1-4267-ae98-16c67a8aa8bb\"}\n"
+}

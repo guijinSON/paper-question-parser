@@ -1,0 +1,59 @@
+{
+  "record": {
+    "global_index": 6628,
+    "source_json": "outputs/parse-paper/2407.06321.json",
+    "paper_id": "2407.06321",
+    "paper_title": "Open Problem: Tight Bounds for Kernelized Multi-Armed Bandits with Bernoulli Rewards",
+    "paper_link": "https://arxiv.org/abs/2407.06321",
+    "question_link": "https://arxiv.org/pdf/2407.06321.pdf#page=2",
+    "question_id": "q_001",
+    "parser_is_solved": "false",
+    "context_brief": "Estimation for RKHS-structured Bernoulli bandits",
+    "original_question": "In a kernelized Bernoulli bandit, a learner sequentially chooses actions x_t from a decision set X contained in R^d and observes Bernoulli rewards y_t sampled with mean f(x_t), where the unknown function f: X -> [0,1] belongs to the reproducing kernel Hilbert space H_k induced by a kernel k, has known RKHS norm bound ||f||_{H_k} <= B, and satisfies k(x,x) <= 1 for every x in X. Given the history G_t = {(x_s, y_s)}_{s=1}^{t-1} of past action-reward pairs, can one construct an effective estimator of f(x) at a new point x in X that uses the kernel structure while producing estimates appropriate for Bernoulli mean parameters in [0,1]?",
+    "evidence": [
+      {
+        "page": 2,
+        "quote": "We consider the problem of sequentially maximizing a ﬁxed an d unknown function f :\nX Ñ r 0, 1s over a decision set X Ď Rd (also called action set). At every round t P /llbracketT /rrbracket:“\nt1, . . . , T u, being T P N the learning horizon, the algorithm A chooses an action xt P X based\non the history of past observations Gt :“ tp xs, y squsP/llbrackett´ 1/rrbracketand observes a random variable yt „\nBerpf pxtqq, where Ber ppq denotes a Bernoulli distribution with parameter p P r0, 1s."
+      },
+      {
+        "page": 2,
+        "quote": "Assumption 2.1 (Regularity Conditions) f belongs to the RKHS, i.e., f P Hk, and:\n• the function f has a bounded RKHS norm, i.e., }f }Hk ď B ă `8 (B is known);\n• the kernel function k is bounded, i.e., kpx, xq ď 1 for every x P X ."
+      },
+      {
+        "page": 2,
+        "quote": "Can we effectively estimate f pxq in a new point x P X based on the\nhistory of past observations Gt :“ tp xs, y squsP/llbrackett´ 1/rrbracketwhere ys are Bernoulli samples?"
+      },
+      {
+        "page": 3,
+        "quote": "This approach can be employed when yt „ Berpf pxtqq,\nsince a Bernoulli variable is 1{2-subgaussian. However, the\ndrawback is that µ tpxq is not guaranteed to lie in r0, 1s, al-\nthough the true f pxq P r 0, 1s, being the parameter of a\nBernoulli distribution (Figure 1)."
+      }
+    ]
+  },
+  "artifact": {
+    "self_contained_problem": "Setting. Let $\\mathcal{X}\\subseteq\\mathbb{R}^d$ be a decision set and let $k:\\mathcal{X}\\times\\mathcal{X}\\to\\mathbb{R}$ be a positive-definite kernel with associated reproducing kernel Hilbert space (RKHS) $\\mathcal{H}_k$. Assume the kernel is bounded: $k(x,x)\\le 1$ for every $x\\in\\mathcal{X}$. Let $f:\\mathcal{X}\\to[0,1]$ be an unknown function satisfying $f\\in\\mathcal{H}_k$ with known RKHS-norm bound $\\|f\\|_{\\mathcal{H}_k}\\le B<\\infty$.\n\nA learner interacts sequentially with the environment: at each round $t\\in\\{1,\\dots,T\\}$, the learner chooses an action $x_t\\in\\mathcal{X}$ as a (possibly randomized) function of the history $G_t=\\{(x_s,y_s)\\}_{s=1}^{t-1}$, and observes a reward $y_t\\sim\\mathrm{Bernoulli}(f(x_t))$, independently across rounds conditional on $x_t$.\n\nProblem. Construct an estimator $\\hat f_t:\\mathcal{X}\\to[0,1]$, measurable with respect to the history $G_t$, that\n(i) exploits the RKHS structure encoded by $k$ and the norm bound $B$,\n(ii) takes values in $[0,1]$, consistent with $f(x)$ being a Bernoulli mean parameter, and\n(iii) admits a non-trivial pointwise concentration inequality of the form\n$$|\\hat f_t(x)-f(x)|\\le \\beta_t(\\delta)\\,\\sigma_t(x)\\qquad\\forall x\\in\\mathcal{X}$$\nholding with probability at least $1-\\delta$ uniformly over $t$, where $\\sigma_t(x)$ is a data-dependent posterior-style standard deviation and $\\beta_t(\\delta)$ depends polynomially on $B$, $\\log(1/\\delta)$ and the maximum information gain of $k$, and yields tight (matching upper and lower) cumulative-regret bounds for the associated kernelized Bernoulli bandit problem.\n\nSpecifically: does there exist such an estimator (and confidence sequence) for kernelized bandits with Bernoulli rewards whose induced regret upper bound matches, up to logarithmic factors, the known lower bounds for kernelized bandits restricted to Bernoulli noise?",
+    "macro_subject": "Statistics and Machine Learning",
+    "category_tag": "Kernelized bandits",
+    "open_status": "open",
+    "status_search_result": "The question is posed as an open problem and we found no subsequent work resolving it. Standard subgaussian-based GP-UCB/GP-TS confidence sets apply to Bernoulli rewards (since Bernoulli is 1/2-subgaussian) but produce estimates that need not lie in [0,1] and are not known to give tight bounds tailored to the Bernoulli structure. No follow-up paper providing matching upper and lower bounds for the kernelized Bernoulli bandit appears to be available.",
+    "status_evidence": [
+      {
+        "title": "Open Problem: Tight Bounds for Kernelized Multi-Armed Bandits with Bernoulli Rewards",
+        "url": "https://arxiv.org/abs/2407.06321",
+        "snippet": "It remains an open question whether tight results can be obtained for kernelized bandits with Bernoulli rewards.",
+        "claim": "The problem is explicitly framed as open."
+      },
+      {
+        "title": "On Kernelized Multi-armed Bandits (Chowdhury & Gopalan, 2017)",
+        "url": "https://proceedings.mlr.press/v70/chowdhury17a/chowdhury17a.pdf",
+        "snippet": "IGP-UCB and GP-TS with self-normalized concentration for subgaussian noise; estimator is not constrained to [0,1].",
+        "claim": "Existing subgaussian-noise estimators do not respect the [0,1] constraint nor exploit Bernoulli structure."
+      }
+    ],
+    "confidence": 0.7
+  },
+  "model": "opus",
+  "effort": "medium",
+  "elapsed_s": 39.32,
+  "validation_warnings": [],
+  "raw_claude_stdout": "{\"type\":\"result\",\"subtype\":\"success\",\"is_error\":false,\"api_error_status\":null,\"duration_ms\":38369,\"duration_api_ms\":37637,\"num_turns\":3,\"result\":\"Sources:\\n- [Open Problem: Tight Bounds for Kernelized Multi-Armed Bandits with Bernoulli Rewards](https://arxiv.org/abs/2407.06321)\\n- [On Kernelized Multi-armed Bandits (Chowdhury & Gopalan)](https://proceedings.mlr.press/v70/chowdhury17a/chowdhury17a.pdf)\",\"stop_reason\":\"end_turn\",\"session_id\":\"81ca0dc4-f85b-4909-9f20-5de1cf6bcee2\",\"total_cost_usd\":0.1190475,\"usage\":{\"input_tokens\":8,\"cache_creation_input_tokens\":5114,\"cache_read_input_tokens\":13516,\"output_tokens\":1835,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":5114,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[{\"input_tokens\":1,\"output_tokens\":141,\"cache_read_input_tokens\":6207,\"cache_creation_input_tokens\":1592,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":1592},\"type\":\"message\"}],\"speed\":\"standard\"},\"modelUsage\":{\"claude-haiku-4-5-20251001\":{\"inputTokens\":21867,\"outputTokens\":509,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":1,\"costUSD\":0.034412,\"contextWindow\":200000,\"maxOutputTokens\":32000},\"claude-opus-4-7\":{\"inputTokens\":8,\"outputTokens\":1835,\"cacheReadInputTokens\":13516,\"cacheCreationInputTokens\":5114,\"webSearchRequests\":0,\"costUSD\":0.0846355,\"contextWindow\":1000000,\"maxOutputTokens\":64000}},\"permission_denials\":[],\"structured_output\":{\"self_contained_problem\":\"Setting. Let $\\\\mathcal{X}\\\\subseteq\\\\mathbb{R}^d$ be a decision set and let $k:\\\\mathcal{X}\\\\times\\\\mathcal{X}\\\\to\\\\mathbb{R}$ be a positive-definite kernel with associated reproducing kernel Hilbert space (RKHS) $\\\\mathcal{H}_k$. Assume the kernel is bounded: $k(x,x)\\\\le 1$ for every $x\\\\in\\\\mathcal{X}$. Let $f:\\\\mathcal{X}\\\\to[0,1]$ be an unknown function satisfying $f\\\\in\\\\mathcal{H}_k$ with known RKHS-norm bound $\\\\|f\\\\|_{\\\\mathcal{H}_k}\\\\le B<\\\\infty$.\\n\\nA learner interacts sequentially with the environment: at each round $t\\\\in\\\\{1,\\\\dots,T\\\\}$, the learner chooses an action $x_t\\\\in\\\\mathcal{X}$ as a (possibly randomized) function of the history $G_t=\\\\{(x_s,y_s)\\\\}_{s=1}^{t-1}$, and observes a reward $y_t\\\\sim\\\\mathrm{Bernoulli}(f(x_t))$, independently across rounds conditional on $x_t$.\\n\\nProblem. Construct an estimator $\\\\hat f_t:\\\\mathcal{X}\\\\to[0,1]$, measurable with respect to the history $G_t$, that\\n(i) exploits the RKHS structure encoded by $k$ and the norm bound $B$,\\n(ii) takes values in $[0,1]$, consistent with $f(x)$ being a Bernoulli mean parameter, and\\n(iii) admits a non-trivial pointwise concentration inequality of the form\\n$$|\\\\hat f_t(x)-f(x)|\\\\le \\\\beta_t(\\\\delta)\\\\,\\\\sigma_t(x)\\\\qquad\\\\forall x\\\\in\\\\mathcal{X}$$\\nholding with probability at least $1-\\\\delta$ uniformly over $t$, where $\\\\sigma_t(x)$ is a data-dependent posterior-style standard deviation and $\\\\beta_t(\\\\delta)$ depends polynomially on $B$, $\\\\log(1/\\\\delta)$ and the maximum information gain of $k$, and yields tight (matching upper and lower) cumulative-regret bounds for the associated kernelized Bernoulli bandit problem.\\n\\nSpecifically: does there exist such an estimator (and confidence sequence) for kernelized bandits with Bernoulli rewards whose induced regret upper bound matches, up to logarithmic factors, the known lower bounds for kernelized bandits restricted to Bernoulli noise?\",\"macro_subject\":\"Statistics and Machine Learning\",\"category_tag\":\"Kernelized bandits\",\"open_status\":\"open\",\"status_search_result\":\"The question is posed as an open problem and we found no subsequent work resolving it. Standard subgaussian-based GP-UCB/GP-TS confidence sets apply to Bernoulli rewards (since Bernoulli is 1/2-subgaussian) but produce estimates that need not lie in [0,1] and are not known to give tight bounds tailored to the Bernoulli structure. No follow-up paper providing matching upper and lower bounds for the kernelized Bernoulli bandit appears to be available.\",\"status_evidence\":[{\"title\":\"Open Problem: Tight Bounds for Kernelized Multi-Armed Bandits with Bernoulli Rewards\",\"url\":\"https://arxiv.org/abs/2407.06321\",\"snippet\":\"It remains an open question whether tight results can be obtained for kernelized bandits with Bernoulli rewards.\",\"claim\":\"The problem is explicitly framed as open.\"},{\"title\":\"On Kernelized Multi-armed Bandits (Chowdhury & Gopalan, 2017)\",\"url\":\"https://proceedings.mlr.press/v70/chowdhury17a/chowdhury17a.pdf\",\"snippet\":\"IGP-UCB and GP-TS with self-normalized concentration for subgaussian noise; estimator is not constrained to [0,1].\",\"claim\":\"Existing subgaussian-noise estimators do not respect the [0,1] constraint nor exploit Bernoulli structure.\"}],\"confidence\":0.7},\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"uuid\":\"4ae62076-5ee8-4eeb-b4f7-38923c09ee91\"}\n"
+}

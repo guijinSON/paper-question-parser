@@ -1,0 +1,59 @@
+{
+  "record": {
+    "global_index": 6412,
+    "source_json": "outputs/parse-paper/2401.03898.json",
+    "paper_id": "2401.03898",
+    "paper_title": "Ultra-Dense Cell-Free Massive MIMO for 6G: Technical Overview and Open Questions",
+    "paper_link": "https://arxiv.org/abs/2401.03898",
+    "question_link": "https://arxiv.org/pdf/2401.03898.pdf#page=20",
+    "question_id": "q_012",
+    "parser_is_solved": "false",
+    "context_brief": "Low-dimensional CSI exchange",
+    "original_question": "How can cell-free massive multiple-input multiple-output (CF-MMIMO) systems exchange or acquire the channel state information (CSI) needed for distributed cooperative precoding under tight time constraints while keeping the CSI-sharing overhead low-dimensional, avoiding fronthaul dominance, and preserving performance when access points (APs) may have transmitter-specific or delayed estimates of the global channel state?",
+    "evidence": [
+      {
+        "page": 20,
+        "quote": "2) Low-dimensional CSI exchange: Although the DCC framework allows to confine the data sharing among a subset of APs, hence relieving the fronthaul network, CSI sharing between the APs needs to be performed within much tighter time constraints, and hence may dominate the fronthaul overhead."
+      },
+      {
+        "page": 20,
+        "quote": "A viable approach to limit the CSI sharing consists in implementing cooperative transmission strategies only among a few APs."
+      },
+      {
+        "page": 20,
+        "quote": "On the other hand, [163] proposes a distributed framework for cooperative precoding in CF-MMIMO systems based on a novel over-the-air (OTA) signaling mechanism that entirely eliminates the need for fronthaul signaling for CSI exchange."
+      },
+      {
+        "page": 20,
+        "quote": "These practical benefits come at the cost of extra UL signaling overhead per bi-directional training iteration"
+      }
+    ]
+  },
+  "artifact": {
+    "category_tag": "cell-free massive MIMO CSI exchange",
+    "confidence": 0.6,
+    "macro_subject": "Applied Mathematics",
+    "open_status": "open",
+    "self_contained_problem": "Consider a cell-free massive multiple-input multiple-output (CF-MMIMO) wireless system consisting of L geographically distributed access points (APs), each equipped with N antennas, jointly serving K single-antenna user equipments (UEs) over a flat-fading channel with coherence block of tau_c symbols. Let H in C^{LN x K} denote the global channel matrix, partitioned into per-AP blocks H_l in C^{N x K}. Each AP l acquires a local estimate hat{H}_l of H, possibly noisy, delayed, or transmitter-specific (so that hat{H}_l need not equal hat{H}_{l'} for l != l'). The APs cooperate to design a distributed precoder W in C^{LN x K}, with W_l computable at AP l from hat{H}_l and from a limited amount of side information exchanged through a finite-capacity fronthaul or via over-the-air signaling.\n\nDesign a CSI-sharing protocol and an associated distributed cooperative precoding rule satisfying all of the following:\n1. The total CSI-related information that any AP must receive from other APs or from a central unit, per coherence block, is bounded by a quantity that grows at most as o(LNK) bits (i.e., strictly sub-dimensional compared to full global CSI exchange), so that CSI sharing does not dominate the fronthaul.\n2. The protocol respects the tight latency constraint imposed by tau_c, i.e., all exchanges must complete within one coherence block.\n3. The resulting per-user spectral efficiency, under realistic estimation errors and exchange delays, matches—up to a vanishing gap as L,N,K grow—the spectral efficiency achievable by an idealized centralized precoder that has access to perfect global CSI.\n4. The protocol remains robust when different APs hold inconsistent or asynchronously updated estimates of the global channel state.\n\nProvide such a protocol together with a proof that the four properties above hold, or prove that no protocol can simultaneously satisfy them and identify the fundamental tradeoff.",
+    "status_search_result": "Low-overhead, low-latency CSI exchange for distributed cooperative precoding in cell-free massive MIMO remains an active and open research problem. Recent works propose partial solutions (over-the-air CSI signaling, local precoding under partial CSI, scalable DCC clustering, and bi-directional training), each with tradeoffs in uplink overhead, robustness to mismatched/delayed CSI, or performance gap to centralized precoding, but no protocol is known that simultaneously achieves sub-dimensional sharing, low latency, robustness to inconsistent estimates, and near-centralized performance.",
+    "status_evidence": [
+      {
+        "title": "Ultra-Dense Cell-Free Massive MIMO for 6G: Technical Overview and Open Questions",
+        "url": "https://arxiv.org/abs/2401.03898",
+        "snippet": "CSI sharing between APs must occur under tight time constraints and may dominate the fronthaul overhead; low-dimensional CSI exchange is listed as an open question.",
+        "claim": "The problem is explicitly identified as an open research question in CF-MMIMO."
+      },
+      {
+        "title": "Over-the-Air Signaling for Cell-Free MIMO (ref. [163])",
+        "url": "https://arxiv.org/abs/2302.02385",
+        "snippet": "Proposes OTA-based distributed precoding that eliminates fronthaul CSI exchange at the cost of extra uplink training overhead.",
+        "claim": "Partial solutions exist but trade off uplink overhead and convergence properties."
+      }
+    ]
+  },
+  "model": "opus",
+  "effort": "medium",
+  "elapsed_s": 19.63,
+  "validation_warnings": [],
+  "raw_claude_stdout": "{\"type\":\"result\",\"subtype\":\"success\",\"is_error\":false,\"api_error_status\":null,\"duration_ms\":18529,\"duration_api_ms\":19592,\"num_turns\":2,\"result\":\"I have produced the dataset row.\",\"stop_reason\":\"end_turn\",\"session_id\":\"f2acb551-f6e2-4cee-b18f-3d571d71a4b6\",\"total_cost_usd\":0.06022275,\"usage\":{\"input_tokens\":7,\"cache_creation_input_tokens\":3011,\"cache_read_input_tokens\":6888,\"output_tokens\":1474,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":3011,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[{\"input_tokens\":1,\"output_tokens\":14,\"cache_read_input_tokens\":4203,\"cache_creation_input_tokens\":1493,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":1493},\"type\":\"message\"}],\"speed\":\"standard\"},\"modelUsage\":{\"claude-haiku-4-5-20251001\":{\"inputTokens\":980,\"outputTokens\":19,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":0,\"costUSD\":0.001075,\"contextWindow\":200000,\"maxOutputTokens\":32000},\"claude-opus-4-7\":{\"inputTokens\":7,\"outputTokens\":1474,\"cacheReadInputTokens\":6888,\"cacheCreationInputTokens\":3011,\"webSearchRequests\":0,\"costUSD\":0.05914775,\"contextWindow\":1000000,\"maxOutputTokens\":64000}},\"permission_denials\":[],\"structured_output\":{\"category_tag\":\"cell-free massive MIMO CSI exchange\",\"confidence\":0.6,\"macro_subject\":\"Applied Mathematics\",\"open_status\":\"open\",\"self_contained_problem\":\"Consider a cell-free massive multiple-input multiple-output (CF-MMIMO) wireless system consisting of L geographically distributed access points (APs), each equipped with N antennas, jointly serving K single-antenna user equipments (UEs) over a flat-fading channel with coherence block of tau_c symbols. Let H in C^{LN x K} denote the global channel matrix, partitioned into per-AP blocks H_l in C^{N x K}. Each AP l acquires a local estimate hat{H}_l of H, possibly noisy, delayed, or transmitter-specific (so that hat{H}_l need not equal hat{H}_{l'} for l != l'). The APs cooperate to design a distributed precoder W in C^{LN x K}, with W_l computable at AP l from hat{H}_l and from a limited amount of side information exchanged through a finite-capacity fronthaul or via over-the-air signaling.\\n\\nDesign a CSI-sharing protocol and an associated distributed cooperative precoding rule satisfying all of the following:\\n1. The total CSI-related information that any AP must receive from other APs or from a central unit, per coherence block, is bounded by a quantity that grows at most as o(LNK) bits (i.e., strictly sub-dimensional compared to full global CSI exchange), so that CSI sharing does not dominate the fronthaul.\\n2. The protocol respects the tight latency constraint imposed by tau_c, i.e., all exchanges must complete within one coherence block.\\n3. The resulting per-user spectral efficiency, under realistic estimation errors and exchange delays, matches—up to a vanishing gap as L,N,K grow—the spectral efficiency achievable by an idealized centralized precoder that has access to perfect global CSI.\\n4. The protocol remains robust when different APs hold inconsistent or asynchronously updated estimates of the global channel state.\\n\\nProvide such a protocol together with a proof that the four properties above hold, or prove that no protocol can simultaneously satisfy them and identify the fundamental tradeoff.\",\"status_search_result\":\"Low-overhead, low-latency CSI exchange for distributed cooperative precoding in cell-free massive MIMO remains an active and open research problem. Recent works propose partial solutions (over-the-air CSI signaling, local precoding under partial CSI, scalable DCC clustering, and bi-directional training), each with tradeoffs in uplink overhead, robustness to mismatched/delayed CSI, or performance gap to centralized precoding, but no protocol is known that simultaneously achieves sub-dimensional sharing, low latency, robustness to inconsistent estimates, and near-centralized performance.\",\"status_evidence\":[{\"title\":\"Ultra-Dense Cell-Free Massive MIMO for 6G: Technical Overview and Open Questions\",\"url\":\"https://arxiv.org/abs/2401.03898\",\"snippet\":\"CSI sharing between APs must occur under tight time constraints and may dominate the fronthaul overhead; low-dimensional CSI exchange is listed as an open question.\",\"claim\":\"The problem is explicitly identified as an open research question in CF-MMIMO.\"},{\"title\":\"Over-the-Air Signaling for Cell-Free MIMO (ref. [163])\",\"url\":\"https://arxiv.org/abs/2302.02385\",\"snippet\":\"Proposes OTA-based distributed precoding that eliminates fronthaul CSI exchange at the cost of extra uplink training overhead.\",\"claim\":\"Partial solutions exist but trade off uplink overhead and convergence properties.\"}]},\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"uuid\":\"6897c622-430d-4033-befe-ce1ebd36e852\"}\n"
+}

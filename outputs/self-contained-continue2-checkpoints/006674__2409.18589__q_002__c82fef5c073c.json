@@ -1,0 +1,57 @@
+{
+  "record": {
+    "global_index": 6674,
+    "source_json": "outputs/parse-paper/2409.18589.json",
+    "paper_id": "2409.18589",
+    "paper_title": "Towards Event-Triggered NMPC for Efficient 6G Communications: Experimental Results and Open Problems",
+    "paper_link": "https://arxiv.org/abs/2409.18589",
+    "question_link": "https://arxiv.org/pdf/2409.18589.pdf#page=1",
+    "question_id": "q_002",
+    "parser_is_solved": "false",
+    "context_brief": "Experimental generalization across applications and networks",
+    "original_question": "How well do event-triggered nonlinear model predictive control methods for networked control systems generalize beyond a Furuta pendulum controlled over a tailored O-RAN 6G research platform? The open validation problem is to run further experiments across diverse control applications and communication systems, rather than relying only on numerical simulations or a small number of hardware demonstrations, and to determine whether the control-performance and communication-resource benefits persist in those settings.",
+    "evidence": [
+      {
+        "page": 1,
+        "quote": "Despite an extensive theoretical analysis of event-triggered MPC and event-triggered control more broadly, most papers illustrate the proposed schemes via numerical simulations only."
+      },
+      {
+        "page": 1,
+        "quote": "As highlighted in [14], experimental studies are crucial for advancing research in NCS. They provide valuable insights into control performance and communication resource requirements for control applications in both current and future wireless networks."
+      },
+      {
+        "page": 1,
+        "quote": "Only a limited number of works explore real hardware implementations: [16], [17] implement their applications using wired experimental setups."
+      },
+      {
+        "page": 1,
+        "quote": "In this paper, we investigate the potential for co-design of model predictive control and network communication. To this end, we design and implement an event-triggered nonlinear model predictive controller for stabilizing a Furuta pendulum communicating over a tailored open radio access network 6G research platform."
+      },
+      {
+        "page": 8,
+        "quote": "Finally, further experiments with diverse control applications and communication systems are needed to advance networked control applications."
+      }
+    ]
+  },
+  "artifact": {
+    "category_tag": "event-triggered nonlinear MPC over wireless networks",
+    "confidence": 0.6,
+    "macro_subject": "Applied Mathematics",
+    "open_status": "open",
+    "self_contained_problem": "Consider a networked control system (NCS) in which a plant with nonlinear continuous-time dynamics x'(t)=f(x(t),u(t)), x(t)∈R^n, u(t)∈U⊂R^m, is stabilized by a nonlinear model predictive controller (NMPC) that, at sampling instants t_k, solves the finite-horizon optimal control problem min ∫_{t_k}^{t_k+T} ℓ(x(τ),u(τ))dτ + V_f(x(t_k+T)) subject to the dynamics, x(t_k)=x_meas, u(τ)∈U and x(τ)∈X, and applies the resulting optimal input until the next sampling instant. Suppose furthermore that the controller and plant communicate over a (possibly wireless) digital network and that an event-triggering rule is used: a new measurement is transmitted, and/or a new optimization is performed, only when a triggering condition g(x(t), x̂(t)) ≥ 0 holds, where x̂(t) is a predicted state used in lieu of fresh data; otherwise no transmission occurs. Such an event-triggered NMPC scheme is parameterised by a triggering threshold and prediction model, and is intended to (i) preserve closed-loop stability and constraint satisfaction and (ii) reduce the average rate of network communications compared with periodic NMPC.\n\nProblem. Empirically and quantitatively characterise the generalisation of event-triggered NMPC schemes for NCS across a broad family of control plants {f_i} (e.g. underactuated mechanical systems, vehicular and robotic platforms, process-control benchmarks) and across a broad family of communication systems {N_j} (e.g. different wireless standards, latency/jitter/loss profiles, scheduling policies and physical-layer parameters). Specifically: design and execute physical hardware experiments across multiple plant–network pairs (f_i, N_j) and determine whether the claimed closed-loop control-performance metrics (e.g. settling time, tracking error, constraint violation rates) and communication-resource metrics (e.g. average transmission rate, channel occupancy, energy per useful transmission) continue to hold, and identify conditions on (f_i, N_j) under which these benefits persist or fail.",
+    "status_search_result": "The question is an empirical/validation open problem rather than a closed mathematical conjecture; it asks for broad experimental generalisation across plants and wireless networks. No comprehensive cross-platform experimental validation appears in the recent literature; works continue to rely mostly on simulations or single-testbed demonstrations. Status is treated as open.",
+    "status_evidence": [
+      {
+        "title": "Towards Event-Triggered NMPC for Efficient 6G Communications",
+        "url": "https://arxiv.org/abs/2409.18589",
+        "snippet": "Most papers illustrate event-triggered MPC via numerical simulations only; only a limited number of works explore real hardware implementations.",
+        "claim": "Cross-application, cross-network experimental validation of event-triggered NMPC is identified as an outstanding need."
+      }
+    ]
+  },
+  "model": "opus",
+  "effort": "medium",
+  "elapsed_s": 18.41,
+  "validation_warnings": [],
+  "raw_claude_stdout": "{\"type\":\"result\",\"subtype\":\"success\",\"is_error\":false,\"api_error_status\":null,\"duration_ms\":17353,\"duration_api_ms\":18520,\"num_turns\":2,\"result\":\"I've produced the structured dataset row, framing the empirical validation question as a self-contained problem about generalisation of event-triggered NMPC across plant/network pairs, classified under Applied Mathematics, and marked as open based on the framing as an outstanding empirical validation problem.\",\"stop_reason\":\"end_turn\",\"session_id\":\"d4d3400d-1c93-43e0-a019-ded894db332e\",\"total_cost_usd\":0.057251750000000004,\"usage\":{\"input_tokens\":7,\"cache_creation_input_tokens\":2845,\"cache_read_input_tokens\":6883,\"output_tokens\":1396,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":2845,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[{\"input_tokens\":1,\"output_tokens\":93,\"cache_read_input_tokens\":4198,\"cache_creation_input_tokens\":1332,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":1332},\"type\":\"message\"}],\"speed\":\"standard\"},\"modelUsage\":{\"claude-haiku-4-5-20251001\":{\"inputTokens\":989,\"outputTokens\":21,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":0,\"costUSD\":0.0010940000000000001,\"contextWindow\":200000,\"maxOutputTokens\":32000},\"claude-opus-4-7\":{\"inputTokens\":7,\"outputTokens\":1396,\"cacheReadInputTokens\":6883,\"cacheCreationInputTokens\":2845,\"webSearchRequests\":0,\"costUSD\":0.056157750000000006,\"contextWindow\":1000000,\"maxOutputTokens\":64000}},\"permission_denials\":[],\"structured_output\":{\"category_tag\":\"event-triggered nonlinear MPC over wireless networks\",\"confidence\":0.6,\"macro_subject\":\"Applied Mathematics\",\"open_status\":\"open\",\"self_contained_problem\":\"Consider a networked control system (NCS) in which a plant with nonlinear continuous-time dynamics x'(t)=f(x(t),u(t)), x(t)∈R^n, u(t)∈U⊂R^m, is stabilized by a nonlinear model predictive controller (NMPC) that, at sampling instants t_k, solves the finite-horizon optimal control problem min ∫_{t_k}^{t_k+T} ℓ(x(τ),u(τ))dτ + V_f(x(t_k+T)) subject to the dynamics, x(t_k)=x_meas, u(τ)∈U and x(τ)∈X, and applies the resulting optimal input until the next sampling instant. Suppose furthermore that the controller and plant communicate over a (possibly wireless) digital network and that an event-triggering rule is used: a new measurement is transmitted, and/or a new optimization is performed, only when a triggering condition g(x(t), x̂(t)) ≥ 0 holds, where x̂(t) is a predicted state used in lieu of fresh data; otherwise no transmission occurs. Such an event-triggered NMPC scheme is parameterised by a triggering threshold and prediction model, and is intended to (i) preserve closed-loop stability and constraint satisfaction and (ii) reduce the average rate of network communications compared with periodic NMPC.\\n\\nProblem. Empirically and quantitatively characterise the generalisation of event-triggered NMPC schemes for NCS across a broad family of control plants {f_i} (e.g. underactuated mechanical systems, vehicular and robotic platforms, process-control benchmarks) and across a broad family of communication systems {N_j} (e.g. different wireless standards, latency/jitter/loss profiles, scheduling policies and physical-layer parameters). Specifically: design and execute physical hardware experiments across multiple plant–network pairs (f_i, N_j) and determine whether the claimed closed-loop control-performance metrics (e.g. settling time, tracking error, constraint violation rates) and communication-resource metrics (e.g. average transmission rate, channel occupancy, energy per useful transmission) continue to hold, and identify conditions on (f_i, N_j) under which these benefits persist or fail.\",\"status_search_result\":\"The question is an empirical/validation open problem rather than a closed mathematical conjecture; it asks for broad experimental generalisation across plants and wireless networks. No comprehensive cross-platform experimental validation appears in the recent literature; works continue to rely mostly on simulations or single-testbed demonstrations. Status is treated as open.\",\"status_evidence\":[{\"title\":\"Towards Event-Triggered NMPC for Efficient 6G Communications\",\"url\":\"https://arxiv.org/abs/2409.18589\",\"snippet\":\"Most papers illustrate event-triggered MPC via numerical simulations only; only a limited number of works explore real hardware implementations.\",\"claim\":\"Cross-application, cross-network experimental validation of event-triggered NMPC is identified as an outstanding need.\"}]},\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"uuid\":\"4ba487a2-0645-4f4e-aeed-d771dba23f57\"}\n"
+}

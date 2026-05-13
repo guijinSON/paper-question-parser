@@ -1,0 +1,57 @@
+{
+  "record": {
+    "global_index": 8092,
+    "source_json": "outputs/parse-paper/5605099.json",
+    "paper_id": "5605099",
+    "paper_title": "Eight Open Problems in Distributed Computing",
+    "paper_link": "https://zbmath.org/5605099",
+    "question_link": "https://zbmath.org/5605099",
+    "question_id": "q_008",
+    "parser_is_solved": "false",
+    "context_brief": "Atomic snapshot SCAN space-time tradeoff",
+    "original_question": "For wait-free linearizable implementations of an m-component atomic snapshot object from shared registers, where SCAN returns a consistent view of all components and UPDATE changes one component, what are the tight space-time tradeoffs for SCAN time beyond the known space-optimal lower bound and the best known upper bounds? In particular, can the gap between existing lower bounds for implementations using a fixed number of registers and the known O(n)-time implementations using many or unbounded registers be closed?",
+    "evidence": [
+      {
+        "page": 6,
+        "quote": "A snapshot implementation from registers uses shared registers to simulate the snapshot components and provides algorithms for SCAN and UPDATE."
+      },
+      {
+        "page": 7,
+        "quote": "Bridging the gap between the lower bounds provided in [29] and the best known upper bounds (discussed above) is a challenging open problem."
+      }
+    ]
+  },
+  "artifact": {
+    "self_contained_problem": "Consider the asynchronous shared-memory model in which n processes communicate via atomic single-writer or multi-writer read/write registers. An m-component atomic snapshot object stores a vector of m values and supports two operations: UPDATE(i, v), which sets the i-th component to value v, and SCAN, which returns the entire vector of m component values consistent with a single instantaneous moment. An implementation of such an object from base registers is required to be wait-free (every operation terminates in a finite number of its own steps regardless of the behavior of other processes) and linearizable (each operation appears to take effect atomically at some point during its execution).\n\nThe time complexity of a SCAN is measured by the worst-case number of steps performed by a process executing a SCAN. The space complexity is the number of base registers used. It is known that any implementation using exactly m base registers requires Ω(mn) steps for SCAN in the worst case, while implementations using a larger (possibly unbounded) number of registers can achieve SCAN time O(n).\n\nDetermine the tight space-time tradeoff between the number of base registers used and the worst-case SCAN step complexity for wait-free linearizable implementations of an m-component atomic snapshot object. In particular, close the gap between the known Ω(mn) lower bound for implementations restricted to m registers and the O(n)-time upper bound for implementations using many registers: for each value r ≥ m of the number of registers, identify matching upper and lower bounds on the worst-case SCAN time.",
+    "macro_subject": "Theoretical Computer Science",
+    "category_tag": "atomic snapshot space-time tradeoffs",
+    "open_status": "open",
+    "status_search_result": "The literature shows tight Ω(mn) bounds for space-optimal (m-register) implementations and O(n)-time implementations using many registers, but no result closing the full tradeoff across intermediate register counts has been found. Recent work (e.g., on single-scanner and CAS-based variants, and asynchronous latency improvements through 2024) addresses related but distinct settings, leaving the general space-time tradeoff for multi-writer snapshots from registers open.",
+    "status_evidence": [
+      {
+        "title": "A tight time lower bound for space-optimal implementations of multi-writer snapshots",
+        "url": "https://www.researchgate.net/publication/221591716_A_tight_time_lower_bound_for_space-optimal_implementations_of_multi-writer_snapshots",
+        "snippet": "Implementations using m registers require Ω(mn) steps for SCAN in the worst case.",
+        "claim": "Tight bound is known only for space-optimal (m-register) implementations."
+      },
+      {
+        "title": "Lower and upper bounds for single-scanner snapshot implementations",
+        "url": "https://link.springer.com/article/10.1007/s00446-016-0286-7",
+        "snippet": "Bounds for single-scanner snapshot implementations.",
+        "claim": "Subsequent work addresses restricted single-scanner settings rather than the general tradeoff."
+      },
+      {
+        "title": "Asynchronous Latency and Fast Atomic Snapshot",
+        "url": "https://arxiv.org/html/2408.02562",
+        "snippet": "Recent 2024 work on fast atomic snapshots in asynchronous settings.",
+        "claim": "Recent research continues to investigate snapshot complexity, indicating the general tradeoff is not yet resolved."
+      }
+    ],
+    "confidence": 0.7
+  },
+  "model": "opus",
+  "effort": "medium",
+  "elapsed_s": 31.55,
+  "validation_warnings": [],
+  "raw_claude_stdout": "{\"type\":\"result\",\"subtype\":\"success\",\"is_error\":false,\"api_error_status\":null,\"duration_ms\":30415,\"duration_api_ms\":29831,\"num_turns\":3,\"result\":\"Sources:\\n- [A tight time lower bound for space-optimal implementations of multi-writer snapshots](https://www.researchgate.net/publication/221591716_A_tight_time_lower_bound_for_space-optimal_implementations_of_multi-writer_snapshots)\\n- [Lower and upper bounds for single-scanner snapshot implementations](https://link.springer.com/article/10.1007/s00446-016-0286-7)\\n- [Asynchronous Latency and Fast Atomic Snapshot](https://arxiv.org/html/2408.02562)\",\"stop_reason\":\"end_turn\",\"session_id\":\"d79b0aeb-5d75-4a17-a1fb-4ba2fe57e1e2\",\"total_cost_usd\":0.10596774999999999,\"usage\":{\"input_tokens\":8,\"cache_creation_input_tokens\":4109,\"cache_read_input_tokens\":12155,\"output_tokens\":1599,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":4109,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[{\"input_tokens\":1,\"output_tokens\":191,\"cache_read_input_tokens\":5493,\"cache_creation_input_tokens\":1301,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":1301},\"type\":\"message\"}],\"speed\":\"standard\"},\"modelUsage\":{\"claude-haiku-4-5-20251001\":{\"inputTokens\":21519,\"outputTokens\":535,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":1,\"costUSD\":0.034194,\"contextWindow\":200000,\"maxOutputTokens\":32000},\"claude-opus-4-7\":{\"inputTokens\":8,\"outputTokens\":1599,\"cacheReadInputTokens\":12155,\"cacheCreationInputTokens\":4109,\"webSearchRequests\":0,\"costUSD\":0.07177374999999998,\"contextWindow\":1000000,\"maxOutputTokens\":64000}},\"permission_denials\":[],\"structured_output\":{\"self_contained_problem\":\"Consider the asynchronous shared-memory model in which n processes communicate via atomic single-writer or multi-writer read/write registers. An m-component atomic snapshot object stores a vector of m values and supports two operations: UPDATE(i, v), which sets the i-th component to value v, and SCAN, which returns the entire vector of m component values consistent with a single instantaneous moment. An implementation of such an object from base registers is required to be wait-free (every operation terminates in a finite number of its own steps regardless of the behavior of other processes) and linearizable (each operation appears to take effect atomically at some point during its execution).\\n\\nThe time complexity of a SCAN is measured by the worst-case number of steps performed by a process executing a SCAN. The space complexity is the number of base registers used. It is known that any implementation using exactly m base registers requires Ω(mn) steps for SCAN in the worst case, while implementations using a larger (possibly unbounded) number of registers can achieve SCAN time O(n).\\n\\nDetermine the tight space-time tradeoff between the number of base registers used and the worst-case SCAN step complexity for wait-free linearizable implementations of an m-component atomic snapshot object. In particular, close the gap between the known Ω(mn) lower bound for implementations restricted to m registers and the O(n)-time upper bound for implementations using many registers: for each value r ≥ m of the number of registers, identify matching upper and lower bounds on the worst-case SCAN time.\",\"macro_subject\":\"Theoretical Computer Science\",\"category_tag\":\"atomic snapshot space-time tradeoffs\",\"open_status\":\"open\",\"status_search_result\":\"The literature shows tight Ω(mn) bounds for space-optimal (m-register) implementations and O(n)-time implementations using many registers, but no result closing the full tradeoff across intermediate register counts has been found. Recent work (e.g., on single-scanner and CAS-based variants, and asynchronous latency improvements through 2024) addresses related but distinct settings, leaving the general space-time tradeoff for multi-writer snapshots from registers open.\",\"status_evidence\":[{\"title\":\"A tight time lower bound for space-optimal implementations of multi-writer snapshots\",\"url\":\"https://www.researchgate.net/publication/221591716_A_tight_time_lower_bound_for_space-optimal_implementations_of_multi-writer_snapshots\",\"snippet\":\"Implementations using m registers require Ω(mn) steps for SCAN in the worst case.\",\"claim\":\"Tight bound is known only for space-optimal (m-register) implementations.\"},{\"title\":\"Lower and upper bounds for single-scanner snapshot implementations\",\"url\":\"https://link.springer.com/article/10.1007/s00446-016-0286-7\",\"snippet\":\"Bounds for single-scanner snapshot implementations.\",\"claim\":\"Subsequent work addresses restricted single-scanner settings rather than the general tradeoff.\"},{\"title\":\"Asynchronous Latency and Fast Atomic Snapshot\",\"url\":\"https://arxiv.org/html/2408.02562\",\"snippet\":\"Recent 2024 work on fast atomic snapshots in asynchronous settings.\",\"claim\":\"Recent research continues to investigate snapshot complexity, indicating the general tradeoff is not yet resolved.\"}],\"confidence\":0.7},\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"uuid\":\"37deef26-76a1-4efa-9cff-1e540081745c\"}\n"
+}

@@ -1,0 +1,65 @@
+{
+  "record": {
+    "global_index": 8492,
+    "source_json": "outputs/parse-paper/6208203.json",
+    "paper_id": "6208203",
+    "paper_title": "Selected Open Problems in Discrete Geometry and Optimization",
+    "paper_link": "https://zbmath.org/6208203",
+    "question_link": "https://zbmath.org/6208203",
+    "question_id": "q_017",
+    "parser_is_solved": "false",
+    "context_brief": "Gram dimension and van der Holst parameter",
+    "original_question": "For a graph G, let gd(G) be the Gram dimension: the smallest integer k >= 1 such that every vector family p_1,...,p_n admits vectors q_1,...,q_n in R^k preserving all vertex squared norms and all inner products on edges. Let nu_equal(G) be the van der Holst parameter defined as the maximum corank of a positive semidefinite matrix M in the cone C(G) of matrices with zero entries on nonedges, subject to the Strong Arnold Property. Is gd(G) <= nu_equal(G), so that gd(G) and nu_equal(G) coincide given the known inequality gd(G) >= nu_equal(G)?",
+    "evidence": [
+      {
+        "page": 330,
+        "quote": "The Gram dimension gd(G) is defined as the smallest integer k >= 1 such that, for every family of vectors p1,...,pn, there exists another family of vectors q1,...,qn in Rk satisfying squared norms and edge inner products."
+      },
+      {
+        "page": 331,
+        "quote": "Problem 4. Determine the validity of the inequality gd(G) <= nu_equal(G), relating the Gram dimension gd(G) and the van der Holst parameter nu_equal(G)."
+      },
+      {
+        "page": 331,
+        "quote": "The parameter nu_equal(G) is defined as the maximum corank of a matrix M in C(G) satisfying the Strong Arnold Property."
+      },
+      {
+        "page": 331,
+        "quote": "Our second problem asks for the validity of the converse inequality. In other words, is it true that the two graph parameters gd(.) and nu_equal(.) coincide?"
+      }
+    ]
+  },
+  "artifact": {
+    "category_tag": "Graph parameters and PSD matrix completion",
+    "confidence": 0.6,
+    "macro_subject": "Combinatorics",
+    "open_status": "open",
+    "self_contained_problem": "Let G = (V, E) be a finite simple graph with V = {1, 2, ..., n}.\n\n(1) Gram dimension. For an integer k >= 1, say that G has Gram dimension at most k if, for every family of vectors p_1, ..., p_n in some Euclidean space, there exists a family of vectors q_1, ..., q_n in R^k such that\n  - ||q_i||^2 = ||p_i||^2 for every i in V, and\n  - <q_i, q_j> = <p_i, p_j> for every edge {i, j} in E.\nDefine gd(G) to be the smallest such integer k.\n\n(2) van der Holst parameter. Let S^n denote the space of real symmetric n x n matrices, and let\n  C(G) = { M in S^n : M is positive semidefinite, and M_{ij} = 0 whenever i ≠ j and {i, j} is not an edge of G }.\nA matrix M in S^n is said to satisfy the Strong Arnold Property if the only symmetric n x n matrix X with MX = 0, X_{ii} = 0 for all i, and X_{ij} = 0 whenever {i, j} is an edge of G or i = j, is X = 0.\nDefine nu_equal(G) to be the maximum corank (dimension of the kernel) of a matrix M in C(G) that also satisfies the Strong Arnold Property.\n\nIt is known that gd(G) >= nu_equal(G) for every graph G. \n\nQuestion: Does the reverse inequality gd(G) <= nu_equal(G) hold for every graph G? Equivalently, do the two graph parameters gd(·) and nu_equal(·) coincide?",
+    "status_search_result": "The problem was posed by Laurent and Varvitsiotis, who established gd(G) >= nu_equal(G) and proved equality for graphs with gd(G) <= 4 via forbidden-minor characterizations (K_5 and K_{2,2,2}). Subsequent literature, including work on universal completability and least-eigenvalue frameworks, continues to refer to the general inequality/equality question as an open problem; no proof of gd(G) <= nu_equal(G) for all graphs has been located.",
+    "status_evidence": [
+      {
+        "title": "The Gram dimension of a graph",
+        "url": "https://arxiv.org/abs/1112.5960",
+        "snippet": "Establishes gd(G) and connections to the van der Holst type parameter nu_equal, proving forbidden minor characterization for gd(G) <= 4.",
+        "claim": "The inequality gd(G) >= nu_equal(G) is established, and the equality is verified only for small cases, leaving the general question open."
+      },
+      {
+        "title": "Positive Semidefinite Matrix Completion, Universal Rigidity and the Strong Arnold Property",
+        "url": "http://www.optimization-online.org/DB_HTML/2013/02/3776.html",
+        "snippet": "Further studies relating Gram dimension to nu_equal via the Strong Arnold Property.",
+        "claim": "Continued investigation of the relationship without resolving the equality in general."
+      },
+      {
+        "title": "Universal Completability, Least Eigenvalue Frameworks, and Vector Colorings",
+        "url": "https://link.springer.com/article/10.1007/s00454-017-9899-2",
+        "snippet": "Subsequent work referencing the Gram dimension and related Colin de Verdière-type parameters.",
+        "claim": "Later literature still treats the equality of gd and nu_equal as not established in general."
+      }
+    ]
+  },
+  "model": "opus",
+  "effort": "medium",
+  "elapsed_s": 42.27,
+  "validation_warnings": [],
+  "raw_claude_stdout": "{\"type\":\"result\",\"subtype\":\"success\",\"is_error\":false,\"api_error_status\":null,\"duration_ms\":41131,\"duration_api_ms\":38664,\"num_turns\":4,\"result\":\"Sources:\\n- [The Gram dimension of a graph (arXiv:1112.5960)](https://arxiv.org/abs/1112.5960)\\n- [A new graph parameter related to bounded rank PSD matrix completions](https://link.springer.com/article/10.1007/s10107-013-0648-x)\\n- [Positive Semidefinite Matrix Completion, Universal Rigidity and the Strong Arnold Property](http://www.optimization-online.org/DB_HTML/2013/02/3776.html)\\n- [Universal Completability, Least Eigenvalue Frameworks, and Vector Colorings](https://link.springer.com/article/10.1007/s00454-017-9899-2)\",\"stop_reason\":\"end_turn\",\"session_id\":\"9a22d266-1482-4379-8381-1cbf0d799db5\",\"total_cost_usd\":0.15239924999999999,\"usage\":{\"input_tokens\":9,\"cache_creation_input_tokens\":5697,\"cache_read_input_tokens\":19502,\"output_tokens\":1815,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":5697,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[{\"input_tokens\":1,\"output_tokens\":236,\"cache_read_input_tokens\":6982,\"cache_creation_input_tokens\":1400,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":1400},\"type\":\"message\"}],\"speed\":\"standard\"},\"modelUsage\":{\"claude-haiku-4-5-20251001\":{\"inputTokens\":37152,\"outputTokens\":894,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":2,\"costUSD\":0.061621999999999996,\"contextWindow\":200000,\"maxOutputTokens\":32000},\"claude-opus-4-7\":{\"inputTokens\":9,\"outputTokens\":1815,\"cacheReadInputTokens\":19502,\"cacheCreationInputTokens\":5697,\"webSearchRequests\":0,\"costUSD\":0.09077724999999999,\"contextWindow\":1000000,\"maxOutputTokens\":64000}},\"permission_denials\":[],\"structured_output\":{\"category_tag\":\"Graph parameters and PSD matrix completion\",\"confidence\":0.6,\"macro_subject\":\"Combinatorics\",\"open_status\":\"open\",\"self_contained_problem\":\"Let G = (V, E) be a finite simple graph with V = {1, 2, ..., n}.\\n\\n(1) Gram dimension. For an integer k >= 1, say that G has Gram dimension at most k if, for every family of vectors p_1, ..., p_n in some Euclidean space, there exists a family of vectors q_1, ..., q_n in R^k such that\\n  - ||q_i||^2 = ||p_i||^2 for every i in V, and\\n  - <q_i, q_j> = <p_i, p_j> for every edge {i, j} in E.\\nDefine gd(G) to be the smallest such integer k.\\n\\n(2) van der Holst parameter. Let S^n denote the space of real symmetric n x n matrices, and let\\n  C(G) = { M in S^n : M is positive semidefinite, and M_{ij} = 0 whenever i ≠ j and {i, j} is not an edge of G }.\\nA matrix M in S^n is said to satisfy the Strong Arnold Property if the only symmetric n x n matrix X with MX = 0, X_{ii} = 0 for all i, and X_{ij} = 0 whenever {i, j} is an edge of G or i = j, is X = 0.\\nDefine nu_equal(G) to be the maximum corank (dimension of the kernel) of a matrix M in C(G) that also satisfies the Strong Arnold Property.\\n\\nIt is known that gd(G) >= nu_equal(G) for every graph G. \\n\\nQuestion: Does the reverse inequality gd(G) <= nu_equal(G) hold for every graph G? Equivalently, do the two graph parameters gd(·) and nu_equal(·) coincide?\",\"status_search_result\":\"The problem was posed by Laurent and Varvitsiotis, who established gd(G) >= nu_equal(G) and proved equality for graphs with gd(G) <= 4 via forbidden-minor characterizations (K_5 and K_{2,2,2}). Subsequent literature, including work on universal completability and least-eigenvalue frameworks, continues to refer to the general inequality/equality question as an open problem; no proof of gd(G) <= nu_equal(G) for all graphs has been located.\",\"status_evidence\":[{\"title\":\"The Gram dimension of a graph\",\"url\":\"https://arxiv.org/abs/1112.5960\",\"snippet\":\"Establishes gd(G) and connections to the van der Holst type parameter nu_equal, proving forbidden minor characterization for gd(G) <= 4.\",\"claim\":\"The inequality gd(G) >= nu_equal(G) is established, and the equality is verified only for small cases, leaving the general question open.\"},{\"title\":\"Positive Semidefinite Matrix Completion, Universal Rigidity and the Strong Arnold Property\",\"url\":\"http://www.optimization-online.org/DB_HTML/2013/02/3776.html\",\"snippet\":\"Further studies relating Gram dimension to nu_equal via the Strong Arnold Property.\",\"claim\":\"Continued investigation of the relationship without resolving the equality in general.\"},{\"title\":\"Universal Completability, Least Eigenvalue Frameworks, and Vector Colorings\",\"url\":\"https://link.springer.com/article/10.1007/s00454-017-9899-2\",\"snippet\":\"Subsequent work referencing the Gram dimension and related Colin de Verdière-type parameters.\",\"claim\":\"Later literature still treats the equality of gd and nu_equal as not established in general.\"}]},\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"uuid\":\"29e90c17-066b-4d3d-bcaf-0eb16ec50a76\"}\n"
+}
