@@ -5,6 +5,7 @@ set -euo pipefail
 # Reads source URLs from outputs/open-problems-0418-all.csv.
 OPEN_PROBLEMS_CSV_FILE="${OPEN_PROBLEMS_CSV_FILE:-outputs/open-problems-0418-all.csv}"
 OUTPUT_DIR="${OUTPUT_DIR:-outputs/parse-paper}"
+LATEST_FILE="${LATEST_FILE:-outputs/latest.json}"
 SKIP_EXISTING="${SKIP_EXISTING:-1}"
 DRY_RUN="${DRY_RUN:-0}"
 MAX_ROWS="${MAX_ROWS:-}"
@@ -82,6 +83,9 @@ has_completed_source_url() {
 
 run_paper_question_parser_with_codex() {
   local source_url="$1"
+  local target_url="${2:-$source_url}"
+  local source_name="${3:-}"
+  local source_title="${4:-}"
   local -a codex_cmd=("$CODEX_BIN")
 
   if [[ "$CODEX_SEARCH" != "0" ]]; then
@@ -113,10 +117,22 @@ run_paper_question_parser_with_codex() {
     printf 'Treat the ARGUMENTS value below exactly as the skill-specific $ARGUMENTS input.\n'
     printf 'Execute the skill contract end-to-end, including required local persistence.\n'
     printf 'Do not ask follow-up questions; if the input cannot be processed, emit the skill-defined failure JSON.\n\n'
+    printf 'Runtime output configuration:\n'
+    printf -- '- Save the final JSON under `%s/` instead of any default RUN_DIR when they differ.\n' "$OUTPUT_DIR"
+    printf -- '- Save/update the latest JSON at `%s` instead of any default LATEST_FILE when they differ.\n' "$LATEST_FILE"
+    printf -- '- If a resolved target URL is provided, fetch and parse that target, but preserve the original URL in `source.url` and put the actual parsed artifact/URL in `source.resolved_locator`.\n\n'
     printf '<skill_content name="paper-question-parser">\n'
     cat "$PAPER_QUESTION_PARSER_SKILL"
     printf '\n</skill_content>\n\n'
-    printf 'ARGUMENTS:\n%s\n' "$source_url"
+    if [[ "$target_url" != "$source_url" ]]; then
+      printf 'ARGUMENTS:\n'
+      printf 'original_url: %s\n' "$source_url"
+      printf 'resolved_target_url: %s\n' "$target_url"
+      [[ -z "$source_name" ]] || printf 'source: %s\n' "$source_name"
+      [[ -z "$source_title" ]] || printf 'title: %s\n' "$source_title"
+    else
+      printf 'ARGUMENTS:\n%s\n' "$source_url"
+    fi
   } | "${codex_cmd[@]}"
 }
 
@@ -124,8 +140,9 @@ rows_seen=0
 skipped_existing=0
 runs_started=0
 
-while IFS=$'\t' read -r line_number source title source_url; do
+while IFS=$'\t' read -r line_number source title source_url target_url; do
   [[ -z "$source_url" ]] && continue
+  [[ -n "$target_url" ]] || target_url="$source_url"
   rows_seen=$((rows_seen + 1))
 
   if [[ -n "$MAX_ROWS" && "$rows_seen" -gt "$MAX_ROWS" ]]; then
@@ -145,15 +162,19 @@ while IFS=$'\t' read -r line_number source title source_url; do
     break
   fi
 
-  echo "running line $line_number: $source | $title | $source_url" >&2
+  if [[ "$target_url" != "$source_url" ]]; then
+    echo "running line $line_number: $source | $title | $source_url -> $target_url" >&2
+  else
+    echo "running line $line_number: $source | $title | $source_url" >&2
+  fi
   runs_started=$((runs_started + 1))
 
   if [[ "$DRY_RUN" == "1" ]]; then
-    echo "dry-run: would run codex for line $line_number: $source_url" >&2
+    echo "dry-run: would run codex for line $line_number: $source_url -> $target_url" >&2
     continue
   fi
 
-  if ! run_paper_question_parser_with_codex "$source_url" </dev/null; then
+  if ! run_paper_question_parser_with_codex "$source_url" "$target_url" "$source" "$title" </dev/null; then
     echo "error occurred: $source | $title | $source_url" >> "$ERROR_LOG_FILE"
     continue
   fi
@@ -178,10 +199,11 @@ with csv_path.open(newline="", encoding="utf-8") as handle:
     for line_number, row in enumerate(reader, start=2):
         source = (row.get("source") or "").strip().replace("\t", " ").replace("\n", " ")
         title = (row.get("title") or "").strip().replace("\t", " ").replace("\n", " ")
-        url = (row.get("url") or "").strip()
-        if not url:
+        original_url = (row.get("original_url") or row.get("url") or "").strip()
+        target_url = (row.get("target_url") or row.get("resolved_url") or row.get("url") or "").strip()
+        if not original_url:
             continue
-        print(f"{line_number}\t{source}\t{title}\t{url}")
+        print(f"{line_number}\t{source}\t{title}\t{original_url}\t{target_url}")
 PY
 )
 
