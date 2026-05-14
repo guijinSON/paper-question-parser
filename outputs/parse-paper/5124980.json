@@ -1,0 +1,62 @@
+{
+  "source": {
+    "url": "https://zbmath.org/5124980",
+    "resolved_locator": "",
+    "title": "Research problems from the 5th Slovenian Conference (Bled, 2003)",
+    "title_origin": "resolver_metadata"
+  },
+  "accepted": [],
+  "needs_review": [
+    {
+      "id": "error_input",
+      "reason": "invalid_or_unreadable_input",
+      "question_text_raw": "",
+      "evidence": []
+    }
+  ],
+  "trace": [
+    {
+      "id": "source_resolution",
+      "stage": "input",
+      "notes": "Input normalized as a zbMATH URL resolver for document id 5124980.",
+      "evidence_refs": [
+        "https://zbmath.org/5124980"
+      ]
+    },
+    {
+      "id": "source_resolution",
+      "stage": "resolver_metadata",
+      "notes": "Direct zbMATH web access returned a Cloudflare challenge/403, so the zbMATH REST API was used only as resolver metadata. It identified the title, authors, DOI 10.1016/j.disc.2006.07.013, journal Discrete Mathematics 307(3-5), pages 650-658, and source URL https://zbmath.org/5124980.",
+      "evidence_refs": [
+        "https://api.zbmath.org/document/5124980"
+      ]
+    },
+    {
+      "id": "source_resolution",
+      "stage": "resolver_metadata",
+      "notes": "Crossref confirmed the same DOI and title, supplied PII S0012365X06005425, and exposed Elsevier text-mining links. These metadata were used only to identify candidate full-text URLs, not for question extraction.",
+      "evidence_refs": [
+        "https://api.crossref.org/works/10.1016%2Fj.disc.2006.07.013"
+      ]
+    },
+    {
+      "id": "error_input",
+      "stage": "input",
+      "notes": "Failure mode: blocked_or_challenged plus metadata_only. ScienceDirect issue HTML listed the article and a View PDF link, but direct PDF download attempts for both the initially inferred PII and confirmed PII returned 403. Elsevier article API calls without an API key returned only metadata or invalid-view errors, not readable full text. Exact-title and DOI searches did not recover a confirmed alternate full-text copy; candidates found were DBLP/Crossref/zbMATH metadata, ScienceDirect metadata, or later papers merely citing the work. Input could not be normalized to a readable PDF or HTML full-text source.",
+      "evidence_refs": [
+        "https://www.sciencedirect.com/science/article/pii/S0012365X06005425",
+        "https://www.sciencedirect.com/science/article/pii/S0012365X06005425/pdfft?isDTMRedir=true&download=true",
+        "https://api.elsevier.com/content/article/doi/10.1016%2Fj.disc.2006.07.013"
+      ]
+    },
+    {
+      "id": "persist",
+      "stage": "persist",
+      "notes": "Saved final JSON to outputs/parse-paper/5124980.json and outputs/latest.json.",
+      "evidence_refs": [
+        "outputs/parse-paper/5124980.json",
+        "outputs/latest.json"
+      ]
+    }
+  ]
+}
