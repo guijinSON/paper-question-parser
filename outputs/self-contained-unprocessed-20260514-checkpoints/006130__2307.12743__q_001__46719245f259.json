@@ -1,0 +1,65 @@
+{
+  "record": {
+    "global_index": 6130,
+    "source_json": "outputs/parse-paper/2307.12743.json",
+    "paper_id": "2307.12743",
+    "paper_title": "",
+    "paper_link": "https://arxiv.org/abs/2307.12743",
+    "question_link": "https://arxiv.org/pdf/2307.12743.pdf#page=2",
+    "question_id": "q_001",
+    "parser_is_solved": "false",
+    "context_brief": "Polynomial-time geodesically convex optimization",
+    "original_question": "Let M be a complete d-dimensional Riemannian manifold with Riemannian metric, distance function, and exponential and logarithm maps, and let Bbar(x_ref, r) be a geodesically convex subset of M, meaning that for every x and y in the ball there is a unique minimizing geodesic segment connecting them and that segment stays inside the ball. Let f: Bbar(x_ref, r) -> R be geodesically convex, meaning that f composed with every geodesic segment in the ball is an ordinary convex function, and assume f is M-Lipschitz on the ball. In the black-box first-order model, after querying a point x_k in M, the algorithm receives the value f(x_k) and a subgradient g at x_k. If the sectional curvatures of M lie in [-K, K] and zeta_t = t / tanh(t), does there exist a deterministic first-order algorithm that, for every epsilon in (0, 1), finds a point x such that f(x) - f* <= epsilon M r in at most O(poly(zeta_{r sqrt(K)}, d) log(1/epsilon)) oracle queries, while using only poly(zeta_{r sqrt(K)}, d) arithmetic operations per iteration to determine the next query, where f* is the minimum of f over Bbar(x_ref, r)?",
+    "evidence": [
+      {
+        "page": 2,
+        "quote": "A subset D of M is g-convex if for all x, y in D there is a unique minimizing geodesic segment gamma in M connecting x, y, and gamma is contained in D. A function f : D -> R is g-convex in D if f composed with gamma is convex for all geodesic segments gamma contained in D."
+      },
+      {
+        "page": 2,
+        "quote": "We adopt the black-box model of optimization. A first-order algorithm can access the function f to be minimized through oracle queries x_k in M. After query x_k, the algorithm is given f(x_k) and a subgradient g at x_k. We can now state the open question:"
+      },
+      {
+        "page": 2,
+        "quote": "Open Question 1 Assume M has sectional curvatures in the interval [-K, K]. Assume Bbar(xref, r) is g-convex. Let f : Bbar(xref, r) -> R be g-convex and M-Lipschitz in Bbar(xref, r). Define zeta_{r sqrt(K)} = r sqrt(K) / tanh(r sqrt(K)). Is there a deterministic first-order algorithm A with the following properties?"
+      },
+      {
+        "page": 2,
+        "quote": "(a) For every epsilon in (0, 1), algorithm A finds a point x such that f(x) - f* <= epsilon * M r in at most O(poly(zeta_{r sqrt(K)}, d) log(epsilon^-1)) oracle queries, where f* = min_{x in Bbar(xref,r)} f(x). (b) Each iteration requires only a polynomial number of arithmetic operations, poly(zeta_{r sqrt(K)}, d), to determine the next query (in addition to the subgradient queries)."
+      }
+    ]
+  },
+  "artifact": {
+    "self_contained_problem": "Let $M$ be a complete $d$-dimensional Riemannian manifold whose sectional curvatures all lie in the interval $[-K, K]$ for some constant $K \\ge 0$. Equip $M$ with its Riemannian distance and the usual exponential and logarithm maps. A subset $D \\subseteq M$ is called geodesically convex (g-convex) if for every pair of points $x, y \\in D$ there is a unique minimizing geodesic segment $\\gamma$ in $M$ joining $x$ and $y$, and this segment is entirely contained in $D$. A function $f: D \\to \\mathbb{R}$ is g-convex on $D$ if $f \\circ \\gamma$ is a convex function (in the usual sense on an interval of $\\mathbb{R}$) for every geodesic segment $\\gamma \\subseteq D$.\n\nFix a reference point $x_{\\mathrm{ref}} \\in M$ and a radius $r > 0$ such that the closed geodesic ball $\\overline{B}(x_{\\mathrm{ref}}, r)$ is g-convex. Let $f: \\overline{B}(x_{\\mathrm{ref}}, r) \\to \\mathbb{R}$ be g-convex on $\\overline{B}(x_{\\mathrm{ref}}, r)$ and $M_{\\mathrm{Lip}}$-Lipschitz with respect to the Riemannian distance. Let\n$$ f^* = \\min_{x \\in \\overline{B}(x_{\\mathrm{ref}}, r)} f(x), \\qquad \\zeta_{r\\sqrt{K}} = \\frac{r\\sqrt{K}}{\\tanh(r\\sqrt{K})}. $$\n\nWork in the black-box first-order oracle model: an algorithm issues queries $x_k \\in M$ and in response receives $f(x_k)$ and a subgradient $g_k$ of $f$ at $x_k$.\n\nQuestion: Does there exist a deterministic first-order algorithm $\\mathcal{A}$ with the following two properties?\n\n(a) For every $\\varepsilon \\in (0,1)$, $\\mathcal{A}$ produces a point $x \\in \\overline{B}(x_{\\mathrm{ref}}, r)$ satisfying $f(x) - f^* \\le \\varepsilon M_{\\mathrm{Lip}} r$ using at most $O(\\mathrm{poly}(\\zeta_{r\\sqrt{K}}, d) \\cdot \\log(1/\\varepsilon))$ oracle queries.\n\n(b) Between oracle queries, $\\mathcal{A}$ performs at most $\\mathrm{poly}(\\zeta_{r\\sqrt{K}}, d)$ arithmetic operations to compute the next query point.",
+    "macro_subject": "Applied Mathematics",
+    "category_tag": "geodesically convex optimization",
+    "open_status": "open",
+    "status_search_result": "The question was posed as an open problem at COLT 2023 and remains the subject of active research. Partial progress exists for special cases such as manifolds of constant curvature (hemisphere, hyperbolic space), where an ellipsoid-like algorithm attains query complexity $O(d^2 \\log^2(1/\\varepsilon))$ with $O(d^2)$ work per iteration, and follow-up works (e.g., 2025 revisits of first-order methods for g-convex optimization) continue to study related complexity questions. No source found resolves the general question.",
+    "status_evidence": [
+      {
+        "title": "Open Problem: Polynomial linearly-convergent method for g-convex optimization? (PMLR/COLT 2023)",
+        "url": "https://proceedings.mlr.press/v195/criscitiello23b.html",
+        "snippet": "Formal open problem statement at COLT 2023 listing the question on polynomial-time linearly-convergent g-convex first-order optimization.",
+        "claim": "Question posed as an open problem at COLT 2023."
+      },
+      {
+        "title": "Revisit First-order Methods for Geodesically Convex Optimization",
+        "url": "https://arxiv.org/html/2504.06814",
+        "snippet": "Recent (2025) work revisiting complexity of first-order methods for geodesically convex optimization.",
+        "claim": "Active follow-up research in 2025 continues to study the complexity landscape without resolving the general problem."
+      },
+      {
+        "title": "COLT 2023 Open Problems list",
+        "url": "https://learningtheory.org/colt2023/open.html",
+        "snippet": "COLT 2023 open problems page listing this question among open problems.",
+        "claim": "Officially recognized as an open problem."
+      }
+    ],
+    "confidence": 0.8
+  },
+  "model": "opus",
+  "effort": "medium",
+  "elapsed_s": 42.87,
+  "validation_warnings": [],
+  "raw_claude_stdout": "{\"type\":\"result\",\"subtype\":\"success\",\"is_error\":false,\"api_error_status\":null,\"duration_ms\":42171,\"duration_api_ms\":40256,\"num_turns\":4,\"result\":\"Provided the structured output.\\n\\nSources:\\n- [Open Problem: Polynomial linearly-convergent method for g-convex optimization? (PMLR)](https://proceedings.mlr.press/v195/criscitiello23b.html)\\n- [arXiv:2307.12743](https://arxiv.org/abs/2307.12743)\\n- [COLT 2023 Open Problems](https://learningtheory.org/colt2023/open.html)\\n- [Revisit First-order Methods for Geodesically Convex Optimization (2025)](https://arxiv.org/html/2504.06814)\",\"stop_reason\":\"end_turn\",\"session_id\":\"49d1ab27-0781-4f99-aa40-c2313c626b29\",\"total_cost_usd\":0.16113175,\"usage\":{\"input_tokens\":9,\"cache_creation_input_tokens\":6319,\"cache_read_input_tokens\":20724,\"output_tokens\":2118,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":6319,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[{\"input_tokens\":1,\"output_tokens\":196,\"cache_read_input_tokens\":7285,\"cache_creation_input_tokens\":1719,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":1719},\"type\":\"message\"}],\"speed\":\"standard\"},\"modelUsage\":{\"claude-haiku-4-5-20251001\":{\"inputTokens\":34256,\"outputTokens\":805,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":2,\"costUSD\":0.058281,\"contextWindow\":200000,\"maxOutputTokens\":32000},\"claude-opus-4-7\":{\"inputTokens\":9,\"outputTokens\":2118,\"cacheReadInputTokens\":20724,\"cacheCreationInputTokens\":6319,\"webSearchRequests\":0,\"costUSD\":0.10285074999999999,\"contextWindow\":1000000,\"maxOutputTokens\":64000}},\"permission_denials\":[],\"structured_output\":{\"self_contained_problem\":\"Let $M$ be a complete $d$-dimensional Riemannian manifold whose sectional curvatures all lie in the interval $[-K, K]$ for some constant $K \\\\ge 0$. Equip $M$ with its Riemannian distance and the usual exponential and logarithm maps. A subset $D \\\\subseteq M$ is called geodesically convex (g-convex) if for every pair of points $x, y \\\\in D$ there is a unique minimizing geodesic segment $\\\\gamma$ in $M$ joining $x$ and $y$, and this segment is entirely contained in $D$. A function $f: D \\\\to \\\\mathbb{R}$ is g-convex on $D$ if $f \\\\circ \\\\gamma$ is a convex function (in the usual sense on an interval of $\\\\mathbb{R}$) for every geodesic segment $\\\\gamma \\\\subseteq D$.\\n\\nFix a reference point $x_{\\\\mathrm{ref}} \\\\in M$ and a radius $r > 0$ such that the closed geodesic ball $\\\\overline{B}(x_{\\\\mathrm{ref}}, r)$ is g-convex. Let $f: \\\\overline{B}(x_{\\\\mathrm{ref}}, r) \\\\to \\\\mathbb{R}$ be g-convex on $\\\\overline{B}(x_{\\\\mathrm{ref}}, r)$ and $M_{\\\\mathrm{Lip}}$-Lipschitz with respect to the Riemannian distance. Let\\n$$ f^* = \\\\min_{x \\\\in \\\\overline{B}(x_{\\\\mathrm{ref}}, r)} f(x), \\\\qquad \\\\zeta_{r\\\\sqrt{K}} = \\\\frac{r\\\\sqrt{K}}{\\\\tanh(r\\\\sqrt{K})}. $$\\n\\nWork in the black-box first-order oracle model: an algorithm issues queries $x_k \\\\in M$ and in response receives $f(x_k)$ and a subgradient $g_k$ of $f$ at $x_k$.\\n\\nQuestion: Does there exist a deterministic first-order algorithm $\\\\mathcal{A}$ with the following two properties?\\n\\n(a) For every $\\\\varepsilon \\\\in (0,1)$, $\\\\mathcal{A}$ produces a point $x \\\\in \\\\overline{B}(x_{\\\\mathrm{ref}}, r)$ satisfying $f(x) - f^* \\\\le \\\\varepsilon M_{\\\\mathrm{Lip}} r$ using at most $O(\\\\mathrm{poly}(\\\\zeta_{r\\\\sqrt{K}}, d) \\\\cdot \\\\log(1/\\\\varepsilon))$ oracle queries.\\n\\n(b) Between oracle queries, $\\\\mathcal{A}$ performs at most $\\\\mathrm{poly}(\\\\zeta_{r\\\\sqrt{K}}, d)$ arithmetic operations to compute the next query point.\",\"macro_subject\":\"Applied Mathematics\",\"category_tag\":\"geodesically convex optimization\",\"open_status\":\"open\",\"status_search_result\":\"The question was posed as an open problem at COLT 2023 and remains the subject of active research. Partial progress exists for special cases such as manifolds of constant curvature (hemisphere, hyperbolic space), where an ellipsoid-like algorithm attains query complexity $O(d^2 \\\\log^2(1/\\\\varepsilon))$ with $O(d^2)$ work per iteration, and follow-up works (e.g., 2025 revisits of first-order methods for g-convex optimization) continue to study related complexity questions. No source found resolves the general question.\",\"status_evidence\":[{\"title\":\"Open Problem: Polynomial linearly-convergent method for g-convex optimization? (PMLR/COLT 2023)\",\"url\":\"https://proceedings.mlr.press/v195/criscitiello23b.html\",\"snippet\":\"Formal open problem statement at COLT 2023 listing the question on polynomial-time linearly-convergent g-convex first-order optimization.\",\"claim\":\"Question posed as an open problem at COLT 2023.\"},{\"title\":\"Revisit First-order Methods for Geodesically Convex Optimization\",\"url\":\"https://arxiv.org/html/2504.06814\",\"snippet\":\"Recent (2025) work revisiting complexity of first-order methods for geodesically convex optimization.\",\"claim\":\"Active follow-up research in 2025 continues to study the complexity landscape without resolving the general problem.\"},{\"title\":\"COLT 2023 Open Problems list\",\"url\":\"https://learningtheory.org/colt2023/open.html\",\"snippet\":\"COLT 2023 open problems page listing this question among open problems.\",\"claim\":\"Officially recognized as an open problem.\"}],\"confidence\":0.8},\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"uuid\":\"7a6df124-8bde-473f-9c5f-7fcdd41efcd4\"}\n"
+}

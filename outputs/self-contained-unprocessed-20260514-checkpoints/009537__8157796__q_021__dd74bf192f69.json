@@ -1,0 +1,51 @@
+{
+  "record": {
+    "global_index": 9537,
+    "source_json": "outputs/parse-paper/8157796.json",
+    "paper_id": "8157796",
+    "paper_title": "Open problems in stochastic reinforcement models",
+    "paper_link": "https://zbmath.org/8157796",
+    "question_link": "https://zbmath.org/8157796",
+    "question_id": "q_021",
+    "parser_is_solved": "false",
+    "context_brief": "Local limits of Bernoulli and random-out-degree preferential attachment",
+    "original_question": "Compare the local weak limits of two preferential-attachment-type models: the Bernoulli preferential attachment model BPA(f), in which a new vertex connects independently to each existing vertex v with probability f(D_v^{in}(n-1))/(n-1), and a preferential attachment model with random out-degrees adapted to use only in-degree and an i.i.d. Poisson number of outgoing edges with matching parameter. Under the corresponding parameter choices, do the local limits of these two models agree, and can the different existing descriptions of their local limits be made equivalent?",
+    "evidence": [
+      {
+        "page": 21,
+        "quote": "What is the relation between the local limits of the two models?"
+      },
+      {
+        "page": 21,
+        "quote": "It can be expected that these agree, provided we appropriately adapt the preferential attachment model with random out-degrees studied in [17]."
+      }
+    ]
+  },
+  "artifact": {
+    "self_contained_problem": "Consider two preferential-attachment-type random graph models on vertex set $\\{1,2,\\ldots,n\\}$ built sequentially.\n\n(1) Bernoulli preferential attachment model BPA(f). Fix a nonnegative function $f:\\mathbb{Z}_{\\geq 0}\\to\\mathbb{R}_{\\geq 0}$. Starting from some finite initial graph, at each step $n\\geq 2$ a new vertex $n$ is added and, independently for each existing vertex $v\\in\\{1,\\ldots,n-1\\}$, an edge $\\{v,n\\}$ is created with probability\n$$\\frac{f(D^{\\mathrm{in}}_v(n-1))}{n-1},$$\nwhere $D^{\\mathrm{in}}_v(n-1)$ is the in-degree of $v$ (number of later vertices that have attached to $v$) at time $n-1$. Edges are independent across $v$.\n\n(2) Preferential attachment with random Poisson out-degrees PA$^{\\mathrm{Poi}}(f)$. At each step $n\\geq 2$, vertex $n$ first samples an i.i.d. random out-degree $M_n\\sim\\mathrm{Poisson}(\\lambda_n)$ (with $\\lambda_n$ chosen so its mean matches that of the BPA(f) out-degree), and then attaches its $M_n$ edges to existing vertices using only the in-degrees $D^{\\mathrm{in}}_v(n-1)$ via the preferential weighting determined by $f$.\n\nFor a sequence of random rooted graphs $(G_n, o_n)$ with $o_n$ uniformly chosen, recall the local weak limit $(G_\\infty,o_\\infty)$ is the distributional limit, in the Benjamini–Schramm topology, of the rooted graph induced on the $r$-neighborhood of $o_n$ for every $r\\geq 0$.\n\nQuestion: Under matched parameter choices, do the local weak limits of BPA(f) and of PA$^{\\mathrm{Poi}}(f)$ coincide? Equivalently, can the (a priori different) descriptions of these limits — e.g.\\ via Pólya urn / branching-process constructions — be shown to give the same rooted random graph distribution?",
+    "macro_subject": "Probability",
+    "category_tag": "Local limits of preferential attachment graphs",
+    "open_status": "unknown",
+    "status_search_result": "Related work establishes local weak limits for preferential attachment with random out-degrees (e.g., universality results for PA local limits and limits for collapsed branching processes with random out-degrees), but no source explicitly verifies the conjectured equivalence between the local weak limit of the Bernoulli PA model BPA(f) and that of the random-Poisson-out-degree PA variant under matched parameters. The status appears unresolved.",
+    "status_evidence": [
+      {
+        "title": "Universality of the local limit of preferential attachment models",
+        "url": "https://arxiv.org/abs/2212.05551",
+        "snippet": "Provides an explicit construction of the local weak limit for a class of preferential attachment graphs, with universality properties.",
+        "claim": "Local weak limits of PA models have been described, but equivalence with BPA(f) is not addressed."
+      },
+      {
+        "title": "Local weak limits for collapsed branching processes with random out-degrees",
+        "url": "https://www.sciencedirect.com/science/article/abs/pii/S0304414925000055",
+        "snippet": "Establishes local weak limits for collapsed branching processes generalizing PA with random out-degrees.",
+        "claim": "Establishes local limits of a PA-with-random-out-degree variant, leaving the comparison with Bernoulli PA implicit."
+      }
+    ],
+    "confidence": 0.55
+  },
+  "model": "opus",
+  "effort": "medium",
+  "elapsed_s": 33.83,
+  "validation_warnings": [],
+  "raw_claude_stdout": "{\"type\":\"result\",\"subtype\":\"success\",\"is_error\":false,\"api_error_status\":null,\"duration_ms\":33283,\"duration_api_ms\":32400,\"ttft_ms\":2041,\"num_turns\":3,\"result\":\"Sources:\\n- [Universality of the local limit of preferential attachment models](https://arxiv.org/abs/2212.05551)\\n- [Local weak limits for collapsed branching processes with random out-degrees](https://www.sciencedirect.com/science/article/abs/pii/S0304414925000055)\",\"stop_reason\":\"end_turn\",\"session_id\":\"2f31fd98-d64d-4314-a348-9cc905ef2aa0\",\"total_cost_usd\":0.10386725,\"usage\":{\"input_tokens\":8,\"cache_creation_input_tokens\":4133,\"cache_read_input_tokens\":12054,\"output_tokens\":1620,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":4133,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[{\"input_tokens\":1,\"output_tokens\":103,\"cache_read_input_tokens\":5392,\"cache_creation_input_tokens\":1426,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":1426},\"type\":\"message\"}],\"speed\":\"standard\"},\"modelUsage\":{\"claude-haiku-4-5-20251001\":{\"inputTokens\":18909,\"outputTokens\":512,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":1,\"costUSD\":0.031469,\"contextWindow\":200000,\"maxOutputTokens\":32000},\"claude-opus-4-7\":{\"inputTokens\":8,\"outputTokens\":1620,\"cacheReadInputTokens\":12054,\"cacheCreationInputTokens\":4133,\"webSearchRequests\":0,\"costUSD\":0.07239825,\"contextWindow\":1000000,\"maxOutputTokens\":64000}},\"permission_denials\":[],\"structured_output\":{\"self_contained_problem\":\"Consider two preferential-attachment-type random graph models on vertex set $\\\\{1,2,\\\\ldots,n\\\\}$ built sequentially.\\n\\n(1) Bernoulli preferential attachment model BPA(f). Fix a nonnegative function $f:\\\\mathbb{Z}_{\\\\geq 0}\\\\to\\\\mathbb{R}_{\\\\geq 0}$. Starting from some finite initial graph, at each step $n\\\\geq 2$ a new vertex $n$ is added and, independently for each existing vertex $v\\\\in\\\\{1,\\\\ldots,n-1\\\\}$, an edge $\\\\{v,n\\\\}$ is created with probability\\n$$\\\\frac{f(D^{\\\\mathrm{in}}_v(n-1))}{n-1},$$\\nwhere $D^{\\\\mathrm{in}}_v(n-1)$ is the in-degree of $v$ (number of later vertices that have attached to $v$) at time $n-1$. Edges are independent across $v$.\\n\\n(2) Preferential attachment with random Poisson out-degrees PA$^{\\\\mathrm{Poi}}(f)$. At each step $n\\\\geq 2$, vertex $n$ first samples an i.i.d. random out-degree $M_n\\\\sim\\\\mathrm{Poisson}(\\\\lambda_n)$ (with $\\\\lambda_n$ chosen so its mean matches that of the BPA(f) out-degree), and then attaches its $M_n$ edges to existing vertices using only the in-degrees $D^{\\\\mathrm{in}}_v(n-1)$ via the preferential weighting determined by $f$.\\n\\nFor a sequence of random rooted graphs $(G_n, o_n)$ with $o_n$ uniformly chosen, recall the local weak limit $(G_\\\\infty,o_\\\\infty)$ is the distributional limit, in the Benjamini–Schramm topology, of the rooted graph induced on the $r$-neighborhood of $o_n$ for every $r\\\\geq 0$.\\n\\nQuestion: Under matched parameter choices, do the local weak limits of BPA(f) and of PA$^{\\\\mathrm{Poi}}(f)$ coincide? Equivalently, can the (a priori different) descriptions of these limits — e.g.\\\\ via Pólya urn / branching-process constructions — be shown to give the same rooted random graph distribution?\",\"macro_subject\":\"Probability\",\"category_tag\":\"Local limits of preferential attachment graphs\",\"open_status\":\"unknown\",\"status_search_result\":\"Related work establishes local weak limits for preferential attachment with random out-degrees (e.g., universality results for PA local limits and limits for collapsed branching processes with random out-degrees), but no source explicitly verifies the conjectured equivalence between the local weak limit of the Bernoulli PA model BPA(f) and that of the random-Poisson-out-degree PA variant under matched parameters. The status appears unresolved.\",\"status_evidence\":[{\"title\":\"Universality of the local limit of preferential attachment models\",\"url\":\"https://arxiv.org/abs/2212.05551\",\"snippet\":\"Provides an explicit construction of the local weak limit for a class of preferential attachment graphs, with universality properties.\",\"claim\":\"Local weak limits of PA models have been described, but equivalence with BPA(f) is not addressed.\"},{\"title\":\"Local weak limits for collapsed branching processes with random out-degrees\",\"url\":\"https://www.sciencedirect.com/science/article/abs/pii/S0304414925000055\",\"snippet\":\"Establishes local weak limits for collapsed branching processes generalizing PA with random out-degrees.\",\"claim\":\"Establishes local limits of a PA-with-random-out-degree variant, leaving the comparison with Bernoulli PA implicit.\"}],\"confidence\":0.55},\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"uuid\":\"46ed56d7-ce81-4263-9d34-55d6061aeb95\"}\n"
+}

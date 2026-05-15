@@ -1,0 +1,57 @@
+{
+  "record": {
+    "global_index": 8535,
+    "source_json": "outputs/parse-paper/6232279.json",
+    "paper_id": "6232279",
+    "paper_title": "Optimal scaling of average queue sizes in an input-queued switch: an open problem",
+    "paper_link": "https://zbmath.org/6232279",
+    "question_link": "https://zbmath.org/6232279",
+    "question_id": "q_004",
+    "parser_is_solved": "false",
+    "context_brief": "Maximum weight policy scaling",
+    "original_question": "For the maximum weight scheduling policy in the same n by n input-queued switch model, where each time slot chooses a feasible matching that maximizes the sum over scheduled queues of the current queue size, does the steady-state expected total queue size satisfy the same β*_0 = 1 scaling as the conjectured optimum, namely essentially order n/(1 − ρ(λ)) up to constants uniformly over all n and all underloaded arrival-rate matrices?",
+    "evidence": [
+      {
+        "page": 4,
+        "quote": "The question is whether there exist policies that combine the best features of the above two bounds, i.e., with Q = O(n1+ε/(1 − ρ)) for arbitrarily small ε > 0, and whether this is achieved by the MW policy."
+      },
+      {
+        "page": 5,
+        "quote": "We also have the much stronger conjecture that β∗0 is equal to one even if we restrict to the MW policy."
+      }
+    ]
+  },
+  "artifact": {
+    "category_tag": "input-queued switch scheduling",
+    "confidence": 0.7,
+    "macro_subject": "Probability",
+    "open_status": "open",
+    "self_contained_problem": "Consider a discrete-time n×n input-queued switch. There are n input ports and n output ports, with a separate queue Q_{ij}(t) at each input-output pair (i,j), for i,j ∈ {1,...,n}. In each time slot t = 0, 1, 2, ...:\n\n1. New packets arrive: for each (i,j), a Bernoulli(λ_{ij}) number of packets joins Q_{ij}, independently across (i,j) and across time, where λ = (λ_{ij}) is a nonnegative arrival-rate matrix.\n\n2. The scheduler chooses a feasible matching, i.e., a permutation matrix S(t) = (S_{ij}(t)) ∈ {0,1}^{n×n} with each row sum and each column sum equal to 1. If S_{ij}(t) = 1 and Q_{ij}(t) > 0, one packet departs from Q_{ij}.\n\nThe arrival-rate matrix λ is called admissible (underloaded) if its maximum row sum and maximum column sum, ρ(λ) := max(max_i Σ_j λ_{ij}, max_j Σ_i λ_{ij}), satisfies ρ(λ) < 1.\n\nThe Maximum Weight (MW) policy selects, in each slot t, a permutation matrix S(t) maximizing Σ_{i,j} S_{ij} Q_{ij}(t). Under any admissible λ, this Markov chain is positive recurrent; let Q_{ij}(∞) denote its stationary distribution and define the steady-state expected total queue size\n   E_{MW}[|Q|] := Σ_{i,j} E[Q_{ij}(∞)].\n\nQuestion: Does there exist a constant C < ∞, independent of n and of λ, such that for every n ≥ 1 and every admissible arrival-rate matrix λ with ρ(λ) < 1,\n   E_{MW}[|Q|] ≤ C · n / (1 − ρ(λ))^{1+o(1)},\ni.e., does the MW policy achieve the conjectured optimal scaling of order n/(1 − ρ(λ)), up to subpolynomial factors, uniformly over all n and all underloaded λ?",
+    "status_search_result": "The question of whether the MaxWeight policy achieves optimal Θ(n/(1−ρ)) scaling for the steady-state total queue size in n×n input-queued switches remains open in general. Subsequent works have proved optimal scaling for related but different policies (e.g., via graph factorization, batching-based algorithms) and have established optimality of MaxWeight only in restricted regimes (e.g., when 1−ρ approaches 0 sufficiently fast in n, such as 1−ρ = O(1/n²)). Best known general bounds for MaxWeight remain super-linear in n (improving from O(n³) to O(n^{1.5}(1−ρ)^{-1} log) and O(n^{5/4}(1−ρ)^{-1} log) in various regimes), short of the conjectured n/(1−ρ).",
+    "status_evidence": [
+      {
+        "title": "Improved Queue-Size Scaling for Input-Queued Switches via Graph Factorization",
+        "url": "https://www.cambridge.org/core/journals/advances-in-applied-probability/article/abs/improved-queuesize-scaling-for-inputqueued-switches-via-graph-factorization/1E2856862C8B0AFDD7B5428FF6D184A3",
+        "snippet": "A new class of policies achieves expected total queue size O(n^{1.5}(1-ρ)^{-1} log(1/(1-ρ))) in the regime 1-ρ = O(1/n), improving prior bounds.",
+        "claim": "Best known bounds for MW remain above the conjectured n/(1-ρ); only specialized policies achieve improved scaling, and only in restricted regimes."
+      },
+      {
+        "title": "On Queue-Size Scaling for Input-Queued Switches (arXiv:1405.4764)",
+        "url": "https://arxiv.org/abs/1405.4764",
+        "snippet": "Establishes the validity of the conjecture for the regime where 1-ρ = O(1/n^2), but the general conjecture for MW remains unresolved.",
+        "claim": "Optimality of MW scaling is established only in restricted heavy-traffic regimes."
+      },
+      {
+        "title": "An algorithm for improved delay-scaling in input-queued switches",
+        "url": "https://link.springer.com/article/10.1007/s11134-021-09726-7",
+        "snippet": "New algorithm with expected total queue length O(n(1-ρ)^{-4/3} log) for uniform arrivals; conjectured optimal n/(1-ρ) MW scaling not proved in general.",
+        "claim": "Subsequent algorithmic work approaches but does not match the conjectured optimal MW scaling."
+      }
+    ]
+  },
+  "model": "opus",
+  "effort": "medium",
+  "elapsed_s": 64.61,
+  "validation_warnings": [],
+  "raw_claude_stdout": "{\"type\":\"result\",\"subtype\":\"success\",\"is_error\":false,\"api_error_status\":null,\"duration_ms\":64086,\"duration_api_ms\":62248,\"ttft_ms\":3437,\"num_turns\":4,\"result\":\"Sources:\\n- [Improved Queue-Size Scaling for Input-Queued Switches via Graph Factorization](https://www.cambridge.org/core/journals/advances-in-applied-probability/article/abs/improved-queuesize-scaling-for-inputqueued-switches-via-graph-factorization/1E2856862C8B0AFDD7B5428FF6D184A3)\\n- [On Queue-Size Scaling for Input-Queued Switches](https://arxiv.org/abs/1405.4764)\\n- [An algorithm for improved delay-scaling in input-queued switches](https://link.springer.com/article/10.1007/s11134-021-09726-7)\\n- [Optimal queue-size scaling in switched networks](https://arxiv.org/abs/1110.4697)\",\"stop_reason\":\"end_turn\",\"session_id\":\"8539ed86-489a-4321-a812-b815799809df\",\"total_cost_usd\":0.17291275,\"usage\":{\"input_tokens\":9,\"cache_creation_input_tokens\":6269,\"cache_read_input_tokens\":19339,\"output_tokens\":2323,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":6269,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[{\"input_tokens\":1,\"output_tokens\":265,\"cache_read_input_tokens\":7089,\"cache_creation_input_tokens\":1865,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":1865},\"type\":\"message\"}],\"speed\":\"standard\"},\"modelUsage\":{\"claude-haiku-4-5-20251001\":{\"inputTokens\":40622,\"outputTokens\":1064,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":2,\"costUSD\":0.065942,\"contextWindow\":200000,\"maxOutputTokens\":32000},\"claude-opus-4-7\":{\"inputTokens\":9,\"outputTokens\":2323,\"cacheReadInputTokens\":19339,\"cacheCreationInputTokens\":6269,\"webSearchRequests\":0,\"costUSD\":0.10697074999999999,\"contextWindow\":1000000,\"maxOutputTokens\":64000}},\"permission_denials\":[],\"structured_output\":{\"category_tag\":\"input-queued switch scheduling\",\"confidence\":0.7,\"macro_subject\":\"Probability\",\"open_status\":\"open\",\"self_contained_problem\":\"Consider a discrete-time n×n input-queued switch. There are n input ports and n output ports, with a separate queue Q_{ij}(t) at each input-output pair (i,j), for i,j ∈ {1,...,n}. In each time slot t = 0, 1, 2, ...:\\n\\n1. New packets arrive: for each (i,j), a Bernoulli(λ_{ij}) number of packets joins Q_{ij}, independently across (i,j) and across time, where λ = (λ_{ij}) is a nonnegative arrival-rate matrix.\\n\\n2. The scheduler chooses a feasible matching, i.e., a permutation matrix S(t) = (S_{ij}(t)) ∈ {0,1}^{n×n} with each row sum and each column sum equal to 1. If S_{ij}(t) = 1 and Q_{ij}(t) > 0, one packet departs from Q_{ij}.\\n\\nThe arrival-rate matrix λ is called admissible (underloaded) if its maximum row sum and maximum column sum, ρ(λ) := max(max_i Σ_j λ_{ij}, max_j Σ_i λ_{ij}), satisfies ρ(λ) < 1.\\n\\nThe Maximum Weight (MW) policy selects, in each slot t, a permutation matrix S(t) maximizing Σ_{i,j} S_{ij} Q_{ij}(t). Under any admissible λ, this Markov chain is positive recurrent; let Q_{ij}(∞) denote its stationary distribution and define the steady-state expected total queue size\\n   E_{MW}[|Q|] := Σ_{i,j} E[Q_{ij}(∞)].\\n\\nQuestion: Does there exist a constant C < ∞, independent of n and of λ, such that for every n ≥ 1 and every admissible arrival-rate matrix λ with ρ(λ) < 1,\\n   E_{MW}[|Q|] ≤ C · n / (1 − ρ(λ))^{1+o(1)},\\ni.e., does the MW policy achieve the conjectured optimal scaling of order n/(1 − ρ(λ)), up to subpolynomial factors, uniformly over all n and all underloaded λ?\",\"status_search_result\":\"The question of whether the MaxWeight policy achieves optimal Θ(n/(1−ρ)) scaling for the steady-state total queue size in n×n input-queued switches remains open in general. Subsequent works have proved optimal scaling for related but different policies (e.g., via graph factorization, batching-based algorithms) and have established optimality of MaxWeight only in restricted regimes (e.g., when 1−ρ approaches 0 sufficiently fast in n, such as 1−ρ = O(1/n²)). Best known general bounds for MaxWeight remain super-linear in n (improving from O(n³) to O(n^{1.5}(1−ρ)^{-1} log) and O(n^{5/4}(1−ρ)^{-1} log) in various regimes), short of the conjectured n/(1−ρ).\",\"status_evidence\":[{\"title\":\"Improved Queue-Size Scaling for Input-Queued Switches via Graph Factorization\",\"url\":\"https://www.cambridge.org/core/journals/advances-in-applied-probability/article/abs/improved-queuesize-scaling-for-inputqueued-switches-via-graph-factorization/1E2856862C8B0AFDD7B5428FF6D184A3\",\"snippet\":\"A new class of policies achieves expected total queue size O(n^{1.5}(1-ρ)^{-1} log(1/(1-ρ))) in the regime 1-ρ = O(1/n), improving prior bounds.\",\"claim\":\"Best known bounds for MW remain above the conjectured n/(1-ρ); only specialized policies achieve improved scaling, and only in restricted regimes.\"},{\"title\":\"On Queue-Size Scaling for Input-Queued Switches (arXiv:1405.4764)\",\"url\":\"https://arxiv.org/abs/1405.4764\",\"snippet\":\"Establishes the validity of the conjecture for the regime where 1-ρ = O(1/n^2), but the general conjecture for MW remains unresolved.\",\"claim\":\"Optimality of MW scaling is established only in restricted heavy-traffic regimes.\"},{\"title\":\"An algorithm for improved delay-scaling in input-queued switches\",\"url\":\"https://link.springer.com/article/10.1007/s11134-021-09726-7\",\"snippet\":\"New algorithm with expected total queue length O(n(1-ρ)^{-4/3} log) for uniform arrivals; conjectured optimal n/(1-ρ) MW scaling not proved in general.\",\"claim\":\"Subsequent algorithmic work approaches but does not match the conjectured optimal MW scaling.\"}]},\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"uuid\":\"d3dd0e29-5014-48be-b2b5-4d7f7925daaf\"}\n"
+}

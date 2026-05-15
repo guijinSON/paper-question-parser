@@ -1,0 +1,55 @@
+{
+  "record": {
+    "global_index": 8126,
+    "source_json": "outputs/parse-paper/5605099.json",
+    "paper_id": "5605099",
+    "paper_title": "Eight Open Problems in Distributed Computing",
+    "paper_link": "https://zbmath.org/5605099",
+    "question_link": "https://zbmath.org/5605099",
+    "question_id": "q_005",
+    "parser_is_solved": "false",
+    "context_brief": "Most stable ongoing consensus function",
+    "original_question": "For ongoing self-stabilizing consensus, where a sequence of consensus instances has input vectors and output values over time, and where stability means changing the output as few times as possible when successive input vectors allow the previous output to remain valid, what is the most stable consensus function when the only validity restriction is that the common output must equal at least t + 1 process inputs?",
+    "evidence": [
+      {
+        "page": 5,
+        "quote": "Namely, we would like to minimize the number of times the output is changed."
+      },
+      {
+        "page": 5,
+        "quote": "The open problem is, to determine the most stable (consensus) function to use, given flexibility in deciding on the output of the system."
+      },
+      {
+        "page": 5,
+        "quote": "assuming that the function from the inputs to the common output is only restricted to ensure that the output has a value equal to at least t + 1 inputs."
+      }
+    ]
+  },
+  "artifact": {
+    "self_contained_problem": "Consider a distributed system of n processes, up to t of which may fail, that repeatedly solves consensus. Time is divided into a sequence of consensus instances k = 1, 2, 3, .... At each instance k, every nonfaulty process supplies an input value, yielding an input vector v_k ∈ V^n (with ⊥ marking processes that have not supplied a value). A consensus function is a (deterministic) mapping f that, given the history of input vectors v_1, ..., v_k and previous outputs o_1, ..., o_{k-1}, produces a common output o_k ∈ V satisfying the following validity restriction: o_k must equal at least t + 1 of the entries of v_k (so the chosen value is supported by at least t + 1 process inputs at instance k).\n\nDefine the (in)stability of f on an infinite execution as the number of indices k ≥ 2 for which o_k ≠ o_{k-1}, restricted to executions in which the previous output o_{k-1} would still satisfy the validity restriction at instance k (i.e., o_{k-1} equals at least t + 1 entries of v_k). The stability of f is its worst-case instability over all such admissible input sequences.\n\nProblem: Determine a consensus function f satisfying the above validity restriction that is most stable, i.e., that minimizes (over all such f) the number of times the output is forced to change across the sequence of instances when the previous output remains a valid choice. Equivalently, characterize the optimal trade-off and exhibit an optimal rule (and prove its optimality).",
+    "macro_subject": "Theoretical Computer Science",
+    "category_tag": "distributed consensus stability",
+    "open_status": "open",
+    "status_search_result": "Recent literature on self-stabilizing and stabilizing consensus (2022–2025) addresses related models — Byzantine-tolerant self-stabilizing consensus, multivalued consensus, and topological characterizations of stabilizing consensus — but none of the located works explicitly identify or prove optimal the most stable ongoing consensus function under the \"t+1 supporting inputs\" validity restriction. No source claims a resolution of this particular optimization problem, so it appears to remain open.",
+    "status_evidence": [
+      {
+        "title": "A Topological Characterization of Stabilizing Consensus",
+        "url": "https://arxiv.org/html/2411.07106",
+        "snippet": "Recent theoretical work (2024) exploring topological properties of stabilizing consensus decision functions.",
+        "claim": "Active recent research on stabilizing consensus does not resolve the specific most-stable-function question."
+      },
+      {
+        "title": "Self-stabilizing multivalued consensus in asynchronous crash-prone systems",
+        "url": "https://www.sciencedirect.com/science/article/pii/S0304397524005036",
+        "snippet": "Recent self-stabilizing multivalued consensus protocols in crash-prone systems.",
+        "claim": "Related self-stabilizing consensus results exist but do not optimize stability for the t+1-validity rule."
+      }
+    ],
+    "confidence": 0.6
+  },
+  "model": "opus",
+  "effort": "medium",
+  "elapsed_s": 33.09,
+  "validation_warnings": [],
+  "raw_claude_stdout": "{\"type\":\"result\",\"subtype\":\"success\",\"is_error\":false,\"api_error_status\":null,\"duration_ms\":32643,\"duration_api_ms\":31302,\"ttft_ms\":2932,\"num_turns\":3,\"result\":\"Sources:\\n- [A Topological Characterization of Stabilizing Consensus](https://arxiv.org/html/2411.07106)\\n- [Self-stabilizing multivalued consensus in asynchronous crash-prone systems](https://www.sciencedirect.com/science/article/pii/S0304397524005036)\\n- [Stabilizing Consensus With the Power of Two Choices](https://www.cs.ox.ac.uk/people/leslieann.goldberg/papers/SelfStabilizing.pdf)\",\"stop_reason\":\"end_turn\",\"session_id\":\"248a1a03-875d-4a06-b274-b976be54d4fd\",\"total_cost_usd\":0.09821275,\"usage\":{\"input_tokens\":8,\"cache_creation_input_tokens\":3937,\"cache_read_input_tokens\":12083,\"output_tokens\":1465,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":3937,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[{\"input_tokens\":1,\"output_tokens\":176,\"cache_read_input_tokens\":5440,\"cache_creation_input_tokens\":1182,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":1182},\"type\":\"message\"}],\"speed\":\"standard\"},\"modelUsage\":{\"claude-haiku-4-5-20251001\":{\"inputTokens\":18800,\"outputTokens\":420,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":1,\"costUSD\":0.0309,\"contextWindow\":200000,\"maxOutputTokens\":32000},\"claude-opus-4-7\":{\"inputTokens\":8,\"outputTokens\":1465,\"cacheReadInputTokens\":12083,\"cacheCreationInputTokens\":3937,\"webSearchRequests\":0,\"costUSD\":0.06731275,\"contextWindow\":1000000,\"maxOutputTokens\":64000}},\"permission_denials\":[],\"structured_output\":{\"self_contained_problem\":\"Consider a distributed system of n processes, up to t of which may fail, that repeatedly solves consensus. Time is divided into a sequence of consensus instances k = 1, 2, 3, .... At each instance k, every nonfaulty process supplies an input value, yielding an input vector v_k ∈ V^n (with ⊥ marking processes that have not supplied a value). A consensus function is a (deterministic) mapping f that, given the history of input vectors v_1, ..., v_k and previous outputs o_1, ..., o_{k-1}, produces a common output o_k ∈ V satisfying the following validity restriction: o_k must equal at least t + 1 of the entries of v_k (so the chosen value is supported by at least t + 1 process inputs at instance k).\\n\\nDefine the (in)stability of f on an infinite execution as the number of indices k ≥ 2 for which o_k ≠ o_{k-1}, restricted to executions in which the previous output o_{k-1} would still satisfy the validity restriction at instance k (i.e., o_{k-1} equals at least t + 1 entries of v_k). The stability of f is its worst-case instability over all such admissible input sequences.\\n\\nProblem: Determine a consensus function f satisfying the above validity restriction that is most stable, i.e., that minimizes (over all such f) the number of times the output is forced to change across the sequence of instances when the previous output remains a valid choice. Equivalently, characterize the optimal trade-off and exhibit an optimal rule (and prove its optimality).\",\"macro_subject\":\"Theoretical Computer Science\",\"category_tag\":\"distributed consensus stability\",\"open_status\":\"open\",\"status_search_result\":\"Recent literature on self-stabilizing and stabilizing consensus (2022–2025) addresses related models — Byzantine-tolerant self-stabilizing consensus, multivalued consensus, and topological characterizations of stabilizing consensus — but none of the located works explicitly identify or prove optimal the most stable ongoing consensus function under the \\\"t+1 supporting inputs\\\" validity restriction. No source claims a resolution of this particular optimization problem, so it appears to remain open.\",\"status_evidence\":[{\"title\":\"A Topological Characterization of Stabilizing Consensus\",\"url\":\"https://arxiv.org/html/2411.07106\",\"snippet\":\"Recent theoretical work (2024) exploring topological properties of stabilizing consensus decision functions.\",\"claim\":\"Active recent research on stabilizing consensus does not resolve the specific most-stable-function question.\"},{\"title\":\"Self-stabilizing multivalued consensus in asynchronous crash-prone systems\",\"url\":\"https://www.sciencedirect.com/science/article/pii/S0304397524005036\",\"snippet\":\"Recent self-stabilizing multivalued consensus protocols in crash-prone systems.\",\"claim\":\"Related self-stabilizing consensus results exist but do not optimize stability for the t+1-validity rule.\"}],\"confidence\":0.6},\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"uuid\":\"5148dd0c-f239-4540-9d3e-3f1db8a9ff27\"}\n"
+}

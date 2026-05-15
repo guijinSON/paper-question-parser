@@ -1,0 +1,53 @@
+{
+  "record": {
+    "global_index": 8536,
+    "source_json": "outputs/parse-paper/6232279.json",
+    "paper_id": "6232279",
+    "paper_title": "Optimal scaling of average queue sizes in an input-queued switch: an open problem",
+    "paper_link": "https://zbmath.org/6232279",
+    "question_link": "https://zbmath.org/6232279",
+    "question_id": "q_005",
+    "parser_is_solved": "false",
+    "context_brief": "Uniform traffic variant",
+    "original_question": "For the same n by n input-queued switch model restricted to uniform traffic, where every input-output arrival rate is λ_i,j = ρ/n, what are the corresponding optimal and maximum-weight-policy queue-size scaling exponents for steady-state expected total queue size as functions of n and ρ, and do the β*_0, β*_1, and β*_2 questions have value 1 in this uniform-traffic case?",
+    "evidence": [
+      {
+        "page": 5,
+        "quote": "In a further variation, the same questions can be posed for the case of uniform traffic, where λi,j = ρ/n, for all i and j."
+      }
+    ]
+  },
+  "artifact": {
+    "self_contained_problem": "Consider a discrete-time n×n input-queued switch. At each time slot, for each input-output pair (i,j) with i,j∈{1,…,n}, packets arrive according to independent Bernoulli processes of rate λ_{i,j} = ρ/n, where ρ∈(0,1). Arrivals at input i are buffered in separate virtual output queues Q_{i,j}(t) per destination j. In each slot, the scheduler chooses a matching σ (a permutation of {1,…,n}) and serves one packet from each queue Q_{i,σ(i)} (if nonempty). The system is stable for any ρ<1.\n\nLet E_π[Σ_{i,j} Q_{i,j}] denote the steady-state expected total queue size under scheduling policy π, viewed as a function of n and ρ.\n\n(a) Determine the optimal scaling exponents β*_0, β*_1, β*_2 defined by\n    inf_π lim sup_{ρ→1} (1-ρ)^{β*_0} · lim sup_{n→∞} n^{-β*_1} · E_π[Σ Q_{i,j}]\n(and analogous formulations involving joint limits in n and ρ giving exponents β*_0, β*_1, β*_2 governing the dependence on n, on 1/(1-ρ), and on cross terms), restricted to the uniform-traffic regime λ_{i,j}=ρ/n.\n\n(b) Determine the corresponding exponents β_0^{MW}, β_1^{MW}, β_2^{MW} when π is restricted to the maximum-weight matching policy.\n\n(c) In particular, is it true that in the uniform-traffic case all three exponents β*_0, β*_1, β*_2 equal 1 (i.e., the optimal expected total queue size scales as Θ(n/(1-ρ)) up to logarithmic factors), and likewise for the maximum-weight policy?",
+    "macro_subject": "Probability",
+    "category_tag": "queueing networks / switched networks",
+    "open_status": "partially_solved",
+    "status_search_result": "For the uniform-traffic n×n input-queued switch, the conjecture is that the optimal expected total queue size scales as Θ(n/(1-ρ)) (i.e., β*_0=β*_1=1). This remains open in full generality, but substantial progress has been made: the conjectured scaling was first established only when 1-ρ=O(1/n²); subsequent work (Maguluri–Srikant; Shah–Walton–Zhong; and later improvements via graph factorization by Maguluri et al., 2019) progressively improved upper bounds, the most recent achieving O(n(1-ρ)^{-4/3} log(max{1/(1-ρ),n})) under uniform arrivals. The tight Θ(n/(1-ρ)) bound (and the corresponding question for the MaxWeight policy) has not been fully proved.",
+    "status_evidence": [
+      {
+        "title": "Improved queue-size scaling for input-queued switches via graph factorization",
+        "url": "https://arxiv.org/abs/1903.00398",
+        "snippet": "New class of scheduling policies provides expected total queue size scaling as O(n^{1.5}(1-ρ)^{-1} log(1/(1-ρ))) when 1-ρ=O(1/n), improving the state of the art.",
+        "claim": "Progress on optimal scaling in uniform traffic case; not yet resolved at Θ(n/(1-ρ))."
+      },
+      {
+        "title": "On Queue-Size Scaling for Input-Queued Switches",
+        "url": "https://arxiv.org/abs/1405.4764",
+        "snippet": "Establishes the conjecture in the regime 1-ρ=O(1/n²) for uniform traffic.",
+        "claim": "Conjecture proved only in restricted regime."
+      },
+      {
+        "title": "Heavy Traffic Queue Length Behavior in a Switch Under the MaxWeight Algorithm",
+        "url": "https://pubsonline.informs.org/doi/10.1287/15-SSY193",
+        "snippet": "MaxWeight has optimal heavy-traffic queue length scaling when all ports are uniformly saturated, within factor 2 of optimal in n.",
+        "claim": "Partial results for MaxWeight under uniform traffic."
+      }
+    ],
+    "confidence": 0.75
+  },
+  "model": "opus",
+  "effort": "medium",
+  "elapsed_s": 47.97,
+  "validation_warnings": [],
+  "raw_claude_stdout": "{\"type\":\"result\",\"subtype\":\"success\",\"is_error\":false,\"api_error_status\":null,\"duration_ms\":47543,\"duration_api_ms\":45385,\"ttft_ms\":2950,\"num_turns\":4,\"result\":\"Sources:\\n- [Improved queue-size scaling for input-queued switches via graph factorization (arXiv:1903.00398)](https://arxiv.org/abs/1903.00398)\\n- [On Queue-Size Scaling for Input-Queued Switches (arXiv:1405.4764)](https://arxiv.org/abs/1405.4764)\\n- [Optimal scaling of average queue sizes in an input-queued switch: an open problem](https://link.springer.com/article/10.1007/s11134-011-9234-1)\\n- [Heavy Traffic Queue Length Behavior in a Switch Under the MaxWeight Algorithm](https://pubsonline.informs.org/doi/10.1287/15-SSY193)\\n- [Optimal queue-size scaling in switched networks](https://arxiv.org/pdf/1110.4697)\",\"stop_reason\":\"end_turn\",\"session_id\":\"aec6d38b-ac90-4cc4-b255-bef33232777f\",\"total_cost_usd\":0.16467125,\"usage\":{\"input_tokens\":9,\"cache_creation_input_tokens\":5847,\"cache_read_input_tokens\":18979,\"output_tokens\":2087,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":5847,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[{\"input_tokens\":1,\"output_tokens\":285,\"cache_read_input_tokens\":6903,\"cache_creation_input_tokens\":1629,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":1629},\"type\":\"message\"}],\"speed\":\"standard\"},\"modelUsage\":{\"claude-haiku-4-5-20251001\":{\"inputTokens\":41348,\"outputTokens\":1014,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":2,\"costUSD\":0.066418,\"contextWindow\":200000,\"maxOutputTokens\":32000},\"claude-opus-4-7\":{\"inputTokens\":9,\"outputTokens\":2087,\"cacheReadInputTokens\":18979,\"cacheCreationInputTokens\":5847,\"webSearchRequests\":0,\"costUSD\":0.09825325,\"contextWindow\":1000000,\"maxOutputTokens\":64000}},\"permission_denials\":[],\"structured_output\":{\"self_contained_problem\":\"Consider a discrete-time n×n input-queued switch. At each time slot, for each input-output pair (i,j) with i,j∈{1,…,n}, packets arrive according to independent Bernoulli processes of rate λ_{i,j} = ρ/n, where ρ∈(0,1). Arrivals at input i are buffered in separate virtual output queues Q_{i,j}(t) per destination j. In each slot, the scheduler chooses a matching σ (a permutation of {1,…,n}) and serves one packet from each queue Q_{i,σ(i)} (if nonempty). The system is stable for any ρ<1.\\n\\nLet E_π[Σ_{i,j} Q_{i,j}] denote the steady-state expected total queue size under scheduling policy π, viewed as a function of n and ρ.\\n\\n(a) Determine the optimal scaling exponents β*_0, β*_1, β*_2 defined by\\n    inf_π lim sup_{ρ→1} (1-ρ)^{β*_0} · lim sup_{n→∞} n^{-β*_1} · E_π[Σ Q_{i,j}]\\n(and analogous formulations involving joint limits in n and ρ giving exponents β*_0, β*_1, β*_2 governing the dependence on n, on 1/(1-ρ), and on cross terms), restricted to the uniform-traffic regime λ_{i,j}=ρ/n.\\n\\n(b) Determine the corresponding exponents β_0^{MW}, β_1^{MW}, β_2^{MW} when π is restricted to the maximum-weight matching policy.\\n\\n(c) In particular, is it true that in the uniform-traffic case all three exponents β*_0, β*_1, β*_2 equal 1 (i.e., the optimal expected total queue size scales as Θ(n/(1-ρ)) up to logarithmic factors), and likewise for the maximum-weight policy?\",\"macro_subject\":\"Probability\",\"category_tag\":\"queueing networks / switched networks\",\"open_status\":\"partially_solved\",\"status_search_result\":\"For the uniform-traffic n×n input-queued switch, the conjecture is that the optimal expected total queue size scales as Θ(n/(1-ρ)) (i.e., β*_0=β*_1=1). This remains open in full generality, but substantial progress has been made: the conjectured scaling was first established only when 1-ρ=O(1/n²); subsequent work (Maguluri–Srikant; Shah–Walton–Zhong; and later improvements via graph factorization by Maguluri et al., 2019) progressively improved upper bounds, the most recent achieving O(n(1-ρ)^{-4/3} log(max{1/(1-ρ),n})) under uniform arrivals. The tight Θ(n/(1-ρ)) bound (and the corresponding question for the MaxWeight policy) has not been fully proved.\",\"status_evidence\":[{\"title\":\"Improved queue-size scaling for input-queued switches via graph factorization\",\"url\":\"https://arxiv.org/abs/1903.00398\",\"snippet\":\"New class of scheduling policies provides expected total queue size scaling as O(n^{1.5}(1-ρ)^{-1} log(1/(1-ρ))) when 1-ρ=O(1/n), improving the state of the art.\",\"claim\":\"Progress on optimal scaling in uniform traffic case; not yet resolved at Θ(n/(1-ρ)).\"},{\"title\":\"On Queue-Size Scaling for Input-Queued Switches\",\"url\":\"https://arxiv.org/abs/1405.4764\",\"snippet\":\"Establishes the conjecture in the regime 1-ρ=O(1/n²) for uniform traffic.\",\"claim\":\"Conjecture proved only in restricted regime.\"},{\"title\":\"Heavy Traffic Queue Length Behavior in a Switch Under the MaxWeight Algorithm\",\"url\":\"https://pubsonline.informs.org/doi/10.1287/15-SSY193\",\"snippet\":\"MaxWeight has optimal heavy-traffic queue length scaling when all ports are uniformly saturated, within factor 2 of optimal in n.\",\"claim\":\"Partial results for MaxWeight under uniform traffic.\"}],\"confidence\":0.75},\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"uuid\":\"9f81e96e-f632-4366-9210-4d0f9a4c4bb1\"}\n"
+}

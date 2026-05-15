@@ -1,0 +1,51 @@
+{
+  "record": {
+    "global_index": 10272,
+    "source_json": "outputs/parse-paper/hal-01614375.json",
+    "paper_id": "hal-01614375",
+    "paper_title": "Open problems about regular languages, 35 years later",
+    "paper_link": "https://zbmath.org/6939534",
+    "question_link": "https://zbmath.org/6939534",
+    "question_id": "q_001",
+    "parser_is_solved": "false",
+    "context_brief": "star height",
+    "original_question": "Let A be a finite alphabet. Build extended regular expressions from 0, 1, and the letters of A using union, concatenation, Kleene star, and complement. The star height of such an expression is the maximum nesting depth of stars, and the star height h(L) of a regular language L is the minimum star height among extended regular expressions denoting L. Is there an algorithm that computes h(L) for an input regular language L?",
+    "evidence": [
+      {
+        "page": 7,
+        "quote": "Problem 1 Is there an algorithm which computes the star height of a given regular language?"
+      },
+      {
+        "page": 7,
+        "quote": "The star height h(L) of a regular language L is the minimum of the star heights of the extended regular expressions representing L."
+      }
+    ]
+  },
+  "artifact": {
+    "self_contained_problem": "Let $A$ be a finite alphabet, and let $A^*$ denote the free monoid of all finite words over $A$. Define the class of extended regular expressions over $A$ inductively as follows:\n- $0$ and $1$ are extended regular expressions denoting, respectively, the empty language $\\emptyset$ and the language $\\{\\varepsilon\\}$ containing only the empty word;\n- each letter $a \\in A$ is an extended regular expression denoting the singleton language $\\{a\\}$;\n- if $E$ and $F$ are extended regular expressions denoting languages $L(E), L(F) \\subseteq A^*$, then so are $E \\cup F$, $E \\cdot F$, $E^*$, and $\\overline{E}$, denoting respectively the union $L(E) \\cup L(F)$, the concatenation $L(E) L(F)$, the Kleene star $L(E)^* = \\bigcup_{n \\geq 0} L(E)^n$, and the complement $A^* \\setminus L(E)$.\n\nThe star height $h(E)$ of an extended regular expression $E$ is defined recursively by: $h(0) = h(1) = h(a) = 0$ for $a \\in A$; $h(E \\cup F) = h(E \\cdot F) = \\max(h(E), h(F))$; $h(\\overline{E}) = h(E)$; and $h(E^*) = h(E) + 1$.\n\nFor a regular language $L \\subseteq A^*$, define its (generalized) star height by\n$$h(L) = \\min\\{ h(E) : E \\text{ is an extended regular expression with } L(E) = L \\}.$$\n\nQuestion: Does there exist an algorithm which, given a regular language $L$ (specified, for instance, by a finite automaton or an extended regular expression), computes $h(L)$?",
+    "macro_subject": "Theoretical Computer Science",
+    "category_tag": "generalized star height of regular languages",
+    "open_status": "open",
+    "status_search_result": "The generalized star-height problem is a long-standing open problem in formal language theory. It is not known whether there is an algorithm computing the generalized star height of a regular language; in fact, it is not even known whether every regular language has generalized star height at most 1. Only partial results (e.g., decidability for certain subclasses, and Pin–Straubing–Thérien's \"Some results on the generalized star-height problem\") are available.",
+    "status_evidence": [
+      {
+        "title": "Generalized star-height problem - Wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Generalized_star-height_problem",
+        "snippet": "It is an open question whether a nesting depth of more than 1 is required, and if so, whether there is an algorithm to determine the minimum required star height.",
+        "claim": "The generalized star-height problem, including the existence of an algorithm to compute generalized star height, remains open."
+      },
+      {
+        "title": "The star-height problem (J.-É. Pin)",
+        "url": "https://www.irif.fr/~jep/Problemes/starheight.html",
+        "snippet": "Problem page maintained by Pin lists the generalized star-height problem as open.",
+        "claim": "Authoritative problem page lists the question as still open."
+      }
+    ],
+    "confidence": 0.97
+  },
+  "model": "opus",
+  "effort": "medium",
+  "elapsed_s": 34.55,
+  "validation_warnings": [],
+  "raw_claude_stdout": "{\"type\":\"result\",\"subtype\":\"success\",\"is_error\":false,\"api_error_status\":null,\"duration_ms\":34098,\"duration_api_ms\":34504,\"ttft_ms\":2179,\"num_turns\":3,\"result\":\"I've classified this as the well-known **generalized star-height problem**, which remains open.\\n\\nSources:\\n- [Generalized star-height problem - Wikipedia](https://en.wikipedia.org/wiki/Generalized_star-height_problem)\\n- [The star-height problem (J.-É. Pin)](https://www.irif.fr/~jep/Problemes/starheight.html)\\n- [Some results on the generalized star-height problem - HAL](https://hal.science/hal-00019978)\",\"stop_reason\":\"end_turn\",\"session_id\":\"b692004a-5f69-4800-8d51-caaa85b29317\",\"total_cost_usd\":0.094762,\"usage\":{\"input_tokens\":8,\"cache_creation_input_tokens\":3662,\"cache_read_input_tokens\":11705,\"output_tokens\":1481,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":3662,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[{\"input_tokens\":1,\"output_tokens\":163,\"cache_read_input_tokens\":5109,\"cache_creation_input_tokens\":1238,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":1238},\"type\":\"message\"}],\"speed\":\"standard\"},\"modelUsage\":{\"claude-haiku-4-5-20251001\":{\"inputTokens\":16732,\"outputTokens\":445,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":1,\"costUSD\":0.028956999999999997,\"contextWindow\":200000,\"maxOutputTokens\":32000},\"claude-opus-4-7\":{\"inputTokens\":8,\"outputTokens\":1481,\"cacheReadInputTokens\":11705,\"cacheCreationInputTokens\":3662,\"webSearchRequests\":0,\"costUSD\":0.065805,\"contextWindow\":1000000,\"maxOutputTokens\":64000}},\"permission_denials\":[],\"structured_output\":{\"self_contained_problem\":\"Let $A$ be a finite alphabet, and let $A^*$ denote the free monoid of all finite words over $A$. Define the class of extended regular expressions over $A$ inductively as follows:\\n- $0$ and $1$ are extended regular expressions denoting, respectively, the empty language $\\\\emptyset$ and the language $\\\\{\\\\varepsilon\\\\}$ containing only the empty word;\\n- each letter $a \\\\in A$ is an extended regular expression denoting the singleton language $\\\\{a\\\\}$;\\n- if $E$ and $F$ are extended regular expressions denoting languages $L(E), L(F) \\\\subseteq A^*$, then so are $E \\\\cup F$, $E \\\\cdot F$, $E^*$, and $\\\\overline{E}$, denoting respectively the union $L(E) \\\\cup L(F)$, the concatenation $L(E) L(F)$, the Kleene star $L(E)^* = \\\\bigcup_{n \\\\geq 0} L(E)^n$, and the complement $A^* \\\\setminus L(E)$.\\n\\nThe star height $h(E)$ of an extended regular expression $E$ is defined recursively by: $h(0) = h(1) = h(a) = 0$ for $a \\\\in A$; $h(E \\\\cup F) = h(E \\\\cdot F) = \\\\max(h(E), h(F))$; $h(\\\\overline{E}) = h(E)$; and $h(E^*) = h(E) + 1$.\\n\\nFor a regular language $L \\\\subseteq A^*$, define its (generalized) star height by\\n$$h(L) = \\\\min\\\\{ h(E) : E \\\\text{ is an extended regular expression with } L(E) = L \\\\}.$$\\n\\nQuestion: Does there exist an algorithm which, given a regular language $L$ (specified, for instance, by a finite automaton or an extended regular expression), computes $h(L)$?\",\"macro_subject\":\"Theoretical Computer Science\",\"category_tag\":\"generalized star height of regular languages\",\"open_status\":\"open\",\"status_search_result\":\"The generalized star-height problem is a long-standing open problem in formal language theory. It is not known whether there is an algorithm computing the generalized star height of a regular language; in fact, it is not even known whether every regular language has generalized star height at most 1. Only partial results (e.g., decidability for certain subclasses, and Pin–Straubing–Thérien's \\\"Some results on the generalized star-height problem\\\") are available.\",\"status_evidence\":[{\"title\":\"Generalized star-height problem - Wikipedia\",\"url\":\"https://en.wikipedia.org/wiki/Generalized_star-height_problem\",\"snippet\":\"It is an open question whether a nesting depth of more than 1 is required, and if so, whether there is an algorithm to determine the minimum required star height.\",\"claim\":\"The generalized star-height problem, including the existence of an algorithm to compute generalized star height, remains open.\"},{\"title\":\"The star-height problem (J.-É. Pin)\",\"url\":\"https://www.irif.fr/~jep/Problemes/starheight.html\",\"snippet\":\"Problem page maintained by Pin lists the generalized star-height problem as open.\",\"claim\":\"Authoritative problem page lists the question as still open.\"}],\"confidence\":0.97},\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"uuid\":\"dd8d9e29-75f6-4f63-8904-3b11a341085b\"}\n"
+}

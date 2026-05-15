@@ -1,0 +1,57 @@
+{
+  "record": {
+    "global_index": 6148,
+    "source_json": "outputs/parse-paper/2309.01909.json",
+    "paper_id": "2309.01909",
+    "paper_title": "A Survey on Physics Informed Reinforcement Learning: Review and Open Problems",
+    "paper_link": "https://arxiv.org/abs/2309.01909",
+    "question_link": "https://arxiv.org/pdf/2309.01909.pdf#page=15",
+    "question_id": "q_002",
+    "parser_is_solved": "false",
+    "context_brief": "Model-agnostic safe exploration and control",
+    "original_question": "How can physics-informed reinforcement learning provide model-agnostic safe exploration and control for reinforcement-learning agents operating in complex and uncertain environments? The question asks for methods that do not depend on a specific approximated system model or a pre-specified safe-state set, while still enabling the agent to respect safety constraints during exploration and learned-policy deployment.",
+    "evidence": [
+      {
+        "page": 15,
+        "quote": "Safe reinforcement learning involves learning control policies that guarantee system performance and respect safety constraints during both exploration and policy deployment."
+      },
+      {
+        "page": 16,
+        "quote": "But these approaches are limited by the approximated model of the system and the prior knowledge about safe state sets. There has been a lot of research for better system identification or model learning through physics incorporation. But most works do not generalize well to different tasks and environments. To summarize, future works should address these crucial research goals: 1) model agnostic safe exploration and control using RL agents in complex and uncertain environments and 2) devise generalized approach of incorporating physics in data-driven Model learning."
+      }
+    ]
+  },
+  "artifact": {
+    "self_contained_problem": "Consider a reinforcement-learning agent interacting with an unknown, possibly stochastic environment modeled as a Markov decision process $(\\mathcal{S},\\mathcal{A},P,r,\\gamma)$, where the transition kernel $P$ and reward function $r$ are unknown, and the state space $\\mathcal{S}$ is endowed with an unknown safety specification (e.g., a set of constraint functions $g_i:\\mathcal{S}\\times\\mathcal{A}\\to\\mathbb{R}$ such that trajectories must satisfy $g_i(s_t,a_t)\\le 0$ for all $t$, almost surely or with high probability). Assume only that some general physical principles (such as conservation laws, symmetries, dissipativity, or Lipschitz/passivity properties) are known to govern the dynamics, but no approximated parametric or analytic system model is given, and no a priori specified \"safe set\" of states is provided.\n\nDevise a reinforcement-learning algorithm and accompanying theory that:\n\n1. Uses physics-based inductive biases (rather than a specific learned system model or a pre-given safe-state set) to enforce the safety constraints with high probability during both exploration and the deployment of the learned policy;\n2. Achieves a provable (or empirically validated) regret or sample-complexity bound for converging to an optimal safe policy;\n3. Generalizes across different tasks and environments sharing the same class of physical principles, without re-engineering domain-specific safe sets or system identification procedures.\n\nFormally characterize the assumptions on the physics priors that are necessary and sufficient for such a model-agnostic safe exploration and control scheme to exist, and construct an explicit algorithm realizing these guarantees.",
+    "macro_subject": "Applied Mathematics",
+    "category_tag": "Safe reinforcement learning",
+    "open_status": "open",
+    "status_search_result": "The problem is presented as an open research direction in surveys of physics-informed reinforcement learning. Recent works (e.g., \"Progressive Safeguards for Safe and Model-Agnostic Reinforcement Learning,\" 2024, and physics-augmented safe RL papers from 2025–2026) propose partial approaches, but no method to date provides model-agnostic safe exploration and control with provable guarantees that generalize across tasks without relying on approximated system models or pre-specified safe-state sets. The problem remains open.",
+    "status_evidence": [
+      {
+        "title": "A survey on physics informed reinforcement learning: Review and open problems",
+        "url": "https://www.sciencedirect.com/science/article/pii/S0957417425017865",
+        "snippet": "Highlights gaps and unresolved issues in physics-informed RL, including safe exploration.",
+        "claim": "Model-agnostic safe exploration is listed as an open research goal."
+      },
+      {
+        "title": "Progressive Safeguards for Safe and Model-Agnostic Reinforcement Learning",
+        "url": "https://arxiv.org/html/2410.24096v1",
+        "snippet": "Proposes a finite-state safeguard approach offering a model-agnostic safe learning method.",
+        "claim": "Partial progress exists on model-agnostic safe RL via safeguard mechanisms."
+      },
+      {
+        "title": "A Review of Safe Reinforcement Learning Methods for Modern Power Systems",
+        "url": "https://arxiv.org/html/2407.00304v2",
+        "snippet": "Surveys safe RL methods and notes outstanding challenges around constraint satisfaction under uncertainty.",
+        "claim": "Safe RL under uncertain dynamics without explicit safe sets remains challenging."
+      }
+    ],
+    "confidence": 0.7
+  },
+  "model": "opus",
+  "effort": "medium",
+  "elapsed_s": 31.21,
+  "validation_warnings": [],
+  "raw_claude_stdout": "{\"type\":\"result\",\"subtype\":\"success\",\"is_error\":false,\"api_error_status\":null,\"duration_ms\":30377,\"duration_api_ms\":30401,\"num_turns\":3,\"result\":\"I've produced the dataset row.\\n\\nSources:\\n- [A survey on physics informed reinforcement learning: Review and open problems](https://www.sciencedirect.com/science/article/pii/S0957417425017865)\\n- [Progressive Safeguards for Safe and Model-Agnostic Reinforcement Learning](https://arxiv.org/html/2410.24096v1)\\n- [A Review of Safe Reinforcement Learning Methods for Modern Power Systems](https://arxiv.org/html/2407.00304v2)\",\"stop_reason\":\"end_turn\",\"session_id\":\"02aa53b2-5c5d-45ea-b63b-e966417f75db\",\"total_cost_usd\":0.10698574999999999,\"usage\":{\"input_tokens\":8,\"cache_creation_input_tokens\":4229,\"cache_read_input_tokens\":12285,\"output_tokens\":1668,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":4229,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[{\"input_tokens\":1,\"output_tokens\":178,\"cache_read_input_tokens\":5528,\"cache_creation_input_tokens\":1386,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":1386},\"type\":\"message\"}],\"speed\":\"standard\"},\"modelUsage\":{\"claude-haiku-4-5-20251001\":{\"inputTokens\":20417,\"outputTokens\":451,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":1,\"costUSD\":0.032672,\"contextWindow\":200000,\"maxOutputTokens\":32000},\"claude-opus-4-7\":{\"inputTokens\":8,\"outputTokens\":1668,\"cacheReadInputTokens\":12285,\"cacheCreationInputTokens\":4229,\"webSearchRequests\":0,\"costUSD\":0.07431375000000001,\"contextWindow\":1000000,\"maxOutputTokens\":64000}},\"permission_denials\":[],\"structured_output\":{\"self_contained_problem\":\"Consider a reinforcement-learning agent interacting with an unknown, possibly stochastic environment modeled as a Markov decision process $(\\\\mathcal{S},\\\\mathcal{A},P,r,\\\\gamma)$, where the transition kernel $P$ and reward function $r$ are unknown, and the state space $\\\\mathcal{S}$ is endowed with an unknown safety specification (e.g., a set of constraint functions $g_i:\\\\mathcal{S}\\\\times\\\\mathcal{A}\\\\to\\\\mathbb{R}$ such that trajectories must satisfy $g_i(s_t,a_t)\\\\le 0$ for all $t$, almost surely or with high probability). Assume only that some general physical principles (such as conservation laws, symmetries, dissipativity, or Lipschitz/passivity properties) are known to govern the dynamics, but no approximated parametric or analytic system model is given, and no a priori specified \\\"safe set\\\" of states is provided.\\n\\nDevise a reinforcement-learning algorithm and accompanying theory that:\\n\\n1. Uses physics-based inductive biases (rather than a specific learned system model or a pre-given safe-state set) to enforce the safety constraints with high probability during both exploration and the deployment of the learned policy;\\n2. Achieves a provable (or empirically validated) regret or sample-complexity bound for converging to an optimal safe policy;\\n3. Generalizes across different tasks and environments sharing the same class of physical principles, without re-engineering domain-specific safe sets or system identification procedures.\\n\\nFormally characterize the assumptions on the physics priors that are necessary and sufficient for such a model-agnostic safe exploration and control scheme to exist, and construct an explicit algorithm realizing these guarantees.\",\"macro_subject\":\"Applied Mathematics\",\"category_tag\":\"Safe reinforcement learning\",\"open_status\":\"open\",\"status_search_result\":\"The problem is presented as an open research direction in surveys of physics-informed reinforcement learning. Recent works (e.g., \\\"Progressive Safeguards for Safe and Model-Agnostic Reinforcement Learning,\\\" 2024, and physics-augmented safe RL papers from 2025–2026) propose partial approaches, but no method to date provides model-agnostic safe exploration and control with provable guarantees that generalize across tasks without relying on approximated system models or pre-specified safe-state sets. The problem remains open.\",\"status_evidence\":[{\"title\":\"A survey on physics informed reinforcement learning: Review and open problems\",\"url\":\"https://www.sciencedirect.com/science/article/pii/S0957417425017865\",\"snippet\":\"Highlights gaps and unresolved issues in physics-informed RL, including safe exploration.\",\"claim\":\"Model-agnostic safe exploration is listed as an open research goal.\"},{\"title\":\"Progressive Safeguards for Safe and Model-Agnostic Reinforcement Learning\",\"url\":\"https://arxiv.org/html/2410.24096v1\",\"snippet\":\"Proposes a finite-state safeguard approach offering a model-agnostic safe learning method.\",\"claim\":\"Partial progress exists on model-agnostic safe RL via safeguard mechanisms.\"},{\"title\":\"A Review of Safe Reinforcement Learning Methods for Modern Power Systems\",\"url\":\"https://arxiv.org/html/2407.00304v2\",\"snippet\":\"Surveys safe RL methods and notes outstanding challenges around constraint satisfaction under uncertainty.\",\"claim\":\"Safe RL under uncertain dynamics without explicit safe sets remains challenging.\"}],\"confidence\":0.7},\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"uuid\":\"2f160788-cee8-4bfe-90cd-8c05c71f371f\"}\n"
+}

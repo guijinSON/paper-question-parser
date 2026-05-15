@@ -1,0 +1,57 @@
+{
+  "record": {
+    "global_index": 9517,
+    "source_json": "outputs/parse-paper/8157796.json",
+    "paper_id": "8157796",
+    "paper_title": "Open problems in stochastic reinforcement models",
+    "paper_link": "https://zbmath.org/8157796",
+    "question_link": "https://zbmath.org/8157796",
+    "question_id": "q_001",
+    "parser_is_solved": "false",
+    "context_brief": "Geodesic-finding reinforcement on finite graphs",
+    "original_question": "For the ant-inspired reinforcement models on a finite graph with two marked vertices N (nest) and F (food), where independent random walks start at N, stop when they hit F, and then reinforce either a uniformly selected shortest N-to-F path in the visited subgraph or the loop-erasure of the reversed path, is it true on every finite graph that the only edges whose weights grow linearly in the number of walks are exactly the edges lying on geodesics between N and F?",
+    "evidence": [
+      {
+        "page": 2,
+        "quote": "Our main conjecture is that on any finite graph, with two marked nodes as above, the only edges whose weight will grow linearly are those lying on a geodesic between N and F."
+      },
+      {
+        "page": 2,
+        "quote": "Open Problem 1 Prove the main conjecture above on general finite graphs."
+      }
+    ]
+  },
+  "artifact": {
+    "self_contained_problem": "Let $G=(V,E)$ be a finite connected graph with two distinguished vertices $N$ (the nest) and $F$ (the food). Consider the following discrete-time stochastic reinforcement process. Each edge $e\\in E$ carries a positive weight $w_n(e)$, with initial weights $w_0(e)=1$. At step $n+1$, a walker starts at $N$ and performs a random walk on $G$ in which, from a current vertex $v$, it moves to a neighbor $u$ with probability proportional to $w_n(\\{v,u\\})$; the walk is stopped when it first hits $F$. Let $X_{n+1}$ denote the trajectory produced. From $X_{n+1}$ one extracts a self-avoiding path $\\pi_{n+1}$ from $N$ to $F$ by one of the following two rules:\n\n(i) Geodesic rule: let $H_{n+1}$ be the subgraph of $G$ consisting of edges actually traversed by $X_{n+1}$, and select $\\pi_{n+1}$ uniformly at random among all shortest $N$-to-$F$ paths in $H_{n+1}$.\n\n(ii) Loop-erasure rule: let $\\pi_{n+1}$ be the loop-erasure of the time-reversal of $X_{n+1}$ (from $F$ back to $N$).\n\nThe weights are then updated by reinforcing $\\pi_{n+1}$: $w_{n+1}(e)=w_n(e)+1$ if $e\\in\\pi_{n+1}$, and $w_{n+1}(e)=w_n(e)$ otherwise.\n\nA geodesic between $N$ and $F$ is a shortest path (with respect to graph distance) in $G$ from $N$ to $F$.\n\nProve or disprove: for every finite connected graph $G$ with chosen $N,F$, and for each of the two variants above, the set of edges $e\\in E$ such that $w_n(e)/n$ does not tend to $0$ (equivalently, whose weight grows linearly in $n$) coincides almost surely with the set of edges lying on some $N$-to-$F$ geodesic in $G$.",
+    "macro_subject": "Probability",
+    "category_tag": "reinforced random walks",
+    "open_status": "partially_solved",
+    "status_search_result": "The conjecture has been established only in special classes of graphs: Kious, Mailler and Schapira proved that the ants process finds the shortest paths on series-parallel graphs and on a five-edge non-series-parallel losange graph, using electrical network methods, Rubin's embedding, and Pólya urn couplings. A 2026 preprint extends results to a two-nest variant on triangle-series-parallel graphs. The general finite-graph conjecture (for both the geodesic and loop-erased variants) remains open.",
+    "status_evidence": [
+      {
+        "title": "Finding geodesics on graphs using reinforcement learning",
+        "url": "https://arxiv.org/abs/2010.04820",
+        "snippet": "We prove that the ants indeed find the shortest path(s) between their nest and the food in two variants of this model: when the underlying graph is any series-parallel graph, and when it is a particular five-edge non-series-parallel graph.",
+        "claim": "Conjecture proved only for series-parallel graphs and one specific 5-edge graph, not in general."
+      },
+      {
+        "title": "The trace-reinforced ants process does not find shortest paths",
+        "url": "https://ui.adsabs.harvard.edu/abs/2021arXiv210610559K/abstract",
+        "snippet": "A trace-reinforced variant of the ants process is shown not to find shortest paths in general.",
+        "claim": "Some variants of the reinforcement scheme fail to find geodesics, indicating subtlety of the conjecture."
+      },
+      {
+        "title": "The two-nest ants process on triangle-series-parallel graphs",
+        "url": "https://arxiv.org/abs/2601.22855",
+        "snippet": "Extension of the ants process to two nests on triangle-series-parallel graphs.",
+        "claim": "Progress continues on restricted graph families; general conjecture not yet settled."
+      }
+    ],
+    "confidence": 0.8
+  },
+  "model": "opus",
+  "effort": "medium",
+  "elapsed_s": 50.8,
+  "validation_warnings": [],
+  "raw_claude_stdout": "{\"type\":\"result\",\"subtype\":\"success\",\"is_error\":false,\"api_error_status\":null,\"duration_ms\":50275,\"duration_api_ms\":48075,\"ttft_ms\":2581,\"num_turns\":4,\"result\":\"Sources:\\n- [Finding geodesics on graphs using reinforcement learning (arXiv:2010.04820)](https://arxiv.org/abs/2010.04820)\\n- [The trace-reinforced ants process does not find shortest paths](https://ui.adsabs.harvard.edu/abs/2021arXiv210610559K/abstract)\\n- [The two-nest ants process on triangle-series-parallel graphs](https://arxiv.org/abs/2601.22855)\",\"stop_reason\":\"end_turn\",\"session_id\":\"dfc766be-9748-4015-a4be-7dbc5e2b2035\",\"total_cost_usd\":0.15985824999999998,\"usage\":{\"input_tokens\":9,\"cache_creation_input_tokens\":5983,\"cache_read_input_tokens\":19081,\"output_tokens\":1962,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":5983,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[{\"input_tokens\":1,\"output_tokens\":162,\"cache_read_input_tokens\":7059,\"cache_creation_input_tokens\":1609,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":1609},\"type\":\"message\"}],\"speed\":\"standard\"},\"modelUsage\":{\"claude-haiku-4-5-20251001\":{\"inputTokens\":38439,\"outputTokens\":1078,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":2,\"costUSD\":0.063829,\"contextWindow\":200000,\"maxOutputTokens\":32000},\"claude-opus-4-7\":{\"inputTokens\":9,\"outputTokens\":1962,\"cacheReadInputTokens\":19081,\"cacheCreationInputTokens\":5983,\"webSearchRequests\":0,\"costUSD\":0.09602925,\"contextWindow\":1000000,\"maxOutputTokens\":64000}},\"permission_denials\":[],\"structured_output\":{\"self_contained_problem\":\"Let $G=(V,E)$ be a finite connected graph with two distinguished vertices $N$ (the nest) and $F$ (the food). Consider the following discrete-time stochastic reinforcement process. Each edge $e\\\\in E$ carries a positive weight $w_n(e)$, with initial weights $w_0(e)=1$. At step $n+1$, a walker starts at $N$ and performs a random walk on $G$ in which, from a current vertex $v$, it moves to a neighbor $u$ with probability proportional to $w_n(\\\\{v,u\\\\})$; the walk is stopped when it first hits $F$. Let $X_{n+1}$ denote the trajectory produced. From $X_{n+1}$ one extracts a self-avoiding path $\\\\pi_{n+1}$ from $N$ to $F$ by one of the following two rules:\\n\\n(i) Geodesic rule: let $H_{n+1}$ be the subgraph of $G$ consisting of edges actually traversed by $X_{n+1}$, and select $\\\\pi_{n+1}$ uniformly at random among all shortest $N$-to-$F$ paths in $H_{n+1}$.\\n\\n(ii) Loop-erasure rule: let $\\\\pi_{n+1}$ be the loop-erasure of the time-reversal of $X_{n+1}$ (from $F$ back to $N$).\\n\\nThe weights are then updated by reinforcing $\\\\pi_{n+1}$: $w_{n+1}(e)=w_n(e)+1$ if $e\\\\in\\\\pi_{n+1}$, and $w_{n+1}(e)=w_n(e)$ otherwise.\\n\\nA geodesic between $N$ and $F$ is a shortest path (with respect to graph distance) in $G$ from $N$ to $F$.\\n\\nProve or disprove: for every finite connected graph $G$ with chosen $N,F$, and for each of the two variants above, the set of edges $e\\\\in E$ such that $w_n(e)/n$ does not tend to $0$ (equivalently, whose weight grows linearly in $n$) coincides almost surely with the set of edges lying on some $N$-to-$F$ geodesic in $G$.\",\"macro_subject\":\"Probability\",\"category_tag\":\"reinforced random walks\",\"open_status\":\"partially_solved\",\"status_search_result\":\"The conjecture has been established only in special classes of graphs: Kious, Mailler and Schapira proved that the ants process finds the shortest paths on series-parallel graphs and on a five-edge non-series-parallel losange graph, using electrical network methods, Rubin's embedding, and Pólya urn couplings. A 2026 preprint extends results to a two-nest variant on triangle-series-parallel graphs. The general finite-graph conjecture (for both the geodesic and loop-erased variants) remains open.\",\"status_evidence\":[{\"title\":\"Finding geodesics on graphs using reinforcement learning\",\"url\":\"https://arxiv.org/abs/2010.04820\",\"snippet\":\"We prove that the ants indeed find the shortest path(s) between their nest and the food in two variants of this model: when the underlying graph is any series-parallel graph, and when it is a particular five-edge non-series-parallel graph.\",\"claim\":\"Conjecture proved only for series-parallel graphs and one specific 5-edge graph, not in general.\"},{\"title\":\"The trace-reinforced ants process does not find shortest paths\",\"url\":\"https://ui.adsabs.harvard.edu/abs/2021arXiv210610559K/abstract\",\"snippet\":\"A trace-reinforced variant of the ants process is shown not to find shortest paths in general.\",\"claim\":\"Some variants of the reinforcement scheme fail to find geodesics, indicating subtlety of the conjecture.\"},{\"title\":\"The two-nest ants process on triangle-series-parallel graphs\",\"url\":\"https://arxiv.org/abs/2601.22855\",\"snippet\":\"Extension of the ants process to two nests on triangle-series-parallel graphs.\",\"claim\":\"Progress continues on restricted graph families; general conjecture not yet settled.\"}],\"confidence\":0.8},\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"uuid\":\"61f47341-93c4-4da4-b321-26fa13099288\"}\n"
+}

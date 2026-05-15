@@ -1,0 +1,55 @@
+{
+  "record": {
+    "global_index": 8530,
+    "source_json": "outputs/parse-paper/6208203.json",
+    "paper_id": "6208203",
+    "paper_title": "Selected Open Problems in Discrete Geometry and Optimization",
+    "paper_link": "https://zbmath.org/6208203",
+    "question_link": "https://zbmath.org/6208203",
+    "question_id": "q_018",
+    "parser_is_solved": "false",
+    "context_brief": "Power of Schatten quasi-norm localization",
+    "original_question": "In fixed-dimensional localization, one seeks positions of n points in a target Euclidean dimension d from a subset of pairwise distances, equivalently through a rank-constrained semidefinite program find Z with E(Z)=u, Z positive semidefinite, and rank(Z) <= d. Ji, Sze, Zhou, So, and Ye propose a non-convex Schatten p-quasi-norm regularization and a potential reduction algorithm that can localize universally rigid instances and some globally rigid but not universally rigid instances. Which input instances can this potential reduction algorithm localize in the required dimension?",
+    "evidence": [
+      {
+        "page": 332,
+        "quote": "Determining the positions of a set of n points in Euclidean space based on knowledge of a subset of the pairwise distances is a fundamental geometric problem. Such a fixed-dimensional localization problem can be formulated as a rank-constrained semidefinite program: find Z such that E(Z)=u, Z is positive semidefinite, and rank(Z) <= d."
+      },
+      {
+        "page": 333,
+        "quote": "The value (fp(Z))1/p is known as the Schatten p-quasi-norm of Z. Ji et al. design a potential reduction algorithm and show that it can approximate a first-order critical point of Problem (9) to any given accuracy in polynomial time."
+      },
+      {
+        "page": 334,
+        "quote": "Problem 5. One of the most immediate questions is to understand the power of the non-convex Schatten quasi-norm regularization in the context of localization. Specifically, can we characterize the class of input instances that can be localized in the required dimension by the potential reduction algorithm of Ji et al.?"
+      }
+    ]
+  },
+  "artifact": {
+    "self_contained_problem": "Fixed-dimensional Euclidean localization problem. Given an integer dimension d ≥ 1, n points whose pairwise squared distances are partially observed, encode the unknown Gram matrix as an n×n symmetric positive semidefinite matrix Z. Let E be the linear operator that extracts the specified subset of entries (or symmetric linear combinations) of Z corresponding to known squared distances, and let u be the given measurement vector. The fixed-dimensional localization problem is the rank-constrained feasibility problem:\n\n  find Z ∈ S^n such that  E(Z) = u,  Z ⪰ 0,  rank(Z) ≤ d.\n\nFor 0 < p < 1, the Schatten p-quasi-norm of an n×n positive semidefinite matrix Z with eigenvalues σ_1, …, σ_n ≥ 0 is\n  ‖Z‖_{S_p} = (Σ_{i=1}^n σ_i^p)^{1/p},\nand we set f_p(Z) = Σ_{i=1}^n σ_i^p. Consider the nonconvex regularized program\n\n  minimize  f_p(Z)  subject to  E(Z) = u,  Z ⪰ 0,\n\nand the potential reduction algorithm that, for any prescribed accuracy, computes in polynomial time a first-order critical point of this program. Call an instance \"localizable by the potential reduction algorithm in dimension d\" if every first-order critical point Z* of the above program (or some specified output of the algorithm) satisfies rank(Z*) ≤ d and thus solves the fixed-dimensional localization problem.\n\nIt is known that the algorithm can localize all universally rigid instances and at least some globally rigid but not universally rigid instances.\n\nProblem: Give a complete characterization of the class of input instances (E, u, d) that can be localized in the required dimension d by this potential reduction algorithm based on Schatten p-quasi-norm regularization.",
+    "macro_subject": "Applied Mathematics",
+    "category_tag": "Euclidean distance geometry and rank-constrained SDP",
+    "open_status": "open",
+    "status_search_result": "No publication was found giving a characterization of the instances localizable by the Schatten p-quasi-norm potential reduction algorithm of Ji, Sze, Zhou, So, and Ye. Subsequent work has extended Schatten-p methods for low-rank recovery, but the specific question of characterizing which localization instances are solved in the required dimension by this algorithm appears to remain open.",
+    "status_evidence": [
+      {
+        "title": "ℓp Regularized low-rank approximation via iterative reweighted singular value minimization",
+        "url": "https://link.springer.com/article/10.1007/s10589-017-9933-6",
+        "snippet": "Iterative reweighted singular value minimization methods for Schatten-p quasi-norm low-rank problems; references the Ji et al. network localization approach but does not characterize the localizable instance class.",
+        "claim": "Follow-up work on Schatten-p low-rank recovery does not provide a characterization of input instances localizable by the Ji et al. potential reduction algorithm."
+      },
+      {
+        "title": "Matrix Optimization Over Low-Rank Spectral Sets: Stationary Points and Local and Global Minimizers",
+        "url": "https://link.springer.com/article/10.1007/s10957-019-01606-8",
+        "snippet": "General analysis of stationary points for low-rank matrix optimization; does not resolve the specific localization characterization.",
+        "claim": "Theoretical analyses of stationary points for related nonconvex low-rank programs have appeared, but they do not characterize which localization instances the Schatten-p potential reduction algorithm recovers."
+      }
+    ],
+    "confidence": 0.6
+  },
+  "model": "opus",
+  "effort": "medium",
+  "elapsed_s": 33.23,
+  "validation_warnings": [],
+  "raw_claude_stdout": "{\"type\":\"result\",\"subtype\":\"success\",\"is_error\":false,\"api_error_status\":null,\"duration_ms\":32758,\"duration_api_ms\":31434,\"ttft_ms\":2782,\"num_turns\":3,\"result\":\"Sources:\\n- [ℓp Regularized low-rank approximation via iterative reweighted singular value minimization](https://link.springer.com/article/10.1007/s10589-017-9933-6)\\n- [Matrix Optimization Over Low-Rank Spectral Sets](https://link.springer.com/article/10.1007/s10957-019-01606-8)\",\"stop_reason\":\"end_turn\",\"session_id\":\"ca38c033-8b5c-41c7-a57c-bc444efae21e\",\"total_cost_usd\":0.11198625,\"usage\":{\"input_tokens\":8,\"cache_creation_input_tokens\":4487,\"cache_read_input_tokens\":12683,\"output_tokens\":1661,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":4487,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[{\"input_tokens\":1,\"output_tokens\":122,\"cache_read_input_tokens\":5745,\"cache_creation_input_tokens\":1427,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":1427},\"type\":\"message\"}],\"speed\":\"standard\"},\"modelUsage\":{\"claude-haiku-4-5-20251001\":{\"inputTokens\":23901,\"outputTokens\":427,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":1,\"costUSD\":0.036036,\"contextWindow\":200000,\"maxOutputTokens\":32000},\"claude-opus-4-7\":{\"inputTokens\":8,\"outputTokens\":1661,\"cacheReadInputTokens\":12683,\"cacheCreationInputTokens\":4487,\"webSearchRequests\":0,\"costUSD\":0.07595025,\"contextWindow\":1000000,\"maxOutputTokens\":64000}},\"permission_denials\":[],\"structured_output\":{\"self_contained_problem\":\"Fixed-dimensional Euclidean localization problem. Given an integer dimension d ≥ 1, n points whose pairwise squared distances are partially observed, encode the unknown Gram matrix as an n×n symmetric positive semidefinite matrix Z. Let E be the linear operator that extracts the specified subset of entries (or symmetric linear combinations) of Z corresponding to known squared distances, and let u be the given measurement vector. The fixed-dimensional localization problem is the rank-constrained feasibility problem:\\n\\n  find Z ∈ S^n such that  E(Z) = u,  Z ⪰ 0,  rank(Z) ≤ d.\\n\\nFor 0 < p < 1, the Schatten p-quasi-norm of an n×n positive semidefinite matrix Z with eigenvalues σ_1, …, σ_n ≥ 0 is\\n  ‖Z‖_{S_p} = (Σ_{i=1}^n σ_i^p)^{1/p},\\nand we set f_p(Z) = Σ_{i=1}^n σ_i^p. Consider the nonconvex regularized program\\n\\n  minimize  f_p(Z)  subject to  E(Z) = u,  Z ⪰ 0,\\n\\nand the potential reduction algorithm that, for any prescribed accuracy, computes in polynomial time a first-order critical point of this program. Call an instance \\\"localizable by the potential reduction algorithm in dimension d\\\" if every first-order critical point Z* of the above program (or some specified output of the algorithm) satisfies rank(Z*) ≤ d and thus solves the fixed-dimensional localization problem.\\n\\nIt is known that the algorithm can localize all universally rigid instances and at least some globally rigid but not universally rigid instances.\\n\\nProblem: Give a complete characterization of the class of input instances (E, u, d) that can be localized in the required dimension d by this potential reduction algorithm based on Schatten p-quasi-norm regularization.\",\"macro_subject\":\"Applied Mathematics\",\"category_tag\":\"Euclidean distance geometry and rank-constrained SDP\",\"open_status\":\"open\",\"status_search_result\":\"No publication was found giving a characterization of the instances localizable by the Schatten p-quasi-norm potential reduction algorithm of Ji, Sze, Zhou, So, and Ye. Subsequent work has extended Schatten-p methods for low-rank recovery, but the specific question of characterizing which localization instances are solved in the required dimension by this algorithm appears to remain open.\",\"status_evidence\":[{\"title\":\"ℓp Regularized low-rank approximation via iterative reweighted singular value minimization\",\"url\":\"https://link.springer.com/article/10.1007/s10589-017-9933-6\",\"snippet\":\"Iterative reweighted singular value minimization methods for Schatten-p quasi-norm low-rank problems; references the Ji et al. network localization approach but does not characterize the localizable instance class.\",\"claim\":\"Follow-up work on Schatten-p low-rank recovery does not provide a characterization of input instances localizable by the Ji et al. potential reduction algorithm.\"},{\"title\":\"Matrix Optimization Over Low-Rank Spectral Sets: Stationary Points and Local and Global Minimizers\",\"url\":\"https://link.springer.com/article/10.1007/s10957-019-01606-8\",\"snippet\":\"General analysis of stationary points for low-rank matrix optimization; does not resolve the specific localization characterization.\",\"claim\":\"Theoretical analyses of stationary points for related nonconvex low-rank programs have appeared, but they do not characterize which localization instances the Schatten-p potential reduction algorithm recovers.\"}],\"confidence\":0.6},\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"uuid\":\"23c3910c-4ad9-4f15-aee1-e18a9983b3d4\"}\n"
+}

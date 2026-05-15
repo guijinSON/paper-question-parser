@@ -1,0 +1,55 @@
+{
+  "record": {
+    "global_index": 1996,
+    "source_json": "outputs/parse-paper/1380818.json",
+    "paper_id": "1380818",
+    "paper_title": "二分決定グラフに基づく計算複雑さに関する未解決問題について",
+    "paper_link": "https://zbmath.org/1380818",
+    "question_link": "https://zbmath.org/1380818",
+    "question_id": "q_001",
+    "parser_is_solved": "false",
+    "context_brief": "PolyTDD_SOP versus one-way NL",
+    "original_question": "Let PolyTDD_SOP be the class of Boolean functions computable by polynomial-size families of ternary decision diagrams, where each nonterminal node has three outgoing branches labeled 0, 1, and *, computation nondeterministically follows the branch matching the input bit and the * branch, and acceptance means that some path reaches a terminal node labeled 1; equivalently, the diagram represents a sum-of-products form. Let l-NL be the one-way-input version of nondeterministic logarithmic-space computation. Can the known route toward proving PolyTDD_SOP = l-NL be improved, for example by proving enough closure of PolyTDD_SOP under reductions, and if PolyTDD_SOP is not equal to l-NL, is there a language that gives evidence for the separation PolyTDD_SOP != l-NL?",
+    "evidence": [
+      {
+        "page": 3,
+        "quote": "TDD は積和形 (Sum-of-Product Form) の論理式を表現しているとみなすことができる。"
+      },
+      {
+        "page": 3,
+        "quote": "サイズ n^{O(1)} TDD の族で計算できる関数のクラスを PolyTDD_SOP と書く"
+      },
+      {
+        "page": 4,
+        "quote": "これらの議論に改善の余地はあるだろうか。 また、等号が成立しないのなら、 PolyTDDsop≠l-NL である証拠となる言語が存在するだろうか。"
+      }
+    ]
+  },
+  "artifact": {
+    "self_contained_problem": "Define a ternary decision diagram (TDD) as a rooted directed acyclic graph in which each nonterminal node is labeled by a Boolean input variable and has exactly three outgoing edges, labeled 0, 1, and *; terminal nodes are labeled 0 or 1. On an input x ∈ {0,1}^n, computation proceeds nondeterministically from the root: at a node labeled x_i, the computation may follow either the edge labeled with the value of x_i or the edge labeled *. The diagram accepts x if at least one such nondeterministic path reaches a terminal labeled 1. (Equivalently, such a TDD represents a sum-of-products formula, where each root-to-1 path corresponds to a product term in which a 0- or 1-edge from a node labeled x_i contributes the literal ¬x_i or x_i and a *-edge from x_i contributes no literal involving x_i.)\n\nLet PolyTDD_SOP denote the class of Boolean function families (f_n : {0,1}^n → {0,1}) that are computed by a family of TDDs of size n^{O(1)} in the sense above.\n\nLet l-NL denote the class of languages decidable by nondeterministic Turing machines with a one-way (read-once, left-to-right) input tape and O(log n) work-space.\n\nAddress the following:\n\n(a) Provide structural improvements to the standard approach for proving PolyTDD_SOP = l-NL; in particular, establish suitable closure properties of PolyTDD_SOP under logspace-style reductions sufficient to derive the equality, or show such closure cannot hold.\n\n(b) If PolyTDD_SOP ≠ l-NL, exhibit an explicit language L ∈ l-NL (or L ∈ PolyTDD_SOP) that witnesses the separation, i.e., a language whose membership in one class but not the other can be supported.",
+    "macro_subject": "Theoretical Computer Science",
+    "category_tag": "decision diagrams and space complexity",
+    "open_status": "open",
+    "status_search_result": "Web searches for the specific class PolyTDD_SOP and its relationship to one-way nondeterministic logspace (l-NL) return no resolution of the equality question or any subsequent published separation witness. The question appears to remain open, with no authoritative source reporting either an improved equality proof or an explicit separating language.",
+    "status_evidence": [
+      {
+        "title": "Ternary decision diagrams. Survey",
+        "url": "https://scispace.com/pdf/ternary-decision-diagrams-survey-4zjdk2mb2z.pdf",
+        "snippet": "Survey of TDD variants including SOP-TDD and ESOP-TDD; no result equating polynomial-size SOP-TDD families with one-way NL is reported.",
+        "claim": "No published resolution of PolyTDD_SOP vs l-NL is indexed in the standard TDD literature."
+      },
+      {
+        "title": "Ternary Decision Diagrams and their Applications",
+        "url": "https://link.springer.com/chapter/10.1007/978-1-4613-1385-4_12",
+        "snippet": "Discusses applications and structure of TDDs but does not address the complexity-class question PolyTDD_SOP = l-NL.",
+        "claim": "The complexity-class formulation does not appear to have been resolved in the TDD literature."
+      }
+    ],
+    "confidence": 0.5
+  },
+  "model": "opus",
+  "effort": "medium",
+  "elapsed_s": 31.49,
+  "validation_warnings": [],
+  "raw_claude_stdout": "{\"type\":\"result\",\"subtype\":\"success\",\"is_error\":false,\"api_error_status\":null,\"duration_ms\":30441,\"duration_api_ms\":31430,\"num_turns\":3,\"result\":\"Sources:\\n- [Ternary Decision Diagrams Survey](https://scispace.com/pdf/ternary-decision-diagrams-survey-4zjdk2mb2z.pdf)\\n- [Ternary Decision Diagrams and their Applications](https://link.springer.com/chapter/10.1007/978-1-4613-1385-4_12)\",\"stop_reason\":\"end_turn\",\"session_id\":\"fc29abd9-1408-47e7-af70-32cd745beb0f\",\"total_cost_usd\":0.09417475,\"usage\":{\"input_tokens\":8,\"cache_creation_input_tokens\":4155,\"cache_read_input_tokens\":12420,\"output_tokens\":1524,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":4155,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[{\"input_tokens\":1,\"output_tokens\":122,\"cache_read_input_tokens\":5553,\"cache_creation_input_tokens\":1287,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":1287},\"type\":\"message\"}],\"speed\":\"standard\"},\"modelUsage\":{\"claude-haiku-4-5-20251001\":{\"inputTokens\":11716,\"outputTokens\":428,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":1,\"costUSD\":0.023856000000000002,\"contextWindow\":200000,\"maxOutputTokens\":32000},\"claude-opus-4-7\":{\"inputTokens\":8,\"outputTokens\":1524,\"cacheReadInputTokens\":12420,\"cacheCreationInputTokens\":4155,\"webSearchRequests\":0,\"costUSD\":0.07031874999999999,\"contextWindow\":1000000,\"maxOutputTokens\":64000}},\"permission_denials\":[],\"structured_output\":{\"self_contained_problem\":\"Define a ternary decision diagram (TDD) as a rooted directed acyclic graph in which each nonterminal node is labeled by a Boolean input variable and has exactly three outgoing edges, labeled 0, 1, and *; terminal nodes are labeled 0 or 1. On an input x ∈ {0,1}^n, computation proceeds nondeterministically from the root: at a node labeled x_i, the computation may follow either the edge labeled with the value of x_i or the edge labeled *. The diagram accepts x if at least one such nondeterministic path reaches a terminal labeled 1. (Equivalently, such a TDD represents a sum-of-products formula, where each root-to-1 path corresponds to a product term in which a 0- or 1-edge from a node labeled x_i contributes the literal ¬x_i or x_i and a *-edge from x_i contributes no literal involving x_i.)\\n\\nLet PolyTDD_SOP denote the class of Boolean function families (f_n : {0,1}^n → {0,1}) that are computed by a family of TDDs of size n^{O(1)} in the sense above.\\n\\nLet l-NL denote the class of languages decidable by nondeterministic Turing machines with a one-way (read-once, left-to-right) input tape and O(log n) work-space.\\n\\nAddress the following:\\n\\n(a) Provide structural improvements to the standard approach for proving PolyTDD_SOP = l-NL; in particular, establish suitable closure properties of PolyTDD_SOP under logspace-style reductions sufficient to derive the equality, or show such closure cannot hold.\\n\\n(b) If PolyTDD_SOP ≠ l-NL, exhibit an explicit language L ∈ l-NL (or L ∈ PolyTDD_SOP) that witnesses the separation, i.e., a language whose membership in one class but not the other can be supported.\",\"macro_subject\":\"Theoretical Computer Science\",\"category_tag\":\"decision diagrams and space complexity\",\"open_status\":\"open\",\"status_search_result\":\"Web searches for the specific class PolyTDD_SOP and its relationship to one-way nondeterministic logspace (l-NL) return no resolution of the equality question or any subsequent published separation witness. The question appears to remain open, with no authoritative source reporting either an improved equality proof or an explicit separating language.\",\"status_evidence\":[{\"title\":\"Ternary decision diagrams. Survey\",\"url\":\"https://scispace.com/pdf/ternary-decision-diagrams-survey-4zjdk2mb2z.pdf\",\"snippet\":\"Survey of TDD variants including SOP-TDD and ESOP-TDD; no result equating polynomial-size SOP-TDD families with one-way NL is reported.\",\"claim\":\"No published resolution of PolyTDD_SOP vs l-NL is indexed in the standard TDD literature.\"},{\"title\":\"Ternary Decision Diagrams and their Applications\",\"url\":\"https://link.springer.com/chapter/10.1007/978-1-4613-1385-4_12\",\"snippet\":\"Discusses applications and structure of TDDs but does not address the complexity-class question PolyTDD_SOP = l-NL.\",\"claim\":\"The complexity-class formulation does not appear to have been resolved in the TDD literature.\"}],\"confidence\":0.5},\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"uuid\":\"93485595-4b36-47f4-97a1-d46a51e42041\"}\n"
+}

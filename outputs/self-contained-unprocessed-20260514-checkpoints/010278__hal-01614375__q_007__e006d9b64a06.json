@@ -1,0 +1,51 @@
+{
+  "record": {
+    "global_index": 10278,
+    "source_json": "outputs/parse-paper/hal-01614375.json",
+    "paper_id": "hal-01614375",
+    "paper_title": "Open problems about regular languages, 35 years later",
+    "paper_link": "https://zbmath.org/6939534",
+    "question_link": "https://zbmath.org/6939534",
+    "question_id": "q_007",
+    "parser_is_solved": "false",
+    "context_brief": "star removal",
+    "original_question": "Let K be a regular language. First take the maximal solution L* of the equation K = XK, so that K = L*K. Then solve K = L*R for the minimal R = K − (L* − 1)K, iterate this construction, and obtain decompositions K = L1* L2* ··· Lk* Rk where Rk is the minimal solution of K = L1* L2* ··· Lk* R. Does this iterative star-removal process always terminate, meaning that Lk* = 1 for some k?",
+    "evidence": [
+      {
+        "page": 13,
+        "quote": "Iterating this process on R, we get a decomposition K = L1*L2* ··· Lk*Rk, where Rk is the minimal solution of K = L1*L2* ··· Lk*R."
+      },
+      {
+        "page": 13,
+        "quote": "Problem 7 Does this process terminate (i.e., Lk* = 1 at some point)?"
+      }
+    ]
+  },
+  "artifact": {
+    "self_contained_problem": "Work over a finite alphabet $A$ and let $K \\subseteq A^*$ be a regular language (containing the empty word $1$). For any language $X \\subseteq A^*$, write $X^* = \\bigcup_{n\\geq 0} X^n$ for its Kleene star.\n\nGiven a regular language $K$ with $1 \\in K$, consider the equation $K = XK$ in the unknown $X \\subseteq A^*$. Among all solutions there is a (unique) maximal solution; call it $L$. Then $K = L^* K$, and one can show that $L^*$ is determined by $K$.\n\nNext, consider the equation $K = L^* R$ in the unknown $R \\subseteq A^*$. Among its solutions there is a minimal one, given by $R = K \\setminus (L^* \\setminus \\{1\\}) K$. Denote $L_1 = L$ and $R_1 = R$, so that $K = L_1^* R_1$.\n\nNow iterate: at stage $k \\geq 1$, having $K = L_1^* L_2^* \\cdots L_k^* R_k$ with $R_k$ a regular language containing $1$, apply the same construction to $R_k$ in place of $K$: let $L_{k+1}$ be the maximal solution of $R_k = X R_k$ and $R_{k+1}$ the minimal solution of $R_k = L_{k+1}^* R_{k+1}$. This yields decompositions\n$$K \\;=\\; L_1^* L_2^* \\cdots L_k^* R_k \\quad\\text{for every } k \\geq 1.$$\n\nQuestion: Does this iterative star-removal procedure necessarily terminate? Equivalently, does there always exist an index $k$ such that $L_k^* = \\{1\\}$ (i.e.\\ $L_k \\subseteq \\{1\\}$)?",
+    "macro_subject": "Theoretical Computer Science",
+    "category_tag": "Regular languages and star decompositions",
+    "open_status": "open",
+    "status_search_result": "The problem is listed as an open problem in Pin's 2017 survey updating Brzozowski's list of open problems about regular languages. Web search did not surface any subsequent paper resolving the termination of this iterative star-removal procedure, so it appears to remain open.",
+    "status_evidence": [
+      {
+        "title": "Open problems about regular languages, 35 years later (HAL)",
+        "url": "https://hal.science/hal-01614375/document",
+        "snippet": "Problem 7: Does this process terminate (i.e., L_k^* = 1 at some point)?",
+        "claim": "Problem stated as open in survey of open problems on regular languages."
+      },
+      {
+        "title": "Open problems about regular languages, 35 years later (IRIF preprint)",
+        "url": "https://www.irif.fr/~jep/PDF/Brzozowski.pdf",
+        "snippet": "Iterating this process on R, we get a decomposition K = L1*L2* ··· Lk*Rk... Problem 7: Does this process terminate?",
+        "claim": "Termination of iterative star removal is stated as an open problem."
+      }
+    ],
+    "confidence": 0.75
+  },
+  "model": "opus",
+  "effort": "medium",
+  "elapsed_s": 30.22,
+  "validation_warnings": [],
+  "raw_claude_stdout": "{\"type\":\"result\",\"subtype\":\"success\",\"is_error\":false,\"api_error_status\":null,\"duration_ms\":29784,\"duration_api_ms\":29118,\"ttft_ms\":2373,\"num_turns\":3,\"result\":\"Structured output provided.\\n\\nSources:\\n- [Open problems about regular languages, 35 years later (HAL)](https://hal.science/hal-01614375/document)\\n- [Open problems about regular languages, 35 years later (IRIF)](https://www.irif.fr/~jep/PDF/Brzozowski.pdf)\",\"stop_reason\":\"end_turn\",\"session_id\":\"fa77cdda-344d-42e7-9061-9728db042eed\",\"total_cost_usd\":0.08709800000000001,\"usage\":{\"input_tokens\":8,\"cache_creation_input_tokens\":3516,\"cache_read_input_tokens\":11642,\"output_tokens\":1402,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":3516,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[{\"input_tokens\":1,\"output_tokens\":110,\"cache_read_input_tokens\":4987,\"cache_creation_input_tokens\":1214,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":1214},\"type\":\"message\"}],\"speed\":\"standard\"},\"modelUsage\":{\"claude-haiku-4-5-20251001\":{\"inputTokens\":12387,\"outputTokens\":365,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":1,\"costUSD\":0.024212,\"contextWindow\":200000,\"maxOutputTokens\":32000},\"claude-opus-4-7\":{\"inputTokens\":8,\"outputTokens\":1402,\"cacheReadInputTokens\":11642,\"cacheCreationInputTokens\":3516,\"webSearchRequests\":0,\"costUSD\":0.062886,\"contextWindow\":1000000,\"maxOutputTokens\":64000}},\"permission_denials\":[],\"structured_output\":{\"self_contained_problem\":\"Work over a finite alphabet $A$ and let $K \\\\subseteq A^*$ be a regular language (containing the empty word $1$). For any language $X \\\\subseteq A^*$, write $X^* = \\\\bigcup_{n\\\\geq 0} X^n$ for its Kleene star.\\n\\nGiven a regular language $K$ with $1 \\\\in K$, consider the equation $K = XK$ in the unknown $X \\\\subseteq A^*$. Among all solutions there is a (unique) maximal solution; call it $L$. Then $K = L^* K$, and one can show that $L^*$ is determined by $K$.\\n\\nNext, consider the equation $K = L^* R$ in the unknown $R \\\\subseteq A^*$. Among its solutions there is a minimal one, given by $R = K \\\\setminus (L^* \\\\setminus \\\\{1\\\\}) K$. Denote $L_1 = L$ and $R_1 = R$, so that $K = L_1^* R_1$.\\n\\nNow iterate: at stage $k \\\\geq 1$, having $K = L_1^* L_2^* \\\\cdots L_k^* R_k$ with $R_k$ a regular language containing $1$, apply the same construction to $R_k$ in place of $K$: let $L_{k+1}$ be the maximal solution of $R_k = X R_k$ and $R_{k+1}$ the minimal solution of $R_k = L_{k+1}^* R_{k+1}$. This yields decompositions\\n$$K \\\\;=\\\\; L_1^* L_2^* \\\\cdots L_k^* R_k \\\\quad\\\\text{for every } k \\\\geq 1.$$\\n\\nQuestion: Does this iterative star-removal procedure necessarily terminate? Equivalently, does there always exist an index $k$ such that $L_k^* = \\\\{1\\\\}$ (i.e.\\\\ $L_k \\\\subseteq \\\\{1\\\\}$)?\",\"macro_subject\":\"Theoretical Computer Science\",\"category_tag\":\"Regular languages and star decompositions\",\"open_status\":\"open\",\"status_search_result\":\"The problem is listed as an open problem in Pin's 2017 survey updating Brzozowski's list of open problems about regular languages. Web search did not surface any subsequent paper resolving the termination of this iterative star-removal procedure, so it appears to remain open.\",\"status_evidence\":[{\"title\":\"Open problems about regular languages, 35 years later (HAL)\",\"url\":\"https://hal.science/hal-01614375/document\",\"snippet\":\"Problem 7: Does this process terminate (i.e., L_k^* = 1 at some point)?\",\"claim\":\"Problem stated as open in survey of open problems on regular languages.\"},{\"title\":\"Open problems about regular languages, 35 years later (IRIF preprint)\",\"url\":\"https://www.irif.fr/~jep/PDF/Brzozowski.pdf\",\"snippet\":\"Iterating this process on R, we get a decomposition K = L1*L2* ··· Lk*Rk... Problem 7: Does this process terminate?\",\"claim\":\"Termination of iterative star removal is stated as an open problem.\"}],\"confidence\":0.75},\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"uuid\":\"5ab09178-4079-4e24-90e6-aeb100908b6c\"}\n"
+}

@@ -1,0 +1,57 @@
+{
+  "record": {
+    "global_index": 8533,
+    "source_json": "outputs/parse-paper/6232279.json",
+    "paper_id": "6232279",
+    "paper_title": "Optimal scaling of average queue sizes in an input-queued switch: an open problem",
+    "paper_link": "https://zbmath.org/6232279",
+    "question_link": "https://zbmath.org/6232279",
+    "question_id": "q_002",
+    "parser_is_solved": "false",
+    "context_brief": "Heavy-traffic optimal exponent",
+    "original_question": "In the same n by n input-queued switch model with load factor ρ(λ) and optimal steady-state expected total queue size Q*(n,λ), what is β*_1, the infimum over positive β for which there is a constant c > 0 such that, for every fixed n, the heavy-traffic limit superior as ρ(λ) approaches 1 of (1 − ρ(λ)) Q*(n,λ) is at most c n^β? Is the value of this exponent 1?",
+    "evidence": [
+      {
+        "page": 5,
+        "quote": "Find β∗1, the infimum over all positive numbers β for which there exists a constant c > 0 such that lim sup ρ(λ)→1 (1 − ρ(λ)) · Q∗(n,λ) ≤ c · nβ."
+      },
+      {
+        "page": 5,
+        "quote": "an intermediate (weaker) conjecture, such as β∗1 = 1, may be easier to prove."
+      }
+    ]
+  },
+  "artifact": {
+    "self_contained_problem": "Consider an $n \\times n$ input-queued switch operating in discrete time. There are $n$ input ports and $n$ output ports, and for each pair $(i,j) \\in \\{1,\\dots,n\\}^2$ a queue $Q_{ij}$ that stores packets arriving at input $i$ destined to output $j$. In each time slot, independent Bernoulli arrivals occur with rate matrix $\\lambda = (\\lambda_{ij})$ where $\\lambda_{ij} \\ge 0$. The load factor is\n$$\\rho(\\lambda) \\;=\\; \\max\\!\\left\\{\\max_{i}\\sum_{j}\\lambda_{ij},\\ \\max_{j}\\sum_{i}\\lambda_{ij}\\right\\},$$\nand we assume $\\rho(\\lambda) < 1$. A scheduling policy chooses, at each time slot, a matching (permutation matrix) $\\sigma \\in \\{0,1\\}^{n\\times n}$ and serves one packet from $Q_{ij}$ whenever $\\sigma_{ij}=1$ and $Q_{ij}>0$. For any scheduling policy that yields a positive-recurrent Markov chain on the queue-length state, let\n$$Q(n,\\lambda) \\;=\\; \\limsup_{t\\to\\infty} \\mathbb{E}\\!\\left[\\sum_{i,j} Q_{ij}(t)\\right],$$\nand define\n$$Q^{*}(n,\\lambda) \\;=\\; \\inf\\{\\,Q(n,\\lambda):\\text{stable scheduling policies}\\,\\}.$$\n\nDefine\n$$\\beta^{*}_{1} \\;=\\; \\inf\\Big\\{\\beta > 0 : \\exists\\, c>0 \\text{ such that for every fixed } n,\\ \\limsup_{\\rho(\\lambda)\\to 1}\\, \\bigl(1-\\rho(\\lambda)\\bigr)\\,Q^{*}(n,\\lambda) \\le c\\, n^{\\beta}\\Big\\}.$$\n\nDetermine $\\beta^{*}_{1}$. In particular, is $\\beta^{*}_{1} = 1$?",
+    "macro_subject": "Probability",
+    "category_tag": "Heavy-traffic scaling for input-queued switches",
+    "open_status": "solved",
+    "status_search_result": "Maguluri and Srikant (Stochastic Systems, 2016) proved that under the MaxWeight policy with uniform Bernoulli arrivals, the heavy-traffic limit $\\lim_{\\rho\\to 1}(1-\\rho)\\,\\mathbb{E}[\\sum Q_{ij}] = n - 3/2 + 1/(2n)$, hence $O(n)$ for fixed $n$. Since $Q^*\\le Q_{\\text{MaxWeight}}$ and a matching $\\Omega(n)$ lower bound on the workload holds, this yields $\\beta^{*}_{1}=1$. Subsequent works (e.g., Maguluri–Burle–Srikant on incompletely saturated switches) extended the optimal $O(n)$ heavy-traffic scaling to broader arrival regimes. The weaker conjecture $\\beta^{*}_{1}=1$ is therefore established. The stronger joint-scaling conjecture $Q^*=O(n/(1-\\rho))$ for all $n$ and $\\rho<1$ remains an active research direction (with the best known general bound improved by Xu–Zhong via graph factorization).",
+    "status_evidence": [
+      {
+        "title": "Heavy traffic queue length behavior in a switch under the MaxWeight algorithm",
+        "url": "https://projecteuclid.org/euclid.ssy/1479287408",
+        "snippet": "Heavy-traffic scaled queue length is $(1-1/(2n))\\|\\sigma\\|^2$; in uniform Bernoulli case equals $n-3/2+1/(2n)$, showing optimal scaling with respect to $n$, settling an open conjecture.",
+        "claim": "Establishes that for fixed $n$, $(1-\\rho)\\mathbb{E}[\\sum Q_{ij}]$ scales as $\\Theta(n)$ under MaxWeight, implying $\\beta^*_1 = 1$."
+      },
+      {
+        "title": "Optimal heavy-traffic queue length scaling in an incompletely saturated switch",
+        "url": "https://link.springer.com/article/10.1007/s11134-017-9562-x",
+        "snippet": "Heavy-traffic queue length under MaxWeight has optimal scaling with respect to switch size in incompletely saturated regimes.",
+        "claim": "Extends the $O(n)$ heavy-traffic scaling, reinforcing $\\beta^*_1 = 1$."
+      },
+      {
+        "title": "Improved queue-size scaling for input-queued switches via graph factorization",
+        "url": "https://arxiv.org/abs/1903.00398",
+        "snippet": "Scheduling policies achieve $O(n(1-\\rho)^{-4/3}\\log(\\max\\{1/(1-\\rho),n\\}))$ queue-size scaling.",
+        "claim": "Progress on the stronger joint $(n,\\rho)$ scaling conjecture; consistent with $\\beta^*_1=1$ in the heavy-traffic-first limit."
+      }
+    ],
+    "confidence": 0.8
+  },
+  "model": "opus",
+  "effort": "medium",
+  "elapsed_s": 72.95,
+  "validation_warnings": [],
+  "raw_claude_stdout": "{\"type\":\"result\",\"subtype\":\"success\",\"is_error\":false,\"api_error_status\":null,\"duration_ms\":72501,\"duration_api_ms\":73650,\"ttft_ms\":1926,\"num_turns\":7,\"result\":\"Submitted the dataset row.\\n\\nSources:\\n- [Heavy traffic queue length behavior in a switch under the MaxWeight algorithm](https://projecteuclid.org/euclid.ssy/1479287408)\\n- [Optimal heavy-traffic queue length scaling in an incompletely saturated switch](https://link.springer.com/article/10.1007/s11134-017-9562-x)\\n- [Improved queue-size scaling for input-queued switches via graph factorization](https://arxiv.org/abs/1903.00398)\\n- [On queue-size scaling for input-queued switches](https://arxiv.org/abs/1405.4764)\",\"stop_reason\":\"end_turn\",\"session_id\":\"412f6bf5-b304-4d12-b9f5-424de06ee568\",\"total_cost_usd\":0.27143375000000003,\"usage\":{\"input_tokens\":11,\"cache_creation_input_tokens\":9377,\"cache_read_input_tokens\":34755,\"output_tokens\":3227,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":9377,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[{\"input_tokens\":1,\"output_tokens\":217,\"cache_read_input_tokens\":9750,\"cache_creation_input_tokens\":2312,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":2312},\"type\":\"message\"}],\"speed\":\"standard\"},\"modelUsage\":{\"claude-haiku-4-5-20251001\":{\"inputTokens\":66340,\"outputTokens\":1676,\"cacheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":4,\"costUSD\":0.11471999999999999,\"contextWindow\":200000,\"maxOutputTokens\":32000},\"claude-opus-4-7\":{\"inputTokens\":11,\"outputTokens\":3227,\"cacheReadInputTokens\":34755,\"cacheCreationInputTokens\":9377,\"webSearchRequests\":0,\"costUSD\":0.15671374999999999,\"contextWindow\":1000000,\"maxOutputTokens\":64000}},\"permission_denials\":[],\"structured_output\":{\"self_contained_problem\":\"Consider an $n \\\\times n$ input-queued switch operating in discrete time. There are $n$ input ports and $n$ output ports, and for each pair $(i,j) \\\\in \\\\{1,\\\\dots,n\\\\}^2$ a queue $Q_{ij}$ that stores packets arriving at input $i$ destined to output $j$. In each time slot, independent Bernoulli arrivals occur with rate matrix $\\\\lambda = (\\\\lambda_{ij})$ where $\\\\lambda_{ij} \\\\ge 0$. The load factor is\\n$$\\\\rho(\\\\lambda) \\\\;=\\\\; \\\\max\\\\!\\\\left\\\\{\\\\max_{i}\\\\sum_{j}\\\\lambda_{ij},\\\\ \\\\max_{j}\\\\sum_{i}\\\\lambda_{ij}\\\\right\\\\},$$\\nand we assume $\\\\rho(\\\\lambda) < 1$. A scheduling policy chooses, at each time slot, a matching (permutation matrix) $\\\\sigma \\\\in \\\\{0,1\\\\}^{n\\\\times n}$ and serves one packet from $Q_{ij}$ whenever $\\\\sigma_{ij}=1$ and $Q_{ij}>0$. For any scheduling policy that yields a positive-recurrent Markov chain on the queue-length state, let\\n$$Q(n,\\\\lambda) \\\\;=\\\\; \\\\limsup_{t\\\\to\\\\infty} \\\\mathbb{E}\\\\!\\\\left[\\\\sum_{i,j} Q_{ij}(t)\\\\right],$$\\nand define\\n$$Q^{*}(n,\\\\lambda) \\\\;=\\\\; \\\\inf\\\\{\\\\,Q(n,\\\\lambda):\\\\text{stable scheduling policies}\\\\,\\\\}.$$\\n\\nDefine\\n$$\\\\beta^{*}_{1} \\\\;=\\\\; \\\\inf\\\\Big\\\\{\\\\beta > 0 : \\\\exists\\\\, c>0 \\\\text{ such that for every fixed } n,\\\\ \\\\limsup_{\\\\rho(\\\\lambda)\\\\to 1}\\\\, \\\\bigl(1-\\\\rho(\\\\lambda)\\\\bigr)\\\\,Q^{*}(n,\\\\lambda) \\\\le c\\\\, n^{\\\\beta}\\\\Big\\\\}.$$\\n\\nDetermine $\\\\beta^{*}_{1}$. In particular, is $\\\\beta^{*}_{1} = 1$?\",\"macro_subject\":\"Probability\",\"category_tag\":\"Heavy-traffic scaling for input-queued switches\",\"open_status\":\"solved\",\"status_search_result\":\"Maguluri and Srikant (Stochastic Systems, 2016) proved that under the MaxWeight policy with uniform Bernoulli arrivals, the heavy-traffic limit $\\\\lim_{\\\\rho\\\\to 1}(1-\\\\rho)\\\\,\\\\mathbb{E}[\\\\sum Q_{ij}] = n - 3/2 + 1/(2n)$, hence $O(n)$ for fixed $n$. Since $Q^*\\\\le Q_{\\\\text{MaxWeight}}$ and a matching $\\\\Omega(n)$ lower bound on the workload holds, this yields $\\\\beta^{*}_{1}=1$. Subsequent works (e.g., Maguluri–Burle–Srikant on incompletely saturated switches) extended the optimal $O(n)$ heavy-traffic scaling to broader arrival regimes. The weaker conjecture $\\\\beta^{*}_{1}=1$ is therefore established. The stronger joint-scaling conjecture $Q^*=O(n/(1-\\\\rho))$ for all $n$ and $\\\\rho<1$ remains an active research direction (with the best known general bound improved by Xu–Zhong via graph factorization).\",\"status_evidence\":[{\"title\":\"Heavy traffic queue length behavior in a switch under the MaxWeight algorithm\",\"url\":\"https://projecteuclid.org/euclid.ssy/1479287408\",\"snippet\":\"Heavy-traffic scaled queue length is $(1-1/(2n))\\\\|\\\\sigma\\\\|^2$; in uniform Bernoulli case equals $n-3/2+1/(2n)$, showing optimal scaling with respect to $n$, settling an open conjecture.\",\"claim\":\"Establishes that for fixed $n$, $(1-\\\\rho)\\\\mathbb{E}[\\\\sum Q_{ij}]$ scales as $\\\\Theta(n)$ under MaxWeight, implying $\\\\beta^*_1 = 1$.\"},{\"title\":\"Optimal heavy-traffic queue length scaling in an incompletely saturated switch\",\"url\":\"https://link.springer.com/article/10.1007/s11134-017-9562-x\",\"snippet\":\"Heavy-traffic queue length under MaxWeight has optimal scaling with respect to switch size in incompletely saturated regimes.\",\"claim\":\"Extends the $O(n)$ heavy-traffic scaling, reinforcing $\\\\beta^*_1 = 1$.\"},{\"title\":\"Improved queue-size scaling for input-queued switches via graph factorization\",\"url\":\"https://arxiv.org/abs/1903.00398\",\"snippet\":\"Scheduling policies achieve $O(n(1-\\\\rho)^{-4/3}\\\\log(\\\\max\\\\{1/(1-\\\\rho),n\\\\}))$ queue-size scaling.\",\"claim\":\"Progress on the stronger joint $(n,\\\\rho)$ scaling conjecture; consistent with $\\\\beta^*_1=1$ in the heavy-traffic-first limit.\"}],\"confidence\":0.8},\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"uuid\":\"5f57051b-0c45-4119-868e-cb5003733300\"}\n"
+}
