@@ -1,0 +1,209 @@
+{
+  "source": {
+    "url": "https://www.linkedin.com/posts/jonsalisbury_math-ai-survey-activity-7411854369169616896-mXe4",
+    "resolved_locator": "/home/gson/paper-question-parser/.sisyphus/paper-question-parser/tmp/2506.08446.pdf",
+    "title": "A Survey on Large Language Models for Mathematical Reasoning",
+    "title_origin": "source_text"
+  },
+  "accepted": [
+    {
+      "id": "q_001",
+      "question_text": "How can reinforcement-learning methods for large language models explore a more diverse set of mathematical reasoning paths within limited sampling budgets, instead of repeatedly reinforcing common patterns and converging to local optima, so that long chain-of-thought training more fully approaches the base model's theoretical reasoning ceiling?",
+      "context_brief": "RL exploration diversity",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 18,
+          "quote": "While RL optimization aims to maximize base model capabilities, current implementations remain substantially below theoretical performance ceilings. Empirical evidence indicates that policies exhibit tendency toward reinforcing common reasoning patterns with limited exploration diversity [Xiong et al., 2025a], resulting in convergence to local optima. The fundamental challenge involves efficient exploration of diverse reasoning pathways within constrained sampling budgets."
+        }
+      ]
+    },
+    {
+      "id": "q_002",
+      "question_text": "How should a large language model decide when to invoke external resources such as calculators, code interpreters, geometric visualizers, or retrieval systems, and by what interaction strategy should it use those resources, so that mathematical reasoning can go beyond the model's parametric knowledge while remaining accurate and scalable as the number of available modules grows?",
+      "context_brief": "Tool use in reasoning",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 18,
+          "quote": "The key capability requirement involves determining optimal timing and methodology for external resource invocation, requiring models to accurately assess their limitations and strategically leverage external assistance. A primary research direction involves training LLMs for effective external module interaction ."
+        }
+      ]
+    },
+    {
+      "id": "q_003",
+      "question_text": "How can long chain-of-thought mathematical reasoning be optimized so that models reach correct answers through logically consistent and efficient intermediate steps, rather than through unnecessarily long or convoluted reasoning paths that are rewarded only for their final answer correctness; in particular, what verification-aware training or tool-integrated methods can reliably improve the quality of intermediate reasoning steps?",
+      "context_brief": "Reasoning path optimality",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 18,
+          "quote": "Long CoT generation frequently produces sub-optimal reasoning trajectories due to optimization processes prioritizing final answer correctness over path efficiency [Sui et al., 2025]. Outcome-based reward functions evaluate terminal outputs while neglecting intermediate reasoning quality, treating responses as correct regardless of logical errors within reasoning chains."
+        },
+        {
+          "page": 18,
+          "quote": "However, effective tool utilization within long CoT frameworks for accuracy enhancement remains an active area of investigation requiring further theoretical and empirical development."
+        }
+      ]
+    },
+    {
+      "id": "q_004",
+      "question_text": "How can large language models generalize mathematical reasoning abilities to open-ended real-world domains where binary correctness signals are unavailable, including how to trigger and use abstract meta-skills in complex scenarios and how to design reward functions that support higher-order reasoning outside narrowly defined mathematics benchmarks?",
+      "context_brief": "Open-domain generalization",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 18,
+          "quote": "However, effective triggering and utilization of these meta-skills in complex, open-ended scenarios remains unresolved."
+        },
+        {
+          "page": 19,
+          "quote": "Unlike mathematics with clear binary feedback, complex real-world scenarios demand nuanced reward mechanisms for effective higher-order reasoning skill development."
+        }
+      ]
+    },
+    {
+      "id": "q_005",
+      "question_text": "Is the Pass@k metric, including the specific choice of k, an appropriate and comprehensive way to measure the reasoning capabilities of both base and fine-tuned large language models, or does reliance on that metric miss important aspects of mathematical reasoning quality and therefore lead to limited conclusions about model improvement?",
+      "context_brief": "Reasoning evaluation metrics",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 17,
+          "quote": "Nonetheless, it is questionable whether Pass@k (and the choice of k in particular) is an appropriate and comprehensive measure of both base and fine-tuned model capabilities. If the metric does not fully capture the nuances of reasoning ability, then conclusions drawn solely from Pass@k may be limited in their validity."
+        }
+      ]
+    }
+  ],
+  "needs_review": [],
+  "trace": [
+    {
+      "id": "source",
+      "stage": "map",
+      "notes": "Resolved the LinkedIn post to the arXiv paper URL mentioned in the comments, downloaded the PDF, and mapped major sections including Section 6 'Potential Directions in Mathematical Reasoning for LLMs' as the main open-problem region.",
+      "evidence_refs": [
+        "p17",
+        "p18",
+        "p19"
+      ]
+    },
+    {
+      "id": "q_001",
+      "stage": "extract_candidates",
+      "notes": "Extracted the RL exploration challenge from the 'Enhancing Reasoning through RL Exploration' subsection.",
+      "evidence_refs": [
+        "p18"
+      ]
+    },
+    {
+      "id": "q_002",
+      "stage": "extract_candidates",
+      "notes": "Extracted the external-tool interaction problem from the 'Knowledge-Augmented Reasoning' subsection.",
+      "evidence_refs": [
+        "p18"
+      ]
+    },
+    {
+      "id": "q_003",
+      "stage": "extract_candidates",
+      "notes": "Extracted the reasoning-path optimality problem from the 'Optimality of Reasoning Paths' subsection.",
+      "evidence_refs": [
+        "p18"
+      ]
+    },
+    {
+      "id": "q_004",
+      "stage": "extract_candidates",
+      "notes": "Extracted the open-domain generalization problem from the 'Reasoning Generalization to Open Domains' subsection and its continuation on the next page.",
+      "evidence_refs": [
+        "p18",
+        "p19"
+      ]
+    },
+    {
+      "id": "q_005",
+      "stage": "extract_candidates",
+      "notes": "Extracted the explicit evaluation question about Pass@k from the discussion of reasoning-improvement boundaries.",
+      "evidence_refs": [
+        "p17"
+      ]
+    },
+    {
+      "id": "q_001",
+      "stage": "rewrite",
+      "notes": "Expanded the challenge into a self-contained question about RL exploration diversity, constrained budgets, and local optima.",
+      "evidence_refs": [
+        "p18"
+      ]
+    },
+    {
+      "id": "q_002",
+      "stage": "rewrite",
+      "notes": "Expanded the tool-use challenge into a self-contained question covering timing, strategy, and scalability of external module interaction.",
+      "evidence_refs": [
+        "p18"
+      ]
+    },
+    {
+      "id": "q_003",
+      "stage": "rewrite",
+      "notes": "Expanded the path-optimality challenge into a self-contained question about efficient, logically consistent intermediate reasoning and verification-aware optimization.",
+      "evidence_refs": [
+        "p18"
+      ]
+    },
+    {
+      "id": "q_004",
+      "stage": "rewrite",
+      "notes": "Expanded the generalization challenge into a self-contained question about meta-skills and reward design for open-ended domains.",
+      "evidence_refs": [
+        "p18",
+        "p19"
+      ]
+    },
+    {
+      "id": "q_005",
+      "stage": "rewrite",
+      "notes": "Rephrased the explicit Pass@k concern as a standalone evaluation question.",
+      "evidence_refs": [
+        "p17"
+      ]
+    },
+    {
+      "id": "all",
+      "stage": "dedupe",
+      "notes": "Reviewed the candidate set and kept five distinct questions covering exploration, tool use, reasoning-path optimality, open-domain generalization, and evaluation metrics.",
+      "evidence_refs": [
+        "p17",
+        "p18",
+        "p19"
+      ]
+    },
+    {
+      "id": "all",
+      "stage": "quality_gates",
+      "notes": "Verified that each accepted item is self-contained, evidence-backed with page numbers, and limited to claims supported by the paper text.",
+      "evidence_refs": [
+        "p17",
+        "p18",
+        "p19"
+      ]
+    },
+    {
+      "id": "persist",
+      "stage": "persist",
+      "notes": "Saved the exact JSON payload to outputs/parse-paper/2506.08446.json and updated outputs/latest.json.",
+      "evidence_refs": []
+    }
+  ]
+}
