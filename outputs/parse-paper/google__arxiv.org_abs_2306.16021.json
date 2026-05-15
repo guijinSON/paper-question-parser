@@ -1,0 +1,275 @@
+{
+  "source": {
+    "url": "https://arxiv.org/abs/2306.16021",
+    "resolved_locator": "/home/gson/paper-question-parser/.sisyphus/paper-question-parser/tmp/2306.16021.pdf",
+    "title": "Structure in Deep Reinforcement Learning: A Survey and Open Problems",
+    "title_origin": "source_text"
+  },
+  "accepted": [
+    {
+      "id": "q_001",
+      "question_text": "How can structural decompositions be used in offline reinforcement learning, where an agent must learn from a fixed dataset without further interaction, to improve robustness to distributional shift, exploit limited logged data more effectively, and scale learning by decomposing the task into reusable subproblems? More specifically, can factored or relational decompositions provide abstractions that mitigate distribution shift and improve interpretability, can modular decompositions support separate modules for subtasks, can policy portfolios enable reuse across related tasks, and can latent-model-based data augmentation generate useful counterfactual scenarios when sufficient interaction data is available?",
+      "context_brief": "Structured offline reinforcement learning",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 1202,
+          "quote": "Offline RL has challenges, including effectively overcoming distributional shifts and exploiting the available dataset."
+        },
+        {
+          "page": 1203,
+          "quote": "Research Area 1: Structured Offline RL • Use a Factored or Relational decomposition to create abstractions that can help with distribu- tion shift and auxiliary interpretability. • Implement a Modular design with each module targeting a specific sub-problem, improving Scalability. • Employ policy reuse by policy portfolios learned for sub-problems across tasks. • If sufficient interaction data is available, employ data augmentation strategies for counterfactual scenarios using latent models."
+        }
+      ]
+    },
+    {
+      "id": "q_002",
+      "question_text": "How can structural decompositions make unsupervised reinforcement learning more scalable and general when the pre-training phase requires large amounts of data and learned representations may not transfer well? In particular, can latent decompositions extract useful structure from unlabeled data, can factored or modular abstractions isolate different parts of the problem to improve scalability, can portfolios of learned skills support reuse across modular subproblems, and can decomposition-aware curricula simplify fine-tuning by reducing the effective complexity of the learning task?",
+      "context_brief": "Structured unsupervised reinforcement learning",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 1203,
+          "quote": "The pre-training phase allows these methods to learn the underlying structure of data. However, this phase also requires large amounts of data and, thus, impacts the scalability of such methods for problems where the learned representations are not very useful. Consequently, such methods currently handle medium complexity problems, with the avenue of better scalability being a topic of further research."
+        },
+        {
+          "page": 1204,
+          "quote": "Research Area 2: Structured Unsupervised RL • Use latent decompositions to extract structure from unlabeled data, reducing Data Dependency. • Employ factored and modular decompositions and abstractions to manage scalability by focusing learning on different parts of the problem independently. • Store skills in a portfolio across different modular sub-problems to reuse solutions and enhance Generality. • Manage Problem Complexity by leveraging problem decomposition to simplify the learning task and using decompositions for fine-tuning using curriculum learning."
+        }
+      ]
+    },
+    {
+      "id": "q_003",
+      "question_text": "What role should structured reinforcement learning play in reinforcement-learning foundation models that are pretrained on broad datasets and then fine-tuned for downstream tasks? More specifically, can foundation models be used to discover latent decompositions that later support adaptation, can factored or relational abstractions reduce data dependence in high-dimensional state spaces, can policies be conditioned on task-specific information such as goals, fine-tuning instructions, or control priors, and can regularization, policy portfolios, curricula, and explicit multi-component architectures improve fine-tuning, transfer, and generalization without catastrophic forgetting?",
+      "context_brief": "Structure and foundation models for reinforcement learning",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 1204,
+          "quote": "A natural question is the role of Structured RL in the realm of end-end learning and big data."
+        },
+        {
+          "page": 1205,
+          "quote": "Research Area 3: Structure and Foundation Models for RL • Use foundation models to discover decompositions in problems that can be subsequently used for fine-tuning and adaptation. • Use Factored or Relational abstractions on the pre-trained foundation model for state abstrac- tions to manage high-dimensional state spaces and, thus, reduce data dependency. • Condition the policy on additional task-specific information, such as goal information, repre- sentation of specific fine-tuning instructions, or control priors to improve scalability. • Regularize the fine-tuning process to prevent catastrophic forgetting of useful features learned during pre-training. • Maintain a portfolio of fine-tuned policies and value functions to help reuse previously learned skills and adapt them to new tasks, improving learning efficiency and generalization. • Incorporate a curriculum of increasingly complex fine-tuning environments based on the agent’s performance to help the agent gradually adapt the foundation model’s knowledge to the specific RL task. • Use explicit architectures that fine-tune different RL problem aspects, such as perception, policy learning, and value estimation."
+        }
+      ]
+    },
+    {
+      "id": "q_004",
+      "question_text": "How can structural decompositions improve reinforcement learning in partially observable or non-Markovian environments, and in \"big world\" settings where the environment is far larger than the agent can represent exactly? In particular, can temporal and state abstractions hide temporal dependencies and non-Markovian aspects, can memory serve as an abstraction or augmentation for learned transition models, can policy portfolios support optimization across timescales, can modular decompositions drive separate exploration over different parts of the state space while relational abstractions preserve interpretability, and can structural factorization yield better benchmarks across different axes of task complexity?",
+      "context_brief": "Partial observability and big worlds",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 1206,
+          "quote": "The agent cannot represent the optimal value function and policy even in the limit of infinite data. In such scenarios, the agent must make decisions under significant uncertainty, which presents several challenges, including exploration, generalization, and efficient learning."
+        },
+        {
+          "page": 1207,
+          "quote": "Research Area 4: Structure in Partial Observability and Big Worlds • Use temporal and state abstraction to abstract away temporal dependencies and non-Markovian aspects of the state. Utilize Modularity to tie these abstractions to learned primitives such as skills or options. • Use memory more efficiently as an abstraction or augmentation for learned transition models. • Create a portfolio of policies and utilize them for optimization across timescales, such as in hierarchical methods, to make them more tractable. • Utilize modular decompositions for guiding separate and parallel exploration mechanisms for different parts of the state space. Utilize relational abstractions to make this knowledge more interpretable. • Utilize structure for task factorization to guide benchmarking methods along different axes of task complexity."
+        }
+      ]
+    },
+    {
+      "id": "q_005",
+      "question_text": "How can structural decomposability be incorporated into automated reinforcement learning so that AutoRL systems can choose algorithms, tune hyperparameters, and search architectures more efficiently and at larger scale despite the non-stationarity and instability of reinforcement-learning training? More specifically, can decomposability assessment guide algorithm selection, can abstracting away task-irrelevant aspects accelerate hyperparameter optimization, can stored portfolios of learned policies and value functions support landmarking of related algorithms, can modularity information such as goals and task hierarchies shape the search process, and can decomposability structure the neural-architecture search space?",
+      "context_brief": "Structure in AutoRL",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 1207,
+          "quote": "However, there are still many open questions in AutoRL, such as properties of hyperparameter landscapes in RL (Mohan et al., 2023), sound evaluation protocols (Eimer et al., 2023), stability of training due to the non-stationary learning task and non-deterministic data collection on the fly. Consequently, most of these methods suffer from a lack of scalability."
+        },
+        {
+          "page": 1208,
+          "quote": "Research Area 5: Structure in AutoRL • Use methods to perform a decomposability assessment of a problem. This can help guide algorithm selection for problems with different types of decomposability. • Expedite the hyperparameter search by abstracting away task-irrelevant aspects. • reuse learned policy and value functions stored in a portfolio for landmarking performances of algorithms similar to the one being optimized. • Incorporate modularity information in the form of goals and task hierarchies in the search process. • Structure neural architecture search-space using decomposability in the problem."
+        }
+      ]
+    },
+    {
+      "id": "q_006",
+      "question_text": "How should task decompositions be integrated into meta-reinforcement learning so that agents trained across a distribution of tasks can adapt more effectively to new tasks? In particular, can decompositions provide abstractions over task distributions that enter the adaptation process, can highly decomposable problems be compartmentalized into modules that make the outer meta-learning loop more tractable, can portfolios of models specialized to different decomposability types guide data augmentation during adaptation, and can decomposability-informed curricula produce better warm-starting configurations for new tasks?",
+      "context_brief": "Structured meta-reinforcement learning",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 1208,
+          "quote": "Task Decompositions. Different task decomposition approaches could guide the meta- learning process depending on the meta-task’s decomposability. Consequently, understanding how task decomposition affects Meta-RL can guide the development of more effective meta- learning algorithms. It might also lead to new insights on balancing learning between different subtasks."
+        },
+        {
+          "page": 1209,
+          "quote": "Research Area 6: Structured Meta-RL • Use decompositions for abstracting task distributions, which can be integrated into the adaptation process. • Compartmentalize the learning process into modules for highly decomposable problems. These modules can serve as abstract configurations for the meta-level and, thus, make the outer loop more tractable • Learn and create a portfolio of models geared towards specific task clusters for different decomposability types to guide data augmentation during the adaptation phase. • Utilize decomposability to design learning curricula based on abstract types of tasks to train the warmstarting configurations"
+        }
+      ]
+    }
+  ],
+  "needs_review": [],
+  "trace": [
+    {
+      "id": "source",
+      "stage": "map",
+      "notes": "Resolved the user-supplied arXiv abstract URL to the direct PDF and identified Section 7, pages 1201-1209, as the primary open-problems region.",
+      "evidence_refs": [
+        "p1201"
+      ]
+    },
+    {
+      "id": "q_001",
+      "stage": "extract_candidates",
+      "notes": "Extracted the Structured Offline RL blue-box research area as an implicit open-problem cluster grounded in the stated challenges of distribution shift and dataset exploitation.",
+      "evidence_refs": [
+        "p1202",
+        "p1203"
+      ]
+    },
+    {
+      "id": "q_001",
+      "stage": "rewrite",
+      "notes": "Rewrote the blue-box bullets into one standalone research question covering decomposition, modularity, reuse, and counterfactual augmentation for offline RL.",
+      "evidence_refs": [
+        "p1202",
+        "p1203"
+      ]
+    },
+    {
+      "id": "q_002",
+      "stage": "extract_candidates",
+      "notes": "Extracted the Structured Unsupervised RL blue-box research area as an implicit open problem about scalability, data dependence, and generality.",
+      "evidence_refs": [
+        "p1203",
+        "p1204"
+      ]
+    },
+    {
+      "id": "q_002",
+      "stage": "rewrite",
+      "notes": "Expanded the bullet list into a self-contained question about latent decomposition, modular abstraction, skill portfolios, and curriculum-guided fine-tuning.",
+      "evidence_refs": [
+        "p1203",
+        "p1204"
+      ]
+    },
+    {
+      "id": "q_003",
+      "stage": "extract_candidates",
+      "notes": "Used the paper’s explicit statement about the role of Structured RL in big-data and end-to-end learning together with the Research Area 3 blue box.",
+      "evidence_refs": [
+        "p1204",
+        "p1205"
+      ]
+    },
+    {
+      "id": "q_003",
+      "stage": "rewrite",
+      "notes": "Converted the foundation-model research directions into one self-contained open question spanning decomposition discovery, fine-tuning, regularization, curricula, and explicit architectures.",
+      "evidence_refs": [
+        "p1204",
+        "p1205"
+      ]
+    },
+    {
+      "id": "q_004",
+      "stage": "extract_candidates",
+      "notes": "Extracted the partial-observability and big-worlds research area as an implicit open problem motivated by representation limits and uncertainty.",
+      "evidence_refs": [
+        "p1206",
+        "p1207"
+      ]
+    },
+    {
+      "id": "q_004",
+      "stage": "rewrite",
+      "notes": "Combined the surrounding motivation and the blue-box recommendations into a standalone question about abstraction, memory, exploration, interpretability, and benchmarking.",
+      "evidence_refs": [
+        "p1206",
+        "p1207"
+      ]
+    },
+    {
+      "id": "q_005",
+      "stage": "extract_candidates",
+      "notes": "Accepted the AutoRL section because it explicitly says there are many open questions and then summarizes a concrete research-area agenda.",
+      "evidence_refs": [
+        "p1207",
+        "p1208"
+      ]
+    },
+    {
+      "id": "q_005",
+      "stage": "rewrite",
+      "notes": "Rewrote the AutoRL open-question cluster into one standalone question about algorithm selection, hyperparameter optimization, portfolios, modular search guidance, and neural architecture search.",
+      "evidence_refs": [
+        "p1207",
+        "p1208"
+      ]
+    },
+    {
+      "id": "q_006",
+      "stage": "extract_candidates",
+      "notes": "Extracted the Structured Meta-RL blue-box research area together with the paragraph stating that task decomposition can guide Meta-RL algorithm development.",
+      "evidence_refs": [
+        "p1208",
+        "p1209"
+      ]
+    },
+    {
+      "id": "q_006",
+      "stage": "rewrite",
+      "notes": "Expanded the Meta-RL bullet list into a self-contained question about adaptation, modular meta-level configurations, specialized portfolios, and curriculum design.",
+      "evidence_refs": [
+        "p1208",
+        "p1209"
+      ]
+    },
+    {
+      "id": "all",
+      "stage": "dedupe",
+      "notes": "Kept six distinct research-area clusters because they target different RL subfields and do not collapse into duplicates.",
+      "evidence_refs": [
+        "p1203",
+        "p1204",
+        "p1205",
+        "p1207",
+        "p1208",
+        "p1209"
+      ]
+    },
+    {
+      "id": "all",
+      "stage": "quality_gates",
+      "notes": "All accepted items are self-contained rewrites supported by verbatim page-cited evidence from the Section 7 source text and contain no unresolved cross-references.",
+      "evidence_refs": [
+        "p1202",
+        "p1203",
+        "p1204",
+        "p1205",
+        "p1206",
+        "p1207",
+        "p1208",
+        "p1209"
+      ]
+    },
+    {
+      "id": "all",
+      "stage": "persist",
+      "notes": "Saved exact JSON to /home/gson/paper-question-parser/outputs/parse-paper/2306.16021.json and updated /home/gson/paper-question-parser/outputs/latest.json.",
+      "evidence_refs": []
+    }
+  ],
+  "conversion": {
+    "from": "outputs/google_problems/arxiv.org_abs_2306.16021.json",
+    "kind": "google_problems_to_parse_paper"
+  }
+}

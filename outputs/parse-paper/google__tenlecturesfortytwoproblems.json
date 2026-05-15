@@ -1,0 +1,1303 @@
+{
+  "source": {
+    "url": "https://people.math.ethz.ch/~abandeira/TenLecturesFortyTwoProblems.pdf",
+    "resolved_locator": "/Users/jang-wongi/Desktop/WG/projects/paper-question-parser/.sisyphus/paper-question-parser/tmp/TenLecturesFortyTwoProblems.pdf",
+    "title": "Ten Lectures and Forty-Two Open Problems in the Mathematics of Data Science",
+    "title_origin": "source_text"
+  },
+  "accepted": [
+    {
+      "id": "q_001",
+      "context_brief": "discrepancy theory / vector balancing",
+      "meta": {
+        "is_solved": false
+      },
+      "question_text": "Given n vectors u1, …, un in R^n, each with Euclidean norm at most 1, let K(n) be the infimum over all real numbers K such that one can choose signs ε1, …, εn ∈ {±1} with the infinity norm of ε1u1 + ··· + εnun bounded by K. Is there a universal constant K, independent of n, such that K(n) ≤ K for every n?",
+      "evidence": [
+        {
+          "page": 6,
+          "quote": "Open Problem 0.1 (Komlós Conjecture) Given n, let K(n) denote the infimum over all real numbers such that: for all set of n vectors u1 , . . . , un ∈ Rn satisfying kui k2 ≤ 1, there exist signs \u000fi = ±1 such that k\u000f1 u1 + \u000f2 u2 + · · · + \u000fn un k∞ ≤ K(n). There exists a universal constant K such that K(n) ≤ K for all n. An early reference for this conjecture is a book by Joel Spencer [Spe94]. This conjecture is tightly connected to Spencer’s famous Six Standard Deviations Suffice Theorem [Spe85]. Later in the course we will study semidefinite programming relaxations, recently it was shown that a certain semidefinite relaxation of this conjecture holds [Nik13], the same paper also has a good accounting of partial progress on the conjecture. • It is not so difficult to show that K(n) ≤ √ n, try it! 6"
+        }
+      ]
+    },
+    {
+      "id": "q_002",
+      "context_brief": "matrix inequalities / PSD products",
+      "meta": {
+        "is_solved": false
+      },
+      "question_text": "For positive semidefinite d×d matrices A1, …, An, prove the matrix arithmetic-geometric-mean inequalities comparing the spectral norm of the average product without replacement over permutations σ ∈ Sym(n) against the average product with replacement over all n-tuples (k1, …, kn). Concretely, prove both conjectured inequalities on page 7 asserting that the without-replacement averages are bounded above by the corresponding with-replacement averages.",
+      "evidence": [
+        {
+          "page": 7,
+          "quote": "Open Problem 0.2 For any collection of d × d positive semidefinite matrices A1 , · · · , An , the following is true: (a) n n n X Y Y X 1 1 Aσ(j) ≤ Akj , n! nn σ∈Sym(n) j=1 k1 ,...,kn =1 j=1 and (b) 1 n! X n Y Aσ(j) ≤ σ∈Sym(n) j=1 1 nn n X n Y Akj , k1 ,...,kn =1 j=1 where Sym(n) denotes the group of permutations of n elements, and k · k the spectral norm. Morally, these conjectures state that products of matrices with repetitions are larger than without. For more details on the motivations of these conjecture (and their formulations) see [RR12] for conjecture (a) and [Duc12] for conjecture (b). Recently these conjectures have been solved for the particular case of n = 3, in [Zha14] for (a) and in [IKW14] for (b). 0.3 Brief Review of some linear algebra tools In this Section we’ll briefly review a few linear algebra tools that will be important during the course. If you need a refresh on any of these concepts, I recommend taking a look at [HJ85] and/or [Gol96]. 0.3.1 Singular Value Decomposition The Singular Value Decomposition (SVD) is one of the most useful tools for this course! Given a matrix M ∈ Rm×n , the SVD of M is given by M = U ΣV T , (1) where U ∈ O(m), V ∈ O(n) are orthogonal matrices (meaning that U T U = U U T = I and V T V = V V T = I) and Σ ∈ Rm×n is a matrix with non-negative entries in its diagonal and otherwise zero entries. The columns of U and V are referred to, respectively, as left and right singular vectors of M and the diagonal elements of Σ as singular values of M . Remark 0.1 Say m ≤ n, it is easy to see that we can also think of the SVD as having U ∈ Rm×n where U U T = I, Σ ∈ Rn×n a diagonal matrix with non-negative entries and V ∈ O(n). 7"
+        }
+      ]
+    },
+    {
+      "id": "q_003",
+      "context_brief": "high-dimensional PCA / basis optimization",
+      "meta": {
+        "is_solved": false
+      },
+      "question_text": "Let g be a Gaussian random vector in R^p with distribution N(0, Σ), where Σ is known, and let d < p. For an orthonormal basis V = [v1, …, vp], define Γ_V to be the squared ℓ2 norm of the largest projection of g onto any d-dimensional coordinate subspace spanned by d basis vectors from V. Which orthonormal basis V maximizes E[Γ_V]? In particular, is the eigenbasis of Σ always optimal for d > 1, as conjectured by Mallat and Zeitouni?",
+      "evidence": [
+        {
+          "page": 14,
+          "quote": "Open Problem 1.1 (A. Mallat and Zeitouni [MZ11]) Let g ∼ N (0, Σ) be a gaussian random vector in Rp with a known covariance matrix Σ and d < p. Now, for any orthonormal basis V = [v1 , . . . , vp ] of Rp , consider the following random variable ΓV : Given a draw of the random vector g, ΓV is the squared `2 norm of the largest projection of g on a subspace generated by d elements of the basis V . The question is: What is the basis V for which E [ΓV ] is maximized? 2 Note that Tr (Σn ) = Pp k=1 λk (Σn ). 14"
+        }
+      ]
+    },
+    {
+      "id": "q_004",
+      "context_brief": "random matrices / singular values",
+      "meta": {
+        "is_solved": false
+      },
+      "question_text": "Let X be an n×n real matrix with independent N(0,1) entries, let σ_i((1/√n)X) denote its singular values, and define α_R(n) as the expected average singular value n^{-1}∑_{i=1}^n σ_i((1/√n)X). Is α_R(n) monotone increasing in n, i.e. does α_R(n+1) ≥ α_R(n) hold for every n ≥ 1?",
+      "evidence": [
+        {
+          "page": 17,
+          "quote": "Open Problem 1.2 (Monotonicity of singular values [BKS13a]) Consider the setting above but with p = n, then X ∈ Rn×n is a matrix with iid N (0, 1) entries. Let \u0013 \u0012 1 σi √ X , n denote the i-th singular value4 of √1n X, and define \" n 1X αR (n) := E σi n i=1 \u0012 1 √ X n \u0013# , as the expected value of the average singular value of √1n X. The conjecture is that, for every n ≥ 1, αR (n + 1) ≥ αR (n). Moreover, for the analogous quantity αC (n) defined over the complex numbers, meaning simply that each entry of X is an iid complex valued standard gaussian CN (0, 1) the reverse inequality is conjectured for all n ≥ 1: αC (n + 1) ≤ αC (n). 4 The i-th diagonal element of Σ in the SVD √1n X = U ΣV . 17"
+        }
+      ]
+    },
+    {
+      "id": "q_005",
+      "context_brief": "spiked models / rank-constrained SDP",
+      "meta": {
+        "is_solved": false
+      },
+      "question_text": "Let W be a symmetric Wigner matrix with independent N(0,1) entries above the diagonal, and for symmetric B define Q_r(B) = max{Tr(BX) : X is positive semidefinite, X_ii = 1 for all i, and rank(X) ≤ r}. Define q_r(ξ) = lim_{n→∞} (1/n) E Q_r((ξ/n)11^T + W/√n). Determine the threshold ξ_r^* = inf{ξ ≥ 0 : q_r(ξ) > 2}. In particular, for rank one, is ξ_1^* = 2?",
+      "evidence": [
+        {
+          "page": 23,
+          "quote": "Open Problem 1.3 (Spike Model for rank constrainted SDP) Let W denote a symmetric Wigner matrix with i.i.d. entries Wij ∼ N (0, 1). Also, given B ∈ Rn×n symmetric, define: Qr (B) = max {Tr(BX) : X \u0017 0, Xii = 1, rank(X) ≤ r} . Define qr (ξ) as 1 qr (ξ) = lim EQ n→∞ n \u0012 ξ T 1 11 + √ W n n \u0013 . What is the value of ξr∗ , defined as ξr∗ = inf{ξ ≥ 0 : qr (ξ) > 2}. Remark 1.4 Optimization problems of the type of max {Tr(BX) : X \u0017 0, Xii = 1} are semidefinite programs, they will be a major player later in the course! 23"
+        }
+      ]
+    },
+    {
+      "id": "q_006",
+      "context_brief": "Ramsey theory",
+      "meta": {
+        "is_solved": false
+      },
+      "question_text": "Determine the open Ramsey-theoretic questions collected in Open Problem 2.1: the exact value of R(5); the asymptotic growth of R(r), especially whether one can improve the base √2 in the lower bound or the base 4 in the upper bound; and whether one can explicitly construct a family of graphs G = (V,E) with |V| growing and r(G) = max{ω(G), α(G)} at most on the order of (1+ε)^r for some ε > 0.",
+      "evidence": [
+        {
+          "page": 27,
+          "quote": "Open Problem 2.1 Recall the definition of R(r) above, the following questions are open: • What is the value of R(5)? • What are the asymptotics of R(s)? In particular, improve on the base of the exponent on either √ the lower bound ( 2) or the upper bound (4). 27"
+        }
+      ]
+    },
+    {
+      "id": "q_007",
+      "context_brief": "forbidden subgraphs / Erdős-Hajnal",
+      "meta": {
+        "is_solved": false
+      },
+      "question_text": "For every finite graph H, does there exist a constant δ_H > 0 such that every H-free graph G on n vertices satisfies r(G) = max{ω(G), α(G)} at least on the order of n^{δ_H}? In other words, prove or disprove the Erdős-Hajnal conjecture.",
+      "evidence": [
+        {
+          "page": 29,
+          "quote": "Open Problem 2.2 (Erdős-Hajnal Conjecture [EH89]) Prove or disprove the following: For any finite graph H, there exists a constant δH > 0 such that any graph on n nodes that does not contain H as a subgraph (is a H-free graph) must have r(G) & nδH . \u0001 √ It is known that r(G) & exp cH log n , for some constant cH > 0 (see [Chu13] for a survey on this conjecture). Note that this lower bound already shows that H-free graphs need to have considerably larger r(G). This is an amazing local to global effect, where imposing a constraint on small groups of vertices are connected (being H-free is a local property) creates extremely large cliques or independence sets (much larger than polylog(n) as in random Erdős-Renyı́ graphs). Since we do not know how to deterministically construct graphs with r(G) ≤ polylogn, one ap\u0001 proach could be to take G ∼ G n, 21 and check that indeed it has small clique and independence number. However, finding the largest clique on a graph is known to be NP-hard (meaning that there is no polynomial time algorithm to solve it, provided that the widely believed conjecture N P 6= P holds). That is a worst-case statement and thus it doesn’t necessarily mean that it is difficult to find the clique number of random graphs. That being said, the next open problem suggests that this is indeed still difficult. First let us describe a useful construct. Given n and ω, let us consider a random graph G that \u0001 consists of taking a graph drawn from G n, 12 , picking ω of its nodes (say at random) and adding an edge between every pair of those ω nodes, thus “planting” a clique of size ω. This will create a clique of size ω in G. If ω > 2 log2 n this clique is larger than any other clique that was in the graph before planting. This means that, if ω > 2 log2 n, there is enough information in the graph to find the planted clique. In fact, one can simply look at all subsets of size 2 log2 n + 1 and check wether it is clique: if it is a clique then it very likely these vertices belong to the planted clique. However, checking all such subgraphs takes super-polynomial time ∼ nO(log n) . This motivates the natural question of whether this can be done in polynomial time. \u0001 √ Since the degrees of the nodes of a G n, 12 have expected value n−1 and standard deviation ∼ n, 2 √ if ω > c n (for sufficiently large constant c) then the degrees of the nodes involved in the planted clique will have larger degrees and it is easy to detect (and find) the planted clique. Rem"
+        }
+      ]
+    },
+    {
+      "id": "q_008",
+      "context_brief": "average-case complexity / planted clique",
+      "meta": {
+        "is_solved": false
+      },
+      "question_text": "Let G be formed by sampling G(n,1/2) and then planting a clique of size ω. Determine whether there is (1) a polynomial-time algorithm that recovers the planted clique with high probability when ω is significantly smaller than √n, for example around √n/log n; (2) a polynomial-time algorithm that distinguishes the planted-clique model from an unplanted G(n,1/2) draw with high probability in that same regime; and (3) a quasi-linear-time algorithm that recovers the planted clique with high probability for ω ≤ (1/√e − ε)√n for some ε > 0.",
+      "evidence": [
+        {
+          "page": 29,
+          "quote": "Open Problem 2.3 (The planted clique problem) Let G be a random graph constructed by tak\u0001 ing a G n, 12 and planting a clique of size ω. 1. Is there a polynomial time algorithm that is √ able to find the largest clique of G (with high prob√ ability) for ω n. For example, for ω ≈ lognn . √ There is an amplification technique that allows one to find the largest clique for ω ≈ c n for arbitrarily small c in polynomial time, where the exponent in the runtime depends on c. The rough idea is to consider all subsets of a certain finite size and checking whether the planted clique contains them. 11 29 2. Is there a polynomial time algorithm that is able to distinguish, with high probability, G from a √ \u0001 √ n 1 draw of G n, 2 for ω n. For example, for ω ≈ log n . 3. Is there \u0010 a quasi-linear \u0011 √ time algorithm able to find the largest clique of G (with high probability) 1 for ω ≤ √e − ε n, for some ε > 0."
+        }
+      ]
+    },
+    {
+      "id": "q_009",
+      "context_brief": "Cheeger inequalities / hardness",
+      "meta": {
+        "is_solved": false
+      },
+      "question_text": "Does there exist a universal constant c > 0 such that it is NP-hard, given a graph G and a parameter φ, to distinguish between the cases h_G ≤ φ and h_G ≥ c√φ, where h_G is the Cheeger constant of G?",
+      "evidence": [
+        {
+          "page": 54,
+          "quote": "Open Problem 3.1 Does there exists a constant c > 0 such that it is N P -hard to, given φ, and G distinguis between the cases 1. hG ≤ φ, and √ 2. hG ≥ c φ? It turns out that this is a consequence [RST12] of an important conjecture in Theoretical Computer Science (see [BS14] for a nice description of it). This conjecture is known [RS10] to imply the UniqueGames Conjecture [Kho10], that we will discuss in future lectures. Conjecture 3.10 (Small-Set Expansion Hypothesis [RS10]) For every \u000f > 0 there exists δ > 0 such that it is N P -hard to distinguish between the cases 1. There exists a subset S ⊂ V with vol(S) = δ vol(V ) such that cut(S) vol(S) ≤ \u000f, 2. cut(S) vol(S) ≥ 1 − \u000f, for every S ⊂ V satisfying vol(S) ≤ δ vol(V ). 3.5 Computing Eigenvectors Spectral clustering requires us to compute the second smallest eigenvalue of LG . One of the most efficient ways of computing eigenvectors is through the power method. For simplicity we’ll consider the case on which we are computing the leading eigenvector of a matrix A ∈ Rn×n with m nonzero entries, for which |λmax (A)| ≥ |λmin (A)| (the idea is easily adaptable). The power method Ay t proceeds by starting with a guess y 0 and taking iterates y t+1 = kAy t k . One can show [KW92] that the \u0001 variantes of the power method can find a vector x in randomized time O δ −1 (m + n) log n satisfying xT Ax ≥ λmax (A)(1 − δ)xT x. Meaning that an approximate solution can be found in quasi-linear time.14 One drawback of the power method is that when using it, one cannot be sure, a posteriori, that there is no eigenvalue of A much larger than what we have found, since it could happen that all our guesses were orthogonal to the corresponding eigenvector. It simply guarantees us that if such an eigenvalue existed, it would have been extremely likely that the power method would have found it. This issue is addressed in the open problem below."
+        }
+      ]
+    },
+    {
+      "id": "q_010",
+      "context_brief": "spectral algorithms / PSD certification",
+      "meta": {
+        "is_solved": false
+      },
+      "question_text": "Given a symmetric matrix M with small condition number, is there a randomized quasi-linear-time procedure, in n and in the number of nonzero entries of M, that certifies M is positive semidefinite, never outputs a false certificate, and succeeds with probability bounded away from zero whenever M is positive semidefinite?",
+      "evidence": [
+        {
+          "page": 54,
+          "quote": "Open Problem 3.2 Given a symmetric matrix M with small condition number, is there a quasilinear time (on n and the number of non-zero entries of M ) procedure that certifies that M \u0017 0. More specifically, the procedure can be randomized in the sense that it may, with some probably not certify that M \u0017 0 even if that is the case, what is important is that it never produces erroneous certificates (and that it has a bounded-away-from-zero probably of succeeding, provided that M \u0017 0). 14 Note that, in spectral clustering, an error on the calculation of ϕ2 propagates gracefully to the guarantee given by Cheeger’s inequality. 54"
+        }
+      ]
+    },
+    {
+      "id": "q_011",
+      "context_brief": "higher-order Cheeger inequalities",
+      "meta": {
+        "is_solved": false
+      },
+      "question_text": "For a weighted graph G and positive integer k, is the k-way expansion quantity ρ_G(k) always bounded by polylog(k)·√λ_k, where λ_k is the k-th graph Laplacian eigenvalue?",
+      "evidence": [
+        {
+          "page": 55,
+          "quote": "Open Problem 3.3 Let G = (V, E, W ) be a graph and k a positive integer, is the following true? p (32) ρG (k) ≤ polylog(k) λk . We note that (32) is known not to hold if we ask that the subsets form a partition (meaning that every vertex belongs to at least one of the sets) [LRTV12]. Note also that no dependency on k would contradict the Small-Set Expansion Hypothesis above. 55"
+        }
+      ]
+    },
+    {
+      "id": "q_012",
+      "context_brief": "matrix concentration / noncommutative Khintchine",
+      "meta": {
+        "is_solved": false
+      },
+      "question_text": "Prove or disprove Conjecture 4.21: for symmetric matrices A1, …, An in R^{d×d} and independent standard Gaussians g1, …, gn, is the expected spectral norm of ∑ g_k A_k bounded, up to universal constants, by σ + √(log d)·σ*, where σ^2 = ||∑ A_k^2|| and σ*^2 = max_{||v||=1} ∑ (v^T A_k v)^2?",
+      "evidence": [
+        {
+          "page": 69,
+          "quote": "Open Problem 4.1 (Improvement on Non-Commutative Khintchine Inequality) Prove or disprove Conjecture 4.21. I would also be pretty excited to see interesting examples that satisfy the bound in Conjecture 4.21 while such a bound would not trivially follow from Theorems 4.14 or 4.19. 4.5.1 An interesting observation regarding random matrices with independent matrices For the independent entries setting, Theorem 4.19 is tight (up to constants) for a wide range of variance n o 2 profiles bij – the details are available as Corollary 3.15 in [BvH15]; the basic idea is that if the i≤j largest variance is comparable to the variance of a sufficient number of entries, then the bound in Theorem 4.19 is tight up to constants. n o However, the situation is not as well understood when the variance profiles b2ij are arbitrary. i≤j Since the spectral norm of a matrix is always at least the `2 norm of a row, the following lower bound holds (for X a symmetric random matrix with independent gaussian entries): EkXk ≥ E max kXek k2 . k Observations in papers of Latala [Lat05] and Riemer and Schutt [RS13], together with the results in [BvH15], motivate the conjecture that this lower bound is always tight (up to constants)."
+        }
+      ]
+    },
+    {
+      "id": "q_013",
+      "context_brief": "random matrices / variance profiles",
+      "meta": {
+        "is_solved": false
+      },
+      "question_text": "If X is a symmetric random matrix with independent Gaussian entries, is its expected spectral norm always bounded, up to universal constants, by E max_k ||Xe_k||_2?",
+      "evidence": [
+        {
+          "page": 69,
+          "quote": "Open Problem 4.2 (Latala-Riemer-Schutt) Given X a symmetric random matrix with independent gaussian entries, is the following true? EkXk . E max kXek k2 . k The results in [BvH15] answer this in the positive for a large range of variance profiles, but not in full√generality. Recently, van Handel [vH15] proved this conjecture in the positive with an extra factor of log log d. More precisely, that p EkXk . log log dE max kXek k2 , k where d is the number of rows (and columns) of X. 19 We briefly discuss this improvement in Remark 4.32 69"
+        }
+      ]
+    },
+    {
+      "id": "q_014",
+      "context_brief": "matrix discrepancy",
+      "meta": {
+        "is_solved": false
+      },
+      "question_text": "Prove or disprove Conjecture 4.23: for symmetric matrices H1, …, Hn in R^{n×n} with ||H_k|| ≤ 1, do there always exist signs ε1, …, εn ∈ {±1} such that ||∑_{k=1}^n ε_k H_k|| ≤ C√n for some universal constant C?",
+      "evidence": [
+        {
+          "page": 70,
+          "quote": "Open Problem 4.3 Prove or disprove Conjecture 4.23. Note that, when the matrices Hk are diagonal, this problem corresponds to Spencer’s Six Standard Deviations Suffice Theorem [Spe85]. Remark 4.24 Also, using Theorem 4.22, it is easy to show that if one picks εi as i.i.d. Rademacher random variables, then√with positive probability (via the probabilistic method) the inequality will be satisfied with an extra log n term. In fact one has v v u n u n n X u X p p p uX √ 2 t εk Hk . log n Hk ≤ log nt kHk k2 ≤ log n n. E k=1 k=1 k=1 Remark 4.25 Remark 4.24 motivates asking whether Conjecture 4.23 can be strengthened to ask for ε1 , . . . , εn such that 1 n n 2 X X 2 Hk . εk Hk . (43) k=1 k=1 70"
+        }
+      ]
+    },
+    {
+      "id": "q_015",
+      "context_brief": "sparse embeddings / OSNAP",
+      "meta": {
+        "is_solved": false
+      },
+      "question_text": "For the sparse random projection models described in Open Problem 4.4, determine whether one can achieve Johnson-Lindenstrauss–type subspace embedding guarantees with m on the order of (d + log(1/δ))/ε^2 and sparsity s on the order of log(d/δ)/ε^2 (or log(d/δ)/ε in the fixed-column-sparsity variant), uniformly for every orthonormal U ∈ R^{n×d}. Also analyze the special case U = [I_d; 0] and the corresponding sum of rank-one matrices.",
+      "evidence": [
+        {
+          "page": 76,
+          "quote": "Open Problem 4.4 (OSNAP [NN]) Let s ≤ d ≤ m ≤ n. 1. Let Π ∈ Rm×n be a random matrix with i.i.d. entries δri σri Πri = √ , s where σri is a Rademacher random variable and ( √1 with probability s δri = 0 with probability s m s 1− m Prove or disprove: there exist positive universal constants c1 and c2 such that For any U ∈ Rn×d for which U T U = Id×d \b Prob (ΠU )T (ΠU ) − I ≥ ε < δ, for m ≥ c1 log( dδ ) d+log( 1δ ) and s ≥ c . 2 2 ε ε2 2. Same setting as in (1) but conditioning on m X δri = s, for all i, r=1 meaning that each column of Π has exactly s non-zero elements, rather than on average. The conjecture is then slightly different: Prove or disprove: there exist positive universal constants c1 and c2 such that For any U ∈ Rn×d for which U T U = Id×d \b Prob (ΠU )T (ΠU ) − I ≥ ε < δ, for m ≥ c1 log( dδ ) d+log( 1δ ) and s ≥ c . 2 2 ε ε 76"
+        }
+      ]
+    },
+    {
+      "id": "q_016",
+      "context_brief": "random graph lifts / spectral norm",
+      "meta": {
+        "is_solved": false
+      },
+      "question_text": "For a graph G of maximum degree Δ and its random k-lift G^{⊗k} with adjacency matrix A^{⊗k}, give a tight upper bound on E||A^{⊗k} − E A^{⊗k}||.",
+      "evidence": [
+        {
+          "page": 78,
+          "quote": "Open Problem 4.5 (Random k-lifts of graphs) Give a tight upperbound to E A⊗k − EA⊗k . p Oliveira [Oli10] gives a bound that is essentially of the form ∆ log(nk), while the results in [ABG12] suggest that one may expect more concentration for large k. It is worth noting that the case of k = 2 can essentially be reduced to a problem where the entries of the random matrix are independent and the results in [BvH15] can be applied to, in some case, remove the logarithmic factor. 4.8 Another open problem Feige [Fei05] posed the following remarkable conjecture (see also [Sam66, Sam69, Sam68]) Conjecture 4.33 Given n independent random variables X1 , . . . , Xn s.t., for all i, Xi ≥ 0 and EXi = 1 we have ! n X Prob Xi ≥ n + 1 ≤ 1 − e−1 i=1 Note that, if Xi are i.i.d. and\u0010Xi = \u0011nn + 1 with probability 1/(n + 1) and Xi = 0 otherwise, then Pn n Prob ( i=1 Xi ≥ n + 1) = 1 − n+1 ≈ 1 − e−1 ."
+        }
+      ]
+    },
+    {
+      "id": "q_017",
+      "context_brief": "probability inequalities / Feige conjecture",
+      "meta": {
+        "is_solved": false
+      },
+      "question_text": "Prove or disprove Feige’s conjecture: if X1, …, Xn are independent nonnegative random variables with E[X_i] = 1 for every i, then P(∑_{i=1}^n X_i ≥ n+1) ≤ 1 − e^{-1}.",
+      "evidence": [
+        {
+          "page": 78,
+          "quote": "Open Problem 4.5 (Random k-lifts of graphs) Give a tight upperbound to E A⊗k − EA⊗k . p Oliveira [Oli10] gives a bound that is essentially of the form ∆ log(nk), while the results in [ABG12] suggest that one may expect more concentration for large k. It is worth noting that the case of k = 2 can essentially be reduced to a problem where the entries of the random matrix are independent and the results in [BvH15] can be applied to, in some case, remove the logarithmic factor. 4.8 Another open problem Feige [Fei05] posed the following remarkable conjecture (see also [Sam66, Sam69, Sam68]) Conjecture 4.33 Given n independent random variables X1 , . . . , Xn s.t., for all i, Xi ≥ 0 and EXi = 1 we have ! n X Prob Xi ≥ n + 1 ≤ 1 − e−1 i=1 Note that, if Xi are i.i.d. and\u0010Xi = \u0011nn + 1 with probability 1/(n + 1) and Xi = 0 otherwise, then Pn n Prob ( i=1 Xi ≥ n + 1) = 1 − n+1 ≈ 1 − e−1 . Open Problem 4.6 Prove or disprove Conjecture 4.33.21 21 We thank Francisco Unda and Philippe Rigollet for suggesting this problem. 78"
+        }
+      ]
+    },
+    {
+      "id": "q_018",
+      "context_brief": "compressed sensing / deterministic RIP",
+      "meta": {
+        "is_solved": false
+      },
+      "question_text": "Construct explicit deterministic matrices over R or C that satisfy the restricted isometry property with parameters comparable to (s, 1/3)-RIP for sparsity s substantially beyond the square-root bottleneck, in particular around M^{0.6} up to polylogarithmic factors in N.",
+      "evidence": [
+        {
+          "page": 88,
+          "quote": "Open Problem 5.1 Construct deterministic matrices A ∈ CM ×N (or A ∈ CM ×N ) satisfying (s, 13 )M 0.6 RIP for s & polylog(N ."
+        }
+      ]
+    },
+    {
+      "id": "q_019",
+      "context_brief": "compressed sensing / certifying RIP",
+      "meta": {
+        "is_solved": false
+      },
+      "question_text": "For N = 2M, determine for which sparsity levels s there is a polynomial-time algorithm that, with high probability, certifies that a Gaussian matrix A is (s,1/3)-RIP, and likewise determine for which s there is a polynomial-time algorithm that certifies that A has no s-sparse vector in its nullspace.",
+      "evidence": [
+        {
+          "page": 88,
+          "quote": "Open Problem 5.2 Theorem 5.14 guarantees that if we take A to have i.i.d. Gaussian entries then M it should be RIP for s ≈ log(N ) . If we were able to, given A, certify that it indeed is RIP for some s then one could have a randomized algorithm to build RIP matrices (but that is guaranteed to eventually find one). This motives the following question 1. Let N = 2M , for which s is there a polynomial time \u0001 algorithm that is guaranteed to, with high 1 probability, certify that a gaussian matrix A is s, 3 -RIP? \u0001 2. In particular, a s, 13 -RIP matrix has to not have s sparse vectors in its nullspace. This motivates a second question: Let N = 2M , for which s is there a polynomial time algorithm that is guaranteed to, with high probability, certify that a gaussian matrix A does not have s-sparse vectors in its nullspace? The second √ question is tightly connected to the question of sparsest vector on a subspace (for which s ≈ M is the best known answer), we refer the reader to [SWW12, QSW14, BKS13b] for more on this problem and recent advances. Note that checking whether a matrix has RIP or not is, in general, NP-hard [BDMS13, TP13]. 88"
+        }
+      ]
+    },
+    {
+      "id": "q_020",
+      "context_brief": "partial Fourier matrices / RIP",
+      "meta": {
+        "is_solved": false
+      },
+      "question_text": "If an M×N matrix is formed by sampling rows uniformly with replacement from the N×N discrete Fourier transform matrix, how large must M be, as a function of sparsity and the RIP parameter, in order for the resulting matrix to satisfy the restricted isometry property with high probability?",
+      "evidence": [
+        {
+          "page": 95,
+          "quote": "Open Problem 6.1 Consider the random M × N matrix obtained by drawing rows uniformly with replacement from the N × N discrete Fourier transform matrix. How large does M need to be so that, with high probability, the result matrix satisfies the Restricted Isometry Property (for constant δ)? 6.5 Coherence and Gershgorin Circle Theorem Last lectures we discussed the problem of building deterministic RIP matrices (building deterministic RIP matrices is particularly important because checking whether a matrix is RIP is computationally 28 In these references the sets considered are slightly different than the one described here, as the goal is to ensure recovery of just one sparse vector, and not all of them simultaneously. 95"
+        }
+      ]
+    },
+    {
+      "id": "q_021",
+      "context_brief": "frame theory / mutually unbiased bases",
+      "meta": {
+        "is_solved": false
+      },
+      "question_text": "How many mutually unbiased bases exist in complex dimension 6? In particular, is M(6) < 7?",
+      "evidence": [
+        {
+          "page": 97,
+          "quote": "Open Problem 6.2 How many mutually unbiased bases are there in 6 dimensions? Is it true that M(6) < 7?29 6.5.2 Equiangular Tight Frames Another natural question is whether one can get better coherence (or more vectors) by relaxing the condition that the set of vectors have to be formed by taking orthonormal basis. A tight frame (see, for example, [CK12] for more on Frame Theory) is a set of N vectors in CM (with N ≥ M ) that spans CM “equally”. More precisely: Definition 6.6 (Tight Frame) v1 , . . . , vN ∈ CM is a tight frame if there exists a constant α such that N X |hvk , xi|2 = αkxk2 , ∀x∈CM , k=1 or equivalently N X vk vkT = αI. k=1 The smallest coherence of a set of N unit-norm vectors in M dimensions is bounded below by the Welch bound (see, for example, [BFMW13]) which reads: s N −M µ≥ . M (N − 1) One can check that, due to this limitation, deterministic constructions based on coherence cannot √ yield matrices that are RIP for s M , known as the square-root bottleneck [BFMW13, Tao07]. There are constructions that achieve the Welch bound, known as Equiangular Tight Frames (ETFs), theseqare tight frames for which all inner products between pairs of vectors have the same N −M M (N −1) , meaning that they are “equiangular”. It is known that for there to exist an ETF in CM one needs N ≤ M 2 and ETF’s for which N = M 2 are important in Quantum Mechanics, modulus µ = and known as SIC-POVM’s. However, they are not known to exist in every dimension (see here for some recent computer experiments [SG10]). This is known as Zauner’s conjecture."
+        }
+      ]
+    },
+    {
+      "id": "q_022",
+      "context_brief": "quantum information / SIC-POVM",
+      "meta": {
+        "is_solved": false
+      },
+      "question_text": "For every dimension d, does there exist an equiangular tight frame with d^2 vectors in C^d, equivalently a set of d^2 equiangular lines in C^d? In other words, is Zauner’s SIC-POVM conjecture true in all dimensions?",
+      "evidence": [
+        {
+          "page": 97,
+          "quote": "Open Problem 6.3 Prove or disprove the SIC-POVM / Zauner’s conjecture: For any d, there exists an Equiangular tight frame with d2 vectors in Cd dimensions. (or, there exist d2 equiangular lines in Cd ). We note that this conjecture was recently shown [Chi15] for d = 17 and refer the reader to this interesting remark [Mix14c] on the description length of the constructions known for different dimensions. 29 The author thanks Bernat Guillen Pegueroles for suggesting this problem. 97"
+        }
+      ]
+    },
+    {
+      "id": "q_023",
+      "context_brief": "Paley ETF / RIP",
+      "meta": {
+        "is_solved": false
+      },
+      "question_text": "Does the Paley equiangular tight frame satisfy the restricted isometry property beyond the square-root bottleneck, even by logarithmic factors?",
+      "evidence": [
+        {
+          "page": 98,
+          "quote": "Open Problem 6.4 Does the Paley Equiangular tight frame satisfy the Restricted Isometry Property pass the square root bottleneck? (even by logarithmic factors?). We note that [BMM14] shows that improving polynomially on this conjecture implies an improvement over the Paley clique number conjecture ("
+        }
+      ]
+    },
+    {
+      "id": "q_024",
+      "context_brief": "constructive discrepancy / Kadison-Singer",
+      "meta": {
+        "is_solved": false
+      },
+      "question_text": "Give a polynomial-time construction of the tight-frame partition guaranteed by the Kadison-Singer / Weaver framework, rather than merely a nonconstructive existence proof.",
+      "evidence": [
+        {
+          "page": 98,
+          "quote": "Open Problem 6.5 Give a (polynomial time) construction of the tight frame partition satisfying the properties required in the Kadison-Singer problem (or the related Weaver’s conjecture). 30 We note that the quadratic residues are known to have pseudorandom properties, and indeed have been leveraged to reduce the randomness needed in certain RIP constructions [BFMM14] 98"
+        }
+      ]
+    },
+    {
+      "id": "q_025",
+      "context_brief": "coding theory / Gilbert-Varshamov",
+      "meta": {
+        "is_solved": false
+      },
+      "question_text": "Resolve the two coding-theory questions in Open Problem 7.1: construct an explicit deterministic binary code attaining the Gilbert-Varshamov bound, and determine whether the Gilbert-Varshamov bound is tight for binary codes.",
+      "evidence": [
+        {
+          "page": 104,
+          "quote": "Open Problem 7.1 GV bound (67). 1. Construct an explicit (deterministic) binary code (q = 2) satisfying the 2. Is the GV bound tight for binary codes (q = 2)? 7.2.1 Boolean Classification A related problem is that of Boolean Classification [AABS15]. Let us restrict our attention to In error-correcting codes one wants to build a linear codebook that does not contain a codeword with weight ≤ d − 1. In other words, one wants a linear codebook C that does intersect B(d − 1) = {x ∈ {0, 1}n : 0 < ∆(x) ≤ d − 1} the pinched Hamming ball of radius d (recall that ∆(d) is the Hamming weight of x, meaning the number of non-zero entries). In the Boolean Classification problem one is willing to confuse two codewords as long as they are sufficiently close (as this is likely to mean they are 104"
+        }
+      ]
+    },
+    {
+      "id": "q_026",
+      "context_brief": "Boolean classification / annulus codes",
+      "meta": {
+        "is_solved": false
+      },
+      "question_text": "For Boolean classification with forbidden annulus A(αn, βn), prove or disprove the asymptotic formula R_A^*(αn, βn, n) = α + (1−α) R_A^*(1, βn, (1−α)n) + o(1), beyond the already known regime β ≥ 2α.",
+      "evidence": [
+        {
+          "page": 105,
+          "quote": "Open Problem 7.2 It is conjectured in [AABS15] (Conjecture 3 in [AABS15]) that the optimal rate in this case is given by ∗ ∗ RA (αn, βn, n) = α + (1 − α) RA (1, βn, (1 − α)) + o(1), where o(1) goes to zero as n goes to infinity. This is established in [AABS15] for β ≥ 2α but open in general. 7.2.2 The proof of Theorem 7.3 Reed-Solomon codes[RS60] are [n, m, n − m + 1]q codes, for m ≤ n ≤ q. They meet the Singleton bound, the drawback is that they have very large q (q > n). We’ll use their existence to prove Theorem 7.3 Proof. [of Theorem 7.3] We will construct a family A of sets achieving the upper bound in Theorem 7.3. We will do this by using a Reed-Solomon code [q, m, q − m + 1]q . This code has q m codewords. To each codework c we will correspond a binary vector a of length q 2 where the i-th q-block of a is the indicator of the value of c(i). This means that a is a vector with exactly q ones (and a total of q 2 entries)32 . We construct \u0002 \u0003 the family A for T = q 2 and n = q m (meaning q m subsets of q 2 ) by constructing, for each codeword c, the set of non-zero entries of the corresponding binary vector a. These sets have the following properties, min |Aj | = q, j∈[n] and max |Aj1 ∩ Aj2 | = q − min ∆(c1 , c2 ) ≤ q − (q − m + 1) = m − 1. c1 6=c2 ∈C j1 6=j2 ∈[n] This readily implies that A is k-disjunct for \u0016 \u0017 q−1 k= , m−1 j k j k q−1 q−1 m−1 sets can only contain (m − 1) m−1 < q elements of another set. n Now we pick q ≈ 2k log log k (q has to be a prime but there is always a prime between this number and n its double by Bertrand’s postulate (see [?] for a particularly nice proof)). Then m = log log q (it can be because the union of taken to be the ceiling of this quantity and then n gets updated accordingly by adding dummy sets). 32 This is precisely the idea of code concatenation [GRS15] 105"
+        }
+      ]
+    },
+    {
+      "id": "q_027",
+      "context_brief": "graph products / Shannon capacity",
+      "meta": {
+        "is_solved": false
+      },
+      "question_text": "What is the Shannon capacity of the 7-cycle C7?",
+      "evidence": [
+        {
+          "page": 107,
+          "quote": "Open Problem 7.3 What is the Shannon Capacity of the 7 cycle? 7.3.2 The deletion channel In many applications the erasures or errors suffered by the messages when sent through a channel are random, and not adversarial. There is a beautiful theory understanding the amount of information that can be sent by different types of noisy channels, we refer the reader to [CT] and references therein for more information. A particularly challenging channel to understand is the deletion channel. The following open problem will envolve a particular version of it. Say we have to send a binary string “10010” through a deletion channel and the first and second bits get deleted, then the message receive would be “010” and the receiver would not know which bits were deleted. This is in contrast with the erasure channel where bits are erased but the receiver knows which bits are missing (in the case above the message received would be “??010”). We refer the reader to this survey on many of the interesting questions (and results) regarding the Deletion channel [Mit09]. A particularly interesting instance of the problem is the Trace Reconstruction problem, where the same message is sent multiple times and the goal of the receiver is to find exactly the original message sent from the many observed corrupted version of it. We will be interested in the following quantity: Draw a random binary string with\u0001n bits, suppose the channel has a deletion probability of 12 for each bit (independently), define D n; 12 has the number of times the receiver needs to receive the message (with independent corruptions) \u0001 so that she can decode the message exactly, with high probability. It is easy to see that D n; 21 ≤ 2n , since roughly once in every 2n times the whole message will go √ \u0001 through the channel unharmed. It is possible to show (see [HMPW]) that D n; 12 ≤ 2 n but it is not known whether this bound is tight."
+        }
+      ]
+    },
+    {
+      "id": "q_028",
+      "context_brief": "deletion channel / trace reconstruction",
+      "meta": {
+        "is_solved": false
+      },
+      "question_text": "Determine the asymptotic behavior of D(n;1/2), the number of independent deletion-channel traces needed to reconstruct a uniformly random n-bit string with high probability when each bit is deleted independently with probability 1/2. Also determine which pair of distinct binary strings is hardest to distinguish from deletion traces when the receiver knows one of the two was sent.",
+      "evidence": [
+        {
+          "page": 107,
+          "quote": "Open Problem 7.3 What is the Shannon Capacity of the 7 cycle? 7.3.2 The deletion channel In many applications the erasures or errors suffered by the messages when sent through a channel are random, and not adversarial. There is a beautiful theory understanding the amount of information that can be sent by different types of noisy channels, we refer the reader to [CT] and references therein for more information. A particularly challenging channel to understand is the deletion channel. The following open problem will envolve a particular version of it. Say we have to send a binary string “10010” through a deletion channel and the first and second bits get deleted, then the message receive would be “010” and the receiver would not know which bits were deleted. This is in contrast with the erasure channel where bits are erased but the receiver knows which bits are missing (in the case above the message received would be “??010”). We refer the reader to this survey on many of the interesting questions (and results) regarding the Deletion channel [Mit09]. A particularly interesting instance of the problem is the Trace Reconstruction problem, where the same message is sent multiple times and the goal of the receiver is to find exactly the original message sent from the many observed corrupted version of it. We will be interested in the following quantity: Draw a random binary string with\u0001n bits, suppose the channel has a deletion probability of 12 for each bit (independently), define D n; 12 has the number of times the receiver needs to receive the message (with independent corruptions) \u0001 so that she can decode the message exactly, with high probability. It is easy to see that D n; 21 ≤ 2n , since roughly once in every 2n times the whole message will go √ \u0001 through the channel unharmed. It is possible to show (see [HMPW]) that D n; 12 ≤ 2 n but it is not known whether this bound is tight. Open Problem 7.4 \u0001 1. What are the asymptotics of D n; 21 ? 107"
+        }
+      ]
+    },
+    {
+      "id": "q_029",
+      "context_brief": "approximation hardness / Unique Games",
+      "meta": {
+        "is_solved": false
+      },
+      "question_text": "Is the Unique Games Conjecture true? In particular, can it be refuted by a constant-degree sum-of-squares relaxation?",
+      "evidence": [
+        {
+          "page": 112,
+          "quote": "Open Problem 8.1 Is the Unique Games conjecture true? In particular, can it be refuted by a constant degree Sum-of-squares relaxation? Remarkably, approximating Max-Cut with an approximation ratio better than αGW is has hard as refuting the Unique Games Conjecture (UG-hard) [KKMO05]. More generality, if the Unique Games Conjecture is true, the semidefinite programming approach described above produces optimal approximation ratios for a large class of problems [Rag08]. 16 Not depending on the Unique Games Conjecture, there is a NP-hardness of approximation of 17 for Max-Cut [Has02]. Remark 8.3 Note that a simple greedy method that assigns membership to each vertex as to maximize the number of edges cut involving vertices already assigned achieves an approximation ratio of 12 (even of 12 of the total number of edges, not just of the optimal cut). 8.3 A Sums-of-Squares interpretation We now give a different interpretation to the approximation ratio obtained above. Let us first slightly reformulate the problem (recall that wii = 0). 1X wij (1 − yi yj ) = yi =±1 2 max i<j = 1X wij (1 − yi yj ) yi =±1 4 max i,j max 1X yi =±1 4 wij i,j yi2 + yj2 − yi yj 2  !   \" #  X X X X 1 1 1  = max − wij yi yj + wij  yi2 + wij yj2  yi =±1 4 2 2 i,j i j j i   X X X 1 1 1 wij yi yj + deg(i)yi2 + deg(j)yj2  = max − yi =±1 4 2 2 i,j i j   X X 1 = max − wij yi yj + deg(i)yi2  yi =±1 4 X i,j = i 1 T y LG y, yi =±1 4 max 112"
+        }
+      ]
+    },
+    {
+      "id": "q_030",
+      "context_brief": "sum-of-squares / Max-Cut",
+      "meta": {
+        "is_solved": false
+      },
+      "question_text": "Determine the approximation ratio or integrality gap of the degree-4 sum-of-squares relaxation for Max-Cut. In particular, can it beat the degree-2 behavior that returns a cut of value 1 − O(√ε) when the optimum cut has value 1 − ε, and what happens for other constant-degree relaxations?",
+      "evidence": [
+        {
+          "page": 114,
+          "quote": "Open Problem 8.2 1. What is the approximation ratio achieved by (or the integrality gap of ) the Sum-of-squares degree 4 relaxation of the Max-Cut problem? √ 2. The relaxation described above (of degree 2) (76) is also known to produce a cut of 1 − O ( \u000f) when a cut of 1 − \u000f exists. Can the degree 4 relaxation improve over this? 3. What about other (constant) degree relaxations? Remark 8.4 (triangular inequalities and Sum of squares level 4) A (simpler) natural question is wether the relaxation of degree 4 is actually strictly tighter than the one of degree 2 for Max-Cut (in the sense of forcing extra constraints). What follows is an interesting set of inequalities that degree 4 enforces and that degree 2 doesn’t, known as triangular inequalities. Since yi ∈ {±1} we naturally have that, for all i, j, k yi yj + yj yk + yk yi ≥ −1, this would mean that, for Xij = yi yj we would have, Xij + Xjk + Xik ≥ −1, however it is not difficult to see that the SDP (75) of degree 2 is only able to constraint 3 Xij + Xjk + Xik ≥ − , 2 33 This is related with Hilbert’s 17th problem [Sch12] and Stengle’s Positivstellensatz [Ste74] 114"
+        }
+      ]
+    },
+    {
+      "id": "q_031",
+      "context_brief": "functional analysis / Grothendieck constant",
+      "meta": {
+        "is_solved": false
+      },
+      "question_text": "What is the exact value of the real Grothendieck constant K_G?",
+      "evidence": [
+        {
+          "page": 116,
+          "quote": "Open Problem 8.3 What is the real Grothendieck constant KG ? 8.5 The Paley Graph Let p be a prime such that p ∼ = 1 mod 4. The Paley graph of order p is a graph on p nodes (each node associated with an element of Zp ) where (i, j) is an edge if i − j is a quadratic residue modulo p. In other words, (i, j) is an edge is there exists a such that a2 ∼ = i − j mod p. Let ω(p) denote the clique number of the Paley graph of order p, meaning the size of its largest clique. It is conjectured √ that ω(p) . pollywog(n) but the best known bound is ω(p) ≤ p (which can be easily obtained). The √ only improvement to date is that, infinitely often, ω(p) ≤ p − 1, see [BRM13]. The theta function of a graph is a Semidefinite programming based relaxation of the independence number [Lov79] (which is the clique number of the complement graph). As such, it provides an upper √ bound on the clique number. In fact, this upper bound for Paley graph matches ω(p) ≤ p. Similarly to the situation above, one can define a degree 4 sum-of-squares analogue to θ(G) that, in principle, has the potential to giving better upper bounds. Indeed, numerical experiments in [GLV07] √ seem to suggest that this approach has the potential to improve on the upper bound ω(p) ≤ p"
+        }
+      ]
+    },
+    {
+      "id": "q_032",
+      "context_brief": "Paley graphs / clique number",
+      "meta": {
+        "is_solved": false
+      },
+      "question_text": "What are the asymptotics of the clique number ω(p) of the Paley graph of order p, and can the degree-4 sum-of-squares analogue of the theta number improve the current √p-type upper bound?",
+      "evidence": [
+        {
+          "page": 116,
+          "quote": "Open Problem 8.3 What is the real Grothendieck constant KG ? 8.5 The Paley Graph Let p be a prime such that p ∼ = 1 mod 4. The Paley graph of order p is a graph on p nodes (each node associated with an element of Zp ) where (i, j) is an edge if i − j is a quadratic residue modulo p. In other words, (i, j) is an edge is there exists a such that a2 ∼ = i − j mod p. Let ω(p) denote the clique number of the Paley graph of order p, meaning the size of its largest clique. It is conjectured √ that ω(p) . pollywog(n) but the best known bound is ω(p) ≤ p (which can be easily obtained). The √ only improvement to date is that, infinitely often, ω(p) ≤ p − 1, see [BRM13]. The theta function of a graph is a Semidefinite programming based relaxation of the independence number [Lov79] (which is the clique number of the complement graph). As such, it provides an upper √ bound on the clique number. In fact, this upper bound for Paley graph matches ω(p) ≤ p. Similarly to the situation above, one can define a degree 4 sum-of-squares analogue to θ(G) that, in principle, has the potential to giving better upper bounds. Indeed, numerical experiments in [GLV07] √ seem to suggest that this approach has the potential to improve on the upper bound ω(p) ≤ p Open Problem 8.4.) 6.6 The Kadison-Singer problem The Kadison-Singer problem (or the related Weaver’s conjecture) was one of the main questions in frame theory, it was solved (with a non-constructive proof) in the recent breakthrough of Marcus, Spielman, and Srivastava [MSS15b], using similar techniques to their earlier work [MSS15a]. Their theorem guarantees the existence of universal constants η ≥ 2 and θ > 0 s.t. for any tight frame ω1 , . . . , ωN ∈ CM satisfying kωk k ≤ 1 and N X ωk ωkT = ηI, k=1 there exists a partition of this tight frame S1 , S2 ⊂ [N ] such that each is “almost a tight frame” in the sense that, X ωk ωkT \u0016 (η − θ) I. k∈Sj However, a constructive prove is still not known and there is no known (polynomial time) method that is known to construct such partitions."
+        }
+      ]
+    },
+    {
+      "id": "q_033",
+      "context_brief": "random regular graphs / bisections",
+      "meta": {
+        "is_solved": false
+      },
+      "question_text": "Prove or disprove the Zdeborová–Boettcher conjecture that for a random d-regular graph G on n vertices, (MaxBis(G) + MinBis(G))/n = d/2 + o(1) as n grows.",
+      "evidence": [
+        {
+          "page": 117,
+          "quote": "Open Problem 8.5 Prove or disprove Conjecture 8.5. √ Recently, it was shown that the conjecture holds up to o( d) terms [DMS15]. We also point the reader to this paper [Lyo14], that contains bounds that are meaningful already for d = 3. 117"
+        }
+      ]
+    },
+    {
+      "id": "q_034",
+      "context_brief": "stochastic block models / detection",
+      "meta": {
+        "is_solved": false
+      },
+      "question_text": "For the balanced stochastic block model with a fixed number k > 3 of communities and edge probabilities p = a/n within communities and q = b/n across communities, what is the sharp threshold at which partial recovery becomes possible, meaning that one can produce an estimator positively correlated with the true partition?",
+      "evidence": [
+        {
+          "page": 121,
+          "quote": "Open Problem 9.1 Consider the balanced Stochastic Block Model for k > 3 (constant) communities with inner probability p = na and outer probability q = nb , what is the threshold at which it becomes possible to make an estimate that correlates with the original partition is open (known as the partial recovery or detection threshold). We refer the reader to [DKMZ11, ZMZ14, GZC+ 15] for more information on this and many other interesting conjectures often motivated from statistical physics. 9.4 Exact recovery We now turn our attention to the problem of recovering the cluster membership of every single node correctly, not simply having an estimate that correlates with the true labels. We’ll restrict to two communities for now. If the probability of intra-cluster edges is p = na then it is not hard to show that each cluster will have isolated nodes making it impossible to recover the membership of every possible n node correctly. In fact this is the case whenever p 2 log n . For that reason we focus on the regime p= α log(n) β log(n) and q = , n n (88) for some constants α > β. Let x ∈ Rn with xi = ±1 representing the partition (note there is an ambiguity in the sense that x and −x represent the same partition). Then, if we did not worry about efficiency then our guess (which corresponds to the Maximum Likelihood Estimator) would be the solution of the minimum bissection problem (81). In fact, one can show (but this will not be the main focus of this lecture, see [ABH14] for a proof) that if p √ √ α − β > 2, (89) then, with high probability, (81) recovers the true partition. Moreover, if p √ √ α − β < 2, no algorithm (efficient or not) can, with high probability, recover the true partition. We’ll consider a semidefinite programming relaxation algorithm for SBM and derive conditions for exact recovery. The main ingredient for the proof will be duality theory. 9.5 The algorithm P Note that if we remove the constraint that j xj = 0 in (81) then the optimal solution becomes x = 1. Let us define B = 2A − (11T − I), meaning that Bij =   0 1  −1 if i = j if (i, j) ∈ E(G) otherwise It is clear that the problem 121 (90)"
+        }
+      ]
+    },
+    {
+      "id": "q_035",
+      "context_brief": "stochastic block models / exact recovery",
+      "meta": {
+        "is_solved": false
+      },
+      "question_text": "For the balanced symmetric stochastic block model with about log n communities, determine the exact recovery threshold and the threshold at which the semidefinite programming relaxation succeeds in exactly recovering the communities.",
+      "evidence": [
+        {
+          "page": 128,
+          "quote": "Open Problem 9.2 What is the threshold for exact recovery on the balanced symmetric Stochastic Block Model in k ≈ log n communities and at what threshold does the SDP succeed at exactly determining the communities? (see [ABKK15]). 9.11 Euclidean Clustering The stochastic block model, although having fascinating phenomena, is not always an accurate model for clustering. The independence assumption assumed on the connections between pairs of vertices may sometimes be too unrealistic. Also, the minimum bisection of multisection objective may not be the most relevant in some applications. One particularly popular form of clustering is k-means clustering. Given n points x1 , . . . , xn and pairwise distances d(xi , xj ), the k-means objective attempts to partition the points in k clusters A1 , . . . , Ak (not necessarily of the same size) as to minimize the following objective35 min k X 1 |At | t=1 X d2 (xi , xj ). xi ,xj ∈At A similar objective is the one in k-medians clustering, where for each cluster a center is picked (the center has to be a point in the cluster) and the sum of the distances from all points in the cluster to the center point are to be minimized, in other words, the objective to be minimized is: min k X t=1 min ct ∈At X d(xi , ct ). xi ∈At In [ABC+ 15] both an Linear Programming (LP) relaxation for k-medians and a Semidefinite Programming (SDP) relaxation for k-means are analyzed for a points in a generative model on which there are k disjoint balls in Rd and, for every ball, points are drawn according to a isotropic distribution on each of the balls. The goal is to establish exact recovery of these convex relaxations requiring the least distance between the balls. This model (in this context) was first proposed and analyzed for k-medians in [NW13], the conditions for k-medians were made optimal in [ABC+ 15] and conditions for k-means were also given. More recently, the conditions on k-means were improved (made optimal for large dimensions) in [IMPV15a, IMPV15b] which also coined the term “Stochastic Ball Model”. For P the set of points, in order to formulate the k-medians LP we use variables yp indicating whether p is a center of its cluster or not and zpq indicating whether q is assigned to p or not (see [ABC+ 15] for details), the LP then reads: 35 When the points are in Euclidean space there is an equivalent more common formulation in which each cluster is assign a mean and the objective function is the sum of the distanc"
+        }
+      ]
+    },
+    {
+      "id": "q_036",
+      "context_brief": "clustering relaxations / k-medians LP",
+      "meta": {
+        "is_solved": false
+      },
+      "question_text": "Is the linear programming relaxation for k-medians integral for natural random point models even without planted cluster structure, for example for independent Gaussian points?",
+      "evidence": [
+        {
+          "page": 129,
+          "quote": "Open Problem 9.3 Is the LP relaxation for k-medians tight for a natural (random) generative model of points even without a clustering planted structure (such as, say, gaussian independent points)? Ideally, one would like to show that these relaxations (both the k-means SDP and the k-medians LP) are integral in instances that have clustering structure and not necessarily arising from generative random models. It is unclear however how to define what is meant by “clustering structure”. A particularly interesting approach is through stability conditions (see, for example [AJP13]), the idea is that if a certain set of data points has a much larger k − 1-means (or medians) objective than a k-means (or medians) one, and there is not much difference between the k and the k + 1 objectives, then this is a good suggestion that the data is well explained by k clusters."
+        }
+      ]
+    },
+    {
+      "id": "q_037",
+      "context_brief": "clustering stability / integrality",
+      "meta": {
+        "is_solved": false
+      },
+      "question_text": "Give stability-style sufficient conditions under which either the k-medians LP or the k-means SDP is integral, for example conditions expressing that the best (k−1)-cluster solution is much worse than the best k-cluster solution while the best (k+1)-cluster solution yields little additional gain.",
+      "evidence": [
+        {
+          "page": 129,
+          "quote": "Open Problem 9.4 Give integrality conditions to either the k-medians LP or the k-means SDP based on stability like conditions, as described above. 9.12 Probably Certifiably Correct algorithms While the SDP described in this lecture for recovery in the Stochastic Block Model achieves exact recovery in the optimal regime, SDPs (while polynomial time) tend to be slow in practice. There are faster (quasi-linear) methods that are also able to achieve exact recovery at the same threshold. 129"
+        }
+      ]
+    },
+    {
+      "id": "q_038",
+      "context_brief": "positive PCA / SDP tightness",
+      "meta": {
+        "is_solved": false
+      },
+      "question_text": "Let W be a Gaussian Wigner matrix with entries N(0,1/n), and consider the SDP maximize Tr(WX) subject to Tr(X)=1, X entrywise nonnegative, and X positive semidefinite. Is the expected optimum equal to √2 + o(1), and with high probability is the optimizer rank one?",
+      "evidence": [
+        {
+          "page": 130,
+          "quote": "Open Problem 9.5 Let W be a gaussian Wigner matrix with entries N (0, 1/n). Consider the fol- 130"
+        }
+      ]
+    },
+    {
+      "id": "q_039",
+      "context_brief": "angular synchronization / projected power",
+      "meta": {
+        "is_solved": false
+      },
+      "question_text": "In the angular synchronization model Y = zz* + σW, for which noise levels σ does the projected power method converge with high probability to the maximum-likelihood optimizer, or at least to a solution correlated with the true phase vector z?",
+      "evidence": [
+        {
+          "page": 133,
+          "quote": "Open Problem 10.1 In the model where Y = zz ∗ + σW as described above, for which values of σ will the Projected Power Method (Algorithm 10.1) converge to the optimal solution of (105) (or at least to a solution that correlates well with z), with high probability?37 37 We thank Nicolas Boumal for suggesting this problem. 133"
+        }
+      ]
+    },
+    {
+      "id": "q_040",
+      "context_brief": "angular synchronization / SDP tightness",
+      "meta": {
+        "is_solved": false
+      },
+      "question_text": "Prove or disprove that, with high probability, the angular-synchronization SDP relaxation remains tight up to noise level σ = Õ(n^{1/2}); equivalently, establish the conjectured bound ||W x̂||_∞ = Õ(n^{1/2}) for the nonconvex optimizer x̂.",
+      "evidence": [
+        {
+          "page": 134,
+          "quote": "Open Problem 10.2 Prove or disprove: With high probability the SDP relaxation (107) is tight as long as σ = Õ(n1/2 ). This would follow from showing that, with high probability kW x\\ k∞ = Õ(n1/2 ), where x\\ is the optimal solution to (105). 38 Note that this makes (in this regime) the SDP relaxation a Probably Certifiably Correct algorithm [Ban16] 134"
+        }
+      ]
+    },
+    {
+      "id": "q_041",
+      "context_brief": "multireference alignment / SDP tightness",
+      "meta": {
+        "is_solved": false
+      },
+      "question_text": "For the multireference-alignment SDP in equation (115), for which noise levels should one expect tightness with high probability? In particular, for fixed σ, does taking n sufficiently large force the SDP to be tight with high probability?",
+      "evidence": [
+        {
+          "page": 139,
+          "quote": "Open Problem 10.3 For which values of noise do we expect that, with high probability, the semidefinite program (115) is tight? In particular, is it true that for any σ by taking arbitrarily large n the SDP is tight with high probability? 10.3.3 Sample complexity for multireference alignment Another important question related to this problem is to understand its sample complexity. Since the objective is to recover the underlying signal u, a larger number of observations n should yield a better recovery (considering the model in (??)). Another open question is the consistency of the quasi-MLE estimator, it is known that there is some bias on the power spectrum of the recovered signal (that can be easily fixed) but the estimates for phases of the Fourier transform are conjecture to be consistent [BCSZ14]."
+        }
+      ]
+    },
+    {
+      "id": "q_042",
+      "context_brief": "multireference alignment / consistency and sample complexity",
+      "meta": {
+        "is_solved": false
+      },
+      "question_text": "Is the quasi-MLE or full MLE for multireference alignment consistent after correcting the power spectrum, and for given signal length L and noise level σ, how large must the sample size n be for accurate recovery?",
+      "evidence": [
+        {
+          "page": 139,
+          "quote": "Open Problem 10.4 1. Is the quasi-MLE (or the MLE) consistent for the Multireference alignment problem? (after fixing the power spectrum appropriately). 2. For a given value of L and σ, how large does n need to be in order to allow for a reasonably accurate recovery in the multireference alignment problem? Remark 10.2 One could design a simpler method based on angular synchronization: for each pair of signals take the best pairwise shift and then use angular synchronization to find the signal shifts from these pairwise measurements. While this would yield a smaller SDP, the fact that it is not 139"
+        }
+      ]
+    }
+  ],
+  "needs_review": [],
+  "trace": [
+    {
+      "id": "source",
+      "stage": "map",
+      "notes": "Resolved the user URL to a local PDF and mapped the document structure. The source contains a dedicated “List of open problems” plus detailed later sections for each item.",
+      "evidence_refs": [
+        "p1",
+        "p4",
+        "p6"
+      ]
+    },
+    {
+      "id": "catalog",
+      "stage": "extract_candidates",
+      "notes": "Identified 42 explicit open problems plus one non-open Question 1.3 that is answered later and was excluded from accepted results.",
+      "evidence_refs": [
+        "p4",
+        "p19",
+        "p23"
+      ]
+    },
+    {
+      "id": "q_001",
+      "stage": "rewrite",
+      "notes": "Rewrote the source statement into a self-contained question while preserving notation and constraints from the quoted page block.",
+      "evidence_refs": [
+        "p6"
+      ]
+    },
+    {
+      "id": "q_001",
+      "stage": "quality_gates",
+      "notes": "Passed self-containedness and evidence-coverage checks using verbatim page-level quotes from the PDF extraction.",
+      "evidence_refs": [
+        "p6"
+      ]
+    },
+    {
+      "id": "q_002",
+      "stage": "rewrite",
+      "notes": "Rewrote the source statement into a self-contained question while preserving notation and constraints from the quoted page block.",
+      "evidence_refs": [
+        "p7"
+      ]
+    },
+    {
+      "id": "q_002",
+      "stage": "quality_gates",
+      "notes": "Passed self-containedness and evidence-coverage checks using verbatim page-level quotes from the PDF extraction.",
+      "evidence_refs": [
+        "p7"
+      ]
+    },
+    {
+      "id": "q_003",
+      "stage": "rewrite",
+      "notes": "Rewrote the source statement into a self-contained question while preserving notation and constraints from the quoted page block.",
+      "evidence_refs": [
+        "p14"
+      ]
+    },
+    {
+      "id": "q_003",
+      "stage": "quality_gates",
+      "notes": "Passed self-containedness and evidence-coverage checks using verbatim page-level quotes from the PDF extraction.",
+      "evidence_refs": [
+        "p14"
+      ]
+    },
+    {
+      "id": "q_004",
+      "stage": "rewrite",
+      "notes": "Rewrote the source statement into a self-contained question while preserving notation and constraints from the quoted page block.",
+      "evidence_refs": [
+        "p17"
+      ]
+    },
+    {
+      "id": "q_004",
+      "stage": "quality_gates",
+      "notes": "Passed self-containedness and evidence-coverage checks using verbatim page-level quotes from the PDF extraction.",
+      "evidence_refs": [
+        "p17"
+      ]
+    },
+    {
+      "id": "q_005",
+      "stage": "rewrite",
+      "notes": "Rewrote the source statement into a self-contained question while preserving notation and constraints from the quoted page block.",
+      "evidence_refs": [
+        "p23"
+      ]
+    },
+    {
+      "id": "q_005",
+      "stage": "quality_gates",
+      "notes": "Passed self-containedness and evidence-coverage checks using verbatim page-level quotes from the PDF extraction.",
+      "evidence_refs": [
+        "p23"
+      ]
+    },
+    {
+      "id": "q_006",
+      "stage": "rewrite",
+      "notes": "Rewrote the source statement into a self-contained question while preserving notation and constraints from the quoted page block.",
+      "evidence_refs": [
+        "p27"
+      ]
+    },
+    {
+      "id": "q_006",
+      "stage": "quality_gates",
+      "notes": "Passed self-containedness and evidence-coverage checks using verbatim page-level quotes from the PDF extraction.",
+      "evidence_refs": [
+        "p27"
+      ]
+    },
+    {
+      "id": "q_007",
+      "stage": "rewrite",
+      "notes": "Rewrote the source statement into a self-contained question while preserving notation and constraints from the quoted page block.",
+      "evidence_refs": [
+        "p29"
+      ]
+    },
+    {
+      "id": "q_007",
+      "stage": "quality_gates",
+      "notes": "Passed self-containedness and evidence-coverage checks using verbatim page-level quotes from the PDF extraction.",
+      "evidence_refs": [
+        "p29"
+      ]
+    },
+    {
+      "id": "q_008",
+      "stage": "rewrite",
+      "notes": "Rewrote the source statement into a self-contained question while preserving notation and constraints from the quoted page block.",
+      "evidence_refs": [
+        "p29"
+      ]
+    },
+    {
+      "id": "q_008",
+      "stage": "quality_gates",
+      "notes": "Passed self-containedness and evidence-coverage checks using verbatim page-level quotes from the PDF extraction.",
+      "evidence_refs": [
+        "p29"
+      ]
+    },
+    {
+      "id": "q_009",
+      "stage": "rewrite",
+      "notes": "Rewrote the source statement into a self-contained question while preserving notation and constraints from the quoted page block.",
+      "evidence_refs": [
+        "p54"
+      ]
+    },
+    {
+      "id": "q_009",
+      "stage": "quality_gates",
+      "notes": "Passed self-containedness and evidence-coverage checks using verbatim page-level quotes from the PDF extraction.",
+      "evidence_refs": [
+        "p54"
+      ]
+    },
+    {
+      "id": "q_010",
+      "stage": "rewrite",
+      "notes": "Rewrote the source statement into a self-contained question while preserving notation and constraints from the quoted page block.",
+      "evidence_refs": [
+        "p54"
+      ]
+    },
+    {
+      "id": "q_010",
+      "stage": "quality_gates",
+      "notes": "Passed self-containedness and evidence-coverage checks using verbatim page-level quotes from the PDF extraction.",
+      "evidence_refs": [
+        "p54"
+      ]
+    },
+    {
+      "id": "q_011",
+      "stage": "rewrite",
+      "notes": "Rewrote the source statement into a self-contained question while preserving notation and constraints from the quoted page block.",
+      "evidence_refs": [
+        "p55"
+      ]
+    },
+    {
+      "id": "q_011",
+      "stage": "quality_gates",
+      "notes": "Passed self-containedness and evidence-coverage checks using verbatim page-level quotes from the PDF extraction.",
+      "evidence_refs": [
+        "p55"
+      ]
+    },
+    {
+      "id": "q_012",
+      "stage": "rewrite",
+      "notes": "Rewrote the source statement into a self-contained question while preserving notation and constraints from the quoted page block.",
+      "evidence_refs": [
+        "p69"
+      ]
+    },
+    {
+      "id": "q_012",
+      "stage": "quality_gates",
+      "notes": "Passed self-containedness and evidence-coverage checks using verbatim page-level quotes from the PDF extraction.",
+      "evidence_refs": [
+        "p69"
+      ]
+    },
+    {
+      "id": "q_013",
+      "stage": "rewrite",
+      "notes": "Rewrote the source statement into a self-contained question while preserving notation and constraints from the quoted page block.",
+      "evidence_refs": [
+        "p69"
+      ]
+    },
+    {
+      "id": "q_013",
+      "stage": "quality_gates",
+      "notes": "Passed self-containedness and evidence-coverage checks using verbatim page-level quotes from the PDF extraction.",
+      "evidence_refs": [
+        "p69"
+      ]
+    },
+    {
+      "id": "q_014",
+      "stage": "rewrite",
+      "notes": "Rewrote the source statement into a self-contained question while preserving notation and constraints from the quoted page block.",
+      "evidence_refs": [
+        "p70"
+      ]
+    },
+    {
+      "id": "q_014",
+      "stage": "quality_gates",
+      "notes": "Passed self-containedness and evidence-coverage checks using verbatim page-level quotes from the PDF extraction.",
+      "evidence_refs": [
+        "p70"
+      ]
+    },
+    {
+      "id": "q_015",
+      "stage": "rewrite",
+      "notes": "Rewrote the source statement into a self-contained question while preserving notation and constraints from the quoted page block.",
+      "evidence_refs": [
+        "p76"
+      ]
+    },
+    {
+      "id": "q_015",
+      "stage": "quality_gates",
+      "notes": "Passed self-containedness and evidence-coverage checks using verbatim page-level quotes from the PDF extraction.",
+      "evidence_refs": [
+        "p76"
+      ]
+    },
+    {
+      "id": "q_016",
+      "stage": "rewrite",
+      "notes": "Rewrote the source statement into a self-contained question while preserving notation and constraints from the quoted page block.",
+      "evidence_refs": [
+        "p78"
+      ]
+    },
+    {
+      "id": "q_016",
+      "stage": "quality_gates",
+      "notes": "Passed self-containedness and evidence-coverage checks using verbatim page-level quotes from the PDF extraction.",
+      "evidence_refs": [
+        "p78"
+      ]
+    },
+    {
+      "id": "q_017",
+      "stage": "rewrite",
+      "notes": "Rewrote the source statement into a self-contained question while preserving notation and constraints from the quoted page block.",
+      "evidence_refs": [
+        "p78"
+      ]
+    },
+    {
+      "id": "q_017",
+      "stage": "quality_gates",
+      "notes": "Passed self-containedness and evidence-coverage checks using verbatim page-level quotes from the PDF extraction.",
+      "evidence_refs": [
+        "p78"
+      ]
+    },
+    {
+      "id": "q_018",
+      "stage": "rewrite",
+      "notes": "Rewrote the source statement into a self-contained question while preserving notation and constraints from the quoted page block.",
+      "evidence_refs": [
+        "p88"
+      ]
+    },
+    {
+      "id": "q_018",
+      "stage": "quality_gates",
+      "notes": "Passed self-containedness and evidence-coverage checks using verbatim page-level quotes from the PDF extraction.",
+      "evidence_refs": [
+        "p88"
+      ]
+    },
+    {
+      "id": "q_019",
+      "stage": "rewrite",
+      "notes": "Rewrote the source statement into a self-contained question while preserving notation and constraints from the quoted page block.",
+      "evidence_refs": [
+        "p88"
+      ]
+    },
+    {
+      "id": "q_019",
+      "stage": "quality_gates",
+      "notes": "Passed self-containedness and evidence-coverage checks using verbatim page-level quotes from the PDF extraction.",
+      "evidence_refs": [
+        "p88"
+      ]
+    },
+    {
+      "id": "q_020",
+      "stage": "rewrite",
+      "notes": "Rewrote the source statement into a self-contained question while preserving notation and constraints from the quoted page block.",
+      "evidence_refs": [
+        "p95"
+      ]
+    },
+    {
+      "id": "q_020",
+      "stage": "quality_gates",
+      "notes": "Passed self-containedness and evidence-coverage checks using verbatim page-level quotes from the PDF extraction.",
+      "evidence_refs": [
+        "p95"
+      ]
+    },
+    {
+      "id": "q_021",
+      "stage": "rewrite",
+      "notes": "Rewrote the source statement into a self-contained question while preserving notation and constraints from the quoted page block.",
+      "evidence_refs": [
+        "p97"
+      ]
+    },
+    {
+      "id": "q_021",
+      "stage": "quality_gates",
+      "notes": "Passed self-containedness and evidence-coverage checks using verbatim page-level quotes from the PDF extraction.",
+      "evidence_refs": [
+        "p97"
+      ]
+    },
+    {
+      "id": "q_022",
+      "stage": "rewrite",
+      "notes": "Rewrote the source statement into a self-contained question while preserving notation and constraints from the quoted page block.",
+      "evidence_refs": [
+        "p97"
+      ]
+    },
+    {
+      "id": "q_022",
+      "stage": "quality_gates",
+      "notes": "Passed self-containedness and evidence-coverage checks using verbatim page-level quotes from the PDF extraction.",
+      "evidence_refs": [
+        "p97"
+      ]
+    },
+    {
+      "id": "q_023",
+      "stage": "rewrite",
+      "notes": "Rewrote the source statement into a self-contained question while preserving notation and constraints from the quoted page block.",
+      "evidence_refs": [
+        "p98"
+      ]
+    },
+    {
+      "id": "q_023",
+      "stage": "quality_gates",
+      "notes": "Passed self-containedness and evidence-coverage checks using verbatim page-level quotes from the PDF extraction.",
+      "evidence_refs": [
+        "p98"
+      ]
+    },
+    {
+      "id": "q_024",
+      "stage": "rewrite",
+      "notes": "Rewrote the source statement into a self-contained question while preserving notation and constraints from the quoted page block.",
+      "evidence_refs": [
+        "p98"
+      ]
+    },
+    {
+      "id": "q_024",
+      "stage": "quality_gates",
+      "notes": "Passed self-containedness and evidence-coverage checks using verbatim page-level quotes from the PDF extraction.",
+      "evidence_refs": [
+        "p98"
+      ]
+    },
+    {
+      "id": "q_025",
+      "stage": "rewrite",
+      "notes": "Rewrote the source statement into a self-contained question while preserving notation and constraints from the quoted page block.",
+      "evidence_refs": [
+        "p104"
+      ]
+    },
+    {
+      "id": "q_025",
+      "stage": "quality_gates",
+      "notes": "Passed self-containedness and evidence-coverage checks using verbatim page-level quotes from the PDF extraction.",
+      "evidence_refs": [
+        "p104"
+      ]
+    },
+    {
+      "id": "q_026",
+      "stage": "rewrite",
+      "notes": "Rewrote the source statement into a self-contained question while preserving notation and constraints from the quoted page block.",
+      "evidence_refs": [
+        "p105"
+      ]
+    },
+    {
+      "id": "q_026",
+      "stage": "quality_gates",
+      "notes": "Passed self-containedness and evidence-coverage checks using verbatim page-level quotes from the PDF extraction.",
+      "evidence_refs": [
+        "p105"
+      ]
+    },
+    {
+      "id": "q_027",
+      "stage": "rewrite",
+      "notes": "Rewrote the source statement into a self-contained question while preserving notation and constraints from the quoted page block.",
+      "evidence_refs": [
+        "p107"
+      ]
+    },
+    {
+      "id": "q_027",
+      "stage": "quality_gates",
+      "notes": "Passed self-containedness and evidence-coverage checks using verbatim page-level quotes from the PDF extraction.",
+      "evidence_refs": [
+        "p107"
+      ]
+    },
+    {
+      "id": "q_028",
+      "stage": "rewrite",
+      "notes": "Rewrote the source statement into a self-contained question while preserving notation and constraints from the quoted page block.",
+      "evidence_refs": [
+        "p107"
+      ]
+    },
+    {
+      "id": "q_028",
+      "stage": "quality_gates",
+      "notes": "Passed self-containedness and evidence-coverage checks using verbatim page-level quotes from the PDF extraction.",
+      "evidence_refs": [
+        "p107"
+      ]
+    },
+    {
+      "id": "q_029",
+      "stage": "rewrite",
+      "notes": "Rewrote the source statement into a self-contained question while preserving notation and constraints from the quoted page block.",
+      "evidence_refs": [
+        "p112"
+      ]
+    },
+    {
+      "id": "q_029",
+      "stage": "quality_gates",
+      "notes": "Passed self-containedness and evidence-coverage checks using verbatim page-level quotes from the PDF extraction.",
+      "evidence_refs": [
+        "p112"
+      ]
+    },
+    {
+      "id": "q_030",
+      "stage": "rewrite",
+      "notes": "Rewrote the source statement into a self-contained question while preserving notation and constraints from the quoted page block.",
+      "evidence_refs": [
+        "p114"
+      ]
+    },
+    {
+      "id": "q_030",
+      "stage": "quality_gates",
+      "notes": "Passed self-containedness and evidence-coverage checks using verbatim page-level quotes from the PDF extraction.",
+      "evidence_refs": [
+        "p114"
+      ]
+    },
+    {
+      "id": "q_031",
+      "stage": "rewrite",
+      "notes": "Rewrote the source statement into a self-contained question while preserving notation and constraints from the quoted page block.",
+      "evidence_refs": [
+        "p116"
+      ]
+    },
+    {
+      "id": "q_031",
+      "stage": "quality_gates",
+      "notes": "Passed self-containedness and evidence-coverage checks using verbatim page-level quotes from the PDF extraction.",
+      "evidence_refs": [
+        "p116"
+      ]
+    },
+    {
+      "id": "q_032",
+      "stage": "rewrite",
+      "notes": "Rewrote the source statement into a self-contained question while preserving notation and constraints from the quoted page block.",
+      "evidence_refs": [
+        "p116"
+      ]
+    },
+    {
+      "id": "q_032",
+      "stage": "quality_gates",
+      "notes": "Passed self-containedness and evidence-coverage checks using verbatim page-level quotes from the PDF extraction.",
+      "evidence_refs": [
+        "p116"
+      ]
+    },
+    {
+      "id": "q_033",
+      "stage": "rewrite",
+      "notes": "Rewrote the source statement into a self-contained question while preserving notation and constraints from the quoted page block.",
+      "evidence_refs": [
+        "p117"
+      ]
+    },
+    {
+      "id": "q_033",
+      "stage": "quality_gates",
+      "notes": "Passed self-containedness and evidence-coverage checks using verbatim page-level quotes from the PDF extraction.",
+      "evidence_refs": [
+        "p117"
+      ]
+    },
+    {
+      "id": "q_034",
+      "stage": "rewrite",
+      "notes": "Rewrote the source statement into a self-contained question while preserving notation and constraints from the quoted page block.",
+      "evidence_refs": [
+        "p121"
+      ]
+    },
+    {
+      "id": "q_034",
+      "stage": "quality_gates",
+      "notes": "Passed self-containedness and evidence-coverage checks using verbatim page-level quotes from the PDF extraction.",
+      "evidence_refs": [
+        "p121"
+      ]
+    },
+    {
+      "id": "q_035",
+      "stage": "rewrite",
+      "notes": "Rewrote the source statement into a self-contained question while preserving notation and constraints from the quoted page block.",
+      "evidence_refs": [
+        "p128"
+      ]
+    },
+    {
+      "id": "q_035",
+      "stage": "quality_gates",
+      "notes": "Passed self-containedness and evidence-coverage checks using verbatim page-level quotes from the PDF extraction.",
+      "evidence_refs": [
+        "p128"
+      ]
+    },
+    {
+      "id": "q_036",
+      "stage": "rewrite",
+      "notes": "Rewrote the source statement into a self-contained question while preserving notation and constraints from the quoted page block.",
+      "evidence_refs": [
+        "p129"
+      ]
+    },
+    {
+      "id": "q_036",
+      "stage": "quality_gates",
+      "notes": "Passed self-containedness and evidence-coverage checks using verbatim page-level quotes from the PDF extraction.",
+      "evidence_refs": [
+        "p129"
+      ]
+    },
+    {
+      "id": "q_037",
+      "stage": "rewrite",
+      "notes": "Rewrote the source statement into a self-contained question while preserving notation and constraints from the quoted page block.",
+      "evidence_refs": [
+        "p129"
+      ]
+    },
+    {
+      "id": "q_037",
+      "stage": "quality_gates",
+      "notes": "Passed self-containedness and evidence-coverage checks using verbatim page-level quotes from the PDF extraction.",
+      "evidence_refs": [
+        "p129"
+      ]
+    },
+    {
+      "id": "q_038",
+      "stage": "rewrite",
+      "notes": "Rewrote the source statement into a self-contained question while preserving notation and constraints from the quoted page block.",
+      "evidence_refs": [
+        "p130"
+      ]
+    },
+    {
+      "id": "q_038",
+      "stage": "quality_gates",
+      "notes": "Passed self-containedness and evidence-coverage checks using verbatim page-level quotes from the PDF extraction.",
+      "evidence_refs": [
+        "p130"
+      ]
+    },
+    {
+      "id": "q_039",
+      "stage": "rewrite",
+      "notes": "Rewrote the source statement into a self-contained question while preserving notation and constraints from the quoted page block.",
+      "evidence_refs": [
+        "p133"
+      ]
+    },
+    {
+      "id": "q_039",
+      "stage": "quality_gates",
+      "notes": "Passed self-containedness and evidence-coverage checks using verbatim page-level quotes from the PDF extraction.",
+      "evidence_refs": [
+        "p133"
+      ]
+    },
+    {
+      "id": "q_040",
+      "stage": "rewrite",
+      "notes": "Rewrote the source statement into a self-contained question while preserving notation and constraints from the quoted page block.",
+      "evidence_refs": [
+        "p134"
+      ]
+    },
+    {
+      "id": "q_040",
+      "stage": "quality_gates",
+      "notes": "Passed self-containedness and evidence-coverage checks using verbatim page-level quotes from the PDF extraction.",
+      "evidence_refs": [
+        "p134"
+      ]
+    },
+    {
+      "id": "q_041",
+      "stage": "rewrite",
+      "notes": "Rewrote the source statement into a self-contained question while preserving notation and constraints from the quoted page block.",
+      "evidence_refs": [
+        "p139"
+      ]
+    },
+    {
+      "id": "q_041",
+      "stage": "quality_gates",
+      "notes": "Passed self-containedness and evidence-coverage checks using verbatim page-level quotes from the PDF extraction.",
+      "evidence_refs": [
+        "p139"
+      ]
+    },
+    {
+      "id": "q_042",
+      "stage": "rewrite",
+      "notes": "Rewrote the source statement into a self-contained question while preserving notation and constraints from the quoted page block.",
+      "evidence_refs": [
+        "p139"
+      ]
+    },
+    {
+      "id": "q_042",
+      "stage": "quality_gates",
+      "notes": "Passed self-containedness and evidence-coverage checks using verbatim page-level quotes from the PDF extraction.",
+      "evidence_refs": [
+        "p139"
+      ]
+    },
+    {
+      "id": "persist",
+      "stage": "persist",
+      "notes": "Saved exact JSON to outputs/parse-paper/TenLecturesFortyTwoProblems.json and outputs/latest.json.",
+      "evidence_refs": []
+    }
+  ],
+  "conversion": {
+    "from": "outputs/google_problems/TenLecturesFortyTwoProblems.json",
+    "kind": "google_problems_to_parse_paper"
+  }
+}
