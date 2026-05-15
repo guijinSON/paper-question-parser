@@ -1,0 +1,492 @@
+{
+  "source": {
+    "url": "https://arxiv.org/abs/2310.03533",
+    "resolved_locator": "/home/gson/paper-question-parser/.sisyphus/paper-question-parser/tmp/2310.03533.pdf",
+    "title": "Large Language Models for Software Engineering: Survey and Open Problems",
+    "title_origin": "source_text"
+  },
+  "accepted": [
+    {
+      "id": "q_001",
+      "question_text": "How can large language models be used reliably for higher-level requirements engineering and software design tasks, especially to recover and maintain traceability links between natural-language requirements and downstream engineering artefacts such as code and tests, given current practitioner reluctance to rely on LLMs for design-level goals?",
+      "context_brief": "requirements engineering and traceability",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 5,
+          "quote": "Unlike other software development activities, we did not find much work on LLM-based requirements engineering or on LLM-based design. Indeed, there was even evidence that practising engineers are reluctant to rely on LLMs for higher- level design goals [36]. There is thus a great opportunity to expand on this open field of research."
+        },
+        {
+          "page": 6,
+          "quote": "For example, traceability is a long-standing, cross-cutting concern in software engineering. In particular, identifying traceability links between requirements and other engineering artefacts, such as code and tests, are especially challenging because requirements are often written in natural language; a natural fit for LLMs."
+        }
+      ]
+    },
+    {
+      "id": "q_002",
+      "question_text": "How can LLM-based code generation and completion systems be coupled with automated testing and execution-grounded ReAct-style feedback so that generated code can be assessed reliably, hallucinated responses can be filtered, and runtime evidence can guide prompt refinement and output selection?",
+      "context_brief": "testing-integrated code generation assessment",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 9,
+          "quote": "Assessing the generated code remains a critical problem for LLM-based code generation and completion: while much work already started applying existing software testing knowledge to this problem, we expect closer integration of automated testing techniques with code generation and completion techniques."
+        },
+        {
+          "page": 9,
+          "quote": "A recurring theme of the challenges covered in this paper, is that code execution provides precisely the ‘ground truth’ needed to filter hallucinated responses. It can also provide guidance as part of interactive reasoning/action (‘ReAct’) dialogue [95], both with and within LLMs."
+        }
+      ]
+    },
+    {
+      "id": "q_003",
+      "question_text": "How can pretrained large language models be fine-tuned efficiently so that they perform better for a particular programming language, codebase, or application domain without requiring the prohibitive computational cost of training a model from scratch?",
+      "context_brief": "efficient task-specific fine-tuning",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 9,
+          "quote": "Another important problem is how to efficiently fine-tune pre-trained LLMs so that they perform better for a specific programming language, codebase, or domain: this is especially important because training an LLM from scratch requires significant computational resources."
+        },
+        {
+          "page": 9,
+          "quote": "For example, transfer learning has been proposed as a way to improve code completion performance when the volume of training examples for a specific programming language is inadequate [96]."
+        }
+      ]
+    },
+    {
+      "id": "q_004",
+      "question_text": "How should explanation engineering for LLM-based software engineering artefacts be developed and evaluated, so that the explanations accompanying generated code or other artefacts become trustworthy, useful, and potentially preferable even when the underlying artefact is not globally optimal?",
+      "context_brief": "explanation engineering",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 9,
+          "quote": "The current focus of research is on the code produced by LLMs. However, the explanations produced by LLMs may turn out to be at least as important."
+        },
+        {
+          "page": 9,
+          "quote": "As with prompt engineering, which focuses on optimising the input to the LLM, explanation engineering is also likely to become an area of study in its own right."
+        }
+      ]
+    },
+    {
+      "id": "q_005",
+      "question_text": "How should prompts for LLM-based software test generation be engineered so that the resulting tests reduce flakiness, reveal likely faults using historical fault data, strike the right balance between mocks and integration testing, construct realistic inputs and mock objects, cover corner cases, and focus on behavior that is prevalent in production?",
+      "context_brief": "prompt engineering for test generation",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 11,
+          "quote": "1) Prompt Engineering: There are many aspects of a good software test that could be favoured by suitable prompt engineering."
+        },
+        {
+          "page": 11,
+          "quote": "For example, we need to understand how to engineer prompts that • Predict and reduce generated test flakiness; • Reveal likely faults, for example via training on historic fault data; • Optimise the balance between mocking and integration testing; • Make realistic data builders, mock objects, parameters and inputs; • Predict tests that are most likely to elicit tests that cover corner cases; • Tailor test generation to focus behaviour that is prevalent in production."
+        }
+      ]
+    },
+    {
+      "id": "q_006",
+      "question_text": "How can large language models augment and regenerate existing test suites, rather than only generating brand-new suites, by using few-shot learning or fine-tuning on existing tests and historical faults to add new assertions that capture corner cases, past defects, and likely programmer errors?",
+      "context_brief": "augmenting existing tests",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 11,
+          "quote": "Work on LLM-based test generation has focused on the automated generation of novel test suites. However, given the array of existing test generation techniques, there remains an important (and comparatively less well-studied) open problem of augmentation and regeneration based on existing test suites [135], [136]."
+        },
+        {
+          "page": 11,
+          "quote": "More work is needed on LLMs for generating additional test assertions that capture corner cases, historical faults, and likely programmer errors, drawing on the training data available."
+        }
+      ]
+    },
+    {
+      "id": "q_007",
+      "question_text": "When an LLM generates a software test, how can the system automatically determine whether a passing test is a meaningful regression test or merely coincidentally correct, whether a failing test has found a real bug or contains a wrong assertion, and how can raw execution outcomes be filtered into a trustworthy test signal before they are shown to developers?",
+      "context_brief": "correctness of LLM-generated tests",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 11,
+          "quote": "2) The generated test fails on the current release : We need to know whether the assertion is wrong or whether the generated test has found a bug."
+        },
+        {
+          "page": 11,
+          "quote": "More work is needed on self-assessment of confidence, self-checking for correctness, consistency, and robustness of generated tests. We need to develop techniques for automatically assessing, augmenting and filtering raw outcomes from execution of LLM-based tests, before presenting the ‘test signal’ to the developer."
+        }
+      ]
+    },
+    {
+      "id": "q_008",
+      "question_text": "How can LLM-based performance-improvement techniques automatically discover behavior-preserving or sufficiently faithful improvements not only for execution time but also for power consumption, memory footprint, and explicit multi-objective tradeoffs among non-functional properties?",
+      "context_brief": "multi-objective performance improvement",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 14,
+          "quote": "Much more work is needed on the development of LLM-based techniques for automatically finding performance improvements."
+        },
+        {
+          "page": 14,
+          "quote": "As with Genetic Improvement, these need not be confined merely to execution time, but can also consider other non- functional attributes such as power consumption [191]–[193] and memory footprint [194] as well as multi-objective, trade- offs between sets of non-functional properties [195]."
+        }
+      ]
+    },
+    {
+      "id": "q_009",
+      "question_text": "How can LLM-based refactoring become reliable enough to automate project-specific and API-evolution-driven refactorings, including bespoke refactorings learned from a few examples, while preserving existing behavior via the automated regression oracle and still producing useful developer-facing explanations?",
+      "context_brief": "reliable bespoke refactoring",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 15,
+          "quote": "Refactoring also becomes necessary whenever new technologies emerge. For example, when an API is updated or a new API becomes available. Although they can be (sometimes automatically [197]) repaired, API misuse remains a common source of software engineering bugs. Automating the process of refactoring for new APIs is less challenging than other code transformations, because of the presence of the Automated Regression Oracle."
+        },
+        {
+          "page": 15,
+          "quote": "The few-shot learning potential of LLMs may automatically generalise from specific examples, automating what we call ‘bespoke’ refactoring. More work is needed to develop techniques for reliable few-shot-learnt bespoke refactorings."
+        }
+      ]
+    },
+    {
+      "id": "q_010",
+      "question_text": "How can LLMs generate richer and more semantically relevant code summaries and documentation than retrieval-based methods, and what evaluation and assurance methods should replace purely lexical metrics when the generated documentation cannot be directly executed?",
+      "context_brief": "documentation and summarization evaluation",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 15,
+          "quote": "There is a clear limitation to this approach due to the fact that the set of summaries that can be generated are constrained by the training corpus. LLMs may enable automated code summarization that is not restricted to this training corpus, assisted by their natural language processing capabilities."
+        },
+        {
+          "page": 15,
+          "quote": "While this may result in richer and more semantically relevant summaries, we also note that existing evaluation metrics are often lexical in nature, hindering our ability to compare and evaluate richer summaries generated by LLMs [198]. Recent advances in ReAct-based approaches [95] may open up other avenues for greater assurance in the documentation generated, even when it cannot be executed."
+        }
+      ]
+    },
+    {
+      "id": "q_011",
+      "question_text": "How should new software-engineering-specific large language models be trained or fine-tuned so that they exploit software-specific signals, especially dynamic execution information and execution traces, rather than treating software artifacts too much like ordinary natural language?",
+      "context_brief": "SE-specific models with dynamic information",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 16,
+          "quote": "A more challenging but potentially impactful problem lies in training and fine-tuning models, specifically for software engineering tasks."
+        },
+        {
+          "page": 16,
+          "quote": "More work is needed on new forms of LLMs, specifically tailored for software engineering that take advantage of software’s unique properties and distinguish it from natural language. Dynamic information is one such key differentiator currently missing from most of the work. We expect the next generation of SE-specific LLMs to address this."
+        }
+      ]
+    },
+    {
+      "id": "q_012",
+      "question_text": "What model size is actually required for strong software-engineering performance, and how should lighter deployment techniques such as low-rank adaptation and quantization be evaluated for specific software-engineering applications so that accuracy, energy use, and deployability are balanced rather than assuming larger models are always necessary?",
+      "context_brief": "model size, energy, and lightweight adaptation",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 16,
+          "quote": "While it has been suggested that the model performance depends not only on model size but also on the volume of training data [230], the question of the right model size required to achieve the desired performance remains unclear."
+        },
+        {
+          "page": 16,
+          "quote": "Lighter models may also widen adoption, thereby leading to enhanced deployability. Recently, techniques such as low-rank adaptation (lora) [231] and model quantization [232] have shown potential, but they remain to be empirically evaluated with respect to specific applications."
+        }
+      ]
+    },
+    {
+      "id": "q_013",
+      "question_text": "How can dynamic, adaptive prompt engineering and model-parameter tuning be turned into a principled optimization process for software-engineering tasks, given that prompt effectiveness is highly problem-specific, one-size-fits-all prompting is unrealistic, and settings such as temperature materially affect the nature of generated outputs?",
+      "context_brief": "adaptive prompt and parameter optimization",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 16,
+          "quote": "Initial work on prompt engineering has demonstrated its potential to considerably improve the software engineering artefacts generated by LLMs. However, as already found [58], the results are highly problem-specific, so a one-size-fits-all approach is unrealistic."
+        },
+        {
+          "page": 16,
+          "quote": "However, we also need more research on dynamic adaptive prompt engineering and model parameter tuning. This research agenda may draw inspiration from existing work on parameter tuning for other dynamic adaptive tasks, such as fuzzing [233]. Dynamic prompt optimisation may also exploit techniques associated with SBSE [12], reformulating prompt optimisation as a multi-objective computational search process."
+        }
+      ]
+    },
+    {
+      "id": "q_014",
+      "question_text": "What design patterns and workflow architectures best allow LLMs to reside safely, efficiently, and effectively inside broader software-engineering processes, including generate-and-test frameworks, static and dynamic analysis pipelines, post-processing stages, and continuous-integration systems?",
+      "context_brief": "hybrid LLM-SE workflows",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 16,
+          "quote": "LLMs are seldom most effective when used in isolation, but can be highly effective as part of an overall SE process. More work is needed to understand the design patterns for SE workflows into which LLMs can safely, efficiently and effectively reside."
+        },
+        {
+          "page": 17,
+          "quote": "In particular, we expect to see a rapid development of work on static and dynamic analyses for prompt engineering and post-processing of LLM responses. We also expect to see hybrid software engineering processes, adapting Continuous Integration pipelines to incorporate LLMs."
+        }
+      ]
+    },
+    {
+      "id": "q_015",
+      "question_text": "How can hallucination be harnessed productively in software engineering so that plausible but incorrect outputs are repurposed into useful signals for software enhancement, such as feature suggestions, warnings about likely human misunderstandings of code, or prompts for API simplification and extension, without letting those hallucinations degrade correctness?",
+      "context_brief": "positive uses of hallucination",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 17,
+          "quote": "LLM hallucinations are seldom entirely random incorrect responses. Rather, because of their inherent statistical properties, they would be better characterised as ‘plausible futures’, and this may often make them useful when set in the right context."
+        },
+        {
+          "page": 17,
+          "quote": "Hallucination can be repurposed to provide potentially useful suggestions for software enhancement. For example, when hallucinating a test case, the LLM may be repurposed to suggest new features, while a hallucinated code summarisation might indicate potential for (human) code misunderstanding; if the LLM ‘misunderstood’ the code, might not a human also misunderstand it? When the LLM hallucinates an non-existent API, it may be repurposed as a way to suggest refactoring to simplify or extend existing APIs. More work is needed to exploit this positive potential, and to harness hallucination for software improvement."
+        }
+      ]
+    },
+    {
+      "id": "q_016",
+      "question_text": "What scientific foundations, benchmarking systems, replication practices, and longitudinal human-in-the-loop studies are needed so that LLM-based software engineering can be evaluated robustly despite nondeterminism, incomplete reporting, scarce artifact sharing, and the need to measure real developer-LLM interaction over time?",
+      "context_brief": "robust evaluation and benchmarking",
+      "meta": {
+        "is_solved": false
+      },
+      "evidence": [
+        {
+          "page": 17,
+          "quote": "As these analyses of the literature demonstrate, more work is clearly needed to establish firm scientific foundations for the emerging discipline of LLM-based Software Engineering."
+        },
+        {
+          "page": 17,
+          "quote": "LLMs inherently exhibit non-deterministic behaviour. Researchers need to carefully design their experiments, configure their LLMs (e.g., evaluating the effects of different distribution sampling strategies), and take into account non-determinism when drawing their conclusions on LLMs."
+        },
+        {
+          "page": 17,
+          "quote": "Both practitioners and practising software engineers will need reliable, efficient and comprehensive benchmarking systems."
+        },
+        {
+          "page": 17,
+          "quote": "As well as generic scientific foundations, benchmarks and evaluation platforms, we also expect to see longitudinal studies of developer behaviour when programming with LLM assistance, so that we can understand the programmer-LLM interaction better and design more effective use case scenarios."
+        }
+      ]
+    }
+  ],
+  "needs_review": [],
+  "trace": [
+    {
+      "id": "source_2310.03533",
+      "stage": "map",
+      "notes": "Mapped the PDF and identified explicit open-problem regions in Sections III-A, IV-E, V-F, VI-F, VII-A, and XII on pages 5-17.",
+      "evidence_refs": [
+        "p5",
+        "p6",
+        "p9",
+        "p11",
+        "p12",
+        "p14",
+        "p15",
+        "p16",
+        "p17"
+      ]
+    },
+    {
+      "id": "q_001",
+      "stage": "extract_candidates",
+      "notes": "Extracted the underexplored requirements-engineering/design opportunity and the explicit traceability challenge as one canonical open question.",
+      "evidence_refs": [
+        "p5",
+        "p6"
+      ]
+    },
+    {
+      "id": "q_002",
+      "stage": "rewrite",
+      "notes": "Rewrote the code-generation assessment problem into a self-contained question centered on testing integration, execution ground truth, and ReAct-style feedback.",
+      "evidence_refs": [
+        "p9"
+      ]
+    },
+    {
+      "id": "q_003",
+      "stage": "rewrite",
+      "notes": "Rewrote the fine-tuning challenge as a resource-aware question about adapting pretrained models to specific languages, codebases, and domains.",
+      "evidence_refs": [
+        "p9"
+      ]
+    },
+    {
+      "id": "q_004",
+      "stage": "rewrite",
+      "notes": "Expanded the explanation-engineering discussion into a standalone open research question about explanation quality and usefulness.",
+      "evidence_refs": [
+        "p9"
+      ]
+    },
+    {
+      "id": "q_005",
+      "stage": "rewrite",
+      "notes": "Collapsed the explicit software-testing prompt-engineering bullet list into one self-contained research question without adding unsupported requirements.",
+      "evidence_refs": [
+        "p11"
+      ]
+    },
+    {
+      "id": "q_006",
+      "stage": "rewrite",
+      "notes": "Rewrote the test augmentation and regeneration subsection into a question focused on extending existing suites using few-shot learning or fine-tuning.",
+      "evidence_refs": [
+        "p11"
+      ]
+    },
+    {
+      "id": "q_007",
+      "stage": "rewrite",
+      "notes": "Combined the explicit failing-test ambiguity with the filtering and confidence-assessment discussion into one question about trustworthy LLM-generated test signals.",
+      "evidence_refs": [
+        "p11"
+      ]
+    },
+    {
+      "id": "q_008",
+      "stage": "rewrite",
+      "notes": "Rewrote the maintenance-and-evolution performance-improvement agenda as a multi-objective optimization question.",
+      "evidence_refs": [
+        "p14"
+      ]
+    },
+    {
+      "id": "q_009",
+      "stage": "rewrite",
+      "notes": "Merged the API-refactoring and bespoke-refactoring directions into one canonical refactoring question because both rely on the regression oracle and few-shot generalization.",
+      "evidence_refs": [
+        "p15"
+      ]
+    },
+    {
+      "id": "q_010",
+      "stage": "rewrite",
+      "notes": "Rewrote the documentation-generation subsection into a self-contained question about richer summaries, non-lexical evaluation, and assurance.",
+      "evidence_refs": [
+        "p15"
+      ]
+    },
+    {
+      "id": "q_011",
+      "stage": "rewrite",
+      "notes": "Expanded the SE-specific model-building discussion into a question about incorporating dynamic execution information and software-specific signals.",
+      "evidence_refs": [
+        "p16"
+      ]
+    },
+    {
+      "id": "q_012",
+      "stage": "rewrite",
+      "notes": "Rewrote the model-size and deployment discussion into a resource-aware question spanning energy, deployability, LoRA, and quantization.",
+      "evidence_refs": [
+        "p16"
+      ]
+    },
+    {
+      "id": "q_013",
+      "stage": "rewrite",
+      "notes": "Rewrote the dynamic adaptive prompt-engineering section into a question about principled optimization of prompts and model parameters.",
+      "evidence_refs": [
+        "p16"
+      ]
+    },
+    {
+      "id": "q_014",
+      "stage": "rewrite",
+      "notes": "Converted the hybridization section into a workflow-design question covering SE process integration, analysis pipelines, and CI.",
+      "evidence_refs": [
+        "p16",
+        "p17"
+      ]
+    },
+    {
+      "id": "q_015",
+      "stage": "rewrite",
+      "notes": "Rewrote the hallucination section into a self-contained question about positive repurposing of plausible but incorrect outputs.",
+      "evidence_refs": [
+        "p17"
+      ]
+    },
+    {
+      "id": "q_016",
+      "stage": "rewrite",
+      "notes": "Merged the explicit calls for scientific foundations, nondeterminism-aware evaluation, benchmarking, and longitudinal studies into one canonical evaluation question.",
+      "evidence_refs": [
+        "p17"
+      ]
+    },
+    {
+      "id": "all_candidates",
+      "stage": "dedupe",
+      "notes": "Deduplicated overlapping crosscutting themes by keeping separate questions only when they targeted distinct research decisions; no further merges were required.",
+      "evidence_refs": [
+        "p9",
+        "p11",
+        "p14",
+        "p15",
+        "p16",
+        "p17"
+      ]
+    },
+    {
+      "id": "all_candidates",
+      "stage": "quality_gates",
+      "notes": "Verified that each accepted item is self-contained, evidence-backed with page-level citations, and grounded in visible source text rather than metadata or abstract-only claims.",
+      "evidence_refs": [
+        "p5",
+        "p6",
+        "p9",
+        "p11",
+        "p14",
+        "p15",
+        "p16",
+        "p17"
+      ]
+    },
+    {
+      "id": "source_2310.03533",
+      "stage": "persist",
+      "notes": "Saved the exact JSON payload to outputs/parse-paper/2310.03533.json and updated outputs/latest.json.",
+      "evidence_refs": [
+        "outputs/parse-paper/2310.03533.json",
+        "outputs/latest.json"
+      ]
+    }
+  ]
+}
