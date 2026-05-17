@@ -1,0 +1,167 @@
+{
+  "source": {
+    "url": "https://zbmath.org/8144529",
+    "resolved_locator": "/home/gson/paper-question-parser/.sisyphus/paper-question-parser/tmp/2208.06015.pdf",
+    "title": "Subexponential parameterized directed Steiner network problems on planar graphs: a complete classification",
+    "title_origin": "source_text"
+  },
+  "accepted": [
+    {
+      "id": "q_001",
+      "question_text": "For a class D of directed demand graphs closed under transitive equivalence and identifying vertices, consider Planar D-Steiner Network: the input is a planar digraph G, a set T of k terminals, and a demand digraph D in D on vertex set T, and the objective is to find a minimum-edge subgraph H of G such that every demand edge (u, v) in D is realized by a directed u-to-v path in H. Are there choices of D for which Planar D-Steiner Network is fixed-parameter tractable when parameterized by k even though the corresponding D-Steiner Network problem on general digraphs is W[1]-hard?",
+      "context_brief": "Planar versus general-graph FPT boundary",
+      "meta": {
+        "is_solved": true
+      },
+      "evidence": [
+        {
+          "page": 4,
+          "quote": "D-Steiner Network Input: Digraph G, a set of k terminals T ⊆ V (G), and a demand digraph D ∈ D with vertex set T. Question: What is the minimum number of edges in a subgraph H of G where for each (u, v) ∈ E(D) there is a u → v path in H?"
+        },
+        {
+          "page": 5,
+          "quote": "In light of Theorem 1.1 and the earlier results on planar graphs, there are three natural questions that arise: 1. Are there cases that are FPT on planar graphs, but W[1]-hard on general graphs? ... We answer the first question negatively: the hard cases remain hard on planar graphs."
+        }
+      ]
+    },
+    {
+      "id": "q_002",
+      "question_text": "For Planar D-Steiner Network with parameter k equal to the number of terminals, where D is a class of directed demand graphs closed under transitive equivalence and identifying vertices and the task is to satisfy every demand edge by a directed path in a minimum-edge planar subgraph, are there nontrivial fixed-parameter tractable cases whose running time is subexponential in k, specifically 2^{o(k)} n^{O(1)}?",
+      "context_brief": "Subexponential FPT on planar graphs",
+      "meta": {
+        "is_solved": true
+      },
+      "evidence": [
+        {
+          "page": 5,
+          "quote": "In light of Theorem 1.1 and the earlier results on planar graphs, there are three natural questions that arise: ... 2. Are there subexponential FPT cases on planar graphs, that is, where the running time is 2 o(k) · n O(1)?"
+        },
+        {
+          "page": 5,
+          "quote": "The answer to the second question is also negative: we show that every (nontrivial) case of Planar D-SN is at least as hard as Directed Steiner Tree, hence a known lower bound [27] shows that there is no subexponential FPT algorithm, assuming ETH."
+        }
+      ]
+    },
+    {
+      "id": "q_003",
+      "question_text": "For Planar D-Steiner Network parameterized by the number k of terminals, where D ranges over classes of directed demand graphs closed under transitive equivalence and identifying vertices, what combinatorial condition separates the cases solvable in time f(k) n^{O(sqrt(k))} from the cases for which only f(k) n^{O(k)} time is possible under ETH?",
+      "context_brief": "Boundary between square-root and linear exponents",
+      "meta": {
+        "is_solved": true
+      },
+      "evidence": [
+        {
+          "page": 5,
+          "quote": "3. Where is the boundary line between the f(k) · n O( sqrt k) and f(k) · nO(k) cases?"
+        },
+        {
+          "page": 5,
+          "quote": "To answer the third question, we define a finite number κ ≤ 10000 of classes Ci, i ∈ [κ], and show that these are precisely the classes of patterns that prevent subexponential f(k) · n O( sqrt k) time algorithms."
+        }
+      ]
+    }
+  ],
+  "needs_review": [],
+  "trace": [
+    {
+      "id": "source",
+      "stage": "map",
+      "notes": "Resolved the zbMATH record through the provided arXiv target URL and downloaded the PDF to the workflow temp path. Mapped the PDF as title/abstract, contents, Introduction, overview of main result, formal t-tough-pair definition, structure theorem, cleaning, and hardness proofs/lower bounds. The likely question region is the Introduction, especially the paragraph listing three natural questions on page 5.",
+      "evidence_refs": [
+        "p1",
+        "p4",
+        "p5"
+      ]
+    },
+    {
+      "id": "intro",
+      "stage": "extract_candidates",
+      "notes": "Extracted three explicit research questions from the Introduction. Ignored the formal optimization-problem prompt labeled Question in the D-Steiner Network definition because it defines the computational problem rather than posing an open research question.",
+      "evidence_refs": [
+        "p4",
+        "p5"
+      ]
+    },
+    {
+      "id": "q_001",
+      "stage": "rewrite",
+      "notes": "Expanded the first natural question by inlining the D-Steiner Network input and objective and making the planar/general-graph contrast explicit from the surrounding source text.",
+      "evidence_refs": [
+        "p4",
+        "p5"
+      ]
+    },
+    {
+      "id": "q_002",
+      "stage": "rewrite",
+      "notes": "Expanded the second natural question by stating the parameter k, the relevant running-time form, and the Planar D-Steiner Network setting.",
+      "evidence_refs": [
+        "p5"
+      ]
+    },
+    {
+      "id": "q_003",
+      "stage": "rewrite",
+      "notes": "Expanded the third natural question by stating the two competing running-time regimes and the requested combinatorial boundary.",
+      "evidence_refs": [
+        "p5"
+      ]
+    },
+    {
+      "id": "q_001",
+      "stage": "dedupe",
+      "notes": "No near-duplicate accepted item remained after treating the broader abstract question about W[1]-hard planar cases as background for the three explicit Introduction questions.",
+      "evidence_refs": [
+        "p1",
+        "p5"
+      ]
+    },
+    {
+      "id": "q_002",
+      "stage": "dedupe",
+      "notes": "Kept distinct from q_003 because this asks whether subexponential FPT time 2^{o(k)} n^{O(1)} exists, whereas q_003 asks for the boundary between f(k)n^{O(sqrt(k))} and f(k)n^{O(k)} cases.",
+      "evidence_refs": [
+        "p5"
+      ]
+    },
+    {
+      "id": "q_003",
+      "stage": "dedupe",
+      "notes": "Kept distinct from q_002 because this asks for a classification boundary among non-FPT planar cases.",
+      "evidence_refs": [
+        "p5"
+      ]
+    },
+    {
+      "id": "q_001",
+      "stage": "quality_gates",
+      "notes": "Passed self-containedness, evidence coverage, evidence completeness, no-new-facts, source adequacy, solved-status, and schema gates. Marked solved because the source explicitly answers the first question negatively.",
+      "evidence_refs": [
+        "p4",
+        "p5"
+      ]
+    },
+    {
+      "id": "q_002",
+      "stage": "quality_gates",
+      "notes": "Passed self-containedness, evidence coverage, evidence completeness, no-new-facts, source adequacy, solved-status, and schema gates. Marked solved because the source explicitly answers the second question negatively under ETH.",
+      "evidence_refs": [
+        "p5"
+      ]
+    },
+    {
+      "id": "q_003",
+      "stage": "quality_gates",
+      "notes": "Passed self-containedness, evidence coverage, evidence completeness, no-new-facts, source adequacy, solved-status, and schema gates. Marked solved because the source identifies finite pattern classes Ci as the boundary obstruction.",
+      "evidence_refs": [
+        "p5"
+      ]
+    },
+    {
+      "id": "source",
+      "stage": "persist",
+      "notes": "Saved exact JSON to outputs/parse-paper/2208.06015.json and outputs/latest.priority-shard-1.json.",
+      "evidence_refs": []
+    }
+  ]
+}
