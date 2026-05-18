@@ -5,6 +5,7 @@ from __future__ import annotations
 import argparse
 import json
 import os
+import re
 import time
 from pathlib import Path
 
@@ -127,6 +128,24 @@ def text_complete(
     data = response.json()
     choice = data["choices"][0]
     return choice.get("text") or choice["message"]["content"]
+
+
+def strip_harmony_markers(text: str) -> str:
+    cleaned = re.sub(r"<\|[^>]+?\|>", "", text)
+    return cleaned.strip()
+
+
+def split_continuation_and_final(text: str) -> tuple[str, str | None]:
+    marker = "<|start|>assistant"
+    if marker not in text:
+        return strip_harmony_markers(text), None
+
+    analysis_text, final_part = text.split(marker, 1)
+    analysis_text = strip_harmony_markers(analysis_text)
+    final_text = strip_harmony_markers(final_part)
+    if final_text.startswith("final"):
+        final_text = final_text[len("final") :].strip()
+    return analysis_text, final_text or None
 
 
 def parse_args() -> argparse.Namespace:
@@ -340,15 +359,22 @@ def main() -> int:
         retries=args.retries,
         retry_sleep_seconds=args.retry_sleep_seconds,
     )
+    continuation, final_text = split_continuation_and_final(continuation)
     if state is not None:
-        state.setdefault("interleaved_trace", []).append(
-            {
-                "type": "continuation",
-                "round": next_continuation_round(state),
-                "text": continuation,
-            }
-        )
-        state["status"] = state.get("status") or "running"
+        if continuation:
+            state.setdefault("interleaved_trace", []).append(
+                {
+                    "type": "continuation",
+                    "round": next_continuation_round(state),
+                    "text": continuation,
+                }
+            )
+        if final_text:
+            state["final_solution"] = final_text
+            state["status"] = "solved"
+            state["termination_summary"] = "continuation emitted assistant final"
+        else:
+            state["status"] = state.get("status") or "running"
         state["continuation_max_tokens"] = args.max_tokens
         args.state_json.write_text(
             json.dumps(state, ensure_ascii=False, indent=2),
@@ -356,9 +382,14 @@ def main() -> int:
         )
     elif args.output_file:
         args.output_file.parent.mkdir(parents=True, exist_ok=True)
-        args.output_file.write_text(continuation, encoding="utf-8")
+        args.output_file.write_text(
+            continuation + (("\n\n" + final_text) if final_text else ""),
+            encoding="utf-8",
+        )
     else:
         print(continuation, end="")
+        if final_text:
+            print("\n\n" + final_text, end="")
     return 0
 
 

@@ -42,6 +42,10 @@ Rules:
 - Return exactly one behavior insertion, not a final answer.
 - The inserted segment must be first-person reasoning voice, as if the original
   reasoner paused and adjusted course.
+- Existing insertion segments are already part of the repaired trace. Do not
+  select an earlier segment if its problem is already directly addressed by a
+  following insertion. Look for the earliest still-unrepaired issue or strategic
+  need in the current trace.
 - Do not mention tools, JSON, instructions, developer messages, token targets,
   generation process, or hidden control.
 - For open problems, do not stop merely at "this is open"; prefer idea_bank
@@ -196,6 +200,45 @@ def state_reasoning_text(state: dict[str, Any]) -> str:
     )
 
 
+def segment_interleaved_trace(
+    state: dict[str, Any],
+) -> tuple[list[str], list[tuple[int, int]]]:
+    segments: list[str] = []
+    mapping: list[tuple[int, int]] = []
+    for entry_index, entry in enumerate(state.get("interleaved_trace", [])):
+        text = str(entry.get("text", "")).strip()
+        if not text:
+            continue
+        entry_segments = split_trace_segments(text)
+        for local_index, segment in enumerate(entry_segments):
+            segments.append(segment)
+            mapping.append((entry_index, local_index))
+    return segments, mapping
+
+
+def truncate_interleaved_trace_at_segment(
+    state: dict[str, Any],
+    *,
+    trigger_segment_index: int,
+) -> list[dict[str, Any]]:
+    segments, mapping = segment_interleaved_trace(state)
+    if trigger_segment_index < 0 or trigger_segment_index >= len(mapping):
+        raise ValueError("trigger_segment_index is out of range")
+
+    trigger_entry_index, trigger_local_index = mapping[trigger_segment_index]
+    kept_entries: list[dict[str, Any]] = []
+    for entry_index, entry in enumerate(state.get("interleaved_trace", [])):
+        if entry_index > trigger_entry_index:
+            break
+        copied = dict(entry)
+        if entry_index == trigger_entry_index:
+            entry_segments = split_trace_segments(str(entry.get("text", "")).strip())
+            copied["text"] = "\n\n".join(entry_segments[: trigger_local_index + 1])
+            copied["truncated"] = True
+        kept_entries.append(copied)
+    return kept_entries
+
+
 def call_codex_json(
     prompt: str,
     *,
@@ -275,8 +318,7 @@ def apply_behavior_insertion(
     sandbox: str,
     timeout_seconds: int,
 ) -> dict[str, Any]:
-    current_reasoning = state_reasoning_text(state)
-    segments = split_trace_segments(current_reasoning)
+    segments, _mapping = segment_interleaved_trace(state)
     payload = call_codex_json(
         BEHAVIOR_INSERTION_PROMPT.format(
             problem=state["prompt"],
@@ -310,21 +352,18 @@ def apply_behavior_insertion(
     if not inserted_segment:
         raise ValueError("behavior insertion returned empty inserted_segment")
 
-    truncated_text = "\n\n".join(segments[: idx + 1])
-    state["interleaved_trace"] = [
-        {
-            "type": "original",
-            "round": 0,
-            "truncated": True,
-            "text": truncated_text,
-        },
+    state["interleaved_trace"] = truncate_interleaved_trace_at_segment(
+        state,
+        trigger_segment_index=idx,
+    )
+    state["interleaved_trace"].append(
         {
             "type": "insertion",
             "round": round_number,
             "behavior": behavior,
             "text": inserted_segment,
-        },
-    ]
+        }
+    )
     state["source_trace_truncated"] = True
     state["status"] = "running"
     state["rounds"].append(
@@ -486,6 +525,8 @@ def apply_full_loop(
     state["min_continuation_tokens"] = args.min_continuation_tokens
     state["continuation_max_tokens"] = args.continuation_tokens
     for round_number in range(1, args.full_loop_rounds + 1):
+        if state.get("status") == "solved" or state.get("final_solution"):
+            break
         state = apply_behavior_insertion(
             state,
             round_number=round_number,
@@ -499,6 +540,8 @@ def apply_full_loop(
         out_path.write_text(json.dumps(state, ensure_ascii=False, indent=2) + "\n")
         run_continuation(out_path, args=args)
         state = json.loads(out_path.read_text(encoding="utf-8"))
+        if state.get("status") == "solved" or state.get("final_solution"):
+            return state
 
     state = write_final_solution(
         state,
