@@ -5,19 +5,92 @@ from __future__ import annotations
 import argparse
 import json
 import re
+import subprocess
 import sys
 from pathlib import Path
 from typing import Any
 
 import pandas as pd
 
-from trace_error_truncator import call_codex_first_error_truncation
+from trace_error_truncator import (
+    call_codex_first_error_truncation,
+    extract_json_object,
+    split_trace_segments,
+)
 
 
 DEFAULT_INPUT = Path(
     "reasoning_dataset/qwen3-30b-a3b-250511-2249.filtered_without_dedup.jsonl"
 )
 DEFAULT_OUTPUT_DIR = Path("outputs/trace_behavior_inserter_qwen3_30b_filtered")
+SKILL_DIR = Path("codex_skills/trace-behavior-inserter")
+CONTINUE_SCRIPT = SKILL_DIR / "scripts/continue_reasoning_openrouter.py"
+
+
+BEHAVIOR_INSERTION_PROMPT = """\
+You are repairing one mathematical or technical reasoning trace.
+
+Read the problem and the ordered trace segments. Choose the earliest point where
+one natural trace behavior should be inserted to improve the future reasoning.
+
+Allowed behaviors:
+correction, counterexample_search, branch_split, answer_mode_switch,
+dead_end_detection, lemma_decomposition, deep_trace_audit, idea_bank, bold_try,
+none.
+
+Rules:
+- Return exactly one behavior insertion, not a final answer.
+- The inserted segment must be first-person reasoning voice, as if the original
+  reasoner paused and adjusted course.
+- Do not mention tools, JSON, instructions, developer messages, token targets,
+  generation process, or hidden control.
+- For open problems, do not stop merely at "this is open"; prefer idea_bank
+  before bold_try, and after dead ends pivot to materially different routes.
+- Avoid unverified citations, author-date claims, theorem numbers, paper names,
+  or claimed counterexamples.
+- Truncate through and including the trigger segment.
+
+Output only one JSON object:
+{{
+  "behavior": "correction | counterexample_search | branch_split | answer_mode_switch | dead_end_detection | lemma_decomposition | deep_trace_audit | idea_bank | bold_try | none",
+  "trigger_segment_index": 0,
+  "trigger_summary": "...",
+  "truncated_segments": ["..."],
+  "inserted_segment": "..."
+}}
+
+If no insertion is useful, use behavior "none", trigger_segment_index null,
+truncated_segments as the full input segments, and inserted_segment "".
+
+Problem:
+{problem}
+
+Trace segments:
+{segments_json}
+"""
+
+
+FINAL_SOLUTION_PROMPT = """\
+Write the final answer for the original problem using the repaired reasoning
+trajectory below.
+
+Requirements:
+- If the problem is solved, give the most rigorous proof possible.
+- If it is not solved or is open in the relevant generality, give a rigorous
+  research-status answer: summarize the attempted proof/counterexample paths,
+  explain exactly where each failed, and identify the remaining proof
+  obligations.
+- Do not use artifact-meta language such as "the trace", "the run",
+  "the continuation", "the model", "the repaired reasoning", or "the JSON".
+- Do not invent citations or named literature details.
+- Answer in polished final-answer style.
+
+Original problem:
+{problem}
+
+Repaired reasoning:
+{reasoning}
+"""
 
 
 def safe_part(value: Any) -> str:
@@ -115,6 +188,162 @@ def make_base_state(row: dict[str, Any], *, input_path: Path) -> dict[str, Any]:
     }
 
 
+def state_reasoning_text(state: dict[str, Any]) -> str:
+    return "\n\n".join(
+        str(entry.get("text", "")).strip()
+        for entry in state.get("interleaved_trace", [])
+        if str(entry.get("text", "")).strip()
+    )
+
+
+def call_codex_json(
+    prompt: str,
+    *,
+    codex_bin: str,
+    model: str,
+    reasoning_effort: str | None,
+    cwd: Path,
+    sandbox: str,
+    timeout_seconds: int,
+) -> dict[str, Any]:
+    cmd = [codex_bin, "exec", "--cd", str(cwd)]
+    if sandbox:
+        cmd.extend(["--sandbox", sandbox])
+    if model:
+        cmd.extend(["--model", model])
+    if reasoning_effort:
+        cmd.extend(["-c", f'model_reasoning_effort="{reasoning_effort}"'])
+    cmd.append("-")
+    completed = subprocess.run(
+        cmd,
+        input=prompt,
+        text=True,
+        capture_output=True,
+        timeout=timeout_seconds,
+        check=False,
+    )
+    if completed.returncode != 0:
+        raise RuntimeError(
+            "codex exec failed with exit code "
+            f"{completed.returncode}\nSTDERR:\n{completed.stderr.strip()}"
+        )
+    return extract_json_object(completed.stdout)
+
+
+def call_codex_text(
+    prompt: str,
+    *,
+    codex_bin: str,
+    model: str,
+    reasoning_effort: str | None,
+    cwd: Path,
+    sandbox: str,
+    timeout_seconds: int,
+) -> str:
+    cmd = [codex_bin, "exec", "--cd", str(cwd)]
+    if sandbox:
+        cmd.extend(["--sandbox", sandbox])
+    if model:
+        cmd.extend(["--model", model])
+    if reasoning_effort:
+        cmd.extend(["-c", f'model_reasoning_effort="{reasoning_effort}"'])
+    cmd.append("-")
+    completed = subprocess.run(
+        cmd,
+        input=prompt,
+        text=True,
+        capture_output=True,
+        timeout=timeout_seconds,
+        check=False,
+    )
+    if completed.returncode != 0:
+        raise RuntimeError(
+            "codex exec failed with exit code "
+            f"{completed.returncode}\nSTDERR:\n{completed.stderr.strip()}"
+        )
+    return completed.stdout.strip()
+
+
+def apply_behavior_insertion(
+    state: dict[str, Any],
+    *,
+    round_number: int,
+    codex_bin: str,
+    model: str,
+    reasoning_effort: str | None,
+    cwd: Path,
+    sandbox: str,
+    timeout_seconds: int,
+) -> dict[str, Any]:
+    current_reasoning = state_reasoning_text(state)
+    segments = split_trace_segments(current_reasoning)
+    payload = call_codex_json(
+        BEHAVIOR_INSERTION_PROMPT.format(
+            problem=state["prompt"],
+            segments_json=json.dumps(segments, ensure_ascii=False, indent=2),
+        ),
+        codex_bin=codex_bin,
+        model=model,
+        reasoning_effort=reasoning_effort,
+        cwd=cwd,
+        sandbox=sandbox,
+        timeout_seconds=timeout_seconds,
+    )
+
+    behavior = str(payload.get("behavior", "none")).strip()
+    idx = payload.get("trigger_segment_index")
+    if behavior == "none" or idx is None:
+        state["rounds"].append(
+            {
+                "round": round_number,
+                "behavior": "none",
+                "trigger_segment_index": None,
+                "trigger_summary": str(payload.get("trigger_summary", "")),
+                "inserted_segment": "",
+            }
+        )
+        return state
+    if not isinstance(idx, int) or idx < 0 or idx >= len(segments):
+        raise ValueError("behavior insertion returned invalid trigger_segment_index")
+
+    inserted_segment = str(payload.get("inserted_segment", "")).strip()
+    if not inserted_segment:
+        raise ValueError("behavior insertion returned empty inserted_segment")
+
+    truncated_text = "\n\n".join(segments[: idx + 1])
+    state["interleaved_trace"] = [
+        {
+            "type": "original",
+            "round": 0,
+            "truncated": True,
+            "text": truncated_text,
+        },
+        {
+            "type": "insertion",
+            "round": round_number,
+            "behavior": behavior,
+            "text": inserted_segment,
+        },
+    ]
+    state["source_trace_truncated"] = True
+    state["status"] = "running"
+    state["rounds"].append(
+        {
+            "round": round_number,
+            "behavior": behavior,
+            "trigger_segment_index": idx,
+            "trigger_summary": str(payload.get("trigger_summary", "")),
+            "inserted_segment": inserted_segment,
+        }
+    )
+    if behavior == "correction":
+        state.setdefault("avoid_claims", []).append(str(payload.get("trigger_summary", "")))
+    state.setdefault("fix_memory", []).append(
+        f"Round {round_number} inserted {behavior}: {payload.get('trigger_summary', '')}"
+    )
+    return state
+
+
 def apply_first_error_truncation(
     state: dict[str, Any],
     *,
@@ -183,6 +412,106 @@ def apply_first_error_truncation(
     return state
 
 
+def run_continuation(
+    state_path: Path,
+    *,
+    args: argparse.Namespace,
+) -> None:
+    cmd = [
+        sys.executable,
+        str(CONTINUE_SCRIPT),
+        "--state-json",
+        str(state_path),
+        "--model",
+        args.continuation_model,
+        "--provider",
+        args.continuation_provider,
+        "--max-tokens",
+        str(args.continuation_tokens),
+        "--temperature",
+        str(args.continuation_temperature),
+        "--retries",
+        str(args.openrouter_retries),
+    ]
+    completed = subprocess.run(
+        cmd,
+        text=True,
+        capture_output=True,
+        timeout=args.openrouter_timeout_seconds,
+        check=False,
+    )
+    if completed.returncode != 0:
+        raise RuntimeError(
+            "continuation failed with exit code "
+            f"{completed.returncode}\nSTDERR:\n{completed.stderr.strip()}\n"
+            f"STDOUT:\n{completed.stdout.strip()}"
+        )
+
+
+def write_final_solution(
+    state: dict[str, Any],
+    *,
+    codex_bin: str,
+    model: str,
+    reasoning_effort: str | None,
+    cwd: Path,
+    sandbox: str,
+    timeout_seconds: int,
+) -> dict[str, Any]:
+    final_solution = call_codex_text(
+        FINAL_SOLUTION_PROMPT.format(
+            problem=state["prompt"],
+            reasoning=state_reasoning_text(state),
+        ),
+        codex_bin=codex_bin,
+        model=model,
+        reasoning_effort=reasoning_effort,
+        cwd=cwd,
+        sandbox=sandbox,
+        timeout_seconds=timeout_seconds,
+    )
+    state["final_solution"] = final_solution
+    state["status"] = "solved"
+    state["termination_summary"] = "full-loop completed with final_solution"
+    return state
+
+
+def apply_full_loop(
+    state: dict[str, Any],
+    *,
+    out_path: Path,
+    args: argparse.Namespace,
+) -> dict[str, Any]:
+    state["status"] = "running"
+    state["min_continuation_tokens"] = args.min_continuation_tokens
+    state["continuation_max_tokens"] = args.continuation_tokens
+    for round_number in range(1, args.full_loop_rounds + 1):
+        state = apply_behavior_insertion(
+            state,
+            round_number=round_number,
+            codex_bin=args.codex_bin,
+            model=args.model,
+            reasoning_effort=args.reasoning_effort,
+            cwd=args.cwd,
+            sandbox=args.sandbox,
+            timeout_seconds=args.timeout_seconds,
+        )
+        out_path.write_text(json.dumps(state, ensure_ascii=False, indent=2) + "\n")
+        run_continuation(out_path, args=args)
+        state = json.loads(out_path.read_text(encoding="utf-8"))
+
+    state = write_final_solution(
+        state,
+        codex_bin=args.codex_bin,
+        model=args.model,
+        reasoning_effort=args.reasoning_effort,
+        cwd=args.cwd,
+        sandbox=args.sandbox,
+        timeout_seconds=args.timeout_seconds,
+    )
+    return state
+
+
 def iter_rows(path: Path, *, chunksize: int) -> tuple[int, dict[str, Any]]:
     offset = 0
     for chunk in pd.read_json(path, lines=True, chunksize=chunksize):
@@ -221,11 +550,12 @@ def parse_args(argv: list[str]) -> argparse.Namespace:
     parser.add_argument("--output-dir", type=Path, default=DEFAULT_OUTPUT_DIR)
     parser.add_argument(
         "--mode",
-        choices=["init", "first-error"],
+        choices=["init", "first-error", "full-loop"],
         default="init",
         help=(
-            "init only writes base consolidated JSON states. first-error also calls "
-            "Codex via trace_error_truncator.py and inserts the first correction."
+            "init writes base consolidated JSON states. first-error calls Codex "
+            "once and inserts the first correction. full-loop runs bounded "
+            "behavior insertion, continuation, and final-solution generation."
         ),
     )
     parser.add_argument("--limit", type=int, default=None)
@@ -255,6 +585,14 @@ def parse_args(argv: list[str]) -> argparse.Namespace:
     parser.add_argument("--cwd", type=Path, default=Path.cwd())
     parser.add_argument("--sandbox", default="workspace-write")
     parser.add_argument("--timeout-seconds", type=int, default=600)
+    parser.add_argument("--full-loop-rounds", type=int, default=2)
+    parser.add_argument("--continuation-model", default="openai/gpt-oss-120b")
+    parser.add_argument("--continuation-provider", default="deepinfra/bf16")
+    parser.add_argument("--continuation-tokens", type=int, default=1024)
+    parser.add_argument("--continuation-temperature", type=float, default=1.0)
+    parser.add_argument("--min-continuation-tokens", type=int, default=512)
+    parser.add_argument("--openrouter-retries", type=int, default=3)
+    parser.add_argument("--openrouter-timeout-seconds", type=int, default=300)
     return parser.parse_args(argv)
 
 
@@ -329,6 +667,8 @@ def main(argv: list[str]) -> int:
                     sandbox=args.sandbox,
                     timeout_seconds=args.timeout_seconds,
                 )
+            elif args.mode == "full-loop":
+                state = apply_full_loop(state, out_path=out_path, args=args)
             out_path.write_text(json.dumps(state, ensure_ascii=False, indent=2) + "\n")
             written += 1
             print(f"wrote {out_path}", flush=True)
